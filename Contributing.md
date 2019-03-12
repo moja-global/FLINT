@@ -2,6 +2,18 @@
 
 Thank you for helping. This is really great!
 
+
+### Code of Conduct
+moja global and everyone participating in it is governed by the Contributor Covenant Code of Conduct. By participating, you agree to uphold this code. Please report unacceptable behavior to guy@moja.global. Reports will be dealt with confidentially.
+
+
+### FAQ and Other Questions
+You can find FAQs here.
+You can join the moja global SLACK group here.
+If you have other questions, please write to info@moja.global
+
+
+### How to Contribute
 Click a link to get started!
 
 
