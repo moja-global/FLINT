@@ -4,7 +4,7 @@ Thank you for helping. This is really great!
 
 
 ### Code of Conduct
-moja global and everyone participating in it is governed by the Contributor Covenant Code of Conduct. By participating, you agree to uphold this code. Please report unacceptable behavior to guy@moja.global. Reports will be dealt with confidentially.
+moja global and everyone participating in it is governed by the Contributor Covenant [Code of Conduct](https://github.com/moja-global/.github/blob/master/CODE_OF_CONDUCT.md). By participating, you agree to uphold this code. Please report unacceptable behavior to guy@moja.global. Reports will be dealt with confidentially.
 
 
 ### FAQ and Other Questions
