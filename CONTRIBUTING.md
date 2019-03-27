@@ -20,7 +20,7 @@ Click a link to get started!
 
 *   [Bug reports and fixes](https://github.com/moja-global/.github/wiki/How-to-Report-Bugs)
 *   [User Feedback](https://github.com/moja-global/.github/wiki/How-to-Provide-User-Feedback)
-*   Request Features
+*   [Request Features]](https://github.com/moja-global/.github/wiki/How-to-Request-a-New-Feature)
 *   Science Contribution and Review
 *   Code 
 *   Develop Tests, Review Code
