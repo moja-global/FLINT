@@ -25,7 +25,7 @@ Click a link to get started!
 *   Code 
 *   Develop Tests, Review Code
 *   User Experience Interface
-*   Start a Project
+*   [Start a Project]()
 *   Documentation
 *   Translations
 *   Coach or teach 
