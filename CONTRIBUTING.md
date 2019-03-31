@@ -18,14 +18,14 @@ Click a link to get started!
 
 
 
-*   [Bug reports and fixes](https://github.com/moja-global/.github/wiki/How-to-Report-Bugs)
-*   [User Feedback](https://github.com/moja-global/.github/wiki/How-to-Provide-User-Feedback)
-*   [Request Features](https://github.com/moja-global/.github/wiki/How-to-Request-a-New-Feature)
+*   [Bug reports and fixes](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Report-Bugs.md)
+*   [User Feedback](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Provide-User-Feedback.md)
+*   [Request Features](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Request-a-New-Feature.md)
 *   Science Contribution and Review
 *   Code 
 *   Develop Tests, Review Code
 *   User Experience Interface
-*   [Start a Project]()
+*   [Start a Project](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Start-a-New-Project.md)
 *   Documentation
 *   Translations
 *   Coach or teach 
@@ -36,5 +36,5 @@ Click a link to get started!
 *   Administration
 *   Development Operations
 *   Fundraising
-*   [Strategy Advice](https://github.com/moja-global/.github/wiki/How-to-Provide-Strategy-Advice)
+*   [Strategy Advice](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Provide-Strategic-Advice.md)
 *   Join the Board
