@@ -36,5 +36,5 @@ Click a link to get started!
 *   Administration
 *   Development Operations
 *   Fundraising
-*   Strategy Advice
+*   [Strategy Advice](https://github.com/moja-global/.github/wiki/How-to-Provide-Strategy-Advice)
 *   Join the Board
