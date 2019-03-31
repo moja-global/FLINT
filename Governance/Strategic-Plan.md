@@ -1,12 +1,12 @@
 ## The Annual Strategic Plans
-*   [2019](https://github.com/moja-global/.github/wiki/Strategic-Plan-2019)
-*   [2018](https://github.com/moja-global/.github/wiki/Strategic-Plan-2018)
-*   [2017](https://github.com/moja-global/.github/wiki/Strategic-Plan-2017)
+*   [2019](https://github.com/moja-global/.github/blob/master/Governance/Strategic-Plan/2019.md)
+*   [2018](https://github.com/moja-global/.github/blob/master/Governance/Strategic-Plan/2018.md)
+*   [2017](https://github.com/moja-global/.github/blob/master/Governance/Strategic-Plan/2017.md)
 
 
 ## What Is the moja global Strategic Plan  
 
-The Strategic Plan is an agreement reached between the users of moja global tools on how to best reach their joint objective, i.e. the widest possible use of and collaboration on open source software to better manage the land sector. The Strategic Plan provides direction and focus. It also builds consensus because discussion between users creates a better understanding of the needs and thus the priorities. Anybody can [make suggestions to the Strategic Plan](). 
+The Strategic Plan is an agreement reached between the users of moja global tools on how to best reach their joint objective, i.e. the widest possible use of and collaboration on open source software to better manage the land sector. The Strategic Plan provides direction and focus. It also builds consensus because discussion between users creates a better understanding of the needs and thus the priorities. Anybody can [make suggestions to the Strategic Plan](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Provide-Strategic-Advice.md). 
 
 
 ## What Does the Strategic Plan Look Like?
