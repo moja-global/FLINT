@@ -8,4 +8,4 @@
 1. Click the green button "Submit New Issue" at the bottom right corner
 
 
-If you would also like to build the proposed feature, please also review [How to Start a New Project](https://github.com/moja-global/.github/wiki/How-to-Start-a-New-Project)  
+If you would also like to build the proposed feature, please also review [How to Start a New Project](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Start-a-New-Project.md)  
