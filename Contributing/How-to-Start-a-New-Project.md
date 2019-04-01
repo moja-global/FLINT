@@ -9,7 +9,7 @@
 
 1. Build on what already exists:
     * If you can build on code that is already available, coordinate your project with the maintainers of the relevant repository by [requesting a new feature](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Request-a-New-Feature.md)
-    * If the code has to be developed completely, [Create a Repository](https://github.com/moja-global/.github/blob/master/Contributing/How-To-Create-a-Repository.md) even if you are not part of the moja global organisation (yet)
+    * If there is no existing code base to start from, [Create a Repository](https://github.com/moja-global/.github/blob/master/Contributing/How-To-Create-a-Repository.md) even if you are not part of the moja global organisation (yet)
 1. Create a project board to track and update your work 
     * If you are a part of the moja organisation use the project list under .github. 
     * If you are not (yet) part of the moja global organisation, use the project list in your repository. You can notify the wider moja global community by opening an issue under .github informing that you have started a new project.
