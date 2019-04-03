@@ -25,7 +25,7 @@ moja global tools have to be in line with the latest science and international s
     * The editors will write the background, acknowledgements, etc. and they will edit the text already written. (Editing is not rewriting! Rewriting can confuse and discourage the drafter.)
     * Invite all collaborators to provide edits and comments by a specific date. 
 1. Release Science Design
-    * After the final date agreed for the draft, the Science Design is copied (with comments) into a Google Doc with the same title but with a [Release Version](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Assign-a-Version.md).
+    * After the final date agreed for the draft, the Science Design is copied (with comments) into a Google Doc with the same title but with a [Release Candidate Version](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Assign-a-Version.md).
     * All remaining comments are dealt with by the drafters and the maintainers. Additional comments are not allowed except if they point out errors.
     * The final draft is edited. 
 1. Review and Approval by Science Panel
