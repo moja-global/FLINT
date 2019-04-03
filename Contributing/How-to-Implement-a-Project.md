@@ -1,4 +1,4 @@
-## Agile Implementation  
+## Project Implementation  
 
 This process assumes that you already have [started a New Project](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Start-a-New-Project.md) and have an approved [Science Design](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Agree-on-a-Science-Design.md) 
 
