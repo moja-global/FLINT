@@ -9,7 +9,7 @@ moja global tools have to be in line with the latest science and international s
 1. Create a Google Doc for the Science Design
     * Make a copy of the existing Science Design and change the [version](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Assign-a-Version.md) in the title.  
     * If no Science Design exists yet, copy [the standard header](https://docs.google.com/document/d/1feo9G91bbjth9RZ4606Rag4tAdRxuYpfnlWecs-gbbY/edit?usp=sharing) into a new Google Doc, copy the Title and Abstract from the GitHub repository and add the [version](https://github.com/moja-global/.github/blob/master/Contributing/How-to-Assign-a-Version.md) to the title.
-    * Copy the link to the Google Doc with Editing permission back to the GitHub Project so visitors can easily find the Google Doc
+    * Copy the link to the Google Doc with Editing permission back to GitHub in a file with the same name and version in the Science Folder of the Project so visitors can easily find the Google Doc
 1. Appoint Maintainers and Editors
     * Every document should have ideally 2 maintainers and/or editors. The Maintainers focus on the substance of the document. The Editors focus on the readability of the document. Two editors and two maintainers are ideal so they can review each other’s suggestions. Having 2 persons with combined maintainer/editor functions can be sufficient for projects with a small science component.
     * Add the names to the header of the Google Doc
