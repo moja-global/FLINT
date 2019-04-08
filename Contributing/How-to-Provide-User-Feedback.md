@@ -1,7 +1,8 @@
 ## User Feedback:
 1. Navigate to the main page of the repository on which you want to provide feedback. If you have feedback on moja global, please navigate to the .github repository.
 1. Under the repository name, click  Issues.
-1. Click the green button "Get Started" in the User Feedback box.
+1. Click the green "New Issue" button
+1. Click the green "Get Started" button in the User Feedback box.
 1. Use a clear and descriptive title
 1. Follow the template and provide as much information as possible
 1. Attach files, screenshots and animated GIFs
