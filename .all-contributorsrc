@@ -1,0 +1,23 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "moja-global",
+      "name": "moja global",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/19564969?v=4",
+      "profile": "http://moja.global",
+      "contributions": [
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "Import-Me",
+  "projectOwner": "moja-global",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
