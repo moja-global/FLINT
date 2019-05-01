@@ -6,17 +6,45 @@
   "commit": false,
   "contributors": [
     {
-      "login": "moja-global",
-      "name": "moja global",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/19564969?v=4",
-      "profile": "http://moja.global",
+      "login": "gmajan",
+      "name": "Guy Janssen",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8733319?v=4",
+      "profile": "https://github.com/gmajan",
       "contributions": [
-        "projectManagement"
+        "maintenance"
+      ]
+    },
+    {
+      "login": "mtbdeligt",
+      "name": "Rob de Ligt",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/16447169?v=4",
+      "profile": "https://github.com/mtbdeligt",
+      "contributions": [
+        "doc",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "malfrancis",
+      "name": "Mal",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5935221?v=4",
+      "profile": "https://github.com/malfrancis",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "leitchy",
+      "name": "James Leitch",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3417817?v=4",
+      "profile": "https://github.com/leitchy",
+      "contributions": [
+        "code"
       ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "Import-Me",
+  "projectName": "flint",
   "projectOwner": "moja-global",
   "repoType": "github",
   "repoHost": "https://github.com"
