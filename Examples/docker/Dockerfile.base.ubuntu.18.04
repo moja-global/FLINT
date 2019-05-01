@@ -1,0 +1,135 @@
+# ==================================================================================================================
+#
+# Docker to ubuntu 18.04 base image (for required libraries) used by flint docker
+#
+# Building this Docker: 
+#   docker build -f Dockerfile.base.ubuntu.18.04 --build-arg NUM_CPU=4 -t moja/baseimage:ubuntu-18.04 .
+#
+# ==================================================================================================================
+
+# Ubuntu 18.04 Bionic Beaver
+FROM ubuntu:bionic
+
+LABEL maintainer="info@moja.global"
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+WORKDIR $ROOTDIR/
+
+# Install basic dependencies
+RUN apt-get update -y && apt-get install -y \
+    software-properties-common \
+    build-essential \
+    python3-dev \
+    python3-numpy \
+    python3-pip \
+    libspatialite-dev \
+    libeigen3-dev \
+    sqlite3 \
+	openssl \
+    libssl-dev \
+    libpq-dev \
+    libcurl4-gnutls-dev \
+    libproj-dev \
+    libxml2-dev \
+    libgeos-dev \
+    libnetcdf-dev \
+    libpoppler-dev \
+    libhdf4-alt-dev \
+    libhdf5-serial-dev \
+    wget \
+    bash-completion \
+    nasm \
+    postgresql-client-10 \
+	git \
+    && apt-get -y autoremove \
+	&& 	apt-get clean \
+	&& ln -sf /usr/include/eigen3 /usr/local/include/eigen
+
+# set versions of libraries used and some paths
+ENV ROOTDIR /usr/local/
+ENV GDAL_VERSION 2.4.0
+ENV CMAKE_VERSION 3.14.3
+ENV POCO_VERSION 1.9.0
+ENV BOOST_VERSION 1_69_0
+ENV BOOST_VERSION_DOT 1.69.0
+ENV FMT_VERSION 5.3.0
+ENV SQLITE_VERSION 3270200
+
+# set environment variables
+ENV PATH /usr/local/bin:$PATH
+ENV LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
+ENV PYTHONPATH /usr/local/lib:$PYTHONPATH
+
+ARG NUM_CPU=1
+WORKDIR $ROOTDIR
+
+## CMake
+ADD https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz $ROOTDIR/src/
+RUN cd src && tar -xzf cmake-${CMAKE_VERSION}.tar.gz && cd cmake-${CMAKE_VERSION} \
+    && ./bootstrap \
+    && make -s -j $NUM_CPU \
+	&& make install \
+	&& make clean \
+    && cd $ROOTDIR
+
+# build user-config.jam files
+RUN echo "using python : 3.6 : /usr ;" > ~/user-config.jam
+
+## Poco
+WORKDIR $ROOTDIR 
+#ADD https://pocoproject.org/releases/poco-${POCO_VERSION}/poco-${POCO_VERSION}-all.tar.gz $ROOTDIR/src/
+#RUN cd src && tar -xzf poco-${POCO_VERSION}-all.tar.gz && cd poco-${POCO_VERSION}-all \
+ADD https://pocoproject.org/releases/poco-${POCO_VERSION}/poco-${POCO_VERSION}.tar.gz $ROOTDIR/src/
+RUN cd src && tar -xzf poco-${POCO_VERSION}.tar.gz && cd poco-${POCO_VERSION} \
+    && ./configure --omit=Data/ODBC,Data/MySQL,FSM,Redis --no-samples --no-tests \
+	&& make -s -j $NUM_CPU DEFAULT_TARGET=shared_release \
+    && make install \
+    && make clean \
+    && cd $ROOTDIR
+
+## Boost
+ADD https://dl.bintray.com/boostorg/release/${BOOST_VERSION_DOT}/source/boost_${BOOST_VERSION}.tar.bz2 $ROOTDIR/src/
+RUN cd src && tar --bzip2 -xf boost_${BOOST_VERSION}.tar.bz2 && cd boost_${BOOST_VERSION}  \
+    && ./bootstrap.sh --prefix=/usr/local \
+    && ./b2 -j $NUM_CPU cxxstd=14 install \
+    && ./b2 clean \
+    && cd $ROOTDIR
+
+## FMT
+ADD https://github.com/fmtlib/fmt/archive/${FMT_VERSION}.tar.gz $ROOTDIR/src/         
+RUN cd src &&  mkdir libfmt-${FMT_VERSION} && tar -xzf ${FMT_VERSION}.tar.gz -C libfmt-${FMT_VERSION} --strip-components=1 &&  cd libfmt-${FMT_VERSION} \
+    && cmake -G"Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr/local . \
+    && make -j $NUM_CPU install \
+    && make clean \
+    && cd $ROOTDIR && rm -Rf src/libfmt*
+
+## SQLite
+ADD https://www.sqlite.org/2019/sqlite-autoconf-${SQLITE_VERSION}.tar.gz $ROOTDIR/src/
+RUN cd src && tar -xzf sqlite-autoconf-${SQLITE_VERSION}.tar.gz -C /usr/include/ \
+    && cd $ROOTDIR && rm -Rf src/sqlite*
+
+## gdal
+ADD http://download.osgeo.org/gdal/${GDAL_VERSION}/gdal-${GDAL_VERSION}.tar.gz $ROOTDIR/src/
+RUN cd src && tar -xvf gdal-${GDAL_VERSION}.tar.gz && cd gdal-${GDAL_VERSION} \
+    && ./configure \
+        --with-python --with-spatialite --with-pg --with-curl \
+        --with-netcdf --with-hdf5=/usr/lib/x86_64-linux-gnu/hdf5/serial \
+		--with-curl \
+    && make -j $NUM_CPU && make install && ldconfig \
+    && apt-get update -y \
+    && apt-get remove -y --purge build-essential \
+    && cd $ROOTDIR && cd src/gdal-${GDAL_VERSION}/swig/python \
+    && python3 setup.py build \
+    && python3 setup.py install \
+    && cd $ROOTDIR && rm -Rf src/gdal*
+
+## Zipper
+RUN cd src && git clone --recursive https://github.com/sebastiandev/zipper.git 
+WORKDIR $ROOTDIR/src/zipper/build
+RUN    cmake .. \
+	&& make -s -j $NUM_CPU \
+    && make install \
+    && make clean  \
+    && cd $ROOTDIR
+
