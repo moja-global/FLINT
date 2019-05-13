@@ -330,7 +330,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Maintainers Reviewers Ambassadors Coaches
 
-The following people are Maintainers Reviewers Ambassadors or Coaches
+The following people are Maintainers of this repository
 
 <table><tr><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
 
