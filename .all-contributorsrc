@@ -41,10 +41,19 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "mfellows",
+      "name": "Max Fellows",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8548157?v=4",
+      "profile": "https://github.com/mfellows",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "projectName": "flint",
+  "projectName": "FLINT",
   "projectOwner": "moja-global",
   "repoType": "github",
   "repoHost": "https://github.com"
