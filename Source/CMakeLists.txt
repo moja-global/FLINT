@@ -7,8 +7,8 @@ cmake_minimum_required(VERSION 3.4.0)
 
 set(MOJA_VERSION_MAJOR "1")
 set(MOJA_VERSION_MINOR "0")
-set(MOJA_VERSION_PATCH "5")
-set(MOJA_VERSION_REVISION "1")
+set(MOJA_VERSION_PATCH "0")
+set(MOJA_VERSION_REVISION "0")
 set(MOJA_VERSION "${MOJA_VERSION_MAJOR}.${MOJA_VERSION_MINOR}.${MOJA_VERSION_PATCH}")
 
 # Collect the built libraries and include dirs, the will be used to create the moja.cmake file
