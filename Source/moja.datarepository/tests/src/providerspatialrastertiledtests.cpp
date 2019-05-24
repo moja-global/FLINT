@@ -3,6 +3,9 @@
 #include "moja/datarepository/providerspatialrastertiled.h"
 #include "moja/datarepository/datarepositoryexceptions.h"
 
+#include <iostream>
+#include <iostream>
+
 #include "moja/types.h"
 #include "moja/dynamic.h"
 

@@ -6,6 +6,9 @@
 #include "moja/types.h"
 #include "moja/dynamic.h"
 
+#include <iostream>
+#include <iostream>
+
 #include <Poco/TemporaryFile.h>
 #include <Poco/FileStream.h>
 #include <Poco/File.h>

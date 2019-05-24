@@ -4,6 +4,9 @@
 
 #include "moja/dynamic.h"
 
+#include <iostream>
+#include <iostream>
+
 #include <boost/test/unit_test.hpp>
 
 #include <vector>

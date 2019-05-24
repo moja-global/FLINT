@@ -2,6 +2,8 @@ set(PACKAGE "configuration")
 set(LIBNAME "moja.flint.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
+include(${CMAKE_MODULE_PATH}/generate_product_version.cmake) 
+
 if(MOJA_STATIC)
 	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
 	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
@@ -24,6 +26,20 @@ if(Poco_FOUND)
 endif()
 
 include_directories(include ../moja.core/include)
+
+# Version Info
+if (MSVC)
+  generate_product_version(ProductVersionFiles
+    NAME ${LIBNAME}
+    FILE_DESCRIPTION "moja global configuration"
+    VERSION_MAJOR ${MOJA_VERSION_MAJOR}
+    VERSION_MINOR ${MOJA_VERSION_MINOR}
+    VERSION_PATCH ${MOJA_VERSION_PATCH}
+    VERSION_REVISION ${MOJA_VERSION_REVISION}
+	COMPANY_NAME "moja global"
+#    VERSION_REVISION ${BUILD_ID}
+  )
+endif ()
 
 if(Poco_FOUND)
 	link_directories(${Poco_BINARY_DIRS})
@@ -100,7 +116,9 @@ set(MOJA_FLINT_Configuration_sources
 )
 
 set (SRCS ${MOJA_FLINT_Configuration_sources} ${MOJA_FLINT_Configuration_headers})
-add_library(${LIBNAME} ${LIB_MODE} ${SRCS})
+add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
+add_library(${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
+
 set_target_properties(${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
