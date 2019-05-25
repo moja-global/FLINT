@@ -11,30 +11,30 @@ namespace flint {
 namespace configuration {
 
 class ConfigTileIdx {
-public:
-	explicit ConfigTileIdx(UInt32 tileIdx) : _tileIdx(tileIdx) {}
-	UInt32 tileIdx() const { return _tileIdx; }
-private:
-	UInt32 _tileIdx;
-};
+  public:
+   explicit ConfigTileIdx(UInt32 tileIdx) : _tileIdx(tileIdx) {}
+   UInt32 tileIdx() const { return _tileIdx; }
 
+  private:
+   UInt32 _tileIdx;
+};
 
 class CONFIGURATION_API IterationTileIndex : public IterationBase {
-public:
-	IterationTileIndex();
-	virtual ~IterationTileIndex() {}
+  public:
+   IterationTileIndex();
+   virtual ~IterationTileIndex() {}
 
-	virtual const std::vector<ConfigTileIdx>& tileIndexList() const { return _tileIndexList; }
-	virtual std::vector<ConfigTileIdx>& tileIndexList() { return _tileIndexList; }
+   virtual const std::vector<ConfigTileIdx>& tileIndexList() const { return _tileIndexList; }
+   virtual std::vector<ConfigTileIdx>& tileIndexList() { return _tileIndexList; }
 
-	virtual void addTileIndex(ConfigTileIdx index) { _tileIndexList.push_back(index); }
+   virtual void addTileIndex(ConfigTileIdx index) { _tileIndexList.push_back(index); }
 
-private:
-	std::vector<ConfigTileIdx> _tileIndexList;
+  private:
+   std::vector<ConfigTileIdx> _tileIndexList;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ITERATIONTILEINDEX_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ITERATIONTILEINDEX_H_

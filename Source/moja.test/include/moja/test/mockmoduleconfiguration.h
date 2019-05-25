@@ -1,24 +1,23 @@
 #ifndef MOJA_TEST_MOCKMODULECONFIGURATION_H_
 #define MOJA_TEST_MOCKMODULECONFIGURATION_H_
 
-#include <turtle/mock.hpp>
+#include <moja/flint/configuration/module.h>
 
-#include "moja/flint/configuration/module.h"
-#include "moja/dynamic.h"
+#include <moja/dynamic.h>
+
+#include <turtle/mock.hpp>
 
 namespace moja {
 namespace test {
 
-MOCK_BASE_CLASS(MockModuleConfiguration, moja::flint::configuration::Module) {
-	MockModuleConfiguration() : moja::flint::configuration::Module("libraryMock", "a", 1, false, moja::DynamicObject()) {}
+MOCK_BASE_CLASS(MockModuleConfiguration, moja::flint::configuration::Module){
+   MockModuleConfiguration() : moja::flint::configuration::Module("libraryMock", "a", 1, false, moja::DynamicObject()){}
 
-	MOCK_METHOD(libraryName, 0, const std::string&())
-	MOCK_METHOD(name, 0, const std::string&())
-	MOCK_METHOD(order, 0, int())
-	MOCK_METHOD(settings, 0, moja::DynamicObject&())
+   MOCK_METHOD(libraryName, 0, const std::string&()) MOCK_METHOD(name, 0, const std::string&())
+   MOCK_METHOD(order, 0, int()) MOCK_METHOD(settings, 0, moja::DynamicObject&())
 };
 
 }
-} // namespace moja::test
+}  // namespace moja
 
-#endif // MOJA_TEST_MOCKMODULECONFIGURATION_H_
+#endif  // MOJA_TEST_MOCKMODULECONFIGURATION_H_

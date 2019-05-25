@@ -6,21 +6,20 @@
 namespace moja {
 
 struct CORE_API Point {
-	double lat;	// y
-	double lon;	// x
+   double lat;  // y
+   double lon;  // x
 };
 
 struct CORE_API XYIndex {
-	UInt32 X;
-	UInt32 Y;
+   UInt32 X;
+   UInt32 Y;
 };
 
 struct CORE_API Size {
-	double height;
-	double width;
+   double height;
+   double width;
 };
 
-} // namespace moja
+}  // namespace moja
 
-
-#endif // MOJA_CORE_UTILITY_H_
+#endif  // MOJA_CORE_UTILITY_H_

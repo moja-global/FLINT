@@ -54,7 +54,7 @@ struct DATAREPOSITORY_API ProviderAlreadyExistsException : virtual DataRepositor
 typedef boost::error_info<struct tag_filename, std::string> ProviderName;
 typedef boost::error_info<struct tag_provider_type, std::string> ProviderType;
 
-}
-} // namespace moja::DataRepository
+}  // namespace datarepository
+}  // namespace moja
 
-#endif // MOJA_DATAREPOSITORY_DATAREPOSITORYEXCEPTIONS_H_
+#endif  // MOJA_DATAREPOSITORY_DATAREPOSITORYEXCEPTIONS_H_

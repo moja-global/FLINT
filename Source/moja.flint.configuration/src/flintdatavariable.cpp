@@ -5,9 +5,8 @@ namespace flint {
 namespace configuration {
 
 FlintDataVariable::FlintDataVariable(const std::string& name, std::shared_ptr<FlintData> flintData)
-	: IVariable(VariableType::FlintData, name), _flintdata(flintData) {
-}
+    : IVariable(VariableType::FlintData, name), _flintdata(flintData) {}
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

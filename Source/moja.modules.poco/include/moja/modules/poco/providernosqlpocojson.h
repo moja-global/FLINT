@@ -2,9 +2,10 @@
 #define MOJA_MODULES_POCO_PROVIDERNOSQLPOCOJSON_H_
 
 #include "moja/modules/poco/_modules.poco_exports.h"
-#include "moja/datarepository/iprovidernosqlinterface.h"
 
-#include "moja/dynamic.h"
+#include <moja/datarepository/iprovidernosqlinterface.h>
+
+#include <moja/dynamic.h>
 
 #include <Poco/File.h>
 
@@ -16,29 +17,30 @@ namespace poco {
 
 // --------------------------------------------------------------------------------------------
 /**
-* Moja Implmentation of a NoSQL data provider (using MongoDB as a data source) derived
-* from IProviderSpatialVectorInterface.
-*/
+ * Moja Implmentation of a NoSQL data provider (using MongoDB as a data source) derived
+ * from IProviderSpatialVectorInterface.
+ */
 class POCO_API ProviderNoSQLPocoJSON : public datarepository::IProviderNoSQLInterface {
+  public:
+   explicit ProviderNoSQLPocoJSON(DynamicObject settings);
+   virtual ~ProviderNoSQLPocoJSON() {}
 
-public:
-	explicit ProviderNoSQLPocoJSON(DynamicObject settings);
-	virtual ~ProviderNoSQLPocoJSON() {}
+   virtual DynamicVector GetDataSet(const std::string& query) const override;
 
-	virtual DynamicVector GetDataSet(const std::string& query) const override;
+   virtual int Count() const override;
 
-	virtual int Count() const override;
+  private:
+   Poco::File _file;
+   Poco::Timestamp _lastModified;
 
-private:
-	Poco::File _file;
-	Poco::Timestamp _lastModified;
+   std::string _filePath;
+   std::string _jsonStr;
 
-	std::string _filePath;
-	std::string _jsonStr;
-
-	DynamicVar _data;
+   DynamicVar _data;
 };
 
-}}}
+}  // namespace poco
+}  // namespace modules
+}  // namespace moja
 
-#endif // MOJA_MODULES_POCO_PROVIDERNOSQLPOCOJSON_H_
+#endif  // MOJA_MODULES_POCO_PROVIDERNOSQLPOCOJSON_H_

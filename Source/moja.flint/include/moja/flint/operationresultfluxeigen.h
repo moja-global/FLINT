@@ -9,30 +9,33 @@ namespace moja {
 namespace flint {
 
 class OperationResultFluxEigen : public IOperationResultFlux {
-public:
-	friend class OperationResultFluxIteratorEigen;
+  public:
+   friend class OperationResultFluxIteratorEigen;
 
-	OperationResultFluxEigen() = default;
-	OperationResultFluxEigen(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink, double value);
-	virtual ~OperationResultFluxEigen() override;
+   OperationResultFluxEigen() = default;
+   OperationResultFluxEigen(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink,
+                            double value);
+   virtual ~OperationResultFluxEigen() override;
 
-	virtual int source() const override;
-	virtual int sink() const override;
-	virtual double value() const override;
+   virtual int source() const override;
+   virtual int sink() const override;
+   virtual double value() const override;
 
-	virtual OperationTransferType transferType() const override;
-	virtual const ModuleMetaData* metaData() const override;
+   virtual OperationTransferType transferType() const override;
+   virtual const ModuleMetaData* metaData() const override;
 
-private:
-	OperationTransferType _transferType;
-	const ModuleMetaData* _metaData;
-	int _source;
-	int _sink;
-	double _value;
+  private:
+   OperationTransferType _transferType;
+   const ModuleMetaData* _metaData;
+   int _source;
+   int _sink;
+   double _value;
 };
 
-inline OperationResultFluxEigen::OperationResultFluxEigen(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink, double value)
-	: _transferType(transferType), _metaData(metaData) , _source(source), _sink(sink), _value(value) {}
+inline OperationResultFluxEigen::OperationResultFluxEigen(OperationTransferType transferType,
+                                                          const ModuleMetaData* metaData, int source, int sink,
+                                                          double value)
+    : _transferType(transferType), _metaData(metaData), _source(source), _sink(sink), _value(value) {}
 
 inline OperationResultFluxEigen::~OperationResultFluxEigen() {}
 
@@ -46,9 +49,9 @@ inline OperationTransferType OperationResultFluxEigen::transferType() const { re
 
 inline const ModuleMetaData* OperationResultFluxEigen::metaData() const { return _metaData; }
 
-typedef std::vector<OperationResultFluxEigen > OperationResultFluxEigenNewVector;
+typedef std::vector<OperationResultFluxEigen> OperationResultFluxEigenNewVector;
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONRESULTFLUXEIGEN_H_
+#endif  // MOJA_FLINT_OPERATIONRESULTFLUXEIGEN_H_

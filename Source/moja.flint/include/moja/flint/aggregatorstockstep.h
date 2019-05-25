@@ -9,25 +9,24 @@ namespace moja {
 namespace flint {
 
 class AggregatorStockStep : public ModuleBase {
-public:
-	AggregatorStockStep() : ModuleBase() {}
-	virtual ~AggregatorStockStep() {}
+  public:
+   AggregatorStockStep() : ModuleBase() {}
+   virtual ~AggregatorStockStep() {}
 
-	void configure(const DynamicObject& config) override;
-	void subscribe(NotificationCenter& notificationCenter) override;
+   void configure(const DynamicObject& config) override;
+   void subscribe(NotificationCenter& notificationCenter) override;
 
-	void onLocalDomainInit	() override;
-	void onTimingInit		() override;
-	void onOutputStep		() override;
+   void onLocalDomainInit() override;
+   void onTimingInit() override;
+   void onOutputStep() override;
 
-	const std::vector<StepRecord>* results() const { return &_stockByStep; }
+   const std::vector<StepRecord>* results() const { return &_stockByStep; }
 
-private:
-	std::vector<StepRecord> _stockByStep;
+  private:
+   std::vector<StepRecord> _stockByStep;
 };
 
+}  // namespace flint
+}  // namespace moja
 
-}
-} // namespace moja::flint
-
-#endif // MOJA_FLINT_AGGREGATORSTOCKSTEP_H_
+#endif  // MOJA_FLINT_AGGREGATORSTOCKSTEP_H_

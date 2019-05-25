@@ -4,15 +4,9 @@
 namespace moja {
 namespace flint {
 
-enum class LibraryType {
-	Unknown,
-	Internal,
-	Managed,
-	External,
-    Python
-};
+enum class LibraryType { Unknown, Internal, Managed, External, Python };
 
 }
-} // moja::flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_LIBRARYTYPE_H_
+#endif  // MOJA_FLINT_LIBRARYTYPE_H_

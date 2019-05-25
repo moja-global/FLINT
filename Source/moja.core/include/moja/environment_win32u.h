@@ -6,10 +6,10 @@
 namespace moja {
 
 class EnvironmentImpl {
-public:
-    static std::string startProcessFolderImpl();
+  public:
+   static std::string startProcessFolderImpl();
 };
 
-} // namespace moja
+}  // namespace moja
 
-#endif // MOJA_Core_Environment_WIN32U_INCLUDED
+#endif  // MOJA_Core_Environment_WIN32U_INCLUDED

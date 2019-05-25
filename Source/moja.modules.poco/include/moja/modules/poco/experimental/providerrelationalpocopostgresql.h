@@ -15,38 +15,37 @@ http://stackoverflow.com/questions/10510539/simple-postgresql-libpq-code-too-slo
 
 #endif
 
-#include "moja/datarepository/_datarepository_exports.h"
-#include "moja/datarepository/iproviderrelationalinterface.h"
+#include <moja/datarepository/iproviderrelationalinterface.h>
 
 #include <moja/dynamic.h>
-#include "Poco/LRUCache.h"
-#include "Poco/Data/PostgreSQL/Utility.h"
-#include "Poco/Post
 
-//Parameters for testing
+#include <Poco/Data/PostgreSQL/Utility.h>
+#include <Poco/LRUCache.h>
+
+// Parameters for testing
 #define POSTGRESQL_USER "postgres"
-#define POSTGRESQL_PWD  "admin"
+#define POSTGRESQL_PWD "admin"
 #define POSTGRESQL_HOST "localhost"
 #define POSTGRESQL_PORT "5432"
-#define POSTGRESQL_DB   "postgres"
+#define POSTGRESQL_DB "postgres"
 
 namespace moja {
 namespace datarepository {
 
-class DATAREPOSITORY_API ProviderRelationalPocoPostgreSQL : public IProviderRelationalInterface{
-public:
-	
-	explicit ProviderRelationalPocoPostgreSQL(DynamicObject settings);
-	virtual ~ProviderRelationalPocoPostgreSQL();
-	DynamicVar GetDataSet(const std::string& query) const override;
+class POCO_API ProviderRelationalPocoPostgreSQL : public IProviderRelationalInterface {
+  public:
+   explicit ProviderRelationalPocoPostgreSQL(DynamicObject settings);
+   virtual ~ProviderRelationalPocoPostgreSQL();
+   DynamicVar GetDataSet(const std::string& query) const override;
 
-private:
-	PGconn *  _conn = 0;
-	mutable PGresult * pResult = 0;
-	std::string _dbConnString;
-    mutable Poco::LRUCache<std::string, DynamicVar> _cache;
+  private:
+   PGconn* _conn = 0;
+   mutable PGresult* pResult = 0;
+   std::string _dbConnString;
+   mutable Poco::LRUCache<std::string, DynamicVar> _cache;
 };
 
-}} // moja::datarepository
+}  // namespace datarepository
+}  // namespace moja
 
-#endif // MOJA_MODULES_POCO_PROVIDERRELATIONALPOCOPOSTGRESQL_H_
+#endif  // MOJA_MODULES_POCO_PROVIDERRELATIONALPOCOPOSTGRESQL_H_

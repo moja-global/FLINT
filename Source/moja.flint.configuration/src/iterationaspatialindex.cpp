@@ -4,11 +4,9 @@ namespace moja {
 namespace flint {
 namespace configuration {
 
-	IterationASpatialIndex::IterationASpatialIndex()
-		: IterationBase(LocalDomainIterationType::ASpatialIndex), _maxTileSize(0), _tileCacheSize(0)
-	{
-	}
+IterationASpatialIndex::IterationASpatialIndex()
+    : IterationBase(LocalDomainIterationType::ASpatialIndex), _maxTileSize(0), _tileCacheSize(0) {}
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

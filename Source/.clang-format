@@ -1,0 +1,34 @@
+# Use the Google style in this project.
+BasedOnStyle: Google
+
+DerivePointerAlignment: false
+PointerAlignment: Left
+ColumnLimit: 120
+IndentWidth: 3
+Standard: Cpp11
+Cpp11BracedListStyle: true
+
+IncludeBlocks: Regroup
+IncludeCategories:
+- Regex: '^\"moja/*'
+  Priority: 100
+- Regex: '^\"'
+  Priority: 200
+- Regex: '^<moja/flint/configuration/*'
+  Priority: 350
+- Regex: '^<moja/flint/*'
+  Priority: 250
+- Regex: '^<moja/datarepository/*'
+  Priority: 300
+- Regex: '^<moja/test/*'
+  Priority: 375
+- Regex: '^<moja/*'
+  Priority: 400
+- Regex: '^<poco/*'
+  Priority: 500
+- Regex: '^<boost/*'
+  Priority: 600
+- Regex: '^<.*/.*'
+  Priority: 700
+- Regex: '^<[^/]*>'
+  Priority: 800

@@ -1,8 +1,8 @@
 #include "moja/flint/calendarsequencer.h"
 #include "moja/flint/ilandunitdatawrapper.h"
 
-#include "moja/notificationcenter.h"
-#include "moja/signals.h"
+#include <moja/notificationcenter.h>
+#include <moja/signals.h>
 
 namespace moja {
 namespace flint {
