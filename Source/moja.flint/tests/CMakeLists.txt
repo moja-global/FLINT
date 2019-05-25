@@ -53,9 +53,6 @@ target_link_libraries(
 add_dependencies(${TESTUNIT} moja.core)
 add_dependencies(${TESTUNIT} moja.datarepository)
 add_dependencies(${TESTUNIT} moja.flint)
-# add_dependencies(${TESTUNIT} moja.modules.sleek)
-#add_dependencies(${TESTUNIT} moja.modules.fullcam)
-#add_dependencies(${TESTUNIT} moja.modules.hansen)
 
 IF (RUN_UNIT_TESTS_ON_BUILD)
     add_custom_command(TARGET ${TESTUNIT}

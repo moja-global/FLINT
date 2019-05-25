@@ -1,11 +1,12 @@
 #ifndef MOJA_TEST_MOCKOPERATIONMANAGER_H_
 #define MOJA_TEST_MOCKOPERATIONMANAGER_H_
 
+#include <moja/flint/ioperation.h>
+#include <moja/flint/ioperationmanager.h>
+#include <moja/flint/itransform.h>
+#include <moja/flint/operationresultcollection.h>
+
 #include <turtle/mock.hpp>
-#include "moja/flint/ioperation.h"
-#include "moja/flint/ioperationmanager.h"
-#include "moja/flint/operationresultcollection.h"
-#include "moja/flint/itransform.h"
 
 namespace moja {
 namespace test {

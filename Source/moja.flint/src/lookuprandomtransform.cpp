@@ -1,10 +1,10 @@
 
 #include "moja/flint/lookuprandomtransform.h"
 
-#include "moja/flint/spatiallocationinfo.h"
+#include "moja/flint/flintexceptions.h"
 #include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/ivariable.h"
-#include "moja/flint/flintexceptions.h"
+#include "moja/flint/spatiallocationinfo.h"
 
 #include <boost/algorithm/string.hpp>
 
@@ -16,85 +16,80 @@ using moja::flint::VariableNotFoundException;
 namespace moja {
 namespace flint {
 
-void LookupRandomTransform::configure(
-	DynamicObject config,
-	const ILandUnitController& landUnitController,
-	moja::datarepository::DataRepository& dataRepository) {
-
-	//for (auto key : { "from", "to" }) {
-	for (auto key : { "to" }) {
-		auto validConfiguration = false;
-		if (config.contains(key)) {
-			std::string value = config[key];
-			if (value.length() > 0 && !all(value, boost::algorithm::is_space())) {
-				validConfiguration = true;
-			}
-		}
-		if (!validConfiguration) {
-			throw IncompleteConfigurationException()
-				<< Item(key)
-				<< Details("Expected configuration item not found");
-		}
-	}
-	//_fromVarName = config["from"].convert<std::string>();
-	_toVarName = config["to"].convert<std::string>();
-	_reverseLookup = config.contains("reverse") ? bool(config["reverse"]) : false;
-	_landUnitController = &landUnitController;
-	_dataRepository = &dataRepository;
-	_spatiallocationinfo = std::static_pointer_cast<flint::SpatialLocationInfo>(_landUnitController->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
-
+void LookupRandomTransform::configure(DynamicObject config, const ILandUnitController& landUnitController,
+                                      moja::datarepository::DataRepository& dataRepository) {
+   // for (auto key : { "from", "to" }) {
+   for (auto key : {"to"}) {
+      auto validConfiguration = false;
+      if (config.contains(key)) {
+         std::string value = config[key];
+         if (value.length() > 0 && !all(value, boost::algorithm::is_space())) {
+            validConfiguration = true;
+         }
+      }
+      if (!validConfiguration) {
+         throw IncompleteConfigurationException() << Item(key) << Details("Expected configuration item not found");
+      }
+   }
+   //_fromVarName = config["from"].convert<std::string>();
+   _toVarName = config["to"].convert<std::string>();
+   _reverseLookup = config.contains("reverse") ? bool(config["reverse"]) : false;
+   _landUnitController = &landUnitController;
+   _dataRepository = &dataRepository;
+   _spatiallocationinfo = std::static_pointer_cast<flint::SpatialLocationInfo>(
+       _landUnitController->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
 }
 
 void LookupRandomTransform::controllerChanged(const ILandUnitController& controller) {
-	_landUnitController = &controller;
-	_spatiallocationinfo = std::static_pointer_cast<flint::SpatialLocationInfo>(_landUnitController->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
+   _landUnitController = &controller;
+   _spatiallocationinfo = std::static_pointer_cast<flint::SpatialLocationInfo>(
+       _landUnitController->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
 }
 
 const DynamicVar& LookupRandomTransform::value() const {
-	//auto from = _landUnitController->getVariable(_fromVarName);
-	//if (from == nullptr) {
-	//	throw VariableNotFoundException() << VariableName(_fromVarName);
-	//}
+   // auto from = _landUnitController->getVariable(_fromVarName);
+   // if (from == nullptr) {
+   //	throw VariableNotFoundException() << VariableName(_fromVarName);
+   //}
 
-	auto to = _landUnitController->getVariable(_toVarName);
-	if (to == nullptr) {
-		throw VariableNotFoundException() << VariableName(_toVarName);
-	}
+   auto to = _landUnitController->getVariable(_toVarName);
+   if (to == nullptr) {
+      throw VariableNotFoundException() << VariableName(_toVarName);
+   }
 
-	//auto& fromValue = from->value();
-	auto& toValue = to->value();
-	if (/*fromValue.isEmpty() || */toValue.isEmpty()) {
-		_cachedValue = DynamicVar();
-		return _cachedValue;
-	}
+   // auto& fromValue = from->value();
+   auto& toValue = to->value();
+   if (/*fromValue.isEmpty() || */ toValue.isEmpty()) {
+      _cachedValue = DynamicVar();
+      return _cachedValue;
+   }
 
-	//if (!fromValue.isStruct()) {
-	if (toValue.isStruct()) {
-		return matchDynamicToStruct(toValue);
-	}
+   // if (!fromValue.isStruct()) {
+   if (toValue.isStruct()) {
+      return matchDynamicToStruct(toValue);
+   }
 
-	return matchDynamicToMultiStruct(toValue);
-	//}
+   return matchDynamicToMultiStruct(toValue);
+   //}
 
-	return matchStructToMultiStruct(toValue);
+   return matchStructToMultiStruct(toValue);
 }
 
 const DynamicVar& LookupRandomTransform::matchDynamicToStruct(const DynamicVar& to) const {
+   auto toValue = to.extract<DynamicObject>();
+   std::uniform_int_distribution<> distr(0, static_cast<int>(toValue.size() - 1));  // define the range
+   int returnIdx = distr(_spatiallocationinfo->_engCell);
 
-	auto toValue = to.extract<DynamicObject>();
-	std::uniform_int_distribution<> distr(0, static_cast<int>(toValue.size() - 1)); // define the range
-	int returnIdx = distr(_spatiallocationinfo->_engCell);
+   _cachedValue = DynamicVar();
 
-	_cachedValue = DynamicVar();
-
-	int count = 0;
-	for (auto& item : toValue) {
-		if (count == returnIdx) {
-			_cachedValue = _reverseLookup ? DynamicVar(item.first) : item.second;
-			break;
-		}
-		count++;
-	}
+   int count = 0;
+   for (auto& item : toValue) {
+      if (count == returnIdx) {
+         _cachedValue = _reverseLookup ? DynamicVar(item.first) : item.second;
+         break;
+      }
+      count++;
+   }
 #if 0
 	_cachedValue = Dynamic();
 	std::string key = "%1%";
@@ -110,26 +105,25 @@ const DynamicVar& LookupRandomTransform::matchDynamicToStruct(const DynamicVar& 
 		_cachedValue = toValue[key];
 	}
 #endif
-	return _cachedValue;
+   return _cachedValue;
 }
 
 const DynamicVar& LookupRandomTransform::matchDynamicToMultiStruct(const DynamicVar& to) const {
-	_cachedValue = DynamicVar();
+   _cachedValue = DynamicVar();
 #if 1
-	std::uniform_int_distribution<> distr(0, static_cast<int>(to.size() - 1)); // define the range
-	int returnIdx = distr(_spatiallocationinfo->_engCell);
-	auto& row = to[returnIdx];
-	_cachedValue = DynamicVar();
-	DynamicObject result;
-	for (const auto& item : row.extract<DynamicObject>()) {
-		result[item.first] = item.second;
-	}
-	if (result.size() > 1) {
-		_cachedValue = result;
-	}
-	else {
-		_cachedValue = result.begin()->second;
-	}
+   std::uniform_int_distribution<> distr(0, static_cast<int>(to.size() - 1));  // define the range
+   int returnIdx = distr(_spatiallocationinfo->_engCell);
+   auto& row = to[returnIdx];
+   _cachedValue = DynamicVar();
+   DynamicObject result;
+   for (const auto& item : row.extract<DynamicObject>()) {
+      result[item.first] = item.second;
+   }
+   if (result.size() > 1) {
+      _cachedValue = result;
+   } else {
+      _cachedValue = result.begin()->second;
+   }
 #endif
 
 #if 0
@@ -153,11 +147,11 @@ const DynamicVar& LookupRandomTransform::matchDynamicToMultiStruct(const Dynamic
 		}
 	}
 #endif
-	return _cachedValue;
+   return _cachedValue;
 }
 
 const DynamicVar& LookupRandomTransform::matchStructToMultiStruct(const DynamicVar& to) const {
-	_cachedValue = DynamicVar();
+   _cachedValue = DynamicVar();
 #if 0
 	auto fromValue = from.extract<DynamicObject>();
 	for (const auto& row : to) {
@@ -187,8 +181,8 @@ const DynamicVar& LookupRandomTransform::matchStructToMultiStruct(const DynamicV
 		}
 	}
 #endif
-	return _cachedValue;
+   return _cachedValue;
 }
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja

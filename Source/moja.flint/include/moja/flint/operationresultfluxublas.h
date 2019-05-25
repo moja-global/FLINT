@@ -3,37 +3,40 @@
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/imodule.h"
-#include "moja/flint/ioperationresultflux.h"
 #include "moja/flint/ioperation.h"
+#include "moja/flint/ioperationresultflux.h"
 
 namespace moja {
 namespace flint {
 
 class OperationResultFluxUblas : public IOperationResultFlux {
-public:
-	friend class OperationResultFluxIteratorUblas;
+  public:
+   friend class OperationResultFluxIteratorUblas;
 
-	OperationResultFluxUblas() = default;
-	OperationResultFluxUblas(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink, double value);
-	virtual ~OperationResultFluxUblas() override;
+   OperationResultFluxUblas() = default;
+   OperationResultFluxUblas(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink,
+                            double value);
+   virtual ~OperationResultFluxUblas() override;
 
-	virtual int source() const override;
-	virtual int sink() const override;
-	virtual double value() const override;
+   virtual int source() const override;
+   virtual int sink() const override;
+   virtual double value() const override;
 
-	virtual OperationTransferType transferType() const override;
-	virtual const ModuleMetaData* metaData() const override;
+   virtual OperationTransferType transferType() const override;
+   virtual const ModuleMetaData* metaData() const override;
 
-private:
-	OperationTransferType _transferType;
-	const ModuleMetaData* _metaData;
-	int _source;
-	int _sink;
-	double _value;
+  private:
+   OperationTransferType _transferType;
+   const ModuleMetaData* _metaData;
+   int _source;
+   int _sink;
+   double _value;
 };
 
-inline OperationResultFluxUblas::OperationResultFluxUblas(OperationTransferType transferType, const ModuleMetaData* metaData, int source, int sink, double value)
-	: _transferType(transferType), _metaData(metaData), _source(source), _sink(sink), _value(value) {}
+inline OperationResultFluxUblas::OperationResultFluxUblas(OperationTransferType transferType,
+                                                          const ModuleMetaData* metaData, int source, int sink,
+                                                          double value)
+    : _transferType(transferType), _metaData(metaData), _source(source), _sink(sink), _value(value) {}
 
 inline OperationResultFluxUblas::~OperationResultFluxUblas() {}
 
@@ -47,9 +50,9 @@ inline OperationTransferType OperationResultFluxUblas::transferType() const { re
 
 inline const ModuleMetaData* OperationResultFluxUblas::metaData() const { return _metaData; }
 
-typedef std::vector<OperationResultFluxUblas > OperationResultFluxUblasNewVector;
+typedef std::vector<OperationResultFluxUblas> OperationResultFluxUblasNewVector;
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONRESULTFLUXUBLAS_H_
+#endif  // MOJA_FLINT_OPERATIONRESULTFLUXUBLAS_H_

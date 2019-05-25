@@ -1,2 +1,3 @@
-namespace moja { namespace test {
-}};
+namespace moja {
+namespace test {}
+};  // namespace moja

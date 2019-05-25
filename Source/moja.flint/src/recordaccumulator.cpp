@@ -1,4 +1,3 @@
 namespace moja {
-namespace flint {
-
-}}
+namespace flint {}
+}  // namespace moja

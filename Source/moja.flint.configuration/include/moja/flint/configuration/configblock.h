@@ -12,29 +12,28 @@ namespace configuration {
 class ConfigTile;
 
 class CONFIGURATION_API ConfigBlock {
-public:
-	ConfigBlock(const ConfigTile& tile, int row, int col, int blockSizeX, int blockSizeY);
-	virtual ~ConfigBlock() = default;
+  public:
+   ConfigBlock(const ConfigTile& tile, int row, int col, int blockSizeX, int blockSizeY);
+   virtual ~ConfigBlock() = default;
 
-	virtual std::string toString() const;
-	virtual double left() const;
-	virtual double top() const;
-	virtual double xPixelSize() const;
-	virtual double yPixelSize() const;
-	virtual int xPixels() const;
-	virtual int yPixels() const;
+   virtual std::string toString() const;
+   virtual double left() const;
+   virtual double top() const;
+   virtual double xPixelSize() const;
+   virtual double yPixelSize() const;
+   virtual int xPixels() const;
+   virtual int yPixels() const;
 
-private:
-	const ConfigTile& _tile;
-	int _row;
-	int _col;
-	int _blockSizeX;
-	int _blockSizeY;
+  private:
+   const ConfigTile& _tile;
+   int _row;
+   int _col;
+   int _blockSizeX;
+   int _blockSizeY;
 };
 
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-}
-}
-} // namespace moja::flint::configuration
-
-#endif // MOJA_FLINT_CONFIGURATION_BLOCK_H_
+#endif  // MOJA_FLINT_CONFIGURATION_BLOCK_H_

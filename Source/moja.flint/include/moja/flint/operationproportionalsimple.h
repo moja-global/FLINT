@@ -10,31 +10,36 @@ namespace flint {
 class OperationManagerSimple;
 
 class ProportionalOperationSimple : public IOperation {
-	friend class OperationManagerSimple;
-public:
-	//ProportionalOperationSimple() = default;
-	ProportionalOperationSimple(OperationManagerSimple* manager, const std::vector<double>& pools, double timeScale, const ModuleMetaData* metaData);
-	ProportionalOperationSimple(OperationManagerSimple* manager, const std::vector<double>& pools, double timeScale, const ModuleMetaData* metaData, DynamicVar& dataPackage);
-	virtual ~ProportionalOperationSimple() = default;
+   friend class OperationManagerSimple;
 
-	ProportionalOperationSimple* addTransfer(const IPool* source, const IPool* sink, double value) override;
+  public:
+   // ProportionalOperationSimple() = default;
+   ProportionalOperationSimple(OperationManagerSimple* manager, const std::vector<double>& pools, double timeScale,
+                               const ModuleMetaData* metaData);
+   ProportionalOperationSimple(OperationManagerSimple* manager, const std::vector<double>& pools, double timeScale,
+                               const ModuleMetaData* metaData, DynamicVar& dataPackage);
+   virtual ~ProportionalOperationSimple() = default;
 
-	void submitOperation() override;
-	std::shared_ptr<IOperationResult> computeOperation(ITiming& _timing) override;
+   ProportionalOperationSimple* addTransfer(const IPool* source, const IPool* sink, double value) override;
 
-	OperationTransferType transferType() const override;
-	OperationTransferHandlingType transferHandlingType() const override { return OperationTransferHandlingType::Disaggregated; };
+   void submitOperation() override;
+   std::shared_ptr<IOperationResult> computeOperation(ITiming& _timing) override;
 
-	void set_metaData(const ModuleMetaData* metaData) { _metaData = metaData; }
+   OperationTransferType transferType() const override;
+   OperationTransferHandlingType transferHandlingType() const override {
+      return OperationTransferHandlingType::Disaggregated;
+   };
 
-protected:
-	OperationManagerSimple* _manager;
-	double _timeScale;
-	std::vector<OperationTransferSimple> _transfers;
-	const std::vector<double>& _pools;
+   void set_metaData(const ModuleMetaData* metaData) { _metaData = metaData; }
+
+  protected:
+   OperationManagerSimple* _manager;
+   double _timeScale;
+   std::vector<OperationTransferSimple> _transfers;
+   const std::vector<double>& _pools;
 };
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONPROPORTIONALSIMPLE_H_
+#endif  // MOJA_FLINT_OPERATIONPROPORTIONALSIMPLE_H_

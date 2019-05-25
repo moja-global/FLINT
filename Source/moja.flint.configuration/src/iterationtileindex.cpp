@@ -4,10 +4,8 @@ namespace moja {
 namespace flint {
 namespace configuration {
 
-	IterationTileIndex::IterationTileIndex()
-		: IterationBase(LocalDomainIterationType::TileIndex) {
-	}
+IterationTileIndex::IterationTileIndex() : IterationBase(LocalDomainIterationType::TileIndex) {}
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

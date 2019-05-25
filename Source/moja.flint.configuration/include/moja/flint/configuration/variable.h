@@ -4,7 +4,7 @@
 #include "moja/flint/configuration/_configuration_exports.h"
 #include "moja/flint/configuration/ivariable.h"
 
-#include "moja/dynamic.h"
+#include <moja/dynamic.h>
 
 #include <string>
 
@@ -13,18 +13,18 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API Variable : public IVariable {
-public:
-	Variable(const std::string& name, DynamicVar value = DynamicVar());
-	virtual ~Variable() {}
+  public:
+   Variable(const std::string& name, DynamicVar value = DynamicVar());
+   virtual ~Variable() {}
 
-	virtual const DynamicVar& value() const { return _value; }
+   virtual const DynamicVar& value() const { return _value; }
 
-private:
-	DynamicVar _value;
+  private:
+   DynamicVar _value;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_VARIABLE_H_
+#endif  // MOJA_FLINT_CONFIGURATION_VARIABLE_H_

@@ -12,42 +12,43 @@ namespace flint {
 // --------------------------------------------------------------------------------------------
 
 class OperationResultSimpleCache : public IOperationResult {
-	friend class OperationManagerSimpleCache;
-	friend class StockOperationSimpleCache;
-	friend class ProportionalOperationSimpleCache;
-public:
-	typedef std::shared_ptr<OperationResultSimpleCache> Ptr;
+   friend class OperationManagerSimpleCache;
+   friend class StockOperationSimpleCache;
+   friend class ProportionalOperationSimpleCache;
 
-	explicit OperationResultSimpleCache(OperationTransferType transferType, ModuleMetaData* metaData);
-	explicit OperationResultSimpleCache(IOperation& operation);
-	virtual ~OperationResultSimpleCache() = default;
+  public:
+   typedef std::shared_ptr<OperationResultSimpleCache> Ptr;
 
-	virtual OperationResultFluxCollection operationResultFluxCollection() override;
+   explicit OperationResultSimpleCache(OperationTransferType transferType, ModuleMetaData* metaData);
+   explicit OperationResultSimpleCache(IOperation& operation);
+   virtual ~OperationResultSimpleCache() = default;
 
-	virtual OperationTransferType transferType() const override;
-	virtual const ModuleMetaData* metaData() const override;
-	virtual const DynamicVar& dataPackage() const override;
-	virtual bool hasDataPackage() const override;
+   virtual OperationResultFluxCollection operationResultFluxCollection() override;
 
-	virtual const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
-	virtual void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
+   virtual OperationTransferType transferType() const override;
+   virtual const ModuleMetaData* metaData() const override;
+   virtual const DynamicVar& dataPackage() const override;
+   virtual bool hasDataPackage() const override;
 
-private:
-	void addFlux(int source, int sink, double value);
+   virtual const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
+   virtual void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
 
-protected:
-	OperationTransferType _transferType;
-	const ModuleMetaData* _metaData;
-	const DynamicVar _dataPackage;
-	const bool _hasDataPackage;
-	std::vector<OperationResultFluxSimpleCache> _fluxes;
+  private:
+   void addFlux(int source, int sink, double value);
 
-	Timing _timingWhenApplied;
+  protected:
+   OperationTransferType _transferType;
+   const ModuleMetaData* _metaData;
+   const DynamicVar _dataPackage;
+   const bool _hasDataPackage;
+   std::vector<OperationResultFluxSimpleCache> _fluxes;
+
+   Timing _timingWhenApplied;
 };
 
 #undef USE_INT_ITERATOR
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONRESULTSIMPLECACHE_H_
+#endif  // MOJA_FLINT_OPERATIONRESULTSIMPLECACHE_H_
