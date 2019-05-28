@@ -7,23 +7,23 @@ namespace moja {
 namespace flint {
 
 class AggregatorFluxStep : public ModuleBase {
-public:
-	AggregatorFluxStep() : ModuleBase() {}
-	virtual ~AggregatorFluxStep() {}
+  public:
+   AggregatorFluxStep() : ModuleBase() {}
+   virtual ~AggregatorFluxStep() {}
 
-	void configure(const DynamicObject& config) override;
-	void subscribe(NotificationCenter& notificationCenter) override;
+   void configure(const DynamicObject& config) override;
+   void subscribe(NotificationCenter& notificationCenter) override;
 
-	void onLocalDomainInit		() override;
-	void onLocalDomainShutdown	() override;
-	void onTimingEndStep		() override;
+   void onLocalDomainInit() override;
+   void onLocalDomainShutdown() override;
+   void onTimingEndStep() override;
 
-	void setOutFile(std::string filename) {}
+   void setOutFile(std::string filename) {}
 
-private:
+  private:
 };
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_AGGREGATORFLUXSTEP_H_
+#endif  // MOJA_FLINT_AGGREGATORFLUXSTEP_H_

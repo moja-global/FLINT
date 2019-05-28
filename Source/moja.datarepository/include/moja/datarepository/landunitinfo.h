@@ -11,21 +11,22 @@ namespace datarepository {
 class AspatialTileInfo;
 
 class DATAREPOSITORY_API LandUnitInfo final {
-public:
-	LandUnitInfo(const AspatialTileInfo& tile, Int64 id, double area);
+  public:
+   LandUnitInfo(const AspatialTileInfo& tile, Int64 id, double area);
 
-	inline Int64 id() const { return _id; }
-	inline double area() const { return _area; }
+   inline Int64 id() const { return _id; }
+   inline double area() const { return _area; }
 
-	std::string toString() const;
+   std::string toString() const;
 
-private:
-	const AspatialTileInfo* _tile;
+  private:
+   const AspatialTileInfo* _tile;
 
-	Int64 _id;
-	double _area;
+   Int64 _id;
+   double _area;
 };
 
-}} // moja::datarepository
+}  // namespace datarepository
+}  // namespace moja
 
-#endif // MOJA_DATAREPOSITORY_LANDUNITINFO_H_
+#endif  // MOJA_DATAREPOSITORY_LANDUNITINFO_H_

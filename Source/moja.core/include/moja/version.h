@@ -11,4 +11,4 @@
 //
 #define MOJA_VERSION 0x00010100
 
-#endif // MOJA_CORE_VERSION_H_
+#endif  // MOJA_CORE_VERSION_H_

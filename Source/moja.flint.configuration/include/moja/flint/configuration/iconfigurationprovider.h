@@ -9,14 +9,14 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API IConfigurationProvider {
-public:
-	virtual ~IConfigurationProvider() {}
+  public:
+   virtual ~IConfigurationProvider() {}
 
-	virtual std::shared_ptr<Configuration> createConfiguration() = 0;
+   virtual std::shared_ptr<Configuration> createConfiguration() = 0;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ICONFIGURATIONPROVIDER_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ICONFIGURATIONPROVIDER_H_

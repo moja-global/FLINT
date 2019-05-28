@@ -8,13 +8,13 @@ namespace moja {
 namespace flint {
 
 class LibraryInfoInternal : public LibraryInfoBase {
-public:
-	virtual ~LibraryInfoInternal() { }
+  public:
+   virtual ~LibraryInfoInternal() {}
 
-	inline LibraryType GetLibraryType() const override { return LibraryType::Internal; }
+   inline LibraryType GetLibraryType() const override { return LibraryType::Internal; }
 };
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_LIBRARYINFOINTERNAL_H_
+#endif  // MOJA_FLINT_LIBRARYINFOINTERNAL_H_

@@ -5,9 +5,8 @@
 
 #include <boost/exception/all.hpp>
 
-#include <string>
 #include <stdexcept>
-
+#include <string>
 
 namespace moja {
 
@@ -25,6 +24,6 @@ typedef boost::error_info<struct tag_message, std::string> Message;
 struct CORE_API CoreUnhandledType : virtual CoreException {};
 typedef boost::error_info<struct tag_message, std::string> TypeErrorMsg;
 
-} // namespace moja
+}  // namespace moja
 
-#endif // MOJA_CORE_COREEXCEPTIONS_H_
+#endif  // MOJA_CORE_COREEXCEPTIONS_H_

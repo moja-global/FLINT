@@ -12,17 +12,18 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API ExternalVariable : public IVariable {
-public:
-	explicit ExternalVariable(const std::string& name, std::shared_ptr<Transform> transform = nullptr);
-	virtual ~ExternalVariable() {}
+  public:
+   explicit ExternalVariable(const std::string& name, std::shared_ptr<Transform> transform = nullptr);
+   virtual ~ExternalVariable() {}
 
-	virtual inline const Transform& transform() const { return *_transform; }
-private:
-	std::shared_ptr<Transform> _transform;
+   virtual inline const Transform& transform() const { return *_transform; }
+
+  private:
+   std::shared_ptr<Transform> _transform;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_EXTERNALVARIABLE_H_
+#endif  // MOJA_FLINT_CONFIGURATION_EXTERNALVARIABLE_H_

@@ -38,18 +38,18 @@ typedef boost::error_info<struct tag_constraint, std::string> Constraint;
 /// -- Provider exceptions
 struct CONFIGURATION_API ProviderSettingsException : virtual ConfigurationException {};
 typedef boost::error_info<struct tag_providername, std::string> ProviderName;
-typedef boost::error_info<struct tag_providerlib,  std::string> ProviderLibrary;
+typedef boost::error_info<struct tag_providerlib, std::string> ProviderLibrary;
 
 struct CONFIGURATION_API ProviderMissingTypeException : virtual ConfigurationException {};
 typedef boost::error_info<struct tag_providername, std::string> ProviderName;
 
-struct CONFIGURATION_API ProviderInvalidNameTypeException: virtual ConfigurationException{};
+struct CONFIGURATION_API ProviderInvalidNameTypeException : virtual ConfigurationException {};
 typedef boost::error_info<struct tag_providername, std::string> ProviderName;
-typedef boost::error_info<struct tag_providerlib,  std::string> ProviderLibrary;
+typedef boost::error_info<struct tag_providerlib, std::string> ProviderLibrary;
 typedef boost::error_info<struct tag_providertype, std::string> ProviderType;
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_CONFIGURATIONEXCEPTIONS_H_
+#endif  // MOJA_FLINT_CONFIGURATION_CONFIGURATIONEXCEPTIONS_H_

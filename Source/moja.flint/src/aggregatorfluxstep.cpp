@@ -1,22 +1,22 @@
 #include "moja/flint/aggregatorfluxstep.h"
 
-#include "moja/signals.h"
-#include "moja/notificationcenter.h"
+#include <moja/notificationcenter.h>
+#include <moja/signals.h>
 
 namespace moja {
 namespace flint {
 
-void AggregatorFluxStep::configure(const DynamicObject& config) { }
+void AggregatorFluxStep::configure(const DynamicObject& config) {}
 
 void AggregatorFluxStep::subscribe(NotificationCenter& notificationCenter) {
-	notificationCenter.subscribe(signals::LocalDomainInit,		&AggregatorFluxStep::onLocalDomainInit,		*this);
-	notificationCenter.subscribe(signals::LocalDomainShutdown,	&AggregatorFluxStep::onLocalDomainShutdown,	*this);
-	notificationCenter.subscribe(signals::TimingEndStep,		&AggregatorFluxStep::onTimingEndStep,		*this);
+   notificationCenter.subscribe(signals::LocalDomainInit, &AggregatorFluxStep::onLocalDomainInit, *this);
+   notificationCenter.subscribe(signals::LocalDomainShutdown, &AggregatorFluxStep::onLocalDomainShutdown, *this);
+   notificationCenter.subscribe(signals::TimingEndStep, &AggregatorFluxStep::onTimingEndStep, *this);
 }
 
-void AggregatorFluxStep::onLocalDomainInit		() { }
-void AggregatorFluxStep::onLocalDomainShutdown	() { }
-void AggregatorFluxStep::onTimingEndStep		() { }
+void AggregatorFluxStep::onLocalDomainInit() {}
+void AggregatorFluxStep::onLocalDomainShutdown() {}
+void AggregatorFluxStep::onTimingEndStep() {}
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja

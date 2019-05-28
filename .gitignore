@@ -6,6 +6,7 @@
 *.user
 *.sln.docstates
 .DS_Store
+.vs/
 
 # Python env folder
 [Ee]nv/

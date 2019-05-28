@@ -3,30 +3,30 @@
 
 #include "moja/datarepository/iproviderinterface.h"
 
-#include "moja/dynamic.h"
+#include <moja/dynamic.h>
 
 namespace moja {
 namespace datarepository {
 
 // --------------------------------------------------------------------------------------------
 /**
-* Interface class that all provider implementations for Relational data sources should derive from.
-*/
+ * Interface class that all provider implementations for Relational data sources should derive from.
+ */
 
 class IProviderRelationalInterface : public IProviderInterface {
-public:
-	/**
-	* required because providers are deleted via a pointer to this interface
-	*/
-	IProviderRelationalInterface() = default;
-	virtual ~IProviderRelationalInterface() = default;
+  public:
+   /**
+    * required because providers are deleted via a pointer to this interface
+    */
+   IProviderRelationalInterface() = default;
+   virtual ~IProviderRelationalInterface() = default;
 
-	virtual DynamicVar GetDataSet(const std::string& query) const = 0;
+   virtual DynamicVar GetDataSet(const std::string& query) const = 0;
 
-	virtual ProviderTypes providerType() override { return ProviderTypes::Relational; }
+   virtual ProviderTypes providerType() override { return ProviderTypes::Relational; }
 };
 
-}
-} // moja::datarepository
+}  // namespace datarepository
+}  // namespace moja
 
-#endif // MOJA_DATAREPOSITORY_IPROVIDERREATIONALINTERFACE_H_
+#endif  // MOJA_DATAREPOSITORY_IPROVIDERREATIONALINTERFACE_H_

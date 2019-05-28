@@ -9,23 +9,23 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API IterationASpatialIndex : public IterationBase {
-public:
-	IterationASpatialIndex();
-	virtual ~IterationASpatialIndex() {}
+  public:
+   IterationASpatialIndex();
+   virtual ~IterationASpatialIndex() {}
 
-	virtual int maxTileSize()	const { return _maxTileSize; }
-	virtual int tileCacheSize()	const { return _tileCacheSize; }
+   virtual int maxTileSize() const { return _maxTileSize; }
+   virtual int tileCacheSize() const { return _tileCacheSize; }
 
-	virtual void set_maxTileSize(int value) { _maxTileSize = value; }
-	virtual void set_tileCacheSize(int value) { _tileCacheSize = value; }
+   virtual void set_maxTileSize(int value) { _maxTileSize = value; }
+   virtual void set_tileCacheSize(int value) { _tileCacheSize = value; }
 
-private:
-	int _maxTileSize;		// = landscape["max_tile_size"];
-	int _tileCacheSize;		// = landscape["tile_cache_size"];
+  private:
+   int _maxTileSize;    // = landscape["max_tile_size"];
+   int _tileCacheSize;  // = landscape["tile_cache_size"];
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ITERATIONASPATIALINDEX_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ITERATIONASPATIALINDEX_H_

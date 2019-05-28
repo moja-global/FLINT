@@ -12,26 +12,25 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API IterationASpatialMongoIndex : public IterationBase {
-public:
-	IterationASpatialMongoIndex();
-	virtual ~IterationASpatialMongoIndex() {}
+  public:
+   IterationASpatialMongoIndex();
+   virtual ~IterationASpatialMongoIndex() {}
 
-	bool processAlldocuments() const { return _processAllDocuments; }
-	void set_processAlldocuments(bool val) { _processAllDocuments = val; }
+   bool processAlldocuments() const { return _processAllDocuments; }
+   void set_processAlldocuments(bool val) { _processAllDocuments = val; }
 
-	const std::vector<std::string>& documentIds() const { return _documentIds; }
-	std::vector<std::string>& documentIds() { return _documentIds; }
+   const std::vector<std::string>& documentIds() const { return _documentIds; }
+   std::vector<std::string>& documentIds() { return _documentIds; }
 
-	virtual void addDocumentId(std::string& documentId) { _documentIds.push_back(documentId); }
+   virtual void addDocumentId(std::string& documentId) { _documentIds.push_back(documentId); }
 
-private:
-
-	bool _processAllDocuments;
-	std::vector<std::string> _documentIds;
+  private:
+   bool _processAllDocuments;
+   std::vector<std::string> _documentIds;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ITERATIONASPATIALMONGOINDEX_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ITERATIONASPATIALMONGOINDEX_H_
