@@ -7,17 +7,17 @@ namespace moja {
 namespace flint {
 
 class TransactionManagerAfterSubmitModule : public ModuleBase {
-public:
-	TransactionManagerAfterSubmitModule() : ModuleBase() {}
-	virtual ~TransactionManagerAfterSubmitModule() = default;
+  public:
+   TransactionManagerAfterSubmitModule() : ModuleBase() {}
+   virtual ~TransactionManagerAfterSubmitModule() = default;
 
-	void configure(const DynamicObject& config) override;
-	void subscribe(NotificationCenter& notificationCenter) override;
+   void configure(const DynamicObject& config) override;
+   void subscribe(NotificationCenter& notificationCenter) override;
 
-	void onTimingPostStep() override;
-	void onPostNotification(short preMessageSignal) override;
+   void onTimingPostStep() override;
+   void onPostNotification(short preMessageSignal) override;
 };
 
-}
-} // namespace moja::flint
-#endif // MOJA_FLINT_TRANSACTIONMANAGERAFTERSUBMITMODULE_H_
+}  // namespace flint
+}  // namespace moja
+#endif  // MOJA_FLINT_TRANSACTIONMANAGERAFTERSUBMITMODULE_H_

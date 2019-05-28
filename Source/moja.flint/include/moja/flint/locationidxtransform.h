@@ -5,37 +5,36 @@
 
 namespace moja {
 namespace datarepository {
-	class IProviderLayer;
-	class TileBlockCellIndexer;
-}
+class IProviderLayer;
+class TileBlockCellIndexer;
+}  // namespace datarepository
 
 namespace flint {
 class IVariable;
 
 class FLINT_API LocationIdxTransform : public ITransform {
-public:
-	LocationIdxTransform() {};
+  public:
+   LocationIdxTransform(){};
 
-	void configure(DynamicObject config,
-		const ILandUnitController& landUnitController,
-		datarepository::DataRepository& dataRepository) override;
+   void configure(DynamicObject config, const ILandUnitController& landUnitController,
+                  datarepository::DataRepository& dataRepository) override;
 
-	void controllerChanged(const ILandUnitController& controller) override;
-	const DynamicVar& value() const override;
+   void controllerChanged(const ILandUnitController& controller) override;
+   const DynamicVar& value() const override;
 
-private:
-	const ILandUnitController* _landUnitController;
+  private:
+   const ILandUnitController* _landUnitController;
 
-	const IVariable* _tileIdx;
-	const IVariable* _blockIdx;
-	const IVariable* _cellIdx;
-	const datarepository::IProviderLayer* _layer;
-	const datarepository::TileBlockCellIndexer* _indexer;
+   const IVariable* _tileIdx;
+   const IVariable* _blockIdx;
+   const IVariable* _cellIdx;
+   const datarepository::IProviderLayer* _layer;
+   const datarepository::TileBlockCellIndexer* _indexer;
 
-	mutable DynamicVar _cachedValue;
+   mutable DynamicVar _cachedValue;
 };
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_LOCATIONIDXTRANSFORM_H_
+#endif  // MOJA_FLINT_LOCATIONIDXTRANSFORM_H_

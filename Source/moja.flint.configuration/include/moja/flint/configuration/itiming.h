@@ -8,15 +8,10 @@ namespace moja {
 namespace flint {
 namespace configuration {
 
-	enum class TimeStepping {
-		Monthly = 0,
-		Daily = 1,
-		Annual = 3
-	};
-
+enum class TimeStepping { Monthly = 0, Daily = 1, Annual = 3 };
 
 }
-}
-} // namespace moja::flint::configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ITIMING_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ITIMING_H_

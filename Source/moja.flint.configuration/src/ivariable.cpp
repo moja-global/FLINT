@@ -2,6 +2,6 @@
 
 namespace moja {
 namespace flint {
-namespace configuration {
-
-}}} // namespace moja::flint::configuration
+namespace configuration {}
+}  // namespace flint
+}  // namespace moja

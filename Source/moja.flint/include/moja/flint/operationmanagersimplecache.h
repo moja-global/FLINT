@@ -20,85 +20,92 @@ class ProportionalOperationSimpleCache;
 // --------------------------------------------------------------------------------------------
 
 class FLINT_API OperationManagerSimpleCache : public IOperationManager {
-	friend class StockOperationSimpleCache;
-	friend class ProportionalOperationSimpleCache;
-public:
-	OperationManagerSimpleCache(Timing& timing, const DynamicObject& config);
-	virtual ~OperationManagerSimpleCache() = default;
+   friend class StockOperationSimpleCache;
+   friend class ProportionalOperationSimpleCache;
 
-	// Operations
-	std::shared_ptr<IOperation> createStockOperation(IModule& module) override;
-	std::shared_ptr<IOperation> createStockOperation(IModule& module, DynamicVar& dataPackage) override;
-	std::shared_ptr<IOperation> createProportionalOperation(IModule& module) override;
-	std::shared_ptr<IOperation> createProportionalOperation(IModule& module, DynamicVar& dataPackage) override;
-	void applyOperations() override;
+  public:
+   OperationManagerSimpleCache(Timing& timing, const DynamicObject& config);
+   virtual ~OperationManagerSimpleCache() = default;
 
-	void clearAllOperationResults() override;
-	void clearLastAppliedOperationResults() override;
+   // Operations
+   std::shared_ptr<IOperation> createStockOperation(IModule& module) override;
+   std::shared_ptr<IOperation> createStockOperation(IModule& module, DynamicVar& dataPackage) override;
+   std::shared_ptr<IOperation> createProportionalOperation(IModule& module) override;
+   std::shared_ptr<IOperation> createProportionalOperation(IModule& module, DynamicVar& dataPackage) override;
+   void applyOperations() override;
 
-	const OperationResultCollection& operationResultsPending() const override;
-	const OperationResultCollection& operationResultsLastApplied() const override;
-	const OperationResultCollection& operationResultsCommitted() const override;
+   void clearAllOperationResults() override;
+   void clearLastAppliedOperationResults() override;
 
-	bool hasOperationResultsLastApplied() const override;
+   const OperationResultCollection& operationResultsPending() const override;
+   const OperationResultCollection& operationResultsLastApplied() const override;
+   const OperationResultCollection& operationResultsCommitted() const override;
 
-	// Pools
-	PoolCollection poolCollection() override;
+   bool hasOperationResultsLastApplied() const override;
 
-	void initialisePools() override;
+   // Pools
+   PoolCollection poolCollection() override;
 
-	int poolCount() override { return static_cast<int>(_poolValues.size()); }
+   void initialisePools() override;
 
-    const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale, int order, const std::shared_ptr<ITransform> transform) override { throw moja::NotImplementedException(); };
-    const IPool* addPool(const std::string& name, double initValue = 0.0) override;
-	const IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
-	                     double scale, int order, double initValue = 0.0) override;
-	const IPool* addPool(PoolMetaData& metadata, double initValue) override;
+   int poolCount() override { return static_cast<int>(_poolValues.size()); }
 
-	const IPool* getPool(const std::string& name) const override;
-	const IPool* getPool(int index) const override;;
+   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                        int order, const std::shared_ptr<ITransform> transform) override {
+      throw moja::NotImplementedException();
+   };
+   const IPool* addPool(const std::string& name, double initValue = 0.0) override;
+   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                        int order, double initValue = 0.0) override;
+   const IPool* addPool(PoolMetaData& metadata, double initValue) override;
 
-	// Details of instance
-	std::string name() const override { return "SimpleCache"; }
-	std::string version() const override { return "1.0"; }
-	std::string config() const override;;
+   const IPool* getPool(const std::string& name) const override;
+   const IPool* getPool(int index) const override;
+   ;
 
-protected:
-	void commitPendingOperationResults();
+   // Details of instance
+   std::string name() const override { return "SimpleCache"; }
+   std::string version() const override { return "1.0"; }
+   std::string config() const override;
+   ;
 
-	Timing& _timing;		// timing object for simulation
+  protected:
+   void commitPendingOperationResults();
 
-	std::vector<double>					_poolValues;		// pool values
-	std::vector<double>					_corrections;		// used for https://en.wikipedia.org/wiki/Kahan_summation_algorithm
+   Timing& _timing;  // timing object for simulation
 
-	std::vector<std::shared_ptr<IPool>>				_poolObjects;		// pool object vector
-	std::map<std::string, std::shared_ptr<IPool>>	_poolNameObjectMap;	// pool objects indexed by name
+   std::vector<double> _poolValues;   // pool values
+   std::vector<double> _corrections;  // used for https://en.wikipedia.org/wiki/Kahan_summation_algorithm
 
-	OperationResultCollection	_operationResultsPending;		// OperationResults (flux & meta-data) submitted by modules - waiting to be applied
-	OperationResultCollection	_operationResultsLastApplied;	// The most recently applied OperationResults (copy)
-	OperationResultCollection	_operationResultsCommitted;		// List of OperationResults that have been committed
+   std::vector<std::shared_ptr<IPool>> _poolObjects;                  // pool object vector
+   std::map<std::string, std::shared_ptr<IPool>> _poolNameObjectMap;  // pool objects indexed by name
 
-private:
-	bool _useKahan;
-	bool _allowZeroResultTransfers;
+   OperationResultCollection
+       _operationResultsPending;  // OperationResults (flux & meta-data) submitted by modules - waiting to be applied
+   OperationResultCollection _operationResultsLastApplied;  // The most recently applied OperationResults (copy)
+   OperationResultCollection _operationResultsCommitted;    // List of OperationResults that have been committed
 
-	// Pre-allocated Operations for processing
-	std::vector<std::shared_ptr<IOperation>>					_stockCache;
-	std::vector<std::shared_ptr<IOperation>>::iterator			_stockCachePosition;
+  private:
+   bool _useKahan;
+   bool _allowZeroResultTransfers;
 
-	std::vector<std::shared_ptr<IOperation>>					_proportionalCache;
-	std::vector<std::shared_ptr<IOperation>>::iterator			_proportionalCachePosition;
+   // Pre-allocated Operations for processing
+   std::vector<std::shared_ptr<IOperation>> _stockCache;
+   std::vector<std::shared_ptr<IOperation>>::iterator _stockCachePosition;
 
-	std::vector<std::shared_ptr<IOperationResult>>				_operationResultCache;
-	std::vector<std::shared_ptr<IOperationResult>>::iterator	_operationResultCachePosition;
+   std::vector<std::shared_ptr<IOperation>> _proportionalCache;
+   std::vector<std::shared_ptr<IOperation>>::iterator _proportionalCachePosition;
 
-	// Operations
-	void submitOperation(IOperation* operation) override;
+   std::vector<std::shared_ptr<IOperationResult>> _operationResultCache;
+   std::vector<std::shared_ptr<IOperationResult>>::iterator _operationResultCachePosition;
+
+   // Operations
+   void submitOperation(IOperation* operation) override;
 };
 
 #undef USE_INT_ITERATOR
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONMANAGERSIMPLECACHE_H_
+#endif  // MOJA_FLINT_OPERATIONMANAGERSIMPLECACHE_H_

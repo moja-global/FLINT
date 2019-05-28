@@ -10,20 +10,20 @@ class IOperationResultFlux;
 // --------------------------------------------------------------------------------------------
 
 class IOperationResultFluxIterator {
-public:
-	explicit IOperationResultFluxIterator() {}
-	virtual ~IOperationResultFluxIterator() {};
+  public:
+   explicit IOperationResultFluxIterator() {}
+   virtual ~IOperationResultFluxIterator(){};
 
-	virtual std::shared_ptr<IOperationResultFluxIterator> createIterator(bool atEnd = false) = 0;
+   virtual std::shared_ptr<IOperationResultFluxIterator> createIterator(bool atEnd = false) = 0;
 
-	virtual IOperationResultFlux* dereference() const = 0;
-	virtual void increment() = 0;
-	virtual void decrement() = 0;
+   virtual IOperationResultFlux* dereference() const = 0;
+   virtual void increment() = 0;
+   virtual void decrement() = 0;
 
-	virtual bool isEqual(IOperationResultFluxIterator& it) const = 0;
+   virtual bool isEqual(IOperationResultFluxIterator& it) const = 0;
 };
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_IOPERATIONRESULTFLUXITERATOR_H_
+#endif  // MOJA_FLINT_IOPERATIONRESULTFLUXITERATOR_H_

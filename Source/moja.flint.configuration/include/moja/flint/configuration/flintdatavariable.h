@@ -12,18 +12,18 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API FlintDataVariable : public IVariable {
-public:
-	explicit FlintDataVariable(const std::string& name, std::shared_ptr<FlintData> transform = nullptr);
-	virtual ~FlintDataVariable() {}
+  public:
+   explicit FlintDataVariable(const std::string& name, std::shared_ptr<FlintData> transform = nullptr);
+   virtual ~FlintDataVariable() {}
 
-	virtual inline const FlintData& flintdata() const { return *_flintdata; }
+   virtual inline const FlintData& flintdata() const { return *_flintdata; }
 
-private:
-	std::shared_ptr<FlintData> _flintdata;
+  private:
+   std::shared_ptr<FlintData> _flintdata;
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_FLINTDATAVARIABLE_H_
+#endif  // MOJA_FLINT_CONFIGURATION_FLINTDATAVARIABLE_H_

@@ -6,13 +6,14 @@
 namespace moja {
 namespace flint {
 
-extern "C" int getFlintModuleRegistrations				(moja::flint::ModuleRegistration*					outModuleRegistrations);
-extern "C" int getFlintTransformRegistrations			(moja::flint::TransformRegistration*				outTransformRegistrations);
-extern "C" int getFlintFlintDataRegistrations			(moja::flint::FlintDataRegistration*				outFlintDataRegistrations);
-extern "C" int getFlintFlintDataFactoryRegistrations	(moja::flint::FlintDataFactoryRegistration*			outFlintDataFactoryRegistrations);
-extern "C" int getDataRepositoryProviderRegistrations	(moja::flint::DataRepositoryProviderRegistration*	outDataRepositoryProviderRegistration);
+extern "C" int getFlintModuleRegistrations(ModuleRegistration* outModuleRegistrations);
+extern "C" int getFlintTransformRegistrations(TransformRegistration* outTransformRegistrations);
+extern "C" int getFlintFlintDataRegistrations(FlintDataRegistration* outFlintDataRegistrations);
+extern "C" int getFlintFlintDataFactoryRegistrations(FlintDataFactoryRegistration* outFlintDataFactoryRegistrations);
+extern "C" int getDataRepositoryProviderRegistrations(
+    DataRepositoryProviderRegistration* outDataRepositoryProviderRegistration);
 
-}
-}
+}  // namespace flint
+}  // namespace moja
 
-#endif	// MOJA_FLINT_LIBRARYFACTORY_H_
+#endif  // MOJA_FLINT_LIBRARYFACTORY_H_

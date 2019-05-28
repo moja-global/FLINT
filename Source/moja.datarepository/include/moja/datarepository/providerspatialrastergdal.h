@@ -2,7 +2,8 @@
 #define MOJA_DATAREPOSITORY_PROVIDERSPATIALRASTERGDAL_H_
 
 #include "moja/datarepository/iproviderspatialrasterinterface.h"
-#include "moja/dynamic.h"
+
+#include <moja/dynamic.h>
 
 #include <string>
 
@@ -13,16 +14,17 @@ namespace datarepository {
 // Moja Implmentation of a Spatial Raster data provider derived from IProviderSpatialRasterInterface.
 
 class DATAREPOSITORY_API ProviderSpatialRasterGDAL : public IProviderSpatialRasterInterface {
-public:
-	explicit ProviderSpatialRasterGDAL(DynamicObject settings) {}
-	ProviderSpatialRasterGDAL(ProviderSpatialRasterGDAL const&) = delete;
-	void operator=(ProviderSpatialRasterGDAL const&) = delete;
-	virtual ~ProviderSpatialRasterGDAL() = default;
+  public:
+   explicit ProviderSpatialRasterGDAL(DynamicObject settings) {}
+   ProviderSpatialRasterGDAL(ProviderSpatialRasterGDAL const&) = delete;
+   void operator=(ProviderSpatialRasterGDAL const&) = delete;
+   virtual ~ProviderSpatialRasterGDAL() = default;
 
-	DynamicVar GetValue(const std::string& name, double Latitude, double Longitude) override;
-	DynamicVar GetValueStack(const std::string& name, double Latitude, double Longitude) override;
+   DynamicVar GetValue(const std::string& name, double Latitude, double Longitude) override;
+   DynamicVar GetValueStack(const std::string& name, double Latitude, double Longitude) override;
 };
 
-}} // moja::datarepository
+}  // namespace datarepository
+}  // namespace moja
 
-#endif // MOJA_DATAREPOSITORY_PROVIDERSPATIALRASTERGDAL_H_
+#endif  // MOJA_DATAREPOSITORY_PROVIDERSPATIALRASTERGDAL_H_
