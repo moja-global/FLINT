@@ -26,14 +26,13 @@ if(Poco_FOUND)
 endif()
 
 # SQLite
-find_package(SQLite)
+find_package(SQLite3 REQUIRED)
 
 include_directories(
 	include 
 	../moja.core/include  
 	../moja.flint.configuration/include 
 	${Poco_INCLUDE_DIRS}
-	${Sqlite_INCLUDE_PATH}
 	)
 
 # Version Info
@@ -57,23 +56,15 @@ configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/$
 
 set(MOJA_DataRepository_Relational_headers
 	include/moja/${PACKAGE}/providerrelationalsqlite.h
-#   include/moja/${PACKAGE}/providerrelationalpocopostgresql.h
-#	include/moja/${PACKAGE}/providerrelationallibpqpostgresql.h
 )
 
 set(MOJA_DataRepository_Relational_sources
 	src/providerrelationalsqlite.cpp
-	# src/providerrelationalpocopostgresql.cpp
-#	src/providerrelationallibpqpostgresql.cpp
 )
 
 set(MOJA_DataRepository_NoSQL_headers
-##	include/moja/${PACKAGE}/providernosqlpocomongodb.h
-##	include/moja/${PACKAGE}/providernosqlpocojson.h
 )
 set(MOJA_DataRepository_NoSQL_sources
-##	src/providernosqlpocomongodb.cpp
-##	src/providernosqlpocojson.cpp
 )
 
 set(MOJA_DataRepository_SpatialRasterGDAL_headers
@@ -155,7 +146,7 @@ source_group("header files\\spatialvector"  FILES ${MOJA_DataRepository_SpatialV
 source_group("source files\\spatialvector"  FILES ${MOJA_DataRepository_SpatialVectorGDAL_sources})
 
 set(SRCS 
-	${Sqlite_INCLUDE_PATH}/sqlite3.c 
+	#${Sqlite_INCLUDE_PATH}/sqlite3.c 
 	${MOJA_DataRepository_sources}							${MOJA_DataRepository_headers}
 	${MOJA_DataRepository_Relational_sources}				${MOJA_DataRepository_Relational_headers}
 	${MOJA_DataRepository_NoSQL_sources}					${MOJA_DataRepository_NoSQL_headers}
@@ -179,6 +170,7 @@ target_link_libraries( ${LIBNAME}
 	moja.flint.configuration 
 	${Poco_FOUNDATION} 
 	${Poco_JSON} 
+	SQLite::SQLite3
 	)
 
 if (CMAKE_SYSTEM MATCHES "Linux" )
