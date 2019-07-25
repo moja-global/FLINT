@@ -4,7 +4,9 @@ namespace moja {
 namespace flint {
 namespace configuration {
 
-	Variable::Variable(const std::string& name, moja::DynamicVar value)
-		: IVariable(VariableType::Internal, name), _value(value) {}
+Variable::Variable(const std::string& name, moja::DynamicVar value)
+    : IVariable(VariableType::Internal, name), _value(value) {}
 
-}}} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

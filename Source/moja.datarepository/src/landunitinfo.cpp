@@ -11,26 +11,20 @@ namespace moja {
 namespace datarepository {
 
 LandUnitInfo::LandUnitInfo(const AspatialTileInfo& tile, Int64 id, double area) {
-	if (id < 1) {
-		BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("id")
-			<< Constraint("> 0"));
-	}
+   if (id < 1) {
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("id") << Constraint("> 0"));
+   }
 
-	if (area <= 0.0) {
-		BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("area")
-			<< Constraint("> 0"));
-	}
+   if (area <= 0.0) {
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("area") << Constraint("> 0"));
+   }
 
-	_tile = &tile;
-	_id = id;
-	_area = area;
+   _tile = &tile;
+   _id = id;
+   _area = area;
 }
 
-std::string LandUnitInfo::toString() const {
-	return (boost::format("Tile: %1% Cell: %2%")
-		% _tile->id()
-		% _id
-		).str();
-}
+std::string LandUnitInfo::toString() const { return (boost::format("Tile: %1% Cell: %2%") % _tile->id() % _id).str(); }
 
-}} // namespace moja::datarepository
+}  // namespace datarepository
+}  // namespace moja

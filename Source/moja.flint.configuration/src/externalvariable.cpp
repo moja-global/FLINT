@@ -7,7 +7,8 @@ namespace flint {
 namespace configuration {
 
 ExternalVariable::ExternalVariable(const std::string& name, std::shared_ptr<Transform> transform)
-	: IVariable(VariableType::External, name), _transform(transform) {
-}
+    : IVariable(VariableType::External, name), _transform(transform) {}
 
-}}} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

@@ -10,16 +10,16 @@ namespace flint {
 class ITiming;
 
 class FLINT_API SequencerModuleBase : public ModuleBase {
-public:
-	SequencerModuleBase() : ModuleBase() { };
-	virtual ~SequencerModuleBase() { }
+  public:
+   SequencerModuleBase() : ModuleBase(){};
+   virtual ~SequencerModuleBase() {}
 
-	virtual void configure(ITiming& timing);;
+   virtual void configure(ITiming& timing);
 
-	virtual bool Run(NotificationCenter& _notificationCenter, ILandUnitController& luc);
+   virtual bool Run(NotificationCenter& _notificationCenter, ILandUnitController& luc);
 };
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_SEQUENCERMODULEBASE_H_
+#endif  // MOJA_FLINT_SEQUENCERMODULEBASE_H_

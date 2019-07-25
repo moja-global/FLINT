@@ -9,15 +9,15 @@ namespace flint {
 namespace configuration {
 
 class CONFIGURATION_API IterationAreaOfInterest : public IterationBase {
-public:
-	explicit IterationAreaOfInterest();
-	virtual ~IterationAreaOfInterest() {}
+  public:
+   explicit IterationAreaOfInterest();
+   virtual ~IterationAreaOfInterest() {}
 
-private:
+  private:
 };
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CONFIGURATION_ITERATIONAREAOFINTEREST_H_
+#endif  // MOJA_FLINT_CONFIGURATION_ITERATIONAREAOFINTEREST_H_

@@ -7,38 +7,39 @@
 
 namespace moja {
 namespace flint {
-	class IOperation;
+class IOperation;
 
-	// --------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
 
 class OperationResultUblas : public IOperationResult {
-	friend class StockOperationUblas;
-	friend class ProportionalOperationUblas;
-public:
-	explicit OperationResultUblas(IOperation& operation);
-	virtual ~OperationResultUblas() = default;
+   friend class StockOperationUblas;
+   friend class ProportionalOperationUblas;
 
-	OperationResultFluxCollection operationResultFluxCollection() override;
+  public:
+   explicit OperationResultUblas(IOperation& operation);
+   virtual ~OperationResultUblas() = default;
 
-	OperationTransferType transferType() const override;
-	const ModuleMetaData* metaData() const override;
-	const DynamicVar& dataPackage() const override;
-	bool hasDataPackage() const override;
+   OperationResultFluxCollection operationResultFluxCollection() override;
 
-	const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
-	void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
+   OperationTransferType transferType() const override;
+   const ModuleMetaData* metaData() const override;
+   const DynamicVar& dataPackage() const override;
+   bool hasDataPackage() const override;
 
-protected:
-	OperationTransferType _transferType;
-	const ModuleMetaData* _metaData;
-	const DynamicVar _dataPackage;
-	const bool _hasDataPackage;
-	moja_ublas_matrix _fluxes;
+   const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
+   void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
 
-	Timing _timingWhenApplied;
+  protected:
+   OperationTransferType _transferType;
+   const ModuleMetaData* _metaData;
+   const DynamicVar _dataPackage;
+   const bool _hasDataPackage;
+   moja_ublas_matrix _fluxes;
+
+   Timing _timingWhenApplied;
 };
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONRESULTUBLAS_H_
+#endif  // MOJA_FLINT_OPERATIONRESULTUBLAS_H_

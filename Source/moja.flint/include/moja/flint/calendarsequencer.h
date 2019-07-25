@@ -1,10 +1,10 @@
 #ifndef MOJA_FLINT_CALENDARSEQUENCER_H_
 #define MOJA_FLINT_CALENDARSEQUENCER_H_
 
-#include "moja/flint/sequencermodulebase.h"
 #include "moja/flint/itiming.h"
+#include "moja/flint/sequencermodulebase.h"
 
-#include "moja/datetime.h"
+#include <moja/datetime.h>
 
 namespace moja {
 namespace flint {
@@ -13,28 +13,28 @@ namespace flint {
 // all in the one loop (rather than using EventHandlerModule & timingModule)
 // makes the fracOfStep and notification messages easier to calculate
 class CalendarSequencer : public SequencerModuleBase {
-public:
-	CalendarSequencer() {};
-	virtual ~CalendarSequencer() {};
+  public:
+   CalendarSequencer(){};
+   virtual ~CalendarSequencer(){};
 
-	void configure(ITiming& timing) override {
-		_startDate = timing.startDate();
-		_endDate = timing.endDate();
-	};
+   void configure(ITiming& timing) override {
+      _startDate = timing.startDate();
+      _endDate = timing.endDate();
+   };
 
-	bool Run(NotificationCenter& _notificationCenter, ILandUnitController& luc) override;
+   bool Run(NotificationCenter& _notificationCenter, ILandUnitController& luc) override;
 
-private:
-	moja::DateTime _startDate;
-	moja::DateTime _endDate;
-	moja::DateTime _actualStartDate;
-	moja::DateTime _actualEndDate;
-	int nSteps;
+  private:
+   moja::DateTime _startDate;
+   moja::DateTime _endDate;
+   moja::DateTime _actualStartDate;
+   moja::DateTime _actualEndDate;
+   int nSteps;
 
-	const int StepsPerYear = 12;
+   const int StepsPerYear = 12;
 };
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_CALENDARSEQUENCER_H_
+#endif  // MOJA_FLINT_CALENDARSEQUENCER_H_

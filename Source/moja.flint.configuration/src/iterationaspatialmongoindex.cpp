@@ -4,8 +4,9 @@ namespace moja {
 namespace flint {
 namespace configuration {
 
-IterationASpatialMongoIndex::IterationASpatialMongoIndex() : IterationBase(LocalDomainIterationType::ASpatialMongoIndex), _processAllDocuments(false) {}
+IterationASpatialMongoIndex::IterationASpatialMongoIndex()
+    : IterationBase(LocalDomainIterationType::ASpatialMongoIndex), _processAllDocuments(false) {}
 
-}
-}
-} // namespace moja::flint::configuration
+}  // namespace configuration
+}  // namespace flint
+}  // namespace moja

@@ -2,39 +2,38 @@
 #define MOJA_FLINT_LOCATIONFROMFLINTDATATRANSFORM_H_
 
 #include "moja/flint/itransform.h"
+
 #include <string>
 
-
 namespace moja {
-	namespace datarepository {
-		class IProviderSpatialRasterInterface;
-	}
+namespace datarepository {
+class IProviderSpatialRasterInterface;
+}
 
 namespace flint {
 class SpatialLocationInfo;
 
 class FLINT_API LocationFromFlintDataTransform : public ITransform {
-public:
-	LocationFromFlintDataTransform() : _spatialLocationInfo(nullptr) {}
+  public:
+   LocationFromFlintDataTransform() : _spatialLocationInfo(nullptr) {}
 
-	void configure(DynamicObject config,
-		const ILandUnitController& landUnitController,
-		datarepository::DataRepository& dataRepository) override;
+   void configure(DynamicObject config, const ILandUnitController& landUnitController,
+                  datarepository::DataRepository& dataRepository) override;
 
-	void controllerChanged(const ILandUnitController& controller) override;
-	const DynamicVar& value() const override;
+   void controllerChanged(const ILandUnitController& controller) override;
+   const DynamicVar& value() const override;
 
-private:
-	const ILandUnitController* _landUnitController;
-	datarepository::DataRepository* _dataRepository;
-	std::shared_ptr<datarepository::IProviderSpatialRasterInterface> _provider;
+  private:
+   const ILandUnitController* _landUnitController;
+   datarepository::DataRepository* _dataRepository;
+   std::shared_ptr<datarepository::IProviderSpatialRasterInterface> _provider;
 
-	std::string _dataId;
-	mutable std::shared_ptr<const SpatialLocationInfo> _spatialLocationInfo;
-	mutable DynamicVar _cachedValue;
+   std::string _dataId;
+   mutable std::shared_ptr<const SpatialLocationInfo> _spatialLocationInfo;
+   mutable DynamicVar _cachedValue;
 };
 
-}
-} // namespace moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_LOCATIONFROMFLINTDATATRANSFORM_H_
+#endif  // MOJA_FLINT_LOCATIONFROMFLINTDATATRANSFORM_H_
