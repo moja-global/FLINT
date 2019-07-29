@@ -67,13 +67,11 @@ set(PROJECT_FLINTDATA_SOURCES
 set(PROJECT_PROVIDER_HEADERS
     include/moja/modules/${PACKAGE}/providernosqlpocomongodb.h
     include/moja/modules/${PACKAGE}/providernosqlpocojson.h
-#    include/moja/modules/${PACKAGE}/providerrelationalpocopostgresql.h
 )
 
 set(PROJECT_PROVIDER_SOURCES
     src/providernosqlpocomongodb.cpp
     src/providernosqlpocojson.cpp
-#	src/providerrelationalpocopostgresql.cpp
 )
 
 source_group("header files\\other"					FILES ${PROJECT_HEADERS})

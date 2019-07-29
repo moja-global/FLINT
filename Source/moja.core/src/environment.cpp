@@ -10,8 +10,6 @@
 
 namespace moja {
 
-std::string Environment::startProcessFolder() {
-	return EnvironmentImpl::startProcessFolderImpl();
-}
+std::string Environment::startProcessFolder() { return EnvironmentImpl::startProcessFolderImpl(); }
 
-} // namespace moja
+}  // namespace moja

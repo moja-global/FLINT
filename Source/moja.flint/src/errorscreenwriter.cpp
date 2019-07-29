@@ -1,7 +1,7 @@
 #include "moja/flint/errorscreenwriter.h"
 
-#include <moja/flint/ivariable.h>
-#include <moja/flint/spatiallocationinfo.h>
+#include "moja/flint/ivariable.h"
+#include "moja/flint/spatiallocationinfo.h"
 
 #include <moja/logging.h>
 #include <moja/notificationcenter.h>

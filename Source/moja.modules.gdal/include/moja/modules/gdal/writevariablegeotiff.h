@@ -3,176 +3,177 @@
 
 #include "moja/modules/gdal/_modules.gdal_exports.h"
 
-#include "moja/flint/modulebase.h"
-#include "moja/flint/ioperationresult.h"
-#include "moja/flint/ioperationresultflux.h"
-#include "moja/flint/ipool.h"
-#include "moja/flint/flux.h"
+#include <moja/flint/flux.h>
+#include <moja/flint/ioperationresult.h>
+#include <moja/flint/ipool.h>
+#include <moja/flint/modulebase.h>
 
-#include <boost/algorithm/string.hpp>
-
-#include <gdal_priv.h>
-
-#include <algorithm>
 #include <unordered_map>
 
 namespace moja {
 
 namespace flint {
-    class SpatialLocationInfo;
-} // namespace moja::flint
+class SpatialLocationInfo;
+}  // namespace flint
 
 namespace modules {
 namespace gdal {
 
 class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
-public:
-	explicit WriteVariableGeotiff(Poco::Mutex& fileHandlingMutex) : ModuleBase(), _fileHandlingMutex(fileHandlingMutex), _useIndexesForFolderName(false), _forceVariableFolderName(true), _applyAreaAdjustment(false){}
-	virtual ~WriteVariableGeotiff() = default;
+  public:
+   enum class data_type
+   {
+      unknown = 0,
+      byte = 1,
+      u_int16 = 2,
+      int16 = 3,
+      u_int32 = 4,
+      int32 = 5,
+      float32 = 6,
+      float64 = 7,
+   };
 
-	void configure(const DynamicObject& config) override;
-	void subscribe(NotificationCenter& notificationCenter) override;
+   explicit WriteVariableGeotiff(Poco::Mutex& fileHandlingMutex)
+       : _fileHandlingMutex(fileHandlingMutex),
+         _useIndexesForFolderName(false),
+         _forceVariableFolderName(true),
+         _applyAreaAdjustment(false) {}
+   virtual ~WriteVariableGeotiff() = default;
 
-	// Notification handlers
-	void onSystemInit() override;
-	void onLocalDomainInit() override;
-	void onLocalDomainProcessingUnitInit() override;
-	void onLocalDomainProcessingUnitShutdown() override;
-	void onPreTimingSequence() override;
-	void onTimingInit() override;
-	void onTimingShutdown() override;
-	void onOutputStep() override;
-	void onError(std::string msg) override;
+   void configure(const DynamicObject& config) override;
+   void subscribe(NotificationCenter& notificationCenter) override;
 
-	// --- RAII class for file handle
-	class FileHandle {
-		typedef FILE *ptr;
-	public:
-		explicit FileHandle(std::string const& name, std::string const& mode = std::string("r")) :
-			_wrapped_file(fopen(name.c_str(), mode.c_str())) {}
-		~FileHandle() { if (_wrapped_file) fclose(_wrapped_file); }
-		operator ptr() const { return _wrapped_file; }
-	private:
-		ptr _wrapped_file;
-	};
+   // Notification handlers
+   void onSystemInit() override;
+   void onLocalDomainInit() override;
+   void onLocalDomainProcessingUnitInit() override;
+   void onLocalDomainProcessingUnitShutdown() override;
+   void onPreTimingSequence() override;
+   void onTimingInit() override;
+   void onTimingShutdown() override;
+   void onOutputStep() override;
+   void onError(std::string msg) override;
 
-	// --- Base classs for data layer
-	class DataSettingsB {
-	public:
-        DataSettingsB(Poco::Mutex& fileHandlingMutex, GDALDataType dataType) :
-			notificationType(OnNotificationType::TimingInit),
-			_useIndexesForFolderName(false),
-			_forceVariableFolderName(true),
-			_applyAreaAdjustment(false),
-			_subtractPrevValue(false),
-			_isArray(false),
-			_arrayIndex(0), 
-			_outputAnnually(false),
-			_dataType(dataType),
-			_variable(nullptr),
-            _pool(),
-			_fileHandlingMutex(fileHandlingMutex) {}
+   // --- Base class for data layer
+   class DataSettingsB {
+     public:
+      DataSettingsB(Poco::Mutex& fileHandlingMutex, data_type dataType)
+          : notificationType(OnNotificationType::TimingInit),
+            _useIndexesForFolderName(false),
+            _forceVariableFolderName(true),
+            _applyAreaAdjustment(false),
+            _subtractPrevValue(false),
+            _isArray(false),
+            _arrayIndex(0),
+            _outputAnnually(false),
+            _dataType(dataType),
+            _variable(nullptr),
+            _fileHandlingMutex(fileHandlingMutex) {}
 
-		virtual ~DataSettingsB() = default;
+      virtual ~DataSettingsB() = default;
 
-		virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName, bool applyAreaAdjustment, const DynamicObject& config) = 0;
-		virtual void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
-		virtual void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
-		virtual void doLocalDomainProcessingUnitInit(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) = 0;
-		virtual void doLocalDomainProcessingUnitShutdown(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) = 0;
-		virtual void setLUValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) = 0;
+      virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
+                             bool applyAreaAdjustment, const DynamicObject& config) = 0;
+      virtual void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
+      virtual void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
+      virtual void doLocalDomainProcessingUnitInit(
+          std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) = 0;
+      virtual void doLocalDomainProcessingUnitShutdown(
+          std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) = 0;
+      virtual void setLUValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) = 0;
 
-		virtual void initData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timeStep) = 0;
+      virtual void initData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timeStep) = 0;
 
-		enum class OnNotificationType {
-			TimingInit,
-            OutputStep,
-			TimingShutdown,
-			Error
-		};
+      enum class OnNotificationType { TimingInit, OutputStep, TimingShutdown, Error };
 
-		// Set by onNotification string: only 
-		OnNotificationType notificationType;
+      // Set by onNotification string: only
+      OnNotificationType notificationType;
 
-	protected:
-		friend class WriteVariableGeotiff;
+     protected:
+      friend class WriteVariableGeotiff;
 
-		// Config settings
-		std::string _name;				// "data_name"
-		bool		_useIndexesForFolderName;
-		bool		_forceVariableFolderName;
-		bool		_applyAreaAdjustment;
-		bool		_subtractPrevValue;
-		std::string _outputPath;		// "output_path"
-		std::string _variableName;		// "variable_name"
-        std::string _propertyName;		// "property_name"
-        std::vector<std::string> _poolName;   // "pool_name"
-        std::vector<flint::Flux> _flux;              // "flux" - flux groups to aggregate
-        std::string _variableDataType;	// "variable_data_type"
-		std::string _onNotification;	// when to capture the variable value (which notification method) - TimingInit [default], TimingShutdown, Error
-		bool		_isArray;			//	"is_array"
-		int			_arrayIndex;		//	"array_index"
-		bool		_outputAnnually;			// Output last step of a year only
-        int         _outputInterval = 1;    // output every nth timestep (default: every timestep)
+      // Config settings
+      std::string _name;  // "data_name"
+      bool _useIndexesForFolderName;
+      bool _forceVariableFolderName;
+      bool _applyAreaAdjustment;
+      bool _subtractPrevValue;
+      std::string _outputPath;             // "output_path"
+      std::string _variableName;           // "variable_name"
+      std::string _propertyName;           // "property_name"
+      std::vector<std::string> _poolName;  // "pool_name"
+      std::vector<flint::Flux> _flux;      // "flux" - flux groups to aggregate
+      std::string _variableDataType;       // "variable_data_type"
+      std::string _onNotification;  // when to capture the variable value (which notification method) - TimingInit
+                                    // [default], TimingShutdown, Error
+      bool _isArray;                //	"is_array"
+      int _arrayIndex;              //	"array_index"
+      bool _outputAnnually;         // Output last step of a year only
+      int _outputInterval = 1;      // output every nth timestep (default: every timestep)
 
-		GDALDataType _dataType;				// GDAL Data type
+      data_type _dataType;
 
-		// Other
-		const flint::IVariable* _variable;
-        std::vector<const flint::IPool*> _pool;
-        std::string _tileFolderPath;
-        Poco::Mutex& _fileHandlingMutex;
-	};
+      // Other
+      const flint::IVariable* _variable;
+      std::vector<const flint::IPool*> _pool;
+      std::string _tileFolderPath;
+      Poco::Mutex& _fileHandlingMutex;
+   };
 
-	// --- Templated version of Base classs for data layer types
-	template <typename T>
-	class DataSettingsT : public DataSettingsB {
-	public:
-        DataSettingsT(Poco::Mutex& fileHandlingMutex, GDALDataType dataType) : DataSettingsB(fileHandlingMutex, dataType) {};
-		~DataSettingsT() = default;
+   // --- Templated version of Base class for data layer types
+   template <typename T>
+   class DataSettingsT : public DataSettingsB {
+     public:
+      DataSettingsT(Poco::Mutex& fileHandlingMutex, data_type dataType)
+          : DataSettingsB(fileHandlingMutex, dataType){};
+      ~DataSettingsT() = default;
 
-		virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName, bool applyAreaAdjustment, const DynamicObject& config) override;
+      void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
+                             bool applyAreaAdjustment, const DynamicObject& config) override;
 
-		void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) override;
-		void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) override;
-		void doLocalDomainProcessingUnitInit(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) override;
-		void doLocalDomainProcessingUnitShutdown(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) override;
-		T applyValueAdjustment(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep, const T val);
-		void setLUValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) override;
-		void initData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timeStep) override;
-	private:
-		// templated data
-		T _nodataValue;			// "nodata_value"
-		std::unordered_map<int, std::vector<T>> _data;	// array of data
-        flint::ILandUnitDataWrapper* _landUnitData;
+      void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) override;
+      void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) override;
+      void doLocalDomainProcessingUnitInit(
+          std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) override;
+      void doLocalDomainProcessingUnitShutdown(
+          std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) override;
+      T applyValueAdjustment(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep,
+                             const T val);
+      void setLUValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) override;
+      void initData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timeStep) override;
 
-        void initializeData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, std::vector<T>& data);
-        void setLUVariableValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
-        void setLUPoolValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
-        void setLUFluxValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
-        void addFlux(const DynamicVar& fluxGroupConfig);
-    };
+     private:
+      // templated data
+      T _nodataValue;                                 // "nodata_value"
+      std::unordered_map<int, std::vector<T>> _data;  // array of data
+      flint::ILandUnitDataWrapper* _landUnitData;
 
-private:
-	// Mutexes
-    Poco::Mutex& _fileHandlingMutex;
+      void initializeData(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, std::vector<T>& data);
+      void setLUVariableValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
+      void setLUPoolValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
+      void setLUFluxValue(std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep);
+      void addFlux(const DynamicVar& fluxGroupConfig);
+   };
 
-	// FlintData
-	std::shared_ptr<const flint::SpatialLocationInfo> _spatialLocationInfo;
+  private:
+   // Mutexes
+   Poco::Mutex& _fileHandlingMutex;
 
-	// Other
-	bool _useIndexesForFolderName;
-	bool _forceVariableFolderName;
-	bool _applyAreaAdjustment;
-	std::string _globalOutputPath;			// global "output_path"
-	std::vector<std::unique_ptr<DataSettingsB>> _dataVecT;	// Spatial Output Data Vector
+   // FlintData
+   std::shared_ptr<const flint::SpatialLocationInfo> _spatialLocationInfo;
 
-    int getTimestep() const;
+   // Other
+   bool _useIndexesForFolderName;
+   bool _forceVariableFolderName;
+   bool _applyAreaAdjustment;
+   std::string _globalOutputPath;                          // global "output_path"
+   std::vector<std::unique_ptr<DataSettingsB>> _dataVecT;  // Spatial Output Data Vector
+
+   int getTimestep() const;
 };
 
+}  // namespace gdal
+}  // namespace modules
+}  // namespace moja
 
-}
-}
-} // namespace moja::modules::gdal
-
-#endif // MOJA_MODULES_GDAL_WRITEVARIABLEGEOTIFF_H_
+#endif  // MOJA_MODULES_GDAL_WRITEVARIABLEGEOTIFF_H_

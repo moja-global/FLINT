@@ -1,14 +1,13 @@
 #include "moja/flint/landunitcontroller.h"
 
+#include "moja/flint/configuration/configuration.h"
+#include "moja/flint/configuration/localdomain.h"
 #include "moja/flint/flintexceptions.h"
 #include "moja/flint/ioperation.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/operationmanagersimple.h"
 #include "moja/flint/operationmanagersimplecache.h"
 #include "moja/flint/operationmanagerublas.h"
-
-#include <moja/flint/configuration/configuration.h>
-#include <moja/flint/configuration/localdomain.h>
 
 #include <moja/dynamic.h>
 #include <moja/logging.h>

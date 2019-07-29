@@ -129,7 +129,6 @@ set(MOJA_FLINT_FLINTDATA_HEADERS
 
 set(MOJA_FLINT_HEADERS
 	include/moja/flint/aspatiallocaldomaincontroller.h
-#	include/moja/flint/aspatialnosqllocaldomaincontroller.h
 	include/moja/flint/calendarandeventsequencer.h
 	include/moja/flint/calendarandeventflintdatasequencer.h
 	include/moja/flint/calendarsequencer.h
@@ -197,6 +196,7 @@ set(MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS
 	include/moja/flint/operationresultfluxiteratorsimple.h
 	include/moja/flint/operationproportionalsimple.h
 	include/moja/flint/operationstocksimple.h
+	include/moja/flint/operationresultsimple.h
 	include/moja/flint/operationtransfersimple.h
 	include/moja/flint/poolsimple.h
 )
@@ -265,7 +265,6 @@ set(MOJA_FLINT_FLINTDATA_SOURCES
 
 set(MOJA_FLINT_SOURCES
 	src/aspatiallocaldomaincontroller.cpp
-#	src/aspatialnosqllocaldomaincontroller.cpp
 	src/calendarandeventsequencer.cpp
 	src/calendarandeventflintdatasequencer.cpp
 	src/calendarsequencer.cpp
