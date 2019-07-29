@@ -12,12 +12,10 @@
 // clang-format on
 
 namespace folly {
-namespace hash {
 template <typename T>
 struct hasher<Poco::Nullable<T>> {
    size_t operator()(const Poco::Nullable<T>& key) const { return key.isNull() ? 0 : Hash()(key.value()); }
 };
-}  // namespace hash
 }  // namespace folly
 namespace moja {
 using folly::apply;
