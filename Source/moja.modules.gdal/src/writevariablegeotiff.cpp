@@ -1,5 +1,7 @@
 #include "moja/modules/gdal/writevariablegeotiff.h"
 
+#include "moja/exception.h"
+
 #include <moja/flint/iflintdata.h>
 #include <moja/flint/ipool.h>
 #include <moja/flint/itiming.h>
@@ -14,11 +16,12 @@
 #include <Poco/Mutex.h>
 #include <Poco/Path.h>
 
+#include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 #include <boost/format/group.hpp>
-#include <boost/iostreams/stream_buffer.hpp>
 
 #include <cmath>
+#include <gdal_priv.h>
 #include <limits>
 #include <string>
 
@@ -52,30 +55,25 @@ void WriteVariableGeotiff::configure(const DynamicObject& config) {
          const auto variableDataType = itemConfig["variable_data_type"].convert<std::string>();
 
          if (variableDataType == "UInt8") {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt8>>(_fileHandlingMutex, GDALDataType::GDT_Byte));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt8>>(_fileHandlingMutex, data_type::byte));
          } else if (variableDataType == "UInt16") {
-            _dataVecT.emplace_back(
-                std::make_unique<DataSettingsT<UInt16>>(_fileHandlingMutex, GDALDataType::GDT_UInt16));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt16>>(_fileHandlingMutex, data_type::u_int16));
          } else if (variableDataType == "Int16") {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int16>>(_fileHandlingMutex, GDALDataType::GDT_Int16));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int16>>(_fileHandlingMutex, data_type::int16));
          } else if (variableDataType == "Int32") {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int32>>(_fileHandlingMutex, GDALDataType::GDT_Int32));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int32>>(_fileHandlingMutex, data_type::int32));
          } else if (variableDataType == "UInt32") {
-            _dataVecT.emplace_back(
-                std::make_unique<DataSettingsT<UInt32>>(_fileHandlingMutex, GDALDataType::GDT_UInt32));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt32>>(_fileHandlingMutex, data_type::u_int32));
          } else if (variableDataType == "Int64") {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int32>>(_fileHandlingMutex, GDALDataType::GDT_Int32));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<Int32>>(_fileHandlingMutex, data_type::int32));
          } else if (variableDataType == "UInt64") {
-            _dataVecT.emplace_back(
-                std::make_unique<DataSettingsT<UInt32>>(_fileHandlingMutex, GDALDataType::GDT_UInt32));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt32>>(_fileHandlingMutex, data_type::u_int32));
          } else if (variableDataType == "float") {
-            _dataVecT.emplace_back(
-                std::make_unique<DataSettingsT<float>>(_fileHandlingMutex, GDALDataType::GDT_Float32));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<float>>(_fileHandlingMutex, data_type::float32));
          } else if (variableDataType == "double") {
-            _dataVecT.emplace_back(
-                std::make_unique<DataSettingsT<double>>(_fileHandlingMutex, GDALDataType::GDT_Float64));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<double>>(_fileHandlingMutex, data_type::float64));
          } else {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<int>>(_fileHandlingMutex, GDALDataType::GDT_Int16));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<int>>(_fileHandlingMutex, data_type::int16));
          }
 
          _dataVecT.back()->configure(_globalOutputPath, _useIndexesForFolderName, _forceVariableFolderName,
@@ -233,7 +231,7 @@ void WriteVariableGeotiff::DataSettingsT<T>::configure(std::string& globalOutput
    _nodataValue = config.contains("nodata_value")
                       ? config["nodata_value"].convert<T>()
                       : std::numeric_limits<T>::is_integer ? std::numeric_limits<T>::lowest()
-                                                           : -pow(10.0, std::numeric_limits<T>::max_exponent10);
+                                                           : T(-pow(10.0, std::numeric_limits<T>::max_exponent10));
 
    if (config.contains("pool_name")) {
       if (config["pool_name"].isVector()) {
@@ -406,76 +404,141 @@ void WriteVariableGeotiff::DataSettingsT<T>::initializeData(
 }
 
 // --------------------------------------------------------------------------------------------
+GDALDataType gdal_type(WriteVariableGeotiff::data_type type) {
+   switch (type) {
+      case WriteVariableGeotiff::data_type::int32:
+         return GDALDataType::GDT_Int32;
+      case WriteVariableGeotiff::data_type::unknown:
+         return GDALDataType::GDT_Unknown;
+      case WriteVariableGeotiff::data_type::byte:
+         return GDALDataType::GDT_Byte;
+      case WriteVariableGeotiff::data_type::u_int16:
+         return GDALDataType::GDT_UInt16;
+      case WriteVariableGeotiff::data_type::int16:
+         return GDALDataType::GDT_Int16;
+      case WriteVariableGeotiff::data_type::u_int32:
+         return GDALDataType::GDT_UInt32;
+      case WriteVariableGeotiff::data_type::float32:
+         return GDALDataType::GDT_Float32;
+      case WriteVariableGeotiff::data_type::float64:
+         return GDALDataType::GDT_Float64;
+      default:
+         return GDALDataType::GDT_Unknown;
+   }
+}
+
+struct dataset_closer {
+   dataset_closer(GDALDataset* dataset) : gdal_dataset_(dataset) {}
+
+   void operator()(GDALRasterBand* band) const {
+      auto gdal_dataset = band ? band->GetDataset() : nullptr;
+      assert(gdal_dataset == gdal_dataset_);
+      if (gdal_dataset) {
+         if (band && band->GetAccess() == GA_Update) {
+            double min, max, mean, std_dev;
+            auto try_statistics = band->GetStatistics(FALSE, FALSE, &min, &max, &mean, &std_dev);
+            if (try_statistics != CE_Warning) {
+               band->ComputeStatistics(FALSE, &min, &max, &mean, &std_dev, nullptr, nullptr);
+               band->SetStatistics(min, max, mean, std_dev);
+            }
+         }
+         GDALFlushCache(gdal_dataset);
+         GDALClose(gdal_dataset);
+      }
+   }
+   GDALDataset* gdal_dataset_;
+};
+
+static std::shared_ptr<GDALRasterBand> create_gdalraster(const Poco::File& path, int rows, int cols,
+                                                         GDALDataType datatype, double* transform) {
+   if (GDALGetDriverCount() == 0) {
+      GDALAllRegister();
+   }
+
+   GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
+
+   char** options = nullptr;
+   options = CSLSetNameValue(options, "TILED", "YES");
+   options = CSLSetNameValue(options, "COMPRESS", "DEFLATE");
+
+   auto dataset = driver->Create(path.path().c_str(), cols, rows, 1, datatype, options);
+   if (dataset == nullptr) {
+      std::ostringstream oss;
+      oss << "Could not create raster file: " << path.path() << std::endl;
+      throw ApplicationException(oss.str());
+   }
+   dataset->SetGeoTransform(transform);
+   OGRSpatialReference srs;
+   srs.SetWellKnownGeogCS("EPSG:4326");
+   char* srs_wkt = nullptr;
+   srs.exportToWkt(&srs_wkt);
+   dataset->SetProjection(srs_wkt);
+   CPLFree(srs_wkt);
+   auto band = dataset->GetRasterBand(1);
+   return std::shared_ptr<GDALRasterBand>(band, dataset_closer(dataset));
+}
 
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) {
    Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
 
+   Poco::File tileFolder(_tileFolderPath);
+   std::string folderLocStr;
+   if (_useIndexesForFolderName) {
+      folderLocStr =
+          (boost::format("%1%_%2%") % boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx) %
+           boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
+              .str();
+   } else {
+      folderLocStr =
+          (boost::format("%1%%2%_%3%%4%_%5%") % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
+           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
+           (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
+           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)) %
+           boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
+              .str();
+   }
+
+   int cellRows = spatialLocationInfo->_cellRows;
+   int cellCols = spatialLocationInfo->_cellCols;
+   double adfGeoTransform[6] = {spatialLocationInfo->_blockLatLon.lon,
+                                1.0 / spatialLocationInfo->_blockCols / cellCols,
+                                0,
+                                spatialLocationInfo->_blockLatLon.lat,
+                                0,
+                                -1.0 / spatialLocationInfo->_blockRows / cellRows};
+
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
    for (auto it = _data.begin(); it != _data.end(); ++it) {
-      const auto& timestepData = (*it);
-
-      Poco::File tileFolder(_tileFolderPath);
-      std::string folderLocStr;
-      if (_useIndexesForFolderName) {
-         folderLocStr = (boost::format("%1%_%2%") %
-                         boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx) %
-                         boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
-                            .str();
-      } else {
-         folderLocStr =
-             (boost::format("%1%%2%_%3%%4%_%5%") % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
-              boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
-              (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
-              boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)) %
-              boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
-                 .str();
-      }
+      auto& timestepData = (*it);
 
       auto filename = (boost::format("%1%%2%%3%_%4%_%5%.tif") % tileFolder.path() % Poco::Path::separator() % _name %
                        folderLocStr % timestepData.first)
                           .str();
 
-      Poco::File block(filename);
-      if (block.exists()) {
-         block.remove(false);  // delete existing file
+      Poco::File block_path(filename);
+      if (block_path.exists()) {
+         block_path.remove(false);  // delete existing file
       }
 
-      int cellRows = spatialLocationInfo->_cellRows;
-      int cellCols = spatialLocationInfo->_cellCols;
-      if (GDALGetDriverCount() == 0) {
-         GDALAllRegister();
+      auto band = create_gdalraster(block_path, cellRows, cellCols, gdal_type(_dataType), adfGeoTransform);
+      auto err = band->SetNoDataValue(_nodataValue);
+      if (err != CE_None) {
+         std::ostringstream oss;
+         oss << "Could not set raster file nodata: " << block_path.path() << " (" << _nodataValue << ")" << std::endl;
+         throw ApplicationException(oss.str());
       }
-      GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
-
-      char** options = NULL;
-      options = CSLSetNameValue(options, "COMPRESS", "DEFLATE");
-
-      GDALDataset* dataset;
-      dataset = driver->Create(filename.c_str(), cellCols, cellRows, 1, _dataType, options);
-      double adfGeoTransform[6] = {spatialLocationInfo->_blockLatLon.lon,
-                                   1.0 / spatialLocationInfo->_blockCols / cellCols,
-                                   0,
-                                   spatialLocationInfo->_blockLatLon.lat,
-                                   0,
-                                   -1.0 / spatialLocationInfo->_blockRows / cellRows};
-
-      dataset->SetGeoTransform(adfGeoTransform);
-      OGRSpatialReference srs;
-      srs.SetWellKnownGeogCS("EPSG:4326");
-      char* srsWkt = NULL;
-      srs.exportToWkt(&srsWkt);
-      dataset->SetProjection(srsWkt);
-      CPLFree(srsWkt);
-
-      GDALRasterBand* band = dataset->GetRasterBand(1);
-      band->SetNoDataValue(_nodataValue);
 
       if (_subtractPrevValue) {
          if (it == _data.begin()) {  // prev value is 0
-            band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, (void*)timestepData.second.data(), cellCols, cellRows,
-                           _dataType, 0, 0);
+            auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, timestepData.second.data(), cellCols,
+                                      cellRows, gdal_type(_dataType), 0, 0);
+            if (err != CE_None) {
+               std::ostringstream oss;
+               oss << "Could not write to raster file: " << block_path.path() << std::endl;
+               throw ApplicationException(oss.str());
+            }
          } else {
             // I know i have a prevIt
             const auto& timestepDataPrev = (*itPrev);
@@ -487,20 +550,28 @@ void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown
                newData.push_back(*it1 - *it2);
             }
 
-            band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, (void*)newData.data(), cellCols, cellRows, _dataType, 0,
-                           0);
+            auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, newData.data(), cellCols, cellRows,
+                                      gdal_type(_dataType), 0, 0);
+            if (err != CE_None) {
+               std::ostringstream oss;
+               oss << "Could not write to raster file: " << block_path.path() << std::endl;
+               throw ApplicationException(oss.str());
+            }
          }
       } else {
-         band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, (void*)timestepData.second.data(), cellCols, cellRows,
-                        _dataType, 0, 0);
+         auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, timestepData.second.data(), cellCols,
+                                   cellRows, gdal_type(_dataType), 0, 0);
+         if (err != CE_None) {
+            std::ostringstream oss;
+            oss << "Could not write to raster file: " << block_path.path() << std::endl;
+            throw ApplicationException(oss.str());
+         }
       }
-      GDALFlushCache(dataset);
-      GDALClose(dataset);
       itPrev = it;
    }
 
    _data.clear();
-}
+}  // namespace gdal
 
 // --------------------------------------------------------------------------------------------
 
