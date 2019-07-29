@@ -6,10 +6,19 @@
 
 #include <Poco/Nullable.h>
 
-#include <folly/hash/Hash.h>
-
+// clang-format off
 #include <functional>  // needed by folly
+#include <folly/hash/Hash.h>
+// clang-format on
 
+namespace folly {
+namespace hash {
+template <typename T>
+struct hasher<Poco::Nullable<T>> {
+   size_t operator()(const Poco::Nullable<T>& key) const { return key.isNull() ? 0 : Hash()(key.value()); }
+};
+}  // namespace hash
+}  // namespace folly
 namespace moja {
 using folly::apply;
 using folly::Hash;
@@ -27,11 +36,6 @@ using folly::hash::hash_combine_generic;
 using folly::hash::hash_range;
 
 // using folly::hash::SpookyHashV2;
-
-template <typename T>
-struct hasher<Poco::Nullable<T>> {
-   size_t operator()(const Poco::Nullable<T>& key) const { return key.isNull() ? 0 : Hash()(key.value()); }
-};
 
 }  // namespace hash
 }  // namespace moja
