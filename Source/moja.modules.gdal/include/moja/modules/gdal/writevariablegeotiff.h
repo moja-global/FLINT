@@ -8,9 +8,6 @@
 #include <moja/flint/ipool.h>
 #include <moja/flint/modulebase.h>
 
-#include <boost/algorithm/string.hpp>
-
-#include <gdal_priv.h>
 #include <unordered_map>
 
 namespace moja {
@@ -24,9 +21,20 @@ namespace gdal {
 
 class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
   public:
+   enum class data_type
+   {
+      unknown = 0,
+      byte = 1,
+      u_int16 = 2,
+      int16 = 3,
+      u_int32 = 4,
+      int32 = 5,
+      float32 = 6,
+      float64 = 7,
+   };
+
    explicit WriteVariableGeotiff(Poco::Mutex& fileHandlingMutex)
-       : ModuleBase(),
-         _fileHandlingMutex(fileHandlingMutex),
+       : _fileHandlingMutex(fileHandlingMutex),
          _useIndexesForFolderName(false),
          _forceVariableFolderName(true),
          _applyAreaAdjustment(false) {}
@@ -46,26 +54,10 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
    void onOutputStep() override;
    void onError(std::string msg) override;
 
-   // --- RAII class for file handle
-   class FileHandle {
-      typedef FILE* ptr;
-
-     public:
-      explicit FileHandle(std::string const& name, std::string const& mode = std::string("r"))
-          : _wrapped_file(fopen(name.c_str(), mode.c_str())) {}
-      ~FileHandle() {
-         if (_wrapped_file) fclose(_wrapped_file);
-      }
-      operator ptr() const { return _wrapped_file; }
-
-     private:
-      ptr _wrapped_file;
-   };
-
-   // --- Base classs for data layer
+   // --- Base class for data layer
    class DataSettingsB {
      public:
-      DataSettingsB(Poco::Mutex& fileHandlingMutex, GDALDataType dataType)
+      DataSettingsB(Poco::Mutex& fileHandlingMutex, data_type dataType)
           : notificationType(OnNotificationType::TimingInit),
             _useIndexesForFolderName(false),
             _forceVariableFolderName(true),
@@ -76,7 +68,6 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
             _outputAnnually(false),
             _dataType(dataType),
             _variable(nullptr),
-            _pool(),
             _fileHandlingMutex(fileHandlingMutex) {}
 
       virtual ~DataSettingsB() = default;
@@ -120,7 +111,7 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
       bool _outputAnnually;         // Output last step of a year only
       int _outputInterval = 1;      // output every nth timestep (default: every timestep)
 
-      GDALDataType _dataType;  // GDAL Data type
+      data_type _dataType;
 
       // Other
       const flint::IVariable* _variable;
@@ -129,15 +120,15 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
       Poco::Mutex& _fileHandlingMutex;
    };
 
-   // --- Templated version of Base classs for data layer types
+   // --- Templated version of Base class for data layer types
    template <typename T>
    class DataSettingsT : public DataSettingsB {
      public:
-      DataSettingsT(Poco::Mutex& fileHandlingMutex, GDALDataType dataType)
+      DataSettingsT(Poco::Mutex& fileHandlingMutex, data_type dataType)
           : DataSettingsB(fileHandlingMutex, dataType){};
       ~DataSettingsT() = default;
 
-      virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
+      void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
                              bool applyAreaAdjustment, const DynamicObject& config) override;
 
       void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) override;
