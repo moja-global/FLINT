@@ -51,10 +51,8 @@ constexpr auto invoke(F&& f, Args&&... args) noexcept(
 }
 template <typename M, typename C, typename... Args>
 constexpr auto invoke(M(C::*d), Args&&... args)
-    -> decltype(std::mem_fun(d)(static_cast<Args&&>(args)...)) {
-  return std::mem_fun(d)(static_cast<Args&&>(args)...);
-  //   -> decltype(std::mem_fn(d)(static_cast<Args&&>(args)...)) {
-  // return std::mem_fn(d)(static_cast<Args&&>(args)...);
+    -> decltype(std::mem_fn(d)(static_cast<Args&&>(args)...)) {
+  return std::mem_fn(d)(static_cast<Args&&>(args)...);
 }
 
 } // namespace folly
