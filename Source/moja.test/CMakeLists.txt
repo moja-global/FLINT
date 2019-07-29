@@ -22,6 +22,9 @@ if(TURTLE_FOUND)
 	include_directories(${Turtle_INCLUDE_PATH})
 endif()
 
+# SQLite
+find_package(SQLite3 REQUIRED)
+
 include_directories( include ../moja.core/include ../moja.flint/include ../moja.datarepository/include)
 
 
@@ -79,6 +82,7 @@ target_link_libraries(
 	moja.flint
 	moja.flint.configuration
 	moja.datarepository
+	SQLite::SQLite3
 	)
 
 install(DIRECTORY include/moja

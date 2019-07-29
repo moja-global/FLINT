@@ -27,14 +27,14 @@ if(CMAKE_SYSTEM MATCHES "Windows")
 			${ZIPPER_DIR_SEARCH}
 	)
 
-	find_library(Zipper_LIB_DEBUG libZipper-staticd
+	find_library(Zipper_LIB_DEBUG libZipper-static Zipper-static
 		PATH_SUFFIXES 
 			lib
 		PATHS
 			${ZIPPER_DIR_SEARCH}
 	)
 
-	find_library(Zipper_LIB_RELEASE libZipper-static
+	find_library(Zipper_LIB_RELEASE libZipper-static Zipper-static
 		PATH_SUFFIXES 
 			lib 
 		PATHS
