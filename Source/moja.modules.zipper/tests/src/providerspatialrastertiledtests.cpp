@@ -30,9 +30,9 @@ using Poco::FileOutputStream;
 
 struct ProviderZipperSpatialRasterTiledTestsFixture {
 
-	const std::string test_tile_path             = "./data/TestTile/TestTile_034_001.blk";
-	const std::string test_stack_path            = "./data/TestTile/TestStack_034_001.blk";
-	const std::string test_tile_zip_path         = "./data/TestTileZip.zip";
+	const std::string test_tile_path             = "/workspaces/FLINT/Source/build/bin/data/TestTile/TestTile_034_001.blk";
+	const std::string test_stack_path            = "/workspaces/FLINT/Source/build/bin/data/TestTile/TestStack_034_001.blk";
+	const std::string test_tile_zip_path         = "/workspaces/FLINT/Source/build/bin/data/TestTileZip.zip";
 
 	moja::DynamicObject settings;
 
@@ -70,7 +70,7 @@ struct ProviderZipperSpatialRasterTiledTestsFixture {
 				{ "name", std::string("testdata") },
 				{ "layer_type", std::string("GridLayer") },
 				{ "layer_data", std::string("Int32") },
-				{ "layer_path", std::string("./data/TestTile") },
+				{ "layer_path", std::string("/workspaces/FLINT/Source/build/bin/data/TestTile") },
 				{ "layer_prefix", std::string("TestTile") },
 				{ "tileLatSize", 1.0 },
 				{ "tileLonSize", 1.0 },
@@ -84,7 +84,7 @@ struct ProviderZipperSpatialRasterTiledTestsFixture {
 				{ "name", "teststack" },
 				{ "layer_type", "StackLayer" },
 				{ "layer_data", "UInt8" },
-				{ "layer_path", "./data/TestTile" },
+				{ "layer_path", "/workspaces/FLINT/Source/build/bin/data/TestTile" },
 				{ "layer_prefix", "TestStack" },
 				{ "nLayers", 14 },
 				{ "tileLatSize", 1.0 },
@@ -99,7 +99,7 @@ struct ProviderZipperSpatialRasterTiledTestsFixture {
 				{ "name", "testdatazip" },
 				{ "layer_type", "GridLayer" },
 				{ "layer_data", "Int32" },
-				{ "layer_path", "./data/TestTileZip" },
+				{ "layer_path", "/workspaces/FLINT/Source/build/bin/data/TestTileZip" },
 				{ "layer_prefix", "TestTileZip" },
 				{ "tileLatSize", 1.0 },
 				{ "tileLonSize", 1.0 },

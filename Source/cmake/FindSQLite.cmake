@@ -29,12 +29,14 @@ endif()
 
 if (CMAKE_SYSTEM MATCHES "Linux" )
 	SET(SQLITE_DIR_SEARCH
-		${SQLITE_DIR_SEARCH}
+		/usr/include/sqlite-autoconf-3270200/
+		/usr/local/sqlite-autoconf-3270200/
         /usr/local/sqlite-autoconf-3260000/ 
         /usr/local/sqlite-autoconf-3210000/ 
         /usr/local/sqlite-autoconf-3200100/ 
         /usr/local/sqlite-autoconf-3200000/ 
         /usr/local/sqlite-autoconf-3170000/
+		${SQLITE_DIR_SEARCH}
 	)
 endif(CMAKE_SYSTEM MATCHES "Linux")
 

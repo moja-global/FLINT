@@ -20,6 +20,9 @@ x64/
 [Bb]uild2017/
 [Bb]uildvs2017/
 build.vs2017
+build_ubuntu
+build_vscode
+build
 bld/
 [Bb]in/
 [Oo]bj/
