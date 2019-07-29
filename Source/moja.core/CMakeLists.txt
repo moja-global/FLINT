@@ -136,14 +136,13 @@ set(MOJA_Core_sources
 set(SRCS ${MOJA_Core_sources} ${MOJA_Core_headers} ${MOJA_Core_Enum_headers} ${DATE_SRCS} ${FOLLY_SRCS} ${TLX_SRCS})
 
 add_library(${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
+target_compile_definitions(${LIBNAME} PRIVATE FOLLY_NO_CONFIG)
 
 set_target_properties(${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR} 
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
 )
-
-target_compile_definitions(${LIBNAME} PRIVATE FOLLY_NO_CONFIG)
 
 target_link_libraries(${LIBNAME} 
     ${Boost_LIBRARIES}

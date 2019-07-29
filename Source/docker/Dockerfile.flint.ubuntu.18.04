@@ -16,7 +16,7 @@ ARG FLINT_BRANCH
 ARG NUM_CPU=1
 ARG DEBIAN_FRONTEND=noninteractive
 
-#ENV SQLITE_VERSION 3270200
+ENV SQLITE_VERSION 3270200
 ENV ROOTDIR /usr/local/
 
 WORKDIR $ROOTDIR/
@@ -29,10 +29,10 @@ ENV CURL_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
 ENV GDAL_DATA=/usr/share/gdal
 ENV GDAL_HTTP_VERSION 2
 
-#ADD https://www.sqlite.org/2019/sqlite-autoconf-${SQLITE_VERSION}.tar.gz $ROOTDIR/src/
-#RUN cd src && tar -xzf sqlite-autoconf-${SQLITE_VERSION}.tar.gz -C /usr/local/ \
-#	&& cp /usr/local/sqlite-autoconf-${SQLITE_VERSION}/sqlite3.c /usr/include/ \
-#    && cd $ROOTDIR && rm -Rf src/sqlite*
+ADD https://www.sqlite.org/2019/sqlite-autoconf-${SQLITE_VERSION}.tar.gz $ROOTDIR/src/
+RUN cd src && tar -xzf sqlite-autoconf-${SQLITE_VERSION}.tar.gz -C /usr/local/ \
+	&& cp /usr/local/sqlite-autoconf-${SQLITE_VERSION}/sqlite3.c /usr/include/ \
+    && cd $ROOTDIR && rm -Rf src/sqlite*
 
 
 # GET FLINT
