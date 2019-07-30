@@ -132,4 +132,3 @@ RUN    cmake .. \
     && make install \
     && make clean  \
     && cd $ROOTDIR
-

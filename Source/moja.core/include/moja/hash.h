@@ -4,10 +4,19 @@
 
 #include "moja/_core_exports.h"
 
-//#include "moja/types.h"
-//#include "moja/applytuple.h"
+#include <Poco/Nullable.h>
 
+// clang-format off
+#include <functional>  // needed by folly
 #include <folly/hash/Hash.h>
+// clang-format on
+
+namespace folly {
+	template <typename T>
+	struct hasher<Poco::Nullable<T>> {
+	size_t operator()(const Poco::Nullable<T>& key) const { return key.isNull() ? 0 : Hash()(key.value()); }
+	};
+}  // namespace folly
 
 namespace moja {
 	using folly::hasher;
