@@ -251,7 +251,7 @@ class RecordAccumulatorMap {
       std::vector<TPersistable> persistables;
       size_t chunkPosition = 0;
       for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
-         persistables.push_back(TRecordConv::asPersistable(rangeStart.key(), rangeStart.data()));
+         persistables.push_back(TRecordConv::asPersistable((*rangeStart).first, (*rangeStart).second));
       }
       return persistables;
    }
