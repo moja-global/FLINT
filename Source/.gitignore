@@ -54,6 +54,8 @@ CTestTestfile.cmake
 [Rr]elease/
 x64/
 build/
+build_lin/
+build_win/
 build2017/
 build2017_dc/
 bld/
