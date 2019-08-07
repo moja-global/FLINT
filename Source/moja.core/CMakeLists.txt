@@ -158,7 +158,7 @@ target_include_directories(${LIBNAME}
 							)
 
 install(
-	DIRECTORY include/moja external
+	DIRECTORY include/moja external/
 	DESTINATION include
 )
 
