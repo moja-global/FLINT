@@ -88,7 +88,7 @@ target_link_libraries(${LIBNAME}
 	PUBLIC
 		Moja::Flint 
 	PRIVATE 
-		Zipper-static
+		Zipper::Zipper_static
 )
 
 ##############################################
