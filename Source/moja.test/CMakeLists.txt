@@ -2,31 +2,9 @@ set(PACKAGE "test")
 set(LIBNAME "moja.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
-if(MOJA_STATIC)
-	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-	add_definitions(-DUSE_STATIC_BOOST)
-    set(Boost_USE_STATIC_LIBS ON)
-else(MOJA_STATIC)
-	add_definitions(-DBOOST_ALL_DYN_LINK)
-    set(Boost_USE_STATIC_LIBS OFF)
-endif(MOJA_STATIC)
-
-find_package(Boost)
-if(Boost_FOUND)
-	include_directories(${Boost_INCLUDE_DIRS})
-endif()
+find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 find_package(Turtle)
-if(TURTLE_FOUND)
-	include_directories(${Turtle_INCLUDE_PATH})
-endif()
-
-# SQLite
-find_package(SQLite3 REQUIRED)
-
-include_directories( include ../moja.core/include ../moja.flint/include ../moja.datarepository/include)
-
 
 configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/${PACKAGE}/_${PACKAGE}_exports.h)
 
@@ -65,31 +43,19 @@ set(MOJA_Test_headers
 )
 
 set(MOJA_Test_sources
-	src/moja.test.cpp)
+	#src/moja.test.cpp
+	)
 
 set(SRCS ${MOJA_Test_sources} ${MOJA_Test_headers})
 
-add_library(${LIBNAME} ${LIB_MODE} ${SRCS})
 
-set_target_properties(${LIBNAME} 
-	PROPERTIES
-	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
-	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS)
+add_library(${LIBNAME} INTERFACE)
+if(MSVC)
+    add_custom_target(${LIBNAME}.headers SOURCES ${SRCS})
+endif()
+add_library(Moja::Test ALIAS ${LIBNAME})
 
-target_link_libraries(
-	${LIBNAME} 
-	moja.core 
-	moja.flint
-	moja.flint.configuration
-	moja.datarepository
-	SQLite::SQLite3
-	)
+target_include_directories(${LIBNAME} INTERFACE include/)
 
-install(DIRECTORY include/moja
-		DESTINATION include
-		PATTERN ".svn" EXCLUDE)
+target_link_libraries(${LIBNAME} INTERFACE Moja::Flint)
 
-install(TARGETS ${LIBNAME}
-		LIBRARY DESTINATION lib${LIB_SUFFIX}
-		ARCHIVE DESTINATION lib${LIB_SUFFIX}
-		RUNTIME DESTINATION bin)

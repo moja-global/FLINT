@@ -1,0 +1,15 @@
+get_filename_component(MojaDataRepository_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+list(APPEND CMAKE_MODULE_PATH ${MojaDataRepository_CMAKE_DIR})
+
+find_dependency(Poco 1.9.2 REQUIRED Foundation JSON)
+find_dependency(SQLite3 REQUIRED)
+
+list(REMOVE_AT CMAKE_MODULE_PATH -1)
+
+if(NOT TARGET Moja::DataRepository)
+    include("${JSONUtils_CMAKE_DIR}/MojaDataRepositoryTargets.cmake")
+endif()
+
+set(MojaDataRepository_LIBRARIES Moja::DataRepository)

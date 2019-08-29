@@ -1,0 +1,16 @@
+get_filename_component(MojaCore_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+list(APPEND CMAKE_MODULE_PATH ${MojaCore_CMAKE_DIR})
+
+# NOTE Had to use find_package because find_dependency does not support COMPONENTS or MODULE until 3.8.0
+
+find_dependency(Boost 1.70 REQUIRED COMPONENTS log)
+find_dependency(Poco 1.9.2 REQUIRED Foundation JSON)
+list(REMOVE_AT CMAKE_MODULE_PATH -1)
+
+if(NOT TARGET Moja::Core)
+    include("${JSONUtils_CMAKE_DIR}/MojaCoreTargets.cmake")
+endif()
+
+set(MojaCore_LIBRARIES Moja::Core)

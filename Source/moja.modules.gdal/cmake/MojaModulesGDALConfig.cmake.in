@@ -1,0 +1,14 @@
+get_filename_component(MojaModulesGDAL_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+include(CMakeFindDependencyMacro)
+
+list(APPEND CMAKE_MODULE_PATH ${MojaModulesGDAL_CMAKE_DIR})
+
+find_dependency(GDAL REQUIRED)
+
+list(REMOVE_AT CMAKE_MODULE_PATH -1)
+
+if(NOT TARGET Moja::ModulesGDAL)
+    include("${JSONUtils_CMAKE_DIR}/MojaModulesGDALTargets.cmake")
+endif()
+
+set(MojaModulesGDAL_LIBRARIES Moja::ModulesGDAL)

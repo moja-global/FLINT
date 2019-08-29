@@ -3,24 +3,8 @@ set(LIBNAME "moja.modules.${PACKAGE}")
 string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
-find_package(Boost)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-#for Moja
-#find_package(Moja)
-
 # Libpq
-find_package(Libpq)
-
-include_directories( 
-	include 
-    ../moja.core/include
-    ../moja.flint/include
-    ../moja.datarepository/include
-	${LIBPQ_INCLUDE_PATH}
-)
+find_package(PostgreSQL REQUIRED)
 
 configure_file(
     ../templates/exports.h 
@@ -81,47 +65,87 @@ set(SRCS
     ${PROJECT_PROVIDER_HEADERS} ${PROJECT_PROVIDER_SOURCES}
 )
 
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
+add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} )
+add_library(Moja::ModulesLibPQ ALIAS ${LIBNAME})
 
-add_library(
-    ${LIBNAME} 
-    ${LIB_MODE} 
-    ${SRCS}
-    )
-
+#Set target properties
 set_target_properties(${LIBNAME} 
     PROPERTIES
-    VERSION ${MOJA_MULLIONGROUP_VERSION} 
-	SOVERSION ${MOJA_MULLIONGROUP_VERSION_MAJOR}
+    VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
     DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
-    )
-
-#add_dependencies(
-#	${LIBNAME} 
-#)
-
-target_link_libraries(
-	${LIBNAME} 
-	moja.core 
-	moja.flint
-	moja.datarepository
-	${LIBPQ_LIB}
-	${Poco_FOUNDATION} 
-	${Poco_JSON} 
 )
 
-# Set local include path
-include_directories(${Poco_INCLUDE_DIRS})
+target_include_directories(${LIBNAME}
+    PUBLIC 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(${LIBNAME} 
+	PUBLIC
+		Moja::Flint PostgreSQL::PostgreSQL
+)
+
+##############################################
+# Installation instructions
+
+include(GNUInstallDirs)
+set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaModulesLibPQ)
 
 install(TARGETS ${LIBNAME}
-        LIBRARY DESTINATION lib${LIB_SUFFIX}
-        ARCHIVE DESTINATION lib${LIB_SUFFIX}
-        RUNTIME DESTINATION bin)
+    EXPORT ${LIBNAME}-targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
 
-	if(MSVC)
+#This is required so that the exported target has the name ModulesLibPQ and not ${LIBNAME}
+set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME ModulesLibPQ)
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(EXPORT ${LIBNAME}-targets
+  FILE
+    MojaModulesLibPQTargets.cmake
+  NAMESPACE
+    Moja::
+  DESTINATION
+    ${INSTALL_CONFIGDIR}
+)
+
+#Create a ConfigVersion.cmake file
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesLibPQConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaModulesLibPQConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesLibPQConfig.cmake
+    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+#Install the config, configversion and custom find modules
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesLibPQConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesLibPQConfigVersion.cmake
+    DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+##############################################
+## Exporting from the build tree
+export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesLibPQTargets.cmake NAMESPACE Moja::)
+
+#Register package in user's package registry
+export(PACKAGE MojaModulesLibPQ)
+
+if(MSVC)
 	INSTALL(
 		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION bin 
+		DESTINATION ${CMAKE_INSTALL_BINDIR} 
 		CONFIGURATIONS Debug
 		)
 endif()

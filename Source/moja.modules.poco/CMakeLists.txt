@@ -3,28 +3,21 @@ set(LIBNAME "moja.modules.${PACKAGE}")
 string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
-find_package(Boost)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-#for Moja
-#find_package(Moja)
-
 # Poco
-find_package(Poco REQUIRED)
+find_package(Poco REQUIRED Data MongoDB DataSQLite)
 
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
-endif()
-
-include_directories( 
-	include 
-    ../moja.core/include
-    ../moja.flint/include
-    ../moja.datarepository/include
-)
+#if (MSVC)
+#  generate_product_version(ProductVersionFiles
+#    NAME ${LIBNAME}
+#    FILE_DESCRIPTION "moja modules poco"
+#    VERSION_MAJOR ${MOJA_VERSION_MAJOR}
+#    VERSION_MINOR ${MOJA_VERSION_MINOR}
+#    VERSION_PATCH ${MOJA_VERSION_PATCH}
+#    VERSION_REVISION ${MOJA_VERSION_REVISION}
+#	COMPANY_NAME "moja global"
+##    VERSION_REVISION ${BUILD_ID}
+#  )
+#endif ()
 
 configure_file(
     ../templates/exports.h 
@@ -93,43 +86,97 @@ set(SRCS
     ${PROJECT_PROVIDER_HEADERS} ${PROJECT_PROVIDER_SOURCES}
 )
 
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
-
-add_library(
-    ${LIBNAME} 
-    ${LIB_MODE} 
-    ${SRCS}
-    )
+add_library(${LIBNAME} ${LIB_MODE} ${SRCS} )
+add_library(Moja::ModulesPoco ALIAS ${LIBNAME})
 
 set_target_properties(${LIBNAME} 
     PROPERTIES
-    VERSION ${MOJA_MULLIONGROUP_VERSION} 
-	SOVERSION ${MOJA_MULLIONGROUP_VERSION_MAJOR}
+    VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
     DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
+)
+
+target_include_directories(${LIBNAME}
+    PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(${LIBNAME} 
+	PUBLIC Moja::Flint Poco::Data Poco::MongoDB Poco::DataSQLite
     )
 
-target_link_libraries(
-	${LIBNAME} 
-	moja.core 
-	moja.flint
-	moja.datarepository
-	${Poco_FOUNDATION} 
-	${Poco_DATA} 
-	${Poco_NET} 
-	${Poco_MONGODB} 
-	${Poco_JSON} 
-	${Poco_DATA_SQLITE}
-	${Poco_DATA_POSTGRESQL}
-    )
+##############################################
+# Installation instructions
 
-# Set local include path
-include_directories(${Poco_INCLUDE_DIRS})
+include(GNUInstallDirs)
+set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaModulesPoco)
 
 install(TARGETS ${LIBNAME}
-        LIBRARY DESTINATION lib${LIB_SUFFIX}
-        ARCHIVE DESTINATION lib${LIB_SUFFIX}
-        RUNTIME DESTINATION bin)
+    EXPORT ${LIBNAME}-targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+)
+
+#This is required so that the exported target has the name ModulesPoco and not ${LIBNAME}
+set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME ModulesPoco)
+
+install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(EXPORT ${LIBNAME}-targets
+  FILE
+    MojaModulesPocoTargets.cmake
+  NAMESPACE
+    Moja::
+  DESTINATION
+    ${INSTALL_CONFIGDIR}
+)
+
+#Create a ConfigVersion.cmake file
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaModulesPocoConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfig.cmake
+    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+#Install the config, configversion and custom find modules
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfigVersion.cmake
+    DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+##############################################
+## Exporting from the build tree
+export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoTargets.cmake NAMESPACE Moja::)
+
+#Register package in user's package registry
+export(PACKAGE MojaModulesPoco)
+
+if(MSVC)
+	INSTALL(
+		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
+		DESTINATION ${CMAKE_INSTALL_BINDIR} 
+		CONFIGURATIONS Debug
+		)
+endif()
 
 if(ENABLE_TESTS)
     add_subdirectory(tests)
+
+	execute_process(
+		COMMAND ${CMAKE_COMMAND} -E tar xvf ${CMAKE_CURRENT_SOURCE_DIR}/../../Examples/data.zip 
+		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tests
+		OUTPUT_QUIET)
 endif()
+
+
+
