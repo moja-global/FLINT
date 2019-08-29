@@ -4,7 +4,7 @@ string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
 # Poco
-find_package(Poco REQUIRED Data MongoDB DataSQLite)
+find_package(Poco REQUIRED MongoDB)
 
 #if (MSVC)
 #  generate_product_version(ProductVersionFiles
@@ -104,79 +104,27 @@ target_include_directories(${LIBNAME}
 )
 
 target_link_libraries(${LIBNAME} 
-	PUBLIC Moja::Flint Poco::Data Poco::MongoDB Poco::DataSQLite
+	PUBLIC
+		Moja::Flint
+		Poco::MongoDB
+		
+#	${Poco_FOUNDATION} 
+#	${Poco_DATA} 
+#	${Poco_NET} 
+#	${Poco_MONGODB} 
+#	${Poco_JSON} 
+#	${Poco_DATA_SQLITE}
+#	${Poco_DATA_POSTGRESQL}
     )
 
-##############################################
-# Installation instructions
+# Set local include path
 
-include(GNUInstallDirs)
-set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaModulesPoco)
 
-install(TARGETS ${LIBNAME}
-    EXPORT ${LIBNAME}-targets
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
-
-#This is required so that the exported target has the name ModulesPoco and not ${LIBNAME}
-set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME ModulesPoco)
-
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-
-install(EXPORT ${LIBNAME}-targets
-  FILE
-    MojaModulesPocoTargets.cmake
-  NAMESPACE
-    Moja::
-  DESTINATION
-    ${INSTALL_CONFIGDIR}
-)
-
-#Create a ConfigVersion.cmake file
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaModulesPocoConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfig.cmake
-    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-#Install the config, configversion and custom find modules
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfig.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoConfigVersion.cmake
-    DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-##############################################
-## Exporting from the build tree
-export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaModulesPocoTargets.cmake NAMESPACE Moja::)
-
-#Register package in user's package registry
-export(PACKAGE MojaModulesPoco)
-
-if(MSVC)
-	INSTALL(
-		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION ${CMAKE_INSTALL_BINDIR} 
-		CONFIGURATIONS Debug
-		)
-endif()
+#install(TARGETS ${LIBNAME}
+#        LIBRARY DESTINATION lib${LIB_SUFFIX}
+#        ARCHIVE DESTINATION lib${LIB_SUFFIX}
+#        RUNTIME DESTINATION bin)
 
 if(ENABLE_TESTS)
     add_subdirectory(tests)
-
-	execute_process(
-		COMMAND ${CMAKE_COMMAND} -E tar xvf ${CMAKE_CURRENT_SOURCE_DIR}/../../Examples/data.zip 
-		WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tests
-		OUTPUT_QUIET)
 endif()
-
-
-

@@ -8,7 +8,7 @@ find_dependency(PostgreSQL REQUIRED)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
 if(NOT TARGET Moja::ModulesLibPQ)
-    include("${JSONUtils_CMAKE_DIR}/MojaModulesLibPQTargets.cmake")
+    include("${MojaModulesLibPQ_CMAKE_DIR}/MojaModulesLibPQTargets.cmake")
 endif()
 
 set(MojaModulesLibPQ_LIBRARIES Moja::ModulesLibPQ)
