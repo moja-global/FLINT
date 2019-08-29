@@ -8,7 +8,7 @@ find_dependency(PostgreSQL REQUIRED)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
 if(NOT TARGET Moja::ModulesZipper)
-    include("${JSONUtils_CMAKE_DIR}/MojaModulesZipperTargets.cmake")
+    include("${MojaModulesZipper_CMAKE_DIR}/MojaModulesZipperTargets.cmake")
 endif()
 
 set(MojaModulesZipper_LIBRARIES Moja::ModulesZipper)

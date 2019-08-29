@@ -8,7 +8,7 @@ find_dependency(GDAL REQUIRED)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
 if(NOT TARGET Moja::ModulesGDAL)
-    include("${JSONUtils_CMAKE_DIR}/MojaModulesGDALTargets.cmake")
+    include("${MojaModulesGDAL_CMAKE_DIR}/MojaModulesGDALTargets.cmake")
 endif()
 
 set(MojaModulesGDAL_LIBRARIES Moja::ModulesGDAL)

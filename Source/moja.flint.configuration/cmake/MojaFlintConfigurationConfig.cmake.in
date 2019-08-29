@@ -7,7 +7,7 @@ find_dependency(Poco 1.9.2 REQUIRED Foundation JSON)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
 if(NOT TARGET Moja::FlintConfiguration)
-    include("${JSONUtils_CMAKE_DIR}/MojaFlintConfigurationTargets.cmake")
+    include("${MojaFlintConfiguration_CMAKE_DIR}/MojaFlintConfigurationTargets.cmake")
 endif()
 
 set(MojaFlintConfiguration_LIBRARIES Moja::FlintConfiguration)

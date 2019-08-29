@@ -10,7 +10,7 @@ find_dependency(Poco 1.9.2 REQUIRED Foundation JSON)
 list(REMOVE_AT CMAKE_MODULE_PATH -1)
 
 if(NOT TARGET Moja::Core)
-    include("${JSONUtils_CMAKE_DIR}/MojaCoreTargets.cmake")
+    include("${MojaCore_CMAKE_DIR}/MojaCoreTargets.cmake")
 endif()
 
 set(MojaCore_LIBRARIES Moja::Core)
