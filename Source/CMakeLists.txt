@@ -1,9 +1,11 @@
-project(moja)
+cmake_minimum_required(VERSION 3.10.0)
+project(moja VERSION 1.0.6 LANGUAGES CXX)
 
 #turn on using solution folders
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 
-cmake_minimum_required(VERSION 3.4.0)
+#turn on parallel builds
+add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
 
 set(MOJA_VERSION_MAJOR "1")
 set(MOJA_VERSION_MINOR "0")
@@ -15,9 +17,9 @@ set(MOJA_VERSION "${MOJA_VERSION_MAJOR}.${MOJA_VERSION_MINOR}.${MOJA_VERSION_PAT
 set(Moja_COMPONENTS "")
 
 # Allow enabling and disabling components
-option(ENABLE_MOJA.MODULES.ZIPPER 						"moja.modules.zipper"				ON)
+option(ENABLE_MOJA.MODULES.ZIPPER 						"moja.modules.zipper"				OFF)
 option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"					OFF)
-option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"				ON)
+option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"				OFF)
 option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				    OFF)
 option(ENABLE_MOJA.CLI 									"moja.cli"							ON)
 option(ENABLE_MOJA.SYSTEMTEST 							"moja.systemtest"					OFF)
@@ -59,7 +61,7 @@ IF (ENABLE_TESTS)
   include(CTest)
   set(BOOST_TEST_REPORTING_LEVEL "SHORT" CACHE STRING "Boost unit test reporting level")
   set_property(CACHE BOOST_TEST_REPORTING_LEVEL PROPERTY STRINGS "SHORT" "DETAILED")
-  include_directories(moja.test/include)
+  #include_directories(moja.test/include)
   add_subdirectory(moja.test)
   ENABLE_TESTING()
   message(STATUS "Building with unittests")
@@ -74,10 +76,6 @@ unset(Boost_INCLUDE_DIR CACHE)
 unset(Boost_LIBRARY_DIRS CACHE)
 
 if(MOJA_STATIC)
-	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-
-	#set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--kill-at -static-libgcc -static-libstdc++")
 	add_definitions(-DUSE_STATIC_BOOST)
     set(Boost_USE_STATIC_LIBS ON)
 	set(Boost_USE_STATIC_RUNTIME ON)
@@ -87,32 +85,11 @@ else(MOJA_STATIC)
 	set(Boost_USE_STATIC_RUNTIME OFF)
 endif(MOJA_STATIC)
 
-set(BOOST_COMPONENTS_NEEDED system thread filesystem date_time chrono program_options log log_setup )
-find_package(Boost COMPONENTS REQUIRED ${BOOST_COMPONENTS_NEEDED})
-
-if(Boost_FOUND)
-	if(MOJA_STATIC)
-		# empty
-	else(MOJA_STATIC)
-		include_directories(${Boost_INCLUDE_DIRS})
-		link_directories(${Boost_LIBRARY_DIRS})
-	endif(MOJA_STATIC)
-endif()
-
 if(USE_STATIC_BOOST)
    message(STATUS "Linking against boost static libraries")
 else(USE_STATIC_BOOST)
    message(STATUS "Linking against boost dynamic libraries")
 endif(USE_STATIC_BOOST)
-
-# Poco
-find_package(Poco REQUIRED)
-
-# Poco
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
-endif()
 
 # OS Detection
 include(CheckCXXCompilerFlag)
@@ -124,14 +101,10 @@ if(CMAKE_SYSTEM MATCHES "Windows")
  	if (CMAKE_C_COMPILER_ID MATCHES "MSVC")
 		message(STATUS "XXX: MS Visual Compiler detected")
 		CHECK_CXX_COMPILER_FLAG("/std:c++17" COMPILER_SUPPORTS_CXX17)
-		CHECK_CXX_COMPILER_FLAG("/std:c++14" COMPILER_SUPPORTS_CXX14)
-		#if(COMPILER_SUPPORTS_CXX17)
-		#	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP /bigobj /std:c++17")
-		#else
-		if(COMPILER_SUPPORTS_CXX14)
-			set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP /bigobj /std:c++14")
+		if(COMPILER_SUPPORTS_CXX17)
+            message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has C++17 support.")
 		else()
-            message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
+            message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
 		endif()
 	endif (CMAKE_C_COMPILER_ID MATCHES "MSVC")
 endif(CMAKE_SYSTEM MATCHES "Windows")
@@ -139,27 +112,16 @@ endif(CMAKE_SYSTEM MATCHES "Windows")
 if (CMAKE_SYSTEM MATCHES "Linux" )
 	add_definitions( -DMOJA_OS_FAMILY_UNIX )
 	# Standard 'must be' defines
-	add_definitions( -D_XOPEN_SOURCE=500 -D_REENTRANT -D_THREAD_SAFE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64)
-	set(SYSLIBS pthread dl rt)
+	#add_definitions( -D_XOPEN_SOURCE=500 -D_REENTRANT -D_THREAD_SAFE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64)
+	#set(SYSLIBS pthread dl rt)
 
 	CHECK_CXX_COMPILER_FLAG("-std=c++17" COMPILER_SUPPORTS_CXX17)
-	CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
-	
-	if(COMPILER_SUPPORTS_CXX14)
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fPIC")
-	else()
-		message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
-	endif()
 
-#	if(COMPILER_SUPPORTS_CXX17)
-#		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -fPIC")
-#	else()
-# 	  if(COMPILER_SUPPORTS_CXX14)
-#   	  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fPIC")
-#	  else()
-#		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++14 support. Please use a different C++ compiler.")
-#	  endif()
-#  endif()
+	if(COMPILER_SUPPORTS_CXX17)
+		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has C++17 support.")
+	else()
+		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
+	endif()
 endif(CMAKE_SYSTEM MATCHES "Linux" )
 
 add_subdirectory(moja.core)

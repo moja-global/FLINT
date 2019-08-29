@@ -4,26 +4,8 @@ string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
 include(${CMAKE_MODULE_PATH}/generate_product_version.cmake) 
 
-if(MOJA_STATIC)
-	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-	add_definitions(-DUSE_STATIC_BOOST)
-    set(Boost_USE_STATIC_LIBS ON)
-else(MOJA_STATIC)
-	add_definitions(-DBOOST_ALL_DYN_LINK)
-    set(Boost_USE_STATIC_LIBS OFF)
-endif(MOJA_STATIC)
-
-find_package(Boost COMPONENTS atomic system thread filesystem date_time chrono program_options log log_setup REQUIRED)
-if(Boost_FOUND)
-	include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-# Poco
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
-endif()
+find_package(Poco REQUIRED Foundation JSON)
+find_package(Boost COMPONENTS log REQUIRED)
 
 if (MSVC)
   generate_product_version(ProductVersionFiles
@@ -90,7 +72,6 @@ set(MOJA_Core_external_tlx_die_sources
 	external/tlx/die/core.cpp
 )
 
-
 source_group("Header Files\\external\\tlx\\container" FILES ${MOJA_Core_external_tlx_container_headers})
 source_group("Header Files\\external\\tlx\\die" FILES ${MOJA_Core_external_tlx_die_headers})
 source_group("Source Files\\external\\tlx\\die" FILES ${MOJA_Core_external_tlx_die_sources})
@@ -136,43 +117,92 @@ set(MOJA_Core_sources
 set(SRCS ${MOJA_Core_sources} ${MOJA_Core_headers} ${MOJA_Core_Enum_headers} ${DATE_SRCS} ${FOLLY_SRCS} ${TLX_SRCS})
 
 add_library(${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
-target_compile_definitions(${LIBNAME} PRIVATE FOLLY_NO_CONFIG)
+add_library(Moja::Core ALIAS ${LIBNAME})
 
+#Set target properties
 set_target_properties(${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR} 
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
 )
 
+target_include_directories(${LIBNAME}
+    PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:external>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/external>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_compile_definitions(${LIBNAME} PRIVATE FOLLY_NO_CONFIG)
+
 target_link_libraries(${LIBNAME} 
-    ${Boost_LIBRARIES}
-	${Poco_FOUNDATION} 
-	${Poco_JSON} 
-	${SYSLIBS}
+	PUBLIC
+		Boost::log Poco::Foundation Poco::JSON 
+	PRIVATE
+		${SYSLIBS}
 	)
 
-target_include_directories(${LIBNAME} 
-						PUBLIC 
-							external
-							include 
-							)
+##############################################
+# Installation instructions
 
-install(
-	DIRECTORY include/moja external/
-	DESTINATION include
+include(GNUInstallDirs)
+set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaCore)
+
+install(TARGETS ${LIBNAME}
+    EXPORT ${LIBNAME}-targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-install(
-	TARGETS ${LIBNAME} 
-	LIBRARY DESTINATION lib${LIB_SUFFIX}
-	ARCHIVE DESTINATION lib${LIB_SUFFIX}
-	RUNTIME DESTINATION bin
+#This is required so that the exported target has the name Core and not ${LIBNAME}
+set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME Core)
+
+install(DIRECTORY include/ external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+
+install(EXPORT ${LIBNAME}-targets
+  FILE
+    MojaCoreTargets.cmake
+  NAMESPACE
+    Moja::
+  DESTINATION
+    ${INSTALL_CONFIGDIR}
 )
+
+#Create a ConfigVersion.cmake file
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY AnyNewerVersion
+)
+
+configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaCoreConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfig.cmake
+    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+#Install the config, configversion and custom find modules
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfigVersion.cmake
+    DESTINATION ${INSTALL_CONFIGDIR}
+)
+
+##############################################
+## Exporting from the build tree
+export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreTargets.cmake NAMESPACE Moja::)
+
+#Register package in user's package registry
+export(PACKAGE MojaCore)
 
 if(MSVC)
 	INSTALL(
 		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION bin 
+		DESTINATION ${CMAKE_INSTALL_BINDIR} 
 		CONFIGURATIONS Debug
 		)
 endif()
