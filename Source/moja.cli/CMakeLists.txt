@@ -1,6 +1,6 @@
 set(EXENAME "moja.cli")
 
-find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(Boost COMPONENTS program_options log REQUIRED)
 
 set(MOJA_EXE_SRC
 	src/moja.cpp
@@ -10,7 +10,7 @@ add_executable(${EXENAME} ${MOJA_EXE_SRC})
 
 target_link_libraries(${EXENAME}
 	PRIVATE
-		moja::moja.flint Boost::program_options
+		moja::moja.flint Boost::program_options Boost::log
 )
 
 install(TARGETS ${EXENAME}
