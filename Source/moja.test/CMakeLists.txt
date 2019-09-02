@@ -53,9 +53,9 @@ add_library(${LIBNAME} INTERFACE)
 if(MSVC)
     add_custom_target(${LIBNAME}.headers SOURCES ${SRCS})
 endif()
-add_library(Moja::Test ALIAS ${LIBNAME})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 target_include_directories(${LIBNAME} INTERFACE include/)
 
-target_link_libraries(${LIBNAME} INTERFACE Moja::Flint)
+target_link_libraries(${LIBNAME} INTERFACE moja::moja.flint)
 

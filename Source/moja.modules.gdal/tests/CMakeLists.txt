@@ -16,7 +16,7 @@ add_test(NAME ${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::ModulesGDAL Boost::unit_test_framework
+		moja::moja.modules.gdal Boost::unit_test_framework
 	)
 
 IF (RUN_UNIT_TESTS_ON_BUILD)

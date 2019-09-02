@@ -11,7 +11,7 @@ set(TestModule_sources
 set (SRCS ${TestModule_sources} ${TestModule_headers})
 
 add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} )
-add_library(Moja::TestModule ALIAS ${LIBNAME})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 set_target_properties( ${LIBNAME} 
     PROPERTIES
@@ -26,6 +26,6 @@ target_include_directories(${LIBNAME}
 
 target_link_libraries(${LIBNAME} 
 	PUBLIC
-		Moja::Core
+		moja::moja.core
 )
 

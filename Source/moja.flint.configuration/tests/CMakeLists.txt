@@ -30,12 +30,11 @@ add_test(NAME ${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::FlintConfiguration
-		Moja::Test
+		moja::moja.flint.configuration
+		moja::moja.test
 		Boost::unit_test_framework
 )
 
-add_dependencies(${TESTUNIT} moja.flint.configuration)
 IF (RUN_UNIT_TESTS_ON_BUILD)
 add_custom_command(TARGET ${TESTUNIT}
 				   POST_BUILD COMMAND ${CMAKE_CTEST_COMMAND}

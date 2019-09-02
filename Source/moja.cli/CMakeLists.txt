@@ -10,7 +10,7 @@ add_executable(${EXENAME} ${MOJA_EXE_SRC})
 
 target_link_libraries(${EXENAME}
 	PRIVATE
-		Moja::Flint	Boost::program_options
+		moja::moja.flint Boost::program_options
 )
 
 install(TARGETS ${EXENAME}

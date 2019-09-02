@@ -23,8 +23,8 @@ add_test(NAME ${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::DataRepository
-		Moja::Test
+		moja::moja.datarepository
+		moja::moja.test
 	    Boost::unit_test_framework
 	)
 if(WIN32)

@@ -27,7 +27,7 @@ add_test(NAME ${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::Core
+		moja::moja.core
 	    Boost::unit_test_framework
 	)
 

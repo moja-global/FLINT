@@ -113,7 +113,7 @@ set(SRCS
 )
 
 add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
-add_library(Moja::DataRepository ALIAS ${LIBNAME})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 #Set target properties
 set_target_properties( ${LIBNAME} 
@@ -131,7 +131,7 @@ target_include_directories(${LIBNAME}
 
 target_link_libraries(${LIBNAME} 
 	PUBLIC
-		Moja::Core Moja::FlintConfiguration Poco::Foundation Poco::JSON
+		moja::moja.core moja::moja.flint.configuration Poco::Foundation Poco::JSON
 	PRIVATE		
 		SQLite::SQLite3
 	)
@@ -147,63 +147,9 @@ endif(CMAKE_SYSTEM MATCHES "Linux" )
 # Installation instructions
 
 include(GNUInstallDirs)
-set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaDataRepository)
 
-install(TARGETS ${LIBNAME}
-    EXPORT ${LIBNAME}-targets
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
-
-#This is required so that the exported target has the name DataRepository and not ${LIBNAME}
-set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME DataRepository)
-
-install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-
-install(EXPORT ${LIBNAME}-targets
-  FILE
-    MojaDataRepositoryTargets.cmake
-  NAMESPACE
-    Moja::
-  DESTINATION
-    ${INSTALL_CONFIGDIR}
-)
-
-#Create a ConfigVersion.cmake file
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaDataRepositoryConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaDataRepositoryConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaDataRepositoryConfig.cmake
-    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-#Install the config, configversion and custom find modules
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaDataRepositoryConfig.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaDataRepositoryConfigVersion.cmake
-    DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-##############################################
-## Exporting from the build tree
-export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaDataRepositoryTargets.cmake NAMESPACE Moja::)
-
-#Register package in user's package registry
-export(PACKAGE MojaDataRepository)
-
-if(MSVC)
-	INSTALL(
-		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION ${CMAKE_INSTALL_BINDIR} 
-		CONFIGURATIONS Debug
-		)
-endif()
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if (ENABLE_TESTS)
 	add_subdirectory( tests )
