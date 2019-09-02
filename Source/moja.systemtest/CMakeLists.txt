@@ -21,9 +21,7 @@ target_include_directories(${EXENAME}
 )
 
 target_link_libraries(${EXENAME}
-	Moja::Flint
-    Boost::system
-    Poco::Foundation
-	PostgreSQL::PostgreSQL
+	PRIVATE
+		moja::moja.flint Boost::system Poco::Foundation PostgreSQL::PostgreSQL
 	)
 

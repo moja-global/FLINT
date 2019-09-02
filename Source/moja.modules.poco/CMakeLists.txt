@@ -4,7 +4,7 @@ string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
 # Poco
-find_package(Poco REQUIRED MongoDB)
+find_package(Poco REQUIRED DataSQLite MongoDB)
 
 #if (MSVC)
 #  generate_product_version(ProductVersionFiles
@@ -87,7 +87,7 @@ set(SRCS
 )
 
 add_library(${LIBNAME} ${LIB_MODE} ${SRCS} )
-add_library(Moja::ModulesPoco ALIAS ${LIBNAME})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 set_target_properties(${LIBNAME} 
     PROPERTIES
@@ -105,25 +105,16 @@ target_include_directories(${LIBNAME}
 
 target_link_libraries(${LIBNAME} 
 	PUBLIC
-		Moja::Flint
-		Poco::MongoDB
-		
-#	${Poco_FOUNDATION} 
-#	${Poco_DATA} 
-#	${Poco_NET} 
-#	${Poco_MONGODB} 
-#	${Poco_JSON} 
-#	${Poco_DATA_SQLITE}
-#	${Poco_DATA_POSTGRESQL}
+		moja::moja.flint Poco::DataSQLite Poco::MongoDB
     )
 
-# Set local include path
+##############################################
+# Installation instructions
 
+include(GNUInstallDirs)
 
-#install(TARGETS ${LIBNAME}
-#        LIBRARY DESTINATION lib${LIB_SUFFIX}
-#        ARCHIVE DESTINATION lib${LIB_SUFFIX}
-#        RUNTIME DESTINATION bin)
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if(ENABLE_TESTS)
     add_subdirectory(tests)

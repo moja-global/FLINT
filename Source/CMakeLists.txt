@@ -13,15 +13,21 @@ set(MOJA_VERSION_PATCH "0")
 set(MOJA_VERSION_REVISION "0")
 set(MOJA_VERSION "${MOJA_VERSION_MAJOR}.${MOJA_VERSION_MINOR}.${MOJA_VERSION_PATCH}")
 
+# set the path for custom cmake scripts
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+# Include some common macros to simpilfy the Moja CMake files
+include(MojaMacros)
+
 # Collect the built libraries and include dirs, the will be used to create the moja.cmake file
 set(Moja_COMPONENTS "")
 
 # Allow enabling and disabling components
-option(ENABLE_MOJA.MODULES.ZIPPER 						"moja.modules.zipper"				OFF)
-option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"					OFF)
-option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"				OFF)
-option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				    OFF)
-option(ENABLE_MOJA.CLI 									"moja.cli"							ON)
+option(ENABLE_MOJA.MODULES.ZIPPER 					"moja.modules.zipper"			OFF)
+option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"				OFF)
+option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"			OFF)
+option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				OFF)
+option(ENABLE_MOJA.CLI 									    "moja.cli"							  ON)
 option(ENABLE_MOJA.SYSTEMTEST 							"moja.systemtest"					OFF)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
@@ -38,10 +44,6 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # For Debug build types, append a "d" to the library names.
 set(CMAKE_DEBUG_POSTFIX "d" CACHE STRING "Set debug library postfix" FORCE)
-
-# set the path for custom cmake scripts
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-#include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/macros.cmake)
 
 option(ENABLE_TESTS				"Set to OFF|ON (default is ON) to control build of moja tests" ON)
 option(RUN_UNIT_TESTS_ON_BUILD	"Set to OFF|ON (default is OFF) to control automatic running of moja tests at build time" OFF)
@@ -61,7 +63,6 @@ IF (ENABLE_TESTS)
   include(CTest)
   set(BOOST_TEST_REPORTING_LEVEL "SHORT" CACHE STRING "Boost unit test reporting level")
   set_property(CACHE BOOST_TEST_REPORTING_LEVEL PROPERTY STRINGS "SHORT" "DETAILED")
-  #include_directories(moja.test/include)
   add_subdirectory(moja.test)
   ENABLE_TESTING()
   message(STATUS "Building with unittests")
@@ -233,6 +234,42 @@ set(CPACK_SOURCE_IGNORE_FILES
 include(CPack)
 add_custom_target(dist COMMAND ${CMAKE_MAKE_PROGRAM} package_source)
 
+#############################################################
+# cmake config files
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+  "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}ConfigVersion.cmake"
+  VERSION ${PROJECT_VERSION}
+  COMPATIBILITY AnyNewerVersion
+)
+
+# Set config script install location in a location that find_package() will
+# look for, which is different on MS Windows than for UNIX
+# Note: also set in MOJA_GENERATE_PACKAGE macro in cmake/MojaMacros.cmake
+if (WIN32)
+  set(MojaConfigPackageLocation "cmake")
+else()
+  set(MojaConfigPackageLocation "lib/cmake/${PROJECT_NAME}")
+endif()
+
+configure_file(cmake/${PROJECT_NAME}Config.cmake.in "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}Config.cmake" @ONLY)
+install(
+    FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}Config.cmake
+        ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}/${PROJECT_NAME}ConfigVersion.cmake
+    DESTINATION
+        "${MojaConfigPackageLocation}"
+    COMPONENT
+        Devel
+)
+
+# Install pkg-config files
+install(FILES ${MOJA_PKG_CONFIG_FILES}
+        DESTINATION lib${LIB_SUFFIX}/pkgconfig)
+
+export(PACKAGE Moja)
+		
 message(STATUS "CMake ${CMAKE_VERSION} successfully configured ${PROJECT_NAME} using ${CMAKE_GENERATOR} generator")
 message(STATUS "Installation target path: ${CMAKE_INSTALL_PREFIX}")
 

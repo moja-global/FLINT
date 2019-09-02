@@ -30,7 +30,7 @@ add_test(NAME ${LIBNAME}
          WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
          COMMAND ${TESTUNIT} --result_code=yes --report_level=no)
 
-target_include_directories(${LIBNAME}
+target_include_directories(${TESTUNIT}
     PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -38,8 +38,8 @@ target_include_directories(${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::Flint
-		Moja::Test
+		moja::moja.flint
+		moja::moja.test
 		Boost::unit_test_framework
 )
 

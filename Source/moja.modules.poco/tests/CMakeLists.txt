@@ -26,7 +26,7 @@ add_test(NAME ${LIBNAME}
 
 target_link_libraries(${TESTUNIT}
 	PRIVATE
-		Moja::ModulesPoco Boost::unit_test_framework
+		moja::moja.modules.poco Boost::unit_test_framework
 )
 
 if(WIN32)

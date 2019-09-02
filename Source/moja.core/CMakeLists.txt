@@ -117,12 +117,13 @@ set(MOJA_Core_sources
 set(SRCS ${MOJA_Core_sources} ${MOJA_Core_headers} ${MOJA_Core_Enum_headers} ${DATE_SRCS} ${FOLLY_SRCS} ${TLX_SRCS})
 
 add_library(${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
-add_library(Moja::Core ALIAS ${LIBNAME})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 #Set target properties
 set_target_properties(${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR} 
+	OUTPUT_NAME ${LIBNAME}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
 )
 
@@ -147,65 +148,11 @@ target_link_libraries(${LIBNAME}
 
 ##############################################
 # Installation instructions
-
 include(GNUInstallDirs)
-set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/MojaCore)
+install(DIRECTORY external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
-install(TARGETS ${LIBNAME}
-    EXPORT ${LIBNAME}-targets
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-	RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
-
-#This is required so that the exported target has the name Core and not ${LIBNAME}
-set_target_properties(${LIBNAME} PROPERTIES EXPORT_NAME Core)
-
-install(DIRECTORY include/ external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-
-install(EXPORT ${LIBNAME}-targets
-  FILE
-    MojaCoreTargets.cmake
-  NAMESPACE
-    Moja::
-  DESTINATION
-    ${INSTALL_CONFIGDIR}
-)
-
-#Create a ConfigVersion.cmake file
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfigVersion.cmake
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY AnyNewerVersion
-)
-
-configure_package_config_file(${CMAKE_CURRENT_LIST_DIR}/cmake/MojaCoreConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfig.cmake
-    INSTALL_DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-#Install the config, configversion and custom find modules
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfig.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreConfigVersion.cmake
-    DESTINATION ${INSTALL_CONFIGDIR}
-)
-
-##############################################
-## Exporting from the build tree
-export(EXPORT ${LIBNAME}-targets FILE ${CMAKE_CURRENT_BINARY_DIR}/MojaCoreTargets.cmake NAMESPACE Moja::)
-
-#Register package in user's package registry
-export(PACKAGE MojaCore)
-
-if(MSVC)
-	INSTALL(
-		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION ${CMAKE_INSTALL_BINDIR} 
-		CONFIGURATIONS Debug
-		)
-endif()
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if (ENABLE_TESTS)
 	add_subdirectory( tests )
