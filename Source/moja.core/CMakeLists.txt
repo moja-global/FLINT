@@ -5,7 +5,7 @@ string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 include(${CMAKE_MODULE_PATH}/generate_product_version.cmake) 
 
 find_package(Poco REQUIRED Foundation JSON)
-find_package(Boost COMPONENTS log REQUIRED)
+find_package(Boost COMPONENTS log log_setup REQUIRED)
 
 if (MSVC)
   generate_product_version(ProductVersionFiles
@@ -125,6 +125,7 @@ set_target_properties(${LIBNAME}
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR} 
 	OUTPUT_NAME ${LIBNAME}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
+	CXX_EXTENSIONS OFF
 )
 
 target_include_directories(${LIBNAME}
@@ -137,11 +138,18 @@ target_include_directories(${LIBNAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-target_compile_definitions(${LIBNAME} PRIVATE FOLLY_NO_CONFIG)
+target_compile_definitions(${LIBNAME} 
+	PUBLIC
+		BOOST_ALL_DYN_LINK
+	PRIVATE 
+		FOLLY_NO_CONFIG 
+)
+
+target_compile_features(${LIBNAME} PUBLIC cxx_std_14)
 
 target_link_libraries(${LIBNAME} 
 	PUBLIC
-		Boost::log Poco::Foundation Poco::JSON 
+		Boost::log Boost::log_setup Poco::Foundation Poco::JSON 
 	PRIVATE
 		${SYSLIBS}
 	)
@@ -149,7 +157,7 @@ target_link_libraries(${LIBNAME}
 ##############################################
 # Installation instructions
 include(GNUInstallDirs)
-install(DIRECTORY external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+#install(DIRECTORY external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 MOJA_INSTALL(${LIBNAME})
 MOJA_GENERATE_PACKAGE(${LIBNAME})
