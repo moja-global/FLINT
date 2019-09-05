@@ -199,6 +199,8 @@ class RecordAccumulator2 {
 
    rec_accu_size_type size() const { return _records.size(); }
 
+   const rec_accu_vec& records() const { return _records; }
+
   private:
    Int64 _nextId = 1;
    rec_accu_set _recordsIdx;
@@ -240,7 +242,7 @@ class RecordAccumulatorMap {
 
    std::vector<TPersistable> getPersistableCollection() const {
       std::vector<TPersistable> persistables;
-      for (auto rec : _records) {
+      for (const auto& rec : _records) {
          persistables.emplace_back(TRecordConv::asPersistable(rec.first, rec.second));
       }
       return persistables;
@@ -264,6 +266,85 @@ class RecordAccumulatorMap {
    Int64 _nextId = 1;
    rec_accu_map _records;
 };
+
+
+template <class TPersistable, class TTuple, class TRecordConv, class TKey, class TValue>
+class RecordAccumulatorMap2 {
+  public:
+   typedef tlx::btree_map<TKey, TValue> rec_accu_map;
+   typedef typename rec_accu_map::size_type rec_accu_size_type;
+
+   void insert(Int64 id, const TKey& key, const TValue& value) {
+      // ID has been assigned by user, assume that we can run with this
+      _nextId = id + 1;  // can't guarantee that this will be called in 'id increasing' order but a good guess perhaps
+      auto newValue = value;
+      newValue._id = id;
+      _records.insert(key, newValue);
+   }
+
+   Int64 accumulate(const TKey& key, const TValue& value) { return accumulate(key, value, _nextId); }
+
+   Int64 accumulate(const TKey& key, const TValue& value, Int64 requestedId) {
+      auto it = _records.find(key);
+      if (it != _records.end()) {
+         it->second += value;
+         return it->second._id;
+      }
+      // First time seeing this key - assign an ID.
+      _nextId = requestedId +
+                1;  // can't guarantee that this will be called in 'id increasing' order but a good guess perhaps
+      auto newValue = value;
+      newValue._id = requestedId;
+      _records.insert(std::make_pair(key, newValue));
+      return newValue._id;
+   }
+
+   const rec_accu_map& getRecords() const { return _records; }
+
+   std::vector<TPersistable> getPersistableCollection() const {
+      std::vector<TPersistable> persistables;
+      for (const auto& rec : _records) {
+         persistables.emplace_back(TRecordConv::asPersistable(rec.first, rec.second));
+      }
+      return persistables;
+   }
+
+   std::vector<TPersistable> getPersistableCollectionRange(typename rec_accu_map::const_iterator& rangeStart,
+                                                           size_t chunkSize) const {
+      std::vector<TPersistable> persistables;
+      size_t chunkPosition = 0;
+      for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
+         persistables.push_back(TRecordConv::asPersistable((*rangeStart).first, (*rangeStart).second));
+      }
+      return persistables;
+   }
+
+   std::vector<TTuple> getTupleCollection() {
+      std::vector<TTuple> tuples(_records.size());
+      for (const auto& rec : _records) {
+         tuples.emplace_back(TRecordConv::asTuple(rec.first, rec.second));
+      }
+      return tuples;
+   }
+
+   std::vector<TTuple> getTupleCollectionRange(typename rec_accu_map::const_iterator& rangeStart, size_t chunkSize) {
+      std::vector<TTuple> tuples;
+      size_t chunkPosition = 0;
+      for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
+         tuples.push_back(TRecordConv::asTuple((*rangeStart).first, (*rangeStart).second));
+      }
+      return tuples;
+   }
+
+   void clear() { _records.clear(); }
+
+   rec_accu_size_type size() const { return _records.size(); }
+
+  private:
+   Int64 _nextId = 1;
+   rec_accu_map _records;
+};
+
 
 }  // namespace flint
 }  // namespace moja

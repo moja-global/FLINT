@@ -55,7 +55,19 @@ if(MSVC)
 endif()
 add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
-target_include_directories(${LIBNAME} INTERFACE include/)
+target_include_directories(${LIBNAME}
+    INTERFACE 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
 
 target_link_libraries(${LIBNAME} INTERFACE moja::moja.flint)
+
+##############################################
+# Installation instructions
+
+include(GNUInstallDirs)
+
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
