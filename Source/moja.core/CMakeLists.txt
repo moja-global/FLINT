@@ -132,7 +132,7 @@ target_include_directories(${LIBNAME}
     PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:external>
+        $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/external>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -157,7 +157,7 @@ target_link_libraries(${LIBNAME}
 ##############################################
 # Installation instructions
 include(GNUInstallDirs)
-#install(DIRECTORY external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+install(DIRECTORY external/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 MOJA_INSTALL(${LIBNAME})
 MOJA_GENERATE_PACKAGE(${LIBNAME})
