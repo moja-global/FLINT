@@ -4,7 +4,7 @@ string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-find_package(Turtle)
+find_package(Turtle REQUIRED)
 
 configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/${PACKAGE}/_${PACKAGE}_exports.h)
 
@@ -61,7 +61,7 @@ target_include_directories(${LIBNAME}
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-target_link_libraries(${LIBNAME} INTERFACE moja::moja.flint)
+target_link_libraries(${LIBNAME} INTERFACE moja::moja.flint Turtle::Turtle)
 
 ##############################################
 # Installation instructions

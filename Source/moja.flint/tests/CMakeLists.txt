@@ -2,8 +2,6 @@ set(TESTUNIT "${LIBNAME}.test")
 
 find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
-find_package(Turtle)
-
 configure_file(../../templates/unittestdefinition.cpp ${CMAKE_CURRENT_SOURCE_DIR}/src/_unittestdefinition.cpp)
 
 set(TEST_SRCS

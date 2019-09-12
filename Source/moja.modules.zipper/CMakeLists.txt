@@ -4,7 +4,7 @@ string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
 # Zipper
-find_package(zipper)
+find_package(Zipper REQUIRED)
 
 configure_file(
     ../templates/exports.h 
@@ -65,8 +65,6 @@ set(SRCS
     ${PROJECT_PROVIDER_HEADERS} ${PROJECT_PROVIDER_SOURCES}
 )
 
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
-
 add_library(${LIBNAME} ${LIB_MODE} ${SRCS})
 add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
@@ -88,7 +86,7 @@ target_link_libraries(${LIBNAME}
 	PUBLIC
 		moja::moja.flint 
 	PRIVATE 
-		Zipper::Zipper_static
+		Zipper::Zipper
 )
 
 ##############################################
