@@ -9,6 +9,10 @@
 #include <moja/environment.h>
 #include <moja/exception.h>
 
+#include <moja/logging.h>
+#include <boost/algorithm/string.hpp>
+#include <boost/format.hpp>
+
 #if defined(ENABLE_MOJAPY)
 #include "moja/flint/libraryinfopython.h"
 
@@ -39,18 +43,22 @@ const char* libPrefix = "lib";
 Int32 LibraryManager::currentLoadOrder = 1;
 LibraryManager::LibraryManager() {
    // Load all internal
+   MOJA_LOG_DEBUG << (boost::format("LibraryManager: %s") % "contructor no args" ).str();
+
    const auto internalHandles = std::make_shared<FlintLibraryHandles>(
        "internal.flint", getFlintModuleRegistrations, getFlintTransformRegistrations, getFlintFlintDataRegistrations,
-       getFlintFlintDataFactoryRegistrations, getDataRepositoryProviderRegistrations);
+       getFlintFlintDataFactoryRegistrations, getProviderRegistrations); //getDataRepositoryProviderRegistrations);
 
    LoadInternalLibrary(internalHandles);
 }
 
 LibraryManager::LibraryManager(std::shared_ptr<FlintLibraryHandles> libraryHandles) {
    // Load Flint internal modules
+   MOJA_LOG_DEBUG << (boost::format("LibraryManager: %s") % "contructor no args").str();
+
    const auto internalHandles = std::make_shared<FlintLibraryHandles>(
        "internal.flint", getFlintModuleRegistrations, getFlintTransformRegistrations, getFlintFlintDataRegistrations,
-       getFlintFlintDataFactoryRegistrations, getDataRepositoryProviderRegistrations);
+       getFlintFlintDataFactoryRegistrations, getProviderRegistrations);
 
    LoadInternalLibrary(internalHandles);
 
@@ -67,8 +75,11 @@ LibraryManager::~LibraryManager() {
 
 void LibraryManager::AddLibrary(LibraryType libraryType, const std::string& inLibraryName, const std::string& path,
                                 const std::string& fileName) {
+   MOJA_LOG_DEBUG << (boost::format("AddLibrary: %s : %s") % "entered" % inLibraryName).str();
+
    // Do we already know about this library?
    if (_libraries.find(inLibraryName) != _libraries.end()) {
+      MOJA_LOG_DEBUG << (boost::format("AddLibrary: %s : %s") % "we know this library" % inLibraryName).str();
       return;
    }
 
@@ -390,10 +401,19 @@ void LibraryManager::RegisterProviders(std::shared_ptr<LibraryInfoBase> libraryI
 
    DataRepositoryProviderRegistration registrations[100];
 
-   const auto count = libraryInfo->libraryHandles->getDataRepositoryProviderRegistrations(registrations);
+   auto count = -1;
+   count = libraryInfo->libraryHandles->getDataRepositoryProviderRegistrations(registrations);
+   MOJA_LOG_DEBUG << (boost::format("RegisterProviders: %s : %s : count %d") % "entered" % libraryName % count).str();
+
    for (auto i = 0; i < count; i++) {
+
+      MOJA_LOG_DEBUG << (boost::format("RegisterProviders: %s: %d") % "loop" % i).str();
+
       auto registration = registrations[i];
       _providers[std::make_pair(libraryName, registration.providerName)] = libraryInfo;
+
+      MOJA_LOG_DEBUG << (boost::format("RegisterProviders: %s: %s : %s") % "loop" % libraryName % registration.providerName).str();
+
       auto fp = [registration](const DynamicObject& settings) {
          return ProviderInterfacePtr(registration.initializer(settings));
       };
@@ -402,7 +422,12 @@ void LibraryManager::RegisterProviders(std::shared_ptr<LibraryInfoBase> libraryI
 }
 
 bool LibraryManager::LoadInternalLibrary(std::shared_ptr<FlintLibraryHandles> libraryHandles) {
+
+   MOJA_LOG_DEBUG << (boost::format("LibraryMLoadInternalLibraryanager: %s") % "entered").str();
+
    if (libraryHandles == nullptr) return true;
+
+   MOJA_LOG_DEBUG << (boost::format("LibraryMLoadInternalLibraryanager: %s : %s") % "calling AddLibrary" % libraryHandles->libraryName).str();
 
    // Update our set of known libraries, in case we don't already know about this library
    AddLibrary(LibraryType::Internal, libraryHandles->libraryName);
@@ -412,6 +437,8 @@ bool LibraryManager::LoadInternalLibrary(std::shared_ptr<FlintLibraryHandles> li
    }
 
    if (libraryInfo->libraryHandles->getModuleRegistrations == nullptr) {
+      MOJA_LOG_DEBUG << (boost::format("LibraryMLoadInternalLibraryanager: %s") % "calling registrations").str();
+
       if (libraryInfo->GetLibraryType() != LibraryType::Internal) {
          throw LibraryLoadException("Attempt to load library already loaded as different type",
                                     libraryHandles->libraryName);
@@ -420,11 +447,12 @@ bool LibraryManager::LoadInternalLibrary(std::shared_ptr<FlintLibraryHandles> li
       auto internalLibraryInfo = std::static_pointer_cast<LibraryInfoInternal>(libraryInfo);
       internalLibraryInfo->libraryHandles = libraryHandles;
 
-      RegisterModules(internalLibraryInfo, libraryHandles->libraryName);
-      RegisterTransforms(internalLibraryInfo, libraryHandles->libraryName);
-      RegisterFlintData(internalLibraryInfo, libraryHandles->libraryName);
-      RegisterFlintDataFactory(internalLibraryInfo, libraryHandles->libraryName);
-      RegisterProviders(internalLibraryInfo, libraryHandles->libraryName);
+      RegisterModules(internalLibraryInfo,            libraryHandles->libraryName);
+      RegisterTransforms(internalLibraryInfo,         libraryHandles->libraryName);
+      RegisterFlintData(internalLibraryInfo,          libraryHandles->libraryName);
+      RegisterFlintDataFactory(internalLibraryInfo,   libraryHandles->libraryName);
+      RegisterProviders(internalLibraryInfo,          libraryHandles->libraryName);
+      RegisterProviders(internalLibraryInfo,          libraryHandles->libraryName);
    }
    return true;
 }
