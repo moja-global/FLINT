@@ -1,17 +1,18 @@
 #ifndef MOJA_TEST_MOCKTIMING_H_
 #define MOJA_TEST_MOCKTIMING_H_
 
-#include <moja/itiming.h>
+#include <moja/flint/itiming.h>
 
 #include <turtle/mock.hpp>
+
 
 namespace moja {
 namespace test {
 
-MOCK_BASE_CLASS(MockTiming, ITiming) {
+MOCK_BASE_CLASS(MockTiming, flint::ITiming) {
    MockTiming() = default;
 
-   MOCK_METHOD(stepping, 0, TimeStepping());
+   MOCK_METHOD(stepping, 0, flint::TimeStepping());
 
    MOCK_METHOD(startDate, 0, DateTime());
    MOCK_METHOD(endDate, 0, DateTime());
@@ -45,7 +46,7 @@ MOCK_BASE_CLASS(MockTiming, ITiming) {
    MOCK_METHOD(setSubStep, 1, void(int));
    MOCK_METHOD(setIsFullStep, 1, void(bool));
 
-   MOCK_METHOD(setStepping, 1, void(TimeStepping));
+   MOCK_METHOD(setStepping, 1, void(flint::TimeStepping));
 
    MOCK_METHOD(init, 0, void());
 };

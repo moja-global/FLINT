@@ -3,28 +3,21 @@ set(LIBNAME "moja.modules.${PACKAGE}")
 string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
-find_package(Boost)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-#for Moja
-#find_package(Moja)
-
 # Poco
-find_package(Poco REQUIRED)
+find_package(Poco REQUIRED DataSQLite MongoDB)
 
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
-endif()
-
-include_directories( 
-	include 
-    ../moja.core/include
-    ../moja.flint/include
-    ../moja.datarepository/include
-)
+#if (MSVC)
+#  generate_product_version(ProductVersionFiles
+#    NAME ${LIBNAME}
+#    FILE_DESCRIPTION "moja modules poco"
+#    VERSION_MAJOR ${MOJA_VERSION_MAJOR}
+#    VERSION_MINOR ${MOJA_VERSION_MINOR}
+#    VERSION_PATCH ${MOJA_VERSION_PATCH}
+#    VERSION_REVISION ${MOJA_VERSION_REVISION}
+#	COMPANY_NAME "moja global"
+##    VERSION_REVISION ${BUILD_ID}
+#  )
+#endif ()
 
 configure_file(
     ../templates/exports.h 
@@ -67,13 +60,11 @@ set(PROJECT_FLINTDATA_SOURCES
 set(PROJECT_PROVIDER_HEADERS
     include/moja/modules/${PACKAGE}/providernosqlpocomongodb.h
     include/moja/modules/${PACKAGE}/providernosqlpocojson.h
-#    include/moja/modules/${PACKAGE}/providerrelationalpocopostgresql.h
 )
 
 set(PROJECT_PROVIDER_SOURCES
     src/providernosqlpocomongodb.cpp
     src/providernosqlpocojson.cpp
-#	src/providerrelationalpocopostgresql.cpp
 )
 
 source_group("header files\\other"					FILES ${PROJECT_HEADERS})
@@ -95,42 +86,35 @@ set(SRCS
     ${PROJECT_PROVIDER_HEADERS} ${PROJECT_PROVIDER_SOURCES}
 )
 
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
-
-add_library(
-    ${LIBNAME} 
-    ${LIB_MODE} 
-    ${SRCS}
-    )
+add_library(${LIBNAME} ${LIB_MODE} ${SRCS} )
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
 set_target_properties(${LIBNAME} 
     PROPERTIES
-    VERSION ${MOJA_MULLIONGROUP_VERSION} 
-	SOVERSION ${MOJA_MULLIONGROUP_VERSION_MAJOR}
+    VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
     DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
+)
+
+target_include_directories(${LIBNAME}
+    PUBLIC
+        $<INSTALL_INTERFACE:include>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(${LIBNAME} 
+	PUBLIC
+		moja::moja.flint Poco::DataSQLite Poco::MongoDB
     )
 
-target_link_libraries(
-	${LIBNAME} 
-	moja.core 
-	moja.flint
-	moja.datarepository
-	${Poco_FOUNDATION} 
-	${Poco_DATA} 
-	${Poco_NET} 
-	${Poco_MONGODB} 
-	${Poco_JSON} 
-	${Poco_DATA_SQLITE}
-	${Poco_DATA_POSTGRESQL}
-    )
+##############################################
+# Installation instructions
 
-# Set local include path
-include_directories(${Poco_INCLUDE_DIRS})
+include(GNUInstallDirs)
 
-install(TARGETS ${LIBNAME}
-        LIBRARY DESTINATION lib${LIB_SUFFIX}
-        ARCHIVE DESTINATION lib${LIB_SUFFIX}
-        RUNTIME DESTINATION bin)
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if(ENABLE_TESTS)
     add_subdirectory(tests)

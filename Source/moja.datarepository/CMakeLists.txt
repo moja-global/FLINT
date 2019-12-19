@@ -4,37 +4,9 @@ string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
 include(${CMAKE_MODULE_PATH}/generate_product_version.cmake) 
 
-if(MOJA_STATIC)
-	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-	add_definitions(-DUSE_STATIC_BOOST)
-    set(Boost_USE_STATIC_LIBS ON)
-else(MOJA_STATIC)
-	add_definitions(-DBOOST_ALL_DYN_LINK)
-    set(Boost_USE_STATIC_LIBS OFF)
-endif(MOJA_STATIC)
+find_package(Poco REQUIRED Foundation JSON)
 
-find_package(Boost)
-if(Boost_FOUND)
-	include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-# Poco
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
-endif()
-
-# SQLite
-find_package(SQLite)
-
-include_directories(
-	include 
-	../moja.core/include  
-	../moja.flint.configuration/include 
-	${Poco_INCLUDE_DIRS}
-	${Sqlite_INCLUDE_PATH}
-	)
+find_package(SQLite3 REQUIRED)
 
 # Version Info
 if (MSVC)
@@ -57,37 +29,15 @@ configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/$
 
 set(MOJA_DataRepository_Relational_headers
 	include/moja/${PACKAGE}/providerrelationalsqlite.h
-#   include/moja/${PACKAGE}/providerrelationalpocopostgresql.h
-#	include/moja/${PACKAGE}/providerrelationallibpqpostgresql.h
 )
 
 set(MOJA_DataRepository_Relational_sources
 	src/providerrelationalsqlite.cpp
-	# src/providerrelationalpocopostgresql.cpp
-#	src/providerrelationallibpqpostgresql.cpp
 )
 
 set(MOJA_DataRepository_NoSQL_headers
-##	include/moja/${PACKAGE}/providernosqlpocomongodb.h
-##	include/moja/${PACKAGE}/providernosqlpocojson.h
 )
 set(MOJA_DataRepository_NoSQL_sources
-##	src/providernosqlpocomongodb.cpp
-##	src/providernosqlpocojson.cpp
-)
-
-set(MOJA_DataRepository_SpatialRasterGDAL_headers
-	include/moja/${PACKAGE}/providerspatialrastergdal.h
-)
-set(MOJA_DataRepository_SpatialRasterGDAL_sources
-	src/providerspatialrastergdal.cpp
-)
-
-set(MOJA_DataRepository_SpatialVectorGDAL_headers
-	include/moja/${PACKAGE}/providerspatialvectorgdal.h
-)
-set(MOJA_DataRepository_SpatialVectorGDAL_sources
-	src/providerspatialvectorgdal.cpp
 )
 
 set(MOJA_DataRepository_SpatialRasterTiled_headers
@@ -155,58 +105,51 @@ source_group("header files\\spatialvector"  FILES ${MOJA_DataRepository_SpatialV
 source_group("source files\\spatialvector"  FILES ${MOJA_DataRepository_SpatialVectorGDAL_sources})
 
 set(SRCS 
-	${Sqlite_INCLUDE_PATH}/sqlite3.c 
 	${MOJA_DataRepository_sources}							${MOJA_DataRepository_headers}
 	${MOJA_DataRepository_Relational_sources}				${MOJA_DataRepository_Relational_headers}
 	${MOJA_DataRepository_NoSQL_sources}					${MOJA_DataRepository_NoSQL_headers}
-	${MOJA_DataRepository_SpatialRasterGDAL_sources}		${MOJA_DataRepository_SpatialRasterGDAL_headers}
-	${MOJA_DataRepository_SpatialVectorGDAL_sources}		${MOJA_DataRepository_SpatialVectorGDAL_headers}
 	${MOJA_DataRepository_SpatialRasterTiled_sources}		${MOJA_DataRepository_SpatialRasterTiled_headers}
 	${MOJA_DataRepository_SpatialRaster_sources}			${MOJA_DataRepository_SpatialRaster_headers}
 )
 
-include_directories( include )
-
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
 add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
+
+#Set target properties
 set_target_properties( ${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS)
 
-target_link_libraries( ${LIBNAME} 
-	moja.core
-	moja.flint.configuration 
-	${Poco_FOUNDATION} 
-	${Poco_JSON} 
+target_include_directories(${LIBNAME}
+    PUBLIC 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+target_link_libraries(${LIBNAME} 
+	PUBLIC
+		moja::moja.core moja::moja.flint.configuration Poco::Foundation Poco::JSON
+	PRIVATE		
+		SQLite::SQLite3
 	)
 
 if (CMAKE_SYSTEM MATCHES "Linux" )
-	target_link_libraries( ${LIBNAME} dl)
+	target_link_libraries( ${LIBNAME} 
+		PRIVATE 
+			dl
+	)
 endif(CMAKE_SYSTEM MATCHES "Linux" )
 
-add_dependencies(${LIBNAME} moja.core moja.flint.configuration)
+##############################################
+# Installation instructions
 
-install(
-	DIRECTORY include/moja
-	DESTINATION include
-	PATTERN ".svn" EXCLUDE
-	)
+include(GNUInstallDirs)
 
-install(
-	TARGETS ${LIBNAME}
-	LIBRARY DESTINATION lib${LIB_SUFFIX}
-	ARCHIVE DESTINATION lib${LIB_SUFFIX}
-	RUNTIME DESTINATION bin
-	)
-
-if(MSVC)
-	INSTALL(
-		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION bin 
-		CONFIGURATIONS Debug
-		)
-endif()
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if (ENABLE_TESTS)
 	add_subdirectory( tests )

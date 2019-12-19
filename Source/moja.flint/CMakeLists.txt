@@ -21,35 +21,12 @@ if(ENABLE_MOJAPY)
 		message(FATAL_ERROR "Unable to find PythonLibs.")
     endif()
 
-    include_directories(../mojapy/include)
 endif()
 
 include(${CMAKE_MODULE_PATH}/generate_product_version.cmake) 
 
-if(MOJA_STATIC)
-	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-	add_definitions(-DUSE_STATIC_BOOST)
-    set(Boost_USE_STATIC_LIBS ON)
-else(MOJA_STATIC)
-	add_definitions(-DBOOST_ALL_DYN_LINK)
-    set(Boost_USE_STATIC_LIBS OFF)
-endif(MOJA_STATIC)
-
 if (ENABLE_MOJAPY)
     find_package(Boost COMPONENTS python3 REQUIRED)
-else()
-    find_package(Boost)
-endif()
-
-if(Boost_FOUND)
-	include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-# Poco
-if(Poco_FOUND)
-	link_directories(${Poco_BINARY_DIRS})
-    include_directories(${Poco_INCLUDE_DIRS})
 endif()
 
 # Version Info
@@ -67,13 +44,6 @@ if (MSVC)
 endif ()
 
 # HEADERS AND SOURCE
-
-include_directories(
-    include
-    ../moja.core/include
-    ../moja.datarepository/include
-    ../moja.flint.configuration/include
-)
 
 configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/${PACKAGE}/_${PACKAGE}_exports.h)
 
@@ -129,7 +99,6 @@ set(MOJA_FLINT_FLINTDATA_HEADERS
 
 set(MOJA_FLINT_HEADERS
 	include/moja/flint/aspatiallocaldomaincontroller.h
-#	include/moja/flint/aspatialnosqllocaldomaincontroller.h
 	include/moja/flint/calendarandeventsequencer.h
 	include/moja/flint/calendarandeventflintdatasequencer.h
 	include/moja/flint/calendarsequencer.h
@@ -197,6 +166,7 @@ set(MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS
 	include/moja/flint/operationresultfluxiteratorsimple.h
 	include/moja/flint/operationproportionalsimple.h
 	include/moja/flint/operationstocksimple.h
+	include/moja/flint/operationresultsimple.h
 	include/moja/flint/operationtransfersimple.h
 	include/moja/flint/poolsimple.h
 )
@@ -251,9 +221,7 @@ set(MOJA_FLINT_TRANSFORM_SOURCES
 	src/locationidxfromflintdatatransform.cpp
 	src/lookuptransform.cpp
 	src/lookuprandomtransform.cpp
-#	src/nosqlcollectiontransform.cpp
 	src/sqlquerytransform.cpp
-#	src/pocomongodbquerytransform.cpp
 	src/sumpoolstransform.cpp
 )
 
@@ -265,7 +233,6 @@ set(MOJA_FLINT_FLINTDATA_SOURCES
 
 set(MOJA_FLINT_SOURCES
 	src/aspatiallocaldomaincontroller.cpp
-#	src/aspatialnosqllocaldomaincontroller.cpp
 	src/calendarandeventsequencer.cpp
 	src/calendarandeventflintdatasequencer.cpp
 	src/calendarsequencer.cpp
@@ -342,57 +309,50 @@ set (SRCS ${MOJA_FLINT_GENERATED_HEADERS}
           ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS} ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_SOURCE} 
 		  ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS}  ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_SOURCE})
 
-#add_definitions(-DPOCO_NO_AUTOMATIC_LIBS -DBOOST_ALL_DYN_LINK)
-add_definitions(-DPOCO_NO_AUTOMATIC_LIBS -DUSE_STATIC_BOOST)
 
 add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
+
+#Set target properties
 set_target_properties( ${LIBNAME} 
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS)
 
-set(LINK_LIBRARIES
-	${LIBNAME} 
-	moja.core 
-	moja.flint.configuration
-	moja.datarepository 
-	${Poco_FOUNDATION} 
-	${Poco_JSON} 
+target_include_directories(${LIBNAME}
+    PUBLIC 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
+target_link_libraries(${LIBNAME} 
+	PUBLIC
+		moja::moja.core moja::moja.flint.configuration moja::moja.datarepository
+	)
+
 if (ENABLE_MOJAPY)
-    set(LINK_LIBRARIES ${LINK_LIBRARIES} ${PYTHON_LIBRARIES})
+	target_link_libraries(${LIBNAME} 
+		PRIVATE
+			${PYTHON_LIBRARIES}
+		)
 endif()    
 
-target_link_libraries(${LINK_LIBRARIES})
-
 if (CMAKE_SYSTEM MATCHES "Linux" )
-	target_link_libraries( ${LIBNAME} dl)
+	target_link_libraries( ${LIBNAME} 
+		PRIVATE 
+			dl
+	)
 endif(CMAKE_SYSTEM MATCHES "Linux" )
 
+##############################################
+# Installation instructions
 
-add_dependencies(${LIBNAME} moja.core moja.flint.configuration)
+include(GNUInstallDirs)
 
-install(
-	DIRECTORY include/moja
-	DESTINATION include
-	PATTERN ".svn" EXCLUDE
-	)
-
-install(
-	TARGETS ${LIBNAME}
-	LIBRARY DESTINATION lib${LIB_SUFFIX}
-	ARCHIVE DESTINATION lib${LIB_SUFFIX}
-	RUNTIME DESTINATION bin
-	)
-
-if(MSVC)
-	INSTALL(
-		FILES ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Debug/${LIBNAME}${CMAKE_DEBUG_POSTFIX}.pdb 
-		DESTINATION bin 
-		CONFIGURATIONS Debug
-		)
-endif()
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if (ENABLE_TESTS)
   add_subdirectory( tests )

@@ -58,8 +58,8 @@ struct FlintDataFactoryRegistration {
    InitializeFlintDataFactoryFunctionPtr initializer;
 };
 
-typedef std::shared_ptr<datarepository::IProviderInterface> (*InitializeDataRepositoryProviderFunctionPtr)(
-    const DynamicObject&);
+typedef std::shared_ptr<datarepository::IProviderInterface> (*InitializeDataRepositoryProviderFunctionPtr)(const DynamicObject&);
+
 struct DataRepositoryProviderRegistration {
    const char* providerName;
    int providerType;
@@ -74,11 +74,11 @@ struct DataRepositoryProviderRegistration {
  * function must be declared using as 'extern "C"' so that the name remains
  * undecorated.
  */
-typedef int (*GetModuleRegistrationsFunctionPtr)(ModuleRegistration*);
-typedef int (*GetTransformRegistrationsFunctionPtr)(TransformRegistration*);
-typedef int (*GetFlintDataRegistrationsFunctionPtr)(FlintDataRegistration*);
-typedef int (*GetFlintDataFactoryRegistrationsFunctionPtr)(FlintDataFactoryRegistration*);
-typedef int (*GetDataRepositoryProviderRegistrationsFunctionPtr)(DataRepositoryProviderRegistration*);
+typedef int (*GetModuleRegistrationsFunctionPtr)                  (ModuleRegistration*);
+typedef int (*GetTransformRegistrationsFunctionPtr)               (TransformRegistration*);
+typedef int (*GetFlintDataRegistrationsFunctionPtr)               (FlintDataRegistration*);
+typedef int (*GetFlintDataFactoryRegistrationsFunctionPtr)        (FlintDataFactoryRegistration*);
+typedef int (*GetDataRepositoryProviderRegistrationsFunctionPtr)  (DataRepositoryProviderRegistration*);
 
 /**
  * The module registry maps modules by name to a function wrapper around

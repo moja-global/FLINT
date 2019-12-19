@@ -3,22 +3,7 @@ set(LIBNAME "moja.modules.${PACKAGE}")
 string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
-find_package(Boost)
-if(Boost_FOUND)
-    include_directories(${Boost_INCLUDE_DIRS})
-endif()
-
-find_package(GDAL)
-if(GDAL_FOUND)
-    include_directories(${GDAL_INCLUDE_DIR})
-endif()
-
-include_directories( 
-	include 
-    ../moja.core/include
-    ../moja.flint/include
-    ../moja.datarepository/include
-)
+find_package(GDAL REQUIRED)
 
 configure_file(
     ../templates/exports.h 
@@ -79,38 +64,36 @@ set(SRCS
     ${PROJECT_PROVIDER_HEADERS} ${PROJECT_PROVIDER_SOURCES}
 )
 
-add_definitions( -DPOCO_NO_AUTOMATIC_LIBS )
+add_library(${LIBNAME} ${LIB_MODE} ${SRCS})
+add_library(${PROJECT_NAME}::${LIBNAME} ALIAS ${LIBNAME})
 
-add_library(
-    ${LIBNAME} 
-    ${LIB_MODE} 
-    ${SRCS}
-)
-
+#Set target properties
 set_target_properties(${LIBNAME} 
     PROPERTIES
-    VERSION ${MOJA_MULLIONGROUP_VERSION} 
-	SOVERSION ${MOJA_MULLIONGROUP_VERSION_MAJOR}
+    VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
     DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
 )
 
-target_link_libraries(
-	${LIBNAME} 
-	moja.core 
-	moja.flint
-	moja.datarepository
-	${Poco_FOUNDATION} 
-	${Poco_JSON}
-    ${GDAL_LIBRARY}
+target_include_directories(${LIBNAME}
+    PUBLIC 
+        $<INSTALL_INTERFACE:include>    
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-# Set local include path
-include_directories(${Poco_INCLUDE_DIRS})
+target_link_libraries(${LIBNAME} 
+	PUBLIC
+		moja::moja.flint ${GDAL_LIBRARY}
+)
 
-install(TARGETS ${LIBNAME}
-        LIBRARY DESTINATION lib${LIB_SUFFIX}
-        ARCHIVE DESTINATION lib${LIB_SUFFIX}
-        RUNTIME DESTINATION bin)
+##############################################
+# Installation instructions
+
+include(GNUInstallDirs)
+
+MOJA_INSTALL(${LIBNAME})
+MOJA_GENERATE_PACKAGE(${LIBNAME})
 
 if(ENABLE_TESTS)
     add_subdirectory(tests)

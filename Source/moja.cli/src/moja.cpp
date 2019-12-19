@@ -157,12 +157,11 @@ int main(int argc, char* argv[]) {
 	}
 
 	if (args.count("logging_config")) {
-		auto loggingConf = args["logging_config"].as<std::string>();
-        if (!checkFilePath(loggingConf)) {
-            return EXIT_FAILURE;
-        }
-
-		moja::Logging::setConfigurationFile(loggingConf);
+	   auto loggingConf = args["logging_config"].as<std::string>();
+           if (!checkFilePath(loggingConf)) {
+               return EXIT_FAILURE;
+           }
+	   moja::Logging::setConfigurationFile(loggingConf);
 	}
 
 	if (!args.count("config")) {
@@ -172,18 +171,20 @@ int main(int argc, char* argv[]) {
 		return EXIT_SUCCESS;
 	}
 
-	auto configPath = args["config"].as<std::vector<std::string>>();
+    auto configPath = args["config"].as<std::vector<std::string>>();
     for (const auto& filePath : configPath) {
         if (!checkFilePath(filePath)) {
             return EXIT_FAILURE;
         }
     }
-
-    auto configProviderPath = args["config_provider"].as<std::vector<std::string>>();
-    for (const auto& filePath : configProviderPath) {
-        if (!checkFilePath(filePath)) {
-            return EXIT_FAILURE;
-        }
+    std::vector<std::string> configProviderPath;
+    if (args.count("config_provider")) {
+       configProviderPath = args["config_provider"].as<std::vector<std::string>>();
+       for (const auto& filePath : configProviderPath) {
+          if (!checkFilePath(filePath)) {
+             return EXIT_FAILURE;
+          }
+       }
     }
 
     MOJA_LOG_INFO << "Config has files: " << configPath.size();
@@ -207,13 +208,16 @@ int main(int argc, char* argv[]) {
 		for (auto configFilePath : configPath) {
 			MOJA_LOG_INFO << configFilePath;
 		}
-		MOJA_LOG_INFO << "Using provider configurations: ";
-		for (auto configFilePath : configProviderPath) {
-			MOJA_LOG_INFO << configFilePath;
-		}
-
-		conf::JSON2ConfigurationProvider jsonConfigProvider{configPath, configProviderPath};
-		auto config = jsonConfigProvider.createConfiguration();
+                if (!configProviderPath.empty()) {
+                   MOJA_LOG_INFO << "Using provider configurations: ";
+                   for (auto configFilePath : configProviderPath) {
+                      MOJA_LOG_INFO << configFilePath;
+                   }
+                }
+                auto config =
+                    configProviderPath.empty()
+                        ? conf::JSON2ConfigurationProvider(configPath).createConfiguration()
+                        : conf::JSON2ConfigurationProvider(configPath, configProviderPath).createConfiguration();
 
 		MOJA_LOG_INFO << "Using operation manager: " << config->localDomain()->operationManagerObject()->name();
 

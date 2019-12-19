@@ -2,10 +2,10 @@
 #define MOJA_FLINT_OPERATIONRESULTSIMPLE_H_
 
 #include "moja/flint/ioperationresult.h"
-#include "moja/flint/timing.h"
 #include "moja/flint/operationresultfluxsimple.h"
+#include "moja/flint/timing.h"
 
-#include "moja/dynamic.h"
+#include <moja/dynamic.h>
 
 namespace moja {
 namespace flint {
@@ -13,44 +13,45 @@ class IOperation;
 // --------------------------------------------------------------------------------------------
 
 class OperationResultSimple : public IOperationResult {
-	friend class OperationManagerSimple;
-	friend class StockOperationSimple;
-	friend class ProportionalOperationSimple;
-public:
-	typedef std::shared_ptr<OperationResultSimple> Ptr;
+   friend class OperationManagerSimple;
+   friend class StockOperationSimple;
+   friend class ProportionalOperationSimple;
 
-	explicit OperationResultSimple(IOperation& operation);
-	virtual ~OperationResultSimple() = default;
-	OperationResultSimple(const OperationResultSimple&) = delete;
+  public:
+   typedef std::shared_ptr<OperationResultSimple> Ptr;
 
-	virtual OperationResultFluxCollection operationResultFluxCollection() override;
+   explicit OperationResultSimple(IOperation& operation);
+   virtual ~OperationResultSimple() = default;
+   OperationResultSimple(const OperationResultSimple&) = delete;
 
-	virtual OperationTransferType transferType() const override;
-	virtual const ModuleMetaData* metaData() const override;
-	virtual const DynamicVar& dataPackage() const override;
-	virtual bool hasDataPackage() const override;
+   virtual OperationResultFluxCollection operationResultFluxCollection() override;
 
-	virtual const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
-	virtual void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
+   virtual OperationTransferType transferType() const override;
+   virtual const ModuleMetaData* metaData() const override;
+   virtual const DynamicVar& dataPackage() const override;
+   virtual bool hasDataPackage() const override;
 
-	std::vector<OperationResultFluxSimple>& fluxes() { return _fluxes; }
+   virtual const Timing& timingWhenApplied() const override { return _timingWhenApplied; };
+   virtual void setTimingWhenApplied(const Timing& timing) override { _timingWhenApplied = timing; };
 
-private:
-	void addFlux(int source, int sink, double value);
+   std::vector<OperationResultFluxSimple>& fluxes() { return _fluxes; }
 
-protected:
-	OperationTransferType _transferType;
-	const ModuleMetaData* _metaData;
-	const DynamicVar _dataPackage;
-	const bool _hasDataPackage;
-	std::vector<OperationResultFluxSimple> _fluxes;
+  private:
+   void addFlux(int source, int sink, double value);
 
-	Timing _timingWhenApplied;
+  protected:
+   OperationTransferType _transferType;
+   const ModuleMetaData* _metaData;
+   const DynamicVar _dataPackage;
+   const bool _hasDataPackage;
+   std::vector<OperationResultFluxSimple> _fluxes;
+
+   Timing _timingWhenApplied;
 };
 
 #undef USE_INT_ITERATOR
 
-}
-} // moja::flint
+}  // namespace flint
+}  // namespace moja
 
-#endif // MOJA_FLINT_OPERATIONRESULTSIMPLE_H_
+#endif  // MOJA_FLINT_OPERATIONRESULTSIMPLE_H_

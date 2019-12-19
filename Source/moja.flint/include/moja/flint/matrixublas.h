@@ -1,7 +1,6 @@
 #ifndef MOJA_FLINT_MATRIXUBLAS_H_
 #define MOJA_FLINT_MATRIXUBLAS_H_
 
-#define BOOST_ALL_NO_LIB
 #define BOOST_UBLAS_NDEBUG  // cuts some time off run
                             // (http://www.boost.org/doc/libs/1_49_0/libs/numeric/ublas/doc/index.htm)
 

@@ -26,216 +26,56 @@ The FLINT is using the lessons learned from first generation tools, to build a n
 
 ### Development Environment How-To for Windows
 
-These instructions are for building the FLINT on Windows using Visual Studio 2017 (version 15.9.11).
+These instructions are for building the FLINT on Windows using Visual Studio 2017, or Visual Studio 2019.
 
 #### Required Installs
 
-##### Windows 8.1 SDK
-
-- download [Windows 8.1 SDK](http://msdn.microsoft.com/en-US/windows/desktop/bg162891)
-
 ##### CMake
 
-- download [cmake-3.14.3-win64-x64.msi](https://github.com/Kitware/CMake/releases/download/v3.14.3/cmake-3.14.3-win64-x64.msi)
+- download [cmake-3.15.2-win64-x64.msi](https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.msi)
 
-##### Python 3
+#### Using vcpkg to install required libraries
 
-- download [python-3.6.3-amd64](https://www.python.org/ftp/python/3.6.3/python-3.6.3-amd64.exe)
+A fork of a *Vcpkg* repository has been created for the FLINT required libraries. To build these libraries you can use the following process:
 
-##### OpenSSL Library
++ Clone the Vcpkg repository: https://github.com/moja-global/vcpkg
 
-- download [Win64OpenSSL-1_1_1b.exe](http://slproweb.com/download/Win64OpenSSL-1_1_1b.exe)
-- Install using the defaults and ignore any errors about the VS2008 redistributables.
++ Start a command shell in the Vcpkg repository folder and use the following commands:
 
-#### Required Libraries
+  ```powershell
+  # bootstrap
+  bootstrap-vcpkg.bat
+  
+  # install packages
+  vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows
+  ```
 
-##### Boost C++ Libraries
++ Once this has completed, start a command shell in you FLINT repository folder. Now use the following commands to create the Visual Studio solution:
 
-While the Boost libraries can be built, for the purpose of this document we will download the pre-built binaries. These can be downloaded from [Prebuilt Windows Boost C++ Libraries](https://www.boost.org/users/download/).
-
-Current version in use: 1.70.0 (*boost_1_70_0-msvc-14.1-64.exe*).
-
-##### POCO C++ Libraries
-
-Source code can be downloaded from [Poco project](https://pocoproject.org/download.html). Current version in use '*1.9.0 (Basic Edition)*' download [poco-1.9.0](https://pocoproject.org/releases/poco-1.9.0/poco-1.9.0.zip):
-
-The **Basic Edition** ([poco-1.9.0.tar.gz](https://pocoproject.org/releases/poco-1.9.0/poco-1.9.0.tar.gz) or [poco-1.9.0.zip](https://pocoproject.org/releases/poco-1.9.0/poco-1.9.0.zip)) only contains the Foundation, JSON, XML, Util and Net libraries, but does not require any external dependencies.
-
-###### Build instructions
-
-- Extract the archive into `C:\Development\poco-1.9.0`
-- Edit the file “components” and delete the lines:
-
-```
-  CppUnit
-  CppUnit/WinTestRunner
-  Data/MySQL
-  NetSSL/OpenSSL
-  Crypto
-  PageCompiler
-  PageCompiler/File2PageA
-```
-
-- **Visual Studio 2017:** Open up a command prompt where the archive was extracted and type:
-
-```
-buildwin 150 build all both x64
-```
-
-##### Turtle Library
-
-This is a C++ mock object library for Boost ([Turtle](https://github.com/mat007/turtle)), used in the test projects. Download at [turtle-1.3.1](https://github.com/mat007/turtle/releases/download/v1.3.1/turtle-1.3.1.zip)
-
-- Extract the archive into `C:\Development\turtle-1.3.1`
-
-##### SQLite Library
-
-[download sqlite-amalgamation-3260000](https://www.sqlite.org/2018/sqlite-amalgamation-3260000.zip)
-
-- Extract the archive into `C:\Development\sqlite-amalgamation-3260000`
-
-#### Non-Essential Libraries
-
-Various FLINT Providers and Modules have been separated into sub-projects. These projects can be excluded/included in builds by setting ***ENABLE_XXX*** flags in cmake (i.e. ***ENABLE_MOJA.MODULES.LIBPQ*** & ***ENABLE_MOJA.MODULES.ZIPPER***).
-
-By disabling certain of these projects some external libraries will not be required. Making the build process less onerous.
-
-##### PostgreSQL
-
-CMake Flag: **ENABLE_MOJA.MODULES.LIBPQ**
-
-Currently using version 9.5.6-2 (found at http://www.postgresql.org/)
-
-- [download postgresql-9.5.6-2-windows-x64.exe](http://get.enterprisedb.com/postgresql/postgresql-9.5.6-2-windows-x64.exe)
-- This includes LibPQ library which is required. I had some issues with this not being found in the PATH (or the wrong version being found in QGis first). Moved the PostgreSQL version in the environment variable to before the GDAL version.
-
-##### Zlib
-
-CMake Flag: **ENABLE_MOJA.MODULES.ZIPPER**
-
-[download zlib-1.2.11](http://www.zlib.net/zlib1211.zip)
-
-- Extract the archive into `C:\Development\zlib-1.2.11`
-- Run cmake-gui and set options:
-  - source code: `C:\Development\zlib-1.2.11`
-  - binaries: `C:\Development\zlib-1.2.11\build`
-  - CMAKE_INSTALL_PREFIX: `C:\Development\zlib-1.2.11\dist`
-    +Edit all INSTALL paths (INSTALL_BIN_DIR, etc.) to point to location for CMAKE_INSTALL_PREFIX
-- Configure / Generate
-- Build Release, Release-Install, Debug, and Debug-Install
-- if the global.moja cmake zlib find package doesn't have your install path, set system environment vars: 
-  - `ZLIB_SOURCE=C:\Development\zlib-1.2.11`
-  - `ZLIBROOT=%ZLIB_SOURCE%\dist`
-
-##### Zipper
-
-**NEED TO MAKE THIS A MOJA VERSION**
-
-[github for Zipper for in SLEEK-TOOLS](https://github.com/SLEEK-TOOLS/zipper)
-
-[git clone link for repository](https://github.com/SLEEK-TOOLS/zipper.git)
-
-- Install Zlib as described in this document
-- Clone the Zipper repository into `C:\Development\zipper`
-- make sure to do a recursive clone (--recursive)
-- Run cmake-gui and set options:
-  - source code: `C:\Development\zipper`
-  - binaries: `C:\Development\zipper\build`
-  - CMAKE_INSTALL_PREFIX: `C:\Development\zipper\dist`
-- **WARNING:** check that the correct zlib (lib & source) is found
-- Configure / Generate
-- Build Release, Release-Install, Debug, and Debug-Install
-- if the global.moja cmake zipper find package doesn't have your install path, Set system environment varibales:
-  - `ZIPPER_ROOT=C:\Development\zipper`
-
-[Original Zipper on GitHub](https://github.com/sebastiandev/zipper)
-
-Changes made in the SLEEK-TOOLS fork:
-
-Edited `zipper\CMakeLists.txt` and insert this text at line 105:
-
-```cmake
-IF(CMAKE_BUILD_TYPE MATCHES RELEASE)
-ELSE()
-	IF(NOT CMAKE_DEBUG_POSTFIX)
-		SET(CMAKE_DEBUG_POSTFIX d)
-	ENDIF()
-ENDIF()
-```
-
-#### Set Environment Variables
-
-To help the current build system find the required libraries we use Environment Variables.
-
-Add this to your system environment variables: Control Panel -> System -> Advanced system settings -> Environment Variables -> System variables
-
-```
-BOOST_ROOT=<path to Boost library install>
-```
-
-##### for example:
-
-```
-BOOST_ROOT=C:\Development\boost\boost_1_70_0
-```
-
-For FLINT to run (both in and external to the IDE) the various libraries built need to be found. The easiest way is to add the builds you have done to the Path.
-
-```
-BOOST_LIB_DIR=<path to Boost library libraries>
-POCO_LIB_DIR=<path to POCO library libraries>
-ZLIB_LIB_DIR
-ZIPPER_LIB_DIR
-```
-
-for example:
-
-```
-BOOST_LIB_DIR=C:\Development\boost\boost_1_70_0\lib64-msvc-14.1
-POCO_LIB_DIR=C:\Development\poco-1.9.0\bin64
-```
-
-The Environment variables can be added to the System Path.
+  ```powershell
+  # Create a build folder under the Source folder
+  cd Source
+  mkdir build
+  cd build
+  
+  # now create the Visual Studio Solution (2019)
+  cmake -G "Visual Studio 16 2019" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
+  
+  # OR Visual Studio Solution (2017)
+  cmake -G "Visual Studio 15 2017" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
+  ```
 
 #### Install Moja Libraries
 
-It is possible to use the Visual Studio moja solution to install built versions of the Moja libraries. To do this you need to set the CMAKE variable '***CMAKE_INSTALL_PREFIX***' to the install path (i.e. "*C:/Development/Software/moja/moja_develop*"). Then re-generate your Moja project file.
+It is possible to use the Visual Studio moja solution to install built versions of the Moja libraries. To do this you need to set the CMAKE variable '***CMAKE_INSTALL_PREFIX***' to your install path (i.e. "*C:/Development/Software/moja*"). 
 
-Now, in the Visual Studio solution, select the project INSTALL and build the target you want to install (i.e. Release, Debug, etc.). 
+#### Make edits to the Visual Studio Solution using CMake
 
-This will build all files required for other projects to use the Moja library (DLLS, LIBS and copy in required header files).
+1. Launch the CMake GUI
+2. In the '*Where to build the binaries*' field click “Browse Build…” and select the folder you created above (i.e. `C:\Development\moja-global\FLINT\Source\build`)`.  The '*Where is the source code:*' field should update, if not, set it correctly.
+4. You should be able to edit any CMake setting now (i.e. ENABLE flags like `ENABLE_TESTS`), then click “***Configure***” – assuming all libraries and required software has been installed you should have no errors. Now click ***"Generate"*** and the Solution with adjustments should be ready to load into Visual Studio.
 
-#### Generate Visual Studio Solution Using CMake
-
-1. Launch the CMake GUI (current version 3.14.3)
-2. Click “Browse Source…” and point to `C:\Development\moja.global\Source`
-3. To do an ‘*out-of-source build*’ set the build directory to `C:\Development\moja.global\Source\Build`. This will build everything under the directory you specify, making it easier to cleanup when required.
-4. Click “***Configure***” – assuming all libraries and required software has been installed you should have no errors. If there are errors the most likely cause is the cmake packages aren't setup to find in the correct paths. Our versions of these can be found in your cloned git folder for moja.global. So, `C:\Development\moja.global\Source\cmake`. Depending on which library is failing, load the required Find package and check the search paths listed.
-
-```
-FindLibpq.cmake
-FindPoco.cmake
-FindTurtle.cmake
-```
-
-Once you have configured you can adjust some of the values to change the project that will be generated:
-
-```
-BOOST_TEST_REPORTING_LEVEL          =[DETAILED|SHORT]
-ENABLE_TESTS                        =[ON|OFF]
-RUN_UNIT_TESTS_ON_BUILD             =[ON|OFF]
-
-ENABLE_MOJA.MODULES.ZIPPER 			=[ON|OFF]
-ENABLE_MOJA.MODULES.POCO 			=[ON|OFF]
-ENABLE_MOJA.MODULES.LIBPQ 			=[ON|OFF]
-ENABLE_MOJA.MODULES.GDAL 			=[ON|OFF]
-ENABLE_MOJA.CLI 					=[ON|OFF]
-ENABLE_MOJA.SYSTEMTEST 				=[ON|OFF]
-```
-
-By turning the enable flags to `OFF` you can stop certain parts of the project being generated.
-
-##### Install Other Useful Tools
+#### Other Useful Tools
 
 ##### SQLIte Studio
 
@@ -252,7 +92,7 @@ Containers are a simple way to build FLINT and all required dependencies. Exampl
 
 #### Building the containers
 
-The build has been split into 2\two Dockerfiles, the first to get and build required libraries. The second to get and build the moja FLINT libraries and CLI program.
+The build has been split into two Dockerfiles, the first to get and build required libraries. The second to get and build the moja FLINT libraries and CLI program.
 
 ```bash
 # working from the examples folder "flint/tree/master/Examples/docker"
@@ -305,7 +145,7 @@ Configuration file options:
 
 moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja-global Wiki](https://github.com/moja-global/.github/wiki).  
 
-  
+
 ## FAQ and Other Questions  
 
 * You can find FAQs on the [Wiki](https://github.com/moja.global/.github/wiki).  
@@ -323,7 +163,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
 <table><tr><td align="center"><a href="https://github.com/mtbdeligt"><img src="https://avatars3.githubusercontent.com/u/16447169?v=4" width="100px;" alt="Rob de Ligt"/><br /><sub><b>Rob de Ligt</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mtbdeligt" title="Documentation">📖</a> <a href="#maintenance-mtbdeligt" title="Maintenance">🚧</a></td><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!  
@@ -333,7 +172,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 The following people are Maintainers of this repository
 
 <table><tr><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
-
 **Maintainers** review and accept proposed changes  
 **Reviewers** check proposed changes before they go to the Maintainers  
 **Ambassadors** are available to provide training related to this repository  

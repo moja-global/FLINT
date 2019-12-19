@@ -2,6 +2,10 @@
 
 // For Internal Library Factory
 
+#include <moja/logging.h>
+#include <boost/algorithm/string.hpp>
+#include <boost/format.hpp>
+
 // Modules
 #include "moja/flint/aggregatorfilewriter.h"
 #include "moja/flint/aggregatorfluxstep.h"
@@ -102,6 +106,8 @@ std::shared_ptr<IFlintData> createEventQueueFactory(const std::string& eventType
 extern "C" {
 
 int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegistrations) {
+   MOJA_LOG_DEBUG << (boost::format("getFlintModuleRegistrations: %s") % "entered").str();
+
    auto index = 0;
    outModuleRegistrations[index++] = ModuleRegistration{
        "AggregatorLandUnit", []() -> flint::IModule* {
@@ -157,10 +163,15 @@ int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegist
        ModuleRegistration{"TestModule2", []() -> flint::IModule* { return new TestModule2(); }};
    outModuleRegistrations[index++] =
        ModuleRegistration{"TestModule3", []() -> flint::IModule* { return new TestModule3(); }};
+
+
+   MOJA_LOG_DEBUG << (boost::format("getFlintModuleRegistrations: %s - %d") % "exit" % index).str();
    return index;
 }
 
 int getFlintTransformRegistrations(moja::flint::TransformRegistration* outTransformRegistrations) {
+   MOJA_LOG_DEBUG << (boost::format("getFlintTransformRegistrations: %s") % "entered").str();
+
    auto index = 0;
    outTransformRegistrations[index++] =
        TransformRegistration{"SQLQueryTransform", []() -> flint::ITransform* { return new SQLQueryTransform(); }};
@@ -181,10 +192,14 @@ int getFlintTransformRegistrations(moja::flint::TransformRegistration* outTransf
        TransformRegistration{"CompositeTransform", []() -> flint::ITransform* { return new CompositeTransform(); }};
    outTransformRegistrations[index++] =
        TransformRegistration{"SumPoolsTransform", []() -> flint::ITransform* { return new SumPoolsTransform(); }};
+
+   MOJA_LOG_DEBUG << (boost::format("getFlintTransformRegistrations: %s - %d") % "exit" % index).str();
    return index;
 }
 
 int getFlintFlintDataRegistrations(moja::flint::FlintDataRegistration* outFlintDataRegistrations) {
+   MOJA_LOG_DEBUG << (boost::format("getFlintFlintDataRegistrations: %s") % "entered").str();
+
    auto index = 0;
    outFlintDataRegistrations[index++] =
        FlintDataRegistration{"IdNameCollection", []() -> flint::IFlintData* { return new IdNameCollection(); }};
@@ -202,18 +217,25 @@ int getFlintFlintDataRegistrations(moja::flint::FlintDataRegistration* outFlintD
        FlintDataRegistration{"EventQueue", []() -> flint::IFlintData* { return new EventQueue(); }};
    outFlintDataRegistrations[index++] = FlintDataRegistration{
        "SimulationUnitDataBase", []() -> flint::IFlintData* { return new SimulationUnitDataBase(); }};
+
+    MOJA_LOG_DEBUG << (boost::format("getFlintFlintDataRegistrations: %s - %d") % "exit" % index).str();
    return index;
 }
 
 int getFlintFlintDataFactoryRegistrations(FlintDataFactoryRegistration* outFlintDataFactoryRegistrations) {
+   MOJA_LOG_DEBUG << (boost::format("getFlintFlintDataFactoryRegistrations: %s") % "entered").str();
+
    auto index = 0;
    outFlintDataFactoryRegistrations[index++] =
        FlintDataFactoryRegistration{"internal.flint", "EventQueue", &createEventQueueFactory};
-   return index;
+
+    MOJA_LOG_DEBUG << (boost::format("getFlintFlintDataFactoryRegistrations: %s - %d") % "exit" % index).str();
+    return index;
 }
 
-int getDataRepositoryProviderRegistrations(
-    moja::flint::DataRepositoryProviderRegistration* outDataRepositoryProviderRegistration) {
+int getProviderRegistrations(DataRepositoryProviderRegistration* outDataRepositoryProviderRegistration) {
+   MOJA_LOG_DEBUG << (boost::format("getProviderRegistrations: %s") % "entered").str();
+
    auto index = 0;
    outDataRepositoryProviderRegistration[index++] = DataRepositoryProviderRegistration{
        "RasterTiled", static_cast<int>(datarepository::ProviderTypes::Raster),
@@ -226,8 +248,12 @@ int getDataRepositoryProviderRegistrations(
        [](const DynamicObject& settings) -> std::shared_ptr<datarepository::IProviderInterface> {
           return std::make_shared<datarepository::ProviderRelationalSQLite>(settings);
        }};
+
+   MOJA_LOG_DEBUG << (boost::format("getProviderRegistrations: %s - %d") % "exit" % index).str();
    return index;
 }
+
 }
+
 }  // namespace flint
 }  // namespace moja
