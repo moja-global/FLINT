@@ -1,8 +1,10 @@
 #include "moja/modules/gdal/libraryfactory.h"
 
 #include "moja/modules/gdal/writevariablegeotiff.h"
+#include "moja/modules/gdal/rasterreadergdal.h"
 
 #include <moja/flint/mojalibapi.h>
+#include <moja/datarepository/providerspatialrastertiled.h>
 
 using moja::flint::DataRepositoryProviderRegistration;
 using moja::flint::FlintDataFactoryRegistration;
@@ -47,6 +49,12 @@ MOJA_LIB_API int getFlintDataFactoryRegistrations(FlintDataFactoryRegistration* 
 MOJA_LIB_API int getDataRepositoryProviderRegistrations(
     moja::flint::DataRepositoryProviderRegistration* outDataRepositoryProviderRegistration) {
    auto index = 0;
+   outDataRepositoryProviderRegistration[index++] = DataRepositoryProviderRegistration{
+       "RasterTiledGDAL", static_cast<int>(datarepository::ProviderTypes::Raster),
+       [](const DynamicObject& settings) -> std::shared_ptr<datarepository::IProviderInterface> {
+          return std::make_shared<datarepository::ProviderSpatialRasterTiled>(
+              std::make_shared<RasterReaderFactoryGDAL>(), settings);
+       }};
    return index;
 }
 }
