@@ -152,13 +152,12 @@ void TileRasterReaderGDAL::readBlockData(const datarepository::BlockIdx& blkIdx,
                            << "GDAL - read error buffer too small, target (" << _path << ")";
             const auto str = fmt::format("GDAL read error buffer too small: {}", _path);
             BOOST_THROW_EXCEPTION(flint::LocalDomainError()
-                                  << flint::Details(str) << flint::LibraryName("moja.modules.mulliongroup.cog")
+                                  << flint::Details(str) << flint::LibraryName("moja.modules.gdal")
                                   << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
          }
       }
    } catch (const gdalcpp::gdal_error& err) {
-      MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
-                     << "GDAL - gdal error for target (" << _path << ") - " << err.what();
+      BOOST_THROW_EXCEPTION(datarepository::FileReadException() << datarepository::FileName(_path) << datarepository::Message(err.what()));
    } catch (...) {
       MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
                      << "GDAL - exception (" << _path << ")";
