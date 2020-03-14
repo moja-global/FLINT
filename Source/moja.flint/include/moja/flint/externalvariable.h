@@ -24,7 +24,7 @@ class FLINT_API ExternalVariable : public IVariable {
    }
    bool isExternal() const override { return true; }
    bool isFlintData() const override { return false; }
-   void controllerChanged(const ILandUnitController& controller) const;
+   void controllerChanged(const ILandUnitController& controller) override;
 
   private:
    VariableInfo _info;

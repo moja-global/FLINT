@@ -12,6 +12,7 @@ namespace moja {
 namespace flint {
 
 namespace configuration {
+class Uncertainty;
 class Configuration;
 }
 
@@ -57,6 +58,7 @@ class FLINT_API LandUnitController : public ILandUnitController {
    std::vector<std::shared_ptr<IVariable>> variables() const override { return _variables; }
 
    void addVariable(std::string name, std::shared_ptr<IVariable> variable);
+   void setVariable(std::string name, std::shared_ptr<IVariable> variable);
    IVariable* getVariable(const std::string& name) override;
    const IVariable* getVariable(const std::string& name) const override;
    bool hasVariable(const std::string& name) const override;
@@ -67,7 +69,8 @@ class FLINT_API LandUnitController : public ILandUnitController {
    IOperationManager* operationManager() override { return _operationManager.get(); }
    const IOperationManager* operationManager() const override { return _operationManager.get(); }
 
-   const configuration::Configuration* config() override { return _config; };
+   const configuration::Configuration* config() override { return _config; }
+   void configure_uncertainty(const configuration::Uncertainty& uncertainty);;
 
   private:
    static int _currentLandUnitControllerId;

@@ -10,6 +10,8 @@
 namespace moja {
 namespace flint {
 
+class ILandUnitController;
+
 struct VariableInfo {
    std::string name;
 };
@@ -27,6 +29,7 @@ class FLINT_API IVariable {
    virtual void reset_value() = 0;
    virtual bool isExternal() const = 0;
    virtual bool isFlintData() const = 0;
+   virtual void controllerChanged(const ILandUnitController& controller) {}
 };
 
 }  // namespace flint

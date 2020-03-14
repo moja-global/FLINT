@@ -35,7 +35,7 @@ class FlintDataVariable : public IVariable {
 
    std::shared_ptr<IFlintData> flintdata() { return _flintdata; }
 
-   void controllerChanged(const ILandUnitController& controller) const;
+   void controllerChanged(const ILandUnitController& controller) override;
 
   private:
    std::string _libraryName;

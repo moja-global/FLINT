@@ -140,156 +140,60 @@ void LocalDomainControllerBase::configure(const configuration::Configuration& co
                                                       pool->order(), pool->initValue());
    }
 
-   // New version of Variables
-   // Add external, internal and flintdata
+   // Add external, internal and flintdata variables
 
-   std::map<std::pair<std::string, std::string>, TransformInterfacePtr> transforms;
-   std::map<std::pair<std::string, std::string>, FlintDataInterfacePtr> flintData;
-
-#if 0
-	for (const auto var : config.variables2()) {
-		if (var->variableType() == configuration::VariableType::Internal) {
-			auto variable = static_cast<const configuration::Variable*>(var);
-			_landUnitController.addVariable(variable->name(), std::make_shared<Variable>(variable->value(), VariableInfo{ variable->name() }));
-		}
-		else if (var->variableType() == configuration::VariableType::External) {
-			auto variable = static_cast<const configuration::ExternalVariable*>(var);
-
-			const auto& transformConfig = variable->transform();
-			const auto libraryName = transformConfig.libraryName();
-			const auto variableName = variable->name();
-			auto key = std::make_pair(libraryName, variableName);
-			transforms[key] = _libraryManager.GetTransform(libraryName, transformConfig.typeName());
-			_landUnitController.addVariable(variable->name(), std::make_shared<ExternalVariable>(transforms[key], VariableInfo{ variable->name() }));
-		}
-		else if (var->variableType() == configuration::VariableType::FlintData) {
-			auto variable = static_cast<const configuration::FlintDataVariable*>(var);
-
-			const auto& flintDataConfig = variable->flintdata();
-			const auto libraryName = flintDataConfig.libraryName();
-			const auto variableName = variable->name();
-			auto key = std::make_pair(libraryName, variableName);
-			flintData[key] = _libraryManager.GetFlintData(libraryName, flintDataConfig.typeName());
-			_landUnitController.addVariable(variable->name(), std::make_shared<FlintDataVariable>(flintData[key], libraryName, flintDataConfig.typeName(), VariableInfo{ variable->name() }));
-		}
-	}
-
-	//// Now go back over and check for nested things
-	//for (auto var : config.variables2()) {
-	//	if (var->variableType() == configuration::VariableType::Internal) {
-	//		auto variable = static_cast<const configuration::Variable*>(var);
-	//		auto value = variable->value();
-	//		variable->set_value(checkForNestedVariables(variable->name(), value));
-	//	}
-	//}
-
-	// New version of Variables
-	// Now Configure external, internal and flintdata 
-
-	// config external (transforms)
-	for (const auto var : config.variables2()) {
-		if (var->variableType() == configuration::VariableType::External) {
-			auto variable = static_cast<const configuration::ExternalVariable*>(var);
-
-			const auto& transformConfig = variable->transform();
-			const auto libraryName = transformConfig.libraryName();
-			const auto variableName = variable->name();
-			auto key = std::make_pair(libraryName, variableName);
-			transforms[key]->configure(transformConfig.settings(), _landUnitController, _dataRepository);
-		}
-	}
-
-	// config flintdata
-	for (const auto var : config.variables2()) {
-		if (var->variableType() == configuration::VariableType::FlintData) {
-			auto variable = static_cast<const configuration::FlintDataVariable*>(var);
-
-			const auto& flintDataConfig = variable->flintdata();
-			const auto libraryName = flintDataConfig.libraryName();
-			const auto variableName = variable->name();
-			auto key = std::make_pair(libraryName, variableName);
-			flintData[key]->configure(flintDataConfig.settings(), _landUnitController, _dataRepository);
-		}
-	}
-
-#else
    // Configure Variables
    for (const auto variable : config.variables()) {
-      auto value = variable->value();
-      if (value.isStruct()) {
-         auto& s = value.extract<const DynamicObject>();
-         _landUnitController.addVariable(variable->name(),
-                                         std::make_shared<Variable>(variable->value(), VariableInfo{variable->name()}));
-      } else {
-         _landUnitController.addVariable(variable->name(),
-                                         std::make_shared<Variable>(variable->value(), VariableInfo{variable->name()}));
-      }
+      _landUnitController.addVariable(variable->name(),
+                                      std::make_shared<Variable>(variable->value(), VariableInfo{variable->name()}));
    }
 
-   // Configure External Variables (transforms)
+   std::vector<std::pair<const configuration::Transform*, TransformInterfacePtr>> config_transform_pairs;
+
+   // Construct External Variables (transforms)
    for (const auto variable : config.externalVariables()) {
-      const auto& transformConfig = variable->transform();
-      const auto libraryName = transformConfig.libraryName();
-      const auto variableName = variable->name();
-      auto key = std::make_pair(libraryName, variableName);
-      transforms[key] = _libraryManager.GetTransform(libraryName, transformConfig.typeName());
-
+      const auto& transform_config = variable->transform();
+      auto transform = _libraryManager.GetTransform(transform_config.libraryName(), transform_config.typeName());
       _landUnitController.addVariable(
-          variable->name(), std::make_shared<ExternalVariable>(transforms[key], VariableInfo{variable->name()}));
+          variable->name(), std::make_shared<ExternalVariable>(transform, VariableInfo{variable->name()}));
+      config_transform_pairs.emplace_back(std::make_pair(&transform_config, transform));
    }
 
-   // Configure External Pools (transforms)
+   // Construct External Pools (transforms)
    for (const auto pool : config.externalPools()) {
-      const auto& transformConfig = pool->transform();
-      const auto libraryName = transformConfig.libraryName();
-      const auto poolName = pool->name();
-      auto key = std::make_pair(libraryName, poolName);
-      transforms[key] = _libraryManager.GetTransform(libraryName, transformConfig.typeName());
+      const auto& transform_config = pool->transform();
+      auto transform = _libraryManager.GetTransform(transform_config.libraryName(), transform_config.typeName());
 
-      _landUnitController.operationManager()->addPool(poolName, pool->description(), pool->units(), pool->scale(),
-                                                      pool->order(), transforms[key]);
+      _landUnitController.operationManager()->addPool(pool->name(), pool->description(), pool->units(), pool->scale(),
+                                                      pool->order(), transform);
+      config_transform_pairs.emplace_back(std::make_pair(&transform_config, transform));
    }
 
-   // Configure FlintData Variables
+   std::vector<std::pair<const configuration::FlintData*, FlintDataInterfacePtr>> config_flintdata_pairs;
+
+   // Construct FlintData Variables
    for (const auto variable : config.flintDataVariables()) {
-      const auto& flintDataConfig = variable->flintdata();
-      const auto libraryName = flintDataConfig.libraryName();
-      const auto variableName = variable->name();
-      auto key = std::make_pair(libraryName, variableName);
-      flintData[key] = _libraryManager.GetFlintData(libraryName, flintDataConfig.typeName());
+      const auto& flint_data_config = variable->flintdata();
+      auto flint_data = _libraryManager.GetFlintData(flint_data_config.libraryName(), flint_data_config.typeName());
       _landUnitController.addVariable(
-          variable->name(), std::make_shared<FlintDataVariable>(flintData[key], libraryName, flintDataConfig.typeName(),
-                                                                VariableInfo{variable->name()}));
+          variable->name(),
+          std::make_shared<FlintDataVariable>(flint_data, flint_data_config.libraryName(), flint_data_config.typeName(),
+                                              VariableInfo{variable->name()}));
+      config_flintdata_pairs.emplace_back(std::make_pair(&flint_data_config, flint_data));
    }
 
-   // Delayed configuration call, so all flintdata are constructed
-   for (const auto variable : config.flintDataVariables()) {
-      const auto& flintDataConfig = variable->flintdata();
-      const auto libraryName = flintDataConfig.libraryName();
-      const auto variableName = variable->name();
-      auto key = std::make_pair(libraryName, variableName);
-      flintData[key]->configure(flintDataConfig.settings(), _landUnitController, _dataRepository);
-   }
+      // Configure uncertainty
+   _landUnitController.configure_uncertainty(config.uncertainty());
 
    // Delayed configuration call, so all transforms are constructed
-   for (const auto variable : config.externalVariables()) {
-      const auto& transformConfig = variable->transform();
-      const auto libraryName = transformConfig.libraryName();
-      const auto variableName = variable->name();
-      auto key = std::make_pair(libraryName, variableName);
-      transforms[key]->configure(transformConfig.settings(), _landUnitController, _dataRepository);
+   for (auto& config_transform : config_transform_pairs) {
+      config_transform.second->configure(config_transform.first->settings(), _landUnitController, _dataRepository);
    }
 
-   // Delayed configuration call, so all transforms are constructed
-   for (const auto pool : config.externalPools()) {
-      const auto& transformConfig = pool->transform();
-      const auto libraryName = transformConfig.libraryName();
-      const auto poolName = pool->name();
-      auto key = std::make_pair(libraryName, poolName);
-      transforms[key]->configure(transformConfig.settings(), _landUnitController, _dataRepository);
+   // Delayed configuration call, so all FlintData are constructed
+   for (auto& config_flintdata : config_flintdata_pairs) {
+      config_flintdata.second->configure(config_flintdata.first->settings(), _landUnitController, _dataRepository);
    }
-
-#endif
 
    // Configure the simulateLandUnit & landUnitBuildSuccess variables here
    _simulateLandUnit = _landUnitController.getVariable(config.localDomain()->simulateLandUnit());

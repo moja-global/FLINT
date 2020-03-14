@@ -16,7 +16,7 @@ void ExternalVariable::set_value(DynamicVar) {
    throw ApplicationException(msg);
 }
 
-void ExternalVariable::controllerChanged(const ILandUnitController& controller) const {
+void ExternalVariable::controllerChanged(const ILandUnitController& controller) {
    _transform->controllerChanged(controller);
 }
 }  // namespace flint

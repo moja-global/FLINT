@@ -8,6 +8,7 @@
 #include "moja/flint/operationmanagersimple.h"
 #include "moja/flint/operationmanagersimplecache.h"
 #include "moja/flint/operationmanagerublas.h"
+#include "moja/flint/uncertaintyvariable.h"
 
 #include <moja/dynamic.h>
 #include <moja/logging.h>
@@ -96,6 +97,21 @@ void LandUnitController::addVariable(std::string name, std::shared_ptr<IVariable
    _variables.push_back(variable);
 }
 
+void LandUnitController::setVariable(std::string name, std::shared_ptr<IVariable> variable) {
+   if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
+      throw std::invalid_argument("name cannot be empty");
+   }
+   const auto v = _variablesMap.find(name);
+   if (v == _variablesMap.end()) {
+      MOJA_LOG_FATAL << "Variable not found: " << name;
+      BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(name));
+   }
+   _variablesMap.insert_or_assign(name, variable.get());
+   std::replace_if(
+       _variables.begin(), _variables.end(), [&](std::shared_ptr<IVariable> v) { return v->info().name == name; },
+       variable);
+}
+
 IVariable* LandUnitController::getVariable(const std::string& name) {
    const auto v = _variablesMap.find(name);
    if (v == _variablesMap.end()) {
@@ -119,6 +135,51 @@ bool LandUnitController::hasVariable(const std::string& name) const {
 }
 
 ITiming& LandUnitController::timing() { return _timing; }
+
+void LandUnitController::configure_uncertainty(const configuration::Uncertainty& uncertainty) {
+   if (!uncertainty.enabled()) return;
+   for (auto& variable : uncertainty.variables()) {
+      auto var = std::find_if(_variables.begin(), _variables.end(),
+                              [&](std::shared_ptr<IVariable> v) { return v->info().name == variable.variable(); });
+      if (var == _variables.end()) {
+         MOJA_LOG_FATAL << "Variable not found: " << variable.variable();
+         BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(variable.variable()));
+      }
+      auto uncertainty_var = std::make_shared<UncertaintyVariable>(*this, *var);
+      for (auto& field : variable.fields()) {
+         switch (field->type) {
+            case configuration::UncertaintyField::FieldType::Manual: {
+               const auto config_field_manual = std::static_pointer_cast<configuration::UncertaintyFieldManual>(field);
+               auto field_manual = std::make_shared<UncertaintyFieldManual>();
+               field_manual->set_distribution(config_field_manual->distribution);
+               uncertainty_var->fields().emplace_back(field_manual);
+            } break;
+            case configuration::UncertaintyField::FieldType::Normal: {
+               const auto config_field_normal = std::static_pointer_cast<configuration::UncertaintyFieldNormal>(field);
+               auto field_normal = std::make_shared<UncertaintyFieldNormal>();
+               field_normal->mean = config_field_normal->mean;
+               field_normal->std_dev = config_field_normal->std_dev;
+               field_normal->seed = config_field_normal->seed;
+               field_normal->build_distribution(uncertainty.iterations());
+               uncertainty_var->fields().emplace_back(field_normal);
+            } break;
+            case configuration::UncertaintyField::FieldType::Triangular: {
+               const auto config_field_triangular =
+                   std::static_pointer_cast<configuration::UncertaintyFieldTriangular>(field);
+               auto field_triangular = std::make_shared<UncertaintyFieldTriangular>();
+               field_triangular->min = config_field_triangular->min;
+               field_triangular->max = config_field_triangular->max;
+               field_triangular->peak = config_field_triangular->peak;
+               field_triangular->seed = config_field_triangular->seed;
+               field_triangular->build_distribution(uncertainty.iterations());
+               uncertainty_var->fields().emplace_back(field_triangular);
+            } break;
+            default:;
+         }
+      }
+      setVariable(variable.variable(), uncertainty_var);
+   }
+}
 
 const ITiming& LandUnitController::timing() const { return _timing; }
 

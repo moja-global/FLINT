@@ -4,7 +4,7 @@
 
 namespace moja {
 namespace flint {
-void FlintDataVariable::controllerChanged(const ILandUnitController& controller) const {
+void FlintDataVariable::controllerChanged(const ILandUnitController& controller) {
    _flintdata->controllerChanged(controller);
 }
 }  // namespace flint

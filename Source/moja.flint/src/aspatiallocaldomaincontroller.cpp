@@ -33,7 +33,7 @@ void AspatialLocalDomainController::configure(const configuration::Configuration
    LocalDomainControllerBase::configure(config);
 
    // Build landscape.
-   const auto& landscapeObject = config.localDomain()->landscapeObject();
+   const auto landscapeObject = config.localDomain()->landscapeObject();
    auto iterator = landscapeObject->iterationASpatialIndex();
    auto provider = std::static_pointer_cast<moja::datarepository::IProviderRelationalInterface>(
        _dataRepository.getProvider(landscapeObject->providerName()));
@@ -42,7 +42,7 @@ void AspatialLocalDomainController::configure(const configuration::Configuration
        *provider.get(), iterator->maxTileSize(), iterator->tileCacheSize());
 
    // Build spinup config.
-   auto spinup = config.spinup();
+   const auto spinup = config.spinup();
    _runSpinUp = false;
    if (spinup->enabled()) {
       _runSpinUp = true;

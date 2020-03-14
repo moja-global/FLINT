@@ -26,15 +26,26 @@ configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/f
 
 set(MOJA_FLINT_Configuration_headers
 	include/moja/flint/${PACKAGE}/_${PACKAGE}_exports.h
-	include/moja/flint/configuration/configuration.h
-	include/moja/flint/configuration/configurationexceptions.h
-	include/moja/flint/configuration/configtile.h
 	include/moja/flint/configuration/configblock.h
 	include/moja/flint/configuration/configcell.h
-    include/moja/flint/configuration/externalpool.h
+	include/moja/flint/configuration/configtile.h
+	include/moja/flint/configuration/configuration.h
+	include/moja/flint/configuration/configurationexceptions.h
+	include/moja/flint/configuration/externalpool.h
 	include/moja/flint/configuration/externalvariable.h
+	include/moja/flint/configuration/flintdata.h
 	include/moja/flint/configuration/flintdatavariable.h
 	include/moja/flint/configuration/iconfigurationprovider.h
+	include/moja/flint/configuration/iterationareaofinterest.h
+	include/moja/flint/configuration/iterationaspatialindex.h
+	include/moja/flint/configuration/iterationaspatialmongoindex.h
+	include/moja/flint/configuration/iterationbase.h
+	include/moja/flint/configuration/iterationblockindex.h
+	include/moja/flint/configuration/iterationcellindex.h
+	include/moja/flint/configuration/iterationlandscapetiles.h
+	include/moja/flint/configuration/iterationtileindex.h
+	include/moja/flint/configuration/itiming.h
+	include/moja/flint/configuration/ivariable.h
 	include/moja/flint/configuration/json2configurationprovider.h
 	include/moja/flint/configuration/landscape.h
 	include/moja/flint/configuration/library.h
@@ -44,29 +55,29 @@ set(MOJA_FLINT_Configuration_headers
 	include/moja/flint/configuration/pool.h
 	include/moja/flint/configuration/provider.h
 	include/moja/flint/configuration/spinup.h
-	include/moja/flint/configuration/ivariable.h
-	include/moja/flint/configuration/itiming.h
 	include/moja/flint/configuration/transform.h
-	include/moja/flint/configuration/flintdata.h
+	include/moja/flint/configuration/uncertaintyvariable.h
 	include/moja/flint/configuration/variable.h
-	include/moja/flint/configuration/iterationbase.h
-	include/moja/flint/configuration/iterationaspatialindex.h
-	include/moja/flint/configuration/iterationaspatialmongoindex.h
-	include/moja/flint/configuration/iterationlandscapetiles.h
-	include/moja/flint/configuration/iterationareaofinterest.h
-	include/moja/flint/configuration/iterationtileindex.h
-	include/moja/flint/configuration/iterationblockindex.h
-	include/moja/flint/configuration/iterationcellindex.h
 )
 
 set(MOJA_FLINT_Configuration_sources
-	src/configuration.cpp
-	src/configtile.cpp
 	src/configblock.cpp
 	src/configcell.cpp
-    src/externalpool.cpp
+	src/configtile.cpp
+	src/configuration.cpp
+	src/externalpool.cpp
 	src/externalvariable.cpp
+	src/flintdata.cpp
 	src/flintdatavariable.cpp
+	src/iterationareaofinterest.cpp
+	src/iterationaspatialindex.cpp
+	src/iterationaspatialmongoindex.cpp
+	src/iterationbase.cpp
+	src/iterationblockindex.cpp
+	src/iterationcellindex.cpp
+	src/iterationlandscapetiles.cpp
+	src/iterationtileindex.cpp
+	src/ivariable.cpp
 	src/json2configurationprovider.cpp
 	src/landscape.cpp
 	src/library.cpp
@@ -76,18 +87,9 @@ set(MOJA_FLINT_Configuration_sources
 	src/pool.cpp
 	src/provider.cpp
 	src/spinup.cpp
-	src/ivariable.cpp
 	src/transform.cpp
-	src/flintdata.cpp
+	src/uncertaintyvariable.cpp
 	src/variable.cpp
-	src/iterationbase.cpp
-	src/iterationaspatialindex.cpp
-	src/iterationaspatialmongoindex.cpp
-	src/iterationlandscapetiles.cpp
-	src/iterationareaofinterest.cpp
-	src/iterationtileindex.cpp
-	src/iterationblockindex.cpp
-	src/iterationcellindex.cpp
 )
 
 set (SRCS ${MOJA_FLINT_Configuration_sources} ${MOJA_FLINT_Configuration_headers})

@@ -44,6 +44,7 @@ class CONFIGURATION_API JSON2ConfigurationProvider : public IConfigurationProvid
    bool createSpecialVariables(const std::pair<const std::string, DynamicVar>& keyValPair, Configuration& config,
                                bool isSpinup) const;
    void createVariables(DynamicVar& parsedJSON, Configuration& config, bool isSpinup = false) const;
+   void createUncertainty(DynamicVar& parsedJSON, Configuration& config) const;
    void createModules(DynamicVar& parsedJSON, Configuration& config) const;
    void createSpinupModules(DynamicVar& parsedJSON, Configuration& config) const;
 

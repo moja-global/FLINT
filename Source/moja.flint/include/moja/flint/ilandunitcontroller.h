@@ -20,6 +20,7 @@ class IOperation;
 class IVariable;
 class ITiming;
 class IOperationManager;
+class Uncertainty;
 
 class FLINT_API ILandUnitController {
   public:
@@ -59,6 +60,7 @@ class FLINT_API ILandUnitController {
    virtual ITiming& timing() = 0;
 
    virtual const configuration::Configuration* config() = 0;
+   virtual const Uncertainty* uncertainty() const { return nullptr; }
 };
 
 }  // namespace flint

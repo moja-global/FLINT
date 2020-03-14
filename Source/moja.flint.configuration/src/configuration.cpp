@@ -195,69 +195,6 @@ void Configuration::removeFlintDataVariable(const std::string& name) {
    }
 }
 
-#if 0
-// --------------------------------------------------------------------------------------------
-
-void Configuration::addVariable2(const std::string& name, moja::DynamicVar value) {
-	auto variable = std::make_shared<Variable>(name, value);
-	_variables2.push_back(variable);
-}
-
-void Configuration::removeVariable2(const std::string& name) {
-	for (auto it = _variables2.begin(); it != _variables2.end(); ++it) {
-		if ((*it)->name() == name) {
-			_variables2.erase(it);
-			break;
-		}
-	}
-}
-
-void Configuration::replaceVariable2(const std::string& name, moja::DynamicVar value) {
-	for (auto it = _variables2.begin(); it != _variables2.end(); ++it) {
-		if ((*it)->name() == name) {
-			_variables2.erase(it);
-			break;
-		}
-	}
-	auto variable = std::make_shared<Variable>(name, value);
-	_variables2.push_back(variable);
-}
-
-std::shared_ptr<ExternalVariable> Configuration::addExternalVariable2(const std::string& name, const std::string& libraryName, const std::string transformTypeName, DynamicObject settings) {
-	auto transform = std::make_shared<Transform>(libraryName, transformTypeName, settings);
-	auto variable = std::make_shared<ExternalVariable>(name, transform);
-	_variables2.push_back(variable);
-	return variable;
-}
-
-void Configuration::removeExternalVariable2(const std::string& name) {
-	for (auto it = _variables2.begin(); it != _variables2.end(); ++it) {
-		if ((*it)->name() == name) {
-			_variables2.erase(it);
-			break;
-		}
-	}
-}
-
-std::shared_ptr<FlintDataVariable> Configuration::addFlintDataVariable2(const std::string& name, const std::string& libraryName, const std::string flintDataTypeName, DynamicObject settings) {
-	auto flintData = std::make_shared<FlintData>(libraryName, flintDataTypeName, settings);
-	auto variable = std::make_shared<FlintDataVariable>(name, flintData);
-	_variables2.push_back(variable);
-	return variable;
-}
-
-void Configuration::removeFlintDataVariable2(const std::string& name) {
-	for (auto it = _variables2.begin(); it != _variables2.end(); ++it) {
-		if ((*it)->name() == name) {
-			_variables2.erase(it);
-			break;
-		}
-	}
-}
-
-// --------------------------------------------------------------------------------------------
-#endif
-
 void Configuration::addModule(const std::string& libraryName, const std::string& name, int order, bool isProxy,
                               DynamicObject settings) {
    // It is an error for two modules to have the same order - simulation

@@ -582,7 +582,7 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
                                                                                VariableInfo{variable->name()}));
       }
 
-      // Configure flimtdata variables (transforms).
+      // Configure flintdata variables (transforms).
       std::map<std::string, FlintDataInterfacePtr> spinupflintdata;
       for (const auto& variable : spinup->flintDataVariables()) {
          const auto& transformConfig = variable->flintdata();

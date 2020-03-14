@@ -239,6 +239,16 @@ int main(int argc, char* argv[]) {
 			MOJA_LOG_DEBUG;
 		}
 
+		if (config->uncertainty().enabled()) {
+                   const auto& uncertainty = config->uncertainty();
+                   MOJA_LOG_INFO << "uncertainty ON";
+                   MOJA_LOG_DEBUG << "\tVariables:\t";
+                   for (const auto& var : uncertainty.variables()) {
+                      MOJA_LOG_DEBUG << var.variable();
+                   }
+                   MOJA_LOG_DEBUG;
+                }
+
 		std::unique_ptr<ILocalDomainController> ldc;
 		switch (config->localDomain()->type()) {
 		case LocalDomainType::SpatiallyReferencedSQL: {

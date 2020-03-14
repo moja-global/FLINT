@@ -3,12 +3,15 @@
 
 #include "moja/flint/configuration/_configuration_exports.h"
 #include "moja/flint/configuration/itiming.h"
+#include "moja/flint/configuration/uncertaintyvariable.h"
 #include "moja/flint/configuration/ivariable.h"
 
 #include <moja/datetime.h>
 #include <moja/dynamic.h>
 
 #include <vector>
+
+
 
 namespace moja {
 namespace flint {
@@ -26,6 +29,7 @@ class Pool;
 class Variable;
 class ExternalVariable;
 class FlintDataVariable;
+class UncertaintyVariable;
 class Transform;
 class Spinup;
 class OperationManager;
@@ -37,10 +41,10 @@ class CONFIGURATION_API Configuration {
 
    void Copy(const Configuration& configuration);
 
-   inline moja::DateTime startDate() const { return _startDate; }
-   inline moja::DateTime endDate() const { return _endDate; }
-   inline const LocalDomain* localDomain() const { return _localDomain.get(); }
-   inline LocalDomain* localDomain() { return _localDomain.get(); }
+   DateTime startDate() const { return _startDate; }
+   DateTime endDate() const { return _endDate; }
+   const LocalDomain* localDomain() const { return _localDomain.get(); }
+   LocalDomain* localDomain() { return _localDomain.get(); }
 
    void setLocalDomain(LocalDomainType type, LocalDomainIterationType iterationType, bool doLogging, int numThreads,
                        const std::string& sequencerLibrary, const std::string& sequencer,
@@ -77,17 +81,9 @@ class CONFIGURATION_API Configuration {
 
    void addModule(const std::string& libraryName, const std::string& name, int order, bool isProxy,
                   DynamicObject settings = moja::DynamicObject());
+
    void removeModule(std::string libraryName, std::string moduleName);
 
-#if 0
-	void addVariable2(const std::string& name, moja::DynamicVar value);
-	void removeVariable2(const std::string& name);
-	void replaceVariable2(const std::string& name, moja::DynamicVar value);
-	std::shared_ptr<ExternalVariable> addExternalVariable2(const std::string& name, const std::string& libraryName, const std::string transformTypeName, DynamicObject settings);
-	void removeExternalVariable2(const std::string& name);
-	std::shared_ptr<FlintDataVariable> addFlintDataVariable2(const std::string& name, const std::string& libraryName, const std::string flintDataTypeName, DynamicObject settings);
-	void removeFlintDataVariable2(const std::string& name);
-#endif
    void setSpinup(bool enabled = false, const std::string& sequencerLibrary = std::string(),
                   const std::string& sequencerName = std::string(), const std::string& simulateLandUnit = std::string(),
                   const std::string& landUnitBuildSuccess = std::string(),
@@ -100,29 +96,30 @@ class CONFIGURATION_API Configuration {
    std::vector<const Variable*> variables() const;
    std::vector<const ExternalVariable*> externalVariables() const;
    std::vector<const FlintDataVariable*> flintDataVariables() const;
-   // std::vector<const IVariable*> variables2() const;
+   const Uncertainty& uncertainty() const;
+   Uncertainty& uncertainty();
+
    std::vector<const Module*> modules() const;
    Spinup* spinup() const;
 
   private:
-   moja::DateTime _startDate;
-   moja::DateTime _endDate;
+   DateTime _startDate;
+   DateTime _endDate;
    std::shared_ptr<LocalDomain> _localDomain;
    std::vector<std::shared_ptr<Library>> _libraries;
    std::vector<std::shared_ptr<Provider>> _providers;
    std::vector<std::shared_ptr<Pool>> _pools;
    std::vector<std::shared_ptr<ExternalPool>> _externalPools;
 
-   std::vector<std::shared_ptr<IVariable>> _variables2;
-
    std::vector<std::shared_ptr<Variable>> _variables;
    std::vector<std::shared_ptr<ExternalVariable>> _externalVariables;
    std::vector<std::shared_ptr<FlintDataVariable>> _flintDataVariables;
    std::vector<std::shared_ptr<Module>> _modules;
    std::shared_ptr<Spinup> _spinup;
+   Uncertainty _uncertainty;
 
    template <class T>
-   inline std::vector<const T*> copy(const std::vector<std::shared_ptr<T>>& vec) const {
+   std::vector<const T*> copy(const std::vector<std::shared_ptr<T>>& vec) const {
       std::vector<const T*> result;
       for (const auto item : vec) {
          result.push_back(item.get());
@@ -150,10 +147,8 @@ inline std::vector<const FlintDataVariable*> Configuration::flintDataVariables()
    return copy(_flintDataVariables);
 }
 
-// inline std::vector<const IVariable*> Configuration::variables2() const {
-//	return copy(_variables2);
-//}
-//
+inline Uncertainty& Configuration::uncertainty() { return _uncertainty; }
+inline const Uncertainty& Configuration::uncertainty() const { return _uncertainty; }
 
 inline std::vector<const Module*> Configuration::modules() const { return copy(_modules); }
 

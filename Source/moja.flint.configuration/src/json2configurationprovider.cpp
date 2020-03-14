@@ -6,6 +6,7 @@
 #include "moja/flint/configuration/library.h"
 #include "moja/flint/configuration/localdomain.h"
 #include "moja/flint/configuration/spinup.h"
+#include "moja/flint/configuration/uncertaintyvariable.h"
 
 #include <moja/logging.h>
 #include <moja/pocojsonutils.h>
@@ -18,6 +19,7 @@
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
+
 
 using Poco::DynamicStruct;
 using Poco::Dynamic::Var;
@@ -111,6 +113,7 @@ std::shared_ptr<Configuration> JSON2ConfigurationProvider::createConfiguration()
    createLibraries(parsedResult, *config);
    createPools(parsedResult, *config);
    createVariables(parsedResult, *config);
+   createUncertainty(parsedResult, *config);
    createModules(parsedResult, *config);
    if (config->spinup()->enabled()) {  // only expect this list if spinup enabled
       createSpinupModules(parsedResult, *config);
@@ -622,6 +625,57 @@ void JSON2ConfigurationProvider::createVariables(DynamicVar& parsedJSON, Configu
          }
       }
    }
+}
+
+void JSON2ConfigurationProvider::createUncertainty(DynamicVar& parsedJSON,
+                                                                  Configuration& config) const {
+   Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
+   if (!jsonStruct.contains("Uncertanty")) {
+      return;
+   }
+   auto uncertaintyStruct = jsonStruct["Uncertanty"].extract<Poco::DynamicStruct>();
+   if (uncertaintyStruct.contains("enabled")) {
+      bool enabled = uncertaintyStruct["enabled"].extract<bool>();
+      if (!enabled) return;
+   }
+   auto& uncertainty = config.uncertainty();
+   uncertainty.set_enabled(true);
+   uncertainty.set_iterations(uncertaintyStruct["iterations"]);
+   
+   auto variables = uncertaintyStruct["variables"].extract<Poco::JSON::Array::ValueVec>();
+   for (auto& variable_var : variables) {
+      auto variable = variable_var["variable"].extract<const std::string>();
+      auto selector = variable_var["selector"];
+      auto selector_doc = selector.isEmpty() ? DynamicObject() : selector.extract<const DynamicObject>();
+
+      uncertainty.variables().emplace_back(variable, selector_doc);
+      auto fields = variable_var["fields"].extract<Poco::JSON::Array::ValueVec>();
+      auto& uncertainty_variable = uncertainty.variables().back();
+      for (auto& field_var : fields) {
+         auto type = field_var["type"].extract<const std::string>();
+         if (type == "triangular") {
+            auto field = std::make_shared<UncertaintyFieldTriangular>();
+            field->min = field_var["min"];
+            field->max = field_var["max"];
+            field->peak = field_var["peak"];
+            field->seed = field_var["seed"];
+            uncertainty_variable.fields().emplace_back(field);
+         } else if (type == "normal") {
+            auto field = std::make_shared<UncertaintyFieldNormal>();
+            field->mean = field_var["mean"];
+            field->std_dev = field_var["std_dev"];
+            field->seed = field_var["seed"];
+            uncertainty_variable.fields().emplace_back(field);
+         } else if (type == "manual") {
+            auto field = std::make_shared<UncertaintyFieldManual>();
+            for (auto& val : field_var["distribution"]) {
+               field->distribution.emplace_back(val.extract<double>());
+            }
+            uncertainty_variable.fields().emplace_back(field);
+         }
+      }
+   }
+
 }
 
 void JSON2ConfigurationProvider::createModules(DynamicVar& parsedJSON, Configuration& config) const {

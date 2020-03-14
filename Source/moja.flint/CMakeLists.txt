@@ -2,6 +2,8 @@ set(PACKAGE "flint")
 set(LIBNAME "moja.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
+find_package(fmt REQUIRED)
+
 if(ENABLE_MOJAPY)
     if(CMAKE_SYSTEM MATCHES "Windows")
 		set(PYTHON_LIBRARY "c:/python36/libs/python36.lib" CACHE FILEPATH "The file path to the Python library")
@@ -140,6 +142,7 @@ set(MOJA_FLINT_HEADERS
 	include/moja/flint/recordaccumulatorwithmutex.h
 	include/moja/flint/variableandpoolstringbuilder.h
 	include/moja/flint/operationdatapackage.h
+	include/moja/flint/uncertaintyvariable.h
 )
 
 if(ENABLE_MOJAPY)
@@ -255,6 +258,7 @@ set(MOJA_FLINT_SOURCES
 	src/record.cpp
 	src/recordaccumulator.cpp
 	src/recordaccumulatorwithmutex.cpp
+	src/uncertaintyvariable.cpp
 	src/variableandpoolstringbuilder.cpp
 )
 
@@ -328,6 +332,8 @@ target_include_directories(${LIBNAME}
 )
 
 target_link_libraries(${LIBNAME} 
+    PRIVATE
+		fmt::fmt-header-only
 	PUBLIC
 		moja::moja.core moja::moja.flint.configuration moja::moja.datarepository
 	)
