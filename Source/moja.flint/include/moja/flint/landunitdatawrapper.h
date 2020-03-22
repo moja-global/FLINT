@@ -60,6 +60,8 @@ class LandUnitDataWrapper : public ILandUnitDataWrapper {
    const ITiming* timing() const override;
 
    const configuration::Configuration* config() override;
+   const Uncertainty& uncertainty() const override;
+   Uncertainty& uncertainty() override;
 
    // private:
    // TODO: hide this method

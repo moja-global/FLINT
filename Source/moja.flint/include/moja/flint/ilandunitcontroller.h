@@ -60,7 +60,8 @@ class FLINT_API ILandUnitController {
    virtual ITiming& timing() = 0;
 
    virtual const configuration::Configuration* config() = 0;
-   virtual const Uncertainty* uncertainty() const { return nullptr; }
+   virtual const Uncertainty& uncertainty() const = 0;
+   virtual Uncertainty& uncertainty() = 0;
 };
 
 }  // namespace flint

@@ -641,41 +641,54 @@ void JSON2ConfigurationProvider::createUncertainty(DynamicVar& parsedJSON,
    auto& uncertainty = config.uncertainty();
    uncertainty.set_enabled(true);
    uncertainty.set_iterations(uncertaintyStruct["iterations"]);
+
+   auto sampling = uncertaintyStruct["sampling"].extract<Poco::DynamicStruct>();
    
    auto variables = uncertaintyStruct["variables"].extract<Poco::JSON::Array::ValueVec>();
    for (auto& variable_var : variables) {
       auto variable = variable_var["variable"].extract<const std::string>();
-      auto selector = variable_var["selector"];
-      auto selector_doc = selector.isEmpty() ? DynamicObject() : selector.extract<const DynamicObject>();
+      auto& uncertainty_variable = uncertainty.variables().emplace_back(variable);
 
-      uncertainty.variables().emplace_back(variable, selector_doc);
-      auto fields = variable_var["fields"].extract<Poco::JSON::Array::ValueVec>();
-      auto& uncertainty_variable = uncertainty.variables().back();
-      for (auto& field_var : fields) {
-         auto type = field_var["type"].extract<const std::string>();
-         if (type == "triangular") {
-            auto field = std::make_shared<UncertaintyFieldTriangular>();
-            field->min = field_var["min"];
-            field->max = field_var["max"];
-            field->peak = field_var["peak"];
-            field->seed = field_var["seed"];
-            uncertainty_variable.fields().emplace_back(field);
-         } else if (type == "normal") {
-            auto field = std::make_shared<UncertaintyFieldNormal>();
-            field->mean = field_var["mean"];
-            field->std_dev = field_var["std_dev"];
-            field->seed = field_var["seed"];
-            uncertainty_variable.fields().emplace_back(field);
-         } else if (type == "manual") {
-            auto field = std::make_shared<UncertaintyFieldManual>();
-            for (auto& val : field_var["distribution"]) {
-               field->distribution.emplace_back(val.extract<double>());
+      auto replacements = variable_var["replacements"].extract<Poco::JSON::Array::ValueVec>();
+      for (auto& replacement_var : replacements) {
+         auto query = replacement_var["query"];
+         auto query_doc = query.isEmpty() ? DynamicObject() : query.extract<const DynamicObject>();
+
+         auto& replacement = uncertainty_variable.replacements().emplace_back(query_doc);
+
+         auto replace_fields = replacement_var["replace"].extract<Poco::DynamicStruct>();
+         for (auto& replace_field : replace_fields) {
+            
+
+            const auto& key = replace_field.first;
+            const auto& field_var = replace_field.second;
+            auto type = field_var["type"].extract<const std::string>();
+            if (type == "triangular") {
+               auto field = std::make_shared<UncertaintyFieldTriangular>();
+               field->key = key;
+               field->min = field_var["min"];
+               field->max = field_var["max"];
+               field->peak = field_var["peak"];
+               field->seed = field_var["seed"];
+               replacement.fields().emplace_back(field);
+            } else if (type == "normal") {
+               auto field = std::make_shared<UncertaintyFieldNormal>();
+               field->key = key;
+               field->mean = field_var["mean"];
+               field->std_dev = field_var["std_dev"];
+               field->seed = field_var["seed"];
+               replacement.fields().emplace_back(field);
+            } else if (type == "manual") {
+               auto field = std::make_shared<UncertaintyFieldManual>();
+               field->key = key;
+               for (auto& val : field_var["distribution"]) {
+                  field->distribution.emplace_back(val.extract<double>());
+               }
+               replacement.fields().emplace_back(field);
             }
-            uncertainty_variable.fields().emplace_back(field);
          }
       }
    }
-
 }
 
 void JSON2ConfigurationProvider::createModules(DynamicVar& parsedJSON, Configuration& config) const {

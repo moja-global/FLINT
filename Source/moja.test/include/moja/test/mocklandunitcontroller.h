@@ -5,6 +5,7 @@
 #include <moja/flint/ioperationmanager.h>
 #include <moja/flint/ivariable.h>
 #include <moja/flint/librarymanager.h>
+#include <moja/flint/uncertaintyvariable.h>
 
 #include <moja/dynamic.h>
 
@@ -42,6 +43,7 @@ MOCK_BASE_CLASS(MockLandUnitController, flint::ILandUnitController) {
    MOCK_METHOD(timing, 0, flint::ITiming & ());
 
    MOCK_METHOD(config, 0, flint::configuration::Configuration * ());
+   MOCK_METHOD(uncertainty, 0, flint::Uncertainty&());
 };
 
 }  // namespace test

@@ -8,6 +8,8 @@
 
 #include <array>
 #include <random>
+
+#include "moja/flint/iflintdata.h"
 #include "moja/flint/ilandunitcontroller.h"
 
 namespace moja {
@@ -19,7 +21,7 @@ std::piecewise_linear_distribution<double> triangular_distribution(double min, d
    return std::piecewise_linear_distribution<double>{i.begin(), i.end(), w.begin()};
 }
 
-const std::vector<double>& UncertaintyField::distribution() { return distribution_; }
+const std::vector<double>& UncertaintyField::distribution() const { return distribution_; }
 
 void UncertaintyFieldTriangular::build_distribution(int iterations) {
    std::random_device rd;
@@ -48,11 +50,16 @@ void UncertaintyFieldManual::set_distribution(const std::vector<double>& distrib
 const DynamicVar& UncertaintyVariable::value() const {
    value_ = nullptr;
    value_ = variable_->value();
-   const int uncertainty_iteration = land_unit_controller_->uncertainty()->iteration();
-   for (const auto& f : fields_) {
-      auto v = f->distribution()[uncertainty_iteration];
+   const int uncertainty_iteration = land_unit_controller_->uncertainty().iteration();
+   if (value_.type() == typeid(std::shared_ptr<IFlintData>)) {
+      auto& val = value_.extract<std::shared_ptr<IFlintData>>();
+      for (const auto& replacement : replacements_) {
+         for (const auto& field : replacement.fields()) {
+            auto value = field->distribution()[uncertainty_iteration];
+            val->setProperty(replacement.query(), field->key, value);
+         }
+      }
    }
-   // variable_->set_field()
    return value_;
 }
 
@@ -67,6 +74,8 @@ void UncertaintyVariable::controllerChanged(const ILandUnitController& controlle
    land_unit_controller_ = &controller;
    variable_->controllerChanged(controller);
 }
+
+void UncertaintyVariable::set_name(const std::string& name) { name_ = name; }
 
 }  // namespace flint
 }  // namespace moja

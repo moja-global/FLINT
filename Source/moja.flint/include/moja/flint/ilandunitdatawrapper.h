@@ -22,6 +22,7 @@ class IVariable;
 class ITiming;
 class ILandUnitController;
 class IOperationManager;
+class Uncertainty;
 
 class FLINT_API ILandUnitDataWrapper {
   public:
@@ -59,6 +60,9 @@ class FLINT_API ILandUnitDataWrapper {
 
    virtual ITiming* timing() = 0;
    virtual const ITiming* timing() const = 0;
+
+   virtual const Uncertainty& uncertainty() const = 0;
+   virtual Uncertainty& uncertainty() = 0;
 
    virtual const configuration::Configuration* config() = 0;
    // private:

@@ -125,7 +125,6 @@ set_target_properties(${LIBNAME}
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR} 
 	OUTPUT_NAME ${LIBNAME}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS
-	CXX_EXTENSIONS OFF
 )
 
 target_include_directories(${LIBNAME}
@@ -144,8 +143,6 @@ target_compile_definitions(${LIBNAME}
 	PRIVATE 
 		FOLLY_NO_CONFIG 
 )
-
-target_compile_features(${LIBNAME} PUBLIC cxx_std_14)
 
 target_link_libraries(${LIBNAME} 
 	PUBLIC

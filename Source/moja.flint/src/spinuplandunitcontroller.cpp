@@ -114,6 +114,10 @@ IOperationManager* SpinupLandUnitController::operationManager() const {
    ;
 }
 
+const Uncertainty& SpinupLandUnitController::uncertainty() const { return _landUnitController.uncertainty(); }
+
+Uncertainty& SpinupLandUnitController::uncertainty() { return _landUnitController.uncertainty(); }
+
 const ITiming& SpinupLandUnitController::timing() const { return _timing; }
 
 }  // namespace flint

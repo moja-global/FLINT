@@ -4,9 +4,12 @@
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/timing.h"
+#include "moja/flint/uncertaintyvariable.h"
 
 #include <string>
 #include <vector>
+
+
 
 namespace moja {
 namespace flint {
@@ -72,6 +75,8 @@ class FLINT_API SpinupLandUnitController : public ILandUnitController {
 
    IOperationManager* operationManager() override;
    IOperationManager* operationManager() const override;
+   const Uncertainty& uncertainty() const override;
+   Uncertainty& uncertainty() override;
 
   private:
    static int _currentLandUnitControllerId;

@@ -128,6 +128,9 @@ void OutputerStream::outputHeader(std::ostream& stream) const {
       stream << "Started:" << moja::put_time(&t1, "%c %Z") << std::endl;
       stream << "==========================================================================" << std::endl;
    }
+   if (_landUnitData->uncertainty().enabled()) {
+      stream << "iteration" << DL_CHR;
+   }
    stream << "notification" << DL_CHR << "step" << DL_CHR << "stepDate" << DL_CHR << "fracOfStep" DL_CHR
           << "stepLenInYears" << DL_CHR;
    auto pools = _landUnitData->poolCollection();
@@ -145,6 +148,9 @@ void OutputerStream::outputHeader(std::ostream& stream) const {
 void OutputerStream::outputInit(std::ostream& stream) {
    const auto& timingL = *_landUnitData->timing();
 
+   if (_landUnitData->uncertainty().enabled()) {
+      stream << _landUnitData->uncertainty().iteration() << DL_CHR;
+   }
    stream << "onTimingPostInit" << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1)
           << DL_CHR << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
    stream << std::setprecision(STOCK_PRECISION);
@@ -187,6 +193,11 @@ void OutputerStream::outputInit(std::ostream& stream) {
 
 void OutputerStream::outputEndStep(const std::string& notification, std::ostream& stream) {
    const auto& timingL = *_landUnitData->timing();
+   const auto& uncertainty = _landUnitData->uncertainty();
+
+   if (uncertainty.enabled()) {
+      stream << uncertainty.iteration() << DL_CHR;
+   }
    stream << notification << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1) << DL_CHR
           << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
    stream << std::setprecision(STOCK_PRECISION);

@@ -13,7 +13,7 @@ class FLINT_API UncertaintyField {
    virtual ~UncertaintyField() = default;
 
    enum class field_type { manual = 0, normal = 1, triangular = 2 };
-   const std::vector<double>& distribution();
+   const std::vector<double>& distribution() const;
    virtual void build_distribution(int iterations) = 0;
 
   protected:
@@ -21,7 +21,7 @@ class FLINT_API UncertaintyField {
    std::vector<double> distribution_;
 
   public:
-   std::string selector;
+   std::string key;
    field_type type;
 };
 
@@ -50,6 +50,21 @@ class FLINT_API UncertaintyFieldManual : public UncertaintyField {
    void build_distribution(int iterations) override {}
    void set_distribution(const std::vector<double>& distribution);
 };
+class FLINT_API Replacement {
+public:
+   explicit Replacement(const DynamicObject& query) : query_(query) {}
+   std::vector<std::shared_ptr<UncertaintyField>>& fields();
+   const std::vector<std::shared_ptr<UncertaintyField>>& fields() const;
+   const DynamicObject& query() const { return query_; }
+
+  private:
+   DynamicObject query_;
+   std::vector<std::shared_ptr<UncertaintyField>> fields_;
+};
+
+inline std::vector<std::shared_ptr<UncertaintyField>>& Replacement::fields() { return fields_; }
+inline const std::vector<std::shared_ptr<UncertaintyField>>& Replacement::fields() const { return fields_; }
+
 
 class FLINT_API UncertaintyVariable : public IVariable {
   public:
@@ -65,27 +80,34 @@ class FLINT_API UncertaintyVariable : public IVariable {
    bool isExternal() const override { return false; }
    bool isFlintData() const override { return false; }
    void controllerChanged(const ILandUnitController& controller) override;
-   std::vector<std::shared_ptr<UncertaintyField>>& fields();
-   const std::vector<std::shared_ptr<UncertaintyField>>& fields() const;
+   std::vector<Replacement>& replacements();
+   const std::vector<Replacement>& replacements() const;
+   void set_name(const std::string& name);
 
-  private:
+private:
    const ILandUnitController* land_unit_controller_;
    std::shared_ptr<IVariable> variable_;
-   DynamicObject selector_;
-   std::vector<std::shared_ptr<UncertaintyField>> fields_;
+   std::string name_;
+   std::vector<Replacement> replacements_;
    mutable DynamicVar value_;
 };
+inline std::vector<Replacement>& UncertaintyVariable::replacements() { return replacements_; }
+inline const std::vector<Replacement>& UncertaintyVariable::replacements() const { return replacements_; }
 
-inline std::vector<std::shared_ptr<UncertaintyField>>& UncertaintyVariable::fields() { return fields_; }
-inline const std::vector<std::shared_ptr<UncertaintyField>>& UncertaintyVariable::fields() const { return fields_; }
 
 class FLINT_API Uncertainty {
   public:
    int iteration() const { return iteration_; }
+   int iterations() const { return iterations_; }
+   void increment_iteration() { iteration_++; }
+   void set_iterations(int iterations) { iterations_ = iterations; }
+   bool enabled() const { return enabled_; }
+   void set_enabled(bool enabled) { enabled_ = enabled; }
 
-  private:
+private:
    int iteration_ = 0;
    int iterations_ = 0;
+   bool enabled_ = false;
 };
 }  // namespace flint
 }  // namespace moja

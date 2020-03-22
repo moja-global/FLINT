@@ -4,6 +4,7 @@
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/timing.h"
+#include "moja/flint/uncertaintyvariable.h"
 
 #include <string>
 #include <vector>
@@ -70,7 +71,9 @@ class FLINT_API LandUnitController : public ILandUnitController {
    const IOperationManager* operationManager() const override { return _operationManager.get(); }
 
    const configuration::Configuration* config() override { return _config; }
-   void configure_uncertainty(const configuration::Uncertainty& uncertainty);;
+   void configure_uncertainty(const configuration::Uncertainty& uncertainty);
+   const Uncertainty& uncertainty() const override;
+   Uncertainty& uncertainty() override;
 
   private:
    static int _currentLandUnitControllerId;
@@ -82,6 +85,7 @@ class FLINT_API LandUnitController : public ILandUnitController {
    std::shared_ptr<IOperationManager> _operationManager;
 
    const configuration::Configuration* _config;
+   Uncertainty _uncertainty;
 };
 
 }  // namespace flint

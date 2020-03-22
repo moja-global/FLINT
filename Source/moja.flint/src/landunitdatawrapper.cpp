@@ -99,7 +99,12 @@ ITiming* LandUnitDataWrapper::timing() { return &_landUnitController->timing(); 
 
 const ITiming* LandUnitDataWrapper::timing() const { return &_landUnitController->timing(); }
 
+
+
 const configuration::Configuration* LandUnitDataWrapper::config() { return _landUnitController->config(); }
+
+const Uncertainty& LandUnitDataWrapper::uncertainty() const { return _landUnitController->uncertainty(); }
+Uncertainty& LandUnitDataWrapper::uncertainty() { return _landUnitController->uncertainty(); }
 
 }  // namespace flint
 }  // namespace moja

@@ -4,6 +4,10 @@ project(moja VERSION 1.0.6 LANGUAGES CXX)
 #turn on using solution folders
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
 #turn on parallel builds
 add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
 

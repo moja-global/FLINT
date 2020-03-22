@@ -4,6 +4,7 @@
 #include "moja/flint/ioperationresultflux.h"
 #include "moja/flint/ipool.h"
 #include "moja/flint/itiming.h"
+#include "moja/flint/uncertaintyvariable.h"
 
 #include <moja/datetime.h>
 #include <moja/notificationcenter.h>
@@ -13,6 +14,8 @@
 
 #include <iomanip>  // std::setprecision
 #include <iostream>
+
+
 
 //#define DL_CHR "\t"
 #define DL_CHR ","
@@ -49,6 +52,9 @@ void OutputerStreamFlux::outputHeader(std::ostream& stream) const {
       stream << "Started:" << start << std::endl;
       stream << "==========================================================================" << std::endl;
    }
+   if (_landUnitData->uncertainty().enabled()) {
+      stream << "iteration" << DL_CHR;
+   }
    stream << "step" << DL_CHR << "step date" << DL_CHR << "module name" << DL_CHR << "disturbance_type" << DL_CHR
           << "source pool" DL_CHR << "sink pool" << DL_CHR << "value" << std::endl;
 }
@@ -69,7 +75,9 @@ void OutputerStreamFlux::outputInit(std::ostream& stream) const {
          const auto val = f->value();
          const auto srcPool = _landUnitData->getPool(srcIx);
          const auto dstPool = _landUnitData->getPool(dstIx);
-
+         if (_landUnitData->uncertainty().enabled()) {
+            stream << _landUnitData->uncertainty().iteration() << DL_CHR;
+         }
          stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
          stream << mdata->moduleName << DL_CHR;
          stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val
@@ -93,7 +101,9 @@ void OutputerStreamFlux::outputEndStep(std::ostream& stream) const {
          const auto val = f->value();
          const auto srcPool = _landUnitData->getPool(srcIx);
          const auto dstPool = _landUnitData->getPool(dstIx);
-
+         if (_landUnitData->uncertainty().enabled()) {
+            stream << _landUnitData->uncertainty().iteration() << DL_CHR;
+         }
          stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
          stream << mdata->moduleName << DL_CHR;
          stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val

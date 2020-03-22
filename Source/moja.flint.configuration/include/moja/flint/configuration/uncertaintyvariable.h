@@ -14,11 +14,13 @@ class CONFIGURATION_API UncertaintyField {
   public:
    enum class FieldType { Manual = 0, Normal = 1, Triangular = 2 };
 
+   virtual ~UncertaintyField() = default;
+
   protected:
    explicit UncertaintyField(FieldType type) : type(type) {}
 
   public:
-   std::string selector;
+   std::string key;
    FieldType type;
 };
 
@@ -45,19 +47,34 @@ class CONFIGURATION_API UncertaintyFieldManual : public UncertaintyField {
    std::vector<double> distribution;
 };
 
-class CONFIGURATION_API UncertaintyVariable {
+class CONFIGURATION_API Replacement {
   public:
-   explicit UncertaintyVariable(const std::string& variable, const DynamicObject& selector)
-       : variable_(variable), selector_(selector) {}
-   virtual ~UncertaintyVariable() = default;
+   Replacement(const DynamicObject& query) : query_(query) {}
    std::vector<std::shared_ptr<UncertaintyField>>& fields();
    const std::vector<std::shared_ptr<UncertaintyField>>& fields() const;
-   const std::string& variable() const { return variable_; } 
+   const DynamicObject& query() const;
   private:
-   std::string variable_;
-   DynamicObject selector_;
+   DynamicObject query_;
    std::vector<std::shared_ptr<UncertaintyField>> fields_;
 };
+inline std::vector<std::shared_ptr<UncertaintyField>>& Replacement::fields() { return fields_; }
+inline const std::vector<std::shared_ptr<UncertaintyField>>& Replacement::fields() const { return fields_; }
+inline const DynamicObject& Replacement::query() const { return query_; }
+
+class CONFIGURATION_API UncertaintyVariable {
+  public:
+   explicit UncertaintyVariable(const std::string& variable) : variable_(variable) {}
+   virtual ~UncertaintyVariable() = default;
+   const std::string& variable() const { return variable_; }
+   std::vector<Replacement>& replacements();
+   const std::vector<Replacement>& replacements() const;
+
+  private:
+   std::string variable_;
+   std::vector<Replacement> replacements_;
+};
+inline std::vector<Replacement>& UncertaintyVariable::replacements() { return replacements_; }
+inline const std::vector<Replacement>& UncertaintyVariable::replacements() const { return replacements_; }
 
 class CONFIGURATION_API Uncertainty {
   public:
@@ -76,9 +93,6 @@ class CONFIGURATION_API Uncertainty {
    int iterations_;
    std::vector<UncertaintyVariable> variables_;
 };
-
-inline std::vector<std::shared_ptr<UncertaintyField>>& UncertaintyVariable::fields() { return fields_; }
-inline const std::vector<std::shared_ptr<UncertaintyField>>& UncertaintyVariable::fields() const { return fields_; }
 
 inline bool Uncertainty::enabled() const { return enabled_; }
 inline int Uncertainty::iterations() const { return iterations_; }

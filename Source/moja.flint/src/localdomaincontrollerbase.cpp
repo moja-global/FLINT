@@ -210,7 +210,12 @@ void LocalDomainControllerBase::configure(const configuration::Configuration& co
 void LocalDomainControllerBase::run() {
    _notificationCenter.postNotification(moja::signals::PreTimingSequence);
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitInit);
-   _sequencer->Run(_notificationCenter, _landUnitController);
+   auto& uncertainty = _landUnitController.uncertainty();
+   for (auto i = 0; i < uncertainty.iterations(); ++i) {
+      _sequencer->Run(_notificationCenter, _landUnitController);
+      uncertainty.increment_iteration();
+      _landUnitController.clearAllOperationResults();
+   }
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitShutdown);
 }
 

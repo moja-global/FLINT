@@ -30,6 +30,7 @@ class FLINT_API IFlintData {
                           datarepository::DataRepository& dataRepository) = 0;
 
    virtual DynamicVar getProperty(const std::string& key) const { return DynamicVar(); }
+   virtual void setProperty(const DynamicObject& query, const std::string& key, DynamicVar value) {}
    virtual DynamicObject exportObject() const { return DynamicObject(); }
 
    virtual void controllerChanged(const ILandUnitController& controller){};
