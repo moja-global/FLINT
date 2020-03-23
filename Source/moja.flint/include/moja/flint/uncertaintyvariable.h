@@ -103,6 +103,7 @@ class FLINT_API Uncertainty {
    void set_iterations(int iterations) { iterations_ = iterations; }
    bool enabled() const { return enabled_; }
    void set_enabled(bool enabled) { enabled_ = enabled; }
+   void reset_iteration();
 
 private:
    int iteration_ = 0;

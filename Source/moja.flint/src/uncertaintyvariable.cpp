@@ -77,5 +77,7 @@ void UncertaintyVariable::controllerChanged(const ILandUnitController& controlle
 
 void UncertaintyVariable::set_name(const std::string& name) { name_ = name; }
 
+void Uncertainty::reset_iteration() { iteration_ = 0; }
+
 }  // namespace flint
 }  // namespace moja

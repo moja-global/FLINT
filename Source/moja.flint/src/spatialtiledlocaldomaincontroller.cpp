@@ -520,14 +520,6 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
       _spinupSequencer = std::dynamic_pointer_cast<SequencerModuleBase>(_spinupModules[sequencerKey]);
       _spinupSequencer->configure(timingSP);
 
-      // TODO: check with Max on this - spinup and main controller share pools, so the list should already be populated!
-      // Configure pools.
-      // for (const auto pool : config.pools()) {
-      //	_spinupLandUnitController.operationManager()->addPool(
-      //		pool->name(), pool->description(), pool->units(), pool->scale(),
-      //		pool->order(), pool->initValue());
-      //}
-
       // Configure variables.
       // Copy in from main LUC if name not found in list of variables in spinup
       // configuration.
@@ -556,11 +548,6 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
             }
          }
          if (!found) {
-            // TODO: Check if this is required?
-            // if (variable->isExternal()) {
-            //	auto ptr = std::static_pointer_cast<ExternalVariable>(variable);
-            //	ptr->controllerChanged(_landUnitController);
-            //}
             _spinupLandUnitController.addVariable(variable->info().name, variable);
          }
       }
@@ -570,7 +557,7 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
              variable->name(), std::make_shared<Variable>(variable->value(), VariableInfo{variable->name()}));
       }
 
-      // Configure external variables (transforms).
+      // Construct external variables (transforms).
       std::map<std::string, TransformInterfacePtr> spinuptransforms;
       for (const auto& variable : spinup->externalVariables()) {
          const auto& transformConfig = variable->transform();
@@ -903,31 +890,35 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
       _spatiallocationinfo->_landUnitArea = _provider->area(cell);
       _landUnitController.getVariable("landUnitArea")->set_value(_spatiallocationinfo->_landUnitArea);
 
-      blockStatsUnit->_stopWatchSpinup.start();
-      blockStatsSpinUpUnit->_stopWatchTotal.start();
+      auto& uncertainty = _landUnitController.uncertainty();
+      uncertainty.reset_iteration();
+      for (auto i = 0; i < uncertainty.iterations(); ++i) {
+         blockStatsUnit->_stopWatchSpinup.start();
+         blockStatsSpinUpUnit->_stopWatchTotal.start();
 
-      // ** Check Spinup HERE first ***
-      if (runCellSpinUp(blockStatsSpinUpUnit, cell)) {
-         blockStatsUnit->_stopWatchSpinup.stop();
-         blockStatsSpinUpUnit->_stopWatchTotal.stop();
+         // ** Check Spinup HERE first ***
+         if (runCellSpinUp(blockStatsSpinUpUnit, cell)) {
+            blockStatsUnit->_stopWatchSpinup.stop();
+            blockStatsSpinUpUnit->_stopWatchTotal.stop();
 
-         _landUnitBuildSuccess->set_value(true);  // set initial state of build success to TRUE
-         _notificationCenter.postNotification(moja::signals::PreTimingSequence);
-         if (!_landUnitBuildSuccess->value()) {
-            blockStatsUnit->_unitsNotProcessed++;
-            return true;
+            _landUnitBuildSuccess->set_value(true);  // set initial state of build success to TRUE
+            _notificationCenter.postNotification(moja::signals::PreTimingSequence);
+            if (!_landUnitBuildSuccess->value()) {
+               blockStatsUnit->_unitsNotProcessed++;
+               return true;
+            }
+            blockStatsUnit->_stopWatchFramework.stop();
+            blockStatsUnit->_stopWatchProcessed.start();
+
+            _sequencer->Run(_notificationCenter, _landUnitController);
+            _landUnitController.clearAllOperationResults();
+
+            blockStatsUnit->_stopWatchProcessed.stop();
+            blockStatsUnit->_unitsProcessed++;
          }
-         blockStatsUnit->_stopWatchFramework.stop();
-         blockStatsUnit->_stopWatchProcessed.start();
-
-         _sequencer->Run(_notificationCenter, _landUnitController);
-         _landUnitController.clearAllOperationResults();
-
-         blockStatsUnit->_stopWatchProcessed.stop();
-         blockStatsUnit->_unitsProcessed++;
-         return true;
+         uncertainty.increment_iteration();
       }
-
+      return true;
    }
    // This error is recoverable, retunr true for success
    catch (const flint::SimulationError& e) {
@@ -986,43 +977,6 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
    blockStatsUnit->_unitsWithError++;
    return false;
 }
-
-// --------------------------------------------------------------------------------------------
-
-// void SpatialTiledLocalDomainController::writeRunSummaryToSQLite(bool insertRunList,
-// std::vector<RunSummaryDataRecord>& runSummaryData) { 	auto retry = false; 	auto maxRetries = RETRY_ATTEMPTS; 	do { 		try {
-//			retry = false;
-//			SQLite::Connector::registerConnector();
-//			Session session("SQLite", _sqliteDatabaseName);
-//			if (_createStatsTablesSQLIte) {
-//
-//				if (insertRunList)
-//					session << "DROP TABLE IF EXISTS run_list", now;
-//				session << "DROP TABLE IF EXISTS run_properties", now;
-//			}
-//			if (insertRunList)
-//				session << "CREATE TABLE IF NOT EXISTS run_list (id INTEGER PRIMARY KEY AUTOINCREMENT, run_id
-//VARCHAR(64) NOT NULL, run_desc VARCHAR(255))", now; 			session << "CREATE TABLE IF NOT EXISTS run_properties (id INTEGER
-//PRIMARY KEY AUTOINCREMENT, run_id_fk VARCHAR(64), property_name VARCHAR(255), property_info VARCHAR(255),
-//property_value VARCHAR(255))", now;
-//
-//			if (insertRunList) {
-//				auto insertStr = (boost::format("INSERT INTO run_list (run_id, run_desc) VALUES('%1%','%2%')")
-//% _runId % _runDesc).str(); 				session.begin(); 				session << insertStr, now; 				session.commit();
-//			}
-//
-//			session.begin();
-//			session << "INSERT INTO run_properties (run_id_fk, property_name, property_info, property_value)
-//VALUES(?, ?, ?, ?)", bind(runSummaryData), now; 			session.commit(); 			SQLite::Connector::unregisterConnector();
-//		}
-//		catch (SQLite::DBLockedException&) {
-//			MOJA_LOG_DEBUG << localDomainId() << ":DBLockedException - " << maxRetries << " retries
-//remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- > 0; 			if (!retry) { 				MOJA_LOG_DEBUG <<
-//localDomainId() << ":Exceeded MAX RETIRES (" << RETRY_ATTEMPTS << ")"; 				throw;
-//			}
-//		}
-//	} while (retry);
-//}
 
 // --------------------------------------------------------------------------------------------
 
@@ -1220,16 +1174,7 @@ void SpatialTiledLocalDomainController::run() {
          ;
          exit(1);
       }
-      // catch (const Poco::Data::SQLite::SQLiteException& e) {
-      //	_spatiallocationinfo->_errorCode = 1;
-      //	MOJA_LOG_FATAL
-      //		<< "Poco::Data::SQLite::SQLiteException caught at LocalDomain level, exiting..."
-      //		<< "Module: " << _spatiallocationinfo->_module << ", "
-      //		<< "Location: " << _spatiallocationinfo->_tileIdx << "," << _spatiallocationinfo->_blockIdx <<
-      //"," << _spatiallocationinfo->_cellIdx << ", "
-      //		<< "msg:" << e.displayText();
-      //	exit(1);
-      //}
+
       catch (const Poco::Exception& e) {
          _spatiallocationinfo->_errorCode = 1;
          MOJA_LOG_FATAL << "Poco::Exception caught at LocalDomain level, exiting..."
@@ -1276,22 +1221,9 @@ void SpatialTiledLocalDomainController::run() {
             datarepository::TileIdx tileIdxObject(tileRec->_tileIdx, _provider->indexer());
             tileRec->mojaLog("Tile", localDomainId(), &tileIdxObject, nullptr, true);
          }
-         // for (auto& i : _tileStatsDimension->getPersistableCollection()) {
-         //	StatsUnitRecord tileStatsRecord(i.get<1>(), seconds(i.get<2>()), seconds(i.get<3>()),
-         //seconds(i.get<4>()), seconds(i.get<5>()), i.get<6>(), i.get<7>(), i.get<8>(), i.get<9>(), i.get<10>(),
-         //i.get<11>(), StatsDurationType::Seconds); 	datarepository::TileIdx tileIdxObject(i.get<10>(),
-         //_provider->indexer()); 	tileStatsRecord.mojaLog("Tile", localDomainId(), &tileIdxObject, nullptr, true);
-         //}
 
          MOJA_LOG_INFO << std::setfill(' ') << std::setw(3) << localDomainId() << ":"
                        << "Summary of processing for full run";
-
-         // for (auto& i : _globalStatsDimension->getPersistableCollection()) {
-         //	StatsUnitRecord tileStatsRecord(i.get<1>(), seconds(i.get<2>()), seconds(i.get<3>()),
-         //seconds(i.get<4>()), seconds(i.get<5>()), i.get<6>(), i.get<7>(), i.get<8>(), i.get<9>(), i.get<10>(),
-         //i.get<11>(), StatsDurationType::Seconds); 	totalUnits += tileStatsRecord._unitsTotal; 	totalUnitsProcessed +=
-         //tileStatsRecord._unitsProcessed; 	tileStatsRecord.mojaLog("Global", localDomainId(), nullptr, nullptr, true);
-         //}
 
          for (auto& rec : _globalStatsDimension->records()) {
             StatsUnitRecord* tileRec = static_cast<StatsUnitRecord*>(rec.get());
