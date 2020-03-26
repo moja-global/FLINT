@@ -2,6 +2,7 @@
 #include "moja/datarepository/rasterreaderinterface.h"
 
 #include "moja/modules/gdal/_modules.gdal_exports.h"
+
 namespace moja {
 
 namespace flint {
@@ -53,7 +54,7 @@ class GDAL_API RasterReaderFactoryGDAL : public moja::datarepository::RasterRead
   public:
    RasterReaderFactoryGDAL() = default;
 
-   bool hasMetaDataReader() const override { return false; }
+   bool hasMetaDataReader() const override { return true; }
 
    bool hasTileRasterReader() const override { return true; }
 
@@ -61,7 +62,7 @@ class GDAL_API RasterReaderFactoryGDAL : public moja::datarepository::RasterRead
 
    std::unique_ptr<datarepository::MetaDataRasterReaderInterface> getMetaDataRasterReader(
        const std::string& path, const std::string& prefix, const DynamicObject& settings) const override {
-      return nullptr;
+      return std::make_unique<MetaDataRasterReaderGDAL>(path, prefix, settings);
    }
 
    std::unique_ptr<datarepository::TileRasterReaderInterface> getTileRasterReader(
