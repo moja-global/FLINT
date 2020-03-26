@@ -1,5 +1,6 @@
 #include "moja/modules/gdal/rasterreadergdal.h"
 
+#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/logging.h"
 
 #include "gdalcpp.h"
@@ -8,7 +9,14 @@
 
 #include <moja/datarepository/tileblockcellindexer.h>
 
+#include <moja/pocojsonutils.h>
+
+#include <Poco\JSON\Parser.h>
+
 #include <fmt/format.h>
+
+#include <fstream>
+#include <sstream>
 
 namespace moja {
 namespace modules {
@@ -34,9 +42,10 @@ MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, cons
                                                    const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
    try {
-      // TODO: Fix this
-      _prefix = prefix;
-      _path = prefix;
+      auto filePath = Poco::Path(path);
+      auto parent = filePath.parent().toString();
+      auto abs = filePath.parent().absolute().toString();
+      _path = (boost::format("%1%%2%.json") % filePath.parent().absolute().toString() % filePath.getBaseName()).str();
    } catch (...) {
       BOOST_THROW_EXCEPTION(flint::LocalDomainError()
                             << flint::Details("GDAL Error in constructor") << flint::LibraryName("moja.modules.gdal")
@@ -44,7 +53,20 @@ MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, cons
    }
 }
 
-DynamicObject MetaDataRasterReaderGDAL::readMetaData() const { return {}; }
+DynamicObject MetaDataRasterReaderGDAL::readMetaData() const {
+   if (file_exists(_path)) {
+      Poco::JSON::Parser jsonMetadataParser;
+
+      std::ifstream metadataFile(_path, std::ifstream::in);
+      jsonMetadataParser.parse(metadataFile);
+
+      auto metadata = jsonMetadataParser.result();
+      auto layerMetadata = parsePocoJSONToDynamic(metadata).extract<const DynamicObject>();
+      return layerMetadata;
+   } else {
+      BOOST_THROW_EXCEPTION(datarepository::FileNotFoundException() << datarepository::FileName(_path));
+   }
+}
 
 TileRasterReaderGDAL::TileRasterReaderGDAL(const std::string& path, const Point& origin, const std::string& prefix,
                                            const datarepository::TileBlockCellIndexer& indexer,
@@ -124,40 +146,34 @@ void TileRasterReaderGDAL::readBlockData(const datarepository::BlockIdx& blkIdx,
       const auto lrx = lon + 0.1;
       const auto lry = lat - 0.1;
 
-      double src_win[4];
-      src_win[0] = std::floor((ulx - geo_transform[0]) / geo_transform[1] + 0.001);
-      src_win[1] = std::floor((uly - geo_transform[3]) / geo_transform[5] + 0.001);
+      int src_win[4];
+      src_win[0] = int(std::floor((ulx - geo_transform[0]) / geo_transform[1] + 0.001));
+      src_win[1] = int(std::floor((uly - geo_transform[3]) / geo_transform[5] + 0.001));
 
-      src_win[2] = std::floor((lrx - ulx) / geo_transform[1] + 0.5);
-      src_win[3] = std::floor((lry - uly) / geo_transform[5] + 0.5);
+      src_win[2] = int(std::floor((lrx - ulx) / geo_transform[1] + 0.5));
+      src_win[3] = int(std::floor((lry - uly) / geo_transform[5] + 0.5));
 
-      std::vector<uint8_t> buff;
       auto band = ds.get().GetRasterBand(1);
-
-      buff.resize(400 * 400, 255);
-      err = band->RasterIO(GF_Read, int(src_win[0]), int(src_win[1]), int(src_win[2]), int(src_win[3]), &buff[0], 400,
-                           400, GDT_Byte, 0, 0);
+      err = band->RasterIO(GF_Read, src_win[0], src_win[1], src_win[2], src_win[3], &block_data[0], src_win[2],
+                           src_win[3], band->GetRasterDataType(), 0, 0);
       if (err == CE_None) {
-         if (block_size <= buff.size()) {
-            std::uninitialized_copy(buff.begin(), buff.end(), reinterpret_cast<char*>(block_data));
-
-            auto end_time = std::chrono::system_clock::now();
-            const auto elapsed =
-                std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count() / 1000.0;
-            MOJA_LOG_INFO << "RunId (" << _runId << ") - "
-                          << "GDAL Read - variable (" << _variable << "), target (" << _path << "), time (" << elapsed
-                          << ")";
-         } else {
-            MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
-                           << "GDAL - read error buffer too small, target (" << _path << ")";
-            const auto str = fmt::format("GDAL read error buffer too small: {}", _path);
-            BOOST_THROW_EXCEPTION(flint::LocalDomainError()
-                                  << flint::Details(str) << flint::LibraryName("moja.modules.gdal")
-                                  << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
-         }
+         auto end_time = std::chrono::system_clock::now();
+         const auto elapsed =
+             std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time).count() / 1000.0;
+         MOJA_LOG_TRACE << "RunId (" << _runId << ") - "
+                        << "GDAL Read - variable (" << _variable << "), target (" << _path << "), time (" << elapsed
+                        << ")";
+      } else {
+         MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
+                        << "GDAL - read error, target (" << _path << ")";
+         const auto str = fmt::format("GDAL read error: {}", _path);
+         BOOST_THROW_EXCEPTION(flint::LocalDomainError()
+                               << flint::Details(str) << flint::LibraryName("moja.modules.gdal")
+                               << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
       }
    } catch (const gdalcpp::gdal_error& err) {
-      BOOST_THROW_EXCEPTION(datarepository::FileReadException() << datarepository::FileName(_path) << datarepository::Message(err.what()));
+      BOOST_THROW_EXCEPTION(datarepository::FileReadException()
+                            << datarepository::FileName(_path) << datarepository::Message(err.what()));
    } catch (...) {
       MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
                      << "GDAL - exception (" << _path << ")";
