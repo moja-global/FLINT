@@ -4,6 +4,7 @@ string(REPLACE "." "_" NEW_PACKAGE "${PACKAGE}")
 string(TOUPPER "${NEW_PACKAGE}" LIBNAME_EXPORT)
 
 find_package(GDAL REQUIRED)
+find_package(fmt REQUIRED)
 
 configure_file(
     ../templates/exports.h 
@@ -26,6 +27,15 @@ set(PROJECT_MODULE_HEADERS
 set(PROJECT_MODULE_SOURCES
 	src/writevariablegeotiff.cpp
 )
+
+set(PROJECT_PROVIDER_HEADERS
+    src/gdalcpp.h
+	include/moja/modules/${PACKAGE}/rasterreadergdal.h
+)
+ 
+set(PROJECT_PROVIDER_SOURCES
+	src/rasterreadergdal.cpp
+)
  
 set(PROJECT_TRANSFORM_HEADERS
 )
@@ -37,12 +47,6 @@ set(PROJECT_FLINTDATA_HEADERS
 )
 
 set(PROJECT_FLINTDATA_SOURCES
-)
- 
-set(PROJECT_PROVIDER_HEADERS
-)
-
-set(PROJECT_PROVIDER_SOURCES
 )
 
 source_group("header files\\other"					FILES ${PROJECT_HEADERS})
@@ -83,6 +87,8 @@ target_include_directories(${LIBNAME}
 )
 
 target_link_libraries(${LIBNAME} 
+    PRIVATE
+		fmt::fmt-header-only
 	PUBLIC
 		moja::moja.flint ${GDAL_LIBRARY}
 )
