@@ -1,3 +1,6 @@
+cmake_minimum_required(VERSION 3.10.0)
+project(moja VERSION 1.0.6 LANGUAGES CXX)
+
 set(PACKAGE "test")
 set(LIBNAME "moja.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
