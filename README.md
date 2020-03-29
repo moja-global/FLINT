@@ -47,7 +47,7 @@ A fork of a *Vcpkg* repository has been created for the FLINT required libraries
   bootstrap-vcpkg.bat
   
   # install packages
-  vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows
+  vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows fmt:x64-windows
   ```
 
 + Once this has completed, start a command shell in you FLINT repository folder. Now use the following commands to create the Visual Studio solution:
