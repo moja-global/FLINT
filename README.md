@@ -24,6 +24,8 @@ The FLINT is using the lessons learned from first generation tools, to build a n
 
 ## How to use FLINT?  
 
+Below are the quick install instructions. [Step-by-step instructions guides](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT) are available if you would like to have more detailed information. Please provide us with feedback on how we can improve these guides. You can leave your comments in the [versions under development](https://github.com/moja-global/FLINT/blob/master/How_to_use_FLINT/How_to_use_FLINT.md). 
+
 ### Development Environment How-To for Windows
 
 These instructions are for building the FLINT on Windows using Visual Studio 2017, or Visual Studio 2019.
