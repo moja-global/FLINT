@@ -1,6 +1,6 @@
 ## What Guides are Available?
 
-The Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in ways that meet policy needs. To assist new developers to use FLINT, a series of guides have been developed. The released guides are in [pdf format](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT).
+The Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in ways that meet policy needs. To assist new developers to use FLINT, several guides have been developed. The released guides are in [pdf format](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT).
 
 These guides are living documents that will be updated form time to time. If you have any feedback or corrections, please use the Google Docs below to leave your suggestions so they will be included in the next version.
 
