@@ -11,7 +11,7 @@
 
 #include <moja/pocojsonutils.h>
 
-#include <Poco\JSON\Parser.h>
+#include <Poco/JSON/Parser.h>
 
 #include <fmt/format.h>
 
