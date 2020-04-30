@@ -241,7 +241,7 @@ int main(int argc, char* argv[]) {
 
 		if (config->uncertainty().enabled()) {
                    const auto& uncertainty = config->uncertainty();
-                   MOJA_LOG_INFO << "uncertainty ON";
+                   MOJA_LOG_INFO << "Uncertainty ON, " << config->uncertainty().iterations() << " iterations";
                    MOJA_LOG_DEBUG << "\tVariables:\t";
                    for (const auto& var : uncertainty.variables()) {
                       MOJA_LOG_DEBUG << var.variable();

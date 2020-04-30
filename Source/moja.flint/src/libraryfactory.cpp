@@ -11,6 +11,7 @@
 #include "moja/flint/aggregatorfluxstep.h"
 #include "moja/flint/aggregatorlandunit.h"
 #include "moja/flint/aggregatorstockstep.h"
+#include "moja/flint/aggregatoruncertainty.h"
 #include "moja/flint/calendarandeventflintdatasequencer.h"
 #include "moja/flint/calendarandeventsequencer.h"
 #include "moja/flint/calendarsequencer.h"
@@ -24,6 +25,7 @@
 #include "moja/flint/testmodule3.h"
 #include "moja/flint/transactionmanageraftersubmitmodule.h"
 #include "moja/flint/transactionmanagerendofstepmodule.h"
+#include "moja/flint/uncertaintyfilewriter.h"
 #include "moja/flint/writesystemconfig.h"
 #include "moja/flint/writevariablegrid.h"
 
@@ -47,10 +49,12 @@
 #include "moja/flint/simulationunitdatabase.h"
 #include "moja/flint/spatiallocationinfo.h"
 #include "moja/flint/systeminformation.h"
+#include "moja/flint/uncertaintysimulationdata.h"
 
 #include <moja/datarepository/providerrelationalsqlite.h>
 #include <moja/datarepository/providerspatialrastertiled.h>
 #include <moja/datarepository/rasterreader.h>
+
 
 namespace moja {
 namespace flint {
@@ -76,14 +80,29 @@ struct FLINTAggregationSharedDataObject {
    std::shared_ptr<flint::RecordAccumulatorWithMutex<ModuleInfoRow>> moduleInfoDimension;
 };
 
+struct FLINTUncertaintySharedDataObject {
+   FLINTUncertaintySharedDataObject() {
+      date_dimension = std::make_shared<RecordAccumulatorWithMutex<Date2Row>>();
+      pool_info_dimension = std::make_shared<RecordAccumulatorWithMutex<PoolInfoRow>>();
+      module_info_dimension = std::make_shared<RecordAccumulatorWithMutex<ModuleInfoRow>>();
+   }
+
+   // Shared Collections
+   std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension;
+};
+
 // --------------------------------------------------------------------------------------------
 // Shared data instances
 
 FLINTAggregationSharedDataObject flint_aggregation_shared_data;
+FLINTUncertaintySharedDataObject flint_uncertainty_shared_data;
 
 Poco::Mutex _fileHandlingMutexVarGridWriter;
 Poco::Mutex _fileHandlingMutexConfigWriter;
 Poco::Mutex _fileHandlingMutexAggregationFileWriter;
+Poco::Mutex _fileHandlingMutexUncertaintyFileWriter;
 
 // Flint Data Factory
 std::shared_ptr<IFlintData> createEventQueueFactory(const std::string& eventTypeStr, int id, const std::string& name,
@@ -122,6 +141,18 @@ int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegist
               _fileHandlingMutexAggregationFileWriter, flint_aggregation_shared_data.aggregatorLandUnitSharedData,
               flint_aggregation_shared_data.dateDimension, flint_aggregation_shared_data.date2Dimension,
               flint_aggregation_shared_data.poolInfoDimension, flint_aggregation_shared_data.moduleInfoDimension);
+       }};
+   outModuleRegistrations[index++] = ModuleRegistration{
+       "AggregatorUncertainty", []() -> flint::IModule* {
+                             return new AggregatorUncertainty(flint_uncertainty_shared_data.date_dimension,
+                                                              flint_uncertainty_shared_data.pool_info_dimension,
+                                                              flint_uncertainty_shared_data.module_info_dimension);
+       }};
+   outModuleRegistrations[index++] = ModuleRegistration{
+       "UncertaintyFileWriter", []() -> flint::IModule* {
+          return new UncertaintyFileWriter(
+              _fileHandlingMutexUncertaintyFileWriter, flint_uncertainty_shared_data.date_dimension,
+              flint_uncertainty_shared_data.pool_info_dimension, flint_uncertainty_shared_data.module_info_dimension);
        }};
    outModuleRegistrations[index++] =
        ModuleRegistration{"AggregatorFluxStep", []() -> flint::IModule* { return new AggregatorFluxStep(); }};
@@ -217,6 +248,8 @@ int getFlintFlintDataRegistrations(moja::flint::FlintDataRegistration* outFlintD
        FlintDataRegistration{"EventQueue", []() -> flint::IFlintData* { return new EventQueue(); }};
    outFlintDataRegistrations[index++] = FlintDataRegistration{
        "SimulationUnitDataBase", []() -> flint::IFlintData* { return new SimulationUnitDataBase(); }};
+   outFlintDataRegistrations[index++] = FlintDataRegistration{
+       "UncertaintySimulationUnitData", []() -> flint::IFlintData* { return new UncertaintySimulationUnitData(); }};
 
     MOJA_LOG_DEBUG << (boost::format("getFlintFlintDataRegistrations: %s - %d") % "exit" % index).str();
    return index;

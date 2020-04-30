@@ -138,6 +138,55 @@ void FluxRecord::merge(Record<FluxRow>* other) {
    _flux += otherRow.get<7>();
 }
 // --
+// -- FluxRecord
+Int64 UncertaintyFluxRecord::count_ = 0;
 
+UncertaintyFluxRecord::UncertaintyFluxRecord(bool do_aggregation, int local_domain_id, Int64 date_id,
+                                             Poco::Nullable<Int64> module_info_id, Int64 item_count,
+                                             int src_pool_info_id, int sink_pool_info_id, const std::vector<double>& fluxes)
+    : do_aggregation_(do_aggregation),
+      local_domain_id_(local_domain_id),
+      date_id_(date_id),
+      module_info_id_(module_info_id),
+      item_count_(item_count),
+      src_pool_info_id_(src_pool_info_id),
+      sink_pool_info_id_(sink_pool_info_id),
+      fluxes_(fluxes) {}
+
+bool UncertaintyFluxRecord::operator==(const Record<UncertaintyFluxRow>& other) const {
+   if (!do_aggregation_) return false;
+
+   auto otherRow = other.asPersistable();
+   return local_domain_id_ == otherRow.get<1>() && date_id_ == otherRow.get<2>() &&
+          module_info_id_ == otherRow.get<3>() && src_pool_info_id_ == otherRow.get<5>() &&
+          sink_pool_info_id_ == otherRow.get<6>();
+}
+
+size_t UncertaintyFluxRecord::hash() const {
+   if (do_aggregation_) {
+      if (hash_ == null_hash)
+         hash_ = hash::hash_combine(local_domain_id_, date_id_, module_info_id_, src_pool_info_id_,
+                                    sink_pool_info_id_);
+      return hash_;
+   }
+   if (hash_ == null_hash) hash_ = count_++;
+   return hash_;
+}
+
+UncertaintyFluxRow UncertaintyFluxRecord::asPersistable() const {
+   return UncertaintyFluxRow{_id,         local_domain_id_,  date_id_, module_info_id_,
+                             item_count_, src_pool_info_id_, sink_pool_info_id_, fluxes_};
+}
+
+void UncertaintyFluxRecord::merge(Record<UncertaintyFluxRow>* other) {
+   auto otherRow = other->asPersistable();
+   item_count_ += otherRow.get<5>();
+
+   auto flux = fluxes_.begin();
+   for (const auto& other_flux : otherRow.get<7>()) {
+      *flux += other_flux;
+      flux++;
+   }
+}
 }  // namespace flint
 }  // namespace moja

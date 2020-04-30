@@ -184,6 +184,98 @@ class FLINT_API FluxRecord : public flint::Record<FluxRow> {
    double _flux;                         // 7
 };
 
+
+// id, localDomainId, iteration, date id, module info id, src pool id, dst pool id, flux values
+typedef Poco::Tuple<Int64, int, Int64, Poco::Nullable<Int64>, Int64, int, int, std::vector<double>>
+    UncertaintyFluxRow;
+class FLINT_API UncertaintyFluxRecord : public flint::Record<UncertaintyFluxRow> {
+  public:
+   UncertaintyFluxRecord(bool do_aggregation, int localdomainId, Int64 date_id, Poco::Nullable<Int64> module_info_id,
+                         Int64 item_count, int src_pool_info_id,
+                         int sink_pool_info_id, const std::vector<double>& fluxes);
+   ~UncertaintyFluxRecord() {}
+
+   bool operator==(const Record<UncertaintyFluxRow>& other) const override;
+   size_t hash() const override;
+   UncertaintyFluxRow asPersistable() const override;
+   void merge(Record<UncertaintyFluxRow>* other) override;
+
+   static const size_t null_hash = std::numeric_limits<size_t>::max();
+
+  private:
+   // Flags, utility
+   bool do_aggregation_;
+   mutable size_t hash_ = null_hash;
+   static Int64 count_;
+
+   // Data
+   int local_domain_id_;                  // 1
+   Int64 date_id_;                        // 2
+   Poco::Nullable<Int64> module_info_id_; // 3
+   Int64 item_count_;                     // 4
+   int src_pool_info_id_;                 // 5
+   int sink_pool_info_id_;                // 6
+   std::vector<double> fluxes_;           // 7
+};
+
+
+typedef Poco::Tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64> UncertaintyStockRow;
+typedef std::tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64> UncertaintyStockTuple;
+
+struct UncertaintyStockKey {
+   short date_id;
+   int location_id;
+   short pool_id;
+   bool operator==(const UncertaintyStockKey& other) const;
+   bool operator<(const UncertaintyStockKey& other) const;
+};
+
+inline bool UncertaintyStockKey::operator==(const UncertaintyStockKey& other) const {
+   return pool_id == other.pool_id && date_id == other.date_id && location_id == other.location_id;
+}
+
+inline bool UncertaintyStockKey::operator<(const UncertaintyStockKey& other) const {
+   if (pool_id < other.pool_id) return true;
+   if (pool_id > other.pool_id) return false;
+   if (date_id < other.date_id) return true;
+   if (date_id > other.date_id) return false;
+   if (location_id < other.location_id) return true;
+   if (location_id > other.location_id) return false;
+   return false;
+}
+
+struct UncertaintyStockValue {
+   UncertaintyStockValue() : _id(-1), item_count(0) {}
+   UncertaintyStockValue(const std::vector<double>& values) : _id(-1), values(values), item_count(1) {}
+   UncertaintyStockValue(const std::vector<double>& values, Int64 itemCount)
+       : _id(-1), values(values), item_count(itemCount) {}
+
+   Int64 _id;
+   std::vector<double> values;
+   Int64 item_count;
+   UncertaintyStockValue& operator+=(const UncertaintyStockValue& rhs);
+};
+
+inline UncertaintyStockValue& UncertaintyStockValue::operator+=(const UncertaintyStockValue& rhs) {
+   item_count += rhs.item_count;
+   const auto size = (std::min)(values.size(), rhs.values.size());
+   for (size_t i = 0; i < size; ++i) {
+      values[i] += rhs.values[i];
+   }
+   return *this;
+}
+
+struct UncertaintyStockRecordConverter {
+   static UncertaintyStockRow asPersistable(const UncertaintyStockKey& key, const UncertaintyStockValue& value) {
+      return UncertaintyStockRow{value._id, key.date_id, key.location_id, key.pool_id, value.values, value.item_count};
+   }
+
+   static UncertaintyStockTuple asTuple(const UncertaintyStockKey& key, const UncertaintyStockValue& value) {
+      return UncertaintyStockTuple{value._id,   key.date_id,  key.location_id,
+                                   key.pool_id, value.values, value.item_count};
+   }
+};
+
 }  // namespace flint
 }  // namespace moja
 

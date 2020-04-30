@@ -56,10 +56,12 @@ set(MOJA_INT_GENERATED_HEADERS
 set(MOJA_FLINT_MODULE_HEADERS
 	include/moja/flint/aggregatorfluxstep.h
 	include/moja/flint/aggregatorstockstep.h
+	include/moja/flint/aggregatoruncertainty.h
 	include/moja/flint/debugnotificationmodule.h
 	include/moja/flint/errorscreenwriter.h
 	include/moja/flint/outputerstream.h
 	include/moja/flint/outputerstreamflux.h
+	include/moja/flint/uncertaintyfilewriter.h
 	include/moja/flint/proxymodule.h
 	include/moja/flint/transactionmanageraftersubmitmodule.h
 	include/moja/flint/transactionmanagerendofstepmodule.h
@@ -97,6 +99,7 @@ set(MOJA_FLINT_FLINTDATA_HEADERS
 	include/moja/${PACKAGE}/localdomaininformation.h
 	include/moja/${PACKAGE}/eventqueue.h
 	include/moja/${PACKAGE}/simulationunitdatabase.h
+	include/moja/${PACKAGE}/uncertaintysimulationdata.h
 )
 
 set(MOJA_FLINT_HEADERS
@@ -199,10 +202,12 @@ set(MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS
 set(MOJA_FLINT_MODULE_SOURCES
 	src/aggregatorfluxstep.cpp
 	src/aggregatorstockstep.cpp
+	src/aggregatoruncertainty.cpp
 	src/debugnotificationmodule.cpp
 	src/errorscreenwriter.cpp
 	src/outputerstream.cpp
 	src/outputerstreamflux.cpp
+	src/uncertaintyfilewriter.cpp
 	src/proxymodule.cpp
 	src/transactionmanageraftersubmitmodule.cpp
 	src/transactionmanagerendofstepmodule.cpp
