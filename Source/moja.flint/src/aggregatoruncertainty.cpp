@@ -51,6 +51,8 @@ void AggregatorUncertainty::subscribe(NotificationCenter& notificationCenter) {
    notificationCenter.subscribe(signals::TimingInit, &AggregatorUncertainty::onTimingInit, *this);
    notificationCenter.subscribe(signals::TimingPostInit, &AggregatorUncertainty::onTimingPostInit, *this);
    notificationCenter.subscribe(signals::TimingEndStep, &AggregatorUncertainty::onTimingEndStep, *this);
+   notificationCenter.subscribe(signals::OutputStep, &AggregatorUncertainty::onOutputStep, *this);
+
    notificationCenter.subscribe(signals::TimingShutdown, &AggregatorUncertainty::onTimingShutdown, *this);
    notificationCenter.subscribe(signals::PostDisturbanceEvent, &AggregatorUncertainty::onPostDisturbanceEvent, *this);
 }

@@ -47,6 +47,7 @@ class FLINT_API UncertaintyFileWriter : public ModuleBase {
    static std::string record_to_string_func(const Date2Row& rec, const std::string& dl);
    static std::string record_to_string_func(const ModuleInfoRow& rec, const std::string& dl);
    void write_flux() const;
+   void write_stock() const;
    static confidence_interval str_to_confidence_interval(const std::string& confidence_interval);
    static double confidence_interval_to_Z(confidence_interval confidence_interval);
 

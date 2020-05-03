@@ -138,6 +138,18 @@ void UncertaintyFileWriter::write_flux() const {
    }
 }
 
+void UncertaintyFileWriter::write_stock() const {
+   const auto persistables = simulation_unit_data_->stock_results.getTupleCollection();
+   for (auto& rec : persistables) {
+      //_id, date_id, location_id, pool_id, values, item_count
+
+      const auto date_rec_id = std::get<1>(rec);
+      const auto pool = _landUnitData->getPool(std::get<3>(rec));
+      const auto& values = std::get<4>(rec);
+      auto count = std::get<5>(rec);
+   }
+}
+
 UncertaintyFileWriter::confidence_interval UncertaintyFileWriter::str_to_confidence_interval(
     const std::string& confidence_interval) {
    if (confidence_interval == "eighty_percent") return confidence_interval::eighty_percent;
@@ -207,6 +219,9 @@ void UncertaintyFileWriter::onLocalDomainInit() {
        _landUnitData->getVariable("uncertaintySimulationUnitData")->value().extract<std::shared_ptr<IFlintData>>());
 }
 
-void UncertaintyFileWriter::onLocalDomainShutdown() { write_flux(); }
+void UncertaintyFileWriter::onLocalDomainShutdown() {
+   write_flux();
+   write_stock();
+}
 
 }  // namespace moja::flint
