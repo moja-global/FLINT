@@ -19,9 +19,7 @@
 #include "moja/flint/outputerstream.h"
 #include "moja/flint/outputerstreamflux.h"
 #include "moja/flint/proxymodule.h"
-#include "moja/flint/testmodule1.h"
-#include "moja/flint/testmodule2.h"
-#include "moja/flint/testmodule3.h"
+#include "moja/flint/testmodule.h"
 #include "moja/flint/transactionmanageraftersubmitmodule.h"
 #include "moja/flint/transactionmanagerendofstepmodule.h"
 #include "moja/flint/writesystemconfig.h"
@@ -158,11 +156,11 @@ int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegist
        "WriteSystemConfig", []() -> flint::IModule* { return new WriteSystemConfig(_fileHandlingMutexConfigWriter); }};
 
    outModuleRegistrations[index++] =
-       ModuleRegistration{"TestModule1", []() -> flint::IModule* { return new TestModule1(); }};
+       ModuleRegistration{"TestModule1", []() -> flint::IModule* { return new TestModule(); }};
    outModuleRegistrations[index++] =
-       ModuleRegistration{"TestModule2", []() -> flint::IModule* { return new TestModule2(); }};
+       ModuleRegistration{"TestModule2", []() -> flint::IModule* { return new TestModule(); }};
    outModuleRegistrations[index++] =
-       ModuleRegistration{"TestModule3", []() -> flint::IModule* { return new TestModule3(); }};
+       ModuleRegistration{"TestModule3", []() -> flint::IModule* { return new TestModule(); }};
 
 
    MOJA_LOG_DEBUG << (boost::format("getFlintModuleRegistrations: %s - %d") % "exit" % index).str();
