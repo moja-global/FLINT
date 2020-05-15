@@ -139,24 +139,26 @@ void AggregatorUncertainty::onTimingShutdown() {
    const auto i = uncertainty.iteration();
    const auto n = uncertainty.iterations();
 
+   auto& flux_results = simulation_unit_data_->flux_results;
    for (const auto& flux : fluxes_lu_) {
       // Now have the required dimensions - look for the flux record.
       std::vector<double> fluxes(n);
       fluxes[i] = flux.flux_value;
 
       auto flux_record = std::make_shared<UncertaintyFluxRecord>(
-          aggregate_sink_and_source_, simulation_unit_data_->local_domain_id, flux.date_record_id,
-          flux.module_id, 1, flux.src_ix, flux.dst_ix, fluxes);
-      simulation_unit_data_->flux_results.accumulate(flux_record);
+          aggregate_sink_and_source_, simulation_unit_data_->local_domain_id, flux.date_record_id, flux.module_id, 1,
+          flux.src_ix, flux.dst_ix, fluxes);
+      flux_results.accumulate(flux_record);
    }
 
+   auto& stock_results = simulation_unit_data_->stock_results;
    for (const auto& stock : stocks_lu_) {
       // Now have the required dimensions - look for the flux record.
       std::vector<double> stocks(n);
       stocks[i] = stock.stock_value;
 
-      auto& stock_results = simulation_unit_data_->stock_results;
-         stock_results.accumulate({short(stock.date_record_id), short(stock.pool_ix)}, {stocks});
+      stock_results.accumulate(
+          {short(stock.date_record_id), simulation_unit_data_->local_domain_id, short(stock.pool_ix)}, {stocks});
    }
    fluxes_lu_.clear();
    stocks_lu_.clear();

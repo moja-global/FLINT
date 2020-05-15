@@ -21,19 +21,28 @@
 #include <iostream>
 #include <numeric>
 
+#include "moja/flint/uncertaintyvariable.h"
+
 namespace moja::flint {
 
 constexpr auto DL_CHR = ",";
 constexpr auto STOCK_PRECISION = 15;
 
 void UncertaintyFileWriter::configure(const DynamicObject& config) {
-   file_name_ = config.contains("output_filename") ? config["output_filename"].extract<std::string>()
-                                                   : "OutputerUncertainty.txt";
+   flux_file_name_ = config.contains("flux_file_name") ? config["flux_file_name"].extract<std::string>()
+                                                   : "OutputerUncertaintyFlux.csv";
+   write_stock_ = false;
+   if (config.contains("stock_file_name")) {
+      stock_file_name_ = config["stock_file_name"].extract<std::string>();
+      write_stock_ = true;
+   }
+
    output_to_screen_ = config.contains("output_to_screen") ? bool(config["output_to_screen"]) : true;
    output_info_header_ = config.contains("output_info_header") ? bool(config["output_info_header"]) : true;
    confidence_interval_ = config.contains("confidence_interval")
                               ? str_to_confidence_interval(config["confidence_interval"].extract<std::string>())
                               : confidence_interval::ninety_percent;
+   include_raw_data_ = config.contains("include_raw_data") ? bool(config["include_raw_data"]) : true;
 }
 
 void UncertaintyFileWriter::subscribe(NotificationCenter& notificationCenter) {
@@ -71,8 +80,14 @@ std::string UncertaintyFileWriter::record_to_string_func(const UncertaintyFluxRo
    auto stdev = st_dev(fluxes);
    auto Z = confidence_interval_to_Z(confidence_interval_);
    auto margin_of_error = Z * stdev / sqrt(fluxes.size());
+   if (include_raw_data_) {
+      return fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", dl, rec.get<1>(), src_pool->name(),
+                         dst_pool->name(), ave, stdev, margin_of_error, ave - margin_of_error, ave + margin_of_error,
+                         fmt::join(fluxes, dl));
+   }
    return fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}", dl, rec.get<1>(), src_pool->name(),
                       dst_pool->name(), ave, stdev, margin_of_error, ave - margin_of_error, ave + margin_of_error);
+
 }
 
 std::string UncertaintyFileWriter::record_to_string_func(const Date2Row& rec, const std::string& dl) {
@@ -87,11 +102,11 @@ std::string UncertaintyFileWriter::record_to_string_func(const ModuleInfoRow& re
 void UncertaintyFileWriter::write_flux() const {
    try {
       const auto persistables = simulation_unit_data_->flux_results.getPersistableCollection();
-      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":File writer for Uncertainty aggregation)";
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":File writer for Uncertainty flux aggregation)";
 
       Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
 
-      Poco::FileOutputStream streamFile(file_name_, std::ios::ate);
+      Poco::FileOutputStream streamFile(flux_file_name_, std::ios::ate);
       Poco::TeeOutputStream output(streamFile);
       if (output_to_screen_) output.addStream(std::cout);
 
@@ -139,14 +154,61 @@ void UncertaintyFileWriter::write_flux() const {
 }
 
 void UncertaintyFileWriter::write_stock() const {
-   const auto persistables = simulation_unit_data_->stock_results.getTupleCollection();
-   for (auto& rec : persistables) {
-      //_id, date_id, location_id, pool_id, values, item_count
+   if (!write_stock_) return;
+   try {
+      const auto persistables = simulation_unit_data_->stock_results.getTupleCollection();
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":File writer for Uncertainty stock aggregation)";
 
-      const auto date_rec_id = std::get<1>(rec);
-      const auto pool = _landUnitData->getPool(std::get<3>(rec));
-      const auto& values = std::get<4>(rec);
-      auto count = std::get<5>(rec);
+      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
+
+      Poco::FileOutputStream streamFile(stock_file_name_, std::ios::ate);
+      Poco::TeeOutputStream output(streamFile);
+      if (output_to_screen_) output.addStream(std::cout);
+
+      for (auto& rec : persistables) {
+         const auto date_rec_id = std::get<1>(rec);
+         const auto location_id = std::get<2>(rec);
+         const auto pool_id = std::get<3>(rec);
+         const auto pool = _landUnitData->getPool(pool_id);
+         const auto& values = std::get<4>(rec);
+         const auto count = std::get<5>(rec);
+         const auto ave = mean(values);
+         const auto stdev = st_dev(values);
+         const auto Z = confidence_interval_to_Z(confidence_interval_);
+         const auto margin_of_error = Z * stdev / sqrt(values.size());
+         std::string str;
+         if (include_raw_data_) {
+            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", DL_CHR, location_id, pool->name(), ave, stdev, margin_of_error,
+                              ave - margin_of_error, ave + margin_of_error, count, fmt::join(values, DL_CHR));
+         } else {
+            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}", DL_CHR, location_id, pool->name(), ave, stdev, margin_of_error,
+                              ave - margin_of_error, ave + margin_of_error, count);
+
+         }
+         std::string date_str;
+
+         auto stored_date_record = date_dimension_->searchId(date_rec_id);
+         if (stored_date_record != nullptr) {
+            auto date_rec = stored_date_record->asPersistable();
+            date_str = record_to_string_func(date_rec, DL_CHR);
+         }
+         output << date_str << DL_CHR;
+         output << str << std::endl;
+      }
+      streamFile.close();
+   } catch (Poco::FileException& exc) {
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":FileException - " << exc.displayText();
+      throw;
+   } catch (Poco::AssertionViolationException& exc) {
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":AssertionViolationException - "
+                     << exc.displayText();
+      throw;
+   } catch (const std::exception& e) {
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":Unknown exception: - " << e.what();
+      throw;
+   } catch (...) {
+      MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":Unknown Exception";
+      throw;
    }
 }
 
@@ -158,6 +220,23 @@ UncertaintyFileWriter::confidence_interval UncertaintyFileWriter::str_to_confide
    if (confidence_interval == "ninety_five_percent") return confidence_interval::ninety_five_percent;
    if (confidence_interval == "ninety_nine_percent") return confidence_interval::ninety_nine_percent;
    return confidence_interval::ninety_percent;
+}
+
+ std::string UncertaintyFileWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
+   switch (confidence_interval) {
+      case confidence_interval::eighty_percent:
+         return "80%";
+      case confidence_interval::eighty_five_percent:
+         return "85%";
+      case confidence_interval::ninety_percent:
+         return "90%";
+      case confidence_interval::ninety_five_percent:
+         return "95%";
+      case confidence_interval::ninety_nine_percent:
+         return "99%";
+      default:
+         return "";
+   }
 }
 
 double UncertaintyFileWriter::confidence_interval_to_Z(confidence_interval confidence_interval) {
@@ -177,31 +256,71 @@ double UncertaintyFileWriter::confidence_interval_to_Z(confidence_interval confi
    }
 }
 
+void UncertaintyFileWriter::write_flux_header() const {
+   // create file here and append flux data later, this will work in threaded mode as well
+   // file created on onSystemInit, shared Mutex around file access used to append to it.
+   Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
+   Poco::File outputFile(flux_file_name_);
+   if (outputFile.exists()) outputFile.remove();
+   outputFile.createFile();
+   if (output_info_header_) {
+      Poco::FileOutputStream streamFile(flux_file_name_);
+      Poco::TeeOutputStream output(streamFile);
+      if (output_to_screen_) output.addStream(std::cout);
+
+      output << "year" << DL_CHR;
+
+      if (module_info_on_) {
+         output << "module_id" << DL_CHR << "library_type" << DL_CHR << "library_info_id" << DL_CHR << "module_type"
+            << DL_CHR << "module_id" << DL_CHR << "module_name" << DL_CHR << "disturbance_type" << DL_CHR;
+      }
+
+      output << "localdomain_id" << DL_CHR << "src pool" << DL_CHR << "sink_pool" << DL_CHR << "mean" << DL_CHR
+             << "S.D." << DL_CHR << "margin of error" << DL_CHR << confidence_interval_to_str(confidence_interval_)
+             << " limit low" << DL_CHR << confidence_interval_to_str(confidence_interval_) << " limit high";
+      if (include_raw_data_) {
+         output << DL_CHR;
+         for (int i = 0; i < _landUnitData->uncertainty().iterations(); ++i) {
+            output << i << DL_CHR;
+         }
+      }
+      output << std::endl;
+         
+      streamFile.close();
+   }
+}
+void UncertaintyFileWriter::write_stock_header() const {
+   if (!write_stock_) return;
+
+   Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
+   Poco::File outputFile(stock_file_name_);
+   if (outputFile.exists()) outputFile.remove();
+   outputFile.createFile();
+   if (output_info_header_) {
+      Poco::FileOutputStream streamFile(stock_file_name_);
+      Poco::TeeOutputStream output(streamFile);
+      if (output_to_screen_) output.addStream(std::cout);
+
+      output << "year" << DL_CHR << "localdomain_id" << DL_CHR << "pool" << DL_CHR << "mean" << DL_CHR << "S.D."
+             << DL_CHR << "margin of error" << DL_CHR << confidence_interval_to_str(confidence_interval_)
+             << " limit low" << DL_CHR << confidence_interval_to_str(confidence_interval_) << " limit high" << DL_CHR
+             << "count";
+      if (include_raw_data_) {
+         output << DL_CHR;
+         for (int i = 0; i < _landUnitData->uncertainty().iterations(); ++i) {
+            output << i << DL_CHR;
+         }
+      }
+      output << std::endl;
+
+      streamFile.close();
+   }
+}
+
 void UncertaintyFileWriter::onSystemInit() {
    try {
-      // create file here and append flux data later, this will work in threaded mode as well
-      // file created on onSystemInit, shared Mutex around file access used to append to it.
-      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
-      Poco::File outputFile(file_name_);
-      if (outputFile.exists()) outputFile.remove();
-      outputFile.createFile();
-      if (output_info_header_) {
-         Poco::FileOutputStream streamFile(file_name_);
-         Poco::TeeOutputStream output(streamFile);
-         if (output_to_screen_) output.addStream(std::cout);
-
-         output << "year" << DL_CHR;
-
-         if (module_info_on_) {
-            output << "module_id" << DL_CHR << "library_type" << DL_CHR << "library_info_id" << DL_CHR << "module_type"
-                   << DL_CHR << "module_id" << DL_CHR << "module_name" << DL_CHR << "disturbance_type" << DL_CHR;
-         }
-
-         output << "localdomain_id" << DL_CHR << "src pool" << DL_CHR << "sink_pool" << DL_CHR << "mean" << DL_CHR
-                << "S.D." << DL_CHR << "margin of error" << DL_CHR << "90% limit low" << DL_CHR << "90% limit high"
-                << std::endl;
-         streamFile.close();
-      }
+      write_flux_header();
+      write_stock_header();
    } catch (Poco::AssertionViolationException& exc) {
       MOJA_LOG_DEBUG << -1 << ":AssertionViolationException - " << exc.displayText();
       throw;

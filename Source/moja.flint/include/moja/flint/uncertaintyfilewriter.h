@@ -22,15 +22,18 @@ class FLINT_API UncertaintyFileWriter : public ModuleBase {
                                   std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension,
                                   std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension,
                                   std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension)
-       : ModuleBase(),
-         file_mutex_(file_mutex),
-         date_dimension_(date_dimension),
-         pool_info_dimension_(pool_info_dimension),
-         module_info_dimension_(module_info_dimension),
-         output_to_screen_(false),
-         output_info_header_(false),
-         module_info_on_(false),
-         confidence_interval_(confidence_interval::ninety_percent) {}
+      : ModuleBase(),
+        file_mutex_(file_mutex),
+        date_dimension_(date_dimension),
+        pool_info_dimension_(pool_info_dimension),
+        module_info_dimension_(module_info_dimension),
+        output_to_screen_(false),
+        output_info_header_(false),
+        module_info_on_(false),
+        include_raw_data_(false),
+        confidence_interval_(confidence_interval::ninety_percent),
+        write_stock_(false) {
+   }
 
    virtual ~UncertaintyFileWriter() {}
 
@@ -49,20 +52,27 @@ class FLINT_API UncertaintyFileWriter : public ModuleBase {
    void write_flux() const;
    void write_stock() const;
    static confidence_interval str_to_confidence_interval(const std::string& confidence_interval);
+   static std::string confidence_interval_to_str(confidence_interval confidence_interval);
    static double confidence_interval_to_Z(confidence_interval confidence_interval);
+   void write_flux_header() const;
+   void write_stock_header() const;
 
    Poco::Mutex& file_mutex_;
+
    std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension_;
    std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension_;
    std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension_;
 
    std::shared_ptr<UncertaintySimulationUnitData> simulation_unit_data_;
 
-   std::string file_name_;
+   std::string flux_file_name_;
+   std::string stock_file_name_;
    bool output_to_screen_;
    bool output_info_header_;
    bool module_info_on_;
+   bool include_raw_data_;
    confidence_interval confidence_interval_;
+   bool write_stock_;
 };
 
 }  // namespace moja::flint
