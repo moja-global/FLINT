@@ -320,7 +320,8 @@ class RecordAccumulatorMap2 {
    }
 
    std::vector<TTuple> getTupleCollection() {
-      std::vector<TTuple> tuples(_records.size());
+      std::vector<TTuple> tuples;
+      tuples.reserve(_records.size());
       for (const auto& rec : _records) {
          tuples.emplace_back(TRecordConv::asTuple(rec.first, rec.second));
       }
