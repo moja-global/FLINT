@@ -1,0 +1,11 @@
+{
+    "cmake.configureArgs": [
+        "-DCMAKE_BUILD_TYPE=DEBUG",
+        "-DCMAKE_INSTALL_PREFIX=/usr/local",
+        "-DENABLE_TESTS:BOOL=OFF",
+        "-DENABLE_MOJA.MODULES.GDAL=ON",
+        "-DENABLE_MOJA.MODULES.LIBPQ=ON",
+        "-DBoost_USE_STATIC_LIBS=OFF",
+        "-DBUILD_SHARED_LIBS=ON"
+    ]
+}
