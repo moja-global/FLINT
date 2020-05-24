@@ -58,6 +58,7 @@ build_lin/
 build_win/
 build2017/
 build2017_dc/
+vscodebuild/
 bld/
 [Bb]in/
 [Oo]bj/
