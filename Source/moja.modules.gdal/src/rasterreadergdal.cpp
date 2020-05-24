@@ -70,6 +70,8 @@ DynamicObject MetaDataRasterReaderGDAL::readMetaData() const {
    } else {
       if (_metaDataRequired) {
          BOOST_THROW_EXCEPTION(datarepository::FileNotFoundException() << datarepository::FileName(_path));
+      } else {
+         return DynamicObject();
       }
    }
 }
