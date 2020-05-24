@@ -46,6 +46,10 @@ MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, cons
       auto parent = filePath.parent().toString();
       auto abs = filePath.parent().absolute().toString();
       _path = (boost::format("%1%%2%.json") % filePath.parent().absolute().toString() % filePath.getBaseName()).str();
+      _metaDataRequired = true;
+      if (settings.contains("metadata_required")) {
+         _metaDataRequired = settings["metadata_required"].extract<bool>();
+      }
    } catch (...) {
       BOOST_THROW_EXCEPTION(flint::LocalDomainError()
                             << flint::Details("GDAL Error in constructor") << flint::LibraryName("moja.modules.gdal")
@@ -64,7 +68,9 @@ DynamicObject MetaDataRasterReaderGDAL::readMetaData() const {
       auto layerMetadata = parsePocoJSONToDynamic(metadata).extract<const DynamicObject>();
       return layerMetadata;
    } else {
-      BOOST_THROW_EXCEPTION(datarepository::FileNotFoundException() << datarepository::FileName(_path));
+      if (_metaDataRequired) {
+         BOOST_THROW_EXCEPTION(datarepository::FileNotFoundException() << datarepository::FileName(_path));
+      }
    }
 }
 

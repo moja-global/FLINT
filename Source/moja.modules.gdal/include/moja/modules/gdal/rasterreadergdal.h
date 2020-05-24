@@ -22,6 +22,7 @@ class GDAL_API MetaDataRasterReaderGDAL : public datarepository::MetaDataRasterR
   private:
    std::string _path;
    std::string _prefix;
+   bool _metaDataRequired;
 };
 
 class GDAL_API TileRasterReaderGDAL : public datarepository::TileRasterReaderInterface {
