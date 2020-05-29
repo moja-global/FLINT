@@ -75,7 +75,7 @@ static std::string vec_to_string_func(const std::vector<double>& vec) {
 std::string UncertaintyFileWriter::record_to_string_func(const UncertaintyFluxRow& rec, const std::string& dl,
                                                          const IPool* src_pool,
                                                          const IPool* dst_pool) const {
-   const auto& fluxes = rec.get<7>();
+   const auto& fluxes = rec.get<6>();
    auto ave = mean(fluxes);
    auto stdev = st_dev(fluxes);
    auto Z = confidence_interval_to_Z(confidence_interval_);
@@ -101,7 +101,7 @@ std::string UncertaintyFileWriter::record_to_string_func(const ModuleInfoRow& re
 
 void UncertaintyFileWriter::write_flux() const {
    try {
-      const auto persistables = simulation_unit_data_->flux_results.getPersistableCollection();
+      const auto tuples = simulation_unit_data_->flux_results.getTupleCollection();
       MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":File writer for Uncertainty flux aggregation)";
 
       Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
@@ -110,13 +110,13 @@ void UncertaintyFileWriter::write_flux() const {
       Poco::TeeOutputStream output(streamFile);
       if (output_to_screen_) output.addStream(std::cout);
 
-      for (auto& rec : persistables) {
-         auto src_pool = _landUnitData->getPool(rec.get<5>());
-         auto dst_pool = _landUnitData->getPool(rec.get<6>());
+      for (auto& rec : tuples) {
+         auto src_pool = _landUnitData->getPool(rec.get<4>());
+         auto dst_pool = _landUnitData->getPool(rec.get<5>());
          auto str = record_to_string_func(rec, DL_CHR, src_pool, dst_pool);
 
          std::string date_str;
-         Int64 date_rec_id = rec.get<2>();
+         auto date_rec_id = rec.get<1>();
          auto stored_date_record = date_dimension_->searchId(date_rec_id);
          if (stored_date_record != nullptr) {
             auto date_rec = stored_date_record->asPersistable();
@@ -125,7 +125,7 @@ void UncertaintyFileWriter::write_flux() const {
          output << date_str << DL_CHR;
 
          std::string module_info_str;
-         auto module_info_rec_id = rec.get<3>();
+         auto module_info_rec_id = rec.get<2>();
          if (module_info_on_) {
             auto stored_module_info_record = module_info_dimension_->searchId(module_info_rec_id);
             if (stored_module_info_record != nullptr) {
@@ -156,7 +156,7 @@ void UncertaintyFileWriter::write_flux() const {
 void UncertaintyFileWriter::write_stock() const {
    if (!write_stock_) return;
    try {
-      const auto persistables = simulation_unit_data_->stock_results.getTupleCollection();
+      const auto tuples = simulation_unit_data_->stock_results.getTupleCollection();
       MOJA_LOG_DEBUG << simulation_unit_data_->local_domain_id << ":File writer for Uncertainty stock aggregation)";
 
       Poco::ScopedLockWithUnlock<Poco::Mutex> lock(file_mutex_);
@@ -165,11 +165,11 @@ void UncertaintyFileWriter::write_stock() const {
       Poco::TeeOutputStream output(streamFile);
       if (output_to_screen_) output.addStream(std::cout);
 
-      for (auto& rec : persistables) {
+      for (auto& rec : tuples) {
          const auto date_rec_id = std::get<1>(rec);
          const auto location_id = std::get<2>(rec);
          const auto pool_id = std::get<3>(rec);
-         const auto pool = _landUnitData->getPool(pool_id);
+         const auto pool = _landUnitData->getPool(int(pool_id));
          const auto& values = std::get<4>(rec);
          const auto count = std::get<5>(rec);
          const auto ave = mean(values);

@@ -37,7 +37,11 @@ class SimulationUnitDataBase : public flint::IFlintData {
    Int64 _locationId;
 
    // Collections shared within a thread
-   flint::RecordAccumulator<FluxRow> _fluxResults;
+   RecordAccumulator<FluxRow> _fluxResults;
+
+   // Error log members
+   int _logErrorCount;
+   RecordAccumulator2<ErrorRow, ErrorRecord> _errorLog;
 
    // -- Run Stats
    int _processUnitCount;

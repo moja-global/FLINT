@@ -55,6 +55,10 @@
 #include <moja/datarepository/providerspatialrastertiled.h>
 #include <moja/datarepository/rasterreader.h>
 
+#include "moja/flint/aggregatorerror.h"
+#include "moja/flint/aggregatoruncertaintylandunit.h"
+#include "moja/flint/uncertaintylandunitsqlitewriter.h"
+
 
 namespace moja {
 namespace flint {
@@ -82,15 +86,24 @@ struct FLINTAggregationSharedDataObject {
 
 struct FLINTUncertaintySharedDataObject {
    FLINTUncertaintySharedDataObject() {
-      date_dimension = std::make_shared<RecordAccumulatorWithMutex<Date2Row>>();
-      pool_info_dimension = std::make_shared<RecordAccumulatorWithMutex<PoolInfoRow>>();
-      module_info_dimension = std::make_shared<RecordAccumulatorWithMutex<ModuleInfoRow>>();
+      date_dimension = std::make_shared<RecordAccumulatorWithMutex2<Date2Row, Date2Record>>();
+      pool_info_dimension = std::make_shared<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>>();
+      module_info_dimension = std::make_shared<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>>();
+      tile_info_dimension = std::make_shared<RecordAccumulatorWithMutex2<TileInfoRow, TileInfoRecord>>();
+      classifier_set_dimension = std::make_shared<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>>();
+      classifier_names = std::make_shared<std::vector<std::string>>();
    }
 
+   // Shared Data
+   AggregatorUncertaintyLandUnitSharedData aggregator_land_unit_shared_data;
+
    // Shared Collections
-   std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension;
-   std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension;
-   std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex2<TileInfoRow, TileInfoRecord>> tile_info_dimension;
+   std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension;
+   std::shared_ptr<std::vector<std::string>> classifier_names;
 };
 
 // --------------------------------------------------------------------------------------------
@@ -135,6 +148,27 @@ int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegist
               flint_aggregation_shared_data.date2Dimension, flint_aggregation_shared_data.poolInfoDimension,
               flint_aggregation_shared_data.moduleInfoDimension);
        }};
+
+    outModuleRegistrations[index++] = ModuleRegistration{
+       "AggregatorUncertaintyLandUnit", []() -> flint::IModule* {
+          return new AggregatorUncertaintyLandUnit(
+              flint_uncertainty_shared_data.aggregator_land_unit_shared_data,
+              flint_uncertainty_shared_data.date_dimension, flint_uncertainty_shared_data.pool_info_dimension,
+              flint_uncertainty_shared_data.module_info_dimension, flint_uncertainty_shared_data.tile_info_dimension,
+              flint_uncertainty_shared_data.classifier_set_dimension,
+              flint_uncertainty_shared_data.classifier_names);
+       }};
+
+   outModuleRegistrations[index++] = ModuleRegistration{
+        "UncertaintyLandUnitSQLiteWriter", []() -> flint::IModule* {
+           return new UncertaintyLandUnitSQLiteWriter(
+               flint_uncertainty_shared_data.date_dimension, flint_uncertainty_shared_data.pool_info_dimension,
+               flint_uncertainty_shared_data.module_info_dimension, flint_uncertainty_shared_data.tile_info_dimension,
+               flint_uncertainty_shared_data.classifier_set_dimension);
+        }};
+
+   outModuleRegistrations[index++] =
+       ModuleRegistration{"AggregatorError", []() -> flint::IModule* { return new AggregatorError(); }};
    outModuleRegistrations[index++] = ModuleRegistration{
        "AggregatorFileWriter", []() -> flint::IModule* {
           return new AggregatorFileWriter(

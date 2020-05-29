@@ -64,9 +64,8 @@ void AggregatorUncertainty::onSystemInit() {
    try {
       // Pools and their Ids are constant for a whole simulation (across threads as well). So create them here
       for (auto& pool : _landUnitData->poolCollection()) {
-         auto pool_info_record = std::make_shared<PoolInfoRecord>(pool->name(), pool->description(), pool->idx(),
-                                                                  pool->order(), pool->scale(), pool->units());
-         pool_info_dimension_->accumulate(pool_info_record, pool->idx());
+         pool_info_dimension_->accumulate(PoolInfoRecord
+             {pool->name(), pool->description(), pool->idx(), pool->order(), pool->scale(), pool->units()});
       }
    } catch (Poco::AssertionViolationException& exc) {
       MOJA_LOG_DEBUG << /*_localDomainId*/ -1 << ":AssertionViolationException - " << exc.displayText();
@@ -144,11 +143,9 @@ void AggregatorUncertainty::onTimingShutdown() {
       // Now have the required dimensions - look for the flux record.
       std::vector<double> fluxes(n);
       fluxes[i] = flux.flux_value;
-
-      auto flux_record = std::make_shared<UncertaintyFluxRecord>(
-          aggregate_sink_and_source_, simulation_unit_data_->local_domain_id, flux.date_record_id, flux.module_id, 1,
-          flux.src_ix, flux.dst_ix, fluxes);
-      flux_results.accumulate(flux_record);
+      flux_results.accumulate({short(flux.date_record_id), flux.module_id,
+                               short(flux.src_ix), short(flux.dst_ix)},
+          {fluxes});
    }
 
    auto& stock_results = simulation_unit_data_->stock_results;
@@ -182,18 +179,16 @@ void AggregatorUncertainty::record_flux_set() {
    // Find the date dimension record.
    const auto reporting_end_date = timing->curEndDate().addMilliseconds(-1);
 
-   auto date_record = std::make_shared<Date2Record>(reporting_end_date.year());
-   const auto stored_date_record = date_dimension_->accumulate(date_record, reporting_end_date.year());
+   const auto stored_date_record = date_dimension_->accumulate(Date2Record{reporting_end_date.year()});
    Poco::Nullable<Int64> date_record_id = stored_date_record->getId();
 
    for (const auto& operation_result : _landUnitData->getOperationLastAppliedIterator()) {
       const auto meta_data = operation_result->metaData();
       Poco::Nullable<Int64> module_info_id;
       if (module_info_on_ && meta_data != nullptr) {
-         auto module_record =
-             std::make_shared<ModuleInfoRecord>(meta_data->libraryType, meta_data->libraryInfoId, meta_data->moduleType,
-                                                meta_data->moduleId, meta_data->moduleName);
-         const auto stored_module_info_record = module_info_dimension_->accumulate(module_record);
+         const auto stored_module_info_record = module_info_dimension_->accumulate(
+             ModuleInfoRecord{meta_data->libraryType, meta_data->libraryInfoId, meta_data->moduleType,
+                              meta_data->moduleId, meta_data->moduleName});
          module_info_id = stored_module_info_record->getId();
       } else {
          module_info_id.clear();
@@ -213,12 +208,9 @@ void AggregatorUncertainty::record_stock_set() {
    if (!aggregate_stock_) return;
 
    const auto timing = _landUnitData->timing();
-   int curStep = timing->step();
-   int curSubStep = timing->subStep();
 
    const auto reporting_end_date = timing->curEndDate().addMilliseconds(-1);
-   const auto date_record = std::make_shared<Date2Record>(reporting_end_date.year());
-   const auto stored_date_record = date_dimension_->accumulate(date_record, reporting_end_date.year());
+   const auto stored_date_record = date_dimension_->accumulate(Date2Record{reporting_end_date.year()});
    Poco::Nullable<Int64> date_record_id = stored_date_record->getId();
 
    // Get current pool data.

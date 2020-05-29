@@ -15,7 +15,7 @@ class UncertaintySimulationUnitData : public flint::IFlintData {
    UncertaintySimulationUnitData()
        : local_domain_id(-1),
          land_unit_area(0.0),
-         location_id(-1),
+         log_error_count(0),
          process_unit_count(0),
          lu_count_processing_unit(0),
          lu_count_local_domain(0) {}
@@ -37,10 +37,26 @@ class UncertaintySimulationUnitData : public flint::IFlintData {
    Int64 location_id;
 
    // Collections shared within a thread
-   RecordAccumulator<UncertaintyFluxRow> flux_results;
+
+   RecordAccumulatorMap2<UncertaintyFluxRow, UncertaintyFluxTuple, UncertaintyFluxRecordConverter, UncertaintyFluxKey,
+                         UncertaintyFluxValue>
+       flux_results;
+   RecordAccumulatorMap2<UncertaintyLandUnitFluxRow, UncertaintyLandUnitFluxTuple,
+                         UncertaintyLandUnitFluxRecordConverter, UncertaintyLandUnitFluxKey,
+                         UncertaintyFluxValue>
+       land_unit_flux_results;
+
    RecordAccumulatorMap2<UncertaintyStockRow, UncertaintyStockTuple, UncertaintyStockRecordConverter,
                          UncertaintyStockKey, UncertaintyStockValue>
        stock_results;
+   RecordAccumulatorMap2<UncertaintyLandUnitStockRow, UncertaintyLandUnitStockTuple,
+                         UncertaintyLandUnitStockRecordConverter, UncertaintyLandUnitStockKey,
+                         UncertaintyStockValue>
+       land_unit_stock_results;
+
+   // Error log members
+   int log_error_count;
+   RecordAccumulator2<ErrorRow, ErrorRecord> error_log;
 
    // -- Run Stats
    int process_unit_count;

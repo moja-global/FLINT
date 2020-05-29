@@ -2,7 +2,9 @@ set(PACKAGE "flint")
 set(LIBNAME "moja.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
+find_package(SQLite3 REQUIRED)
 find_package(fmt REQUIRED)
+find_package(Poco COMPONENTS Data DataSQLite REQUIRED)
 
 if(ENABLE_MOJAPY)
     if(CMAKE_SYSTEM MATCHES "Windows")
@@ -54,14 +56,17 @@ set(MOJA_INT_GENERATED_HEADERS
 )
 
 set(MOJA_FLINT_MODULE_HEADERS
+	include/moja/flint/aggregatorerror.h
 	include/moja/flint/aggregatorfluxstep.h
 	include/moja/flint/aggregatorstockstep.h
 	include/moja/flint/aggregatoruncertainty.h
+	include/moja/flint/aggregatoruncertaintylandunit.h
 	include/moja/flint/debugnotificationmodule.h
 	include/moja/flint/errorscreenwriter.h
 	include/moja/flint/outputerstream.h
 	include/moja/flint/outputerstreamflux.h
 	include/moja/flint/uncertaintyfilewriter.h
+	include/moja/flint/uncertaintylandunitsqlitewriter.h
 	include/moja/flint/proxymodule.h
 	include/moja/flint/transactionmanageraftersubmitmodule.h
 	include/moja/flint/transactionmanagerendofstepmodule.h
@@ -200,14 +205,17 @@ set(MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS
 )
 
 set(MOJA_FLINT_MODULE_SOURCES
+	src/aggregatorerror.cpp
 	src/aggregatorfluxstep.cpp
 	src/aggregatorstockstep.cpp
 	src/aggregatoruncertainty.cpp
+	src/aggregatoruncertaintylandunit.cpp
 	src/debugnotificationmodule.cpp
 	src/errorscreenwriter.cpp
 	src/outputerstream.cpp
 	src/outputerstreamflux.cpp
 	src/uncertaintyfilewriter.cpp
+	src/uncertaintylandunitsqlitewriter.cpp
 	src/proxymodule.cpp
 	src/transactionmanageraftersubmitmodule.cpp
 	src/transactionmanagerendofstepmodule.cpp
@@ -339,6 +347,9 @@ target_include_directories(${LIBNAME}
 target_link_libraries(${LIBNAME} 
     PRIVATE
 		fmt::fmt-header-only
+		SQLite::SQLite3
+		Poco::Data
+        Poco::DataSQLite
 	PUBLIC
 		moja::moja.core moja::moja.flint.configuration moja::moja.datarepository
 	)

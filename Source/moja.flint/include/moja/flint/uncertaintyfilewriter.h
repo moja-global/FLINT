@@ -19,9 +19,9 @@ class FLINT_API UncertaintyFileWriter : public ModuleBase {
    };
 
    explicit UncertaintyFileWriter(Poco::Mutex& file_mutex,
-                                  std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension,
-                                  std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension,
-                                  std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension)
+                                  std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension,
+       std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension,
+       std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension)
       : ModuleBase(),
         file_mutex_(file_mutex),
         date_dimension_(date_dimension),
@@ -59,9 +59,9 @@ class FLINT_API UncertaintyFileWriter : public ModuleBase {
 
    Poco::Mutex& file_mutex_;
 
-   std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension_;
-   std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension_;
-   std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension_;
 
    std::shared_ptr<UncertaintySimulationUnitData> simulation_unit_data_;
 

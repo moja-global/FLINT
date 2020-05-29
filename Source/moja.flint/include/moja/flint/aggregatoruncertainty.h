@@ -11,13 +11,11 @@ namespace moja::flint {
 
 class UncertaintySimulationUnitData;
 
-//typedef Poco::Tuple<Int64, int, std::string, std::string, std::string> runStatDataRecord;
-
 class FLINT_API AggregatorUncertainty : public ModuleBase {
   public:
-   AggregatorUncertainty(std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension,
-                         std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension,
-                         std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension)
+   AggregatorUncertainty(std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension,
+                         std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension,
+       std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension)
        : ModuleBase(),
          date_dimension_(date_dimension),
          pool_info_dimension_(pool_info_dimension),
@@ -49,9 +47,9 @@ class FLINT_API AggregatorUncertainty : public ModuleBase {
    void record_stock_set();
 
    // -- Dimensions
-   std::shared_ptr<RecordAccumulatorWithMutex<Date2Row>> date_dimension_;
-   std::shared_ptr<RecordAccumulatorWithMutex<PoolInfoRow>> pool_info_dimension_;
-   std::shared_ptr<RecordAccumulatorWithMutex<ModuleInfoRow>> module_info_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension_;
+   std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension_;
 
    std::shared_ptr<UncertaintySimulationUnitData> simulation_unit_data_;
    bool output_annual_;

@@ -1,6 +1,7 @@
 #include "moja/flint/record.h"
 
 #include <boost/functional/hash.hpp>
+#include <utility>
 
 namespace moja {
 namespace flint {
@@ -29,7 +30,6 @@ DateRow DateRecord::asPersistable() const {
    return DateRow{_id, _step, _substep, _year, _month, _day, _fracOfStep, _yearsInStep};
 }
 
-void DateRecord::merge(Record<DateRow>* other) {}
 // --
 
 // -- Date2Record
@@ -47,7 +47,28 @@ size_t Date2Record::hash() const {
 
 Date2Row Date2Record::asPersistable() const { return Date2Row{_id, _year}; }
 
-void Date2Record::merge(Record<Date2Row>* other) {}
+ClassifierSetRecord::ClassifierSetRecord(std::vector<Poco::Nullable<std::string>> classifierValues)
+    : _classifierValues(std::move(classifierValues)) {}
+
+bool ClassifierSetRecord::operator==(const ClassifierSetRecord& other) const {
+   for (auto i = 0; i < other._classifierValues.size(); i++) {
+      if (_classifierValues[i] != other._classifierValues[i]) {
+         return false;
+      }
+   }
+
+   return true;
+}
+size_t ClassifierSetRecord::hash() const {
+   if (_hash == -1) {
+      _hash = moja::hash::hash_range(_classifierValues.begin(), _classifierValues.end(), 0, moja::Hash());
+   }
+
+   return _hash;
+}
+
+ClassifierSetRow ClassifierSetRecord::asPersistable() const { return ClassifierSetRow{_id, _classifierValues}; }
+
 // --
 
 // -- PoolInfoRecord
@@ -72,7 +93,21 @@ PoolInfoRow PoolInfoRecord::asPersistable() const {
    return PoolInfoRow{_id, _name, _desc, _idx, _order, _scale, _units};
 }
 
-void PoolInfoRecord::merge(Record<PoolInfoRow>* other) {}
+bool TileInfoRecord::operator==(const TileInfoRecord& other) const {
+   return _tileIdx == other._tileIdx && _blockIdx == other._blockIdx && _cellIdx == other._cellIdx;
+}
+
+TileInfoRow TileInfoRecord::asPersistable() const {
+   return TileInfoRow{
+       _id,       _tileIdx, _blockIdx, _cellIdx,          _tileLat,        _tileLon,         _blockLat,
+       _blockLon, _cellLat, _cellLon,  _globalRandomSeed, _tileRandomSeed, _blockRandomSeed, _cellRandomSeed};
+}
+
+size_t TileInfoRecord::hash() const {
+   if (_hash == -1) _hash = moja::hash::hash_combine(_tileIdx, _blockIdx, _cellIdx);
+   return _hash;
+}
+
 // --
 
 // -- ModuleInfoRecord
@@ -93,7 +128,6 @@ ModuleInfoRow ModuleInfoRecord::asPersistable() const {
    return ModuleInfoRow{_id, _libType, _libInfoId, _moduleType, _moduleId, _moduleName};
 }
 
-void ModuleInfoRecord::merge(Record<ModuleInfoRow>* other) {}
 // --
 
 // -- FluxRecord
@@ -136,57 +170,6 @@ void FluxRecord::merge(Record<FluxRow>* other) {
    auto otherRow = other->asPersistable();
    _itemCount += otherRow.get<4>();
    _flux += otherRow.get<7>();
-}
-// --
-// -- FluxRecord
-Int64 UncertaintyFluxRecord::count_ = 0;
-
-UncertaintyFluxRecord::UncertaintyFluxRecord(bool do_aggregation, int local_domain_id, Int64 date_id,
-                                             Poco::Nullable<Int64> module_info_id, Int64 item_count,
-                                             int src_pool_info_id, int sink_pool_info_id, const std::vector<double>& fluxes)
-    : do_aggregation_(do_aggregation),
-      local_domain_id_(local_domain_id),
-      date_id_(date_id),
-      module_info_id_(module_info_id),
-      item_count_(item_count),
-      src_pool_info_id_(src_pool_info_id),
-      sink_pool_info_id_(sink_pool_info_id),
-      fluxes_(fluxes) {}
-
-bool UncertaintyFluxRecord::operator==(const Record<UncertaintyFluxRow>& other) const {
-   if (!do_aggregation_) return false;
-
-   auto otherRow = other.asPersistable();
-   return local_domain_id_ == otherRow.get<1>() && date_id_ == otherRow.get<2>() &&
-          module_info_id_ == otherRow.get<3>() && src_pool_info_id_ == otherRow.get<5>() &&
-          sink_pool_info_id_ == otherRow.get<6>();
-}
-
-size_t UncertaintyFluxRecord::hash() const {
-   if (do_aggregation_) {
-      if (hash_ == null_hash)
-         hash_ = hash::hash_combine(local_domain_id_, date_id_, module_info_id_, src_pool_info_id_,
-                                    sink_pool_info_id_);
-      return hash_;
-   }
-   if (hash_ == null_hash) hash_ = count_++;
-   return hash_;
-}
-
-UncertaintyFluxRow UncertaintyFluxRecord::asPersistable() const {
-   return UncertaintyFluxRow{_id,         local_domain_id_,  date_id_, module_info_id_,
-                             item_count_, src_pool_info_id_, sink_pool_info_id_, fluxes_};
-}
-
-void UncertaintyFluxRecord::merge(Record<UncertaintyFluxRow>* other) {
-   auto otherRow = other->asPersistable();
-   item_count_ += otherRow.get<5>();
-
-   auto flux = fluxes_.begin();
-   for (const auto& other_flux : otherRow.get<7>()) {
-      *flux += other_flux;
-      flux++;
-   }
 }
 }  // namespace flint
 }  // namespace moja
