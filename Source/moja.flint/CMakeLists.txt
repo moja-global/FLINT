@@ -76,9 +76,7 @@ set(MOJA_FLINT_MODULE_HEADERS
 	include/moja/flint/aggregatorlandunit.h
 	include/moja/flint/aggregatorfilewriter.h
 
-	include/moja/flint/testmodule1.h
-	include/moja/flint/testmodule2.h
-	include/moja/flint/testmodule3.h
+	include/moja/flint/testmodule.h
 )
 
 set(MOJA_FLINT_TRANSFORM_HEADERS
@@ -224,9 +222,7 @@ set(MOJA_FLINT_MODULE_SOURCES
 	src/aggregatorlandunit.cpp
 	src/aggregatorfilewriter.cpp
 
-	src/testmodule1.cpp
-	src/testmodule2.cpp
-	src/testmodule3.cpp
+	src/testmodule.cpp
 )
 
 set(MOJA_FLINT_TRANSFORM_SOURCES

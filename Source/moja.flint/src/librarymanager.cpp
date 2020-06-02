@@ -89,7 +89,7 @@ void LibraryManager::AddLibrary(LibraryType libraryType, const std::string& inLi
       case LibraryType::External: {
          if (path.empty()) {
             auto LibraryPathMap = FindLibraryPaths(inLibraryName);
-            if (LibraryPathMap.size() == 1) {
+             if (LibraryPathMap.size() == 1) {
                // Add this library to the set of libraries that we know about
                auto library = std::make_shared<LibraryInfoExternal>();
                library->originalFilename = (*std::begin(LibraryPathMap)).second;
@@ -98,7 +98,8 @@ void LibraryManager::AddLibrary(LibraryType libraryType, const std::string& inLi
                libraryInfo = library;
             }
          } else {
-            auto LibraryPathMap = FindLibraryPathsInDirectory(path, fileName, false);
+	    // We can also allow expansion of Environment variables here to help library finding
+            auto LibraryPathMap = FindLibraryPathsInDirectory(Poco::Path::expand(path), fileName, false);
             if (LibraryPathMap.size() == 1) {
                // Add this library to the set of libraries that we know about
                auto library = std::make_shared<LibraryInfoExternal>();
