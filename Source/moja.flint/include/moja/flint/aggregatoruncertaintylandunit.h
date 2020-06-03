@@ -26,6 +26,7 @@ class FLINT_API AggregatorUncertaintyLandUnitSharedData {
    bool block_index_on;
    bool cell_index_on;
    bool do_stock;
+   bool output_month_12_only;
 };
 
 typedef Poco::Tuple<Int64, int, std::string, std::string, std::string> runStatDataRecord;

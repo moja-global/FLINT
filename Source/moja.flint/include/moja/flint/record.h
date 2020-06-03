@@ -118,14 +118,12 @@ class ClassifierSetRecord {
    void merge(const ClassifierSetRecord& other) {}
    void setId(Int64 id) { _id = id; }
    Int64 getId() const { return _id; }
-   int numberClassifiers() const { return _numberClassifiers; };
 
   private:
    mutable size_t _hash = -1;
    Int64 _id{};
 
    // Data
-   int _numberClassifiers{};
    std::vector<Poco::Nullable<std::string>> _classifierValues;
 };
 

@@ -51,6 +51,10 @@ void AggregatorUncertaintyLandUnit::configure(const DynamicObject& config) {
    if (config.contains("do_stock")) {
       aggregator_land_unit_shared_data_.do_stock = config["do_stock"];
    }
+   aggregator_land_unit_shared_data_.output_month_12_only = true;
+   if (config.contains("output_month_12_only")) {
+      aggregator_land_unit_shared_data_.output_month_12_only = config["output_month_12_only"];
+   }
    if (config.contains("reporting_classifier_set")) {
       classifier_set_var_name_ = config["reporting_classifier_set"].extract<std::string>();
    } else {

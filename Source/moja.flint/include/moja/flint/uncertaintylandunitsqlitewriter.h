@@ -2,6 +2,9 @@
 #include "moja/flint/modulebase.h"
 #include "moja/flint/recordaccumulatorwithmutex.h"
 
+#include "aggregatoruncertaintylandunit.h"
+
+
 #include <functional>
 #include <string>
 
@@ -15,11 +18,13 @@ class UncertaintySimulationUnitData;
 class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
   public:
    UncertaintyLandUnitSQLiteWriter(
+       AggregatorUncertaintyLandUnitSharedData& aggregatorLandUnitSharedData,
        std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension,
        std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension,
        std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension,
        std::shared_ptr<RecordAccumulatorWithMutex2<TileInfoRow, TileInfoRecord>> tile_info_dimension,
-       std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension);
+       std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension,
+       std::shared_ptr<std::vector<std::string>> classifier_names);
 
    virtual ~UncertaintyLandUnitSQLiteWriter() = default;
 
@@ -56,9 +61,10 @@ class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
    std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension_;
    std::shared_ptr<RecordAccumulatorWithMutex2<TileInfoRow, TileInfoRecord>> tile_info_dimension_;
    std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension_;
-
+   std::shared_ptr<std::vector<std::string>> classifier_names_;
 
    // -- flint data objects data
+   AggregatorUncertaintyLandUnitSharedData& aggregator_land_unit_shared_data_;
    std::shared_ptr<UncertaintySimulationUnitData> simulation_unit_data_;
    std::string db_name_sqlite_;
    std::string generated_db_name_sqlite_;

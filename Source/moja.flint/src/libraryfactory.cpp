@@ -160,9 +160,11 @@ int getFlintModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegist
    outModuleRegistrations[index++] = ModuleRegistration{
         "UncertaintyLandUnitSQLiteWriter", []() -> flint::IModule* {
            return new UncertaintyLandUnitSQLiteWriter(
+               flint_uncertainty_shared_data.aggregator_land_unit_shared_data,
                flint_uncertainty_shared_data.date_dimension, flint_uncertainty_shared_data.pool_info_dimension,
                flint_uncertainty_shared_data.module_info_dimension, flint_uncertainty_shared_data.tile_info_dimension,
-               flint_uncertainty_shared_data.classifier_set_dimension);
+               flint_uncertainty_shared_data.classifier_set_dimension, 
+			   flint_uncertainty_shared_data.classifier_names);
         }};
 
    outModuleRegistrations[index++] =

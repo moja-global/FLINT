@@ -15,7 +15,11 @@
 #include <Poco/File.h>
 #include <Poco/Path.h>
 
+#include <boost/format.hpp>
+
 #include <fmt/format.h>
+
+#include <thread>
 
 using namespace Poco::Data::Keywords;
 using namespace Poco::Data;
@@ -26,17 +30,21 @@ constexpr unsigned int sqlite_retry_attempts = 10000;
 constexpr std::chrono::milliseconds sqlite_retry_sleep = std::chrono::milliseconds(200);
 
 UncertaintyLandUnitSQLiteWriter::UncertaintyLandUnitSQLiteWriter(
+    AggregatorUncertaintyLandUnitSharedData& aggregatorLandUnitSharedData,
     std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension,
     std::shared_ptr<RecordAccumulatorWithMutex2<PoolInfoRow, PoolInfoRecord>> pool_info_dimension,
     std::shared_ptr<RecordAccumulatorWithMutex2<ModuleInfoRow, ModuleInfoRecord>> module_info_dimension,
     std::shared_ptr<RecordAccumulatorWithMutex2<TileInfoRow, TileInfoRecord>> tile_info_dimension,
-    std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension)
+    std::shared_ptr<RecordAccumulatorWithMutex2<ClassifierSetRow, ClassifierSetRecord>> classifier_set_dimension,
+    std::shared_ptr<std::vector<std::string>> classifier_names)
     : ModuleBase(),
+      aggregator_land_unit_shared_data_(aggregatorLandUnitSharedData),
       date_dimension_(std::move(date_dimension)),
       pool_info_dimension_(std::move(pool_info_dimension)),
       module_info_dimension_(std::move(module_info_dimension)),
       tile_info_dimension_(std::move(tile_info_dimension)),
       classifier_set_dimension_(std::move(classifier_set_dimension)),
+      classifier_names_(std::move(classifier_names)),
       do_run_stats_on_(true),
       do_stock_(true),
       log_errors_(true),
@@ -93,8 +101,10 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                 R"(DROP TABLE IF EXISTS run_information)", R"(DROP TABLE IF EXISTS date_dimension)",
                 R"(DROP TABLE IF EXISTS poolinfo_dimension)", R"(DROP TABLE IF EXISTS tileinfo_dimension)",
                 R"(DROP TABLE IF EXISTS flux_reporting_results)", R"(DROP TABLE IF EXISTS stock_reporting_results)",
-                R"(DROP TABLE IF EXISTS error_log)", R"(DROP TABLE IF EXISTS error_summary)",
-                R"(DROP TABLE IF EXISTS location_dimension)", R"(DROP TABLE IF EXISTS classifierset_dimension)",
+                R"(DROP TABLE IF EXISTS error_log)",
+                // R"(DROP TABLE IF EXISTS error_summary)",
+                // R"(DROP TABLE IF EXISTS location_dimension)",
+                R"(DROP TABLE IF EXISTS classifierset_dimension)",
 
                 R"(CREATE TABLE poolinfo_dimension (
                      poolinfo_dimension_id_pk UNSIGNED BIG INT NOT NULL,
@@ -132,33 +142,33 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                       source_poolinfo_dimension_id_fk UNSIGNED BIG INT NOT NULL,
                       sink_poolinfo_dimension_id_fk   UNSIGNED BIG INT NOT NULL,
                       flux_values                     BLOB
-                  );)",
+                  );)"};
 
-                R"(CREATE TABLE location_dimension (
-                     location_dimension_id_pk UNSIGNED BIG INT,
-                     tileinfo_dimension_id_fk UNSIGNED BIG INT, 
-                     veghistory_dimension_id_fk UNSIGNED BIG INT,
-                     classifierset_dimension_id_fk UNSIGNED BIG INT, 
-                     unitCount UNSIGNED BIG INT,
-                     unitAreaSum FLOAT))",
+            // R"(CREATE TABLE location_dimension (
+            //     location_dimension_id_pk UNSIGNED BIG INT,
+            //     tileinfo_dimension_id_fk UNSIGNED BIG INT,
+            //     veghistory_dimension_id_fk UNSIGNED BIG INT,
+            //     classifierset_dimension_id_fk UNSIGNED BIG INT,
+            //     unitCount UNSIGNED BIG INT,
+            //     unitAreaSum FLOAT))",
 
-                // New Classifier stuff
-                R"(DROP TABLE IF EXISTS classifier_dimension)",
-                R"(DROP TABLE IF EXISTS classifier_classifier_type_mapping)",
-                R"(DROP TABLE IF EXISTS classifier_type_dimension)",
+            // New Classifier stuff
+            // R"(DROP TABLE IF EXISTS classifier_dimension)",
+            // R"(DROP TABLE IF EXISTS classifier_classifier_type_mapping)",
+            // R"(DROP TABLE IF EXISTS classifier_type_dimension)",
 
-                R"(CREATE TABLE classifier_dimension (
-                     id UNSIGNED BIG INT NOT NULL, 
-                     itemCount BIG INT NOT NULL))",
+            // R"(CREATE TABLE classifier_dimension (
+            //     id UNSIGNED BIG INT NOT NULL,
+            //     itemCount BIG INT NOT NULL))",
 
-                R"(CREATE TABLE classifier_classifier_type_mapping (
-                     id UNSIGNED BIG INT NOT NULL, 
-                     classifier_dimension_id BIG INT NOT NULL,
-                     classifier_type_dimension_id BIG INT NOT NULL,
-                     val VARCHAR(255)))",
-                R"(CREATE TABLE classifier_type_dimension (
-                     id UNSIGNED BIG INT NOT NULL,
-                     name VARCHAR(255)))"};
+            // R"(CREATE TABLE classifier_classifier_type_mapping (
+            //     id UNSIGNED BIG INT NOT NULL,
+            //     classifier_dimension_id BIG INT NOT NULL,
+            //     classifier_type_dimension_id BIG INT NOT NULL,
+            //     val VARCHAR(255)))",
+            // R"(CREATE TABLE classifier_type_dimension (
+            //     id UNSIGNED BIG INT NOT NULL,
+            //     name VARCHAR(255)))"};
 
             if (do_run_stats_on_)
                ddl.emplace_back(
@@ -168,10 +178,18 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                            module VARCHAR(255), 
                            name VARCHAR(255), 
                            value VARCHAR(255)))");
-            ddl.emplace_back(
-                R"(CREATE TABLE date_dimension (
+            if (aggregator_land_unit_shared_data_.output_month_12_only) {
+               ddl.emplace_back(
+                   R"(CREATE TABLE date_dimension (
                            date_dimension_id_pk UNSIGNED BIG INT, 
                            year INTEGER))");
+            } else {
+               ddl.emplace_back(
+                   R"(CREATE TABLE date_dimension (
+                        date_dimension_id_pk UNSIGNED BIG 
+                        INT, step INTEGER, substep INTEGER, year INTEGER, month INTEGER, day INTEGER, fracOfStep FLOAT,
+                        lengthOfStepInYears FLOAT))");               
+            }
             if (do_stock_)
                ddl.emplace_back(
                    R"(CREATE TABLE stock_reporting_results (
@@ -205,13 +223,13 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                            module VARCHAR(512), 
                            msg VARCHAR(2056)))");
 
-               ddl.emplace_back(
-                   R"(CREATE TABLE error_summary (
-                           id UNSIGNED BIG INT, tile_index INTEGER, 
-                           block_index INTEGER, 
-                           msg VARCHAR(2056),
-                           unitCount UNSIGNED BIG INT, 
-                           unitAreaSum FLOAT))");
+               // ddl.emplace_back(
+               //    R"(CREATE TABLE error_summary (
+               //            id UNSIGNED BIG INT, tile_index INTEGER,
+               //            block_index INTEGER,
+               //            msg VARCHAR(2056),
+               //            unitCount UNSIGNED BIG INT,
+               //            unitAreaSum FLOAT))");
             }
 
             for (const auto& sql : ddl) {
@@ -257,7 +275,87 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
    }
 }
 
-void UncertaintyLandUnitSQLiteWriter::onSystemShutdown() {}
+void UncertaintyLandUnitSQLiteWriter::onSystemShutdown() {
+   auto retry = false;
+   auto max_retries = sqlite_retry_attempts;
+   do {
+      try {
+         retry = false;
+         SQLite::Connector::registerConnector();
+         Session session("SQLite", generated_db_name_sqlite_);
+
+         // -- Create Tables --
+         std::vector<std::string> classifierStrings;
+         std::string classTableCreateStr = "";
+         if (classifier_names_->empty()) {
+            classTableCreateStr = (boost::format("CREATE TABLE classifierset_dimension (classifierset_dimension_id_pk "
+                                                 "UNSIGNED BIG INT PRIMARY KEY)"))
+                                      .str();
+         } else {
+            classTableCreateStr = (boost::format("CREATE TABLE classifierset_dimension (classifierset_dimension_id_pk "
+                                                 "UNSIGNED BIG INT PRIMARY KEY, %1% VARCHAR)") %
+                                   boost::join(*classifier_names_, " VARCHAR, "))
+                                      .str();
+         }
+
+         // -- Write Dimensions --
+
+         if (aggregator_land_unit_shared_data_.output_month_12_only) {
+            load(session, "date_dimension", date_dimension_);
+         } else {
+            load(session, "date_dimension", date_dimension_);
+         }
+
+         load(session, "poolinfo_dimension", pool_info_dimension_);
+         load(session, "tileinfo_dimension", tile_info_dimension_);
+
+         std::vector<std::string> ddl{classTableCreateStr};
+         for (const auto& sql : ddl) {
+            try_execute(session, [&sql](auto& sess) { sess << sql, now; });
+         }
+
+         std::vector<std::string> csetPlaceholders;
+         auto classifierCount = classifier_names_->size();
+         for (auto i = 0; classifierCount > i; i++) {
+            csetPlaceholders.emplace_back("?");
+         }
+         std::string classifierQueryPartStr = "";
+         if (!classifier_names_->empty()) {
+            classifierQueryPartStr = (boost::format(", %1%") % boost::join(csetPlaceholders, ", ")).str();
+         }
+
+         auto csetSql =
+             (boost::format("INSERT INTO classifierset_dimension VALUES (?%1%)") % classifierQueryPartStr).str();
+
+         try_execute(session, [this, &csetSql, &classifierCount](auto& sess) {
+            for (auto cset : this->classifier_set_dimension_->getPersistableCollection()) {
+               Statement insert(sess);
+               insert << csetSql, bind(cset.get<0>());
+               // insert, bind(cset.get<1>());
+               auto values = cset.get<1>();
+               for (auto i = 0; i < classifierCount; i++) {
+                  insert, bind(values[i]);
+               }
+               insert.execute();
+            }
+         });
+      } catch (SQLite::DBLockedException&) {
+         MOJA_LOG_DEBUG << ":DBLockedException - " << max_retries << " retries remaining";
+         std::this_thread::sleep_for(sqlite_retry_sleep);
+         retry = max_retries-- > 0;
+         if (!retry) {
+            MOJA_LOG_DEBUG << "Exceeded MAX RETIRES (" << sqlite_retry_attempts << ")";
+            throw;
+         }
+      } catch (const SQLite::SQLiteException& /*e*/) {
+         MOJA_LOG_ERROR << "SQLite operations failed, filename: " << generated_db_name_sqlite_;
+         throw;
+      } catch (const Poco::Exception& /*e*/) {
+         MOJA_LOG_ERROR << "SQLite operations failed, filename: " << generated_db_name_sqlite_;
+         throw;
+      }
+   } while (retry);
+}
 
 void UncertaintyLandUnitSQLiteWriter::onLocalDomainInit() {
    simulation_unit_data_ = std::static_pointer_cast<UncertaintySimulationUnitData>(
@@ -357,7 +455,8 @@ void UncertaintyLandUnitSQLiteWriter::writeFlux() const {
             // -- Flux Facts
             MOJA_LOG_DEBUG << "SQLite flux_reporting_results - inserted " << persistables.size() << " records";
             session.begin();
-            session << "INSERT INTO flux_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables), now;
+            session << "INSERT INTO flux_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables),
+                now;
             session.commit();
 
             SQLite::Connector::unregisterConnector();
@@ -475,7 +574,6 @@ void UncertaintyLandUnitSQLiteWriter::writeRunStats(const std::string& unit_labe
                               fmt::format("{}", unit_span_in_microseconds));
 
    try {
-
       auto retry = false;
       auto max_retries = sqlite_retry_attempts;
       do {
@@ -525,7 +623,7 @@ void UncertaintyLandUnitSQLiteWriter::writeRunStats(const std::string& unit_labe
 void UncertaintyLandUnitSQLiteWriter::writeRunSummary(const std::string& unit_label, DateTime& start_time,
                                                       DateTime& finish_time, Int64 lu_count) const {
    if (!do_run_stats_on_) return;
-   //try {
+   // try {
    //   auto retry = false;
    //   auto max_retries = sqlite_retry_attempts;
    //   do {
