@@ -19,6 +19,7 @@
 
 #include <fmt/format.h>
 
+#include <numeric>
 #include <thread>
 
 using namespace Poco::Data::Keywords;
@@ -188,7 +189,7 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                    R"(CREATE TABLE date_dimension (
                         date_dimension_id_pk UNSIGNED BIG 
                         INT, step INTEGER, substep INTEGER, year INTEGER, month INTEGER, day INTEGER, fracOfStep FLOAT,
-                        lengthOfStepInYears FLOAT))");               
+                        lengthOfStepInYears FLOAT))");
             }
             if (do_stock_)
                ddl.emplace_back(
@@ -199,8 +200,10 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                            tileinfo_dimension_id_fk         UNSIGNED BIG INT NOT NULL, 
                            classifier_dimension_id_fk       UNSIGNED BIG INT NOT NULL, 
                            poolinfo_dimension_id_fk         UNSIGNED BIG INT NOT NULL, 
-                           stock_values BLOB, 
-                           itemCount UNSIGNED BIG INT NOT NULL))");
+                           stock_values			    BLOB, 
+                           itemCount			    UNSIGNED BIG INT NOT NULL,
+                           stdev			    FLOAT,
+                           mean				    FLOAT))");
             if (log_errors_) {
                ddl.emplace_back(
                    R"(CREATE TABLE error_log (
@@ -364,6 +367,7 @@ void UncertaintyLandUnitSQLiteWriter::onLocalDomainInit() {
 
 void UncertaintyLandUnitSQLiteWriter::onLocalDomainShutdown() {
    if (!block_index_on_) {
+      calculate_stdev();
       writeFlux();
       writeStock();
    }
@@ -378,6 +382,7 @@ void UncertaintyLandUnitSQLiteWriter::onLocalDomainShutdown() {
 
 void UncertaintyLandUnitSQLiteWriter::onLocalDomainProcessingUnitShutdown() {
    if (block_index_on_) {
+      calculate_stdev();
       writeFlux();
       writeStock();
    }
@@ -386,6 +391,91 @@ void UncertaintyLandUnitSQLiteWriter::onLocalDomainProcessingUnitShutdown() {
    }
    writeRunStats("ProcessingUnit", simulation_unit_data_->start_processing_unit_time,
                  simulation_unit_data_->end_processing_unit_time, simulation_unit_data_->lu_count_processing_unit);
+}
+
+// std::string UncertaintyFileWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
+//   switch (confidence_interval) {
+//      case confidence_interval::eighty_percent:
+//         return "80%";
+//      case confidence_interval::eighty_five_percent:
+//         return "85%";
+//      case confidence_interval::ninety_percent:
+//         return "90%";
+//      case confidence_interval::ninety_five_percent:
+//         return "95%";
+//      case confidence_interval::ninety_nine_percent:
+//         return "99%";
+//      default:
+//         return "";
+//   }
+//}
+//
+// double UncertaintyFileWriter::confidence_interval_to_Z(confidence_interval confidence_interval) {
+//   switch (confidence_interval) {
+//      case confidence_interval::eighty_percent:
+//         return 1.282;
+//      case confidence_interval::eighty_five_percent:
+//         return 1.440;
+//      case confidence_interval::ninety_percent:
+//         return 1.645;
+//      case confidence_interval::ninety_five_percent:
+//         return 1.960;
+//      case confidence_interval::ninety_nine_percent:
+//         return 2.576;
+//      default:;
+//         return 1.645;
+//   }
+//}
+
+double _mean(const std::vector<double>& data) { return std::accumulate(data.begin(), data.end(), 0.0) / data.size(); }
+
+double _variance(const std::vector<double>& data) {
+   const double x_bar = _mean(data);
+   const double sq_sum = std::inner_product(data.begin(), data.end(), data.begin(), 0.0);
+   return sq_sum / data.size() - x_bar * x_bar;
+}
+
+// Calculations match excel STDEVP.P function
+// https://support.microsoft.com/en-us/office/stdev-p-function-6e917c05-31a0-496f-ade7-4f4e7462f285?ns=excel&version=90&syslcid=1033&uilcid=1033&appver=zxl900&helpid=xlmain11.chm60559&ui=en-us&rs=en-us&ad=us
+
+double _st_dev(const std::vector<double>& data) {
+   double sum = std::accumulate(data.begin(), data.end(), 0.0);
+   double mean = sum / data.size();
+
+   std::vector<double> diff(data.size());
+   // std::transform(v.begin(), data.end(), diff.begin(), std::bind2nd(std::minus<double>(), mean));
+   std::transform(data.begin(), data.end(), diff.begin(), [mean](double x) { return x - mean; });
+   double sq_sum = std::inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
+   double stdev = std::sqrt(sq_sum / data.size());
+
+   return stdev;
+}
+
+// This method will loop ove rthe records, pre conversiin to BLOB and calculate the stdev for each row
+
+void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
+   auto& records = simulation_unit_data_->land_unit_stock_results.get_records();
+   for (auto& rec : records) {
+      auto& values = rec.second.values;
+      rec.second.stdev = _st_dev(values);
+      rec.second.mean = _mean(values);
+   }
+
+   //const auto tuples = simulation_unit_data_->land_unit_stock_results.getTupleCollection();
+
+   //for (auto& rec : tuples) {
+   //   const auto date_rec_id = std::get<1>(rec);
+   //   const auto location_id = std::get<2>(rec);
+   //   const auto pool_id = std::get<3>(rec);
+   //   const auto pool = _landUnitData->getPool(int(pool_id));
+   //   const auto& values = std::get<4>(rec);
+   //   const auto count = std::get<5>(rec);
+
+   //   // const auto ave = _mean(values);
+   //   // const auto stdev = _st_dev(values);
+   //   // const auto Z = confidence_interval_to_Z(confidence_interval_);
+   //   // const auto margin_of_error = Z * stdev / sqrt(values.size());
+   //}
 }
 
 void UncertaintyLandUnitSQLiteWriter::writeStock() const {
@@ -404,7 +494,7 @@ void UncertaintyLandUnitSQLiteWriter::writeStock() const {
             // -- Stock Facts
             MOJA_LOG_DEBUG << "SQLite stock_reporting_results - inserted " << persistables.size() << " records";
             session.begin();
-            session << "INSERT INTO stock_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables), now;
+            session << "INSERT INTO stock_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables), now;
             session.commit();
             SQLite::Connector::unregisterConnector();
          } catch (SQLite::DBLockedException&) {

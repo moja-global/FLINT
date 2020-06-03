@@ -267,7 +267,6 @@ class RecordAccumulatorMap {
    rec_accu_map _records;
 };
 
-
 template <class TPersistable, class TTuple, class TRecordConv, class TKey, class TValue>
 class RecordAccumulatorMap2 {
   public:
@@ -341,11 +340,12 @@ class RecordAccumulatorMap2 {
 
    rec_accu_size_type size() const { return _records.size(); }
 
+   rec_accu_map& get_records() { return _records; }
+
   private:
    Int64 _nextId = 1;
    rec_accu_map _records;
 };
-
 
 }  // namespace flint
 }  // namespace moja

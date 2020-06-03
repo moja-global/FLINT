@@ -591,14 +591,16 @@ inline bool UncertaintyLandUnitStockKey::operator<(const UncertaintyLandUnitStoc
 
 
 struct UncertaintyStockValue {
-   UncertaintyStockValue() : _id(-1), item_count(0) {}
-   UncertaintyStockValue(std::vector<double> values) : _id(-1), values(std::move(values)), item_count(1) {}
+   UncertaintyStockValue() : _id(-1), item_count(0), stdev(0.0), mean(0.0) {}
+   UncertaintyStockValue(std::vector<double> values) : _id(-1), values(std::move(values)), item_count(1), stdev(0.0), mean(0.0) {}
    UncertaintyStockValue(std::vector<double> values, Int64 itemCount)
-       : _id(-1), values(std::move(values)), item_count(itemCount) {}
+       : _id(-1), values(std::move(values)), item_count(itemCount), stdev(0.0), mean(0.0) {}
 
    Int64 _id;
    std::vector<double> values;
    Int64 item_count;
+   double stdev;
+   double mean;
    UncertaintyStockValue& operator+=(const UncertaintyStockValue& rhs);
 };
 
@@ -611,22 +613,21 @@ inline UncertaintyStockValue& UncertaintyStockValue::operator+=(const Uncertaint
    return *this;
 }
 
-typedef Poco::Tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64> UncertaintyStockRow;
-typedef std::tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64> UncertaintyStockTuple;
+typedef Poco::Tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64, double, double> UncertaintyStockRow;
+typedef std::tuple<Int64, Int64, Int64, Int64, std::vector<double>, Int64, double, double> UncertaintyStockTuple;
 struct UncertaintyStockRecordConverter {
    static UncertaintyStockRow asPersistable(const UncertaintyStockKey& key, const UncertaintyStockValue& value) {
-      return UncertaintyStockRow{value._id, key.date_id, key.location_id, key.pool_id, value.values, value.item_count};
+      return UncertaintyStockRow{value._id, key.date_id, key.location_id, key.pool_id, value.values, value.item_count, value.stdev, value.mean};
    }
 
    static UncertaintyStockTuple asTuple(const UncertaintyStockKey& key, const UncertaintyStockValue& value) {
-      return UncertaintyStockTuple{value._id,   key.date_id,  key.location_id,
-                                   key.pool_id, value.values, value.item_count};
+      return UncertaintyStockTuple{value._id,   key.date_id,  key.location_id, key.pool_id, value.values, value.item_count, value.stdev, value.mean};
    }
 };
 
-typedef Poco::Tuple<Int64, Int64, int, Int64, Int64, Int64, Poco::Data::BLOB, Int64>
+typedef Poco::Tuple<Int64, Int64, int, Int64, Int64, Int64, Poco::Data::BLOB, Int64, double, double>
     UncertaintyLandUnitStockRow;
-typedef std::tuple<Int64, Int64, int, Int64, Int64, Int64, Poco::Data::BLOB, Int64>
+typedef std::tuple<Int64, Int64, int, Int64, Int64, Int64, Poco::Data::BLOB, Int64, double, double>
     UncertaintyLandUnitStockTuple;
 
 struct UncertaintyLandUnitStockRecordConverter {
@@ -640,7 +641,9 @@ struct UncertaintyLandUnitStockRecordConverter {
               key.pool_id,
               Poco::Data::BLOB(reinterpret_cast<const unsigned char*>(value.values.data()),
                                value.values.size() * sizeof(double)),
-              value.item_count};
+              value.item_count,
+              value.stdev,
+              value.mean};
    }
 
    static UncertaintyLandUnitStockTuple asTuple(const UncertaintyLandUnitStockKey& key,
@@ -653,7 +656,9 @@ struct UncertaintyLandUnitStockRecordConverter {
               key.pool_id,
               Poco::Data::BLOB(reinterpret_cast<const unsigned char*>(value.values.data()),
                                value.values.size() * sizeof(double)),
-              value.item_count};
+              value.item_count,
+              value.stdev,
+              value.mean};
    }
 };
 

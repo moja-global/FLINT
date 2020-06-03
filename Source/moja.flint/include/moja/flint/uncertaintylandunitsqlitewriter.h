@@ -40,6 +40,7 @@ class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
    void onLocalDomainProcessingUnitShutdown() override;
 
   private:
+   void calculate_stdev();
    void writeStock() const;
    void writeFlux() const;
    void writeErrorLog() const;
