@@ -208,12 +208,21 @@ void LocalDomainControllerBase::configure(const configuration::Configuration& co
 // --------------------------------------------------------------------------------------------
 
 void LocalDomainControllerBase::run() {
+   auto& uncertainty = _landUnitController.uncertainty();
+
    _notificationCenter.postNotification(moja::signals::PreTimingSequence);
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitInit);
-   auto& uncertainty = _landUnitController.uncertainty();
-   for (auto i = 0; i < uncertainty.iterations(); ++i) {
+   if (uncertainty.enabled()) {
+      for (auto i = 0; i < uncertainty.iterations(); ++i) {
+         _landUnitController.resetVariables();
+         _landUnitController.initialiseData(true);
+
+         _sequencer->Run(_notificationCenter, _landUnitController);
+         uncertainty.increment_iteration();
+         _landUnitController.clearAllOperationResults();
+      }
+   } else {
       _sequencer->Run(_notificationCenter, _landUnitController);
-      uncertainty.increment_iteration();
       _landUnitController.clearAllOperationResults();
    }
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitShutdown);

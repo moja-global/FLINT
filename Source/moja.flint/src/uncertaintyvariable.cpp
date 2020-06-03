@@ -1,5 +1,7 @@
 #include "moja/flint/uncertaintyvariable.h"
 
+#include "moja/flint/iflintdata.h"
+#include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/itransform.h"
 
 #include <moja/exception.h>
@@ -8,9 +10,6 @@
 
 #include <array>
 #include <random>
-
-#include "moja/flint/iflintdata.h"
-#include "moja/flint/ilandunitcontroller.h"
 
 namespace moja {
 namespace flint {
@@ -57,6 +56,35 @@ const DynamicVar& UncertaintyVariable::value() const {
          for (const auto& field : replacement.fields()) {
             auto value = field->distribution()[uncertainty_iteration];
             val->setProperty(replacement.query(), field->key, value);
+         }
+      }
+   } else {
+      if (value_.isStruct()) {
+         //auto& val = value_.extract<DynamicObject>();
+         auto val = value_.extract<DynamicObject>();
+         for (const auto& replacement : replacements_) {
+            for (const auto& field : replacement.fields()) {
+               auto value = field->distribution()[uncertainty_iteration];
+
+               for (auto& item : val) {
+                  if (item.first == field->key) {
+                     item.second = value;
+                  }
+               }
+            }
+//            value_ = val;
+            variable_->set_value(val);
+         }
+      } else {
+         auto& val = value_;
+         // Lets just force a replacement here for now
+         for (const auto& replacement : replacements_) {
+            // GHet the first and replace
+            for (const auto& field : replacement.fields()) {
+               auto value = field->distribution()[uncertainty_iteration];
+               value_ = value;
+               //            val->setProperty(replacement.query(), field->key, value);
+            }
          }
       }
    }

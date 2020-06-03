@@ -21,6 +21,7 @@
 #include <iostream>
 #include <numeric>
 
+#include <moja/floatcmp.h>
 #include "moja/flint/uncertaintyvariable.h"
 
 namespace moja::flint {
@@ -59,7 +60,14 @@ double variance(const std::vector<double>& data) {
    return sq_sum / data.size() - x_bar * x_bar;
 }
 
-double st_dev(const std::vector<double>& data) { return std::sqrt(variance(data)); }
+double st_dev(const std::vector<double>& data) { 
+	auto _variance = variance(data);
+
+	if (FloatCmp::lessThan(_variance, 0.0)) {
+           return 0.0;
+    }
+	return std::sqrt(_variance); 
+}
 
 static std::string vec_to_string_func(const std::vector<double>& vec) {
    std::ostringstream out;
