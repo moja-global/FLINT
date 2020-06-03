@@ -5,9 +5,11 @@
 #include "moja/flint/ipool.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/uncertaintysimulationdata.h"
+#include "moja/flint/uncertaintyvariable.h"
 #include "moja/logging.h"
 
 #include <moja/datetime.h>
+#include <moja/floatcmp.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
@@ -21,9 +23,6 @@
 #include <iostream>
 #include <numeric>
 
-#include <moja/floatcmp.h>
-#include "moja/flint/uncertaintyvariable.h"
-
 namespace moja::flint {
 
 constexpr auto DL_CHR = ",";
@@ -31,7 +30,7 @@ constexpr auto STOCK_PRECISION = 15;
 
 void UncertaintyFileWriter::configure(const DynamicObject& config) {
    flux_file_name_ = config.contains("flux_file_name") ? config["flux_file_name"].extract<std::string>()
-                                                   : "OutputerUncertaintyFlux.csv";
+                                                       : "OutputerUncertaintyFlux.csv";
    write_stock_ = false;
    if (config.contains("stock_file_name")) {
       stock_file_name_ = config["stock_file_name"].extract<std::string>();
@@ -60,13 +59,30 @@ double variance(const std::vector<double>& data) {
    return sq_sum / data.size() - x_bar * x_bar;
 }
 
-double st_dev(const std::vector<double>& data) { 
-	auto _variance = variance(data);
+// Calculations match excel STDEVP.P function
+// https://support.microsoft.com/en-us/office/stdev-p-function-6e917c05-31a0-496f-ade7-4f4e7462f285?ns=excel&version=90&syslcid=1033&uilcid=1033&appver=zxl900&helpid=xlmain11.chm60559&ui=en-us&rs=en-us&ad=us
 
-	if (FloatCmp::lessThan(_variance, 0.0)) {
-           return 0.0;
-    }
-	return std::sqrt(_variance); 
+double st_dev(const std::vector<double>& data) {
+   double sum = std::accumulate(data.begin(), data.end(), 0.0);
+   double mean = sum / data.size();
+
+   std::vector<double> diff(data.size());
+   // std::transform(v.begin(), data.end(), diff.begin(), std::bind2nd(std::minus<double>(), mean));
+   std::transform(data.begin(), data.end(), diff.begin(), [mean](double x) { return x - mean; });
+   double sq_sum = std::inner_product(diff.begin(), diff.end(), diff.begin(), 0.0);
+   double stdev = std::sqrt(sq_sum / data.size());
+
+   return stdev;
+}
+
+// can produce incorrect result if variance is very small because of rounding errors
+double st_dev_old(const std::vector<double>& data) {
+   auto _variance = variance(data);
+
+   if (FloatCmp::lessThan(_variance, 0.0)) {
+      return 0.0;
+   }
+   return std::sqrt(_variance);
 }
 
 static std::string vec_to_string_func(const std::vector<double>& vec) {
@@ -80,9 +96,15 @@ static std::string vec_to_string_func(const std::vector<double>& vec) {
    return out.str();
 }
 
+// TODO: look inot boost methods for this:
+// we could provided options in modulke settings to select distribution used to calculate confidence intervals
+// https://www.boost.org/doc/libs/1_59_0/libs/math/doc/html/math_toolkit/stat_tut/weg/cs_eg/chi_sq_intervals.html
+
+// Current margin of error (confidence) matches closely to excel func CONFIDENCE.NORM
+// https://support.microsoft.com/en-us/office/confidence-norm-function-7cec58a6-85bb-488d-91c3-63828d4fbfd4?ns=excel&version=90&syslcid=1033&uilcid=1033&appver=zxl900&helpid=xlmain11.chm60536&ui=en-us&rs=en-us&ad=us
+
 std::string UncertaintyFileWriter::record_to_string_func(const UncertaintyFluxRow& rec, const std::string& dl,
-                                                         const IPool* src_pool,
-                                                         const IPool* dst_pool) const {
+                                                         const IPool* src_pool, const IPool* dst_pool) const {
    const auto& fluxes = rec.get<6>();
    auto ave = mean(fluxes);
    auto stdev = st_dev(fluxes);
@@ -95,7 +117,6 @@ std::string UncertaintyFileWriter::record_to_string_func(const UncertaintyFluxRo
    }
    return fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}", dl, rec.get<1>(), src_pool->name(),
                       dst_pool->name(), ave, stdev, margin_of_error, ave - margin_of_error, ave + margin_of_error);
-
 }
 
 std::string UncertaintyFileWriter::record_to_string_func(const Date2Row& rec, const std::string& dl) {
@@ -186,12 +207,12 @@ void UncertaintyFileWriter::write_stock() const {
          const auto margin_of_error = Z * stdev / sqrt(values.size());
          std::string str;
          if (include_raw_data_) {
-            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", DL_CHR, location_id, pool->name(), ave, stdev, margin_of_error,
-                              ave - margin_of_error, ave + margin_of_error, count, fmt::join(values, DL_CHR));
+            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}{0}{9}", DL_CHR, location_id, pool->name(),
+                              ave, stdev, margin_of_error, ave - margin_of_error, ave + margin_of_error, count,
+                              fmt::join(values, DL_CHR));
          } else {
-            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}", DL_CHR, location_id, pool->name(), ave, stdev, margin_of_error,
-                              ave - margin_of_error, ave + margin_of_error, count);
-
+            str = fmt::format("{1}{0}{2}{0}{3}{0}{4}{0}{5}{0}{6}{0}{7}{0}{8}", DL_CHR, location_id, pool->name(), ave,
+                              stdev, margin_of_error, ave - margin_of_error, ave + margin_of_error, count);
          }
          std::string date_str;
 
@@ -230,7 +251,7 @@ UncertaintyFileWriter::confidence_interval UncertaintyFileWriter::str_to_confide
    return confidence_interval::ninety_percent;
 }
 
- std::string UncertaintyFileWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
+std::string UncertaintyFileWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
    switch (confidence_interval) {
       case confidence_interval::eighty_percent:
          return "80%";
@@ -280,7 +301,7 @@ void UncertaintyFileWriter::write_flux_header() const {
 
       if (module_info_on_) {
          output << "module_id" << DL_CHR << "library_type" << DL_CHR << "library_info_id" << DL_CHR << "module_type"
-            << DL_CHR << "module_id" << DL_CHR << "module_name" << DL_CHR << "disturbance_type" << DL_CHR;
+                << DL_CHR << "module_id" << DL_CHR << "module_name" << DL_CHR << "disturbance_type" << DL_CHR;
       }
 
       output << "localdomain_id" << DL_CHR << "src pool" << DL_CHR << "sink_pool" << DL_CHR << "mean" << DL_CHR
@@ -293,7 +314,7 @@ void UncertaintyFileWriter::write_flux_header() const {
          }
       }
       output << std::endl;
-         
+
       streamFile.close();
    }
 }
