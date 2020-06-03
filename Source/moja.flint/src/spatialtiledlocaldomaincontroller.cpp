@@ -178,24 +178,26 @@ void StatsUnitRecord::mojaLog(const std::string& levelStr, int localDomainId, da
 #define RETRY_SLEEP std::chrono::milliseconds(200)
 
 // void StatsUnitRecord::sqliteCreateTable(bool dropExisting, int localDomainId, std::string databaseName, std::string
-// tableName) { 	auto retry = false; 	auto maxRetries = RETRY_ATTEMPTS; 	do { 		try { 			retry = false;
+// tableName) { 	auto retry = false; 	auto maxRetries = RETRY_ATTEMPTS; 	do { 		try {
+// retry = false;
 //			SQLite::Connector::registerConnector();
 //			Session session("SQLite", databaseName);
 //
 //			if (dropExisting)
 //				session << "DROP TABLE IF EXISTS " << tableName, now;
 //			session << "CREATE TABLE IF NOT EXISTS " << tableName << " (id UNSIGNED BIG INT NOT NULL, runId
-//VARCHAR(255), elapsedTimeTotal UNSIGNED BIG INT NOT NULL, elapsedTimeFramework UNSIGNED BIG INT NOT NULL,
-//elapsedTimeSpinup UNSIGNED BIG INT NOT NULL, elapsedTimeProcessed UNSIGNED BIG INT NOT NULL, unitsTotal UNSIGNED BIG
-//INT NOT NULL, unitsProcessed UNSIGNED BIG INT NOT NULL, unitsNotProcessed UNSIGNED BIG INT NOT NULL, unitsWithErrors
-//UNSIGNED BIG INT NOT NULL, tileIdx INTEGER, blockIdx INTEGER)", now;
+// VARCHAR(255), elapsedTimeTotal UNSIGNED BIG INT NOT NULL, elapsedTimeFramework UNSIGNED BIG INT NOT NULL,
+// elapsedTimeSpinup UNSIGNED BIG INT NOT NULL, elapsedTimeProcessed UNSIGNED BIG INT NOT NULL, unitsTotal UNSIGNED BIG
+// INT NOT NULL, unitsProcessed UNSIGNED BIG INT NOT NULL, unitsNotProcessed UNSIGNED BIG INT NOT NULL, unitsWithErrors
+// UNSIGNED BIG INT NOT NULL, tileIdx INTEGER, blockIdx INTEGER)", now;
 //
 //			SQLite::Connector::unregisterConnector();
 //		}
 //		catch (SQLite::DBLockedException&) {
 //			MOJA_LOG_DEBUG << localDomainId << ":DBLockedException - " << maxRetries << " retries
-//remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- > 0; 			if (!retry) { 				MOJA_LOG_DEBUG <<
-//localDomainId << ":Exceeded MAX RETIRES (" << RETRY_ATTEMPTS << ")"; 				throw;
+// remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- >
+// 0; if (!retry) { 				MOJA_LOG_DEBUG << localDomainId << ":Exceeded MAX RETIRES (" <<
+// RETRY_ATTEMPTS << ")"; 				throw;
 //			}
 //		}
 //	} while (retry);
@@ -203,22 +205,25 @@ void StatsUnitRecord::mojaLog(const std::string& levelStr, int localDomainId, da
 //
 // void StatsUnitRecord::sqliteWrite(std::shared_ptr<RecordAccumulatorWithMutex<StatsUnitRow>>& collection, int
 // localDomainId, std::string databaseName, std::string tableName) { 	auto retry = false; 	auto maxRetries =
-//RETRY_ATTEMPTS; 	do { 		try { 			retry = false; 			SQLite::Connector::registerConnector(); 			Session session("SQLite",
-//databaseName);
+// RETRY_ATTEMPTS; 	do { 		try { 			retry = false;
+// SQLite::Connector::registerConnector(); 			Session session("SQLite", databaseName);
 //
 //			// -- collection
 //			if (collection->size() != 0) {
 //				MOJA_LOG_DEBUG << localDomainId << ":SQLite " << tableName << " - inserted " <<
-//collection->size() << " records"; 				session.begin(); 				session << "INSERT INTO " << tableName << " VALUES(?, ?, ?, ?, ?,
-//?, ?, ?, ?, ?, ?, ?)", bind(collection->getPersistableCollection()), now; 				session.commit();
+// collection->size() << " records"; 				session.begin(); 				session << "INSERT INTO
+// "
+// << tableName << " VALUES(?, ?, ?, ?, ?,
+//?, ?, ?, ?, ?, ?, ?)", bind(collection->getPersistableCollection()), now; session.commit();
 //			}
 //
 //			SQLite::Connector::unregisterConnector();
 //		}
 //		catch (SQLite::DBLockedException&) {
 //			MOJA_LOG_DEBUG << localDomainId << ":DBLockedException - " << maxRetries << " retries
-//remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- > 0; 			if (!retry) { 				MOJA_LOG_DEBUG <<
-//localDomainId << ":Exceeded MAX RETIRES (" << RETRY_ATTEMPTS << ")"; 				throw;
+// remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- >
+// 0; if (!retry) { 				MOJA_LOG_DEBUG << localDomainId << ":Exceeded MAX RETIRES (" <<
+// RETRY_ATTEMPTS << ")"; 				throw;
 //			}
 //		}
 //	} while (retry);
@@ -738,7 +743,9 @@ void SpatialTiledLocalDomainController::buildBlockIndexQueue(configuration::Loca
          }
          break;
       }
-      default: { break; }
+      default: {
+         break;
+      }
    }
    _blockIdxListSize = int(_blockIdxList.size());
    _blockIdxListPosition = 0;
@@ -891,8 +898,36 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
       _landUnitController.getVariable("landUnitArea")->set_value(_spatiallocationinfo->_landUnitArea);
 
       auto& uncertainty = _landUnitController.uncertainty();
-      uncertainty.reset_iteration();
-      for (auto i = 0; i < uncertainty.iterations(); ++i) {
+
+      if (uncertainty.enabled()) {
+         uncertainty.reset_iteration();
+         for (auto i = 0; i < uncertainty.iterations(); ++i) {
+            blockStatsUnit->_stopWatchSpinup.start();
+            blockStatsSpinUpUnit->_stopWatchTotal.start();
+
+            // ** Check Spinup HERE first ***
+            if (runCellSpinUp(blockStatsSpinUpUnit, cell)) {
+               blockStatsUnit->_stopWatchSpinup.stop();
+               blockStatsSpinUpUnit->_stopWatchTotal.stop();
+
+               _landUnitBuildSuccess->set_value(true);  // set initial state of build success to TRUE
+               _notificationCenter.postNotification(moja::signals::PreTimingSequence);
+               if (!_landUnitBuildSuccess->value()) {
+                  blockStatsUnit->_unitsNotProcessed++;
+                  return true;
+               }
+               blockStatsUnit->_stopWatchFramework.stop();
+               blockStatsUnit->_stopWatchProcessed.start();
+
+               _sequencer->Run(_notificationCenter, _landUnitController);
+               _landUnitController.clearAllOperationResults();
+
+               blockStatsUnit->_stopWatchProcessed.stop();
+               blockStatsUnit->_unitsProcessed++;
+            }
+            uncertainty.increment_iteration();
+         }
+      } else {
          blockStatsUnit->_stopWatchSpinup.start();
          blockStatsSpinUpUnit->_stopWatchTotal.start();
 
@@ -915,8 +950,7 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
 
             blockStatsUnit->_stopWatchProcessed.stop();
             blockStatsUnit->_unitsProcessed++;
-         }
-         uncertainty.increment_iteration();
+         }   
       }
       return true;
    }
