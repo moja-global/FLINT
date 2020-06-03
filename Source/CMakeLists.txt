@@ -30,7 +30,7 @@ set(Moja_COMPONENTS "")
 option(ENABLE_MOJA.MODULES.ZIPPER 					"moja.modules.zipper"			OFF)
 option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"				OFF)
 option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"			OFF)
-option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				OFF)
+option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				ON)
 option(ENABLE_MOJA.CLI 									    "moja.cli"							  ON)
 option(ENABLE_MOJA.SYSTEMTEST 							"moja.systemtest"					OFF)
 
