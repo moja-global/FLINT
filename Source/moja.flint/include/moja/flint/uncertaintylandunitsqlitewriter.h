@@ -17,6 +17,13 @@ class UncertaintySimulationUnitData;
 
 class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
   public:
+   enum class confidence_interval {
+      eighty_percent,
+      eighty_five_percent,
+      ninety_percent,
+      ninety_five_percent,
+      ninety_nine_percent
+   };
    UncertaintyLandUnitSQLiteWriter(
        AggregatorUncertaintyLandUnitSharedData& aggregatorLandUnitSharedData,
        std::shared_ptr<RecordAccumulatorWithMutex2<Date2Row, Date2Record>> date_dimension,
@@ -48,6 +55,10 @@ class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
    void writeRunSummary(const std::string& unit_label, DateTime& start_time, DateTime& finish_time,
                         Int64 lu_count) const;
 
+   static confidence_interval str_to_confidence_interval(const std::string& confidence_interval);
+   static std::string confidence_interval_to_str(confidence_interval confidence_interval);
+   static double confidence_interval_to_Z(confidence_interval confidence_interval);
+
    template <typename TAccumulator>
    void load(Poco::Data::Session& session, const std::string& table, std::shared_ptr<TAccumulator> data_dimension);
 
@@ -74,6 +85,7 @@ class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
    bool log_errors_;
    bool block_index_on_;
    bool log_error_per_block_;
+   confidence_interval confidence_interval_;
 };
 
 

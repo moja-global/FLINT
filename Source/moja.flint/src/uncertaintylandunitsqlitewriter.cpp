@@ -54,6 +54,10 @@ UncertaintyLandUnitSQLiteWriter::UncertaintyLandUnitSQLiteWriter(
 
 void UncertaintyLandUnitSQLiteWriter::configure(const DynamicObject& config) {
    db_name_sqlite_ = config["databasename"].convert<std::string>();
+
+   confidence_interval_ = config.contains("confidence_interval")
+                              ? str_to_confidence_interval(config["confidence_interval"].extract<std::string>())
+                              : confidence_interval::ninety_percent;
 }
 
 void UncertaintyLandUnitSQLiteWriter::subscribe(NotificationCenter& notificationCenter) {
@@ -99,9 +103,12 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
             Session session("SQLite", generated_db_name_sqlite_);
 
             std::vector<std::string> ddl{
-                R"(DROP TABLE IF EXISTS run_information)", R"(DROP TABLE IF EXISTS date_dimension)",
-                R"(DROP TABLE IF EXISTS poolinfo_dimension)", R"(DROP TABLE IF EXISTS tileinfo_dimension)",
-                R"(DROP TABLE IF EXISTS flux_reporting_results)", R"(DROP TABLE IF EXISTS stock_reporting_results)",
+                R"(DROP TABLE IF EXISTS run_information)",
+               R"(DROP TABLE IF EXISTS date_dimension)",
+                R"(DROP TABLE IF EXISTS poolinfo_dimension)",
+               R"(DROP TABLE IF EXISTS tileinfo_dimension)",
+                R"(DROP TABLE IF EXISTS flux_reporting_results)",
+               R"(DROP TABLE IF EXISTS stock_reporting_results)",
                 R"(DROP TABLE IF EXISTS error_log)",
                 // R"(DROP TABLE IF EXISTS error_summary)",
                 // R"(DROP TABLE IF EXISTS location_dimension)",
@@ -142,7 +149,10 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                       itemCount                       UNSIGNED BIG INT NOT NULL,
                       source_poolinfo_dimension_id_fk UNSIGNED BIG INT NOT NULL,
                       sink_poolinfo_dimension_id_fk   UNSIGNED BIG INT NOT NULL,
-                      flux_values                     BLOB
+                      flux_values                     BLOB,
+                      stdev			      FLOAT,
+                      mean			      FLOAT,
+                      confidence		      FLOAT
                   );)"};
 
             // R"(CREATE TABLE location_dimension (
@@ -203,7 +213,8 @@ void UncertaintyLandUnitSQLiteWriter::onSystemInit() {
                            stock_values			    BLOB, 
                            itemCount			    UNSIGNED BIG INT NOT NULL,
                            stdev			    FLOAT,
-                           mean				    FLOAT))");
+                           mean				    FLOAT,
+                           confidence			    FLOAT))");
             if (log_errors_) {
                ddl.emplace_back(
                    R"(CREATE TABLE error_log (
@@ -393,39 +404,50 @@ void UncertaintyLandUnitSQLiteWriter::onLocalDomainProcessingUnitShutdown() {
                  simulation_unit_data_->end_processing_unit_time, simulation_unit_data_->lu_count_processing_unit);
 }
 
-// std::string UncertaintyFileWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
-//   switch (confidence_interval) {
-//      case confidence_interval::eighty_percent:
-//         return "80%";
-//      case confidence_interval::eighty_five_percent:
-//         return "85%";
-//      case confidence_interval::ninety_percent:
-//         return "90%";
-//      case confidence_interval::ninety_five_percent:
-//         return "95%";
-//      case confidence_interval::ninety_nine_percent:
-//         return "99%";
-//      default:
-//         return "";
-//   }
-//}
-//
-// double UncertaintyFileWriter::confidence_interval_to_Z(confidence_interval confidence_interval) {
-//   switch (confidence_interval) {
-//      case confidence_interval::eighty_percent:
-//         return 1.282;
-//      case confidence_interval::eighty_five_percent:
-//         return 1.440;
-//      case confidence_interval::ninety_percent:
-//         return 1.645;
-//      case confidence_interval::ninety_five_percent:
-//         return 1.960;
-//      case confidence_interval::ninety_nine_percent:
-//         return 2.576;
-//      default:;
-//         return 1.645;
-//   }
-//}
+UncertaintyLandUnitSQLiteWriter::confidence_interval UncertaintyLandUnitSQLiteWriter::str_to_confidence_interval(
+    const std::string& confidence_interval) {
+   if (confidence_interval == "eighty_percent") return confidence_interval::eighty_percent;
+   if (confidence_interval == "eighty_five_percent") return confidence_interval::eighty_five_percent;
+   if (confidence_interval == "ninety_percent") return confidence_interval::ninety_percent;
+   if (confidence_interval == "ninety_five_percent") return confidence_interval::ninety_five_percent;
+   if (confidence_interval == "ninety_nine_percent") return confidence_interval::ninety_nine_percent;
+   return confidence_interval::ninety_percent;
+}
+
+
+ std::string UncertaintyLandUnitSQLiteWriter::confidence_interval_to_str(confidence_interval confidence_interval) {
+   switch (confidence_interval) {
+      case confidence_interval::eighty_percent:
+         return "80%";
+      case confidence_interval::eighty_five_percent:
+         return "85%";
+      case confidence_interval::ninety_percent:
+         return "90%";
+      case confidence_interval::ninety_five_percent:
+         return "95%";
+      case confidence_interval::ninety_nine_percent:
+         return "99%";
+      default:
+         return "";
+   }
+}
+
+double UncertaintyLandUnitSQLiteWriter::confidence_interval_to_Z(confidence_interval confidence_interval) {
+   switch (confidence_interval) {
+      case confidence_interval::eighty_percent:
+         return 1.282;
+      case confidence_interval::eighty_five_percent:
+         return 1.440;
+      case confidence_interval::ninety_percent:
+         return 1.645;
+      case confidence_interval::ninety_five_percent:
+         return 1.960;
+      case confidence_interval::ninety_nine_percent:
+         return 2.576;
+      default:;
+         return 1.645;
+   }
+}
 
 double _mean(const std::vector<double>& data) { return std::accumulate(data.begin(), data.end(), 0.0) / data.size(); }
 
@@ -454,28 +476,26 @@ double _st_dev(const std::vector<double>& data) {
 // This method will loop ove rthe records, pre conversiin to BLOB and calculate the stdev for each row
 
 void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
-   auto& records = simulation_unit_data_->land_unit_stock_results.get_records();
-   for (auto& rec : records) {
-      auto& values = rec.second.values;
-      rec.second.stdev = _st_dev(values);
-      rec.second.mean = _mean(values);
+   {
+      auto& records = simulation_unit_data_->land_unit_stock_results.get_records();
+      for (auto& rec : records) {
+         auto& values = rec.second.values;
+         rec.second.stdev = _st_dev(values);
+         rec.second.mean = _mean(values);
+         const auto Z = confidence_interval_to_Z(confidence_interval_);
+         rec.second.confidence = Z * rec.second.stdev / sqrt(values.size());
+      }
    }
-
-   //const auto tuples = simulation_unit_data_->land_unit_stock_results.getTupleCollection();
-
-   //for (auto& rec : tuples) {
-   //   const auto date_rec_id = std::get<1>(rec);
-   //   const auto location_id = std::get<2>(rec);
-   //   const auto pool_id = std::get<3>(rec);
-   //   const auto pool = _landUnitData->getPool(int(pool_id));
-   //   const auto& values = std::get<4>(rec);
-   //   const auto count = std::get<5>(rec);
-
-   //   // const auto ave = _mean(values);
-   //   // const auto stdev = _st_dev(values);
-   //   // const auto Z = confidence_interval_to_Z(confidence_interval_);
-   //   // const auto margin_of_error = Z * stdev / sqrt(values.size());
-   //}
+   {
+      auto& records = simulation_unit_data_->land_unit_flux_results.get_records();
+      for (auto& rec : records) {
+         auto& values = rec.second.fluxes;
+         rec.second.stdev = _st_dev(values);
+         rec.second.mean = _mean(values);
+         const auto Z = confidence_interval_to_Z(confidence_interval_);
+         rec.second.confidence = Z * rec.second.stdev / sqrt(values.size());
+      }
+   }
 }
 
 void UncertaintyLandUnitSQLiteWriter::writeStock() const {
@@ -494,7 +514,7 @@ void UncertaintyLandUnitSQLiteWriter::writeStock() const {
             // -- Stock Facts
             MOJA_LOG_DEBUG << "SQLite stock_reporting_results - inserted " << persistables.size() << " records";
             session.begin();
-            session << "INSERT INTO stock_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables), now;
+            session << "INSERT INTO stock_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables), now;
             session.commit();
             SQLite::Connector::unregisterConnector();
          } catch (SQLite::DBLockedException&) {
@@ -545,7 +565,7 @@ void UncertaintyLandUnitSQLiteWriter::writeFlux() const {
             // -- Flux Facts
             MOJA_LOG_DEBUG << "SQLite flux_reporting_results - inserted " << persistables.size() << " records";
             session.begin();
-            session << "INSERT INTO flux_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables),
+            session << "INSERT INTO flux_reporting_results VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bind(persistables),
                 now;
             session.commit();
 
