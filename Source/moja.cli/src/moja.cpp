@@ -208,16 +208,16 @@ int main(int argc, char* argv[]) {
 		for (auto configFilePath : configPath) {
 			MOJA_LOG_INFO << configFilePath;
 		}
-                if (!configProviderPath.empty()) {
-                   MOJA_LOG_INFO << "Using provider configurations: ";
-                   for (auto configFilePath : configProviderPath) {
-                      MOJA_LOG_INFO << configFilePath;
-                   }
-                }
-                auto config =
-                    configProviderPath.empty()
-                        ? conf::JSON2ConfigurationProvider(configPath).createConfiguration()
-                        : conf::JSON2ConfigurationProvider(configPath, configProviderPath).createConfiguration();
+        if (!configProviderPath.empty()) {
+            MOJA_LOG_INFO << "Using provider configurations: ";
+            for (auto configFilePath : configProviderPath) {
+                MOJA_LOG_INFO << configFilePath;
+            }
+        }
+        auto config =
+            configProviderPath.empty()
+                ? conf::JSON2ConfigurationProvider(configPath).createConfiguration()
+                : conf::JSON2ConfigurationProvider(configPath, configProviderPath).createConfiguration();
 
 		MOJA_LOG_INFO << "Using operation manager: " << config->localDomain()->operationManagerObject()->name();
 

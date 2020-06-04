@@ -630,10 +630,10 @@ void JSON2ConfigurationProvider::createVariables(DynamicVar& parsedJSON, Configu
 void JSON2ConfigurationProvider::createUncertainty(DynamicVar& parsedJSON,
                                                                   Configuration& config) const {
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
-   if (!jsonStruct.contains("Uncertanty")) {
+   if (!jsonStruct.contains("Uncertainty")) {
       return;
    }
-   auto uncertaintyStruct = jsonStruct["Uncertanty"].extract<Poco::DynamicStruct>();
+   auto uncertaintyStruct = jsonStruct["Uncertainty"].extract<Poco::DynamicStruct>();
    if (uncertaintyStruct.contains("enabled")) {
       bool enabled = uncertaintyStruct["enabled"].extract<bool>();
       if (!enabled) return;
