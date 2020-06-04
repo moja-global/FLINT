@@ -133,10 +133,12 @@ set(MOJA_FLINT_HEADERS
 	include/moja/flint/modulebase.h
 	include/moja/flint/moduleproxybase.h
 	include/moja/flint/mojalibapi.h
+	include/moja/flint/morton.h
 	include/moja/flint/poolmetadata.h
 	include/moja/flint/sequencermodulebase.h
 	include/moja/flint/spinuplandunitcontroller.h
 	include/moja/flint/threadedaspatiallocaldomaincontroller.h
+	include/moja/flint/tilerandomsampler.h
 	include/moja/flint/spatialtiledlocaldomaincontroller.h
 	include/moja/flint/itiming.h
 	include/moja/flint/timing.h
@@ -262,6 +264,7 @@ set(MOJA_FLINT_SOURCES
 	src/sequencermodulebase.cpp
 	src/spinuplandunitcontroller.cpp
 	src/threadedaspatiallocaldomaincontroller.cpp
+	src/tilerandomsampler.cpp
 	src/spatialtiledlocaldomaincontroller.cpp
 	src/timing.cpp
 	src/record.cpp
@@ -331,6 +334,8 @@ set_target_properties( ${LIBNAME}
 	PROPERTIES
 	VERSION ${MOJA_VERSION} SOVERSION ${MOJA_VERSION_MAJOR}
 	DEFINE_SYMBOL ${LIBNAME_EXPORT}_EXPORTS)
+
+target_compile_options(${LIBNAME} PRIVATE $<$<BOOL:${MSVC}>:/arch:AVX2>)
 
 target_include_directories(${LIBNAME}
     PUBLIC 

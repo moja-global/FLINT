@@ -642,8 +642,6 @@ void JSON2ConfigurationProvider::createUncertainty(DynamicVar& parsedJSON,
    uncertainty.set_enabled(true);
    uncertainty.set_iterations(uncertaintyStruct["iterations"]);
 
-   auto sampling = uncertaintyStruct["sampling"].extract<Poco::DynamicStruct>();
-   
    auto variables = uncertaintyStruct["variables"].extract<Poco::JSON::Array::ValueVec>();
    for (auto& variable_var : variables) {
       auto variable = variable_var["variable"].extract<const std::string>();

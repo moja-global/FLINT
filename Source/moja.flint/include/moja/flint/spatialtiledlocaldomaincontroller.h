@@ -133,8 +133,9 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    std::shared_ptr<RecordAccumulatorWithMutex<StatsUnitRow>> _globalStatsDimension;
    std::shared_ptr<RecordAccumulatorWithMutex<StatsUnitRow>> _tileStatsDimension;
    std::shared_ptr<RecordAccumulatorWithMutex<StatsUnitRow>> _blockStatsDimension;
+   
 
-  private:
+private:
    // -- General
    mutable std::shared_ptr<datarepository::IProviderSpatialRasterInterface> _provider;
    std::shared_ptr<SpatialLocationInfo> _spatiallocationinfo;
@@ -143,6 +144,8 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>
        _blockCellIdxList;  // list of cells to sim, mapped by blockIdx. Used in thread/non-threaded processing
    int _samplingInterval;  // sample size to only simulate every nth pixel
+   double _samplingPercent; // sample to only simulate percentage of simulation
+   bool _randomSampling; // Random sampling
 
    int _blockIdxListSize;
    int _blockIdxListPosition;

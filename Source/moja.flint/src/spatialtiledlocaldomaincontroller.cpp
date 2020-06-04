@@ -6,6 +6,7 @@
 #include "moja/flint/ilocaldomaincontroller.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/sequencermodulebase.h"
+#include "moja/flint/tilerandomsampler.h"
 #include "moja/flint/variable.h"
 
 #include <moja/datarepository/datarepository.h>
@@ -479,6 +480,10 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
 
    _samplingInterval =
        localDomainSettings.contains("sampling_interval") ? int(localDomainSettings["sampling_interval"]) : 1;
+   _samplingPercent =
+       localDomainSettings.contains("sampling_percent") ? double(localDomainSettings["sampling_percent"]) : 1.0;
+   _randomSampling =
+       localDomainSettings.contains("random_sampling") ? bool(localDomainSettings["random_sampling"]) : false;
 
    // Look for given random seed values
    _randomSeedGlobal.clear();
@@ -1087,6 +1092,17 @@ void SpatialTiledLocalDomainController::run() {
             _spatiallocationinfo->_randomSeedGlobal = _randomSeedGlobal.value();
          }
          _spatiallocationinfo->_engGlobal.seed(_spatiallocationinfo->_randomSeedGlobal);
+         _spatiallocationinfo->_tileCols = _provider->indexer().tileDesc.cols;
+         _spatiallocationinfo->_tileRows = _provider->indexer().tileDesc.rows;
+         _spatiallocationinfo->_blockCols = _provider->indexer().blockDesc.cols;
+         _spatiallocationinfo->_blockRows = _provider->indexer().blockDesc.rows;
+         _spatiallocationinfo->_cellCols = _provider->indexer().cellDesc.cols;
+         _spatiallocationinfo->_cellRows = _provider->indexer().cellDesc.rows;
+
+         auto tile_random_sampler = TileRandomSampler(*_spatiallocationinfo);
+         if (_samplingInterval > 1 || _samplingPercent < 1.0) {
+            tile_random_sampler.construct_addresses();
+         }
 
          while (_blockIdxList.size() > 0) {
             if (!_threadedSystem) {
@@ -1110,12 +1126,56 @@ void SpatialTiledLocalDomainController::run() {
             _spatiallocationinfo->_blockIdx = blockIdx.blockIdx;
             _spatiallocationinfo->_tileLatLon = _provider->indexer().getLatLonFromIndex(tileIdx);
             _spatiallocationinfo->_blockLatLon = _provider->indexer().getLatLonFromIndex(blockIdx);
-            _spatiallocationinfo->_tileCols = _provider->indexer().tileDesc.cols;
-            _spatiallocationinfo->_tileRows = _provider->indexer().tileDesc.rows;
-            _spatiallocationinfo->_blockCols = _provider->indexer().blockDesc.cols;
-            _spatiallocationinfo->_blockRows = _provider->indexer().blockDesc.rows;
-            _spatiallocationinfo->_cellCols = _provider->indexer().cellDesc.cols;
-            _spatiallocationinfo->_cellRows = _provider->indexer().cellDesc.rows;
+
+            std::vector<TileRandomSampler::HeirachicalNode> samples;
+            if (_samplingInterval > 1 || _samplingPercent < 1.0) {
+               if (_samplingInterval > 1) { // interval sampling
+                  auto nodes = tile_random_sampler.hierarchical_order();
+                  for (auto index = 0; index < nodes.size(); index++) {
+                     if (index % _samplingInterval == 0) {
+                        samples.emplace_back(nodes[index]);
+                     }
+                  }
+               } else { // percentage sampling
+                  if (_randomSampling) {
+                     tile_random_sampler.randomize_addresses();
+                  }
+                  auto nodes = tile_random_sampler.sorted_hierarchical_order();
+                  auto n_samples = size_t(tile_random_sampler.addresses().size() * _samplingPercent);
+                  for (auto index = 0; index < n_samples; index++) {
+                     samples.emplace_back(nodes[index]);
+                  }
+                  
+               }
+               std::sort(samples.begin(), samples.end(),
+                   [](const TileRandomSampler::HeirachicalNode& a,
+                      const TileRandomSampler::HeirachicalNode& b) -> bool {
+                  return a.idx < b.idx;
+               });
+#if 0
+               std::cout << R"({
+"type": "FeatureCollection",
+"name": "points",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+)";
+               for (uint32_t i = 0; i < samples.size(); i++) {
+                  const auto v = morton::decode(samples[i].morton);
+                  if (i > 0) {
+                     std::cout << "," << std::endl;
+                  }
+                  std::cout << R"({ "type": "Feature", "properties": { "morton": )" << samples[i].morton
+                            << R"( }, "geometry": { "type": "Point", "coordinates": [ )"
+                            << _spatiallocationinfo->_blockLatLon.lon + (v.x * 0.00025) + 0.000125 << ", "
+                            << _spatiallocationinfo->_blockLatLon.lat - v.y * .00025 - 0.000125 << " ] } }";
+               }
+
+               std::cout << std::endl
+                         << R"(]
+}
+)";
+#endif
+            }
 
             if (_randomSeedBlock.isNull()) {
                std::uniform_int_distribution<unsigned> distribution(
@@ -1134,11 +1194,16 @@ void SpatialTiledLocalDomainController::run() {
             }
             blockStatsRecord->_stopWatchFramework.stop();
 
+            auto current_sample = samples.cbegin();
             if (_blockCellIdxList.empty()) {
                for (const auto& cell : _provider->cells(blockIdx)) {
-                  if (_samplingInterval > 1 && cell.cellIdx % _samplingInterval > 0) {
-                     continue;
+                  if (!samples.empty()) {
+                     if ((*current_sample).idx > cell.cellIdx || current_sample == samples.end()) {
+                        continue;
+                     } 
+                     current_sample++;
                   }
+
                   MOJA_LOG_TRACE << "Processing cell: " << _spatiallocationinfo->_tileIdx << ", "
                                  << _spatiallocationinfo->_blockIdx << ", " << _spatiallocationinfo->_cellIdx;
                   if (!runCell(blockStatsRecord, blockStatsSpinUpRecord, cell))
