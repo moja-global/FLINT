@@ -85,6 +85,7 @@ class FLINT_API UncertaintyLandUnitSQLiteWriter : public ModuleBase {
    bool log_errors_;
    bool block_index_on_;
    bool log_error_per_block_;
+   confidence_interval confidence_interval_;
 };
 
 

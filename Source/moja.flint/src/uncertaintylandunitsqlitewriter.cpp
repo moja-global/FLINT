@@ -54,6 +54,10 @@ UncertaintyLandUnitSQLiteWriter::UncertaintyLandUnitSQLiteWriter(
 
 void UncertaintyLandUnitSQLiteWriter::configure(const DynamicObject& config) {
    db_name_sqlite_ = config["databasename"].convert<std::string>();
+
+   confidence_interval_ = config.contains("confidence_interval")
+                              ? str_to_confidence_interval(config["confidence_interval"].extract<std::string>())
+                              : confidence_interval::ninety_percent;
 }
 
 void UncertaintyLandUnitSQLiteWriter::subscribe(NotificationCenter& notificationCenter) {
@@ -478,7 +482,7 @@ void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
          auto& values = rec.second.values;
          rec.second.stdev = _st_dev(values);
          rec.second.mean = _mean(values);
-         const auto Z = confidence_interval_to_Z(confidence_interval::ninety_nine_percent);
+         const auto Z = confidence_interval_to_Z(confidence_interval_);
          rec.second.confidence = Z * rec.second.stdev / sqrt(values.size());
       }
    }
@@ -488,7 +492,7 @@ void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
          auto& values = rec.second.fluxes;
          rec.second.stdev = _st_dev(values);
          rec.second.mean = _mean(values);
-         const auto Z = confidence_interval_to_Z(confidence_interval::ninety_nine_percent);
+         const auto Z = confidence_interval_to_Z(confidence_interval_);
          rec.second.confidence = Z * rec.second.stdev / sqrt(values.size());
       }
    }
