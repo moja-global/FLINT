@@ -902,6 +902,9 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
       if (uncertainty.enabled()) {
          uncertainty.reset_iteration();
          for (auto i = 0; i < uncertainty.iterations(); ++i) {
+            _landUnitController.resetVariables();
+            _landUnitController.initialiseData(true);
+
             blockStatsUnit->_stopWatchSpinup.start();
             blockStatsSpinUpUnit->_stopWatchTotal.start();
 
