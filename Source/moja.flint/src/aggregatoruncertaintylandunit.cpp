@@ -82,6 +82,11 @@ void AggregatorUncertaintyLandUnit::subscribe(NotificationCenter& notificationCe
 }
 
 void AggregatorUncertaintyLandUnit::onSystemInit() {
+   if (!_landUnitData->uncertainty().enabled()) {
+      BOOST_THROW_EXCEPTION(flint::LocalDomainError()
+                            << flint::Details("Uncertainty not enabled") << flint::LibraryName("flint.internal")
+                            << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
+   }
    try {
       simulation_unit_data_ = std::static_pointer_cast<UncertaintySimulationUnitData>(
           _landUnitData->getVariable("uncertaintySimulationUnitData")->value().extract<std::shared_ptr<flint::IFlintData>>());
