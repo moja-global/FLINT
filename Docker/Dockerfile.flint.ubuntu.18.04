@@ -1,6 +1,6 @@
 # ==================================================================================================================
 #
-# Docker to ubuntu 16.04 image for Moja flint libraries and executables
+# Docker to ubuntu 18.04 image for Moja flint libraries and executables
 #
 # Building this Docker:
 #   docker build  -f Dockerfile.flint.ubuntu.18.04 --build-arg NUM_CPU=4  --build-arg FLINT_BRANCH=develop -t moja/flint:ubuntu-18.04 .
