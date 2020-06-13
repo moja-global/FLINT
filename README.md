@@ -1,6 +1,6 @@
 # FLINT Open-source Library
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors) [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0) [![Code Of Conduct](https://img.shields.io/badge/code--of--conduct-Moja%20Global-blue)](https://github.com/moja-global/About_moja_global/blob/master/CODE_OF_CONDUCT.md) [![Contributions](https://img.shields.io/badge/newcomer-friendly-red)](https://github.com/moja-global/About_moja_global/blob/master/CONTRIBUTING.md) [![Chat on Slack](https://img.shields.io/badge/chat-slack-blueviolet)](https://mojaglobal.slack.com/) [![Twitter Handle](https://img.shields.io/badge/twitter-Moja%20Global-darkblue)](https://twitter.com/mojaglobal?lang=en)
 
 ## What is `FLINT`?
 
@@ -45,7 +45,7 @@ A fork of a *Vcpkg* repository has been created for the FLINT required libraries
   ```powershell
   # bootstrap
   bootstrap-vcpkg.bat
-  
+
   # install packages
   vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows fmt:x64-windows
   ```
@@ -57,17 +57,17 @@ A fork of a *Vcpkg* repository has been created for the FLINT required libraries
   cd Source
   mkdir build
   cd build
-  
+
   # now create the Visual Studio Solution (2019)
   cmake -G "Visual Studio 16 2019" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
-  
+
   # OR Visual Studio Solution (2017)
   cmake -G "Visual Studio 15 2017" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
   ```
 
 #### Install Moja Libraries
 
-It is possible to use the Visual Studio moja solution to install built versions of the Moja libraries. To do this you need to set the CMAKE variable '***CMAKE_INSTALL_PREFIX***' to your install path (i.e. "*C:/Development/Software/moja*"). 
+It is possible to use the Visual Studio moja solution to install built versions of the Moja libraries. To do this you need to set the CMAKE variable '***CMAKE_INSTALL_PREFIX***' to your install path (i.e. "*C:/Development/Software/moja*").
 
 #### Make edits to the Visual Studio Solution using CMake
 
@@ -150,11 +150,11 @@ moja global welcomes a wide range of contributions as explained in [Contributing
 
 * You can find FAQs on the [Wiki](https://github.com/moja.global/.github/wiki).  
 * If you have a question about the code, submit [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) in the relevant repository  
-* If you have a general question about a project or repository or moja global, [join moja global](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Join-moja-global.md) and 
+* If you have a general question about a project or repository or moja global, [join moja global](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Join-moja-global.md) and
     * [submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
-    * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com). 
+    * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
 * If you have other questions, please write to info@moja.global   
-  
+
 
 ## Contributors
 
@@ -176,4 +176,3 @@ The following people are Maintainers of this repository
 **Reviewers** check proposed changes before they go to the Maintainers  
 **Ambassadors** are available to provide training related to this repository  
 **Coaches** are available to provide information to new contributors to this repository  
-
