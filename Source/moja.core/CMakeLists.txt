@@ -145,8 +145,6 @@ target_compile_definitions(${LIBNAME}
 		FOLLY_NO_CONFIG 
 )
 
-target_compile_features(${LIBNAME} PUBLIC cxx_std_14)
-
 target_link_libraries(${LIBNAME} 
 	PUBLIC
 		Boost::log Boost::log_setup Poco::Foundation Poco::JSON 
