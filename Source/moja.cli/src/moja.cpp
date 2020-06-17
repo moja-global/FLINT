@@ -11,6 +11,7 @@
 
 #include "moja/signals.h"
 #include "moja/exception.h"
+#include "moja/instrumentor.h"
 #include "moja/logging.h"
 
 #include <boost/exception/diagnostic_information.hpp>
@@ -42,6 +43,7 @@ bool checkFilePath(const std::string& filePath) {
 }
 
 int main(int argc, char* argv[]) {
+   MOJA_PROFILE_BEGIN_SESSION("moja.cli", "moja_trace.json");
 
 	opt::options_description general_opt("General options");
 	general_opt.add_options()
@@ -288,6 +290,8 @@ int main(int argc, char* argv[]) {
         ldc->run();
         ldc->shutdown();
         ldc->_notificationCenter.postNotification(moja::signals::SystemShutdown);
+        MOJA_PROFILE_END_SESSION();
+
     }
     catch (const moja::Exception& e) {
 		MOJA_LOG_FATAL << e.displayText();
