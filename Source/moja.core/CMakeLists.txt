@@ -99,6 +99,7 @@ set(MOJA_Core_headers
 	include/moja/publisher.h
 	include/moja/utility.h
 	include/moja/coreexceptions.h
+	include/moja/instrumentor.h
 )
 
 set(MOJA_Core_sources
@@ -106,6 +107,7 @@ set(MOJA_Core_sources
 	src/environment.cpp
 	src/exception.cpp
 	src/floatcmp.cpp
+	src/instrumentor.cpp
 	src/logging.cpp
 	src/mathex.cpp
 	src/notificationcenter.cpp

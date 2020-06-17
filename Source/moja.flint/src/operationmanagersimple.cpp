@@ -1,5 +1,7 @@
 #include "moja/flint/operationmanagersimple.h"
 
+
+#include "moja/instrumentor.h"
 #include "moja/flint/externalpoolsimple.h"
 #include "moja/flint/flintexceptions.h"
 #include "moja/flint/imodule.h"
@@ -82,6 +84,7 @@ std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(
 // --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::applyOperations() {
+   MOJA_PROFILE_FUNCTION();
    if (_useKahan) {  // used for https://en.wikipedia.org/wiki/Kahan_summation_algorithm
       double y;
       double t;
@@ -154,6 +157,7 @@ void OperationManagerSimple::applyOperations() {
 // --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::clearAllOperationResults() {
+   MOJA_PROFILE_FUNCTION();
    _operationResultsPending.clear();
    _operationResultsLastApplied.clear();
    _operationResultsCommitted.clear();
@@ -278,6 +282,7 @@ const IPool* OperationManagerSimple::getPool(int index) const {
 // --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::commitPendingOperationResults() {
+   MOJA_PROFILE_FUNCTION();
    std::copy(_operationResultsPending.begin(), _operationResultsPending.end(),
              std::back_inserter(_operationResultsLastApplied));
    std::move(_operationResultsPending.begin(), _operationResultsPending.end(),
@@ -288,6 +293,7 @@ void OperationManagerSimple::commitPendingOperationResults() {
 // --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::submitOperation(IOperation* operation) {
+   MOJA_PROFILE_FUNCTION();
    auto result = operation->computeOperation(_timing);
    if (result != nullptr) _operationResultsPending.push_back(result);
 }
