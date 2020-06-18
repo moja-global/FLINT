@@ -28,6 +28,7 @@ class FLINT_API OutputerStreamFlux : public ModuleBase {
    void onSystemShutdown() override;
    void onTimingPostInit() override;
    void onTimingEndStep() override;
+   void onPostDisturbanceEvent() override; 
 
   protected:
    std::string _fileName;
