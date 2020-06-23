@@ -381,7 +381,7 @@ class RecordAccumulatorMap2 {
    std::vector<TPersistable> getPersistableCollectionRange(typename rec_accu_map::const_iterator& rangeStart,
                                                            size_t chunkSize) const {
       std::vector<TPersistable> persistables;
-      persistables.reserve(std::min(_records.size(), chunkSize));
+      persistables.reserve((std::min)(_records.size(), chunkSize));
       size_t chunkPosition = 0;
       for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
          persistables.emplace_back(TRecordConv::asPersistable((*rangeStart).first, (*rangeStart).second));
@@ -407,7 +407,7 @@ class RecordAccumulatorMap2 {
    std::vector<TTuple> getTupleCollectionRange(
        typename rec_accu_map::const_iterator& rangeStart, size_t chunkSize) {
       std::vector<TTuple> tuples;
-      tuples.reserve(std::min(_records.size(), chunkSize));
+      tuples.reserve((std::min)(_records.size(), chunkSize));
       size_t chunkPosition = 0;
       for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
          tuples.emplace_back(TRecordConv::asTuple((*rangeStart).first, (*rangeStart).second));
