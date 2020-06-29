@@ -44,7 +44,7 @@ bool checkFilePath(const std::string& filePath) {
 
 int main(int argc, char* argv[]) {
    MOJA_PROFILE_BEGIN_SESSION("moja.cli", "moja_trace.json");
-
+   MOJA_PROFILE_FUNCTION();
 	opt::options_description general_opt("General options");
 	general_opt.add_options()
 		("help,h", "produce a help message")
@@ -124,48 +124,52 @@ int main(int argc, char* argv[]) {
 		std::cout << CLI_VERSION_STRING << "\n";
 		return EXIT_SUCCESS;
 	}
+        {
+           MOJA_PROFILE_SCOPE("CONFIG_file");
+           if (args.count("config_file")) {
+              // when run config file is passed in commandline
+              auto runConfig = args["config_file"].as<std::string>();
+              if (!checkFilePath(runConfig)) {
+                 return EXIT_FAILURE;
+              }
 
-	if (args.count("config_file")) {
-		//when run config file is passed in commandline
-		auto runConfig = args["config_file"].as<std::string>();
-        if (!checkFilePath(runConfig)) {
-            return EXIT_FAILURE;
-        }
-				
-		try {			
-			std::ifstream ifss(runConfig);
-			opt::store(opt::parse_config_file(ifss, all_options), args);		
-		} catch (opt::error const& e) {
-			std::cerr << e.what() << std::endl;
-			return EXIT_FAILURE;
-		}	
-	}
-
-	if (args.count("provider_file")) {
-		//when provider config file is passed in commandline
-		auto providerConfig = args["provider_file"].as<std::string>();
-        if (!checkFilePath(providerConfig)) {
-            return EXIT_FAILURE;
-        }
-
-		try {
-			std::ifstream ifss(providerConfig);
-			opt::store(opt::parse_config_file(ifss, all_options), args);
-		}
-		catch (opt::error const& e) {
-			std::cerr << e.what() << std::endl;
-			return EXIT_FAILURE;
-		}
-	}
-
-	if (args.count("logging_config")) {
-	   auto loggingConf = args["logging_config"].as<std::string>();
-           if (!checkFilePath(loggingConf)) {
-               return EXIT_FAILURE;
+              try {
+                 std::ifstream ifss(runConfig);
+                 opt::store(opt::parse_config_file(ifss, all_options), args);
+              } catch (opt::error const& e) {
+                 std::cerr << e.what() << std::endl;
+                 return EXIT_FAILURE;
+              }
            }
-	   moja::Logging::setConfigurationFile(loggingConf);
-	}
+        }
+        {
+           MOJA_PROFILE_SCOPE("PROVIDer_file");
+           if (args.count("provider_file")) {
+              // when provider config file is passed in commandline
+              auto providerConfig = args["provider_file"].as<std::string>();
+              if (!checkFilePath(providerConfig)) {
+                 return EXIT_FAILURE;
+              }
 
+              try {
+                 std::ifstream ifss(providerConfig);
+                 opt::store(opt::parse_config_file(ifss, all_options), args);
+              } catch (opt::error const& e) {
+                 std::cerr << e.what() << std::endl;
+                 return EXIT_FAILURE;
+              }
+           }
+        }
+        {
+           MOJA_PROFILE_SCOPE("LOGGING_config");
+           if (args.count("logging_config")) {
+              auto loggingConf = args["logging_config"].as<std::string>();
+              if (!checkFilePath(loggingConf)) {
+                 return EXIT_FAILURE;
+              }
+              moja::Logging::setConfigurationFile(loggingConf);
+           }
+        }
 	if (!args.count("config")) {
 		std::cout << CLI_VERSION_STRING << std::endl;
 		std::cout << std::endl;
