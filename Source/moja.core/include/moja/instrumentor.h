@@ -1,4 +1,5 @@
 #pragma once
+
 //Steps to run the profiler(performance checker):
 //1) Usage: include this header file somewhere in your code.(#include "moja/flint/ioperationmanager.h")
 // 
@@ -183,7 +184,9 @@ constexpr auto CleanupOutputString(const char (&expr)[N], const char (&remove)[K
 }  // namespace instrumentor_utils
 }  // namespace moja
  
+
 #define MOJA_PROFILE 1
+
 #ifdef MOJA_PROFILE
    // Resolve which function signature macro will be used. Note that this only
 // is resolved when the (pre)compiler starts, so the syntax highlighting
