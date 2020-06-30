@@ -44,7 +44,8 @@ bool checkFilePath(const std::string& filePath) {
 
 int main(int argc, char* argv[]) {
    MOJA_PROFILE_BEGIN_SESSION("moja.cli", "moja_trace.json");
-   MOJA_PROFILE_FUNCTION();
+   
+	MOJA_PROFILE_FUNCTION();
 	opt::options_description general_opt("General options");
 	general_opt.add_options()
 		("help,h", "produce a help message")
