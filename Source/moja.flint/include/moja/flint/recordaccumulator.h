@@ -8,7 +8,10 @@
 
 #include <tlx/container/btree_map.hpp>
 
+#include <iterator>
+#include <numeric>
 #include <unordered_set>
+#include <vector>
 
 namespace moja {
 namespace flint {
@@ -175,22 +178,12 @@ class RecordAccumulator2 {
 
    std::vector<TPersistable> getPersistableCollection() const {
       std::vector<TPersistable> persistables;
+      persistables.reserve(_records.size());
       for (const auto& record : _records) {
-         persistables.push_back(record.asPersistable());
+         persistables.emplace_back(record.asPersistable());
       }
       return persistables;
    }
-
-   // std::vector<TPersistable> getPersistableCollection(size_t startIndex, size_t chunkSize) const {
-   //	std::vector<TPersistable> persistables;
-   //	if (startIndex > _records.size())
-   //		return persistables;
-   //	size_t chunkPosition = 0;
-   //	for (auto it = _records.begin() + startIndex; it != _records.end() && chunkPosition++ < chunkSize; ++it) {
-   //		persistables.push_back(record->asPersistable());
-   //	}
-   //	return persistables;
-   //}
 
    void clear() {
       _recordsIdx.clear();
@@ -267,6 +260,81 @@ class RecordAccumulatorMap {
    rec_accu_map _records;
 };
 
+template <class TTuple, class TRecordConv, class TKey, class TValue>
+class list_of_tuples {
+   using map_type = tlx::btree_map<TKey, TValue>;
+   const map_type& accumulator_map_;
+
+  public:
+   template <bool Const>
+   class tuples_iterator {
+      using iterator_type = std::conditional_t<Const, typename map_type::const_iterator, typename map_type::iterator>;
+      iterator_type iterator_current_;
+      iterator_type iterator_end_;
+      TTuple record_{};
+
+     public:
+      explicit tuples_iterator(iterator_type iterator_begin, iterator_type iterator_end)
+          : iterator_current_{iterator_begin}, iterator_end_(iterator_end) {
+         if (iterator_current_ != iterator_end_) {
+            const auto& record = *iterator_current_;
+            record_ = TRecordConv::asTuple(record.first, record.second);
+         }
+      }
+      using difference_type = std::ptrdiff_t;
+      using value_type = TTuple;
+      using pointer = std::conditional_t<Const, const value_type*, value_type*>;
+      using reference = std::conditional_t<Const, const value_type&, value_type&>;
+      using iterator_category = std::forward_iterator_tag;
+
+      reference operator*() const { return record_; }
+      pointer operator->() const { return &record_; }
+
+      auto& operator++() {
+         ++iterator_current_;
+         if (iterator_current_ != iterator_end_) {
+            const auto& record = *iterator_current_;
+            record_ = TRecordConv::asTuple(record.first, record.second);
+         }
+         return *this;
+      }
+
+      auto operator++(int) {
+         auto result = *this;
+         ++*this;
+         return result;
+      }
+      // Support comparison between iterator and const_iterator types
+      template <bool R>
+      bool operator==(const tuples_iterator<R>& rhs) const {
+         return iterator_current_ == rhs.iterator_current_;
+      }
+
+      template <bool R>
+      bool operator!=(const tuples_iterator<R>& rhs) const {
+         return iterator_current_ != rhs.iterator_current_;
+      }
+
+      // Support implicit conversion of iterator to const_iterator
+      // (but not vice versa)
+      operator tuples_iterator<true>() const { return tuples_iterator<true>(iterator_current_, iterator_end_); }
+   };
+
+   using const_iterator = tuples_iterator<true>;
+   using iterator = tuples_iterator<false>;
+
+   list_of_tuples(const map_type& map) : accumulator_map_{map} {}
+
+   // Begin and end member functions
+   iterator begin() { return iterator{std::begin(accumulator_map_), std::end(accumulator_map_)}; }
+   iterator end() { return iterator{std::end(accumulator_map_), std::end(accumulator_map_)}; }
+   const_iterator begin() const { return const_iterator{std::cbegin(accumulator_map_), std::cend(accumulator_map_)}; }
+   const_iterator end() const { return const_iterator{std::cend(accumulator_map_), std::cend(accumulator_map_)}; }
+
+   // Other member operations
+   const auto& front() const { return accumulator_map_.front().asPersistable(); }
+   size_t size() const { return accumulator_map_.size(); }
+};
 
 template <class TPersistable, class TTuple, class TRecordConv, class TKey, class TValue>
 class RecordAccumulatorMap2 {
@@ -313,7 +381,7 @@ class RecordAccumulatorMap2 {
    std::vector<TPersistable> getPersistableCollectionRange(typename rec_accu_map::const_iterator& rangeStart,
                                                            size_t chunkSize) const {
       std::vector<TPersistable> persistables;
-      persistables.reserve(std::min(_records.size(), chunkSize));
+      persistables.reserve((std::min)(_records.size(), chunkSize));
       size_t chunkPosition = 0;
       for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
          persistables.emplace_back(TRecordConv::asPersistable((*rangeStart).first, (*rangeStart).second));
@@ -321,6 +389,11 @@ class RecordAccumulatorMap2 {
       return persistables;
    }
 
+   const auto tuples() const {
+      return list_of_tuples<TTuple, TRecordConv, TKey, TValue>{_records};
+   }
+
+   [[deprecated("Replaced with tuples() method")]]
    std::vector<TTuple> getTupleCollection() {
       std::vector<TTuple> tuples;
       tuples.reserve(_records.size());
@@ -330,9 +403,11 @@ class RecordAccumulatorMap2 {
       return tuples;
    }
 
-   std::vector<TTuple> getTupleCollectionRange(typename rec_accu_map::const_iterator& rangeStart, size_t chunkSize) {
+   [[deprecated("Replaced with tuples() method")]]
+   std::vector<TTuple> getTupleCollectionRange(
+       typename rec_accu_map::const_iterator& rangeStart, size_t chunkSize) {
       std::vector<TTuple> tuples;
-      tuples.reserve(std::min(_records.size(), chunkSize));
+      tuples.reserve((std::min)(_records.size(), chunkSize));
       size_t chunkPosition = 0;
       for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
          tuples.emplace_back(TRecordConv::asTuple((*rangeStart).first, (*rangeStart).second));
@@ -348,7 +423,6 @@ class RecordAccumulatorMap2 {
    Int64 _nextId = 1;
    rec_accu_map _records;
 };
-
 
 }  // namespace flint
 }  // namespace moja
