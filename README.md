@@ -148,6 +148,10 @@ moja global welcomes a wide range of contributions as explained in [Contributing
     * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
 * If you have other questions, please write to info@moja.global
 
+## License
+
+This project is licensed under the [Mozilla Public License 2.0](LICENSE)
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
