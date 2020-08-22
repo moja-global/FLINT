@@ -100,7 +100,7 @@ class SQLiteStatement {
 
 class ProviderRelationalSQLite::impl {
   public:
-   impl(DynamicObject settings) : _path(settings["path"].convert<std::string>()), _conn(_path), _cache(10000) {}
+   impl(DynamicObject settings) : _path(settings["path"].extract<std::string>()), _conn(_path), _cache(10000) {}
 
    DynamicVar GetDataSet(const std::string& query) const {
       auto cachedValue = _cache.get(query);
