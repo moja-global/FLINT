@@ -16,9 +16,9 @@ void LocationIdxFromFlintDataTransform::configure(DynamicObject config, const IL
                                                   datarepository::DataRepository& dataRepository) {
    _landUnitController = &landUnitController;
    auto provider = std::static_pointer_cast<moja::datarepository::IProviderSpatialRasterInterface>(
-       dataRepository.getProvider(config["provider"].convert<std::string>()));
+       dataRepository.getProvider(config["provider"].extract<std::string>()));
    _indexer = &provider->indexer();
-   _layer = provider->getLayer(config["data_id"].convert<std::string>());
+   _layer = provider->getLayer(config["data_id"].extract<std::string>());
    _spatialLocationInfo = std::static_pointer_cast<SpatialLocationInfo>(
        landUnitController.getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
 }
