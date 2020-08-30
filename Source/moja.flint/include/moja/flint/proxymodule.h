@@ -2,6 +2,7 @@
 #define MOJA_FLINT_PROXYMODULE_H_
 
 #include "moja/flint/moduleproxybase.h"
+#include <Poco/JSON/Parser.h>
 
 namespace moja {
 namespace flint {
