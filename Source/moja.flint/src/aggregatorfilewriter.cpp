@@ -34,7 +34,7 @@ static const auto EOL_CHR = "\r\n";
 // --------------------------------------------------------------------------------------------
 
 void AggregatorFileWriter::configure(const DynamicObject& config) {
-   _fileName = config["filename"].convert<std::string>();
+   _fileName = config["filename"].extract<std::string>();
 
    _writeFileHeader = true;
    if (config.contains("write_header")) {
