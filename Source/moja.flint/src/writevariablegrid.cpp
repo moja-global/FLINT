@@ -25,7 +25,7 @@ namespace moja {
 namespace flint {
 
 void WriteVariableGrid::configure(const DynamicObject& config) {
-   _globalOutputPath = config.contains("output_path") ? config["output_path"].convert<std::string>() : "";
+   _globalOutputPath = config.contains("output_path") ? config["output_path"].extract<std::string>() : "";
 
    _useIndexesForFolderName = false;
    if (config.contains("use_indexes_for_folder_name")) {
@@ -47,10 +47,10 @@ void WriteVariableGrid::configure(const DynamicObject& config) {
       auto enabled = true;
       if (itemConfig.contains("enabled")) enabled = itemConfig["enabled"];
       if (enabled) {
-         const auto variableDataType = itemConfig["variable_data_type"].convert<std::string>();
+         const auto variableDataType = itemConfig["variable_data_type"].extract<std::string>();
 
          if (variableDataType == "UInt8") {
-            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt8>>(_fileHandlingMutex, 1));
+            _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt8>>(_fileHandlingMutex,1));
          } else if (variableDataType == "UInt16") {
             _dataVecT.emplace_back(std::make_unique<DataSettingsT<UInt16>>(_fileHandlingMutex, 12));
          } else if (variableDataType == "Int16") {
