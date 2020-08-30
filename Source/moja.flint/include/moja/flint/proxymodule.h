@@ -10,10 +10,10 @@ class IVariable;
 // --------------------------------------------------------------------------------------------
 struct moduleProxyData {
    explicit moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                            std::shared_ptr<IModule> module, const DynamicObject& config);
+                            std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config);
 
    explicit moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                            std::shared_ptr<IModule> module, const DynamicObject& config, std::string variableName,
+                            std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config, std::string variableName,
                             const IVariable* variable);
 
    std::string _libraryName;
