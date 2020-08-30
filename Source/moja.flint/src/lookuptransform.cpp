@@ -29,8 +29,8 @@ void LookupTransform::configure(DynamicObject config, const ILandUnitController&
       }
    }
 
-   _fromVarName = config["from"].convert<std::string>();
-   _toVarName = config["to"].convert<std::string>();
+   _fromVarName = config["from"].extract<std::string>();
+   _toVarName = config["to"].extract<std::string>();
    _landUnitController = &landUnitController;
    _dataRepository = &dataRepository;
 }
@@ -72,10 +72,10 @@ const DynamicVar& LookupTransform::value() const {
 const DynamicVar& LookupTransform::matchDynamicToStruct(const DynamicVar& from, const DynamicVar& to) const {
    std::string key = "%1%";
    if (from.isInteger()) {
-      int intkey = from.convert<int>();
+      int intkey = from.extract<int>();
       key = (boost::format(key) % intkey).str();
    } else {
-      key = from.convert<std::string>();
+      key = from.extract<std::string>();
    }
 
    auto toValue = to.extract<DynamicObject>();
