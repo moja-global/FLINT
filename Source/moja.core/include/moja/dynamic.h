@@ -129,7 +129,12 @@ class DynamicVar {
    bool isObject() const { return value_.type() == typeid(Struct<std::string>); }
    bool isVector() const { return value_.type() == typeid(std::vector<DynamicVar>); }
    bool isStruct() const { return value_.type() == typeid(Struct<DynamicVar>); }
-   bool isInteger() const { return value_.type() == typeid(int); }
+   bool isInteger()const { return value_.type() == typeid(int); }
+   bool isString() const { return value_.type() == typeid(std::string); }
+   bool isNumeric() const { return value_.type() == typeid(double); }
+     
+   int size() const { return sizeof(value_) ;  }
+
   private:
    template <typename T, typename N>
    static DynamicVar& structIndexOperator(T* struct_pointer, N n);
