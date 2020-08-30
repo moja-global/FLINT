@@ -17,6 +17,11 @@
 #include <iomanip>  // std::setprecision
 #include <iostream>
 
+
+#include <Poco/JSON/Parser.h>
+#include "moja/dynamic.h"
+#include "Poco/Dynamic/Struct.h"
+
 //#define DL_CHR "\t"
 #define DL_CHR ","
 #define STOCK_PRECISION 15
@@ -39,7 +44,7 @@ std::string escape_json2(const std::string& s) {
 
 // --------------------------------------------------------------------------------------------
 
-void outputDynamicToStream(std::ostream& fout, const DynamicVar& object) {
+void outputDynamicToStream(std::ostream& fout, const Poco::Dynamic::Var& object) {
    if (object.isStruct()) {
       fout << "\"[struct]\"";
    } else if (object.isVector()) {
@@ -166,8 +171,8 @@ void OutputerStream::outputInit(std::ostream& stream) {
             auto flintDataVariable = varPtr->value().extract<std::shared_ptr<IFlintData>>();
             auto propValue = flintDataVariable->getProperty(varProp);
             outputDynamicToStream(stream, propValue);
-         } else {
-            if (varValue.isStruct()) {
+         } else { 
+            if (varValue.isStruct()) { 
                auto varStruct = varValue.extract<const DynamicObject>();
                auto varStructProp = varStruct.contains(varProp) ? varStruct[varProp] : DynamicVar();
                outputDynamicToStream(stream, varStructProp);
