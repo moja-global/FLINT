@@ -131,8 +131,9 @@ class DynamicVar {
    bool isStruct() const { return value_.type() == typeid(Struct<DynamicVar>); }
    bool isInteger()const { return value_.type() == typeid(int); }
    bool isString() const { return value_.type() == typeid(std::string); }
-   bool isNumeric() const { return value_.type() == typeid(double); }
-     
+   bool isNumeric()const { return value_.type() == typeid(double); }
+   bool isBoolean()const { return value_.type() == typeid(bool); }
+   bool isSigned() const { return value_.type() == typeid(signed); }
    int size() const { return sizeof(value_) ;  }
 
   private:
