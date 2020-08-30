@@ -10,6 +10,8 @@
 
 #include <boost/format.hpp>
 
+#include <Poco/JSON/Parser.h>
+
 // stringstreams
 #include <sstream>
 #include <string>
@@ -145,7 +147,7 @@ std::string escape_json2_XX(const std::string& s) {
 
 // --------------------------------------------------------------------------------------------
 
-void outputDynamicToStream_XX(std::ostream& fout, const DynamicVar& object) {
+void outputDynamicToStream_XX(std::ostream& fout, const Poco::Dynamic::Var& object) {
    if (object.isStruct()) {
       fout << "\"[struct]\"";
    } else if (object.isVector()) {
