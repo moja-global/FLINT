@@ -15,9 +15,9 @@ void LocationIdxTransform::configure(DynamicObject config, const ILandUnitContro
                                      datarepository::DataRepository& dataRepository) {
    _landUnitController = &landUnitController;
    auto provider = std::static_pointer_cast<moja::datarepository::IProviderSpatialRasterInterface>(
-       dataRepository.getProvider(config["provider"].convert<std::string>()));
+       dataRepository.getProvider(config["provider"].extract<std::string>()));
    _indexer = &provider->indexer();
-   _layer = provider->getLayer(config["data_id"].convert<std::string>());
+   _layer = provider->getLayer(config["data_id"].extract<std::string>());
 
    _tileIdx = _landUnitController->getVariable("tileIndex");
    _blockIdx = _landUnitController->getVariable("blockIndex");
