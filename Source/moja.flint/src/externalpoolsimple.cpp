@@ -32,7 +32,7 @@ double ExternalPoolSimple::initValue() const { return _initValue->value(); }
 
 void ExternalPoolSimple::init() {
    const auto& value = _initValue->value();
-   _value = value.isEmpty() ? 0.0 : value.convert<double>();
+   _value = value.isEmpty() ? 0.0 : value.extract<double>();
 }
 
 }  // namespace flint
