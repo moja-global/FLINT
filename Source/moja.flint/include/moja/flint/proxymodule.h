@@ -2,7 +2,7 @@
 #define MOJA_FLINT_PROXYMODULE_H_
 
 #include "moja/flint/moduleproxybase.h"
-#include <Poco/JSON/Parser.h>
+
 
 namespace moja {
 namespace flint {
@@ -11,10 +11,10 @@ class IVariable;
 // --------------------------------------------------------------------------------------------
 struct moduleProxyData {
    explicit moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                            std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config);
+                            std::shared_ptr<IModule> module, const DynamicObject& config);
 
    explicit moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                            std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config, std::string variableName,
+                            std::shared_ptr<IModule> module, const DynamicObject& config, std::string variableName,
                             const IVariable* variable);
 
    std::string _libraryName;
