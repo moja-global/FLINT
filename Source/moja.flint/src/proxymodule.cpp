@@ -6,6 +6,7 @@
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
+#include <Poco/JSON/Parser.h>
 
 namespace moja {
 namespace flint {
@@ -13,7 +14,7 @@ namespace flint {
 // --------------------------------------------------------------------------------------------
 
 moduleProxyData::moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                                 std::shared_ptr<IModule> module, const DynamicObject& config) {
+                                 std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config) {
    _libraryName = libraryName;
    _moduleName = moduleName;
    _order = order;
@@ -27,7 +28,7 @@ moduleProxyData::moduleProxyData(const std::string& libraryName, std::string& mo
 }
 
 moduleProxyData::moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
-                                 std::shared_ptr<IModule> module, const DynamicObject& config,
+                                 std::shared_ptr<IModule> module, const Poco::Dynamic::Var& config,
                                  std::string variableName,
                                  const IVariable* variable) {
    _libraryName = libraryName;
@@ -42,7 +43,7 @@ moduleProxyData::moduleProxyData(const std::string& libraryName, std::string& mo
    _module->subscribe(*_notificationCenterPtr.get());
 }
 
-void ProxyModule::configure(const DynamicObject& config) {
+void ProxyModule::configure(const Poco::Dynamic::Var& config) {
    auto proxyModules = config["proxyModules"];
    for (auto& item : proxyModules) {
       const auto& proxyModule = item.extract<const DynamicObject>();
