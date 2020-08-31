@@ -18,9 +18,7 @@
 #include <iostream>
 
 
-#include <Poco/JSON/Parser.h>
-#include "moja/dynamic.h"
-#include "Poco/Dynamic/Struct.h"
+
 
 //#define DL_CHR "\t"
 #define DL_CHR ","
@@ -44,7 +42,7 @@ std::string escape_json2(const std::string& s) {
 
 // --------------------------------------------------------------------------------------------
 
-void outputDynamicToStream(std::ostream& fout, const Poco::Dynamic::Var& object) {
+void outputDynamicToStream(std::ostream& fout, const DynamicVar& object) {
    if (object.isStruct()) {
       fout << "\"[struct]\"";
    } else if (object.isVector()) {
