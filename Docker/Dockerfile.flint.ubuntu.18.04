@@ -1,13 +1,14 @@
 # ==================================================================================================================
 #
-# Docker to ubuntu 16.04 image for Moja flint libraries and executables
+# Docker to ubuntu 18.04 image for Moja flint libraries and executables
 #
 # Building this Docker:
 #   docker build  -f Dockerfile.flint.ubuntu.18.04 --build-arg NUM_CPU=4  --build-arg FLINT_BRANCH=develop -t moja/flint:ubuntu-18.04 .
 #
 # ==================================================================================================================
 
-FROM moja/baseimage:ubuntu-18.04
+#FROM moja/baseimage:ubuntu-18.04
+FROM moja/baseimage:mg
 
 LABEL maintainer="info@moja.global"
 
@@ -46,7 +47,7 @@ RUN	git clone --recursive https://github.com/sebastiandev/zipper.git \
 # GET  moja.global
 RUN git clone --recursive --depth 1 -b ${FLINT_BRANCH} https://github.com/moja-global/FLINT.git flint \
     && mkdir -p flint/Source/build && cd flint/Source/build \
-    && cmake -DCMAKE_BUILD_TYPE=RELEASE  \
+    && cmake -DCMAKE_BUILD_TYPE=DEBUG  \
             -DCMAKE_INSTALL_PREFIX=$ROOTDIR \
             -DENABLE_TESTS:BOOL=OFF \
             -DENABLE_MOJA.MODULES.GDAL=ON \
@@ -55,7 +56,7 @@ RUN git clone --recursive --depth 1 -b ${FLINT_BRANCH} https://github.com/moja-g
             -DBUILD_SHARED_LIBS=ON .. \
 	&& make --quiet -j $NUM_CPU \
 	&& make --quiet install \
-	&& make clean \
+#	&& make clean \
     && cd $ROOTDIR/src
 
 RUN ln -s $ROOTDIR/lib/libmoja.modules.* $ROOTDIR/bin
