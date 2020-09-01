@@ -13,6 +13,7 @@
 
 #include <moja/exception.h>
 #include <moja/logging.h>
+#include "moja/instrumentor.h"
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
@@ -57,19 +58,25 @@ OperationManagerSimple::OperationManagerSimple(Timing& timing, const DynamicObje
 // --------------------------------------------------------------------------------------------
 
 std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule& module) {
+   MOJA_PROFILE_FUNCTION();
+
    return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData());
 }
 
 // --------------------------------------------------------------------------------------------
 
 std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule& module, DynamicVar& dataPackage) {
-   return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData(), dataPackage);
+   MOJA_PROFILE_FUNCTION();
+
+    return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData(), dataPackage);
 }
 
 // --------------------------------------------------------------------------------------------
 
 std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(IModule& module) {
-   return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(),
+   MOJA_PROFILE_FUNCTION();
+
+    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(),
                                                         &module.metaData());
 }
 
@@ -77,7 +84,9 @@ std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(
 
 std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(IModule& module,
                                                                                 DynamicVar& dataPackage) {
-   return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(), &module.metaData(),
+   MOJA_PROFILE_FUNCTION();
+
+    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(), &module.metaData(),
                                                         dataPackage);
 }
 
@@ -192,6 +201,7 @@ PoolCollection OperationManagerSimple::poolCollection() { return PoolCollection(
 // --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::initialisePools() {
+   MOJA_PROFILE_FUNCTION();
    if (_useKahan) std::fill(_corrections.begin(), _corrections.end(), 0.0);
    for (auto& pool : _poolObjects) {
       pool->init();
@@ -228,29 +238,32 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
 template <class TPool, typename TInitValue>
 const IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
                                              const std::string& units, double scale, int order, TInitValue initValue) {
-   if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
-      throw std::invalid_argument("name cannot be empty");
+   {
+      MOJA_PROFILE_SCOPE("operationManagerSimple");
+      if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
+         throw std::invalid_argument("name cannot be empty");
+      }
+
+      if (_poolValues.size() == _poolValues.capacity()) {
+         throw ApplicationException(
+             "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by
+                                                                            // PoolSimple wrappers
+      }
+
+      _poolValues.push_back(0.0);
+      auto pool = std::make_shared<TPool>(_poolValues, name, description, units, scale, order,
+                                          static_cast<int>(_poolValues.size() - 1), initValue);
+      _poolObjects.push_back(pool);
+      _poolNameObjectMap[name] = pool;
+
+      if (_useKahan) {
+         _corrections.resize(_poolValues.size());
+         _corrections[_poolValues.size() - 1] = 0.0;
+         std::fill(_corrections.begin(), _corrections.end(), 0.0);
+      }
+
+      return pool.get();
    }
-
-   if (_poolValues.size() == _poolValues.capacity()) {
-      throw ApplicationException(
-          "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by PoolSimple
-                                                                         // wrappers
-   }
-
-   _poolValues.push_back(0.0);
-   auto pool = std::make_shared<TPool>(_poolValues, name, description, units, scale, order,
-                                       static_cast<int>(_poolValues.size() - 1), initValue);
-   _poolObjects.push_back(pool);
-   _poolNameObjectMap[name] = pool;
-
-   if (_useKahan) {
-      _corrections.resize(_poolValues.size());
-      _corrections[_poolValues.size() - 1] = 0.0;
-      std::fill(_corrections.begin(), _corrections.end(), 0.0);
-   }
-
-   return pool.get();
 }
 
 // --------------------------------------------------------------------------------------------
