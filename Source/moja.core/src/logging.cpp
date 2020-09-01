@@ -9,6 +9,7 @@
 #include <boost/log/trivial.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/from_stream.hpp>
+#include "moja/instrumentor.h"
 
 #include <fstream>
 
@@ -22,6 +23,7 @@ std::string Logging::_explicitConfigurationText = "";
 std::string Logging::_loggingConfigurationFile = "unknown";
 
 void Logging::init() {
+   MOJA_PROFILE_FUNCTION();
    namespace logging = boost::log;
    namespace attrs = boost::log::attributes;
 
