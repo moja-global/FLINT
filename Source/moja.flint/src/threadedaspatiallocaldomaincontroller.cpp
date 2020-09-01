@@ -10,7 +10,7 @@
 
 #include <moja/datetime.h>
 #include <moja/logging.h>
-
+#include "moja/instrumentor.h"
 #include <Poco/Mutex.h>
 
 #include <boost/exception/diagnostic_information.hpp>
@@ -42,6 +42,7 @@ AspatialLocalDomainThread::AspatialLocalDomainThread(ThreadedAspatialLocalDomain
 }
 
 void AspatialLocalDomainThread::operator()() {
+   MOJA_PROFILE_FUNCTION();
    MOJA_LOG_INFO << std::setfill(' ') << std::setw(3) << _threadId << ": "
                  << "Thread Started ";
 
@@ -71,6 +72,7 @@ void AspatialLocalDomainThread::operator()() {
 ThreadedAspatialLocalDomainController::ThreadedAspatialLocalDomainController() : LocalDomainControllerBase() {}
 
 void ThreadedAspatialLocalDomainController::configure(const configuration::Configuration& config) {
+   MOJA_PROFILE_FUNCTION();
    // Call base class configure
    LocalDomainControllerBase::configure(config);
 
@@ -97,6 +99,7 @@ void ThreadedAspatialLocalDomainController::configure(const configuration::Confi
 }
 
 void ThreadedAspatialLocalDomainController::run() {
+   MOJA_PROFILE_FUNCTION();
    auto startTime = DateTime::now();
 
    for (const auto& task : _tasks) {
