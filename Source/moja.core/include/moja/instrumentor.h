@@ -1,3 +1,21 @@
+// Steps to run the profiler(performance checker):
+// 1) Usage: include this header file somewhere in your code.(#include "moja/flint/ioperationmanager.h")
+//
+// 2) Begin session:
+// MOJA_PROFILE_BEGIN_SESSION("cli_file_name.cli", "new_file_name.json");
+//
+// 3)Usage:
+// i)Inside a Function:
+//     MOJA_PROFILE_FUNCTION(); //write this statement at starting of the function and will return the function run_time
+// ii)Scope:
+//      {
+//            MOJA_PROFILE_SCOPE("Scope_name");
+//            //Rest of the code
+//      }     // Place code like this in scopes you'd like to include in and it will return the Scope_Runtime
+//
+//
+// 4)End Session: MOJA_PROFILE_END_SESSION();
+//
 #pragma once
 
 #include "logging.h"
@@ -162,7 +180,7 @@ constexpr auto CleanupOutputString(const char (&expr)[N], const char (&remove)[K
 }
 }  // namespace instrumentor_utils
 }  // namespace moja
- 
+#define MOJA_PROFILE 1
 #ifdef MOJA_PROFILE
    // Resolve which function signature macro will be used. Note that this only
 // is resolved when the (pre)compiler starts, so the syntax highlighting
