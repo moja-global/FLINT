@@ -50,6 +50,7 @@ void handleOutOfMemory() {
 
 int main(int argc, char* argv[]) {
    MOJA_PROFILE_BEGIN_SESSION("moja.cli", "moja_trace.json");
+   MOJA_PROFILE_FUNCTION();
     std::set_new_handler(handleOutOfMemory);
 
 	opt::options_description general_opt("General options");
@@ -131,48 +132,52 @@ int main(int argc, char* argv[]) {
 		std::cout << CLI_VERSION_STRING << "\n";
 		return EXIT_SUCCESS;
 	}
+        {
+           MOJA_PROFILE_SCOPE("CONFIG_file");
+           if (args.count("config_file")) {
+              // when run config file is passed in commandline
+              auto runConfig = args["config_file"].as<std::string>();
+              if (!checkFilePath(runConfig)) {
+                 return EXIT_FAILURE;
+              }
 
-	if (args.count("config_file")) {
-		//when run config file is passed in commandline
-		auto runConfig = args["config_file"].as<std::string>();
-        if (!checkFilePath(runConfig)) {
-            return EXIT_FAILURE;
-        }
-				
-		try {			
-			std::ifstream ifss(runConfig);
-			opt::store(opt::parse_config_file(ifss, all_options), args);		
-		} catch (opt::error const& e) {
-			std::cerr << e.what() << std::endl;
-			return EXIT_FAILURE;
-		}	
-	}
-
-	if (args.count("provider_file")) {
-		//when provider config file is passed in commandline
-		auto providerConfig = args["provider_file"].as<std::string>();
-        if (!checkFilePath(providerConfig)) {
-            return EXIT_FAILURE;
-        }
-
-		try {
-			std::ifstream ifss(providerConfig);
-			opt::store(opt::parse_config_file(ifss, all_options), args);
-		}
-		catch (opt::error const& e) {
-			std::cerr << e.what() << std::endl;
-			return EXIT_FAILURE;
-		}
-	}
-
-	if (args.count("logging_config")) {
-	   auto loggingConf = args["logging_config"].as<std::string>();
-           if (!checkFilePath(loggingConf)) {
-               return EXIT_FAILURE;
+              try {
+                 std::ifstream ifss(runConfig);
+                 opt::store(opt::parse_config_file(ifss, all_options), args);
+              } catch (opt::error const& e) {
+                 std::cerr << e.what() << std::endl;
+                 return EXIT_FAILURE;
+              }
            }
-	   moja::Logging::setConfigurationFile(loggingConf);
-	}
+        }
+        {
+           MOJA_PROFILE_SCOPE("PROVIDer_file");
+           if (args.count("provider_file")) {
+              // when provider config file is passed in commandline
+              auto providerConfig = args["provider_file"].as<std::string>();
+              if (!checkFilePath(providerConfig)) {
+                 return EXIT_FAILURE;
+              }
 
+              try {
+                 std::ifstream ifss(providerConfig);
+                 opt::store(opt::parse_config_file(ifss, all_options), args);
+              } catch (opt::error const& e) {
+                 std::cerr << e.what() << std::endl;
+                 return EXIT_FAILURE;
+              }
+           }
+        }
+        {
+           MOJA_PROFILE_SCOPE("LOGGING_config");
+           if (args.count("logging_config")) {
+              auto loggingConf = args["logging_config"].as<std::string>();
+              if (!checkFilePath(loggingConf)) {
+                 return EXIT_FAILURE;
+              }
+              moja::Logging::setConfigurationFile(loggingConf);
+           }
+        }
 	if (!args.count("config")) {
 		std::cout << CLI_VERSION_STRING << std::endl;
 		std::cout << std::endl;
@@ -181,17 +186,23 @@ int main(int argc, char* argv[]) {
 	}
 
     auto configPath = args["config"].as<std::vector<std::string>>();
-    for (const auto& filePath : configPath) {
-        if (!checkFilePath(filePath)) {
-            return EXIT_FAILURE;
-        }
+        {
+           MOJA_PROFILE_SCOPE("CONFIG_Path");
+       for (const auto& filePath : configPath) {
+          if (!checkFilePath(filePath)) {
+             return EXIT_FAILURE;
+          }
+       }
     }
     std::vector<std::string> configProviderPath;
     if (args.count("config_provider")) {
-       configProviderPath = args["config_provider"].as<std::vector<std::string>>();
-       for (const auto& filePath : configProviderPath) {
-          if (!checkFilePath(filePath)) {
-             return EXIT_FAILURE;
+       {
+          MOJA_PROFILE_SCOPE("config_provider");
+          configProviderPath = args["config_provider"].as<std::vector<std::string>>();
+          for (const auto& filePath : configProviderPath) {
+             if (!checkFilePath(filePath)) {
+                return EXIT_FAILURE;
+             }
           }
        }
     }
@@ -229,25 +240,25 @@ int main(int argc, char* argv[]) {
                         : conf::JSON2ConfigurationProvider(configPath, configProviderPath).createConfiguration();
 
 		MOJA_LOG_INFO << "Using operation manager: " << config->localDomain()->operationManagerObject()->name();
-
-		if (config->spinup()->enabled()) {
-			const auto spinup = config->spinup();
-			auto spinupSequencer = spinup->sequencerName();
-			MOJA_LOG_INFO << "spinup ON, sequencer - " << spinupSequencer;
-			MOJA_LOG_DEBUG << "\tModules:\t";
-			for (auto spinupModule : spinup->modules())
-				MOJA_LOG_DEBUG << spinupModule->name() << "(" << spinupModule->order() << "), ";
-			MOJA_LOG_DEBUG;
-			MOJA_LOG_DEBUG << "\tVariables:\t";
-			for (auto variable : spinup->variables())
-				MOJA_LOG_DEBUG << variable->name() << ", ";
-			MOJA_LOG_DEBUG;
-			MOJA_LOG_DEBUG << "\tExtVariables:\t";
-			for (auto externalVariable : spinup->externalVariables())
-				MOJA_LOG_DEBUG << externalVariable->name() << ", ";
-			MOJA_LOG_DEBUG;
-		}
-
+                {
+                   MOJA_PROFILE_SCOPE("Spin_Up");
+                   if (config->spinup()->enabled()) {
+                      const auto spinup = config->spinup();
+                      auto spinupSequencer = spinup->sequencerName();
+                      MOJA_LOG_INFO << "spinup ON, sequencer - " << spinupSequencer;
+                      MOJA_LOG_DEBUG << "\tModules:\t";
+                      for (auto spinupModule : spinup->modules())
+                         MOJA_LOG_DEBUG << spinupModule->name() << "(" << spinupModule->order() << "), ";
+                      MOJA_LOG_DEBUG;
+                      MOJA_LOG_DEBUG << "\tVariables:\t";
+                      for (auto variable : spinup->variables()) MOJA_LOG_DEBUG << variable->name() << ", ";
+                      MOJA_LOG_DEBUG;
+                      MOJA_LOG_DEBUG << "\tExtVariables:\t";
+                      for (auto externalVariable : spinup->externalVariables())
+                         MOJA_LOG_DEBUG << externalVariable->name() << ", ";
+                      MOJA_LOG_DEBUG;
+                   }
+                }
 		std::unique_ptr<ILocalDomainController> ldc;
 		switch (config->localDomain()->type()) {
 		case LocalDomainType::SpatiallyReferencedSQL: {
@@ -275,23 +286,26 @@ int main(int argc, char* argv[]) {
 
 		ldc->configure(*config);
 		MOJA_LOG_INFO << "modules loaded: ";
-		for (auto module : ldc->modules()) {
-			MOJA_LOG_INFO << "\tlibrary: " << module.first.first << ", module name: " << module.first.second;
-			if (module.second->moduleType() == moja::flint::ModuleTypes::Proxy) {
-				const auto m = dynamic_cast<const moja::flint::ModuleProxyBase*>(module.second);
-				auto ml = m->listModules();
-				for (auto moduleproxy : ml) {
-					MOJA_LOG_INFO << "\t\tProxy - library: " << std::get<0>(moduleproxy)
-                                  << ", module name: " << std::get<1>(moduleproxy)
-                                  << ", variable: " << std::get<2>(moduleproxy);
-				}
-			}
-		}
+                {
+                   MOJA_PROFILE_SCOPE("Printing_modules");
 
-		MOJA_LOG_INFO << "Operation manager: " << ldc->landUnitController().operationManager()->name()
-                      << ", Version: " << ldc->landUnitController().operationManager()->version()
-                      << ", Config: " << ldc->landUnitController().operationManager()->config();
+                   for (auto module : ldc->modules()) {
+                      MOJA_LOG_INFO << "\tlibrary: " << module.first.first << ", module name: " << module.first.second;
+                      if (module.second->moduleType() == moja::flint::ModuleTypes::Proxy) {
+                         const auto m = dynamic_cast<const moja::flint::ModuleProxyBase*>(module.second);
+                         auto ml = m->listModules();
+                         for (auto moduleproxy : ml) {
+                            MOJA_LOG_INFO << "\t\tProxy - library: " << std::get<0>(moduleproxy)
+                                          << ", module name: " << std::get<1>(moduleproxy)
+                                          << ", variable: " << std::get<2>(moduleproxy);
+                         }
+                      }
+                   }
 
+                   MOJA_LOG_INFO << "Operation manager: " << ldc->landUnitController().operationManager()->name()
+                                 << ", Version: " << ldc->landUnitController().operationManager()->version()
+                                 << ", Config: " << ldc->landUnitController().operationManager()->config();
+                }
         ldc->_notificationCenter.postNotification(moja::signals::SystemInit);
         ldc->startup();
         ldc->run();
