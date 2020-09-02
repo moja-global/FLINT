@@ -156,7 +156,7 @@ DynamicVar parsePocoJSONToDynamic(const Poco::JSON::Object::Ptr& val) {
 
 // --------------------------------------------------------------------------------------------
 
-DynamicVar parsePocoJSONToDynamic(const DynamicVar& data) {
+DynamicVar parsePocoJSONToDynamic(const Poco::Dynamic::Var& data) {
    if (data.isEmpty()) return DynamicVar();
    if (data.type() == typeid(Poco::JSON::Object::Ptr)) {
       const auto& object = data.extract<Poco::JSON::Object::Ptr>();
@@ -191,7 +191,7 @@ DynamicVar parsePocoJSONToDynamic(const DynamicVar& data) {
 
 // --------------------------------------------------------------------------------------------
 
-DynamicVar parsePocoVarToDynamic(const DynamicVar& var) {
+DynamicVar parsePocoVarToDynamic(const Poco::Dynamic::Var& var) {
    if (var.isEmpty()) {
       return DynamicVar();
    }
