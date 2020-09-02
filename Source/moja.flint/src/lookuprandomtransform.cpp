@@ -1,4 +1,3 @@
-
 #include "moja/flint/lookuprandomtransform.h"
 
 #include "moja/flint/flintexceptions.h"
@@ -32,7 +31,7 @@ void LookupRandomTransform::configure(DynamicObject config, const ILandUnitContr
       }
    }
    //_fromVarName = config["from"].convert<std::string>();
-   _toVarName = config["to"].convert<std::string>();
+   _toVarName = config["to"].extract<std::string>();
    _reverseLookup = config.contains("reverse") ? bool(config["reverse"]) : false;
    _landUnitController = &landUnitController;
    _dataRepository = &dataRepository;
