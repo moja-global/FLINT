@@ -16,9 +16,9 @@ void LocationTransform::configure(DynamicObject config, const ILandUnitControlle
    _landUnitController = &landUnitController;
    _dataRepository = &dataRepository;
    _provider = std::static_pointer_cast<moja::datarepository::IProviderSpatialRasterInterface>(
-       _dataRepository->getProvider(config["provider"].convert<std::string>()));
+       _dataRepository->getProvider(config["provider"].extract<std::string>()));
 
-   _dataId = config["data_id"].convert<std::string>();
+   _dataId = config["data_id"].extract<std::string>();
    _latitude = _landUnitController->getVariable("latitude");
    _longitude = _landUnitController->getVariable("longitude");
 }
