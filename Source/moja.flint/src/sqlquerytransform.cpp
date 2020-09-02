@@ -28,7 +28,7 @@ void SQLQueryTransform::configure(DynamicObject config, const ILandUnitControlle
                                   moja::datarepository::DataRepository& dataRepository) {
    _config = config;
    if (config.contains("queryString")) {
-      _queryStr = config["queryString"].convert<std::string>();
+      _queryStr = config["queryString"].extract<std::string>();
    } else if (config.contains("queryFile")) {
       _queryStr = readSQLFile(config["queryFile"]);
    }
@@ -202,7 +202,7 @@ std::string SQLQueryTransform::formatVariableValues(const IVariable& var, Dynami
       }
    }
    for (auto value : values) {
-      auto str = value.convert<std::string>();
+      auto str = value.extract<std::string>();
       if (value.isString()) {
          // Enclose string values in SQL single quotes.
          str = "'" + str + "'";
