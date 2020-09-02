@@ -1,12 +1,12 @@
+#include "moja/flint/writesystemconfig.h"
+
+#include "moja/flint/externalvariable.h"
+#include "moja/flint/flintdatavariable.h"
 #include "moja/flint/ilandunitdatawrapper.h"
 #include "moja/flint/ipool.h"
 #include "moja/flint/itiming.h"
 #include "moja/flint/spatiallocationinfo.h"
-
-#include "moja/flint/externalvariable.h"
-#include "moja/flint/flintdatavariable.h"
 #include "moja/flint/variable.h"
-#include "moja/flint/writesystemconfig.h"
 
 #include <moja/flint/configuration/configuration.h>
 #include <moja/flint/configuration/iterationbase.h>
@@ -35,11 +35,11 @@ namespace flint {
 // --------------------------------------------------------------------------------------------
 
 void WriteSystemConfig::configure(const DynamicObject& config) {
-   _name = config["name"].convert<std::string>();
-   _outputPath = config.contains("output_path") ? config["output_path"].convert<std::string>() : "";
-   _writeFrequency = config.contains("write_frequency") ? config["write_frequency"].convert<UInt32>() : 0;
+   _name = config["name"].extract<std::string>();
+   _outputPath = config.contains("output_path") ? config["output_path"].extract<std::string>() : "";
+   _writeFrequency = config.contains("write_frequency") ? config["write_frequency"].extract<UInt32>() : 0;
    _writeOutstepFrequency =
-       config.contains("write_outstep_frequency") ? config["write_outstep_frequency"].convert<UInt32>() : 0;
+       config.contains("write_outstep_frequency") ? config["write_outstep_frequency"].extract<UInt32>() : 0;
 
    // set all notifications to false
    for (auto& val : _onNotificationArray) val = false;
@@ -49,11 +49,11 @@ void WriteSystemConfig::configure(const DynamicObject& config) {
       if (dynamic.isVector()) {
          const auto& arr = dynamic.extract<const DynamicVector>();
          for (auto& val : arr) {
-            auto notStr = val.convert<std::string>();
+            auto notStr = val.extract<std::string>();
             _onNotificationArray[convertNotificationStringToIndex(notStr)] = true;
          }
       } else {
-         _onNotificationArray[convertNotificationStringToIndex(config["on_notification"].convert<std::string>())] =
+         _onNotificationArray[convertNotificationStringToIndex(config["on_notification"].extract<std::string>())] =
              true;
       }
    } else {
@@ -387,7 +387,7 @@ void WriteSystemConfig::WriteConfig(std::string notificationStr) const {
             case configuration::LocalDomainIterationType::CellIndex: {
                localdomain["landscape"] = DynamicObject(
                    {//{ "iteration_type",
-                    //configuration::convertLocalDomainIterationTypeToStr(localDomainConfig->landscapeObject()->iterationType())
+                    // configuration::convertLocalDomainIterationTypeToStr(localDomainConfig->landscapeObject()->iterationType())
                     //},
                     {"iteration_type", "CellIndex"},
                     {"num_threads", localDomainConfig->numThreads()},
@@ -408,7 +408,9 @@ void WriteSystemConfig::WriteConfig(std::string notificationStr) const {
       } break;
       case configuration::LocalDomainType::Point: {
       } break;
-      default: { } break; }
+      default: {
+      } break;
+   }
 
    // Build pools
    DynamicObject pools;
