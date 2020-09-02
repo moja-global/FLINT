@@ -1,7 +1,5 @@
 #include "moja/flint/operationmanagersimple.h"
 
-
-#include "moja/instrumentor.h"
 #include "moja/flint/externalpoolsimple.h"
 #include "moja/flint/flintexceptions.h"
 #include "moja/flint/imodule.h"
@@ -12,8 +10,8 @@
 #include "moja/flint/poolsimple.h"
 
 #include <moja/exception.h>
+#include <moja/instrumentor.h>
 #include <moja/logging.h>
-#include "moja/instrumentor.h"
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
@@ -68,7 +66,7 @@ std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule
 std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule& module, DynamicVar& dataPackage) {
    MOJA_PROFILE_FUNCTION();
 
-    return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData(), dataPackage);
+   return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData(), dataPackage);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -76,7 +74,7 @@ std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule
 std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(IModule& module) {
    MOJA_PROFILE_FUNCTION();
 
-    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(),
+   return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(),
                                                         &module.metaData());
 }
 
@@ -86,7 +84,7 @@ std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(
                                                                                 DynamicVar& dataPackage) {
    MOJA_PROFILE_FUNCTION();
 
-    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(), &module.metaData(),
+   return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(), &module.metaData(),
                                                         dataPackage);
 }
 
@@ -149,14 +147,15 @@ void OperationManagerSimple::applyOperations() {
             }
 
             // MOJA_LOG_DEBUG << "Simple applyOperations - pool src pre: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pre: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[dstIx] << ", src: " << std::setfill(' ') << std::setw(3) << srcIx <<
+            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pre: " << std::setfill(' ') << std::setw(30)
+            // << std::setprecision(15) << _poolValues[dstIx] << ", src: " << std::setfill(' ') << std::setw(3) << srcIx
+            // <<
             // ", snk: " << std::setfill(' ') << std::setw(3) << dstIx << ", value:" << val << ", ";
             _poolValues[srcIx] -= val;
             _poolValues[dstIx] += val;
             // MOJA_LOG_DEBUG << "Simple applyOperations - pool src pst: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pst: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[dstIx];
+            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pst: " << std::setfill(' ') << std::setw(30)
+            // << std::setprecision(15) << _poolValues[dstIx];
          }
       }
    }
@@ -238,16 +237,15 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
 template <class TPool, typename TInitValue>
 const IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
                                              const std::string& units, double scale, int order, TInitValue initValue) {
-   {
-      MOJA_PROFILE_SCOPE("operationManagerSimple");
+      MOJA_PROFILE_FUNCTION();
       if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
          throw std::invalid_argument("name cannot be empty");
       }
 
       if (_poolValues.size() == _poolValues.capacity()) {
          throw ApplicationException(
-             "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by
-                                                                            // PoolSimple wrappers
+             "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by PoolSimple
+                                                                            // wrappers
       }
 
       _poolValues.push_back(0.0);
@@ -264,7 +262,6 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
 
       return pool.get();
    }
-}
 
 // --------------------------------------------------------------------------------------------
 

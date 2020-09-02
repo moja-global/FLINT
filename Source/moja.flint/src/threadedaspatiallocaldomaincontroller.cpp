@@ -9,8 +9,9 @@
 #include <moja/flint/configuration/spinup.h>
 
 #include <moja/datetime.h>
+#include <moja/instrumentor.h>
 #include <moja/logging.h>
-#include "moja/instrumentor.h"
+
 #include <Poco/Mutex.h>
 
 #include <boost/exception/diagnostic_information.hpp>

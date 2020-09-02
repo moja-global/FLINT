@@ -1,6 +1,7 @@
 #include "moja/logging.h"
 
 #include "moja/environment.h"
+#include "moja/instrumentor.h"
 
 #include <Poco/File.h>
 #include <Poco/Path.h>
@@ -9,7 +10,6 @@
 #include <boost/log/trivial.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/from_stream.hpp>
-#include "moja/instrumentor.h"
 
 #include <fstream>
 

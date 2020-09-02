@@ -1,7 +1,8 @@
 #include "moja/flint/configuration/localdomain.h"
 
+#include <moja/instrumentor.h>
+
 #include <boost/algorithm/string.hpp>
-#include "moja/instrumentor.h"
 
 namespace moja {
 namespace flint {
@@ -36,9 +37,9 @@ LocalDomain::LocalDomain(LocalDomainType type, LocalDomainIterationType iteratio
 }
 
 void LocalDomain::setLandscapeObject(const std::string& providerName, LocalDomainIterationType iterationType) {
-     MOJA_PROFILE_FUNCTION();
+   MOJA_PROFILE_FUNCTION();
 
-    _landscapeObject = std::make_shared<Landscape>(providerName, iterationType);
+   _landscapeObject = std::make_shared<Landscape>(providerName, iterationType);
    _landscapeObject->setIteration(iterationType);
 }
 
