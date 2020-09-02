@@ -100,14 +100,14 @@ void ProxyModule::onSystemInit() {
       }
    }
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::SystemInit);
    }
 }
 
 void ProxyModule::onSystemShutdown() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::SystemShutdown);
    }
 }
@@ -119,119 +119,119 @@ void ProxyModule::onLocalDomainInit() {
       }
    }
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::LocalDomainInit);
    }
 }
 
 void ProxyModule::onLocalDomainShutdown() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::LocalDomainShutdown);
    }
 }
 
 void ProxyModule::onLocalDomainProcessingUnitInit() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::LocalDomainProcessingUnitInit);
    }
 }
 
 void ProxyModule::onLocalDomainProcessingUnitShutdown() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::LocalDomainProcessingUnitShutdown);
    }
 }
 
 void ProxyModule::onPreTimingSequence() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::PreTimingSequence);
    }
 }
 
 void ProxyModule::onTimingInit() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingInit);
    }
 }
 
 void ProxyModule::onTimingPostInit() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingPostInit);
    }
 }
 
 void ProxyModule::onTimingShutdown() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingShutdown);
    }
 }
 
 void ProxyModule::onTimingStep() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingStep);
    }
 }
 
 void ProxyModule::onTimingPreEndStep() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingPreEndStep);
    }
 }
 
 void ProxyModule::onTimingEndStep() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingEndStep);
    }
 }
 
 void ProxyModule::onTimingPostStep() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::TimingPostStep);
    }
 }
 
 void ProxyModule::onOutputStep() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::OutputStep);
    }
 }
 
 void ProxyModule::onError(std::string msg) {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::Error, msg);
    }
 }
 
 void ProxyModule::onDisturbanceEvent(DynamicVar n) {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::DisturbanceEvent, n);
    }
 }
 
 void ProxyModule::onPostDisturbanceEvent() {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::PostDisturbanceEvent);
    }
 }
 
 void ProxyModule::onPostNotification(short preMessageSignal) {
    for (auto& m : _modulesData) {
-      if (m._useVariable ? m._variable->value().convert<bool>() : true)
+      if (m._useVariable ? m._variable->value().extract<bool>() : true)
          m._notificationCenterPtr->postNotification(moja::signals::PostNotification, preMessageSignal);
    }
 }
