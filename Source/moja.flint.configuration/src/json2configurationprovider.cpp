@@ -128,7 +128,9 @@ std::shared_ptr<Configuration> JSON2ConfigurationProvider::createConfiguration()
 Parse and merge run configuration files.
 It only merges up to 2nd level configuration.
 */
+
 void JSON2ConfigurationProvider::mergeJsonConfigFile(std::string fileName, Poco::Dynamic::Var parsedResult) {
+
    MOJA_PROFILE_FUNCTION();
    auto jsonStructFinal = parsedResult.extract<Object::Ptr>();
    std::ifstream file(fileName);
@@ -180,7 +182,9 @@ void JSON2ConfigurationProvider::mergeJsonConfigFile(std::string fileName, Poco:
 Parse and merge data provider configuration files
 it merges only raster-tiled layers configuration. It assumes that other configurations are identical.
 */
+
 void JSON2ConfigurationProvider::mergeJsonProviderConfigFile(std::string fileName, Poco::Dynamic::Var parsedResult) {
+
    MOJA_PROFILE_FUNCTION();
    auto jsonStructFinal = parsedResult.extract<Object::Ptr>();
    auto providerFinal = jsonStructFinal->getObject("Providers");
@@ -245,7 +249,9 @@ void JSON2ConfigurationProvider::mergeJsonProviderConfigFile(std::string fileNam
    }
 }
 
+
 void JSON2ConfigurationProvider::createLocalDomain(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto localDomainStruct = jsonStruct["LocalDomain"].extract<Poco::DynamicStruct>();
@@ -398,7 +404,9 @@ void JSON2ConfigurationProvider::createLocalDomain(Poco::Dynamic::Var& parsedJSO
    config.localDomain()->operationManagerObject()->set_settings(operationManagerSettings);
 }
 
+
 void JSON2ConfigurationProvider::createSpinup(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    if (!jsonStruct.contains("Spinup")) {
@@ -433,7 +441,9 @@ void JSON2ConfigurationProvider::createSpinup(Poco::Dynamic::Var& parsedJSON, Co
    }
 }
 
+
 void JSON2ConfigurationProvider::createLibraries(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto librariesStruct = jsonStruct["Libraries"].extract<Poco::DynamicStruct>();
@@ -459,7 +469,9 @@ bool JSON2ConfigurationProvider::fileExists(const std::string& path) {
    return pf.exists();
 }
 
+
 void JSON2ConfigurationProvider::createProviders(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    auto jsonStruct2 = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto provider = jsonStruct2.getObject("Providers");
@@ -482,7 +494,11 @@ void JSON2ConfigurationProvider::createProviders(Poco::Dynamic::Var& parsedJSON,
    }
 }
 
+
 void JSON2ConfigurationProvider::createPools(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
+   MOJA_PROFILE_FUNCTION();
+
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto poolsItem = jsonStruct["Pools"];
 
@@ -565,6 +581,7 @@ bool JSON2ConfigurationProvider::createSpecialPools(const std::string& poolName,
 bool JSON2ConfigurationProvider::createSpecialVariables(
     const std::pair<const std::string, Poco::Dynamic::Var>& keyValPair, Configuration& config, bool isSpinup) const {
 
+
    MOJA_PROFILE_FUNCTION();
    auto spinup = config.spinup();
    auto varName = keyValPair.first;
@@ -597,8 +614,10 @@ bool JSON2ConfigurationProvider::createSpecialVariables(
    return false;
 }
 
+
 void JSON2ConfigurationProvider::createVariables(Poco::Dynamic::Var& parsedJSON, Configuration& config,
                                                  bool isSpinup) const {
+
    MOJA_PROFILE_FUNCTION();
    auto spinup = config.spinup();
    const std::string configSection = isSpinup ? "SpinupVariables" : "Variables";
@@ -644,7 +663,9 @@ void JSON2ConfigurationProvider::createVariables(Poco::Dynamic::Var& parsedJSON,
    }
 }
 
+
 void JSON2ConfigurationProvider::createModules(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto modulesStruct = jsonStruct["Modules"].extract<Poco::DynamicStruct>();
@@ -675,7 +696,9 @@ void JSON2ConfigurationProvider::createModules(Poco::Dynamic::Var& parsedJSON, C
    }
 }
 
+
 void JSON2ConfigurationProvider::createSpinupModules(Poco::Dynamic::Var& parsedJSON, Configuration& config) const {
+
    MOJA_PROFILE_FUNCTION();
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto modulesStruct = jsonStruct["SpinupModules"].extract<Poco::DynamicStruct>();
