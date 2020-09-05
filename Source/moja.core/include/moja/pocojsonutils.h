@@ -12,11 +12,11 @@ namespace moja {
 
 DateTime CORE_API parseSimpleDate(const std::string& yyyymmdd);
 
-DynamicVar CORE_API parsePocoJSONToDynamic(const DynamicVar& data);
+DynamicVar CORE_API parsePocoJSONToDynamic(const Poco::Dynamic::Var& data);
 DynamicVector CORE_API parsePocoJSONToDynamic(const Poco::JSON::Array::Ptr& val);
 DynamicVar CORE_API parsePocoJSONToDynamic(const Poco::JSON::Object::Ptr& val);
 
-DynamicVar CORE_API parsePocoVarToDynamic(const DynamicVar& var);
+DynamicVar CORE_API parsePocoVarToDynamic(const Poco::Dynamic::Var& var);
 
 }  // namespace moja
 

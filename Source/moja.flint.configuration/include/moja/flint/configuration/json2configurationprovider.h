@@ -34,21 +34,21 @@ class CONFIGURATION_API JSON2ConfigurationProvider : public IConfigurationProvid
 
    static bool fileExists(const std::string& path);
 
-   void createLocalDomain(DynamicVar& parsedJSON, Configuration& config) const;
-   void createSpinup(DynamicVar& parsedJSON, Configuration& config) const;
-   void createLibraries(DynamicVar& parsedJSON, Configuration& config) const;
-   void createProviders(DynamicVar& parsedJSON, Configuration& config) const;
-   void createPools(DynamicVar& parsedJSON, Configuration& config) const;
+   void createLocalDomain(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
+   void createSpinup(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
+   void createLibraries(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
+   void createProviders(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
+   void createPools(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
    bool createSpecialPools(const std::string& poolName, const Poco::DynamicStruct& poolSettings,
                            Configuration& config) const;
-   bool createSpecialVariables(const std::pair<const std::string, DynamicVar>& keyValPair, Configuration& config,
-                               bool isSpinup) const;
-   void createVariables(DynamicVar& parsedJSON, Configuration& config, bool isSpinup = false) const;
-   void createModules(DynamicVar& parsedJSON, Configuration& config) const;
-   void createSpinupModules(DynamicVar& parsedJSON, Configuration& config) const;
+   bool createSpecialVariables(const std::pair<const std::string, Poco::Dynamic::Var>& keyValPair,
+                               Configuration& config, bool isSpinup) const;
+   void createVariables(Poco::Dynamic::Var& parsedJSON, Configuration& config, bool isSpinup = false) const;
+   void createModules(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
+   void createSpinupModules(Poco::Dynamic::Var& parsedJSON, Configuration& config) const;
 
-   void mergeJsonConfigFile(std::string fileName, DynamicVar parsedResult);
-   void mergeJsonProviderConfigFile(std::string fileName, DynamicVar parsedResult);
+   void mergeJsonConfigFile(std::string fileName, Poco::Dynamic::Var parsedResult);
+   void mergeJsonProviderConfigFile(std::string fileName, Poco::Dynamic::Var parsedResult);
 };
 
 }  // namespace configuration

@@ -34,7 +34,7 @@ static const auto EOL_CHR = "\r\n";
 // --------------------------------------------------------------------------------------------
 
 void AggregatorFileWriter::configure(const DynamicObject& config) {
-   _fileName = config["filename"].convert<std::string>();
+   _fileName = config["filename"].extract<std::string>();
 
    _writeFileHeader = true;
    if (config.contains("write_header")) {
@@ -156,8 +156,8 @@ inline static std::string recordToStringFunc(DateRow& rec, const std::string& dl
        .str();
 };
 // inline static std::string recordToStringFunc(Date2Row		& rec, const std::string& dl) { return
-// (boost::format("%2%%1%%3%")										% dl % rec.get<0>() %
-// rec.get<1>()).str(); };
+// (boost::format("%2%%1%%3%")										% dl %
+// rec.get<0>() % rec.get<1>()).str(); };
 inline static std::string recordToStringFunc(Date2Row& rec, const std::string& dl) {
    return (boost::format("%1%") % rec.get<1>()).str();
 };
