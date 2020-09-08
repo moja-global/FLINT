@@ -31,7 +31,7 @@ class SQLiteConnection {
          }
       }
 
-      if (sqlite3_open(path.c_str(), &_conn) != SQLITE_OK) {
+      if (sqlite3_open_v2(path.c_str(), &_conn, SQLITE_OPEN_READONLY | SQLITE_OPEN_NOMUTEX, 0) != SQLITE_OK) {
          BOOST_THROW_EXCEPTION(ConnectionFailedException() << ConnectionError(sqlite3_errmsg(_conn)));
       }
 
