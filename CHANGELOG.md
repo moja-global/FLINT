@@ -44,13 +44,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 
 ## [1.1.0] - 2019-12-20
-Earlier changes TBC
-
 ### Added
+- Added clang format file
+
 ### Changed
-### Removed
+- Updated README and Vpckg
+- Updated flint.test project (*is this the same as FLINT.example?*)
+- Updated the FLINT Dockerfiles
+- Large upgrade of cmake files
+- zipper and turtle fixes (*what's a turtle?*)
+- Fixed issues on Linux build, including missing link lib
+- Fixed issue when no provider config passed to cli
+- Moved Poco nullable hash to `folly` namespace (*what's a folly?*)
+- Fixed issues hashing Poco Nullables
+- Fixed linux warnings and added error handling for writing gdal rasters
+- Fix for internal FLINT lib load - providers (*what's a provider?*)
+- Fixed issues for SLEEK (*is there an issue for this?*)
 
 ## [1.0.1] - 2019-07-30
+Earlier changes TBC
+
 ### Added
 ### Changed
 
