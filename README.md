@@ -21,136 +21,23 @@ The FLINT is using the lessons learned from first generation tools, to build a n
 + development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
 + software that allows data processing on local desktops or cloud-based systems   
 
+## Installation Docs
 
-## How to use FLINT?  
+Please checkout the [moja global developer docs](https://docs.moja.global.com) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
 
-### Development Environment How-To for Windows
+## Installation Videos
 
-These instructions are for building the FLINT on Windows using Visual Studio 2017, or Visual Studio 2019.
-
-#### Required Installs
-
-##### CMake
-
-- download [cmake-3.15.2-win64-x64.msi](https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.msi)
-
-#### Using vcpkg to install required libraries
-
-A fork of a *Vcpkg* repository has been created for the FLINT required libraries. To build these libraries you can use the following process:
-
-+ Clone the Vcpkg repository: https://github.com/moja-global/vcpkg
-
-+ Start a command shell in the Vcpkg repository folder and use the following commands:
-
-  ```powershell
-  # bootstrap
-  bootstrap-vcpkg.bat
-
-  # install packages
-  vcpkg.exe install boost-test:x64-windows boost-program-options:x64-windows boost-log:x64-windows turtle:x64-windows zipper:x64-windows poco:x64-windows libpq:x64-windows gdal:x64-windows sqlite3:x64-windows boost-ublas:x64-windows fmt:x64-windows
-  ```
-
-+ Once this has completed, start a command shell in you FLINT repository folder. Now use the following commands to create the Visual Studio solution:
-
-  ```powershell
-  # Create a build folder under the Source folder
-  cd Source
-  mkdir build
-  cd build
-
-  # now create the Visual Studio Solution (2019)
-  cmake -G "Visual Studio 16 2019" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
-
-  # OR Visual Studio Solution (2017)
-  cmake -G "Visual Studio 15 2017" -DCMAKE_INSTALL_PREFIX=C:/Development/Software/moja -DVCPKG_TARGET_TRIPLET=x64-windows -DENABLE_TESTS=OFF -DENABLE_MOJA.MODULES.ZIPPER=OFF -DCMAKE_TOOLCHAIN_FILE=c:\Development\moja-global\vcpkg\scripts\buildsystems\vcpkg.cmake ..
-  ```
-
-#### Install Moja Libraries
-
-It is possible to use the Visual Studio moja solution to install built versions of the Moja libraries. To do this you need to set the CMAKE variable '***CMAKE_INSTALL_PREFIX***' to your install path (i.e. "*C:/Development/Software/moja*").
-
-#### Make edits to the Visual Studio Solution using CMake
-
-1. Launch the CMake GUI
-2. In the '*Where to build the binaries*' field click “Browse Build…” and select the folder you created above (i.e. `C:\Development\moja-global\FLINT\Source\build`)`.  The '*Where is the source code:*' field should update, if not, set it correctly.
-4. You should be able to edit any CMake setting now (i.e. ENABLE flags like `ENABLE_TESTS`), then click “***Configure***” – assuming all libraries and required software has been installed you should have no errors. Now click ***"Generate"*** and the Solution with adjustments should be ready to load into Visual Studio.
-
-#### Other Useful Tools
-
-##### SQLIte Studio
-
-a simple windows SQLite database manager (http://sqlitestudio.pl/)
-[sqlitestudio-3.1.0.zip](http://sqlitestudio.pl/files/sqlitestudio3/complete/win32/sqlitestudio-3.1.0.zip)
-
-##### TortoiseGit
-
-[TortoiseGit](https://code.google.com/p/tortoisegit/wiki/Download)
-
-### Docker for Ubuntu 18:04
-
-Containers are a simple way to build FLINT and all required dependencies. Examples of how this can be done are provided for Ubuntu 18.04. See the [Examples docker directory.](https://github.com/moja-global/flint/tree/master/Examples/docker)
-
-#### Building the containers
-
-The build has been split into two Dockerfiles, the first to get and build required libraries. The second to get and build the moja FLINT libraries and CLI program.
-
-```bash
-# working from the examples folder "flint/tree/master/Examples/docker"
-
-# build the base
-docker build -f Dockerfile.base.ubuntu.18.04 --build-arg NUM_CPU=4 -t moja/baseimage:ubuntu-18.04 .
-
-# build the flint container
-docker build  -f Dockerfile.flint.ubuntu.18.04 --build-arg NUM_CPU=4 --build-arg FLINT_BRANCH=master -t moja/flint:ubuntu-18.04 .
-
-docker build  -f Dockerfile.flint.ubuntu.18.04 --build-arg NUM_CPU=4 --build-arg GITHUB_AT=XXXX --build-arg FLINT_BRANCH=master -t moja/flint:ubuntu-18.04 .
-```
-
-How to use the final container depends on the task. However, the following command will bash into the flint container and allow you to use the CLI program.
-
-```bash
-# run bash on the flint container
-docker run --rm -ti moja/flint:ubuntu-18.04 bash
-```
-
-Once in, you should be able to run the CLI program `moja.cli`
-
-```
-# run CLI
-moja.cli --help
-```
-
-That should respond:
-
-```
-Allowed options:
-
-General options:
-  -h [ --help ]          produce a help message
-  --help-section arg     produce a help message for a named section
-  -v [ --version ]       output the version number
-
-Commandline only options:
-  --logging_config arg   path to Moja logging config file
-  --config_file arg      path to Moja run config file
-  --provider_file arg    path to Moja data provider config file
-
-Configuration file options:
-  --config arg           path to Moja project config files
-  --config_provider arg  path to Moja project config files for data providers
-```
-
+We also have a set of installation videos to help you out with the installation. If you prefer video installation procedure as opposed to textual documentation, this will be a perfect starter for you!
 
 ## How to Get Involved?  
 
-moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja-global Wiki](https://github.com/moja-global/.github/wiki).  
-
+moja global welcomes a wide range of contributions as explained in [Contributing document](https://docs.moja.global/en/latest/contributing/index.html).
 
 ## FAQ and Other Questions  
 
-* You can find FAQs on the [Wiki](https://github.com/moja.global/.github/wiki).  
+* You can find FAQs on the [FAQs section of our docs](https://docs.moja.global/en/latest/faq.html).  
 * If you have a question about the code, submit [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) in the relevant repository  
-* If you have a general question about a project or repository or moja global, [join moja global](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Join-moja-global.md) and
+* If you have a general question about a project or repository or moja global, [join moja global](https://docs.moja.global/en/latest/contact.html) and
     * [submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
     * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
 * If you have other questions, please write to info@moja.global   
