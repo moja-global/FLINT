@@ -7,8 +7,7 @@
 #
 # ==================================================================================================================
 
-#FROM moja/baseimage:ubuntu-18.04
-FROM moja/baseimage:mg
+FROM moja/baseimage:ubuntu-18.04
 
 LABEL maintainer="info@moja.global"
 
