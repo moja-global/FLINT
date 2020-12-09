@@ -190,6 +190,11 @@ class RecordAccumulator2 {
       _records.clear();
    }
 
+   void shrink_to_fit() {
+      _recordsIdx.clear();
+      _records.shrink_to_fit();
+   }
+
    rec_accu_size_type size() const { return _records.size(); }
 
    const rec_accu_vec& records() const { return _records; }
