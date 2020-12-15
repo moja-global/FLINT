@@ -12,6 +12,7 @@
 #include <numeric>
 #include <unordered_set>
 #include <vector>
+#include <algorithm>
 
 namespace moja {
 namespace flint {
@@ -185,9 +186,25 @@ class RecordAccumulator2 {
       return persistables;
    }
 
+   std::vector<TPersistable> getPersistableCollectionRange(typename rec_accu_vec::const_iterator& rangeStart,
+                                                           size_t chunkSize) const {
+      std::vector<TPersistable> persistables;
+      persistables.reserve((std::min)(_records.size(), chunkSize));
+      size_t chunkPosition = 0;
+      for (; (rangeStart != _records.end() && chunkPosition++ < chunkSize); ++rangeStart) {
+         persistables.emplace_back((*rangeStart).asPersistable());
+      }
+      return persistables;
+   }
+
    void clear() {
       _recordsIdx.clear();
       _records.clear();
+   }
+
+   void shrink_to_fit() {
+      _recordsIdx.clear();
+      _records.shrink_to_fit();
    }
 
    rec_accu_size_type size() const { return _records.size(); }
@@ -198,6 +215,173 @@ class RecordAccumulator2 {
    Int64 _nextId = 1;
    rec_accu_set _recordsIdx;
    rec_accu_vec _records;
+};
+
+template <class TPersistable, class TRecord>
+class list_of_persistables {
+   using vec_type = std::vector<TRecord>;
+   const vec_type& accumulator_vec_;
+
+  public:
+   template <bool Const>
+   class persistables_iterator {
+      using iterator_type = std::conditional_t<Const, typename vec_type::const_iterator, typename vec_type::iterator>;
+      iterator_type iterator_current_;
+      iterator_type iterator_end_;
+      TPersistable record_{};
+
+     public:
+      explicit persistables_iterator(iterator_type iterator_begin, iterator_type iterator_end)
+          : iterator_current_{iterator_begin}, iterator_end_(iterator_end) {
+         if (iterator_current_ != iterator_end_) {
+            const auto& record = *iterator_current_;
+            record_ = record.asPersistable();
+         }
+      }
+      using difference_type = std::ptrdiff_t;
+      using value_type = TPersistable;
+      using pointer = std::conditional_t<Const, const value_type*, value_type*>;
+      using reference = std::conditional_t<Const, const value_type&, value_type&>;
+      using iterator_category = std::forward_iterator_tag;
+
+      reference operator*() const { return record_; }
+      pointer operator->() const { return &record_; }
+
+      auto& operator++() {
+         ++iterator_current_;
+         if (iterator_current_ != iterator_end_) {
+            const auto& record = *iterator_current_;
+            record_ = record.asPersistable();
+         }
+         return *this;
+      }
+
+      auto operator++(int) {
+         auto result = *this;
+         ++*this;
+         return result;
+      }
+      // Support comparison between iterator and const_iterator types
+      template <bool R>
+      bool operator==(const persistables_iterator<R>& rhs) const {
+         return iterator_current_ == rhs.iterator_current_;
+      }
+
+      template <bool R>
+      bool operator!=(const persistables_iterator<R>& rhs) const {
+         return iterator_current_ != rhs.iterator_current_;
+      }
+
+      // Support implicit conversion of iterator to const_iterator
+      // (but not vice versa)
+      operator persistables_iterator<true>() const {
+         return persistables_iterator<true>(iterator_current_, iterator_end_);
+      }
+   };
+
+   using const_iterator = persistables_iterator<true>;
+   using iterator = persistables_iterator<false>;
+
+   list_of_persistables(const vec_type& vec) : accumulator_vec_{vec} {}
+
+   // Begin and end member functions
+   iterator begin() { return iterator{std::begin(accumulator_vec_), std::end(accumulator_vec_)}; }
+   iterator end() { return iterator{std::end(accumulator_vec_), std::end(accumulator_vec_)}; }
+   const_iterator begin() const { return const_iterator{std::cbegin(accumulator_vec_), std::cend(accumulator_vec_)}; }
+   const_iterator end() const { return const_iterator{std::cend(accumulator_vec_), std::cend(accumulator_vec_)}; }
+
+   // Other member operations
+   const auto& front() const { return accumulator_vec_.front().asPersistable(); }
+   [[nodiscard]] bool empty() const noexcept { return accumulator_vec_.empty(); }
+
+   typename vec_type::size_type size() const { return accumulator_vec_.size(); }
+};
+
+template <class TPersistable, class TRecord>
+class RecordAccumulator3 {
+   struct RecordComparer {
+      bool operator()(const TRecord* lhs, const TRecord* rhs) const { return lhs->operator==(*rhs); }
+   };
+   struct RecordHasher {
+      size_t operator()(const TRecord* record) const { return record->hash(); }
+   };
+   size_t compute_size() {
+      if (records_.capacity() == 0) {
+         return (std::max)(64 / sizeof(TRecord), size_t(1));
+      }
+      if (records_.capacity() > 4096 * 32 / sizeof(TRecord)) {
+         return records_.capacity() * 2;
+      }
+      return (records_.capacity() * 3 + 1) / 2;
+   }
+
+  public:
+   typedef std::unordered_set<TRecord*, RecordHasher, RecordComparer> rec_accu_set;
+   typedef std::vector<TRecord> rec_accu_vec;
+   typedef typename rec_accu_vec::size_type rec_accu_size_type;
+
+   const TRecord* insert(Int64 id, TRecord record) {
+      if (records_.size() == records_.capacity()) {
+         records_idx_.clear();
+         records_.reserve(compute_size());
+         for (auto& rec : records_) {
+            records_idx_.insert(&rec);
+         }
+      }
+      // ID has been assigned by user, assume that we can run with this
+      next_id_ = id + 1;  // can't guarantee that this will be called in 'id increasing' order but a good guess perhaps
+      record.setId(id);
+      records_.push_back(record);
+      auto& new_record = records_.back();
+      records_idx_.insert(&new_record);
+      return &new_record;
+   }
+
+   const TRecord* accumulate(TRecord record) { return accumulate(record, next_id_); }
+
+   const TRecord* accumulate(TRecord record, Int64 requestedId) {
+      auto it = records_idx_.find(&record);
+      if (it != records_idx_.end()) {
+         // Found an existing ID for the key.
+         auto existing = *it;
+         existing->merge(record);
+         return existing;
+      }
+      return insert(requestedId, record);
+   }
+
+   const TRecord* search(const TRecord& record) {
+      auto it = records_idx_.find(&record);
+      if (it != records_idx_.end()) {
+         // Found an existing ID for the key.
+         auto existing = *it;
+         return existing;
+      }
+      return nullptr;
+   }
+
+   const rec_accu_vec& get_records() const { return records_; }
+
+   void clear() {
+      records_idx_.clear();
+      records_.clear();
+   }
+
+   void shrink_to_fit() {
+      records_idx_.clear();
+      records_.shrink_to_fit();
+   }
+
+   rec_accu_size_type size() const { return records_.size(); }
+
+   const rec_accu_vec& records() const { return records_; }
+
+   auto persistables() const { return list_of_persistables<TPersistable, TRecord>{records_}; }
+
+  private:
+   Int64 next_id_ = 1;
+   rec_accu_set records_idx_;
+   rec_accu_vec records_;
 };
 
 template <class TPersistable, class TRecordConv, class TKey, class TValue>
