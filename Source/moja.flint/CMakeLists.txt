@@ -2,6 +2,8 @@ set(PACKAGE "flint")
 set(LIBNAME "moja.${PACKAGE}")
 string(TOUPPER "${PACKAGE}" LIBNAME_EXPORT)
 
+find_package(fmt REQUIRED)
+
 if(ENABLE_MOJAPY)
   if(CMAKE_SYSTEM MATCHES "Windows")
     set(PYTHON_LIBRARY
@@ -66,6 +68,9 @@ configure_file(
   ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/${PACKAGE}/_${PACKAGE}_exports.h)
 
 set(MOJA_INT_GENERATED_HEADERS include/moja/${PACKAGE}/_${PACKAGE}_exports.h)
+
+set(MOJA_Core_external_folly_hash_headers external/folly/hash/SpookyHashV2.h
+                                          external/folly/hash/Hash.h)
 
 set(MOJA_FLINT_MODULE_HEADERS
     include/moja/flint/aggregatorfluxstep.h
@@ -328,7 +333,7 @@ target_include_directories(
 
 target_link_libraries(
   ${LIBNAME} PUBLIC moja::moja.core moja::moja.flint.configuration
-                    moja::moja.datarepository)
+                    moja::moja.datarepository fmt::fmt-header-only)
 
 if(ENABLE_MOJAPY)
   target_link_libraries(${LIBNAME} PRIVATE ${PYTHON_LIBRARIES})
