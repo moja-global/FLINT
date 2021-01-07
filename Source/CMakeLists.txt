@@ -50,6 +50,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_DEBUG_POSTFIX "d" CACHE STRING "Set debug library postfix" FORCE)
 
 option(ENABLE_TESTS				"Set to OFF|ON (default is ON) to control build of moja tests" ON)
+option(ENABLE_BENCH       "Set to OFF|ON (default is ON) to control build of moja benchmarks" ON)
 option(RUN_UNIT_TESTS_ON_BUILD	"Set to OFF|ON (default is OFF) to control automatic running of moja tests at build time" OFF)
 option(MOJA_STATIC				"Set to OFF|ON (default is OFF) to control build of moja as STATIC library" OFF)
 
