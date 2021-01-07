@@ -1,5 +1,6 @@
 #include "moja/flint/ioperation.h"
 #include "moja/flint/operationmanagersimplecache.h"
+#include "moja/flint/operationmanagercohort.h"
 #include "moja/flint/operationmanagerublas.h"
 
 #include <moja/flint/modulebase.h>
@@ -99,6 +100,13 @@ static void BM_SimpleProportionTransfer(benchmark::State& state) {
 
 BENCHMARK(BM_SimpleProportionTransfer)->Threads(1);
 
+static void BM_CohortProportionTransfer(benchmark::State& state) {
+   benchmark_module<OperationManagerCohort> benchmark_module("Cohort");
+   do_proportional(state, benchmark_module);
+}
+
+BENCHMARK(BM_CohortProportionTransfer)->Threads(1);
+
 void BM_SimpleCacheProportionTransfer(benchmark::State& state) {
    benchmark_module<OperationManagerSimpleCache> benchmark_module("Simple Cached");
    do_proportional(state, benchmark_module);
@@ -119,6 +127,13 @@ static void BM_SimpleStockTransfer(benchmark::State& state) {
 }
 
 BENCHMARK(BM_SimpleStockTransfer)->Threads(1);
+
+static void BM_CohortStockTransfer(benchmark::State& state) {
+   benchmark_module<OperationManagerCohort> benchmark_module("Simple Pooled");
+   do_stock(state, benchmark_module);
+}
+
+BENCHMARK(BM_CohortStockTransfer)->Threads(1);
 
 void BM_SimpleCacheStockTransfer(benchmark::State& state) {
    benchmark_module<OperationManagerSimpleCache> benchmark_module("Simple Cached");

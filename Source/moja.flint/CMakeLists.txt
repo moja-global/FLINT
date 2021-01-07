@@ -183,6 +183,17 @@ set(MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS
     include/moja/flint/operationtransfersimple.h
     include/moja/flint/poolsimple.h)
 
+set(MOJA_FLINT_OPERATION_MANAGER_COHORT_HEADERS
+    include/moja/flint/externalpoolcohort.h
+    include/moja/flint/operationmanagercohort.h
+    include/moja/flint/operationresultfluxcohort.h
+    include/moja/flint/operationresultfluxiteratorcohort.h
+    include/moja/flint/operationproportionalcohort.h
+    include/moja/flint/operationstockcohort.h
+    include/moja/flint/operationresultcohort.h
+    include/moja/flint/operationtransfercohort.h
+    include/moja/flint/poolcohort.h)
+
 set(MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS
     include/moja/flint/operationmanagersimplecache.h
     include/moja/flint/operationresultfluxsimplecache.h
@@ -259,6 +270,12 @@ set(MOJA_FLINT_SOURCES
     src/recordaccumulatorwithmutex.cpp
     src/variableandpoolstringbuilder.cpp)
 
+
+set(MOJA_FLINT_OPERATION_MANAGER_COHORT_SOURCE
+    src/externalpoolcohort.cpp src/poolcohort.cpp
+    src/operationmanagercohort.cpp src/operationproportionalcohort.cpp
+    src/operationresultcohort.cpp src/operationstockcohort.cpp)
+
 set(MOJA_FLINT_OPERATION_MANAGER_SIMPLE_SOURCE
     src/externalpoolsimple.cpp src/poolsimple.cpp
     src/operationmanagersimple.cpp src/operationproportionalsimple.cpp
@@ -284,6 +301,10 @@ source_group("header files\\flintdata" FILES ${MOJA_FLINT_FLINTDATA_HEADERS})
 source_group("source files\\flintdata" FILES ${MOJA_FLINT_FLINTDATA_SOURCES})
 source_group("header files\\ioperationmanager"
              FILES ${MOJA_FLINT_IOPERATION_MANAGER_HEADERS})
+source_group("header files\\op_man_cohort"
+             FILES ${MOJA_FLINT_OPERATION_MANAGER_COHORT_HEADERS})
+source_group("source files\\op_man_cohort"
+             FILES ${MOJA_FLINT_OPERATION_MANAGER_COHORT_SOURCE})
 source_group("header files\\op_man_simple"
              FILES ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS})
 source_group("source files\\op_man_simple"
@@ -308,6 +329,8 @@ set(SRCS
     ${MOJA_FLINT_FLINTDATA_SOURCES}
     ${MOJA_FLINT_FLINTDATA_HEADERS}
     ${MOJA_FLINT_IOPERATION_MANAGER_HEADERS}
+    ${MOJA_FLINT_OPERATION_MANAGER_COHORT_HEADERS}
+    ${MOJA_FLINT_OPERATION_MANAGER_COHORT_SOURCE}
     ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS}
     ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_SOURCE}
     ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS}
