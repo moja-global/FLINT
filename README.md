@@ -23,7 +23,7 @@ The FLINT is using the lessons learned from first generation tools, to build a n
 
 ## Installation Docs
 
-Please checkout the [moja global developer docs](https://docs.moja.global/en/latest/) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
+Please checkout the [moja global developer docs](https://docs.moja.global/en/latest/) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](https://github.com/moja-global/GSoD.moja_global_docs).
 
 ## Installation Videos
 
