@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(moja VERSION 1.0.6 LANGUAGES CXX)
+project(moja VERSION 1.1.0 LANGUAGES CXX)
 
 #turn on using solution folders
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
@@ -8,7 +8,7 @@ set_property( GLOBAL PROPERTY USE_FOLDERS ON)
 add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/MP>)
 
 set(MOJA_VERSION_MAJOR "1")
-set(MOJA_VERSION_MINOR "0")
+set(MOJA_VERSION_MINOR "1")
 set(MOJA_VERSION_PATCH "0")
 set(MOJA_VERSION_REVISION "0")
 set(MOJA_VERSION "${MOJA_VERSION_MAJOR}.${MOJA_VERSION_MINOR}.${MOJA_VERSION_PATCH}")
