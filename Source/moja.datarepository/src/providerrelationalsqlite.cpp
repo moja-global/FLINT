@@ -127,11 +127,9 @@ class ProviderRelationalSQLite::impl {
 
       std::vector<DynamicObject> result;
       const int nCols = stmt.n_cols();
-      std::vector<SQLiteStatement::ColumnType> columnTypes(nCols);
       std::vector<std::string> columnNames(nCols);
       for (int i = 0; i < nCols; i++) {
          columnNames[i] = stmt.column_name(i);
-         columnTypes[i] = stmt.column_type(i);
       }
 
       for (; resultCode == SQLITE_ROW || resultCode == SQLITE_BUSY || resultCode == SQLITE_LOCKED ||
@@ -140,7 +138,7 @@ class ProviderRelationalSQLite::impl {
          DynamicObject row;
 
          for (int i = 0; i < nCols; i++) {
-            switch (columnTypes[i]) {
+            switch (stmt.column_type(i)) {
                case SQLiteStatement::ColumnType::DOUBLE: {
                   row.insert(columnNames[i], stmt.column_double(i));
                } break;
