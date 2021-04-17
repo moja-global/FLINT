@@ -28,6 +28,13 @@ Please checkout the [moja global developer docs](https://docs.moja.global) for c
 ## Installation Videos
 
 We also have a set of installation videos to help you out with the installation. If you prefer video installation procedure as opposed to textual documentation, this will be a perfect starter for you!
+1. [FLINT Core on Visual Studio 2019](https://www.youtube.com/watch?v=BmHltWrxCTY&t=9s)
+2. [FLINT Example (RothC model) on Visual Studio](https://www.youtube.com/watch?v=Jfi2-vEhfkg)
+3. [FLINT Example (Chapman Richards model) on Visual Studio](https://www.youtube.com/watch?v=JFTyeZQbPjI)
+4. [FLINT Docker on Ubuntu 20.04](https://www.youtube.com/watch?v=eiCPhv-SRNc) 
+
+To learn more, you can also visit the [moja global youtube channel](https://www.youtube.com/channel/UCfQUrrNP1Xf-Fv4c8uHYXhQ).
+
 
 ## How to Get Involved?  
 
