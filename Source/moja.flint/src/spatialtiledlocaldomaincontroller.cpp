@@ -792,26 +792,10 @@ bool SpatialTiledLocalDomainController::runCellSpinUp(std::shared_ptr<StatsUnitR
          blockStatsUnit->_unitsProcessed++;
          return true;
       } catch (const flint::SimulationError& e) {
-         // std::string details = *(boost::get_error_info<Details>(e));
-         // std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-         // std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-         // const int* errorCode = boost::get_error_info<ErrorCode>(e);
-         //_spatiallocationinfo->_errorCode = *errorCode;
-         //_spatiallocationinfo->_library = libraryName;
-         //_spatiallocationinfo->_module = moduleName;
-         //_spatiallocationinfo->_message = details;
          std::string details = _handleFLINTException(e);  // Template function call
          _spinupNotificationCenter.postNotification(moja::signals::Error, details);
          return true;
       } catch (const flint::LocalDomainError& e) {
-         // std::string details = *(boost::get_error_info<Details>(e));
-         // std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-         // std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-         // const int* errorCode = boost::get_error_info<ErrorCode>(e);
-         //_spatiallocationinfo->_errorCode = *errorCode;
-         //_spatiallocationinfo->_library = libraryName;
-         //_spatiallocationinfo->_module = moduleName;
-         //_spatiallocationinfo->_message = details;
          std::string details = _handleFLINTException(e);  // Template function call
          _spinupNotificationCenter.postNotification(moja::signals::Error, details);
       } catch (flint::VariableNotFoundException& e) {
