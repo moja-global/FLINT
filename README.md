@@ -23,11 +23,18 @@ The FLINT is using the lessons learned from first generation tools, to build a n
 
 ## Installation Docs
 
-Please checkout the [moja global developer docs](https://docs.moja.global.com) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
+Please checkout the [moja global developer docs](https://docs.moja.global) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
 
 ## Installation Videos
 
 We also have a set of installation videos to help you out with the installation. If you prefer video installation procedure as opposed to textual documentation, this will be a perfect starter for you!
+1. [FLINT Core on Visual Studio 2019](https://www.youtube.com/watch?v=BmHltWrxCTY&t=9s)
+2. [FLINT Example (RothC model) on Visual Studio](https://www.youtube.com/watch?v=Jfi2-vEhfkg)
+3. [FLINT Example (Chapman Richards model) on Visual Studio](https://www.youtube.com/watch?v=JFTyeZQbPjI)
+4. [FLINT Docker on Ubuntu 20.04](https://www.youtube.com/watch?v=eiCPhv-SRNc) 
+
+To learn more, you can also visit the [moja global youtube channel](https://www.youtube.com/channel/UCfQUrrNP1Xf-Fv4c8uHYXhQ).
+
 
 ## How to Get Involved?  
 
@@ -39,7 +46,7 @@ moja global welcomes a wide range of contributions as explained in [Contributing
 * If you have a question about the code, submit [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) in the relevant repository  
 * If you have a general question about a project or repository or moja global, [join moja global](https://docs.moja.global/en/latest/contact.html) and
     * [submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
-    * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
+    * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](https://mojaglobal.slack.com).
 * If you have other questions, please write to info@moja.global   
 
 
