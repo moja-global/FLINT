@@ -15,15 +15,15 @@ The FLINT makes developing and operating advanced systems achievable by all coun
 The FLINT is using the lessons learned from first generation tools, to build a new framework that meets present and future needs. The key improvements compared to the first generation tools include:
 + a flexible, modular approach, allowing for country specific implementations from [IPCC Tier 1 to 3 ](https://www.reddcompass.org/mgd-content-v1/dita-webhelp/en/Box1.html)
 + support for [wall-to-wall, sample based, jurisdictional, and supply chain approaches](https://static1.squarespace.com/static/5896200f414fb57d26f3d600/t/59362b028419c2db8f57e747/1496722191543/REDD_nested_projects.pdf)
-+ the ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+](https://theredddesk.org/what-redd)
++ the ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+](https://unfccc.int/topics/land-use/workstreams/redd/what-is-redd)
 + scenario analysis systems to allow the development of projections
 + the potential to be used for multiple other purposes, including economics, water and biodiversity
-+ development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
++ development managed using a true open source approach under [moja global](https://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
 + software that allows data processing on local desktops or cloud-based systems   
 
 ## Installation Docs
 
-Please checkout the [moja global developer docs](https://docs.moja.global) for complete instructions on how to setup the repository. You may also refer this documentation for setting up FLINT.example, GCBM or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
+Please checkout the [moja global developer docs](https://docs.moja.global) for complete instructions on how to setup the repository. You may also refer this documentation for setting up [FLINT.example](https://docs.moja.global/en/latest/DevelopmentSetup/FLINT.example_installation.html), [GCBM](https://docs.moja.global/en/latest/GCBMDevelopmentSetup/index.html) or just get an idea of the moja global workflow! You may also suggest an improvement in the current docs by creating an issue [here](hhttps://github.com/moja-global/GSoD.moja_global_docs).
 
 ## Installation Videos
 
@@ -69,4 +69,4 @@ The following people are Maintainers of this repository
 **Maintainers** review and accept proposed changes  
 **Reviewers** check proposed changes before they go to the Maintainers  
 **Ambassadors** are available to provide training related to this repository  
-**Coaches** are available to provide information to new contributors to this repository  
+**Coaches** are available to provide information to new contributors to this repository
