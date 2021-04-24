@@ -15,10 +15,10 @@ The FLINT makes developing and operating advanced systems achievable by all coun
 The FLINT is using the lessons learned from first generation tools, to build a new framework that meets present and future needs. The key improvements compared to the first generation tools include:
 + a flexible, modular approach, allowing for country specific implementations from [IPCC Tier 1 to 3 ](https://www.reddcompass.org/mgd-content-v1/dita-webhelp/en/Box1.html)
 + support for [wall-to-wall, sample based, jurisdictional, and supply chain approaches](https://static1.squarespace.com/static/5896200f414fb57d26f3d600/t/59362b028419c2db8f57e747/1496722191543/REDD_nested_projects.pdf)
-+ the ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+](https://theredddesk.org/what-redd)
++ the ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+](https://unfccc.int/topics/land-use/workstreams/redd/what-is-redd)
 + scenario analysis systems to allow the development of projections
 + the potential to be used for multiple other purposes, including economics, water and biodiversity
-+ development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
++ development managed using a true open source approach under [moja global](https://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
 + software that allows data processing on local desktops or cloud-based systems   
 
 ## Installation Docs
