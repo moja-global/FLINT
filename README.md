@@ -69,4 +69,6 @@ The following people are Maintainers of this repository
 **Maintainers** review and accept proposed changes  
 **Reviewers** check proposed changes before they go to the Maintainers  
 **Ambassadors** are available to provide training related to this repository  
-**Coaches** are available to provide information to new contributors to this repository  
+**Coaches** are available to provide information to new contributors to this repository
+
+
