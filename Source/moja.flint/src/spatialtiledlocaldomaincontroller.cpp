@@ -845,6 +845,15 @@ bool SpatialTiledLocalDomainController::runCellSpinUp(std::shared_ptr<StatsUnitR
    return true;
 }
 
+// ------------------------------------------------------------------------------------------
+void SpatialTiledLocalDomainController::simulateLandUnitArea(const datarepository::CellIdx& cell){
+  
+      _landUnitController.initialiseData(true);
+      _spatiallocationinfo->_landUnitArea = _provider->area(cell);
+      _landUnitController.getVariable("landUnitArea")->set_value(_spatiallocationinfo->_landUnitArea);
+                            
+}
+
 // --------------------------------------------------------------------------------------------
 
 bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>& blockStatsUnit,
@@ -899,10 +908,9 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
          blockStatsUnit->_unitsNotProcessed++;
          return true;
       }
-      _landUnitController.initialiseData(true);
-      _spatiallocationinfo->_landUnitArea = _provider->area(cell);
-      _landUnitController.getVariable("landUnitArea")->set_value(_spatiallocationinfo->_landUnitArea);
 
+      SpatialTiledLocalDomainController::simulateLandUnitArea(cell);
+      
       blockStatsUnit->_stopWatchSpinup.start();
       blockStatsSpinUpUnit->_stopWatchTotal.start();
 
