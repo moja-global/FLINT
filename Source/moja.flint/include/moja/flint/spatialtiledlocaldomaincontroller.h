@@ -184,7 +184,7 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    bool runCell(std::shared_ptr<StatsUnitRecord>& blockStatsUnit,
                 std::shared_ptr<StatsUnitRecord>& blockStatsSpinUpUnit, const datarepository::CellIdx& cell);
    bool runCellSpinUp(std::shared_ptr<StatsUnitRecord>& blockStatsUnit, const datarepository::CellIdx& cell);
-
+   void simulateLandUnitArea(const datarepository::CellIdx& cell);
    // -- Utility methods
    typedef Poco::Tuple<std::string, std::string, std::string, std::string> RunSummaryDataRecord;
 
