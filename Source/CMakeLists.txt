@@ -28,11 +28,11 @@ set(Moja_COMPONENTS "")
 
 # Allow enabling and disabling components
 option(ENABLE_MOJA.MODULES.ZIPPER 					"moja.modules.zipper"			OFF)
-option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"				OFF)
-option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"			OFF)
-option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				OFF)
-option(ENABLE_MOJA.CLI 									    "moja.cli"							  ON)
-option(ENABLE_MOJA.SYSTEMTEST 							"moja.systemtest"					OFF)
+option(ENABLE_MOJA.MODULES.POCO 					"moja.modules.poco"				OFF)
+option(ENABLE_MOJA.MODULES.LIBPQ 					"moja.modules.libpq"			ON)
+option(ENABLE_MOJA.MODULES.GDAL 					"moja.modules.gdal"				ON)
+option(ENABLE_MOJA.CLI 								"moja.cli"						ON)
+option(ENABLE_MOJA.SYSTEMTEST 						"moja.systemtest"				OFF)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "C:/Development/Software/${PROJECT_NAME}" CACHE PATH "..." FORCE)
