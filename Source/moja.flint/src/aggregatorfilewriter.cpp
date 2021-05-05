@@ -177,7 +177,7 @@ void AggregatorFileWriter::writeFlux() {
 
       // -- Write Flux Facts
       // append to end of file using _fileMutex to keep things safe
-      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(_fileMutex);
+      std::unique_lock<std::mutex> lock(_fileMutex);
 
       // append to file here
       // Poco::OutputLineEndingConverter output(stream, Poco::LineEnding::NEWLINE_CRLF);

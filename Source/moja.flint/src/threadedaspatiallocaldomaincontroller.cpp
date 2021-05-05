@@ -11,8 +11,6 @@
 #include <moja/datetime.h>
 #include <moja/logging.h>
 
-#include <Poco/Mutex.h>
-
 #include <boost/exception/diagnostic_information.hpp>
 
 using moja::flint::ILocalDomainController;
@@ -24,7 +22,7 @@ namespace moja {
 namespace flint {
 
 AspatialLocalDomainThread::AspatialLocalDomainThread(ThreadedAspatialLocalDomainController* parent, int threadId,
-                                                     Poco::Mutex& tileListMutex,
+                                                     std::mutex& tileListMutex,
                                                      std::queue<datarepository::AspatialTileInfo>& tileList,
                                                      const configuration::Configuration* config)
     : _parent(parent),
@@ -49,7 +47,7 @@ void AspatialLocalDomainThread::operator()() {
    auto keepRunning = true;
    while (keepRunning) {
       // Pop a block index from the queue
-      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(_tileListMutex);
+      std::unique_lock<std::mutex> lock(_tileListMutex);
       if (_tileList.size() > 0) {
          auto tile = _tileList.front();
          _tileList.pop();

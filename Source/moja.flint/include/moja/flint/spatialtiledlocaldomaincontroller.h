@@ -138,7 +138,7 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    // -- General
    mutable std::shared_ptr<datarepository::IProviderSpatialRasterInterface> _provider;
    std::shared_ptr<SpatialLocationInfo> _spatiallocationinfo;
-   Poco::Mutex _blockListMutex;
+   std::mutex _blockListMutex;
    std::queue<datarepository::BlockIdx> _blockIdxList;  // list of block to sim in thread/non-threaded processing.
    std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>
        _blockCellIdxList;  // list of cells to sim, mapped by blockIdx. Used in thread/non-threaded processing

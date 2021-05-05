@@ -24,7 +24,6 @@
 #include <moja/logging.h>
 #include <moja/signals.h>
 
-#include <Poco/ScopedLock.h>
 #include <Poco/UUID.h>
 #include <Poco/UUIDGenerator.h>
 
@@ -230,7 +229,7 @@ void StatsUnitRecord::mojaLog(const std::string& levelStr, int localDomainId, da
 
 class SpatialTiledLocalDomainController::InternalThreadBlocks {
   public:
-   InternalThreadBlocks(int threadId, std::string runId, Poco::Mutex& blockIdxListMutex,
+   InternalThreadBlocks(int threadId, std::string runId, std::mutex& blockIdxListMutex,
                         std::queue<datarepository::BlockIdx>& blockIdxList, int blockIdxListSize,
                         std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>& blockCellIdxList,
                         const configuration::Configuration* config,
@@ -248,7 +247,7 @@ class SpatialTiledLocalDomainController::InternalThreadBlocks {
   private:
    int _threadId;
    std::string _runId;
-   Poco::Mutex& _blockIdxListMutex;
+   std::mutex& _blockIdxListMutex;
    std::queue<datarepository::BlockIdx>& _blockIdxList;
    std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>& _blockCellIdxList;
    const configuration::Configuration* _config;
@@ -259,7 +258,7 @@ class SpatialTiledLocalDomainController::InternalThreadBlocks {
 // --------------------------------------------------------------------------------------------
 
 SpatialTiledLocalDomainController::InternalThreadBlocks::InternalThreadBlocks(
-    int threadId, std::string runId, Poco::Mutex& blockIdxListMutex, std::queue<datarepository::BlockIdx>& blockIdxList,
+    int threadId, std::string runId, std::mutex& blockIdxListMutex, std::queue<datarepository::BlockIdx>& blockIdxList,
     int blockIdxListSize, std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>& blockCellIdxList,
     const configuration::Configuration* config,
     std::shared_ptr<RecordAccumulatorWithMutex<StatsUnitRow>>& globalStatsDimension,
@@ -313,7 +312,7 @@ void SpatialTiledLocalDomainController::InternalThreadBlocks::operator()() {
    while (keepRunning) {
       // Pop a block index from the queue.
       // ToDo: could make the number of blocks to pop here configurable
-      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(_blockIdxListMutex);
+      std::unique_lock<std::mutex> lock(_blockIdxListMutex);
       if (_blockIdxList.size() > 0) {
          _ldc->_blockIdxListPosition = int(_blockIdxList.size());
          auto blockIdx = _blockIdxList.front();

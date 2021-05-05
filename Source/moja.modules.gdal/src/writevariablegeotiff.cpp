@@ -13,7 +13,6 @@
 #include <moja/signals.h>
 
 #include <Poco/File.h>
-#include <Poco/Mutex.h>
 #include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
@@ -386,7 +385,7 @@ void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitInit(
    }
 
    Poco::File tileFolder(_tileFolderPath);
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   std::unique_lock<std::mutex> lock(_fileHandlingMutex);
    try {
       tileFolder.createDirectories();
    } catch (
@@ -481,7 +480,7 @@ static std::shared_ptr<GDALRasterBand> create_gdalraster(const Poco::File& path,
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) {
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   std::unique_lock<std::mutex> lock(_fileHandlingMutex);
 
    Poco::File tileFolder(_tileFolderPath);
    std::string folderLocStr;

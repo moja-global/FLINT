@@ -15,11 +15,11 @@
 
 #include <boost/format.hpp>
 #include <boost/format/group.hpp>
-#include <boost/iostreams/device/file.hpp>
-#include <boost/iostreams/stream_buffer.hpp>
+#include <boost/algorithm/string/predicate.hpp>
 
 #include <limits>
 #include <math.h>
+#include <fstream>
 
 namespace moja {
 namespace flint {
@@ -381,7 +381,7 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitInit(
    }
 
    Poco::File tileFolder(_tileFolderPath);
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   std::unique_lock<std::mutex> lock(_fileHandlingMutex);
    try {
       tileFolder.createDirectories();
    } catch (
@@ -403,7 +403,7 @@ void WriteVariableGrid::DataSettingsT<T>::initializeData(std::shared_ptr<const S
 template <typename T>
 void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
     std::shared_ptr<const SpatialLocationInfo> spatialLocationInfo) {
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   std::unique_lock<std::mutex> lock(_fileHandlingMutex);
    //	for (const auto& timestepData : _data) {
 
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
@@ -463,8 +463,7 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
          fwrite(timestepData.second.data(), sizeof(T), numCells, pFile);
       }
 
-      boost::iostreams::stream_buffer<boost::iostreams::file_sink> buf(filenameHdr);
-      std::ostream out(&buf);
+      std::ofstream out(filenameHdr);
 
       out << "ENVI" << std::endl;
       out << "description = { " << filenameGrd << " }" << std::endl;
@@ -493,6 +492,7 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
              "\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295]] }"
           << std::endl;
       out << "band names = { Band 1 }" << std::endl;
+      out.close();
       itPrev = it;
    }
    _data.clear();
