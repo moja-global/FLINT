@@ -9,14 +9,14 @@
 
 namespace moja {
 
-static std::string EnvironmentImpl::startProcessFolderImpl() {
-   static wchar_t path[512] = "";
-   if (!path[0]) {
-      // Get directory this executable was launched from.
-      GetModuleFileNameW(NULL, path, sizeof(path) - 1);
-   }
-   Poco::UnicodeConverter::toUTF8(path, result);
-   auto folder = Poco::Path(path).parent();
+std::string EnvironmentImpl::startProcessFolderImpl() {
+
+   std::wstring mod_path;
+   mod_path.resize(MAX_PATH);
+   mod_path.resize(::GetModuleFileNameW(NULL, &mod_path[0], mod_path.size()));
+   std::string result;
+   Poco::UnicodeConverter::toUTF8(mod_path, result);
+   auto folder = Poco::Path(result).parent().absolute();
    return folder.toString();
 }
 
