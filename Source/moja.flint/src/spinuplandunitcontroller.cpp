@@ -5,7 +5,6 @@
 #include "moja/flint/ioperation.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/landunitcontroller.h"
-#include "moja/flint/operationmanagerublas.h"
 
 #include <moja/dynamic.h>
 
