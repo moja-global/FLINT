@@ -111,7 +111,7 @@ class RecordAccumulatorWithMutex {
    rec_accu_vec _records;
 };
 
-template <class TPersistable, class TRecord>
+template <class TPersistable, class TRecord, typename ID_Type>
 class RecordAccumulatorWithMutex2 {
    struct RecordComparer {
       bool operator()(const TRecord* lhs, const TRecord* rhs) const { return lhs->operator==(*rhs); }
@@ -138,7 +138,7 @@ class RecordAccumulatorWithMutex2 {
 
    RecordAccumulatorWithMutex2() : _nextId(1) {}
 
-   const TRecord* insert(Int64 id, TRecord record) {
+   const TRecord* insert(ID_Type id, TRecord record) {
       std::unique_lock<std::mutex> lock(_mutex);
       if (_records.size() == _records.capacity()) {
          _recordsIdx.clear();
@@ -158,7 +158,7 @@ class RecordAccumulatorWithMutex2 {
 
    const TRecord* accumulate(TRecord record) { return accumulate(record, -1); }
 
-   const TRecord* accumulate(TRecord record, Int64 requestedId) {
+   const TRecord* accumulate(TRecord record, ID_Type requestedId) {
       std::unique_lock<std::mutex> lock(_mutex);
       auto it = _recordsIdx.find(&record);
       if (it != _recordsIdx.end()) {
@@ -200,7 +200,7 @@ class RecordAccumulatorWithMutex2 {
       return nullptr;
    }
 
-   const TRecord* searchId(Int64 id) const {
+   const TRecord* searchId(ID_Type id) const {
       for (auto& record : _records) {
          if (record.getId() == id) return &record;
       }
@@ -220,13 +220,18 @@ class RecordAccumulatorWithMutex2 {
       _records.clear();
    }
 
+   void shrink_to_fit() {
+      _recordsIdx.clear();
+      _records.shrink_to_fit();
+   }
+
    rec_accu_size_type size() { return _records.size(); }
 
    const rec_accu_vec& records() const { return _records; };
 
   private:
    std::mutex _mutex;
-   std::atomic<Int64> _nextId;
+   std::atomic<ID_Type> _nextId;
    rec_accu_set _recordsIdx;
    rec_accu_vec _records;
 };
