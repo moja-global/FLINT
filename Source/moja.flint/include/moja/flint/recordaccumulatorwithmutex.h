@@ -111,6 +111,7 @@ class RecordAccumulatorWithMutex {
    rec_accu_vec _records;
 };
 
+// template <class TPersistable, class TRecord, typename Int64>
 template <class TPersistable, class TRecord>
 class RecordAccumulatorWithMutex2 {
    struct RecordComparer {
@@ -218,6 +219,11 @@ class RecordAccumulatorWithMutex2 {
    void clear() {
       _recordsIdx.clear();
       _records.clear();
+   }
+
+   void shrink_to_fit() {
+      _recordsIdx.clear();
+      _records.shrink_to_fit();
    }
 
    rec_accu_size_type size() { return _records.size(); }
