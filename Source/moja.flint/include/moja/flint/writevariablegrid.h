@@ -12,6 +12,10 @@
 #include <algorithm>
 #include <unordered_map>
 
+namespace Poco {
+class Mutex;
+}
+
 namespace moja {
 namespace flint {
 

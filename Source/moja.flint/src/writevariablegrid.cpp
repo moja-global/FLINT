@@ -18,6 +18,8 @@
 #include <boost/iostreams/device/file.hpp>
 #include <boost/iostreams/stream_buffer.hpp>
 
+#include <Poco/Mutex.h>
+
 #include <limits>
 #include <math.h>
 

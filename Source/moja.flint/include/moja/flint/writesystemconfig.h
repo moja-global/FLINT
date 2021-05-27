@@ -5,6 +5,10 @@
 
 #include <boost/iostreams/stream_buffer.hpp>
 
+namespace Poco {
+class Mutex;
+}
+
 namespace moja {
 namespace flint {
 class SpatialLocationInfo;
