@@ -17,11 +17,14 @@ set(TEST_SRCS
     src/matrixtestsublas.cpp
 	src/operationmanagertestutils.cpp
 	src/operationmanagersimpletests.cpp
+    src/operationmanagercohorttests.cpp
 	src/operationmanagersimplecachetests.cpp
 	src/operationmanagerublastests.cpp
     src/sqlquerytransformtests.cpp
 	src/recordaccumulatorintegrationtests.cpp
 )
+
+set_property(SOURCE src/sqlquerytransformtests.cpp APPEND PROPERTY COMPILE_OPTIONS "/bigobj")
 
 add_executable(${TESTUNIT} ${TEST_SRCS})
 add_test(NAME ${LIBNAME} 
