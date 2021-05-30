@@ -467,27 +467,37 @@ void JSON2ConfigurationProvider::createProviders(DynamicVar& parsedJSON, Configu
    }
 }
 
+void JSON2ConfigurationProvider::add_pool_from_struct(Configuration& config, const Poco::DynamicStruct& poolStruct) const {
+   const auto& name = poolStruct["name"].extract<std::string>();
+   if (createSpecialPools(name, poolStruct, config)) {
+      return;
+   }
+
+   const auto& description = poolStruct["description"].extract<std::string>();
+   const auto& units = poolStruct["units"].extract<std::string>();
+   const auto& scale = poolStruct["scale"].extract<double>();
+   const auto order = static_cast<int>(poolStruct["order"]);
+   const auto& value = static_cast<double>(poolStruct["value"]);
+   std::optional<std::string> parent;
+   if(poolStruct.contains("parent")) {
+      parent = poolStruct["parent"].extract<std::string>();
+   }
+   config.addPool(name, description, units, scale, order, value, parent);
+}
+
 void JSON2ConfigurationProvider::createPools(DynamicVar& parsedJSON, Configuration& config) const {
    Poco::DynamicStruct jsonStruct = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto poolsItem = jsonStruct["Pools"];
 
    if (poolsItem.isStruct()) {
       auto poolsStruct = poolsItem.extract<Poco::DynamicStruct>();
-      for (auto item : poolsStruct) {
-         if (item.second.isStruct()) {
-            auto poolStruct = item.second.extract<Poco::DynamicStruct>();
-            if (createSpecialPools(item.first, poolStruct, config)) {
-               continue;
-            }
-
-            auto poolDesc = poolStruct["description"].extract<std::string>();
-            auto poolUnits = poolStruct["units"].extract<std::string>();
-            auto poolScale = poolStruct["scale"].extract<double>();
-            auto poolOrder = int(poolStruct["order"]);
-            config.addPool(item.first, poolDesc, poolUnits, poolScale, poolOrder, item.second.extract<double>());
+      for (auto [name, value] : poolsStruct) {
+         if (value.isStruct()) {
+            auto poolStruct = value.extract<Poco::DynamicStruct>();
+            add_pool_from_struct(config, poolStruct);
          } else {
-            auto v = parsePocoVarToDynamic(item.second);
-            config.addPool(item.first, item.second.extract<double>());
+            auto v = parsePocoVarToDynamic(value);
+            config.addPool(name, value.extract<double>());
          }
       }
    } else if (poolsItem.isArray()) {
@@ -504,17 +514,7 @@ void JSON2ConfigurationProvider::createPools(DynamicVar& parsedJSON, Configurati
                auto poolValue = poolStruct.begin()->second.extract<double>();
                config.addPool(poolName, poolValue);
             } else {
-               auto poolName = poolStruct["name"].extract<std::string>();
-               if (createSpecialPools(poolName, poolStruct, config)) {
-                  continue;
-               }
-
-               auto poolDesc = poolStruct["description"].extract<std::string>();
-               auto poolUnits = poolStruct["units"].extract<std::string>();
-               auto poolScale = poolStruct["scale"].extract<double>();
-               auto poolOrder = int(poolStruct["order"]);
-               auto poolValue = poolStruct["value"].extract<double>();
-               config.addPool(poolName, poolDesc, poolUnits, poolScale, poolOrder, poolValue);
+               add_pool_from_struct(config, poolStruct);
             }
          } else {
             // TODO: Check this, perhaps we just have a list of Pool names to set to 0?

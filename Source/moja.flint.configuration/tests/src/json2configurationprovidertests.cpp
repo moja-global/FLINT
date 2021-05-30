@@ -211,6 +211,34 @@ struct Library2ConfigurationTestsFixture {
        "            \"order\": 1\n"
        "		 }\n";
 
+   const std::string validPoolsArrayWithParents =
+       R"(     {
+                  "name": "parent_pool",
+                  "value": 0.0,
+                  "description": "testDesc",
+                  "units": "testUnits",
+                  "scale": 1.0,
+                  "order": 1
+       	       },
+               {
+                  "name": "child_pool_1",
+                  "value": 100.0,
+                  "description": "testDesc",
+                  "units": "testUnits",
+                  "scale": 1.0,
+                  "order": 1,
+                  "parent": "parent_pool"
+       	       },
+               {
+                  "name": "child_pool_2",
+                  "value": 100.0,
+                  "description": "testDesc",
+                  "units": "testUnits",
+                  "scale": 1.0,
+                  "order": 1,
+                  "parent": "parent_pool"
+               })";
+
    const std::string validPoolsArray3 =
        "        \"C_atmosphere\","
        "        \"A_atmosphere\","
@@ -348,6 +376,38 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(pool01->name(), "C_atmosphere");
    BOOST_CHECK_EQUAL(pool02->name(), "A_atmosphere");
    BOOST_CHECK_EQUAL(pool03->name(), "B_atmosphere");
+}
+
+
+
+BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration_PoolWithChildren) {
+   auto config_file =
+       writeConfigFile(configTemplate2, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
+                       validSpinupVariables, validPoolsArrayWithParents, validVariables, validModules);
+
+   auto config_provider_file = writeProviderConfigFile(validProviders);
+
+   JSON2ConfigurationProvider provider{{config_file->path()}, {config_provider_file->path()}};
+   auto config = provider.createConfiguration();
+   BOOST_CHECK_EQUAL(config->startDate().year(), 2001);
+   BOOST_CHECK_EQUAL(config->startDate().month(), 1);
+   BOOST_CHECK_EQUAL(config->startDate().day(), 1);
+   BOOST_CHECK_EQUAL(config->endDate().year(), 2013);
+   BOOST_CHECK_EQUAL(config->endDate().month(), 12);
+   BOOST_CHECK_EQUAL(config->endDate().day(), 31);
+
+   
+   auto pools = config->pools();
+
+   const auto* parent_pool = pools[0];
+   const auto* child_pool_1 = pools[1];
+   const auto* child_pool_2 = pools[2];
+
+   BOOST_CHECK_EQUAL(parent_pool->parent().has_value(), false);
+   BOOST_CHECK_EQUAL(child_pool_1->parent().has_value(), true);
+   BOOST_CHECK_EQUAL(child_pool_2->parent().has_value(), true);
+   BOOST_CHECK_EQUAL(child_pool_1->parent().value(), "parent_pool");
+   BOOST_CHECK_EQUAL(child_pool_2->parent().value(), "parent_pool");
 }
 
 BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration4_PoolArrayObjects) {

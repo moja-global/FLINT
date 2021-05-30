@@ -38,6 +38,7 @@ class CONFIGURATION_API JSON2ConfigurationProvider : public IConfigurationProvid
    void createSpinup(DynamicVar& parsedJSON, Configuration& config) const;
    void createLibraries(DynamicVar& parsedJSON, Configuration& config) const;
    void createProviders(DynamicVar& parsedJSON, Configuration& config) const;
+   void add_pool_from_struct(Configuration& config, const Poco::DynamicStruct& poolStruct) const;
    void createPools(DynamicVar& parsedJSON, Configuration& config) const;
    bool createSpecialPools(const std::string& poolName, const Poco::DynamicStruct& poolSettings,
                            Configuration& config) const;

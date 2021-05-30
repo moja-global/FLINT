@@ -1,39 +1,35 @@
-#ifndef MOJA_FLINT_CONFIGURATION_POOL_H_
-#define MOJA_FLINT_CONFIGURATION_POOL_H_
+#pragma once
 
 #include "moja/flint/configuration/_configuration_exports.h"
 
+#include <optional>
 #include <string>
 
-namespace moja {
-namespace flint {
-namespace configuration {
+namespace moja::flint::configuration {
 
 class CONFIGURATION_API Pool {
   public:
-   Pool(const std::string& name, double initValue = 0.0);
+   Pool(const std::string& name, double initValue = 0.0, std::optional<std::string> parent = {});
    Pool(const std::string& name, const std::string& description, const std::string& units, double scale, int order,
-        double initValue = 0.0);
-   virtual ~Pool() {}
+        double initValue = 0.0, std::optional<std::string> parent = {});
+   ~Pool() = default;
 
-   virtual const std::string& name() const { return _name; }
-   virtual const std::string& description() const { return _description; }
-   virtual const std::string& units() const { return _units; }
-   virtual double scale() const { return _scale; }
-   virtual int order() const { return _order; }
-   virtual double initValue() const { return _initValue; }
+   [[nodiscard]] const std::string& name() const { return _name; }
+   [[nodiscard]] const std::string& description() const { return _description; }
+   [[nodiscard]] const std::string& units() const { return _units; }
+   [[nodiscard]] double scale() const { return _scale; }
+   [[nodiscard]] int order() const { return _order; }
+   [[nodiscard]] double initValue() const { return _initValue; }
+   [[nodiscard]] const std::optional<std::string>& parent() const { return _parent; }
 
   private:
    std::string _name;
    std::string _description;
    std::string _units;
+   std::optional<std::string> _parent;
    double _scale;
    int _order;
    double _initValue;
 };
 
-}  // namespace configuration
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_CONFIGURATION_POOL_H_
+}  // namespace moja::flint::configuration
