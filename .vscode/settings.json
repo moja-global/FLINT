@@ -4,12 +4,15 @@
         "-DDEBUG=ON",
         "-DCMAKE_INSTALL_PREFIX=/usr/local",
         "-DENABLE_TESTS:BOOL=OFF",
-        "-DENABLE_MOJA.MODULES.GDAL=ON",
+        "-DENABLE_MOJA.MODULES.GDAL=OFF",
         "-DENABLE_MOJA.MODULES.LIBPQ=ON",
         "-DBoost_USE_STATIC_LIBS=OFF",
         "-DBUILD_SHARED_LIBS=ON",
-        "-DCMAKE_TOOLCHAIN_FILE=/usr/local/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
+        "-DCMAKE_TOOLCHAIN_FILE=/usr/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
     ],
     "cmake.sourceDirectory": "${workspaceFolder}/Source",
-    "cmake.buildDirectory": "${workspaceFolder}/Source/vscodebuild"
+    "cmake.buildDirectory": "${workspaceFolder}/Source/vscodebuild",
+    "files.associations": {
+        "iterator": "cpp"
+    }
 }

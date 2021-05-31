@@ -1,19 +1,23 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.117.1/containers/cpp
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+	// See https://aka.ms/vscode-remote/devcontainer.json for format details.
 	"name": "C++",
-	"dockerFile": "Dockerfile",
-	"runArgs": [ 
-		"--cap-add=SYS_PTRACE", 
-		"--security-opt", 
-		"seccomp=unconfined"
-	],
+	// "dockerFile": "Dockerfile",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"shutdownAction": "stopCompose",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+	// "runArgs": [
+	// 	"--cap-add=SYS_PTRACE",
+	// 	"--security-opt",
+	// 	"seccomp=unconfined",
+	// 	"--network",
+	// 	"rasterizer_net_backend"
+	// ],
 	"build": {
+		// "dockerfile": "docker-compose.yml",
+		"dockerComposeFile": "docker-compose.yml",
+		"service": "app",
 		"args": {
 			"NUM_CPU": "8",
 			"FLINT_BRANCH": "develop",
@@ -21,32 +25,49 @@
 		}
 	},
 	"containerEnv": {
-		"GOOGLE_APPLICATION_CREDENTIALS": "/workspaces/moja.mulliongroup_develop/sensitive/datalayer.json"
+		// "GOOGLE_APPLICATION_CREDENTIALS": "/workspaces/moja.mulliongroup_develop/sensitive/datalayer.json"
 	},
+	"mounts": [
+		// "source=${localWorkspaceFolder}/Run_Envs/bashhistory,target=/commandhistory,type=bind,consistency=cached"
+	],
+	
+	// Default path to open when attaching to a new container.
+	// "workspaceFolder": "/workspaces/moja.mulliongroup_develop",
+	// "workspaceFolder": "${containerWorkspaceFolder}",
+	"workspaceFolder": "/workspaces",
 
-	// Add the IDs of extensions you want installed when the container is created.
+	// Sets the run context to one level up instead of the .devcontainer folder.
+	// "context": "..",
+
+	// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+	// "dockerFile": "../Build/DockerFile.moja.global.ubuntu",
+	// "dockerFile": "../Build/DockerFile.moja.global.ubuntu.18.04",
+
+	// The optional 'runArgs' property can be used to specify additional runtime arguments.
+	// "runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"],
+	// "runArgs": [
+	// 	//  Uncomment the next line if you want to use Docker from the container. See the docker-in-docker definition for details.
+	// 	// "-v","/var/run/docker.sock:/var/run/docker.sock",
+
+	// 	// Uncomment the next line if you will be using a ptrace-based debugger like C++, Go, and Rust.
+	// 	"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
+	// ],
+
+	// Uncomment the next line if you want to publish any ports.
+	// "appPort": [],
+	
+	// Uncomment the next line if you want to add in default container specific settings.json values
+	// "settings":  { "workbench.colorTheme": "Quiet Light" },
+
+	// Uncomment the next line to run commands after the container is created.
+	// "postCreateCommand": "uname -a",
+
+	// Add the IDs of any extensions you want installed in the array below.
 	"extensions": [
 		"ms-vscode.cpptools",
 		"austin.code-gnu-global",
 		"twxs.cmake",
-		"ms-vscode.cmake-tools"
-	]
-
-	"workspaceFolder": "${containerWorkspaceFolder}",
-
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
-
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "gcc -v",
-
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
-
-	"extensions": [
-		"ms-vscode.cpptools",
-		"austin.code-gnu-global",
-		"twxs.cmake",
-		"ms-vscode.cmake-tools"
+		"ms-vscode.cmake-tools",
+		"mutantdino.resourcemonitor"
 	]
 }

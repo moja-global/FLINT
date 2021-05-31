@@ -5,6 +5,8 @@
 #include "moja/flint/ipool.h"
 #include "moja/flint/itiming.h"
 
+// #include <moja/flint/operationresultsimple.h>
+#include <moja/flint/operationdatapackage.h>
 #include <moja/datetime.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
@@ -71,8 +73,15 @@ void OutputerStreamFlux::outputInit(std::ostream& stream) const {
          const auto srcPool = _landUnitData->getPool(srcIx);
          const auto dstPool = _landUnitData->getPool(dstIx);
 
+         auto fluxTypeInfoRecordId = flint::FluxType::Unclassified;
+         if (operationResult->hasDataPackage()) {
+            auto dataPacket = operationResult->dataPackage().extract<std::shared_ptr<flint::OperationDataPackage>>();
+            fluxTypeInfoRecordId = dataPacket->_fluxType;
+         }
+
          stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
          stream << mdata->moduleName << DL_CHR;
+         stream << int(fluxTypeInfoRecordId) << DL_CHR;
          stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val
                 << std::endl;
       }
@@ -95,8 +104,16 @@ void OutputerStreamFlux::outputEndStep(std::ostream& stream) const {
          const auto srcPool = _landUnitData->getPool(srcIx);
          const auto dstPool = _landUnitData->getPool(dstIx);
 
-         stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
+         auto fluxTypeInfoRecordId = flint::FluxType::Unclassified;
+         if (operationResult->hasDataPackage()) {
+            auto dataPacket = operationResult->dataPackage().extract<std::shared_ptr<flint::OperationDataPackage>>();
+            fluxTypeInfoRecordId = dataPacket->_fluxType;
+         }
+
+         stream << timingL->step() << DL_CHR;
+         stream << timingL->curStartDate() << DL_CHR;
          stream << mdata->moduleName << DL_CHR;
+         stream << int(fluxTypeInfoRecordId) << DL_CHR;
          stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val
                 << std::endl;
       }
