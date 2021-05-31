@@ -11,7 +11,7 @@
         "-DCMAKE_TOOLCHAIN_FILE=/usr/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
     ],
     "cmake.sourceDirectory": "${workspaceFolder}/Source",
-    "cmake.buildDirectory": "${workspaceFolder}/Source/vscodebuild",
+    "cmake.buildDirectory": "${workspaceFolder}/Source/vscodebuild/${buildKit}/${buildType}",
     "files.associations": {
         "iterator": "cpp"
     }
