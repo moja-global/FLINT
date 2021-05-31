@@ -142,54 +142,17 @@ void OutputerStream::outputHeader(std::ostream& stream) const {
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStream::outputInit(std::ostream& stream) {
+void OutputerStream::outputOnNotification(const std::string& notification, std::ostream& stream) {
    const auto& timingL = *_landUnitData->timing();
 
-   stream << "onTimingPostInit" << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1)
-          << DL_CHR << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
-   stream << std::setprecision(STOCK_PRECISION);
+   stream << notification        << DL_CHR << 
+   timingL.step()                << DL_CHR << 
+   // timingL.curEndDate().addMicroseconds(-1) << DL_CHR << 
+   timingL.curStartDate()        << DL_CHR << 
+   timingL.fractionOfStep()      << DL_CHR << 
+   timingL.stepLengthInYears()   << DL_CHR << 
+   std::setprecision(STOCK_PRECISION);
 
-   auto pools = _landUnitData->poolCollection();
-   for (auto& it : pools) {
-      stream << it->value() << DL_CHR;
-   }
-   for (auto var : _variables) {
-      auto varPtr = std::get<3>(var);
-      auto varName = std::get<1>(var);
-      auto varProp = std::get<2>(var);
-
-      if (varPtr == nullptr) {
-         stream << "(missing variable)";
-      } else if (varProp != "") {
-         auto varValue = varPtr->value();
-         if (varValue.type() == typeid(std::shared_ptr<IFlintData>)) {
-            auto flintDataVariable = varPtr->value().extract<std::shared_ptr<IFlintData>>();
-            auto propValue = flintDataVariable->getProperty(varProp);
-            outputDynamicToStream(stream, propValue);
-         } else {
-            if (varValue.isStruct()) {
-               auto varStruct = varValue.extract<const DynamicObject>();
-               auto varStructProp = varStruct.contains(varProp) ? varStruct[varProp] : DynamicVar();
-               outputDynamicToStream(stream, varStructProp);
-            } else
-               outputDynamicToStream(stream, varValue);
-         }
-      } else {
-         // TODO: extend this to do property of array/struct objects
-         outputDynamicToStream(stream, varPtr->value());
-      }
-      stream << DL_CHR;
-   }
-   stream << std::endl;
-}
-
-// --------------------------------------------------------------------------------------------
-
-void OutputerStream::outputEndStep(const std::string& notification, std::ostream& stream) {
-   const auto& timingL = *_landUnitData->timing();
-   stream << notification << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1) << DL_CHR
-          << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
-   stream << std::setprecision(STOCK_PRECISION);
    auto pools = _landUnitData->poolCollection();
    for (auto& it : pools) {
       stream << it->value() << DL_CHR;
@@ -268,28 +231,35 @@ void OutputerStream::onLocalDomainInit() {
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStream::onTimingPostInit() { outputInit(_output); }
+void OutputerStream::onTimingPostInit() { 
+   outputOnNotification("onTimingPostInit", _output);
+}
 
 // --------------------------------------------------------------------------------------------
 
 void OutputerStream::onOutputStep() {
    if (_outputOnOutputStep) {
       const auto& timingL = *_landUnitData->timing();
-
-      if (!_outputAnnually || timingL.curStartDate().month() == 12) outputEndStep("onOutputStep", _output);
+      if (!_outputAnnually || timingL.curStartDate().month() == 12) {
+         outputOnNotification("onOutputStep", _output);
+      }
    }
 }
 
 // --------------------------------------------------------------------------------------------
 
 void OutputerStream::onTimingEndStep() {
-   if (_outputOnTimingEndStep) outputEndStep("onTimingEndStep", _output);
+   if (_outputOnTimingEndStep) {
+      outputOnNotification("onTimingEndStep", _output);
+   }
 }
 
 // --------------------------------------------------------------------------------------------
 
 void OutputerStream::onPostDisturbanceEvent() {
-   if (_outputOnPostDisturbanceEvent) outputEndStep("onPostDisturbanceEvent", _output);
+   if (_outputOnPostDisturbanceEvent) {
+      outputOnNotification("onPostDisturbanceEvent", _output);
+   }
 }
 
 }  // namespace flint

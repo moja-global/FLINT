@@ -16,8 +16,7 @@ class FLINT_API OutputerStreamFlux : public ModuleBase {
    explicit OutputerStreamFlux() : ModuleBase(), _outputToScreen(false), _outputInfoHeader(false) {}
    virtual ~OutputerStreamFlux() {}
 
-   void outputInit(std::ostream& stream) const;
-   void outputEndStep(std::ostream& stream) const;
+   void outputOnNotification(const std::string& notification, std::ostream& stream) const;
    void outputShutdown(std::ostream& stream) const;
    void outputHeader(std::ostream& stream) const;
 
