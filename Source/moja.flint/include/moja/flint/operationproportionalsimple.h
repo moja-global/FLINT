@@ -23,7 +23,7 @@ class ProportionalOperationSimple : public IOperation {
    ProportionalOperationSimple* addTransfer(const IPool* source, const IPool* sink, double value) override;
 
    void submitOperation() override;
-   std::shared_ptr<IOperationResult> computeOperation(ITiming& _timing) override;
+   std::shared_ptr<IOperationResult> computeOperation(ITiming& timing) override;
 
    OperationTransferType transferType() const override;
    OperationTransferHandlingType transferHandlingType() const override {

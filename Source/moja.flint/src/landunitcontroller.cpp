@@ -6,8 +6,6 @@
 #include "moja/flint/ioperation.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/operationmanagersimple.h"
-#include "moja/flint/operationmanagersimplecache.h"
-#include "moja/flint/operationmanagerublas.h"
 
 #include <moja/dynamic.h>
 #include <moja/logging.h>
@@ -37,13 +35,9 @@ void LandUnitController::configure(const configuration::Configuration& config) {
 
    auto const operationManagerConfig = config.localDomain()->operationManagerObject();
 
-   if (operationManagerConfig->name() == "Ublas") {
-      _operationManager = std::make_shared<OperationManagerUblas>(_timing, operationManagerConfig->settings());
-   } else if (operationManagerConfig->name() == "Simple") {
+   if (operationManagerConfig->name() == "Simple") {
       _operationManager = std::make_shared<OperationManagerSimple>(_timing, operationManagerConfig->settings());
-   } else if (operationManagerConfig->name() == "SimpleCache") {
-      _operationManager = std::make_shared<OperationManagerSimpleCache>(_timing, operationManagerConfig->settings());
-   }
+   } 
 
    _timing.setStepping(TimeStepping(config.localDomain()->timeStepping()));
 }

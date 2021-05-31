@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_IOPERATIONMANAGER_H_
-#define MOJA_FLINT_IOPERATIONMANAGER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/itransform.h"
@@ -7,8 +6,9 @@
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+#include <optional>
+
+namespace moja::flint {
 
 class IModule;
 class IOperation;
@@ -58,14 +58,13 @@ class FLINT_API IOperationManager {
    virtual void initialisePools() = 0;
    virtual int poolCount() = 0;
 
-   virtual const IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
-                                double scale, int order, const std::shared_ptr<ITransform> transform) = 0;
-   virtual const IPool* addPool(const std::string& name, double initValue = 0.0) = 0;
-   virtual const IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
-                                double scale, int order, double initValue = 0.0) = 0;
-   virtual const IPool* addPool(PoolMetaData& metadata, double initValue) = 0;
+   virtual IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
+                          double scale, int order, std::shared_ptr<ITransform> initValue, IPool* parent) = 0;
+   virtual IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
+                          double scale, int order, std::optional<double> initValue, IPool* parent) = 0;
 
    virtual const IPool* getPool(const std::string& name) const = 0;
+   virtual IPool* getPool(const std::string& name) = 0;
    virtual const IPool* getPool(int index) const = 0;
 
    // Details of instance
@@ -78,7 +77,4 @@ class FLINT_API IOperationManager {
    virtual void submitOperation(IOperation* operation) = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IOPERATIONMANAGER_H_
+}  // namespace moja::flint

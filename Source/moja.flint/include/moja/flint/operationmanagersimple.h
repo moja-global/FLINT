@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_OPERATIONMANAGERSIMPLE_H_
-#define MOJA_FLINT_OPERATIONMANAGERSIMPLE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ioperationmanager.h"
@@ -9,18 +8,16 @@
 
 #include <sstream>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class IModule;
 class IOperation;
 class IPool;
 
 class Timing;
-class PoolMetaData;
+
 class StockOperationSimple;
 class ProportionalOperationSimple;
-
-// --------------------------------------------------------------------------------------------
 
 class FLINT_API OperationManagerSimple : public IOperationManager {
    friend class StockOperationSimple;
@@ -53,16 +50,13 @@ class FLINT_API OperationManagerSimple : public IOperationManager {
 
    int poolCount() override { return static_cast<int>(_poolValues.size()); }
 
-   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
-                        int order, const std::shared_ptr<ITransform> transform) override;
-   const IPool* addPool(const std::string& name, double initValue = 0.0) override;
-   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
-                        int order, double initValue = 0.0) override;
-   const IPool* addPool(PoolMetaData& metadata, double initValue) override;
-
    const IPool* getPool(const std::string& name) const override;
+   IPool* getPool(const std::string& name) override;
    const IPool* getPool(int index) const override;
-   ;
+   IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                  int order, std::shared_ptr<ITransform> initValue, IPool* parent) override;
+   IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                  int order, std::optional<double> initValue, IPool* parent) override;
 
    // Details of instance
    std::string name() const override { return "Simple"; }
@@ -76,7 +70,7 @@ class FLINT_API OperationManagerSimple : public IOperationManager {
          << "WarnNegativeTransfers[" << (_warnNegativeTransfers ? "ON" : "OFF") << "]"
          << ")";
       return ss.str();
-   };
+   }
 
   protected:
    void commitPendingOperationResults();
@@ -86,8 +80,8 @@ class FLINT_API OperationManagerSimple : public IOperationManager {
    std::vector<double> _poolValues;   // pool values
    std::vector<double> _corrections;  // used for https://en.wikipedia.org/wiki/Kahan_summation_algorithm
 
-   std::vector<std::shared_ptr<IPool>> _poolObjects;                  // pool object vector
-   std::map<std::string, std::shared_ptr<IPool>> _poolNameObjectMap;  // pool objects indexed by name
+   std::vector<std::shared_ptr<IPool>> _poolObjects;  // pool object vector
+   std::map<std::string, IPool*> _poolNameObjectMap;  // pool objects indexed by name
 
    OperationResultCollection
        _operationResultsPending;  // OperationResults (flux & meta-data) submitted by modules - waiting to be applied
@@ -101,16 +95,11 @@ class FLINT_API OperationManagerSimple : public IOperationManager {
    bool _warnNegativeTransfers = false;
 
    template <class TPool, typename TInitValue>
-   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
-                        int order, TInitValue initValue);
+   IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                  int order, TInitValue initValue, IPool* parent);
 
    // Operations
    void submitOperation(IOperation* operation) override;
 };
 
-#undef USE_INT_ITERATOR
-
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONMANAGERSIMPLE_H_
+}  // namespace moja::flint

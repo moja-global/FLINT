@@ -2,7 +2,10 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <iostream>
+#include <ctime>
+#include <chrono>
+#include <time.h>
+
 
 using moja::DateTime;
 
@@ -684,43 +687,38 @@ BOOST_AUTO_TEST_CASE(core_datetime_Now) {
    // Could try to compare this now() to another now() a second later, but
    // the minute could roll over, etc. - so just exercise the method.
    auto now = DateTime::now();
+   BOOST_CHECK(now.year() > 2020);
 }
 
 BOOST_AUTO_TEST_CASE(core_datetime_OStream) {
-   // Just exercise the operator without explicitly checking the string.
    DateTime dt;
-   BOOST_TEST_MESSAGE(dt);
+   std::ostringstream oss;
+   oss << dt;
+   const auto str = oss.str();
+   BOOST_CHECK(str.length() > 0);
 }
 
 BOOST_AUTO_TEST_CASE(core_datetime_localtime) {
-   auto now = moja::systemtime_now();
+   const auto now = moja::systemtime_now();
    auto t1 = moja::localtime(now);
+   const auto str = moja::put_time(&t1, "%c %Z");
+   BOOST_CHECK(str.length() > 0);
 }
 
 BOOST_AUTO_TEST_CASE(core_datetime_put_time_now) {
-   auto now = moja::systemtime_now();
+   const auto now = moja::systemtime_now();
    auto t1 = moja::localtime(now);
    auto str = moja::put_time(&t1, "%c %Z");
    BOOST_CHECK(str.length() > 0);
-   std::cout << "core_datetime_put_time_now" << std::endl;
-   std::cout << str << std::endl;
 }
 
 BOOST_AUTO_TEST_CASE(core_datetime_put_time) {
-   for (int x = 1969; x > 1900; --x) {
+   for (short x = 1969; x > 1900; --x) {
       DateTime dt(x, 11, 30);
       std::ostringstream oss;
       oss << dt;
       auto str = oss.str();
-      std::cout << "core_datetime_put_time: test date: " << str << std::endl;
       BOOST_CHECK(str.length() > 0);
-
-      // auto tp = date::sys_days(dt._date) + dt._tod.to_duration();
-      // auto time = std::chrono::system_clock::to_time_t(tp);
-      // auto t1 = moja::localtime(time);
-
-      // date::detail::
-      // std::cout << "boost:" << boost::chrono::time_fmt(boost::chrono::timezone::local) << std::endl;
    }
 }
 

@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_LANDUNITDATAWRAPPER_H_
-#define MOJA_FLINT_LANDUNITDATAWRAPPER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ilandunitcontroller.h"
@@ -7,8 +6,7 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class IModule;
 class IOperation;
@@ -37,16 +35,16 @@ class LandUnitDataWrapper : public ILandUnitDataWrapper {
    bool hasLastAppliedOperationResults() const override;
 
    void clearLastAppliedOperationResults() override;
-   ;
+
    void clearAllOperationResults() override;
-   ;
 
    PoolCollection poolCollection() const override;
-   ;
 
    int getPoolCount() const override;
    const IPool* getPool(const std::string& name) const override;
    const IPool* getPool(int index) const override;
+   const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
+                        int order, double initValue, IPool* parent) override;
 
    IVariable* getVariable(const std::string& name) override;
    const IVariable* getVariable(const std::string& name) const override;
@@ -72,7 +70,4 @@ class LandUnitDataWrapper : public ILandUnitDataWrapper {
    ILandUnitController* _landUnitController;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LANDUNITDATAWRAPPER_H_
+}  // namespace moja::flint

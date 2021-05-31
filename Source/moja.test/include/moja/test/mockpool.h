@@ -1,13 +1,11 @@
-#ifndef MOJA_TEST_MOCKPOOL_H_
-#define MOJA_TEST_MOCKPOOL_H_
+#pragma once
 
 #include <moja/flint/ipool.h>
 #include <moja/flint/poolmetadata.h>
 
 #include <turtle/mock.hpp>
 
-namespace moja {
-namespace test {
+namespace moja::test {
 
 MOCK_BASE_CLASS(MockPool, flint::IPool) {
    std::string mockName;
@@ -15,6 +13,8 @@ MOCK_BASE_CLASS(MockPool, flint::IPool) {
    std::string mockUnits;
    double mockScale;
    int mockOrder;
+   const IPool* mockParent;
+   std::vector<const IPool*> mockChildren;
    flint::PoolMetaData mockMetadata;
 
    MockPool(const std::string& name, int idx) : mockMetadata(name, "", "", 1.0, idx) {
@@ -44,16 +44,19 @@ MOCK_BASE_CLASS(MockPool, flint::IPool) {
 
    int order() const override { return mockOrder; }
 
-   const flint::PoolMetaData& metadata() override { return mockMetadata; };
+   const IPool* parent() const { return mockParent; }
+
+   const std::vector<const IPool*>& children() const { return mockChildren; }
+
+   const flint::PoolMetaData& metadata() const override { return mockMetadata; }
+
+   void add_child(IPool * pool) { mockChildren.emplace_back(pool); }
 
    MOCK_METHOD(idx, 0, int())
    MOCK_METHOD(value, 0, double())
-   MOCK_METHOD(initValue, 0, double())
+   MOCK_METHOD(initValue, 0, std::optional<double>())
    MOCK_METHOD(set_value, 1, void(double))
    MOCK_METHOD(init, 0, void())
 };
 
-}  // namespace test
-}  // namespace moja
-
-#endif  // MOJA_TEST_MOCKPOOL_H_
+}  // namespace moja::test

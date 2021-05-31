@@ -1,13 +1,12 @@
-#ifndef MOJA_FLINT_IPOOL_H_
-#define MOJA_FLINT_IPOOL_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/poolmetadata.h"
 
 #include <string>
+#include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API IPool {
   public:
@@ -19,7 +18,7 @@ class FLINT_API IPool {
    virtual const std::string& units() const = 0;
    virtual double scale() const = 0;
    virtual int order() const = 0;
-   virtual double initValue() const = 0;
+   virtual std::optional<double> initValue() const = 0;
 
    virtual int idx() const = 0;
 
@@ -27,13 +26,14 @@ class FLINT_API IPool {
    virtual void set_value(double value) = 0;
    virtual void init() = 0;
 
-   virtual const PoolMetaData& metadata() { return _metadata; };
+   virtual const IPool* parent() const = 0;
+   virtual const std::vector<const IPool*>& children() const = 0;
+   virtual void add_child(IPool* pool) = 0;
+
+   virtual const PoolMetaData& metadata() const { return _metadata; }
 
   protected:
    PoolMetaData _metadata;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IPOOL_H_
+}  // namespace moja::flint

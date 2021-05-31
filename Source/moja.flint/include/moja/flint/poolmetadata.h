@@ -1,20 +1,19 @@
-#ifndef MOJA_FLINT_POOLMETADATA_H_
-#define MOJA_FLINT_POOLMETADATA_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
+#include <optional>
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API PoolMetaData {
   public:
-   PoolMetaData() : _name(""), _description(""), _units(""), _scale(1.0), _order(-1) {}
+   PoolMetaData() : _parent({}), _scale(1.0), _order(-1) {}
 
    PoolMetaData(const std::string& name, const std::string& description, const std::string& units, double scale,
-                int order)
-       : _name(name), _description(description), _units(units), _scale(scale), _order(order) {}
+                int order, const std::optional<std::string>& parent={})
+       : _name(name), _description(description), _units(units), _parent(parent), _scale(scale), _order(order) {}
 
    virtual ~PoolMetaData() = default;
 
@@ -28,15 +27,15 @@ class FLINT_API PoolMetaData {
 
    virtual int order() const { return _order; }
 
+   virtual const std::optional<std::string>& parent() const { return _parent; }
+
   private:
    std::string _name;
    std::string _description;
    std::string _units;
+   std::optional<std::string> _parent;
    double _scale;
    int _order;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_POOLMETADATA_H_
+}  // namespace moja::flint

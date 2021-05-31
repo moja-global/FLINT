@@ -1,12 +1,9 @@
-#ifndef MOJA_FLINT_OPERATIONTRANSFERSIMPLE_H_
-#define MOJA_FLINT_OPERATIONTRANSFERSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperationtransfer.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
-// --------------------------------------------------------------------------------------------
 class OperationTransferSimple : public IOperationTransfer {
   public:
    OperationTransferSimple() = default;
@@ -41,7 +38,4 @@ inline OperationTransferType OperationTransferSimple::transferType() const { ret
 
 inline const ModuleMetaData* OperationTransferSimple::metaData() const { return _metaData; }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONTRANSFERSIMPLE_H_
+}  // namespace moja::flint

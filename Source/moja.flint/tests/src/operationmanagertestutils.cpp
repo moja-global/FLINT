@@ -2,6 +2,8 @@
 
 #include "flinttests.h"
 
+#include <moja/flint/ioperation.h>
+#include <moja/flint/ioperationresult.h>
 #include <moja/flint/ipool.h>
 
 #include <moja/dynamic.h>
@@ -18,11 +20,11 @@ struct PoolInitValueAndResult {
    double value;
    double result;
 
-   const mf::IPool* poolHandle;
+   const moja::flint::IPool* poolHandle;
 };
 
 // --------------------------------------------------------------------------------------------
-void test_NoPoolIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_NoPoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -43,7 +45,7 @@ void test_NoPoolIteration(mf::IOperationManager& manager, mf::IModule& module) {
 }
 
 // --------------------------------------------------------------------------------------------
-void test_SinglePoolIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_SinglePoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -51,7 +53,7 @@ void test_SinglePoolIteration(mf::IOperationManager& manager, mf::IModule& modul
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 90.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -67,7 +69,7 @@ void test_SinglePoolIteration(mf::IOperationManager& manager, mf::IModule& modul
 }
 
 // --------------------------------------------------------------------------------------------
-void test_MultiplePoolIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_MultiplePoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -76,7 +78,7 @@ void test_MultiplePoolIteration(mf::IOperationManager& manager, mf::IModule& mod
    std::vector<PoolInitValueAndResult> data = {
        {"A", 100.0, 90.00}, {"B", 100.0, 90.00}, {"C", 100.0, 90.00}, {"D", 100.0, 90.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -92,7 +94,7 @@ void test_MultiplePoolIteration(mf::IOperationManager& manager, mf::IModule& mod
 }
 
 // --------------------------------------------------------------------------------------------
-void test_NoResultIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_NoResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -101,7 +103,7 @@ void test_NoResultIteration(mf::IOperationManager& manager, mf::IModule& module)
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -117,7 +119,7 @@ void test_NoResultIteration(mf::IOperationManager& manager, mf::IModule& module)
 }
 
 // --------------------------------------------------------------------------------------------
-void test_SingleResultIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_SingleResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -126,7 +128,7 @@ void test_SingleResultIteration(mf::IOperationManager& manager, mf::IModule& mod
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -159,7 +161,7 @@ void test_SingleResultIteration(mf::IOperationManager& manager, mf::IModule& mod
 }
 
 // --------------------------------------------------------------------------------------------
-void test_MultipleResultIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_MultipleResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -168,7 +170,7 @@ void test_MultipleResultIteration(mf::IOperationManager& manager, mf::IModule& m
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -207,7 +209,7 @@ void test_MultipleResultIteration(mf::IOperationManager& manager, mf::IModule& m
 }
 
 // --------------------------------------------------------------------------------------------
-void test_NoResultFluxIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_NoResultFluxIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -216,7 +218,7 @@ void test_NoResultFluxIteration(mf::IOperationManager& manager, mf::IModule& mod
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -234,24 +236,6 @@ void test_NoResultFluxIteration(mf::IOperationManager& manager, mf::IModule& mod
 
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 1);
 
-   // UBLAS will remove the zero result flux in the product, other implementations won't
-
-   // if (manager.operationResultsPending().size() == 0)
-   //	return;
-
-   // auto operationResult = *(manager.operationResultsPending().begin());
-
-   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ') <<
-   // testName << ": fluxes" << std::endl;
-
-   // int count = 0;
-   // for (auto p : operationResult->operationResultFluxCollection()) {
-   //	std::cout << "Src: "<< p->source() << ", Snk: " << p->sink() << ", Val: " << p->value() << std::endl;
-   //	count++;
-   //}
-
-   // BOOST_CHECK_EQUAL(count, 0);
-
    data.clear();
 }
 
@@ -260,7 +244,7 @@ void test_NoResultFluxIteration(mf::IOperationManager& manager, mf::IModule& mod
 // sink will be combined. This means that checking the count won't be consistent across tests that have multiple
 // transfers added to same source/sink combinations.
 
-void test_SingleResultFluxIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_SingleResultFluxIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -269,7 +253,7 @@ void test_SingleResultFluxIteration(mf::IOperationManager& manager, mf::IModule&
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -300,7 +284,7 @@ void test_SingleResultFluxIteration(mf::IOperationManager& manager, mf::IModule&
 }
 
 // --------------------------------------------------------------------------------------------
-void test_MultipleResultFluxIteration(mf::IOperationManager& manager, mf::IModule& module) {
+void test_MultipleResultFluxIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -309,7 +293,7 @@ void test_MultipleResultFluxIteration(mf::IOperationManager& manager, mf::IModul
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
                                                {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -345,7 +329,7 @@ void test_MultipleResultFluxIteration(mf::IOperationManager& manager, mf::IModul
 }
 
 // --------------------------------------------------------------------------------------------
-void test_SingleProportionTransfer(mf::IOperationManager& manager, mf::IModule& module) {
+void test_SingleProportionTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -353,7 +337,7 @@ void test_SingleProportionTransfer(mf::IOperationManager& manager, mf::IModule& 
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 90.00}, {"B", 50.0, 60.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -374,7 +358,7 @@ void test_SingleProportionTransfer(mf::IOperationManager& manager, mf::IModule& 
 }
 
 // --------------------------------------------------------------------------------------------
-void test_SingleStockTransfer(mf::IOperationManager& manager, mf::IModule& module) {
+void test_SingleStockTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -382,7 +366,7 @@ void test_SingleStockTransfer(mf::IOperationManager& manager, mf::IModule& modul
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -415,7 +399,7 @@ void test_SingleStockTransfer(mf::IOperationManager& manager, mf::IModule& modul
 }
 
 // --------------------------------------------------------------------------------------------
-void test_DoubleProportionalTransfer(mf::IOperationManager& manager, mf::IModule& module) {
+void test_DoubleProportionalTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -423,7 +407,7 @@ void test_DoubleProportionalTransfer(mf::IOperationManager& manager, mf::IModule
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 0.0, 50.0}, {"C", 0.0, 50.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -446,7 +430,7 @@ void test_DoubleProportionalTransfer(mf::IOperationManager& manager, mf::IModule
 }
 
 // --------------------------------------------------------------------------------------------
-void test_DoubleStockTransfer(mf::IOperationManager& manager, mf::IModule& module) {
+void test_DoubleStockTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -454,7 +438,7 @@ void test_DoubleStockTransfer(mf::IOperationManager& manager, mf::IModule& modul
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 20.0}, {"B", 0.0, 45.0}, {"C", 0.0, 35.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -477,7 +461,7 @@ void test_DoubleStockTransfer(mf::IOperationManager& manager, mf::IModule& modul
 }
 
 // --------------------------------------------------------------------------------------------
-void test_DoubleStockAndApplyTransfer(mf::IOperationManager& manager, mf::IModule& module) {
+void test_DoubleStockAndApplyTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -486,7 +470,7 @@ void test_DoubleStockAndApplyTransfer(mf::IOperationManager& manager, mf::IModul
    std::vector<PoolInitValueAndResult> data = {
        {"A", 100.0, 9.99}, {"B", 0.0, 50.00}, {"C", 0.0, 40.00}, {"D", 0.0, 0.010}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -528,7 +512,7 @@ void test_DoubleStockAndApplyTransfer(mf::IOperationManager& manager, mf::IModul
 }
 
 // --------------------------------------------------------------------------------------------
-void test_TwoOperationsStockAndProportional(mf::IOperationManager& manager, mf::IModule& module) {
+void test_TwoOperationsStockAndProportional(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -537,7 +521,7 @@ void test_TwoOperationsStockAndProportional(mf::IOperationManager& manager, mf::
    std::vector<PoolInitValueAndResult> data = {
        {"A", 100.0, 0.0}, {"B", 0.0, 50.0}, {"C", 0.0, 45.0}, {"D", 150.0, 150.0}, {"E", 0.0, 5.0}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -565,7 +549,7 @@ void test_TwoOperationsStockAndProportional(mf::IOperationManager& manager, mf::
 }
 
 // --------------------------------------------------------------------------------------------
-void test_Kahan_summation_issues_Proportion(mf::IOperationManager& manager, mf::IModule& module) {
+void test_Kahan_summation_issues_Proportion(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -577,7 +561,7 @@ void test_Kahan_summation_issues_Proportion(mf::IOperationManager& manager, mf::
    std::vector<PoolInitValueAndResult> data = {
        {"A", 21.440093961169907, 0.0}, {"B", 0.0, 10.7200469805849535}, {"C", 0.0, 10.7200469805849535}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -600,7 +584,8 @@ void test_Kahan_summation_issues_Proportion(mf::IOperationManager& manager, mf::
 }
 
 // --------------------------------------------------------------------------------------------
-void test_Kahan_summation_issues_Proportion_with_SpinUp(mf::IOperationManager& manager, mf::IModule& module) {
+void test_Kahan_summation_issues_Proportion_with_SpinUp(moja::flint::IOperationManager& manager,
+                                                        moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -612,7 +597,7 @@ void test_Kahan_summation_issues_Proportion_with_SpinUp(mf::IOperationManager& m
    std::vector<PoolInitValueAndResult> data = {
        {"A", 21.440093961169907, 0.0}, {"B", 0.0, 10.7200469805849535}, {"C", 0.0, 10.7200469805849535}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -676,7 +661,7 @@ void test_Kahan_summation_issues_Proportion_with_SpinUp(mf::IOperationManager& m
 }
 
 // --------------------------------------------------------------------------------------------
-void test_PerformanceTestProportionalSLEEK(mf::IOperationManager& manager, mf::IModule& module) {
+void test_PerformanceTestProportionalSLEEK(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -729,7 +714,7 @@ void test_PerformanceTestProportionalSLEEK(mf::IOperationManager& manager, mf::I
 #endif
 
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -757,7 +742,7 @@ void test_PerformanceTestProportionalSLEEK(mf::IOperationManager& manager, mf::I
          // for (auto pending : manager.operationResultsPending()) {
          //	for (auto flux : pending->operationResultFluxCollection()) {
          //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         //flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
+         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
          //	}
          //}
          // std::cout << std::endl;
@@ -780,7 +765,7 @@ void test_PerformanceTestProportionalSLEEK(mf::IOperationManager& manager, mf::I
 
    // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ') <<
    // testName << ": Pool ending values:" << std::endl; for (auto pool : manager.poolCollection()) { 	std::cout <<
-   //pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
+   // pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
    //}
    // std::cout << std::endl;
 
@@ -797,7 +782,7 @@ void test_PerformanceTestProportionalSLEEK(mf::IOperationManager& manager, mf::I
 }
 
 // --------------------------------------------------------------------------------------------
-void test_PerformanceTestStockSLEEK(mf::IOperationManager& manager, mf::IModule& module) {
+void test_PerformanceTestStockSLEEK(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -885,7 +870,7 @@ void test_PerformanceTestStockSLEEK(mf::IOperationManager& manager, mf::IModule&
 #endif
 #endif
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -913,7 +898,7 @@ void test_PerformanceTestStockSLEEK(mf::IOperationManager& manager, mf::IModule&
          // for (auto pending : manager.operationResultsPending()) {
          //	for (auto flux : pending->operationResultFluxCollection()) {
          //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         //flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
+         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
          //	}
          //}
          // std::cout << std::endl;
@@ -957,7 +942,7 @@ void test_PerformanceTestStockSLEEK(mf::IOperationManager& manager, mf::IModule&
 }
 
 // --------------------------------------------------------------------------------------------
-void test_PerformanceTestCBM(mf::IOperationManager& manager, mf::IModule& module) {
+void test_PerformanceTestCBM(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -1010,7 +995,7 @@ void test_PerformanceTestCBM(mf::IOperationManager& manager, mf::IModule& module
 #endif
 
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1040,7 +1025,7 @@ void test_PerformanceTestCBM(mf::IOperationManager& manager, mf::IModule& module
          // for (auto pending : manager.operationResultsPending()) {
          //	for (auto flux : pending->operationResultFluxCollection()) {
          //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         //flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
+         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
          //	}
          //}
          // std::cout << std::endl;
@@ -1078,11 +1063,11 @@ void test_PerformanceTestCBM(mf::IOperationManager& manager, mf::IModule& module
 
 // --------------------------------------------------------------------------------------------
 
-void SubmitOperationAddsToPendingQueue(mf::IOperationManager& manager, mf::IModule& module) {
+void SubmitOperationAddsToPendingQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
 #if 0
 	auto opMocks = createOperation();
 	controller.submitOperation(opMocks.operation);
-	std::vector<mf::IOperationResult*> allPending;
+	std::vector<moja::flint::IOperationResult*> allPending;
 	for (auto op : controller.operationManager()->operationResultsPending()) {
 		allPending.push_back(op);
 	}
@@ -1096,7 +1081,7 @@ void SubmitOperationAddsToPendingQueue(mf::IOperationManager& manager, mf::IModu
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1115,7 +1100,7 @@ void SubmitOperationAddsToPendingQueue(mf::IOperationManager& manager, mf::IModu
 
 // --------------------------------------------------------------------------------------------
 
-void ClearLastAppliedOperationResults(mf::IOperationManager& manager, mf::IModule& module) {
+void ClearLastAppliedOperationResults(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
 #if 0
 	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ClearLastAppliedOperationResults, LandUnitControllerOperationTestsFixture) {
 		auto opMocks = createOperation();
@@ -1139,7 +1124,7 @@ void ClearLastAppliedOperationResults(mf::IOperationManager& manager, mf::IModul
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1160,7 +1145,7 @@ void ClearLastAppliedOperationResults(mf::IOperationManager& manager, mf::IModul
 
 // --------------------------------------------------------------------------------------------
 
-void ApplyOperationsAppendsToCommittedQueue(mf::IOperationManager& manager, mf::IModule& module) {
+void ApplyOperationsAppendsToCommittedQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
 #if 0
 	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsAppendsToCommittedQueue, LandUnitControllerOperationTestsFixture) {
 		// Operation 1
@@ -1198,7 +1183,7 @@ void ApplyOperationsAppendsToCommittedQueue(mf::IOperationManager& manager, mf::
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00}, {"B", 0.0, 99.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1225,7 +1210,8 @@ void ApplyOperationsAppendsToCommittedQueue(mf::IOperationManager& manager, mf::
    data.clear();
 }
 
-void ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(mf::IOperationManager& manager, mf::IModule& module) {
+void ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(moja::flint::IOperationManager& manager,
+                                                       moja::flint::IModule& module) {
 #if 0
 	auto opMocks = createOperation();
 	double amountToMove = 40.0;
@@ -1250,7 +1236,7 @@ void ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(mf::IOperationManager& ma
    std::vector<PoolInitValueAndResult> data = {{"A", p1InitialValue, (p1InitialValue - amountToMove)},
                                                {"B", 0.0, (0.0 + amountToMove)}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1268,7 +1254,8 @@ void ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(mf::IOperationManager& ma
    data.clear();
 }
 
-void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(mf::IOperationManager& manager, mf::IModule& module) {
+void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(moja::flint::IOperationManager& manager,
+                                                        moja::flint::IModule& module) {
 #if 0
 	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsCorrectlyUpdatesPoolsForComplexCase, LandUnitControllerOperationTestsFixture) {
 		auto opMocks = createOperation();
@@ -1303,7 +1290,7 @@ void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(mf::IOperationManager& m
        {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove)},
        {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove)}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1325,7 +1312,7 @@ void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(mf::IOperationManager& m
 
 // --------------------------------------------------------------------------------------------
 
-void ApplyAndGetOperationsLastApplied(mf::IOperationManager& manager, mf::IModule& module) {
+void ApplyAndGetOperationsLastApplied(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
 #if 0
 	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyAndGetOperationsLastApplied, LandUnitControllerOperationTestsFixture) {
 		// Operation 1
@@ -1364,7 +1351,7 @@ void ApplyAndGetOperationsLastApplied(mf::IOperationManager& manager, mf::IModul
 
    std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00}, {"B", 0.0, 99.00}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
@@ -1393,7 +1380,7 @@ void ApplyAndGetOperationsLastApplied(mf::IOperationManager& manager, mf::IModul
 
 // --------------------------------------------------------------------------------------------
 
-void ApplyOperationsClearsPendingQueue(mf::IOperationManager& manager, mf::IModule& module) {
+void ApplyOperationsClearsPendingQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
 #if 0
 	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsClearsPendingQueue, LandUnitControllerOperationTestsFixture) {
 		auto opMocks = createOperation();
@@ -1401,7 +1388,7 @@ void ApplyOperationsClearsPendingQueue(mf::IOperationManager& manager, mf::IModu
 		MOCK_EXPECT(opMocks.resultIterator->opBool).returns(false);
 		controller.submitOperation(opMocks.operation);
 		controller.applyOperations();	// does the clear in here
-		std::vector<mf::IOperationResult*> allPending;
+		std::vector<moja::flint::IOperationResult*> allPending;
 		for (auto op : controller.operationManager()->operationResultsPending()) {
 			allPending.push_back(op);
 		}
@@ -1423,7 +1410,7 @@ void ApplyOperationsClearsPendingQueue(mf::IOperationManager& manager, mf::IModu
        {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove)},
        {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove)}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, p.value);
+      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 

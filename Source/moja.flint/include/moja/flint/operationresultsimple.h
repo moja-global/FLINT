@@ -49,8 +49,6 @@ class OperationResultSimple : public IOperationResult {
    Timing _timingWhenApplied;
 };
 
-#undef USE_INT_ITERATOR
-
 }  // namespace flint
 }  // namespace moja
 

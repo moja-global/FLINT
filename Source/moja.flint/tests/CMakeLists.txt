@@ -14,12 +14,8 @@ set(TEST_SRCS
     src/flinttests.cpp
     src/landunitcontrollertests.cpp
     src/lookuptransformtests.cpp
-    src/matrixtestsublas.cpp
 	src/operationmanagertestutils.cpp
 	src/operationmanagersimpletests.cpp
-    src/operationmanagercohorttests.cpp
-	src/operationmanagersimplecachetests.cpp
-	src/operationmanagerublastests.cpp
     src/sqlquerytransformtests.cpp
 	src/recordaccumulatorintegrationtests.cpp
 )

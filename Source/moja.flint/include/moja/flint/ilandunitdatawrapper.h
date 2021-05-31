@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_ILANDUNITDATAWRAPPER_H_
-#define MOJA_FLINT_ILANDUNITDATAWRAPPER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/operationresultcollection.h"
@@ -9,8 +8,9 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+class PoolMetaData;
+
 namespace configuration {
 class Configuration;
 }
@@ -49,6 +49,9 @@ class FLINT_API ILandUnitDataWrapper {
    virtual const IPool* getPool(const std::string& name) const = 0;
    virtual const IPool* getPool(int index) const = 0;
 
+   virtual const IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
+                                double scale, int order, double initValue, IPool* parent) = 0;
+
    virtual IVariable* getVariable(const std::string& name) = 0;
    virtual const IVariable* getVariable(const std::string& name) const = 0;
    virtual std::vector<std::shared_ptr<IVariable>> variables() const = 0;
@@ -66,7 +69,4 @@ class FLINT_API ILandUnitDataWrapper {
    virtual void setLandUnitController(ILandUnitController* landUnitController) = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_ILANDUNITDATAWRAPPER_H_
+}  // namespace moja::flint

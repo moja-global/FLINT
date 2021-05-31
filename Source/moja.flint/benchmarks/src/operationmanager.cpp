@@ -1,7 +1,5 @@
 #include "moja/flint/ioperation.h"
-#include "moja/flint/operationmanagersimplecache.h"
-#include "moja/flint/operationmanagercohort.h"
-#include "moja/flint/operationmanagerublas.h"
+#include "moja/flint/ipool.h"
 
 #include <moja/flint/modulebase.h>
 #include <moja/flint/operationmanagersimple.h>
@@ -17,7 +15,7 @@ using namespace flint;
 template <class T>
 struct benchmark_module {
    benchmark_module(const std::string& name) : config({{"use_kahan", false}}), manager(timing, config) {
-      timing.setStartDate(DateTime(2001, 1, 1));
+      timing.setStartDate(DateTime(2000, 1, 1));
       timing.setStartDate(DateTime(2020, 12, 31));
       timing.init();
       auto& metadata = module.metaData();
@@ -38,7 +36,7 @@ void do_proportional(benchmark::State& state, T& bench_module) {
    std::vector<std::tuple<std::string, double, const IPool*>> data = {
        {"A", 100.0, nullptr}, {"B", 50.0, nullptr}, {"C", 50.0, nullptr}, {"D", 50.0, nullptr}};
    for (auto& [name, value, pool] : data) {
-      pool = manager.addPool(name, value);
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
@@ -59,6 +57,31 @@ void do_proportional(benchmark::State& state, T& bench_module) {
 }
 
 template <class T>
+void do_proportional_children(benchmark::State& state, T& bench_module) {
+   auto& manager = bench_module.manager;
+   auto& module = bench_module.module;
+
+   auto* pool_A  = manager.addPool("A"  , "", "", 1.0, 1, std::optional<double>{}, nullptr);
+   auto* pool_Aa = manager.addPool("A.a", "", "", 1.0, 2, 50.0, pool_A);
+   auto* pool_Ab = manager.addPool("A.b", "", "", 1.0, 3, 50.0, pool_A);
+   auto* pool_B  = manager.addPool("B"  , "", "", 1.0, 4, 100.0, nullptr);
+   auto* pool_C  = manager.addPool("C"  , "", "", 1.0, 5, 100.0, nullptr);
+
+   manager.initialisePools();
+
+   for (auto _ : state) {
+      auto operation = manager.createProportionalOperation(module);
+      operation->addTransfer(pool_Aa, pool_B, .10);
+      operation->addTransfer(pool_Ab, pool_B, .10);
+      operation->addTransfer(pool_B, pool_C, .10);
+      operation->addTransfer(pool_C, pool_Aa, .05);
+      operation->addTransfer(pool_C, pool_Ab, .05);
+      operation->submitOperation();
+      manager.applyOperations();
+   }
+}
+
+template <class T>
 void do_stock(benchmark::State& state, T& bench_module) {
    auto& manager = bench_module.manager;
    auto& module = bench_module.module;
@@ -66,7 +89,7 @@ void do_stock(benchmark::State& state, T& bench_module) {
    std::vector<std::tuple<std::string, double, const IPool*>> data = {
        {"A", 100.0, nullptr}, {"B", 50.0, nullptr}, {"C", 50.0, nullptr}, {"D", 50.0, nullptr}};
    for (auto& [name, value, pool] : data) {
-      pool = manager.addPool(name, value);
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
@@ -93,60 +116,57 @@ void do_stock(benchmark::State& state, T& bench_module) {
    }
 }
 
-static void BM_SimpleProportionTransfer(benchmark::State& state) {
+template <class T>
+void do_stock_children(benchmark::State& state, T& bench_module) {
+   auto& manager = bench_module.manager;
+   auto& module = bench_module.module;
+
+   auto* pool_A = manager.addPool("A", "", "", 1.0, 1, std::optional<double>{}, nullptr);
+   auto* pool_Aa = manager.addPool("A.a", "", "", 1.0, 2, 50.0, pool_A);
+   auto* pool_Ab = manager.addPool("A.b", "", "", 1.0, 3, 50.0, pool_A);
+   auto* pool_B = manager.addPool("B", "", "", 1.0, 4, 100.0, nullptr);
+   auto* pool_C = manager.addPool("C", "", "", 1.0, 5, 100.0, nullptr);
+
+   manager.initialisePools();
+
+   for (auto _ : state) {
+      auto operation = manager.createStockOperation(module);
+      operation->addTransfer(pool_Aa, pool_B, 10.0);
+      operation->addTransfer(pool_Ab, pool_B, 10.0);
+      operation->addTransfer(pool_B, pool_C, 10.0);
+      operation->addTransfer(pool_C, pool_Aa, 5.0);
+      operation->addTransfer(pool_C, pool_Ab, 5.0);
+      operation->submitOperation();
+      manager.applyOperations();
+   }
+}
+
+static void BM_ProportionTransfer(benchmark::State& state) {
    benchmark_module<OperationManagerSimple> benchmark_module("Simple");
    do_proportional(state, benchmark_module);
 }
 
-BENCHMARK(BM_SimpleProportionTransfer)->Threads(1);
+BENCHMARK(BM_ProportionTransfer);
 
-static void BM_CohortProportionTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerCohort> benchmark_module("Cohort");
-   do_proportional(state, benchmark_module);
+static void BM_ProportionTransferChildren(benchmark::State& state) {
+   benchmark_module<OperationManagerSimple> benchmark_module("Simple");
+   do_proportional_children(state, benchmark_module);
 }
 
-BENCHMARK(BM_CohortProportionTransfer)->Threads(1);
+BENCHMARK(BM_ProportionTransferChildren);
 
-void BM_SimpleCacheProportionTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerSimpleCache> benchmark_module("Simple Cached");
-   do_proportional(state, benchmark_module);
-}
-
-BENCHMARK(BM_SimpleCacheProportionTransfer)->Threads(1);
-
-void BM_UblasProportionTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerUblas> benchmark_module("Ublas");
-   do_proportional(state, benchmark_module);
-}
-
-BENCHMARK(BM_UblasProportionTransfer)->Threads(1);
-
-static void BM_SimpleStockTransfer(benchmark::State& state) {
+static void BM_StockTransfer(benchmark::State& state) {
    benchmark_module<OperationManagerSimple> benchmark_module("Simple");
    do_stock(state, benchmark_module);
 }
 
-BENCHMARK(BM_SimpleStockTransfer)->Threads(1);
+BENCHMARK(BM_StockTransfer);
 
-static void BM_CohortStockTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerCohort> benchmark_module("Simple Pooled");
-   do_stock(state, benchmark_module);
+static void BM_StockTransferChildren(benchmark::State& state) {
+   benchmark_module<OperationManagerSimple> benchmark_module("Simple");
+   do_stock_children(state, benchmark_module);
 }
 
-BENCHMARK(BM_CohortStockTransfer)->Threads(1);
-
-void BM_SimpleCacheStockTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerSimpleCache> benchmark_module("Simple Cached");
-   do_stock(state, benchmark_module);
-}
-
-BENCHMARK(BM_SimpleCacheStockTransfer)->Threads(1);
-
-void BM_UblasStockTransfer(benchmark::State& state) {
-   benchmark_module<OperationManagerUblas> benchmark_module("Ublas");
-   do_stock(state, benchmark_module);
-}
-
-BENCHMARK(BM_UblasStockTransfer)->Threads(1);
+BENCHMARK(BM_StockTransferChildren);
 
 BENCHMARK_MAIN();

@@ -16,12 +16,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/format.hpp>
 
-namespace moja {
-namespace flint {
-
-#define OPERATION_MANAGER_CACHE_SIZE 100
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 OperationManagerSimple::OperationManagerSimple(Timing& timing, const DynamicObject& config) : _timing(timing) {
    _poolValues.reserve(255);
@@ -52,34 +47,24 @@ OperationManagerSimple::OperationManagerSimple(Timing& timing, const DynamicObje
    }
 }
 
-// --------------------------------------------------------------------------------------------
-
 std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule& module) {
    return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData());
 }
 
-// --------------------------------------------------------------------------------------------
-
 std::shared_ptr<IOperation> OperationManagerSimple::createStockOperation(IModule& module, DynamicVar& dataPackage) {
    return std::make_shared<StockOperationSimple>(this, _timing.fractionOfStep(), &module.metaData(), dataPackage);
 }
-
-// --------------------------------------------------------------------------------------------
 
 std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(IModule& module) {
    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(),
                                                         &module.metaData());
 }
 
-// --------------------------------------------------------------------------------------------
-
 std::shared_ptr<IOperation> OperationManagerSimple::createProportionalOperation(IModule& module,
                                                                                 DynamicVar& dataPackage) {
    return std::make_shared<ProportionalOperationSimple>(this, _poolValues, _timing.fractionOfStep(), &module.metaData(),
                                                         dataPackage);
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::applyOperations() {
    if (_useKahan) {  // used for https://en.wikipedia.org/wiki/Kahan_summation_algorithm
@@ -137,21 +122,20 @@ void OperationManagerSimple::applyOperations() {
             }
 
             // MOJA_LOG_DEBUG << "Simple applyOperations - pool src pre: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pre: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[dstIx] << ", src: " << std::setfill(' ') << std::setw(3) << srcIx <<
+            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pre: " << std::setfill(' ') << std::setw(30)
+            // << std::setprecision(15) << _poolValues[dstIx] << ", src: " << std::setfill(' ') << std::setw(3) << srcIx
+            // <<
             // ", snk: " << std::setfill(' ') << std::setw(3) << dstIx << ", value:" << val << ", ";
             _poolValues[srcIx] -= val;
             _poolValues[dstIx] += val;
             // MOJA_LOG_DEBUG << "Simple applyOperations - pool src pst: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pst: " << std::setfill(' ') << std::setw(30) <<
-            // std::setprecision(15) << _poolValues[dstIx];
+            // std::setprecision(15) << _poolValues[srcIx] << ", pool dst pst: " << std::setfill(' ') << std::setw(30)
+            // << std::setprecision(15) << _poolValues[dstIx];
          }
       }
    }
    commitPendingOperationResults();
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::clearAllOperationResults() {
    _operationResultsPending.clear();
@@ -159,33 +143,21 @@ void OperationManagerSimple::clearAllOperationResults() {
    _operationResultsCommitted.clear();
 }
 
-// --------------------------------------------------------------------------------------------
-
 void OperationManagerSimple::clearLastAppliedOperationResults() { _operationResultsLastApplied.clear(); }
-
-// --------------------------------------------------------------------------------------------
 
 const OperationResultCollection& OperationManagerSimple::operationResultsPending() const {
    return _operationResultsPending;
 }
 
-// --------------------------------------------------------------------------------------------
-
 const OperationResultCollection& OperationManagerSimple::operationResultsLastApplied() const {
    return _operationResultsLastApplied;
 }
-
-// --------------------------------------------------------------------------------------------
 
 const OperationResultCollection& OperationManagerSimple::operationResultsCommitted() const {
    return _operationResultsCommitted;
 }
 
-// --------------------------------------------------------------------------------------------
-
 PoolCollection OperationManagerSimple::poolCollection() { return PoolCollection(_poolObjects); }
-
-// --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::initialisePools() {
    if (_useKahan) std::fill(_corrections.begin(), _corrections.end(), 0.0);
@@ -194,51 +166,38 @@ void OperationManagerSimple::initialisePools() {
    }
 }
 
-// --------------------------------------------------------------------------------------------
-
-const IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
-                                             const std::string& units, double scale, int order,
-                                             const std::shared_ptr<ITransform> transform) {
-   return addPool<ExternalPoolSimple>(name, description, units, scale, order, transform);
+IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
+                                       const std::string& units, double scale, int order,
+                                       std::shared_ptr<ITransform> initValue, IPool* parent) {
+   return addPool<ExternalPoolSimple>(name, description, units, scale, order, initValue,
+                                                                   parent);
 }
 
-// --------------------------------------------------------------------------------------------
-
-const IPool* OperationManagerSimple::addPool(const std::string& name, double initValue) {
-   return addPool(name, "", "", 1.0, 0, initValue);
-}
-
-// --------------------------------------------------------------------------------------------
-
-const IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
-                                             const std::string& units, double scale, int order, double initValue) {
-   if (initValue < 0.0) {
+IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
+                                       const std::string& units, double scale, int order,
+                                       std::optional<double> initValue,
+                                       IPool* parent) {
+   if (initValue.has_value() && initValue.value() < 0.0) {
       throw std::invalid_argument("initValue cannot be less than 0.0");  // TODO: check this is true?
    }
 
-   return addPool<PoolSimple>(name, description, units, scale, order, initValue);
+   return addPool<PoolSimple>(name, description, units, scale, order, initValue, parent);
 }
 
-// --------------------------------------------------------------------------------------------
-
 template <class TPool, typename TInitValue>
-const IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
-                                             const std::string& units, double scale, int order, TInitValue initValue) {
-   if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
-      throw std::invalid_argument("name cannot be empty");
-   }
+IPool* OperationManagerSimple::addPool(const std::string& name, const std::string& description,
+                                       const std::string& units, double scale, int order, TInitValue initValue,
+                                       IPool* parent) {
 
-   if (_poolValues.size() == _poolValues.capacity()) {
-      throw ApplicationException(
-          "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by PoolSimple
-                                                                         // wrappers
+   if (name.empty()||all(name,boost::algorithm::is_space())) {
+      throw std::invalid_argument("name cannot be empty");  
    }
 
    _poolValues.push_back(0.0);
    auto pool = std::make_shared<TPool>(_poolValues, name, description, units, scale, order,
-                                       static_cast<int>(_poolValues.size() - 1), initValue);
+                                       static_cast<int>(_poolValues.size() - 1), initValue, parent);
    _poolObjects.push_back(pool);
-   _poolNameObjectMap[name] = pool;
+   _poolNameObjectMap[name] = pool.get();
 
    if (_useKahan) {
       _corrections.resize(_poolValues.size());
@@ -249,33 +208,29 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
    return pool.get();
 }
 
-// --------------------------------------------------------------------------------------------
-
-const IPool* OperationManagerSimple::addPool(PoolMetaData& metadata, double initValue) {
-   // TODO: finish this
-   return nullptr;
-}
-
-// --------------------------------------------------------------------------------------------
-
 const IPool* OperationManagerSimple::getPool(const std::string& name) const {
    try {
-      auto r = _poolNameObjectMap.at(name);
-      return r.get();
+      auto* pool = _poolNameObjectMap.at(name);
+      return pool;
    } catch (...) {
       throw PoolNotFoundException() << PoolName(name);
    }
 }
 
-// --------------------------------------------------------------------------------------------
+IPool* OperationManagerSimple::getPool(const std::string& name) {
+   try {
+      auto* pool = _poolNameObjectMap.at(name);
+      return pool;
+   } catch (...) {
+      throw PoolNotFoundException() << PoolName(name);
+   }
+}
 
 const IPool* OperationManagerSimple::getPool(int index) const {
    if (index >= _poolObjects.size() || index < 0) throw PoolNotFoundException() << PoolName("Bad index");
    auto& r = _poolObjects[index];
    return r.get();
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OperationManagerSimple::commitPendingOperationResults() {
    std::copy(_operationResultsPending.begin(), _operationResultsPending.end(),
@@ -285,13 +240,11 @@ void OperationManagerSimple::commitPendingOperationResults() {
    _operationResultsPending.clear();
 }
 
-// --------------------------------------------------------------------------------------------
-
 void OperationManagerSimple::submitOperation(IOperation* operation) {
    auto result = operation->computeOperation(_timing);
    if (result != nullptr) _operationResultsPending.push_back(result);
 }
 
 bool OperationManagerSimple::hasOperationResultsLastApplied() const { return !_operationResultsLastApplied.empty(); }
-}  // namespace flint
-}  // namespace moja
+
+}  // namespace moja::flint
