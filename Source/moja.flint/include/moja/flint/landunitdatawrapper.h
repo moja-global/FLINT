@@ -41,10 +41,14 @@ class LandUnitDataWrapper : public ILandUnitDataWrapper {
    PoolCollection poolCollection() const override;
 
    int getPoolCount() const override;
+
    const IPool* getPool(const std::string& name) const override;
    const IPool* getPool(int index) const override;
+   IPool* getPool(const std::string& name) override;
+   IPool* getPool(int index) override;
+
    const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
-                        int order, double initValue, IPool* parent) override;
+                        int order, std::optional<double> initValue, IPool* parent) override;
 
    IVariable* getVariable(const std::string& name) override;
    const IVariable* getVariable(const std::string& name) const override;

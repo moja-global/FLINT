@@ -493,7 +493,7 @@ BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedPoolConfiguration)
    auto config = provider.createConfiguration();
    auto pool = config->pools()[0];
    BOOST_CHECK_EQUAL(pool->name(), "atmosphere");
-   BOOST_CHECK_EQUAL(pool->initValue(), 100.0);
+   BOOST_CHECK(pool->initValue() == 100.0);
 }
 
 BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedInternalVariableConfiguration) {

@@ -32,6 +32,9 @@ class FLINT_API PoolSimple : public IPool {
    const std::vector<const IPool*>& children() const override { return _children; }
 
    void add_child(IPool* pool) override;
+   bool has_children() const override { return !_children.empty(); }
+   bool is_child() const override { return _parent != nullptr; }
+
   protected:
    PoolMetaData _metadata;
 

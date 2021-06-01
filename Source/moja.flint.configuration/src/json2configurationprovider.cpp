@@ -479,7 +479,10 @@ void JSON2ConfigurationProvider::add_pool_from_struct(Configuration& config,
    const auto& units = poolStruct["units"].extract<std::string>();
    const auto& scale = poolStruct["scale"].extract<double>();
    const auto order = static_cast<int>(poolStruct["order"]);
-   const auto& value = static_cast<double>(poolStruct["value"]);
+   std::optional<double> value;
+   if (poolStruct.contains("value")) {
+      value = static_cast<double>(poolStruct["value"]);
+   }
    std::optional<std::string> parent;
    if (poolStruct.contains("parent")) {
       parent = poolStruct["parent"].extract<std::string>();
@@ -499,7 +502,8 @@ void JSON2ConfigurationProvider::createPools(DynamicVar& parsedJSON, Configurati
             add_pool_from_struct(config, poolStruct);
          } else {
             auto v = parsePocoVarToDynamic(value);
-            config.addPool(name, value.extract<double>());
+            config.addPool(name,
+                           value.isEmpty() ? std::optional<double>{} : std::optional<double>{value.extract<double>()});
          }
       }
    } else if (poolsItem.isArray()) {
@@ -521,7 +525,7 @@ void JSON2ConfigurationProvider::createPools(DynamicVar& parsedJSON, Configurati
          } else {
             // TODO: Check this, perhaps we just have a list of Pool names to set to 0?
             const auto poolName = item.extract<std::string>();
-            config.addPool(poolName, 0.0);
+            config.addPool(poolName, {});
          }
       }
    }

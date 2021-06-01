@@ -2,6 +2,7 @@
 
 #include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/ioperationmanager.h"
+#include "moja/flint/ipool.h"
 #include "moja/flint/ivariable.h"
 
 namespace moja {
@@ -72,10 +73,20 @@ const IPool* LandUnitDataWrapper::getPool(int index) const {
    return (_landUnitController == nullptr ? nullptr : _landUnitController->operationManager()->getPool(index));
 }
 
+IPool* LandUnitDataWrapper::getPool(const std::string& name) {
+   return (_landUnitController == nullptr ? nullptr : _landUnitController->operationManager()->getPool(name));
+}
+IPool* LandUnitDataWrapper::getPool(int index) {
+   return (_landUnitController == nullptr ? nullptr : _landUnitController->operationManager()->getPool(index));
+}
+
 const IPool* LandUnitDataWrapper::addPool(const std::string& name, const std::string& description,
-                                          const std::string& units, double scale, int order, double initValue,
-                                          IPool* parent) {
-   return _landUnitController->operationManager()->addPool(name, description, units, scale, order, initValue, parent);
+                                          const std::string& units, double scale, int order,
+                                          std::optional<double> initValue, IPool* parent) {
+   auto* pool =
+       _landUnitController->operationManager()->addPool(name, description, units, scale, order, initValue, parent);
+   pool->init();
+   return pool;
 }
 
 IVariable* LandUnitDataWrapper::getVariable(const std::string& name) {

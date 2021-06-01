@@ -53,6 +53,8 @@ class FLINT_API OperationManagerSimple : public IOperationManager {
    const IPool* getPool(const std::string& name) const override;
    IPool* getPool(const std::string& name) override;
    const IPool* getPool(int index) const override;
+   IPool* getPool(int index) override;
+
    IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
                   int order, std::shared_ptr<ITransform> initValue, IPool* parent) override;
    IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,

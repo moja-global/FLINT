@@ -229,6 +229,8 @@ void OutputerStream::outputEndStep(const std::string& notification, std::ostream
 void OutputerStream::outputShutdown(std::ostream& stream) {
    using namespace std::chrono;
 
+   outputHeader(stream);
+
    if (_outputInfoHeader) {
       auto t1 = localtime(moja::systemtime_now());
       stream << "==========================================================================" << std::endl;

@@ -125,7 +125,7 @@ BOOST_AUTO_TEST_CASE(Configuration_AddPool) {
    config.addPool(name, initValue);
    auto addedPool = config.pools()[0];
    BOOST_CHECK_EQUAL(name, addedPool->name());
-   BOOST_CHECK_EQUAL(initValue, addedPool->initValue());
+   BOOST_CHECK(initValue == addedPool->initValue());
 }
 
 BOOST_AUTO_TEST_CASE(Configuration_AddVariable) {

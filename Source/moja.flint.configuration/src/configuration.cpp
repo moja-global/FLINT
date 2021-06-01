@@ -119,13 +119,15 @@ void Configuration::addProvider(const std::string& name, const std::string& libr
    _providers.push_back(provider);
 }
 
-void Configuration::addPool(const std::string& name, double initValue, std::optional<std::string> parent) {
+void Configuration::addPool(const std::string& name, std::optional<double> initValue,
+                            std::optional<std::string> parent) {
    auto pool = std::make_shared<Pool>(name, initValue, parent);
    _pools.push_back(pool);
 }
 
 void Configuration::addPool(const std::string& name, const std::string& description, const std::string& units,
-                            double scale, int order, double initValue, std::optional<std::string> parent) {
+                            double scale, int order, std::optional<double> initValue,
+                            std::optional<std::string> parent) {
    auto pool = std::make_shared<Pool>(name, description, units, scale, order, initValue, parent);
    _pools.push_back(pool);
 }

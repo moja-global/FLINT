@@ -35,6 +35,9 @@ class FLINT_API ExternalPoolSimple : public IPool {
 
    void add_child(IPool* pool) override;
 
+   bool has_children() const override { return !_children.empty(); }
+   bool is_child() const override { return _parent != nullptr; }
+
   protected:
    PoolMetaData _metadata;
 

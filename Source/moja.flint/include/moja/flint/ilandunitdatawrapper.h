@@ -6,6 +6,7 @@
 
 #include <moja/dynamic.h>
 
+#include <optional>
 #include <string>
 
 namespace moja::flint {
@@ -48,9 +49,11 @@ class FLINT_API ILandUnitDataWrapper {
    virtual int getPoolCount() const = 0;
    virtual const IPool* getPool(const std::string& name) const = 0;
    virtual const IPool* getPool(int index) const = 0;
+   virtual IPool* getPool(const std::string& name) = 0;
+   virtual IPool* getPool(int index) = 0;
 
    virtual const IPool* addPool(const std::string& name, const std::string& description, const std::string& units,
-                                double scale, int order, double initValue, IPool* parent) = 0;
+                                double scale, int order, std::optional<double> initValue, IPool* parent) = 0;
 
    virtual IVariable* getVariable(const std::string& name) = 0;
    virtual const IVariable* getVariable(const std::string& name) const = 0;

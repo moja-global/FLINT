@@ -21,13 +21,13 @@ class FLINT_API OutputerStream : public ModuleBase {
          _outputOnPostDisturbanceEvent(false) {}
    virtual ~OutputerStream() {}
 
-   virtual void configure(const DynamicObject& config) override;
-   virtual void subscribe(NotificationCenter& notificationCenter) override;
+   void configure(const DynamicObject& config) override;
+   void subscribe(NotificationCenter& notificationCenter) override;
 
-   virtual void outputHeader(std::ostream& stream) const;
-   virtual void outputInit(std::ostream& stream);
-   virtual void outputEndStep(const std::string& notification, std::ostream& stream);
-   virtual void outputShutdown(std::ostream& stream);
+   void outputHeader(std::ostream& stream) const;
+   void outputInit(std::ostream& stream);
+   void outputEndStep(const std::string& notification, std::ostream& stream);
+   void outputShutdown(std::ostream& stream);
 
    void onSystemInit() override;
    void onSystemShutdown() override;

@@ -42,7 +42,8 @@ MOCK_BASE_CLASS(MockOperationManager, flint::IOperationManager) {
 
    MOCK_CONST_METHOD(getPool, 1, const flint::IPool*(const std::string&), getPoolByName_const)
    MOCK_NON_CONST_METHOD(getPool, 1, flint::IPool* (const std::string&), getPoolByName)
-   MOCK_METHOD(getPool, 1, const flint::IPool*(int), getPoolByIndex)
+   MOCK_CONST_METHOD(getPool, 1, const flint::IPool*(int), getPoolByIndex_const)
+   MOCK_NON_CONST_METHOD(getPool, 1, flint::IPool*(int), getPoolByIndex)
 
    // MOCK_METHOD(name, 0, std::string());
    // MOCK_METHOD(version, 0, std::string());

@@ -36,7 +36,7 @@ BOOST_AUTO_TEST_CASE(Pool_GetName) {
 BOOST_AUTO_TEST_CASE(Pool_GetInitValue) {
    auto initValue = 100.0;
    Pool pool("test", initValue);
-   BOOST_CHECK_EQUAL(initValue, pool.initValue());
+   BOOST_CHECK(initValue == pool.initValue());
 }
 
 BOOST_AUTO_TEST_SUITE_END()

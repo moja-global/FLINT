@@ -52,6 +52,9 @@ MOCK_BASE_CLASS(MockPool, flint::IPool) {
 
    void add_child(IPool * pool) { mockChildren.emplace_back(pool); }
 
+   bool has_children() const { return !mockChildren.empty(); }
+   bool is_child() const { return mockParent != nullptr; }
+
    MOCK_METHOD(idx, 0, int())
    MOCK_METHOD(value, 0, double())
    MOCK_METHOD(initValue, 0, std::optional<double>())

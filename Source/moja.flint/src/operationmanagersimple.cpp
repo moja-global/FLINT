@@ -232,6 +232,12 @@ const IPool* OperationManagerSimple::getPool(int index) const {
    return r.get();
 }
 
+IPool* OperationManagerSimple::getPool(int index) {
+   if (index >= _poolObjects.size() || index < 0) throw PoolNotFoundException() << PoolName("Bad index");
+   auto& r = _poolObjects[index];
+   return r.get();
+}
+
 void OperationManagerSimple::commitPendingOperationResults() {
    std::copy(_operationResultsPending.begin(), _operationResultsPending.end(),
              std::back_inserter(_operationResultsLastApplied));

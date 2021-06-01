@@ -29,7 +29,9 @@ int PoolSimple::order() const { return _metadata.order(); }
 
 std::optional<double> PoolSimple::initValue() const { return _initValue; }
 
-void PoolSimple::init() { _value = _initValue.value_or(0.0); }
+void PoolSimple::init() {
+   _value = _initValue.value_or(0.0);
+}
 
 void PoolSimple::add_child(IPool* pool) {
    if (_initValue.has_value()) {

@@ -54,9 +54,9 @@ class CONFIGURATION_API Configuration {
    void addProvider(const std::string& name, const std::string& library, const std::string& providerType,
                     moja::DynamicObject settings = moja::DynamicObject());
 
-   void addPool(const std::string& name, double initValue = 0.0, std::optional<std::string> parent = {});
+   void addPool(const std::string& name, std::optional<double> initValue = {}, std::optional<std::string> parent = {});
    void addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
-                int order, double initValue = 0.0, std::optional<std::string> parent = {});
+                int order, std::optional<double> initValue = {}, std::optional<std::string> parent = {});
 
    void addVariable(const std::string& name, moja::DynamicVar value = moja::DynamicVar());
    void removeVariable(const std::string& name);

@@ -62,6 +62,7 @@ class FLINT_API IOperationManager {
    virtual const IPool* getPool(const std::string& name) const = 0;
    virtual IPool* getPool(const std::string& name) = 0;
    virtual const IPool* getPool(int index) const = 0;
+   virtual IPool* getPool(int index) = 0;
 
    // Details of instance
    virtual std::string name() const = 0;

@@ -30,6 +30,9 @@ class FLINT_API IPool {
    virtual const std::vector<const IPool*>& children() const = 0;
    virtual void add_child(IPool* pool) = 0;
 
+   virtual bool has_children() const = 0;
+   virtual bool is_child() const = 0;
+
    virtual const PoolMetaData& metadata() const { return _metadata; }
 
   protected:
