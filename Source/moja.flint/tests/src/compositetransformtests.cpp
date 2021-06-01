@@ -11,12 +11,13 @@
 
 #include <turtle/mock.hpp>
 
-using namespace moja::flint;
+namespace moja::flint {
+
 using moja::DynamicObject;
 using moja::DynamicVar;
-using moja::test::MockDataRepository;
-using moja::test::MockLandUnitController;
-using moja::test::MockVariable;
+using test::MockDataRepository;
+using test::MockLandUnitController;
+using test::MockVariable;
 
 struct CompositeTransformTestsFixture {
    CompositeTransform transform;
@@ -38,7 +39,7 @@ struct CompositeTransformTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(CompositeTransformTests, CompositeTransformTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ConfigureThrowsExceptionIfConfigurationIsIncomplete) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ConfigureThrowsExceptionIfConfigurationIsIncomplete) {
    // Requires an item called "vars" which is a list of at least one variable name.
    // { "a", "b" } is just a kludge for the DynamicObject constructor - ignore.
    auto badConfigurations = {
@@ -52,20 +53,20 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ConfigureThrowsExceptionIfConfigur
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ConfigureThrowsExceptionOnDuplicateVariableNames) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ConfigureThrowsExceptionOnDuplicateVariableNames) {
    DynamicObject config;
    config.insert("vars", std::vector<DynamicVar>{"duplicate", "duplicate"});
    BOOST_CHECK_THROW(transform.configure(config, mockController, mockRepository), IncompleteConfigurationException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueThrowsExceptionIfVariableNotFound) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueThrowsExceptionIfVariableNotFound) {
    DynamicObject config;
    config.insert("vars", std::vector<DynamicVar>{"not found 1", "not found 2"});
    transform.configure(config, mockController, mockRepository);
    BOOST_CHECK_THROW(transform.value(), VariableNotFoundException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedSingleValueVariables) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueConsolidatesReferencedSingleValueVariables) {
    transform.configure(mockConfiguration, mockController, mockRepository);
 
    DynamicVar var1Value{"var1value"};
@@ -78,7 +79,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedSingleV
    BOOST_CHECK(result["var2"] == var2Value);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedMultiValueVariables) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueConsolidatesReferencedMultiValueVariables) {
    transform.configure(mockConfiguration, mockController, mockRepository);
 
    DynamicVar var1Value = DynamicObject({{"a", 1}, {"b", 2}});
@@ -94,7 +95,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedMultiVa
    BOOST_CHECK(result["e"] == 5);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedSingleAndMultiValueVariables) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueConsolidatesReferencedSingleAndMultiValueVariables) {
    transform.configure(mockConfiguration, mockController, mockRepository);
 
    DynamicVar var1Value{1};
@@ -109,7 +110,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedSingleA
    BOOST_CHECK(result["d"] == 4);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedListVariables) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueConsolidatesReferencedListVariables) {
    // For variables coming from relational datasources - it is expected that
    // these variables only contain a single row. The row's key/value pairs are
    // extracted and flattened into the result.
@@ -128,7 +129,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueConsolidatesReferencedListVar
    BOOST_CHECK(result["e"] == 5);
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueIsEmptyIfAnyReferencedVariableIsEmpty) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_ValueIsEmptyIfAnyReferencedVariableIsEmpty) {
    transform.configure(mockConfiguration, mockController, mockRepository);
 
    DynamicVar var1Value{"var1value"};
@@ -140,7 +141,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_ValueIsEmptyIfAnyReferencedVariabl
    BOOST_CHECK(result.isEmpty());
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_AllowsNullsWhenConfigured) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_AllowsNullsWhenConfigured) {
    mockConfiguration.insert("allow_nulls", true);
    transform.configure(mockConfiguration, mockController, mockRepository);
 
@@ -154,7 +155,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_AllowsNullsWhenConfigured) {
    BOOST_CHECK(result["var2"].isEmpty());
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_LongFormat) {
    // Long-format composite transform expects participating variables to have the
    // same attributes. Each participating variable provides a row of data, instead
    // of the default format where each variable provides one or more columns to
@@ -178,7 +179,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat_ValueIsEmptyIfNoRows) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_LongFormat_ValueIsEmptyIfNoRows) {
    mockConfiguration.insert("format", "long");
    transform.configure(mockConfiguration, mockController, mockRepository);
 
@@ -191,7 +192,7 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat_ValueIsEmptyIfNoRows) {
    BOOST_CHECK(result.isEmpty());
 }
 
-BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat_HasValueIfAtLeastOneRow) {
+BOOST_AUTO_TEST_CASE(CompositeTransform_LongFormat_HasValueIfAtLeastOneRow) {
    mockConfiguration.insert("format", "long");
    transform.configure(mockConfiguration, mockController, mockRepository);
 
@@ -208,4 +209,6 @@ BOOST_AUTO_TEST_CASE(flint_CompositeTransform_LongFormat_HasValueIfAtLeastOneRow
    BOOST_CHECK(row["b"] == 2);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace moja::flint

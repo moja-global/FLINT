@@ -1,6 +1,7 @@
 #include "moja/flint/equalstepsequencer.h"
 
 #include <moja/events.h>
+#include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
 namespace moja {

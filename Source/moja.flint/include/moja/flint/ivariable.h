@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_IVARIABLE_H_
-#define MOJA_FLINT_IVARIABLE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
@@ -7,8 +6,7 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 struct VariableInfo {
    std::string name;
@@ -29,7 +27,4 @@ class FLINT_API IVariable {
    virtual bool isFlintData() const = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IVARIABLE_H_
+}  // namespace moja::flint

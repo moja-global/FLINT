@@ -5,27 +5,19 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <iostream>
-
 using namespace moja;
-using namespace moja::flint;
 
-namespace moja {
-namespace modules {
 namespace flint {
-namespace test {
-
-// --------------------------------------------------------------------------------------------
 
 // id, date id, locn id, module id, src pool id, dst pool id, flux value
 typedef Poco::Tuple<Int64, Int64, Int64, Int64, Int64, Int64, double> FluxRow;
-class FluxRecord : public ::Record<FluxRow> {
+class FluxRecord : public moja::flint::Record<FluxRow> {
   public:
    FluxRecord(Int64 dateId, Int64 locationId, Int64 moduleId, Int64 srcPoolId, Int64 dstPoolId, double flux);
 
    ~FluxRecord() {}
 
-   bool operator==(const Record<FluxRow>& other) const override;
+   bool operator==(const moja::flint::Record<FluxRow>& other) const override;
    size_t hash() const override;
    FluxRow asPersistable() const override;
    void merge(Record<FluxRow>* other) override;
@@ -39,11 +31,9 @@ class FluxRecord : public ::Record<FluxRow> {
    double _flux;
 };
 
-// --------------------------------------------------------------------------------------------
-
 // id, classifier values
 typedef Poco::Tuple<Int64, std::vector<std::string>> ClassifierSetRow;
-class ClassifierSetRecord : public Record<ClassifierSetRow> {
+class ClassifierSetRecord : public moja::flint::Record<ClassifierSetRow> {
   public:
    explicit ClassifierSetRecord(std::vector<std::string> classifierValues);
    ~ClassifierSetRecord() {}
@@ -57,9 +47,6 @@ class ClassifierSetRecord : public Record<ClassifierSetRow> {
    std::vector<std::string> _classifierValues;
 };
 
-// --------------------------------------------------------------------------------------------
-
-// -- FluxRecord
 FluxRecord::FluxRecord(Int64 dateId, Int64 locationId, Int64 moduleId, Int64 srcPoolId, Int64 dstPoolId, double flux)
     : _dateId(dateId),
       _locationId(locationId),
@@ -86,11 +73,7 @@ void FluxRecord::merge(Record<FluxRow>* other) {
    auto otherRow = other->asPersistable();
    _flux += otherRow.get<6>();
 }
-// --
 
-// --------------------------------------------------------------------------------------------
-
-// -- ClassifierSetRecord
 ClassifierSetRecord::ClassifierSetRecord(std::vector<std::string> classifierValues)
     : _classifierValues(classifierValues) {}
 
@@ -195,13 +178,10 @@ inline size_t Date2Record::hash() const {
 
 inline Date2Row Date2Record::asPersistable() const { return Date2Row{_id, _year}; }
 
-// --
-// --------------------------------------------------------------------------------------------
+BOOST_AUTO_TEST_SUITE(RecordAccumulatorIntegrationTests)
 
-BOOST_AUTO_TEST_SUITE(Flint_RecordAccumulatorIntegrationTests)
-
-BOOST_AUTO_TEST_CASE(Flint_RecordAccumulatorWithMutex3) {
-   RecordAccumulatorWithMutex2<Date2Row, Date2Record> accumulator;
+BOOST_AUTO_TEST_CASE(RecordAccumulatorWithMutex2_Accumulate) {
+   moja::flint::RecordAccumulatorWithMutex2<Date2Row, Date2Record> accumulator;
 
    // Check to make sure the order of items matters in hashes based on a
    // collection of IDs - these should not get merged by the accumulator.
@@ -216,8 +196,8 @@ BOOST_AUTO_TEST_CASE(Flint_RecordAccumulatorWithMutex3) {
    BOOST_CHECK_EQUAL(accumulatedItems[1].get<1>(), 2000);
 }
 
-BOOST_AUTO_TEST_CASE(Flint_RecordAccumulatorMap) {
-   RecordAccumulatorMap<Flux2Row, Flux2RecordConverter, Flux2Key, Flux2Value> accumulator;
+BOOST_AUTO_TEST_CASE(RecordAccumulatorMap_Accumulate) {
+   moja::flint::RecordAccumulatorMap<Flux2Row, Flux2RecordConverter, Flux2Key, Flux2Value> accumulator;
 
    // Check to make sure the order of items matters in hashes based on a
    // collection of IDs - these should not get merged by the accumulator.
@@ -232,7 +212,7 @@ BOOST_AUTO_TEST_CASE(Flint_RecordAccumulatorMap) {
    BOOST_CHECK_EQUAL(accumulatedItems[1].get<6>(), 1.0);
 }
 
-BOOST_AUTO_TEST_CASE(Flint_HashesDoNotCollide) {
+BOOST_AUTO_TEST_CASE(RecordAccumulator_HashesDoNotCollide) {
    moja::flint::RecordAccumulator<FluxRow> accumulator;
 
    // Check to make sure the order of items matters in hashes based on a
@@ -250,7 +230,7 @@ BOOST_AUTO_TEST_CASE(Flint_HashesDoNotCollide) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(Flint_GivenIdWorks) {
+BOOST_AUTO_TEST_CASE(RecordAccumulator_GivenIdWorks) {
    moja::flint::RecordAccumulatorWithMutex<FluxRow> accumulator;
 
    // Check to make sure the order of items matters in hashes based on a
@@ -272,7 +252,7 @@ BOOST_AUTO_TEST_CASE(Flint_GivenIdWorks) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(Flint_HashesDoNotCollide_Classifiers) {
+BOOST_AUTO_TEST_CASE(RecordAccumulator_HashesDoNotCollide_Classifiers) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
@@ -579,15 +559,9 @@ BOOST_AUTO_TEST_CASE(Flint_HashesDoNotCollide_Classifiers) {
         "Atlantic Maritime", "WS", "OF"}};
 
    std::vector<std::shared_ptr<ClassifierSetRecord>> records;
-
-   std::cout << testSuiteName << ": " << testName << ": data records: " << recordData.size() << std::endl;
-
-   int count = 0;
-   for (auto& data : recordData) {
-      records.push_back(std::make_shared<ClassifierSetRecord>(recordData[count++]));
-   };
-
-   std::cout << testSuiteName << ": " << testName << ": records: " << records.size() << std::endl;
+   for (const auto& data : recordData) {
+      records.push_back(std::make_shared<ClassifierSetRecord>(data));
+   }
 
    for (auto& record : records) {
       accumulator.accumulate(record);
@@ -595,14 +569,9 @@ BOOST_AUTO_TEST_CASE(Flint_HashesDoNotCollide_Classifiers) {
 
    auto accumulatedItems = accumulator.getPersistableCollection();
 
-   std::cout << testSuiteName << ": " << testName << ": accumulatedItems: " << accumulatedItems.size() << std::endl;
-
    BOOST_CHECK_EQUAL(accumulatedItems.size(), recordData.size());
 }
 
-}  // namespace test
-}  // namespace flint
-}  // namespace modules
-}  // namespace moja
+BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE_END();
+}  // namespace flint

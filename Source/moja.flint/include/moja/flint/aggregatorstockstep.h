@@ -1,12 +1,10 @@
-#ifndef MOJA_FLINT_AGGREGATORSTOCKSTEP_H_
-#define MOJA_FLINT_AGGREGATORSTOCKSTEP_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
 #include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class AggregatorStockStep : public ModuleBase {
   public:
@@ -26,7 +24,4 @@ class AggregatorStockStep : public ModuleBase {
    std::vector<StepRecord> _stockByStep;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_AGGREGATORSTOCKSTEP_H_
+}  // namespace moja::flint

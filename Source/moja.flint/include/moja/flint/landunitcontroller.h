@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_LANDUNITCONTROLLER_H_
-#define MOJA_FLINT_LANDUNITCONTROLLER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ilandunitcontroller.h"
@@ -8,8 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 namespace configuration {
 class Configuration;
@@ -20,8 +18,6 @@ class IOperation;
 class IOperationManager;
 class IModule;
 class ITiming;
-
-// --------------------------------------------------------------------------------------------
 
 class FLINT_API LandUnitController : public ILandUnitController {
   public:
@@ -81,7 +77,4 @@ class FLINT_API LandUnitController : public ILandUnitController {
    const configuration::Configuration* _config;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LANDUNITCONTROLLER_H_
+}  // namespace moja::flint

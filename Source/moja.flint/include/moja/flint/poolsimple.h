@@ -43,10 +43,6 @@ class FLINT_API PoolSimple : public IPool {
    std::vector<const IPool*> _children;
 };
 
-inline double PoolSimple::value() const { return _value; }
-
-inline void PoolSimple::set_value(double value) { _value = value; }
-
 inline int PoolSimple::idx() const { return _idx; }
 
 }  // namespace moja::flint

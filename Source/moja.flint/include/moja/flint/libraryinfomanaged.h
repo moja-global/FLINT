@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_LIBRARYINFOMANAGED_H_
-#define MOJA_FLINT_LIBRARYINFOMANAGED_H_
+#pragma once
 
 #include "moja/flint/libraryinfobase.h"
 #include "moja/flint/librarytype.h"
@@ -8,8 +7,7 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class LibraryInfoManaged : public LibraryInfoBase {
   public:
@@ -26,7 +24,4 @@ class LibraryInfoManaged : public LibraryInfoBase {
    std::unique_ptr<Poco::SharedLibrary> handle;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LIBRARYINFOMANAGED_H_
+}  // namespace moja::flint

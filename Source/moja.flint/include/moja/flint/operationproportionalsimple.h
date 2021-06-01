@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_OPERATIONPROPORTIONALSIMPLE_H_
-#define MOJA_FLINT_OPERATIONPROPORTIONALSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperation.h"
 #include "moja/flint/operationtransfersimple.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class OperationManagerSimple;
 
@@ -28,7 +26,7 @@ class ProportionalOperationSimple : public IOperation {
    OperationTransferType transferType() const override;
    OperationTransferHandlingType transferHandlingType() const override {
       return OperationTransferHandlingType::Disaggregated;
-   };
+   }
 
    void set_metaData(const ModuleMetaData* metaData) { _metaData = metaData; }
 
@@ -39,7 +37,4 @@ class ProportionalOperationSimple : public IOperation {
    const std::vector<double>& _pools;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONPROPORTIONALSIMPLE_H_
+}  // namespace moja::flint

@@ -5,11 +5,13 @@
 
 #include <unordered_map>
 
+namespace flint_hashing {
+
 BOOST_AUTO_TEST_SUITE(HashingTests);
 
 using namespace moja::hash;
 
-BOOST_AUTO_TEST_CASE(core_hashing_TwangMix64) {
+BOOST_AUTO_TEST_CASE(Folly_TwangMix64) {
    moja::UInt64 i1 = 0x78a87873e2d31dafULL;
    moja::UInt64 i1_res = 3389151152926383528ULL;
    BOOST_CHECK_EQUAL(i1_res, twang_mix64(i1));
@@ -28,7 +30,7 @@ void checkTWang(uint64_t r) {
 }
 }  // namespace
 
-BOOST_AUTO_TEST_CASE(core_hashing_TwangUnmix64) {
+BOOST_AUTO_TEST_CASE(Folly_TwangUnmix64) {
    // We'll try (1 << i), (1 << i) + 1, (1 << i) - 1
    for (int i = 1; i < 64; i++) {
       checkTWang((1U << i) - 1);
@@ -37,7 +39,7 @@ BOOST_AUTO_TEST_CASE(core_hashing_TwangUnmix64) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_JenkinsRevMix32) {
+BOOST_AUTO_TEST_CASE(Folly_JenkinsRevMix32) {
    moja::UInt32 i1 = 3805486511ul;
    moja::UInt32 i1_res = 381808021ul;
    BOOST_CHECK_EQUAL(i1_res, jenkins_rev_mix32(i1));
@@ -56,7 +58,7 @@ void checkJenkins(moja::UInt32 r) {
 }
 }  // namespace
 
-BOOST_AUTO_TEST_CASE(core_hashing_JenkinsRevUnmix32) {
+BOOST_AUTO_TEST_CASE(Folly_JenkinsRevUnmix32) {
    // We'll try (1 << i), (1 << i) + 1, (1 << i) - 1
    for (int i = 1; i < 32; i++) {
       checkJenkins((1U << i) - 1);
@@ -65,7 +67,7 @@ BOOST_AUTO_TEST_CASE(core_hashing_JenkinsRevUnmix32) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Hasher) {
+BOOST_AUTO_TEST_CASE(Folly_Hasher) {
    // Basically just confirms that things compile ok.
    std::unordered_map<moja::Int32, moja::Int32, moja::hasher<moja::Int32>> m;
    m.insert(std::make_pair(4, 5));
@@ -86,7 +88,7 @@ size_t hashCombineTest(const T& t, const Ts&... ts) {
    return hash_combine_generic(TestHasher{}, t, ts...);
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Pair) {
+BOOST_AUTO_TEST_CASE(Folly_HashCombinePairs) {
    auto a = std::make_pair(1, 2);
    auto b = std::make_pair(3, 4);
    auto c = std::make_pair(1, 2);
@@ -114,9 +116,9 @@ BOOST_AUTO_TEST_CASE(core_hashing_Pair) {
    BOOST_CHECK_EQUAL(hashCombineTest(a, b), hashCombineTest(d, b));
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_HashCombine) { BOOST_CHECK_NE(hash_combine(1, 2), hash_combine(2, 1)); }
+BOOST_AUTO_TEST_CASE(Folly_HashCombine) { BOOST_CHECK_NE(hash_combine(1, 2), hash_combine(2, 1)); }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Std_Tuple) {
+BOOST_AUTO_TEST_CASE(Folly_HashTuple) {
    typedef std::tuple<int64_t, std::string, int32_t> tuple3;
    tuple3 t(42, "foo", 1);
 
@@ -125,7 +127,7 @@ BOOST_AUTO_TEST_CASE(core_hashing_Std_Tuple) {
    BOOST_CHECK_EQUAL("bar", m[t]);
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Enum_Type) {
+BOOST_AUTO_TEST_CASE(Folly_HashEnumType) {
    const auto hash = moja::Hash();
 
    enum class Enum32 : moja::Int32 { Foo, Bar };
@@ -147,8 +149,8 @@ BOOST_AUTO_TEST_CASE(core_hashing_Enum_Type) {
    BOOST_CHECK_EQUAL("foo", m64[Enum64::Foo]);
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Pair_Moja_Hash) {
-   typedef std::pair<moja::Int64, moja::Int32> pair2;
+BOOST_AUTO_TEST_CASE(Folly_HashPair) {
+   using pair2 = std::pair<moja::Int64, moja::Int32>;
    pair2 p(42, 1);
 
    std::unordered_map<pair2, std::string, moja::Hash> m;
@@ -156,7 +158,7 @@ BOOST_AUTO_TEST_CASE(core_hashing_Pair_Moja_Hash) {
    BOOST_CHECK_EQUAL("bar", m[p]);
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Tuple_Moja_Hash) {
+BOOST_AUTO_TEST_CASE(Folly_HashTuple2) {
    typedef std::tuple<moja::Int64, moja::Int32, moja::Int32> tuple3;
    tuple3 t(42, 1, 1);
 
@@ -172,14 +174,14 @@ size_t hash_vector(const std::vector<T>& v) {
 }
 }  // namespace
 
-BOOST_AUTO_TEST_CASE(core_hashing_HashRange) {
+BOOST_AUTO_TEST_CASE(Folly_HashRange) {
    // Not true at on windows:
    // BOOST_CHECK_EQUAL(hashVector<moja::Int32>({ 1, 2 }), hashVector<moja::Int16>({ 1, 2 }));
    BOOST_CHECK_NE(hash_vector<int>({2, 1}), hash_vector<int>({1, 2}));
    BOOST_CHECK_EQUAL(hash_vector<int>({}), hash_vector<float>({}));
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Std_Tuple_Different_Hash) {
+BOOST_AUTO_TEST_CASE(StdHash_Tuple) {
    typedef std::tuple<moja::Int64, std::string, moja::Int32> tuple3;
    tuple3 t1(42, "foo", 1);
    tuple3 t2(9, "bar", 3);
@@ -189,7 +191,7 @@ BOOST_AUTO_TEST_CASE(core_hashing_Std_Tuple_Different_Hash) {
    BOOST_CHECK_NE(std::hash<tuple3>()(t1), std::hash<tuple3>()(t3));
 }
 
-BOOST_AUTO_TEST_CASE(core_hashing_Strings) {
+BOOST_AUTO_TEST_CASE(Folly_HashStrings) {
    using namespace moja;
 
    std::string a1 = "10050517", b1 = "51107032", a2 = "10050518", b2 = "51107033", a3 = "10050519", b3 = "51107034",
@@ -207,4 +209,6 @@ BOOST_AUTO_TEST_CASE(core_hashing_Strings) {
    BOOST_CHECK_NE(hash(a4), hash(b4));
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_hashing

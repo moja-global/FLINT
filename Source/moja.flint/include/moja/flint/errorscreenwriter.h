@@ -1,35 +1,26 @@
-#ifndef MOJA_FLINT_ERRORSCREENWRITER_H_
-#define MOJA_FLINT_ERRORSCREENWRITER_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class SpatialLocationInfo;
-}
-}  // namespace moja
 
-namespace moja {
-namespace flint {
-
-class ErrorScreenWriter : public flint::ModuleBase {
+class ErrorScreenWriter : public ModuleBase {
   public:
    ErrorScreenWriter() {}
 
    virtual ~ErrorScreenWriter() = default;
    void subscribe(NotificationCenter& notificationCenter) override;
 
-   flint::ModuleTypes moduleType() override { return flint::ModuleTypes::Aggregator; };
+   ModuleTypes moduleType() override { return ModuleTypes::Aggregator; }
 
    void onLocalDomainInit() override;
    void onError(std::string msg) override;
 
   private:
    // -- flintdata objects data
-   std::shared_ptr<const flint::SpatialLocationInfo> _spatiallocationinfo;
+   std::shared_ptr<const SpatialLocationInfo> _spatiallocationinfo;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_ERRORSCREENWRITER_H_
+}  // namespace moja::flint

@@ -1,7 +1,5 @@
 #include "operationmanagertestutils.h"
 
-#include "flinttests.h"
-
 #include <moja/flint/ioperation.h>
 #include <moja/flint/ioperationresult.h>
 #include <moja/flint/ipool.h>
@@ -10,27 +8,24 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <iostream>
 #include <memory>
-
-// --------------------------------------------------------------------------------------------
 
 struct PoolInitValueAndResult {
    std::string name;
    double value;
    double result;
 
-   const moja::flint::IPool* poolHandle;
+   const moja::flint::IPool* pool;
 };
 
-// --------------------------------------------------------------------------------------------
+constexpr auto pct_tolerance = 0.0000001;
+
 void test_NoPoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {};
    manager.initialisePools();
 
    int count = 0;
@@ -40,21 +35,15 @@ void test_NoPoolIteration(moja::flint::IOperationManager& manager, moja::flint::
 
    BOOST_CHECK_EQUAL(count, 0);
    BOOST_CHECK_EQUAL(manager.poolCollection().size(), 0);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_SinglePoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 90.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
+   manager.addPool("A", "", "", 1.0, 1, 100, nullptr);
    manager.initialisePools();
 
    int count = 0;
@@ -64,21 +53,17 @@ void test_SinglePoolIteration(moja::flint::IOperationManager& manager, moja::fli
 
    BOOST_CHECK_EQUAL(count, 1);
    BOOST_CHECK_EQUAL(manager.poolCollection().size(), 1);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_MultiplePoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {
-       {"A", 100.0, 90.00}, {"B", 100.0, 90.00}, {"C", 100.0, 90.00}, {"D", 100.0, 90.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<std::tuple<std::string, double>> data = {{"A", 100.0}, {"B", 100.0}, {"C", 100.0}, {"D", 100.0}};
+   for (auto& [name, init_value] : data) {
+      manager.addPool(name, "", "", 1.0, 1, init_value, nullptr);
    }
    manager.initialisePools();
 
@@ -89,21 +74,18 @@ void test_MultiplePoolIteration(moja::flint::IOperationManager& manager, moja::f
 
    BOOST_CHECK_EQUAL(count, 4);
    BOOST_CHECK_EQUAL(manager.poolCollection().size(), 4);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_NoResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<std::tuple<std::string, double>> data = {{"A", 100.0}, {"B", 100.0}, {"C", 100.0},
+                                                        {"D", 100.0}, {"E", 100.0}, {"F", 100.0}};
+   for (auto& [name, value] : data) {
+      manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
@@ -114,31 +96,21 @@ void test_NoResultIteration(moja::flint::IOperationManager& manager, moja::flint
 
    BOOST_CHECK_EQUAL(count, 0);
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 0);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_SingleResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
-   manager.initialisePools();
+   const auto* A = manager.addPool("A", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* B = manager.addPool("B", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* C = manager.addPool("C", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* D = manager.addPool("D", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* E = manager.addPool("E", "", "", 1.0, 1, 100.0, nullptr);
 
-   int index = 0;
-   auto A = data[index++].poolHandle;
-   auto B = data[index++].poolHandle;
-   auto C = data[index++].poolHandle;
-   auto D = data[index++].poolHandle;
-   auto E = data[index++].poolHandle;
-   auto F = data[index++].poolHandle;
+   manager.initialisePools();
 
    auto op1 = manager.createProportionalOperation(module);
    op1->addTransfer(A, B, .13);
@@ -156,31 +128,21 @@ void test_SingleResultIteration(moja::flint::IOperationManager& manager, moja::f
 
    BOOST_CHECK_EQUAL(count, 1);
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 1);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_MultipleResultIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
-   manager.initialisePools();
+   const auto* A = manager.addPool("A", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* B = manager.addPool("B", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* C = manager.addPool("C", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* D = manager.addPool("D", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* E = manager.addPool("E", "", "", 1.0, 1, 100.0, nullptr);
 
-   int index = 0;
-   auto A = data[index++].poolHandle;
-   auto B = data[index++].poolHandle;
-   auto C = data[index++].poolHandle;
-   auto D = data[index++].poolHandle;
-   auto E = data[index++].poolHandle;
-   auto F = data[index++].poolHandle;
+   manager.initialisePools();
 
    auto op1 = manager.createProportionalOperation(module);
    op1->addTransfer(A, B, .13);
@@ -204,42 +166,26 @@ void test_MultipleResultIteration(moja::flint::IOperationManager& manager, moja:
 
    BOOST_CHECK_EQUAL(count, 3);
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 3);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_NoResultFluxIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
-   manager.initialisePools();
+   const auto* A = manager.addPool("A", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* B = manager.addPool("B", "", "", 1.0, 1, 100.0, nullptr);
 
-   int index = 0;
-   auto A = data[index++].poolHandle;
-   auto B = data[index++].poolHandle;
-   auto C = data[index++].poolHandle;
-   auto D = data[index++].poolHandle;
-   auto E = data[index++].poolHandle;
-   auto F = data[index++].poolHandle;
+   manager.initialisePools();
 
    auto op1 = manager.createProportionalOperation(module);
    op1->addTransfer(A, B, 0.0);
    op1->submitOperation();
 
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 1);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 // the ResultFluxIterator - or the OperationResult doesn't guarantee that transfers from the same source and to the same
 // sink will be combined. This means that checking the count won't be consistent across tests that have multiple
 // transfers added to same source/sink combinations.
@@ -250,20 +196,10 @@ void test_SingleResultFluxIteration(moja::flint::IOperationManager& manager, moj
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
-   manager.initialisePools();
+   const auto* A = manager.addPool("A", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* B = manager.addPool("B", "", "", 1.0, 1, 100.0, nullptr);
 
-   int index = 0;
-   auto A = data[index++].poolHandle;
-   auto B = data[index++].poolHandle;
-   auto C = data[index++].poolHandle;
-   auto D = data[index++].poolHandle;
-   auto E = data[index++].poolHandle;
-   auto F = data[index++].poolHandle;
+   manager.initialisePools();
 
    auto op1 = manager.createProportionalOperation(module);
    op1->addTransfer(A, B, .13);
@@ -274,36 +210,26 @@ void test_SingleResultFluxIteration(moja::flint::IOperationManager& manager, moj
    auto operationResult = *(manager.operationResultsPending().begin());
 
    int count = 0;
-   for (auto p : operationResult->operationResultFluxCollection()) {
+   for (auto* p : operationResult->operationResultFluxCollection()) {
       count++;
    }
 
    BOOST_CHECK_EQUAL(count, 1);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_MultipleResultFluxIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 100.0, 0.0}, {"C", 100.0, 0.0},
-                                               {"D", 100.0, 0.0}, {"E", 100.0, 0.0}, {"F", 100.0, 0.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
-   }
-   manager.initialisePools();
+   const auto* A = manager.addPool("A", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* B = manager.addPool("B", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* C = manager.addPool("C", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* D = manager.addPool("D", "", "", 1.0, 1, 100.0, nullptr);
+   const auto* E = manager.addPool("E", "", "", 1.0, 1, 100.0, nullptr);
 
-   int index = 0;
-   auto A = data[index++].poolHandle;
-   auto B = data[index++].poolHandle;
-   auto C = data[index++].poolHandle;
-   auto D = data[index++].poolHandle;
-   auto E = data[index++].poolHandle;
-   auto F = data[index++].poolHandle;
+   manager.initialisePools();
 
    auto op1 = manager.createProportionalOperation(module);
    op1->addTransfer(A, B, .13);
@@ -319,30 +245,27 @@ void test_MultipleResultFluxIteration(moja::flint::IOperationManager& manager, m
    auto operationResult = *(manager.operationResultsPending().begin());
 
    int count = 0;
-   for (auto p : operationResult->operationResultFluxCollection()) {
+   for (auto* p : operationResult->operationResultFluxCollection()) {
       count++;
    }
 
    BOOST_CHECK_EQUAL(count, 6);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_SingleProportionTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 90.00}, {"B", 50.0, 60.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 90.00, nullptr}, {"B", 50.0, 60.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createProportionalOperation(module);
 
@@ -351,33 +274,26 @@ void test_SingleProportionTransfer(moja::flint::IOperationManager& manager, moja
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
    data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_SingleStockTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00, nullptr}, {"B", 0.0, 45.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   // std::cout << testSuiteName << ": " << testName << ": Pool start values" << std::endl;
-   // for (auto pool : manager.poolCollection()) {
-   //	std::cout << pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
-   //}
-   // std::cout << std::endl;
-
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -386,34 +302,27 @@ void test_SingleStockTransfer(moja::flint::IOperationManager& manager, moja::fli
 
    manager.applyOperations();
 
-   // std::cout << testSuiteName << ": " << testName << ": Pool ending values" << std::endl;
-   // for (auto pool : manager.poolCollection()) {
-   //	std::cout << pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
-   //}
-   // std::cout << std::endl;
-
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_DoubleProportionalTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0}, {"B", 0.0, 50.0}, {"C", 0.0, 50.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {
+       {"A", 100.0, 0.0, nullptr}, {"B", 0.0, 50.0, nullptr}, {"C", 0.0, 50.0, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
 
    auto op1 = manager.createProportionalOperation(module);
 
@@ -423,28 +332,27 @@ void test_DoubleProportionalTransfer(moja::flint::IOperationManager& manager, mo
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_DoubleStockTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 20.0}, {"B", 0.0, 45.0}, {"C", 0.0, 35.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {
+       {"A", 100.0, 20.0, nullptr}, {"B", 0.0, 45.0, nullptr}, {"C", 0.0, 35.0, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -454,13 +362,11 @@ void test_DoubleStockTransfer(moja::flint::IOperationManager& manager, moja::fli
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_DoubleStockAndApplyTransfer(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
@@ -468,16 +374,16 @@ void test_DoubleStockAndApplyTransfer(moja::flint::IOperationManager& manager, m
                             .full_name();
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A", 100.0, 9.99}, {"B", 0.0, 50.00}, {"C", 0.0, 40.00}, {"D", 0.0, 0.010}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+       {"A", 100.0, 9.99, nullptr}, {"B", 0.0, 50.00, nullptr}, {"C", 0.0, 40.00, nullptr}, {"D", 0.0, 0.010, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
-   auto D = data[3].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
+   const auto* D = data[3].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -505,31 +411,32 @@ void test_DoubleStockAndApplyTransfer(moja::flint::IOperationManager& manager, m
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_TwoOperationsStockAndProportional(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {
-       {"A", 100.0, 0.0}, {"B", 0.0, 50.0}, {"C", 0.0, 45.0}, {"D", 150.0, 150.0}, {"E", 0.0, 5.0}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 0.0, nullptr},
+                                               {"B", 0.0, 50.0, nullptr},
+                                               {"C", 0.0, 45.0, nullptr},
+                                               {"D", 150.0, 150.0, nullptr},
+                                               {"E", 0.0, 5.0, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
-   auto D = data[3].poolHandle;
-   auto E = data[4].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
+   const auto* D = data[3].pool;
+   const auto* E = data[4].pool;
 
    auto op1 = manager.createProportionalOperation(module);
    auto op2 = manager.createStockOperation(module);
@@ -542,13 +449,11 @@ void test_TwoOperationsStockAndProportional(moja::flint::IOperationManager& mana
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_Kahan_summation_issues_Proportion(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
@@ -556,18 +461,17 @@ void test_Kahan_summation_issues_Proportion(moja::flint::IOperationManager& mana
                             .full_name();
 
    // These values taken from a CBM move in spinup (SoftwoodStemSnag -> MediumSoil) in a Dist event
-   //
-
-   std::vector<PoolInitValueAndResult> data = {
-       {"A", 21.440093961169907, 0.0}, {"B", 0.0, 10.7200469805849535}, {"C", 0.0, 10.7200469805849535}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 21.440093961169907, 0.0, nullptr},
+                                               {"B", 0.0, 10.7200469805849535, nullptr},
+                                               {"C", 0.0, 10.7200469805849535, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
 
    auto op1 = manager.createProportionalOperation(module);
 
@@ -577,13 +481,11 @@ void test_Kahan_summation_issues_Proportion(moja::flint::IOperationManager& mana
 
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
 void test_Kahan_summation_issues_Proportion_with_SpinUp(moja::flint::IOperationManager& manager,
                                                         moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
@@ -592,18 +494,17 @@ void test_Kahan_summation_issues_Proportion_with_SpinUp(moja::flint::IOperationM
                             .full_name();
 
    // These values taken from a CBM move in spinup (SoftwoodStemSnag -> MediumSoil) in a Dist event
-   //
-
-   std::vector<PoolInitValueAndResult> data = {
-       {"A", 21.440093961169907, 0.0}, {"B", 0.0, 10.7200469805849535}, {"C", 0.0, 10.7200469805849535}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 21.440093961169907, 0.0, nullptr},
+                                               {"B", 0.0, 10.7200469805849535, nullptr},
+                                               {"C", 0.0, 10.7200469805849535, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
-   auto C = data[2].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
+   const auto* C = data[2].pool;
 
 #if defined(_DEBUG)
    for (int i = 0; i < 1600; i++) {
@@ -652,15 +553,9 @@ void test_Kahan_summation_issues_Proportion_with_SpinUp(moja::flint::IOperationM
    op3->submitOperation();
    manager.applyOperations();
 
-   BOOST_CHECK_EQUAL(A->value(), 0.0);
-
-   // for (auto& p : data) {
-   //	BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
-   //}
-   data.clear();
+   BOOST_CHECK_CLOSE(A->value(), 0.0, pct_tolerance);
 }
 
-// --------------------------------------------------------------------------------------------
 void test_PerformanceTestProportionalSLEEK(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
@@ -668,120 +563,90 @@ void test_PerformanceTestProportionalSLEEK(moja::flint::IOperationManager& manag
                             .full_name();
 
 #if defined(_DEBUG)
-#define TEST_LOOPS 1
-#define TEST_STEPS (20 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.01
-#define TEST_VAL2 0.005
+   constexpr int test_loops = 1;
+   constexpr int test_steps = (20 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = 0.01;
+   constexpr double test_val2 = 0.005;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 100.0, 66.66666691607},  {"A2", 100.0, 133.33333308393}, {"A3", 100.0, 66.66666691607},
-       {"A4", 100.0, 133.33333308393}, {"B1", 100.0, 66.66666691607},  {"B2", 100.0, 133.33333308393},
-       {"B3", 100.0, 66.66666691607},  {"B4", 100.0, 133.33333308393}, {"C1", 100.0, 66.66666691607},
-       {"C2", 100.0, 133.33333308393}, {"C3", 100.0, 66.66666691607},  {"C4", 100.0, 133.33333308393},
-       {"D1", 150.0, 100.00000037410}, {"D2", 150.0, 199.99999962590}, {"D3", 150.0, 100.00000037410},
-       {"D4", 150.0, 199.99999962590}, {"E1", 100.0, 66.66666691607},  {"E2", 100.0, 133.33333308393},
-       {"E3", 100.0, 66.66666691607},  {"E4", 100.0, 133.33333308393}, {"F1", 100.0, 66.66666691607},
-       {"F2", 100.0, 133.33333308393}, {"F3", 100.0, 66.66666691607},  {"F4", 100.0, 133.33333308393},
-       {"G1", 100.0, 66.66666691607},  {"G2", 100.0, 133.33333308393}, {"G3", 100.0, 66.66666691607},
-       {"G4", 100.0, 133.33333308393}, {"H1", 100.0, 66.66666691607},  {"H2", 100.0, 133.33333308393},
-       {"H3", 100.0, 66.66666691607},  {"H4", 100.0, 133.33333308393}, {"I1", 100.0, 66.66666691607},
-       {"I2", 100.0, 133.33333308393}, {"I3", 100.0, 66.66666691607},  {"I4", 100.0, 133.33333308393},
-       {"J1", 100.0, 66.66666691607},  {"J2", 100.0, 133.33333308393}, {"J3", 100.0, 66.66666691607},
-       {"J4", 100.0, 133.33333308393}};
+       {"A1", 100.0, 66.66666691607, nullptr}, {"A2", 100.0, 133.33333308393, nullptr},
+       {"A3", 100.0, 66.66666691607, nullptr}, {"A4", 100.0, 133.33333308393, nullptr},
+       {"B1", 100.0, 66.66666691607, nullptr}, {"B2", 100.0, 133.33333308393, nullptr},
+       {"B3", 100.0, 66.66666691607, nullptr}, {"B4", 100.0, 133.33333308393, nullptr},
+       {"C1", 100.0, 66.66666691607, nullptr}, {"C2", 100.0, 133.33333308393, nullptr},
+       {"C3", 100.0, 66.66666691607, nullptr}, {"C4", 100.0, 133.33333308393, nullptr},
+       {"D1", 150.0, 100.0000003741, nullptr}, {"D2", 150.0, 199.99999962590, nullptr},
+       {"D3", 150.0, 100.0000003741, nullptr}, {"D4", 150.0, 199.99999962590, nullptr},
+       {"E1", 100.0, 66.66666691607, nullptr}, {"E2", 100.0, 133.33333308393, nullptr},
+       {"E3", 100.0, 66.66666691607, nullptr}, {"E4", 100.0, 133.33333308393, nullptr},
+       {"F1", 100.0, 66.66666691607, nullptr}, {"F2", 100.0, 133.33333308393, nullptr},
+       {"F3", 100.0, 66.66666691607, nullptr}, {"F4", 100.0, 133.33333308393, nullptr},
+       {"G1", 100.0, 66.66666691607, nullptr}, {"G2", 100.0, 133.33333308393, nullptr},
+       {"G3", 100.0, 66.66666691607, nullptr}, {"G4", 100.0, 133.33333308393, nullptr},
+       {"H1", 100.0, 66.66666691607, nullptr}, {"H2", 100.0, 133.33333308393, nullptr},
+       {"H3", 100.0, 66.66666691607, nullptr}, {"H4", 100.0, 133.33333308393, nullptr},
+       {"I1", 100.0, 66.66666691607, nullptr}, {"I2", 100.0, 133.33333308393, nullptr},
+       {"I3", 100.0, 66.66666691607, nullptr}, {"I4", 100.0, 133.33333308393, nullptr},
+       {"J1", 100.0, 66.66666691607, nullptr}, {"J2", 100.0, 133.33333308393, nullptr},
+       {"J3", 100.0, 66.66666691607, nullptr}, {"J4", 100.0, 133.33333308393, nullptr}};
 #else
-#define TEST_LOOPS 100
-#define TEST_STEPS (50 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.01
-#define TEST_VAL2 0.005
+   constexpr int test_loops = 100;
+   constexpr int test_steps = (50 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = 0.01;
+   constexpr double test_val2 = 0.005;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 100.0, 66.6666666667},  {"A2", 100.0, 133.333333333},  {"A3", 100.0, 66.6666666667},
-       {"A4", 100.0, 133.333333333},  {"B1", 100.0, 66.6666666667},  {"B2", 100.0, 133.333333333},
-       {"B3", 100.0, 66.6666666667},  {"B4", 100.0, 133.333333333},  {"C1", 100.0, 66.6666666667},
-       {"C2", 100.0, 133.333333333},  {"C3", 100.0, 66.6666666667},  {"C4", 100.0, 133.333333333},
-       {"D1", 150.0, 100.0000000000}, {"D2", 150.0, 200.0000000000}, {"D3", 150.0, 100.0000000000},
-       {"D4", 150.0, 200.0000000000}, {"E1", 100.0, 66.6666666667},  {"E2", 100.0, 133.333333333},
-       {"E3", 100.0, 66.6666666667},  {"E4", 100.0, 133.333333333},  {"F1", 100.0, 66.6666666667},
-       {"F2", 100.0, 133.333333333},  {"F3", 100.0, 66.6666666667},  {"F4", 100.0, 133.333333333},
-       {"G1", 100.0, 66.6666666667},  {"G2", 100.0, 133.333333333},  {"G3", 100.0, 66.6666666667},
-       {"G4", 100.0, 133.333333333},  {"H1", 100.0, 66.6666666667},  {"H2", 100.0, 133.333333333},
-       {"H3", 100.0, 66.6666666667},  {"H4", 100.0, 133.333333333},  {"I1", 100.0, 66.6666666667},
-       {"I2", 100.0, 133.333333333},  {"I3", 100.0, 66.6666666667},  {"I4", 100.0, 133.333333333},
-       {"J1", 100.0, 66.6666666667},  {"J2", 100.0, 133.333333333},  {"J3", 100.0, 66.6666666667},
-       {"J4", 100.0, 133.333333333}};
+       {"A1", 100.0, 66.6666666667, nullptr}, {"A2", 100.0, 133.333333333, nullptr},
+       {"A3", 100.0, 66.6666666667, nullptr}, {"A4", 100.0, 133.333333333, nullptr},
+       {"B1", 100.0, 66.6666666667, nullptr}, {"B2", 100.0, 133.333333333, nullptr},
+       {"B3", 100.0, 66.6666666667, nullptr}, {"B4", 100.0, 133.333333333, nullptr},
+       {"C1", 100.0, 66.6666666667, nullptr}, {"C2", 100.0, 133.333333333, nullptr},
+       {"C3", 100.0, 66.6666666667, nullptr}, {"C4", 100.0, 133.333333333, nullptr},
+       {"D1", 150.0, 100.000000000, nullptr}, {"D2", 150.0, 200.000000000, nullptr},
+       {"D3", 150.0, 100.000000000, nullptr}, {"D4", 150.0, 200.000000000, nullptr},
+       {"E1", 100.0, 66.6666666667, nullptr}, {"E2", 100.0, 133.333333333, nullptr},
+       {"E3", 100.0, 66.6666666667, nullptr}, {"E4", 100.0, 133.333333333, nullptr},
+       {"F1", 100.0, 66.6666666667, nullptr}, {"F2", 100.0, 133.333333333, nullptr},
+       {"F3", 100.0, 66.6666666667, nullptr}, {"F4", 100.0, 133.333333333, nullptr},
+       {"G1", 100.0, 66.6666666667, nullptr}, {"G2", 100.0, 133.333333333, nullptr},
+       {"G3", 100.0, 66.6666666667, nullptr}, {"G4", 100.0, 133.333333333, nullptr},
+       {"H1", 100.0, 66.6666666667, nullptr}, {"H2", 100.0, 133.333333333, nullptr},
+       {"H3", 100.0, 66.6666666667, nullptr}, {"H4", 100.0, 133.333333333, nullptr},
+       {"I1", 100.0, 66.6666666667, nullptr}, {"I2", 100.0, 133.333333333, nullptr},
+       {"I3", 100.0, 66.6666666667, nullptr}, {"I4", 100.0, 133.333333333, nullptr},
+       {"J1", 100.0, 66.6666666667, nullptr}, {"J2", 100.0, 133.333333333, nullptr},
+       {"J3", 100.0, 66.6666666667, nullptr}, {"J4", 100.0, 133.333333333, nullptr}};
 #endif
 
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto operations = 0;
-   auto applys = 0;
-   auto transfers = 0;
-   auto start = moja::DateTime::now();
-   for (auto x = 0; x < TEST_LOOPS; x++) {
-      for (auto step = 0; step < TEST_STEPS; step++) {
-         for (auto m = 0; m < TEST_MODS; m++) {
+   for (auto x = 0; x < test_loops; x++) {
+      for (auto step = 0; step < test_steps; step++) {
+         for (auto m = 0; m < test_mods; m++) {
             auto op1 = manager.createProportionalOperation(module);
-            operations++;
-
             for (auto dataIdx = 0; dataIdx < data.size(); dataIdx += 2) {
-               auto test = (m % 2) == 0;
-               auto src = data[test ? dataIdx : dataIdx + 1].poolHandle;
-               auto snk = data[test ? dataIdx + 1 : dataIdx].poolHandle;
-               op1->addTransfer(src, snk, test ? TEST_VAL1 : TEST_VAL2);
-               transfers++;
+               const auto test = (m % 2) == 0;
+               const auto* src = data[test ? dataIdx : dataIdx + 1].pool;
+               const auto* snk = data[test ? dataIdx + 1 : dataIdx].pool;
+               op1->addTransfer(src, snk, test ? test_val1 : test_val2);
             }
             op1->submitOperation();
          }
-
-         // std::cout << "OperationManagerSimple: TwoOperationsStockAndProportional: Pending:" << std::endl;
-         // for (auto pending : manager.operationResultsPending()) {
-         //	for (auto flux : pending->operationResultFluxCollection()) {
-         //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
-         //	}
-         //}
-         // std::cout << std::endl;
-
          manager.applyOperations();
-         applys++;
       }
       manager.clearAllOperationResults();
    }
-   auto finish = moja::DateTime::now();
 
-   auto length = finish - start;
-   std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ')
-             << testName << ": Milliseconds : " << length.totalMilliseconds() << std::endl;
-   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) << std::setfill(' ') <<
-   // testName << ": operations   : " << operations << std::endl; std::cout << std::setw(40) << std::setfill(' ') <<
-   // testSuiteName << ": " << std::setw(40) << std::setfill(' ') << testName << ": applys       : " << applys <<
-   // std::endl; std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) <<
-   // std::setfill(' ') << testName << ": transfers    : " << transfers << std::endl;
-
-   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ') <<
-   // testName << ": Pool ending values:" << std::endl; for (auto pool : manager.poolCollection()) { 	std::cout <<
-   // pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
-   //}
-   // std::cout << std::endl;
-
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
-
-#undef TEST_LOOPS
-#undef TEST_STEPS
-#undef TEST_MODS
-#undef TEST_VAL1
-#undef TEST_VAL2
 }
 
-// --------------------------------------------------------------------------------------------
 void test_PerformanceTestStockSLEEK(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
@@ -789,159 +654,119 @@ void test_PerformanceTestStockSLEEK(moja::flint::IOperationManager& manager, moj
                             .full_name();
 
 #if defined(_DEBUG)
-#define TEST_LOOPS 1
-#define TEST_STEPS (20 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.002
-#define TEST_VAL2 0.001
+   constexpr int test_loops = 1;
+   constexpr int test_steps = (20 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = 0.002;
+   constexpr double test_val2 = 0.001;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 10000000.0, 9999998.800000},  {"A2", 15000000.0, 15000001.200000}, {"A3", 10000000.0, 9999998.800000},
-       {"A4", 15000000.0, 15000001.200000}, {"B1", 10000000.0, 9999998.800000},  {"B2", 15000000.0, 15000001.200000},
-       {"B3", 10000000.0, 9999998.800000},  {"B4", 15000000.0, 15000001.200000}, {"C1", 10000000.0, 9999998.800000},
-       {"C2", 15000000.0, 15000001.200000}, {"C3", 10000000.0, 9999998.800000},  {"C4", 15000000.0, 15000001.200000},
-       {"D1", 10000000.0, 9999998.800000},  {"D2", 15000000.0, 15000001.200000}, {"D3", 10000000.0, 9999998.800000},
-       {"D4", 15000000.0, 15000001.200000}, {"E1", 10000000.0, 9999998.800000},  {"E2", 15000000.0, 15000001.200000},
-       {"E3", 10000000.0, 9999998.800000},  {"E4", 15000000.0, 15000001.200000}, {"F1", 10000000.0, 9999998.800000},
-       {"F2", 15000000.0, 15000001.200000}, {"F3", 10000000.0, 9999998.800000},  {"F4", 15000000.0, 15000001.200000},
-       {"G1", 10000000.0, 9999998.800000},  {"G2", 15000000.0, 15000001.200000}, {"G3", 10000000.0, 9999998.800000},
-       {"G4", 15000000.0, 15000001.200000}, {"H1", 10000000.0, 9999998.800000},  {"H2", 15000000.0, 15000001.200000},
-       {"H3", 10000000.0, 9999998.800000},  {"H4", 15000000.0, 15000001.200000}, {"I1", 10000000.0, 9999998.800000},
-       {"I2", 15000000.0, 15000001.200000}, {"I3", 10000000.0, 9999998.800000},  {"I4", 15000000.0, 15000001.200000},
-       {"J1", 10000000.0, 9999998.800000},  {"J2", 15000000.0, 15000001.200000}, {"J3", 10000000.0, 9999998.800000},
-       {"J4", 15000000.0, 15000001.200000}};
+       {"A1", 10000000.0, 9999998.8, nullptr}, {"A2", 15000000.0, 15000001.2, nullptr},
+       {"A3", 10000000.0, 9999998.8, nullptr}, {"A4", 15000000.0, 15000001.2, nullptr},
+       {"B1", 10000000.0, 9999998.8, nullptr}, {"B2", 15000000.0, 15000001.2, nullptr},
+       {"B3", 10000000.0, 9999998.8, nullptr}, {"B4", 15000000.0, 15000001.2, nullptr},
+       {"C1", 10000000.0, 9999998.8, nullptr}, {"C2", 15000000.0, 15000001.2, nullptr},
+       {"C3", 10000000.0, 9999998.8, nullptr}, {"C4", 15000000.0, 15000001.2, nullptr},
+       {"D1", 10000000.0, 9999998.8, nullptr}, {"D2", 15000000.0, 15000001.2, nullptr},
+       {"D3", 10000000.0, 9999998.8, nullptr}, {"D4", 15000000.0, 15000001.2, nullptr},
+       {"E1", 10000000.0, 9999998.8, nullptr}, {"E2", 15000000.0, 15000001.2, nullptr},
+       {"E3", 10000000.0, 9999998.8, nullptr}, {"E4", 15000000.0, 15000001.2, nullptr},
+       {"F1", 10000000.0, 9999998.8, nullptr}, {"F2", 15000000.0, 15000001.2, nullptr},
+       {"F3", 10000000.0, 9999998.8, nullptr}, {"F4", 15000000.0, 15000001.2, nullptr},
+       {"G1", 10000000.0, 9999998.8, nullptr}, {"G2", 15000000.0, 15000001.2, nullptr},
+       {"G3", 10000000.0, 9999998.8, nullptr}, {"G4", 15000000.0, 15000001.2, nullptr},
+       {"H1", 10000000.0, 9999998.8, nullptr}, {"H2", 15000000.0, 15000001.2, nullptr},
+       {"H3", 10000000.0, 9999998.8, nullptr}, {"H4", 15000000.0, 15000001.2, nullptr},
+       {"I1", 10000000.0, 9999998.8, nullptr}, {"I2", 15000000.0, 15000001.2, nullptr},
+       {"I3", 10000000.0, 9999998.8, nullptr}, {"I4", 15000000.0, 15000001.2, nullptr},
+       {"J1", 10000000.0, 9999998.8, nullptr}, {"J2", 15000000.0, 15000001.2, nullptr},
+       {"J3", 10000000.0, 9999998.8, nullptr}, {"J4", 15000000.0, 15000001.2, nullptr}};
 #else
 #if 1  // 100 loops
-#define TEST_LOOPS 100
-#define TEST_STEPS (50 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.002
-#define TEST_VAL2 0.001
+   constexpr int test_loops = 100;
+   constexpr int test_steps = (50 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = 0.002;
+   constexpr double test_val2 = 0.001;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 10000000.0, 9999700.000000000}, {"A2", 15000000.0, 15000300.000000000},
-       {"A3", 10000000.0, 9999700.000000000}, {"A4", 15000000.0, 15000300.000000000},
-       {"B1", 10000000.0, 9999700.000000000}, {"B2", 15000000.0, 15000300.000000000},
-       {"B3", 10000000.0, 9999700.000000000}, {"B4", 15000000.0, 15000300.000000000},
-       {"C1", 10000000.0, 9999700.000000000}, {"C2", 15000000.0, 15000300.000000000},
-       {"C3", 10000000.0, 9999700.000000000}, {"C4", 15000000.0, 15000300.000000000},
-       {"D1", 10000000.0, 9999700.000000000}, {"D2", 15000000.0, 15000300.000000000},
-       {"D3", 10000000.0, 9999700.000000000}, {"D4", 15000000.0, 15000300.000000000},
-       {"E1", 10000000.0, 9999700.000000000}, {"E2", 15000000.0, 15000300.000000000},
-       {"E3", 10000000.0, 9999700.000000000}, {"E4", 15000000.0, 15000300.000000000},
-       {"F1", 10000000.0, 9999700.000000000}, {"F2", 15000000.0, 15000300.000000000},
-       {"F3", 10000000.0, 9999700.000000000}, {"F4", 15000000.0, 15000300.000000000},
-       {"G1", 10000000.0, 9999700.000000000}, {"G2", 15000000.0, 15000300.000000000},
-       {"G3", 10000000.0, 9999700.000000000}, {"G4", 15000000.0, 15000300.000000000},
-       {"H1", 10000000.0, 9999700.000000000}, {"H2", 15000000.0, 15000300.000000000},
-       {"H3", 10000000.0, 9999700.000000000}, {"H4", 15000000.0, 15000300.000000000},
-       {"I1", 10000000.0, 9999700.000000000}, {"I2", 15000000.0, 15000300.000000000},
-       {"I3", 10000000.0, 9999700.000000000}, {"I4", 15000000.0, 15000300.000000000},
-       {"J1", 10000000.0, 9999700.000000000}, {"J2", 15000000.0, 15000300.000000000},
-       {"J3", 10000000.0, 9999700.000000000}, {"J4", 15000000.0, 15000300.000000000}};
+       {"A1", 10000000.0, 9999700.0, nullptr}, {"A2", 15000000.0, 15000300.0, nullptr},
+       {"A3", 10000000.0, 9999700.0, nullptr}, {"A4", 15000000.0, 15000300.0, nullptr},
+       {"B1", 10000000.0, 9999700.0, nullptr}, {"B2", 15000000.0, 15000300.0, nullptr},
+       {"B3", 10000000.0, 9999700.0, nullptr}, {"B4", 15000000.0, 15000300.0, nullptr},
+       {"C1", 10000000.0, 9999700.0, nullptr}, {"C2", 15000000.0, 15000300.0, nullptr},
+       {"C3", 10000000.0, 9999700.0, nullptr}, {"C4", 15000000.0, 15000300.0, nullptr},
+       {"D1", 10000000.0, 9999700.0, nullptr}, {"D2", 15000000.0, 15000300.0, nullptr},
+       {"D3", 10000000.0, 9999700.0, nullptr}, {"D4", 15000000.0, 15000300.0, nullptr},
+       {"E1", 10000000.0, 9999700.0, nullptr}, {"E2", 15000000.0, 15000300.0, nullptr},
+       {"E3", 10000000.0, 9999700.0, nullptr}, {"E4", 15000000.0, 15000300.0, nullptr},
+       {"F1", 10000000.0, 9999700.0, nullptr}, {"F2", 15000000.0, 15000300.0, nullptr},
+       {"F3", 10000000.0, 9999700.0, nullptr}, {"F4", 15000000.0, 15000300.0, nullptr},
+       {"G1", 10000000.0, 9999700.0, nullptr}, {"G2", 15000000.0, 15000300.0, nullptr},
+       {"G3", 10000000.0, 9999700.0, nullptr}, {"G4", 15000000.0, 15000300.0, nullptr},
+       {"H1", 10000000.0, 9999700.0, nullptr}, {"H2", 15000000.0, 15000300.0, nullptr},
+       {"H3", 10000000.0, 9999700.0, nullptr}, {"H4", 15000000.0, 15000300.0, nullptr},
+       {"I1", 10000000.0, 9999700.0, nullptr}, {"I2", 15000000.0, 15000300.0, nullptr},
+       {"I3", 10000000.0, 9999700.0, nullptr}, {"I4", 15000000.0, 15000300.0, nullptr},
+       {"J1", 10000000.0, 9999700.0, nullptr}, {"J2", 15000000.0, 15000300.0, nullptr},
+       {"J3", 10000000.0, 9999700.0, nullptr}, {"J4", 15000000.0, 15000300.0, nullptr}};
 #else  // 10000 loops
-#define TEST_LOOPS 10000
-#define TEST_STEPS (50 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.002
-#define TEST_VAL2 0.001
+   constexpr int test_loops = 10000;
+   constexpr int test_steps = (50 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = 0.002;
+   constexpr double test_val2 = 0.001;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 10000000.0, 9970000.000000000}, {"A2", 15000000.0, 15030000.000000000},
-       {"A3", 10000000.0, 9970000.000000000}, {"A4", 15000000.0, 15030000.000000000},
-       {"B1", 10000000.0, 9970000.000000000}, {"B2", 15000000.0, 15030000.000000000},
-       {"B3", 10000000.0, 9970000.000000000}, {"B4", 15000000.0, 15030000.000000000},
-       {"C1", 10000000.0, 9970000.000000000}, {"C2", 15000000.0, 15030000.000000000},
-       {"C3", 10000000.0, 9970000.000000000}, {"C4", 15000000.0, 15030000.000000000},
-       {"D1", 10000000.0, 9970000.000000000}, {"D2", 15000000.0, 15030000.000000000},
-       {"D3", 10000000.0, 9970000.000000000}, {"D4", 15000000.0, 15030000.000000000},
-       {"E1", 10000000.0, 9970000.000000000}, {"E2", 15000000.0, 15030000.000000000},
-       {"E3", 10000000.0, 9970000.000000000}, {"E4", 15000000.0, 15030000.000000000},
-       {"F1", 10000000.0, 9970000.000000000}, {"F2", 15000000.0, 15030000.000000000},
-       {"F3", 10000000.0, 9970000.000000000}, {"F4", 15000000.0, 15030000.000000000},
-       {"G1", 10000000.0, 9970000.000000000}, {"G2", 15000000.0, 15030000.000000000},
-       {"G3", 10000000.0, 9970000.000000000}, {"G4", 15000000.0, 15030000.000000000},
-       {"H1", 10000000.0, 9970000.000000000}, {"H2", 15000000.0, 15030000.000000000},
-       {"H3", 10000000.0, 9970000.000000000}, {"H4", 15000000.0, 15030000.000000000},
-       {"I1", 10000000.0, 9970000.000000000}, {"I2", 15000000.0, 15030000.000000000},
-       {"I3", 10000000.0, 9970000.000000000}, {"I4", 15000000.0, 15030000.000000000},
-       {"J1", 10000000.0, 9970000.000000000}, {"J2", 15000000.0, 15030000.000000000},
-       {"J3", 10000000.0, 9970000.000000000}, {"J4", 15000000.0, 15030000.000000000}};
+       {"A1", 10000000.0, 9970000.0, nullptr}, {"A2", 15000000.0, 15030000.0, nullptr},
+       {"A3", 10000000.0, 9970000.0, nullptr}, {"A4", 15000000.0, 15030000.0, nullptr},
+       {"B1", 10000000.0, 9970000.0, nullptr}, {"B2", 15000000.0, 15030000.0, nullptr},
+       {"B3", 10000000.0, 9970000.0, nullptr}, {"B4", 15000000.0, 15030000.0, nullptr},
+       {"C1", 10000000.0, 9970000.0, nullptr}, {"C2", 15000000.0, 15030000.0, nullptr},
+       {"C3", 10000000.0, 9970000.0, nullptr}, {"C4", 15000000.0, 15030000.0, nullptr},
+       {"D1", 10000000.0, 9970000.0, nullptr}, {"D2", 15000000.0, 15030000.0, nullptr},
+       {"D3", 10000000.0, 9970000.0, nullptr}, {"D4", 15000000.0, 15030000.0, nullptr},
+       {"E1", 10000000.0, 9970000.0, nullptr}, {"E2", 15000000.0, 15030000.0, nullptr},
+       {"E3", 10000000.0, 9970000.0, nullptr}, {"E4", 15000000.0, 15030000.0, nullptr},
+       {"F1", 10000000.0, 9970000.0, nullptr}, {"F2", 15000000.0, 15030000.0, nullptr},
+       {"F3", 10000000.0, 9970000.0, nullptr}, {"F4", 15000000.0, 15030000.0, nullptr},
+       {"G1", 10000000.0, 9970000.0, nullptr}, {"G2", 15000000.0, 15030000.0, nullptr},
+       {"G3", 10000000.0, 9970000.0, nullptr}, {"G4", 15000000.0, 15030000.0, nullptr},
+       {"H1", 10000000.0, 9970000.0, nullptr}, {"H2", 15000000.0, 15030000.0, nullptr},
+       {"H3", 10000000.0, 9970000.0, nullptr}, {"H4", 15000000.0, 15030000.0, nullptr},
+       {"I1", 10000000.0, 9970000.0, nullptr}, {"I2", 15000000.0, 15030000.0, nullptr},
+       {"I3", 10000000.0, 9970000.0, nullptr}, {"I4", 15000000.0, 15030000.0, nullptr},
+       {"J1", 10000000.0, 9970000.0, nullptr}, {"J2", 15000000.0, 15030000.0, nullptr},
+       {"J3", 10000000.0, 9970000.0, nullptr}, {"J4", 15000000.0, 15030000.0, nullptr}};
 #endif
 #endif
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   for (auto& pool : data) {
+      pool.pool = manager.addPool(pool.name, "", "", 1.0, 1, pool.value, nullptr);
    }
    manager.initialisePools();
 
-   auto operations = 0;
-   auto applys = 0;
-   auto transfers = 0;
-   auto start = moja::DateTime::now();
-   for (auto x = 0; x < TEST_LOOPS; x++) {
-      for (auto step = 0; step < TEST_STEPS; step++) {
-         for (auto m = 0; m < TEST_MODS; m++) {
+   for (auto x = 0; x < test_loops; x++) {
+      for (auto step = 0; step < test_steps; step++) {
+         for (auto m = 0; m < test_mods; m++) {
             auto op1 = manager.createStockOperation(module);
-            operations++;
-
             for (auto dataIdx = 0; dataIdx < data.size(); dataIdx += 2) {
-               auto test = (step % 2) == 0;
-               auto src = data[test ? dataIdx : dataIdx + 1].poolHandle;
-               auto snk = data[test ? dataIdx + 1 : dataIdx].poolHandle;
-               op1->addTransfer(src, snk, test ? TEST_VAL1 : TEST_VAL2);
-               transfers++;
+               const auto test = (step % 2) == 0;
+               const auto* src = data[test ? dataIdx : dataIdx + 1].pool;
+               const auto* snk = data[test ? dataIdx + 1 : dataIdx].pool;
+               op1->addTransfer(src, snk, test ? test_val1 : test_val2);
             }
             op1->submitOperation();
          }
-
-         // std::cout << testSuiteName << ": " << testName << ": Pending:" << std::endl;
-         // for (auto pending : manager.operationResultsPending()) {
-         //	for (auto flux : pending->operationResultFluxCollection()) {
-         //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
-         //	}
-         //}
-         // std::cout << std::endl;
-
          manager.applyOperations();
-         applys++;
       }
       manager.clearAllOperationResults();
    }
-   auto finish = moja::DateTime::now();
 
-   auto length = finish - start;
-   std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ')
-             << testName << ": Milliseconds : " << length.totalMilliseconds() << std::endl;
-   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) << std::setfill(' ') <<
-   // testName << ": operations   : " << operations << std::endl; std::cout << std::setw(40) << std::setfill(' ') <<
-   // testSuiteName << ": " << std::setw(40) << std::setfill(' ') << testName << ": applys       : " << applys <<
-   // std::endl; std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) <<
-   // std::setfill(' ') << testName << ": transfers    : " << transfers << std::endl;
-
-   // std::cout << testSuiteName << ": " << testName << ": Pool ending values" << std::endl;
-   // for (auto pool : manager.poolCollection()) {
-   //	std::cout << pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
-   //}
-   // std::cout << std::endl;
-
-   // std::cout << testSuiteName << ": " << testName << ": Pool CHECK values" << std::endl;
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.0000000001);
-      // std::cout << "Pool: " << std::setprecision(15) << p.poolHandle->value() << ", Result: " <<
-      // std::setprecision(15) << p.result << ", diff: " << std::setprecision(15) << abs(p.poolHandle->value() -
-      // p.result) << std::endl;
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
-
-#undef TEST_LOOPS
-#undef TEST_STEPS
-#undef TEST_MODS
-#undef TEST_VAL1
-#undef TEST_VAL2
 }
 
-// --------------------------------------------------------------------------------------------
 void test_PerformanceTestCBM(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
@@ -949,144 +774,106 @@ void test_PerformanceTestCBM(moja::flint::IOperationManager& manager, moja::flin
                             .full_name();
 
 #if defined(_DEBUG)
-#define TEST_LOOPS 1
-#define TEST_STEPS (20 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.002
-#define TEST_VAL2 0.001
+   constexpr int test_loops = 1;
+   constexpr int test_steps = (20 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = .01;
+   constexpr double test_val2 = .005;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 100.0, 66.8896325746}, {"A2", 100.0, 133.110367425}, {"A3", 100.0, 66.8896325746},
-       {"A4", 100.0, 133.110367425}, {"B1", 100.0, 66.8896325746}, {"B2", 100.0, 133.110367425},
-       {"B3", 100.0, 66.8896325746}, {"B4", 100.0, 133.110367425}, {"C1", 100.0, 66.8896325746},
-       {"C2", 100.0, 133.110367425}, {"C3", 100.0, 66.8896325746}, {"C4", 100.0, 133.110367425},
-       {"D1", 150.0, 100.334448862}, {"D2", 150.0, 199.665551138}, {"D3", 150.0, 100.334448862},
-       {"D4", 150.0, 199.665551138}, {"E1", 100.0, 66.8896325746}, {"E2", 100.0, 133.110367425},
-       {"E3", 100.0, 66.8896325746}, {"E4", 100.0, 133.110367425}, {"F1", 100.0, 66.8896325746},
-       {"F2", 100.0, 133.110367425}, {"F3", 100.0, 66.8896325746}, {"F4", 100.0, 133.110367425},
-       {"G1", 100.0, 66.8896325746}, {"G2", 100.0, 133.110367425}, {"G3", 100.0, 66.8896325746},
-       {"G4", 100.0, 133.110367425}, {"H1", 100.0, 66.8896325746}, {"H2", 100.0, 133.110367425},
-       {"H3", 100.0, 66.8896325746}, {"H4", 100.0, 133.110367425}, {"I1", 100.0, 66.8896325746},
-       {"I2", 100.0, 133.110367425}, {"I3", 100.0, 66.8896325746}, {"I4", 100.0, 133.110367425},
-       {"J1", 100.0, 66.8896325746}, {"J2", 100.0, 133.110367425}, {"J3", 100.0, 66.8896325746},
-       {"J4", 100.0, 133.110367425}};
+       {"A1", 100.0, 66.8896325746, nullptr}, {"A2", 100.0, 133.110367425, nullptr},
+       {"A3", 100.0, 66.8896325746, nullptr}, {"A4", 100.0, 133.110367425, nullptr},
+       {"B1", 100.0, 66.8896325746, nullptr}, {"B2", 100.0, 133.110367425, nullptr},
+       {"B3", 100.0, 66.8896325746, nullptr}, {"B4", 100.0, 133.110367425, nullptr},
+       {"C1", 100.0, 66.8896325746, nullptr}, {"C2", 100.0, 133.110367425, nullptr},
+       {"C3", 100.0, 66.8896325746, nullptr}, {"C4", 100.0, 133.110367425, nullptr},
+       {"D1", 150.0, 100.334448862, nullptr}, {"D2", 150.0, 199.665551138, nullptr},
+       {"D3", 150.0, 100.334448862, nullptr}, {"D4", 150.0, 199.665551138, nullptr},
+       {"E1", 100.0, 66.8896325746, nullptr}, {"E2", 100.0, 133.110367425, nullptr},
+       {"E3", 100.0, 66.8896325746, nullptr}, {"E4", 100.0, 133.110367425, nullptr},
+       {"F1", 100.0, 66.8896325746, nullptr}, {"F2", 100.0, 133.110367425, nullptr},
+       {"F3", 100.0, 66.8896325746, nullptr}, {"F4", 100.0, 133.110367425, nullptr},
+       {"G1", 100.0, 66.8896325746, nullptr}, {"G2", 100.0, 133.110367425, nullptr},
+       {"G3", 100.0, 66.8896325746, nullptr}, {"G4", 100.0, 133.110367425, nullptr},
+       {"H1", 100.0, 66.8896325746, nullptr}, {"H2", 100.0, 133.110367425, nullptr},
+       {"H3", 100.0, 66.8896325746, nullptr}, {"H4", 100.0, 133.110367425, nullptr},
+       {"I1", 100.0, 66.8896325746, nullptr}, {"I2", 100.0, 133.110367425, nullptr},
+       {"I3", 100.0, 66.8896325746, nullptr}, {"I4", 100.0, 133.110367425, nullptr},
+       {"J1", 100.0, 66.8896325746, nullptr}, {"J2", 100.0, 133.110367425, nullptr},
+       {"J3", 100.0, 66.8896325746, nullptr}, {"J4", 100.0, 133.110367425, nullptr}};
 #else
-#define TEST_LOOPS 100
-#define TEST_STEPS (50 * 12)
-#define TEST_MODS 10
-#define TEST_VAL1 0.002
-#define TEST_VAL2 0.001
+   constexpr int test_loops = 100;
+   constexpr int test_steps = (50 * 12);
+   constexpr int test_mods = 10;
+   constexpr double test_val1 = .01;
+   constexpr double test_val2 = .005;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A1", 100.0, 66.889632107},  {"A2", 100.0, 133.110367893}, {"A3", 100.0, 66.889632107},
-       {"A4", 100.0, 133.110367893}, {"B1", 100.0, 66.889632107},  {"B2", 100.0, 133.110367893},
-       {"B3", 100.0, 66.889632107},  {"B4", 100.0, 133.110367893}, {"C1", 100.0, 66.889632107},
-       {"C2", 100.0, 133.110367893}, {"C3", 100.0, 66.889632107},  {"C4", 100.0, 133.110367893},
-       {"D1", 150.0, 100.334448161}, {"D2", 150.0, 199.665551839}, {"D3", 150.0, 100.334448161},
-       {"D4", 150.0, 199.665551839}, {"E1", 100.0, 66.889632107},  {"E2", 100.0, 133.110367893},
-       {"E3", 100.0, 66.889632107},  {"E4", 100.0, 133.110367893}, {"F1", 100.0, 66.889632107},
-       {"F2", 100.0, 133.110367893}, {"F3", 100.0, 66.889632107},  {"F4", 100.0, 133.110367893},
-       {"G1", 100.0, 66.889632107},  {"G2", 100.0, 133.110367893}, {"G3", 100.0, 66.889632107},
-       {"G4", 100.0, 133.110367893}, {"H1", 100.0, 66.889632107},  {"H2", 100.0, 133.110367893},
-       {"H3", 100.0, 66.889632107},  {"H4", 100.0, 133.110367893}, {"I1", 100.0, 66.889632107},
-       {"I2", 100.0, 133.110367893}, {"I3", 100.0, 66.889632107},  {"I4", 100.0, 133.110367893},
-       {"J1", 100.0, 66.889632107},  {"J2", 100.0, 133.110367893}, {"J3", 100.0, 66.889632107},
-       {"J4", 100.0, 133.110367893}};
+       {"A1", 100.0, 66.889632107, nullptr},  {"A2", 100.0, 133.110367893, nullptr},
+       {"A3", 100.0, 66.889632107, nullptr},  {"A4", 100.0, 133.110367893, nullptr},
+       {"B1", 100.0, 66.889632107, nullptr},  {"B2", 100.0, 133.110367893, nullptr},
+       {"B3", 100.0, 66.889632107, nullptr},  {"B4", 100.0, 133.110367893, nullptr},
+       {"C1", 100.0, 66.889632107, nullptr},  {"C2", 100.0, 133.110367893, nullptr},
+       {"C3", 100.0, 66.889632107, nullptr},  {"C4", 100.0, 133.110367893, nullptr},
+       {"D1", 150.0, 100.334448161, nullptr}, {"D2", 150.0, 199.665551839, nullptr},
+       {"D3", 150.0, 100.334448161, nullptr}, {"D4", 150.0, 199.665551839, nullptr},
+       {"E1", 100.0, 66.889632107, nullptr},  {"E2", 100.0, 133.110367893, nullptr},
+       {"E3", 100.0, 66.889632107, nullptr},  {"E4", 100.0, 133.110367893, nullptr},
+       {"F1", 100.0, 66.889632107, nullptr},  {"F2", 100.0, 133.110367893, nullptr},
+       {"F3", 100.0, 66.889632107, nullptr},  {"F4", 100.0, 133.110367893, nullptr},
+       {"G1", 100.0, 66.889632107, nullptr},  {"G2", 100.0, 133.110367893, nullptr},
+       {"G3", 100.0, 66.889632107, nullptr},  {"G4", 100.0, 133.110367893, nullptr},
+       {"H1", 100.0, 66.889632107, nullptr},  {"H2", 100.0, 133.110367893, nullptr},
+       {"H3", 100.0, 66.889632107, nullptr},  {"H4", 100.0, 133.110367893, nullptr},
+       {"I1", 100.0, 66.889632107, nullptr},  {"I2", 100.0, 133.110367893, nullptr},
+       {"I3", 100.0, 66.889632107, nullptr},  {"I4", 100.0, 133.110367893, nullptr},
+       {"J1", 100.0, 66.889632107, nullptr},  {"J2", 100.0, 133.110367893, nullptr},
+       {"J3", 100.0, 66.889632107, nullptr},  {"J4", 100.0, 133.110367893, nullptr}};
 #endif
 
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto operations = 0;
-   auto applys = 0;
-   auto transfers = 0;
    auto start = moja::DateTime::now();
-   for (auto x = 0; x < TEST_LOOPS; x++) {
-      for (auto step = 0; step < TEST_STEPS; step++) {
-         for (auto m = 0; m < TEST_MODS; m++) {
+   for (auto x = 0; x < test_loops; x++) {
+      for (auto step = 0; step < test_steps; step++) {
+         for (auto m = 0; m < test_mods; m++) {
             auto op1 = manager.createProportionalOperation(module);
-            operations++;
 
             for (auto dataIdx = 0; dataIdx < data.size(); dataIdx += 2) {
-               auto test = (m % 2) == 0;
-               auto src = data[test ? dataIdx : dataIdx + 1].poolHandle;
-               auto snk = data[test ? dataIdx + 1 : dataIdx].poolHandle;
-               op1->addTransfer(src, snk, test ? .01 : .005);
-               transfers++;
+               const auto test = (m % 2) == 0;
+               const auto* src = data[test ? dataIdx : dataIdx + 1].pool;
+               const auto* snk = data[test ? dataIdx + 1 : dataIdx].pool;
+               op1->addTransfer(src, snk, test ? test_val1 : test_val2);
             }
             op1->submitOperation();
             manager.applyOperations();
-            applys++;
          }
-
-         // std::cout << "OperationManagerSimple: TwoOperationsStockAndProportional: Pending:" << std::endl;
-         // for (auto pending : manager.operationResultsPending()) {
-         //	for (auto flux : pending->operationResultFluxCollection()) {
-         //		std::cout << "type: " << OperationTransferTypeToString(flux->transferType()) << ", src: " <<
-         // flux->source() << ", snk: " << flux->sink() << ", val: " << flux->value() << std::endl;
-         //	}
-         //}
-         // std::cout << std::endl;
       }
       manager.clearAllOperationResults();
    }
-   auto finish = moja::DateTime::now();
 
-   auto length = finish - start;
-   std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ')
-             << testName << ": Milliseconds : " << length.totalMilliseconds() << std::endl;
-   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) << std::setfill(' ') <<
-   // testName << ": operations   : " << operations << std::endl; std::cout << std::setw(40) << std::setfill(' ') <<
-   // testSuiteName << ": " << std::setw(40) << std::setfill(' ') << testName << ": applys       : " << applys <<
-   // std::endl; std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(40) <<
-   // std::setfill(' ') << testName << ": transfers    : " << transfers << std::endl;
-
-   // std::cout << testSuiteName << ": " << testName << ": Pool ending values" << std::endl;
-   // for (auto pool : manager.poolCollection()) {
-   //	std::cout << pool->name() << " = " << std::setprecision(12) << pool->value() << std::endl;
-   //}
-   // std::cout << std::endl;
-
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
-
-#undef TEST_LOOPS
-#undef TEST_STEPS
-#undef TEST_MODS
-#undef TEST_VAL1
-#undef TEST_VAL2
 }
 
-// --------------------------------------------------------------------------------------------
-
 void SubmitOperationAddsToPendingQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
-#if 0
-	auto opMocks = createOperation();
-	controller.submitOperation(opMocks.operation);
-	std::vector<moja::flint::IOperationResult*> allPending;
-	for (auto op : controller.operationManager()->operationResultsPending()) {
-		allPending.push_back(op);
-	}
-	BOOST_CHECK_EQUAL(allPending.size(), 1);
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00, nullptr}, {"B", 0.0, 45.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -1094,42 +881,22 @@ void SubmitOperationAddsToPendingQueue(moja::flint::IOperationManager& manager, 
    op1->submitOperation();
 
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 1);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
-
 void ClearLastAppliedOperationResults(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
-#if 0
-	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ClearLastAppliedOperationResults, LandUnitControllerOperationTestsFixture) {
-		auto opMocks = createOperation();
-		opMocks.addTransfer(10.0);
-		MOCK_EXPECT(opMocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(opMocks.operation);
-		controller.applyOperations();
-		controller.clearLastAppliedOperationResults();
-		std::vector<std::shared_ptr<moja::flint::IOperationResult>> lastApplied;
-		for (auto op : controller.operationManager()->operationResultsLastApplied()) {
-			lastApplied.push_back(op);
-		}
-		BOOST_CHECK_EQUAL(lastApplied.size(), 0);
-	}
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00}, {"B", 0.0, 45.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 55.00, nullptr}, {"B", 0.0, 45.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -1139,56 +906,22 @@ void ClearLastAppliedOperationResults(moja::flint::IOperationManager& manager, m
    manager.clearLastAppliedOperationResults();
 
    BOOST_CHECK_EQUAL(manager.operationResultsLastApplied().size(), 0);
-
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
-
 void ApplyOperationsAppendsToCommittedQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
-#if 0
-	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsAppendsToCommittedQueue, LandUnitControllerOperationTestsFixture) {
-		// Operation 1
-		auto op1Mocks = createOperation();
-		double firstAmount = 10.0;
-		op1Mocks.addTransfer(firstAmount);
-		MOCK_EXPECT(op1Mocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(op1Mocks.operation);
-		controller.applyOperations();
-
-		// Operation 2
-		auto op2Mocks = createOperation();
-		double secondAmount = 25.0;
-		double thirdAmount = 5.0;
-		double fourthAmount = 1.0;
-		op2Mocks.addTransfer(secondAmount);
-		op2Mocks.addTransfer(thirdAmount);
-		op2Mocks.addTransfer(fourthAmount);
-		MOCK_EXPECT(op2Mocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(op2Mocks.operation);
-		controller.applyOperations();
-
-		std::vector<std::shared_ptr<moja::flint::IOperationResult>> committedOperations;
-		for (auto op : controller.operationManager()->operationResultsCommitted()) {
-			committedOperations.push_back(op);
-		}
-
-		BOOST_CHECK_EQUAL(committedOperations.size(), 2);
-	}
-#endif
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00}, {"B", 0.0, 99.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00, nullptr}, {"B", 0.0, 99.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -1206,96 +939,59 @@ void ApplyOperationsAppendsToCommittedQueue(moja::flint::IOperationManager& mana
    manager.clearLastAppliedOperationResults();
 
    BOOST_CHECK_EQUAL(manager.operationResultsCommitted().size(), 2);
-
-   data.clear();
 }
 
 void ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(moja::flint::IOperationManager& manager,
                                                        moja::flint::IModule& module) {
-#if 0
-	auto opMocks = createOperation();
-	double amountToMove = 40.0;
-	opMocks.addTransfer(amountToMove);
-	MOCK_EXPECT(opMocks.resultIterator->opBool).returns(false);
-	controller.submitOperation(opMocks.operation);
-	controller.applyOperations();
-
-	auto p1 = controller.operationManager()->getPool("p1");
-	auto p2 = controller.operationManager()->getPool("p2");
-	BOOST_CHECK_EQUAL(p1->value(), p1InitialValue - amountToMove);
-	BOOST_CHECK_EQUAL(p2->value(), p2InitialValue + amountToMove);
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   double p1InitialValue = 100.00;
-   double amountToMove = 40.0;
-   std::vector<PoolInitValueAndResult> data = {{"A", p1InitialValue, (p1InitialValue - amountToMove)},
-                                               {"B", 0.0, (0.0 + amountToMove)}};
+   const double p1InitialValue = 100.00;
+   const double amountToMove = 40.0;
+   std::vector<PoolInitValueAndResult> data = {{"A", p1InitialValue, (p1InitialValue - amountToMove), nullptr},
+                                               {"B", 0.0, (0.0 + amountToMove), nullptr}};
    for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+      p.pool = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
    auto op1 = manager.createStockOperation(module);
 
    op1->addTransfer(A, B, amountToMove);
    op1->submitOperation();
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
 void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(moja::flint::IOperationManager& manager,
                                                         moja::flint::IModule& module) {
-#if 0
-	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsCorrectlyUpdatesPoolsForComplexCase, LandUnitControllerOperationTestsFixture) {
-		auto opMocks = createOperation();
-		double p1AmountToMove = 75.0;
-		double p2AmountToMove = 25.0;
-		opMocks.addTransfer(p1AmountToMove);
-		opMocks.addTransfer(p2AmountToMove, true);
-		MOCK_EXPECT(opMocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(opMocks.operation);
-		controller.applyOperations();
-
-		double p1Expected = p1InitialValue - p1AmountToMove + p2AmountToMove;
-		double p2Expected = p2InitialValue + p1AmountToMove - p2AmountToMove;
-
-		auto p1 = controller.operationManager()->getPool("p1");
-		auto p2 = controller.operationManager()->getPool("p2");
-		BOOST_CHECK_EQUAL(p1->value(), p1Expected);
-		BOOST_CHECK_EQUAL(p2->value(), p2Expected);
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   double p1InitialValue = 100.00;
-   double p2InitialValue = 50.00;
-   double p1AmountToMove = 75.0;
-   double p2AmountToMove = 25.0;
+   const double p1InitialValue = 100.00;
+   const double p2InitialValue = 50.00;
+   const double p1AmountToMove = 75.0;
+   const double p2AmountToMove = 25.0;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove)},
-       {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove)}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+       {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove),nullptr},
+       {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove), nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
    auto op1 = manager.createStockOperation(module);
 
    op1->addTransfer(A, B, p1AmountToMove);
@@ -1304,59 +1000,25 @@ void ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(moja::flint::IOperationM
    op1->submitOperation();
    manager.applyOperations();
 
-   for (auto& p : data) {
-      BOOST_CHECK(abs(p.poolHandle->value() - p.result) < 0.000000001);
+   for (auto& [name, value, result, pool] : data) {
+      BOOST_CHECK_CLOSE(pool->value(), result, pct_tolerance);
    }
-   data.clear();
 }
 
-// --------------------------------------------------------------------------------------------
-
 void ApplyAndGetOperationsLastApplied(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
-#if 0
-	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyAndGetOperationsLastApplied, LandUnitControllerOperationTestsFixture) {
-		// Operation 1
-		auto op1Mocks = createOperation();
-		double firstAmount = 10.0;
-		op1Mocks.addTransfer(firstAmount);
-		MOCK_EXPECT(op1Mocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(op1Mocks.operation);
-		controller.applyOperations();
-
-		// Operation 2
-		auto op2Mocks = createOperation();
-		double secondAmount = 25.0;
-		double thirdAmount = 5.0;
-		double fourthAmount = 1.0;
-		op2Mocks.addTransfer(secondAmount);
-		op2Mocks.addTransfer(thirdAmount);
-		op2Mocks.addTransfer(fourthAmount);
-		MOCK_EXPECT(op2Mocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(op2Mocks.operation);
-		controller.applyOperations();
-
-		// Check that the last applied operation was operation 1 & 2 - lastApplied doesn't get cleared until TransactionManagerEndOfStepModule->onTimingPostStep 
-		std::vector<std::shared_ptr<moja::flint::IOperationResult>> lastApplied;
-		for (auto op : controller.operationManager()->operationResultsLastApplied()) {
-			lastApplied.push_back(op);
-		}
-		BOOST_CHECK_EQUAL(lastApplied.size(), 2);
-	}
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00}, {"B", 0.0, 99.00}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+   std::vector<PoolInitValueAndResult> data = {{"A", 100.0, 1.00, nullptr}, {"B", 0.0, 99.00, nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
 
    auto op1 = manager.createStockOperation(module);
 
@@ -1374,48 +1036,31 @@ void ApplyAndGetOperationsLastApplied(moja::flint::IOperationManager& manager, m
    // Check that the last applied operation was operation 1 & 2 - lastApplied doesn't get cleared until
    // TransactionManagerEndOfStepModule->onTimingPostStep
    BOOST_CHECK_EQUAL(manager.operationResultsLastApplied().size(), 2);
-
-   data.clear();
 }
 
 // --------------------------------------------------------------------------------------------
 
 void ApplyOperationsClearsPendingQueue(moja::flint::IOperationManager& manager, moja::flint::IModule& module) {
-#if 0
-	BOOST_FIXTURE_TEST_CASE(flint_LandUnitController_ApplyOperationsClearsPendingQueue, LandUnitControllerOperationTestsFixture) {
-		auto opMocks = createOperation();
-		opMocks.addTransfer(10.0);
-		MOCK_EXPECT(opMocks.resultIterator->opBool).returns(false);
-		controller.submitOperation(opMocks.operation);
-		controller.applyOperations();	// does the clear in here
-		std::vector<moja::flint::IOperationResult*> allPending;
-		for (auto op : controller.operationManager()->operationResultsPending()) {
-			allPending.push_back(op);
-		}
-		BOOST_CHECK_EQUAL(allPending.size(), 0);
-	}
-#endif
-
    auto testName = boost::unit_test::framework::current_test_case().p_name;
    auto testSuiteName = (boost::unit_test::framework::get<boost::unit_test::test_suite>(
                              boost::unit_test::framework::current_test_case().p_parent_id))
                             .full_name();
 
-   double p1InitialValue = 100.00;
-   double p2InitialValue = 50.00;
-   double p1AmountToMove = 75.0;
-   double p2AmountToMove = 25.0;
+   const double p1InitialValue = 100.00;
+   const double p2InitialValue = 50.00;
+   const double p1AmountToMove = 75.0;
+   const double p2AmountToMove = 25.0;
 
    std::vector<PoolInitValueAndResult> data = {
-       {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove)},
-       {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove)}};
-   for (auto& p : data) {
-      p.poolHandle = manager.addPool(p.name, "", "", 1.0, 1, p.value, nullptr);
+       {"A", p1InitialValue, (p1InitialValue - p1AmountToMove + p2AmountToMove), nullptr},
+       {"B", p2InitialValue, (p2InitialValue - p2AmountToMove + p1AmountToMove), nullptr}};
+   for (auto& [name, value, result, pool] : data) {
+      pool = manager.addPool(name, "", "", 1.0, 1, value, nullptr);
    }
    manager.initialisePools();
 
-   auto A = data[0].poolHandle;
-   auto B = data[1].poolHandle;
+   const auto* A = data[0].pool;
+   const auto* B = data[1].pool;
    auto op1 = manager.createStockOperation(module);
 
    op1->addTransfer(A, B, p1AmountToMove);
@@ -1425,6 +1070,4 @@ void ApplyOperationsClearsPendingQueue(moja::flint::IOperationManager& manager, 
    manager.applyOperations();
 
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 0);
-
-   data.clear();
 }

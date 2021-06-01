@@ -2,17 +2,17 @@
 
 #include "moja/environment.h"
 
-#include <Poco/File.h>
-#include <Poco/Path.h>
-
 #include <boost/log/attributes/clock.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/from_stream.hpp>
 
+#include <filesystem>
 #include <fstream>
 
 namespace moja {
+
+namespace fs = std::filesystem;
 
 const std::string Logging::_defaultFileName = "logging.conf";
 bool Logging::_explicitConfigurationFileSet = false;
@@ -34,7 +34,7 @@ void Logging::init() {
    logging::register_simple_filter_factory<logging::trivial::severity_level, char>("Severity");
 
    // Determine which log config to load, searching the working folder then the exe folder.
-   if (_explicitConfigurationFileSet && Poco::File(_explicitConfigurationFile).exists()) {
+   if (_explicitConfigurationFileSet && fs::exists(fs::path(_explicitConfigurationFile))) {
       std::ifstream loggingConfig(_explicitConfigurationFile);
       logging::init_from_stream(loggingConfig);
       _loggingConfigurationFile = _explicitConfigurationFile;
@@ -44,25 +44,26 @@ void Logging::init() {
       boost::log::init_from_stream(s);
       _loggingConfigurationFile = "internal text";
    } else {
-      std::string filenameToCheck = Poco::Path::current() + _defaultFileName;
-      if (Poco::File(filenameToCheck).exists()) {
-         std::ifstream loggingConfig(filenameToCheck);
+      auto filename_to_check = fs::current_path().append(_defaultFileName);
+      if (fs::exists(filename_to_check)) {
+         std::ifstream loggingConfig(filename_to_check);
          logging::init_from_stream(loggingConfig);
-         _loggingConfigurationFile = filenameToCheck;
+         _loggingConfigurationFile = filename_to_check.string();
       } else {
-         filenameToCheck = moja::Environment::startProcessFolder() + _defaultFileName;
-         if (Poco::File(filenameToCheck).exists()) {
-            std::ifstream loggingConfig(filenameToCheck);
+         filename_to_check = moja::Environment::startProcessFolder() + _defaultFileName;
+         if (fs::exists(filename_to_check)) {
+            std::ifstream loggingConfig(filename_to_check);
             logging::init_from_stream(loggingConfig);
-            _loggingConfigurationFile = filenameToCheck;
+            _loggingConfigurationFile = filename_to_check.string();
          } else {
             std::stringstream s;
-            s << "[Sinks.console]" << std::endl;
-            s << "Destination=Console" << std::endl;
-            s << "Asynchronous = false" << std::endl;
-            s << "AutoFlush = true" << std::endl;
-            s << "Format = \"<%TimeStamp%> (%Severity%) - %Message%\"" << std::endl;
-            s << "Filter = \"%Severity% >= info\"" << std::endl;
+            s << R"(
+            [Sinks.console]
+                Destination=Console
+                Asynchronous = false
+                AutoFlush = true
+                Format = "<%TimeStamp%> (%Severity%) - %Message%"
+                Filter = "%Severity% >= info")";
             boost::log::init_from_stream(s);
             _loggingConfigurationFile = "internal default";
          }

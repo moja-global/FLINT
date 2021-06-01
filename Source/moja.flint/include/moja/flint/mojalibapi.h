@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_MOJALIBAPI_H_
-#define MOJA_FLINT_MOJALIBAPI_H_
+#pragma once
 
 #include "moja/flint/iflintdata.h"
 #include "moja/flint/imodule.h"
@@ -23,8 +22,7 @@
 #endif
 #endif
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 /**
  * A module package advertises which modules are available to moja using
@@ -108,7 +106,6 @@ typedef std::pair<std::string, std::string> ProviderKey;
 typedef std::shared_ptr<datarepository::IProviderInterface> ProviderInterfacePtr;
 typedef std::map<ProviderKey, std::function<ProviderInterfacePtr(const DynamicObject&)>> ProviderRegistry;
 
-#if 1
 #define IMPLEMENT_MODULE(ModuleImplClass, ModuleName)                                                            \
    extern "C" MOJA_LIB_API moja::flint::IModule* initializeModule() { return new ModuleImplClass(); }            \
    /**/                                                                                                          \
@@ -116,26 +113,6 @@ typedef std::map<ProviderKey, std::function<ProviderInterfacePtr(const DynamicOb
       outModuleRegistrations[0] = moja::flint::ModuleRegistration{#ModuleName, &initializeModule};               \
       return 1;                                                                                                  \
    }
-
-#else
-#define IMPLEMENT_MODULE(ModuleImplClass, ModuleName)                                                            \
-   extern "C" MOJA_LIB_API moja::flint::IModule* initializeModule() { return new ModuleImplClass(); }            \
-   /**/                                                                                                          \
-   extern "C" MOJA_LIB_API moja::flint::ITransform* initializeTransform() { return new TransformImplClass(); }   \
-   /**/                                                                                                          \
-   extern "C" MOJA_LIB_API int getModuleRegistrations(moja::flint::ModuleRegistration* outModuleRegistrations) { \
-      outModuleRegistrations[0] = moja::flint::ModuleRegistration{#ModuleName, &initializeModule};               \
-      return 1;                                                                                                  \
-   }                                                                                                             \
-   /**/                                                                                                          \
-   extern "C" MOJA_LIB_API int getTransformRegistrations(                                                        \
-       moja::flint::TransformRegistration* outTransformRegistrations) {                                          \
-      outTransformRegistrations[0] = moja::flint::TransformRegistration{#ModuleName, &initializeTransform};      \
-      return 1;                                                                                                  \
-   }
-#endif
 
 }  // namespace flint
-}  // namespace moja
 
-#endif  // MOJA_FLINT_MOJALIBAPI_H_

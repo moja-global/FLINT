@@ -1,10 +1,6 @@
-#ifndef MOJA_FLINT_OPERATIONDATAPACKAGE_H_
-#define MOJA_FLINT_OPERATIONDATAPACKAGE_H_
+#pragma once
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 enum class FluxType {
    Wildfire = 1,
@@ -34,8 +30,6 @@ enum class FluxType {
    Unclassified = 25
 };
 
-// --------------------------------------------------------------------------------------------
-
 class OperationDataPackage {
   public:
    OperationDataPackage() = default;
@@ -45,7 +39,4 @@ class OperationDataPackage {
    FluxType _fluxType;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONDATAPACKAGE_H_
+}  // namespace moja::flint

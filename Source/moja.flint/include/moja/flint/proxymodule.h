@@ -1,13 +1,11 @@
-#ifndef MOJA_FLINT_PROXYMODULE_H_
-#define MOJA_FLINT_PROXYMODULE_H_
+#pragma once
 
 #include "moja/flint/moduleproxybase.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class IVariable;
 
-// --------------------------------------------------------------------------------------------
 struct moduleProxyData {
    explicit moduleProxyData(const std::string& libraryName, std::string& moduleName, int order,
                             std::shared_ptr<IModule> module, const DynamicObject& config);
@@ -25,8 +23,6 @@ struct moduleProxyData {
    std::shared_ptr<IModule> _module;
    std::shared_ptr<NotificationCenter> _notificationCenterPtr;
 };
-
-// --------------------------------------------------------------------------------------------
 
 class ProxyModule : public ModuleProxyBase {
   public:
@@ -79,6 +75,4 @@ class ProxyModule : public ModuleProxyBase {
    ModuleMap _modules;
 };
 
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_PROXYMODULE_H_
+}  // namespace moja::flint

@@ -1,13 +1,11 @@
-#ifndef MOJA_FLINT_FLUX_H_
-#define MOJA_FLINT_FLUX_H_
+#pragma once
 
 #include "moja/flint/ilandunitdatawrapper.h"
 #include "moja/flint/ioperationresult.h"
 #include "moja/flint/ioperationresultflux.h"
 #include "moja/flint/ipool.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 enum class FluxSource { DISTURBANCE, ANNUAL_PROCESS, COMBINED };
 
@@ -111,7 +109,4 @@ inline bool Flux::isIncluded(const IOperationResultFlux& fluxRecord) {
    return true;
 }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_FLUX_H_
+}  // namespace moja::flint

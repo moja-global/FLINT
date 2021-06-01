@@ -1,12 +1,11 @@
-#ifndef MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_
-#define MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
 #include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class IOperationResult;
 
 class FLINT_API OperationResultCollection {
@@ -71,7 +70,5 @@ inline void OperationResultCollection::push_back(value_type&& operationResult) {
 inline bool OperationResultCollection::empty() const MOJA_NOEXCEPT { return _vec.empty(); }
 
 inline void OperationResultCollection::reserve(size_type count) { _vec.reserve(count); }
-}  // namespace flint
-}  // namespace moja
 
-#endif  // MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_
+}  // namespace moja::flint

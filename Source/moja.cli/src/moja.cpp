@@ -16,25 +16,25 @@
 #include <boost/exception/diagnostic_information.hpp>
 #include <boost/program_options.hpp>
 
-#include <Poco/File.h>
-
 #include <memory>
 #include <string>
 #include <fstream>
 #include <cstdlib>
+#include <filesystem>
 
 static constexpr const char* CLI_VERSION_STRING = "flint cli version 1.0.0";
 
 namespace opt = boost::program_options;
 namespace mf = moja::flint;
 namespace conf = mf::configuration;
+namespace fs = std::filesystem;
 
 using mf::configuration::LocalDomainType;
 using mf::ILocalDomainController;
 
 bool checkFilePath(const std::string& filePath) {
-    Poco::File file(filePath);
-    if (!file.exists()) {
+   const auto file = fs::path(filePath);
+   if (!fs::exists(file)) {
         std::cerr << "File not found: " << filePath;
         return false;
     }

@@ -2,8 +2,7 @@
 
 #include "moja/flint/flintexceptions.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 PoolSimple::PoolSimple(std::vector<double>& pools, const std::string& name, const std::string& description,
                        const std::string& units, double scale, int order, int idx, std::optional<double> value,
@@ -39,5 +38,23 @@ void PoolSimple::add_child(IPool* pool) {
    _children.emplace_back(pool);
 }
 
-}  // namespace flint
-}  // namespace moja
+double PoolSimple::value() const {
+   if (!_children.empty()) {
+      auto value = 0.0;
+      for (const auto& child:_children) {
+         value += child->value();
+      }
+      return value;
+   }
+   return _value;
+}
+
+void PoolSimple::set_value(double value) {
+   if (!_children.empty()) {
+      throw std::runtime_error("Cannot set parent pool value.");
+   }
+   _value = value;
+}
+
+
+}  // namespace moja::flint

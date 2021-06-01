@@ -1,19 +1,15 @@
-#ifndef MOJA_FLINT_ASPATIALLOCALDOMAINCONTROLLER_H_
-#define MOJA_FLINT_ASPATIALLOCALDOMAINCONTROLLER_H_
+#pragma once
 
 #include "moja/flint/localdomaincontrollerbase.h"
 #include "moja/flint/spinuplandunitcontroller.h"
 
-namespace moja {
-namespace datarepository {
+namespace moja::datarepository {
 class LandUnitInfo;
 class AspatialTileInfo;
 class AspatialTileInfoCollection;
-}  // namespace datarepository
-}  // namespace moja
+}  // namespace moja::datarepository
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API AspatialLocalDomainController final : public LocalDomainControllerBase {
   public:
@@ -39,7 +35,4 @@ class FLINT_API AspatialLocalDomainController final : public LocalDomainControll
    void run(const moja::datarepository::LandUnitInfo& lu);
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_ASPATIALLOCALDOMAINCONTROLLER_H_
+}  // namespace moja::flint

@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_RECORDACCUMULATORWITHMUTEX_H_
-#define MOJA_FLINT_RECORDACCUMULATORWITHMUTEX_H_
+#pragma once
 
 #include "moja/flint/record.h"
 #include "moja/flint/recordutils.h"
@@ -11,8 +10,7 @@
 #include <atomic>
 #include <unordered_set>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 template <class TPersistable>
 class RecordAccumulatorWithMutex {
@@ -231,7 +229,4 @@ class RecordAccumulatorWithMutex2 {
    rec_accu_vec _records;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_RECORDACCUMULATORWITHMUTEX_H_
+}  // namespace moja::flint

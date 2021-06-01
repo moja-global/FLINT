@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_WRITESYSTEMCONFIG_H_
-#define MOJA_FLINT_WRITESYSTEMCONFIG_H_
+#pragma once
 
 #include <moja/flint/modulebase.h>
 
@@ -9,8 +8,7 @@ namespace Poco {
 class Mutex;
 }
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 class SpatialLocationInfo;
 
 // --------------------------------------------------------------------------------------------
@@ -139,7 +137,4 @@ class FLINT_API WriteSystemConfig : public flint::ModuleBase {
    }
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_WRITESYSTEMCONFIG_H_
+}  // namespace moja::flint

@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_
-#define MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ilandunitcontroller.h"
@@ -8,8 +7,7 @@
 #include <string>
 #include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class IOperation;
 class IModule;
@@ -22,8 +20,6 @@ class IVariable;
 // and copy the pool values across when required An example of how CBM might implement it's Spinup procedure Another
 // solution could be to write a Special LUC for Spunup which handles both the spinup and normal run, providing extra
 // methods for the spinUp parts (modules etc).
-
-// --------------------------------------------------------------------------------------------
 
 class FLINT_API SpinupLandUnitController : public ILandUnitController {
   public:
@@ -85,7 +81,4 @@ class FLINT_API SpinupLandUnitController : public ILandUnitController {
    const configuration::Configuration* _config;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_
+}  // namespace moja::flint

@@ -5,7 +5,7 @@
 namespace moja {
 namespace flint {
 
-const IPool* PoolCollection::findPool(const std::string& name) {
+IPool* PoolCollection::findPool(const std::string& name) {
    for (auto it = _poolObjects.begin(); it != end(); ++it) {
       if (name == (*it)->name()) return (*it).get();
    }

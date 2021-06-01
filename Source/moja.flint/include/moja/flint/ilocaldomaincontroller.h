@@ -1,17 +1,17 @@
-#ifndef MOJA_FLINT_ILOCALDOMAINCONTROLLER_H_
-#define MOJA_FLINT_ILOCALDOMAINCONTROLLER_H_
+#pragma once
 
 #include <moja/notificationcenter.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class IVariable;
 class IModule;
 class ILandUnitController;
+class SequencerModuleBase;
+
 namespace configuration {
 class Configuration;
 }
-class SequencerModuleBase;
 
 class ILocalDomainController {
   public:
@@ -42,10 +42,8 @@ class ILocalDomainController {
    std::shared_ptr<SequencerModuleBase> _sequencer;
 
    // Variable used to check if landUnit should be simulated
-   const flint::IVariable* _simulateLandUnit;
-   flint::IVariable* _landUnitBuildSuccess;
+   const IVariable* _simulateLandUnit;
+   IVariable* _landUnitBuildSuccess;
 };
 
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_ILOCALDOMAINCONTROLLER_H_
+}  // namespace moja::flint

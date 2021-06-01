@@ -1,21 +1,18 @@
+#pragma once
+
 #include <moja/flint/ioperationmanager.h>
 #include <moja/flint/landunitcontroller.h>
-#include <moja/flint/modulebase.h>
 
 #include <moja/test/mockoperation.h>
 #include <moja/test/mockoperationmanager.h>
 #include <moja/test/mockoperationresult.h>
-#include <moja/test/mockoperationresultcollection.h>
 #include <moja/test/mockoperationresultflux.h>
 #include <moja/test/mockoperationresultfluxcollection.h>
 #include <moja/test/mockoperationresultfluxiterator.h>
 
 #include <mock.hpp>
 
-// --------------------------------------------------------------------------------------------
-
 struct UtilsClass {
-   
    double p1InitialValue = 100.0;
    double p2InitialValue = 50.0;
 
@@ -72,8 +69,6 @@ struct UtilsClass {
                                  operationResultFluxCollection};
    }
 };
-
-// --------------------------------------------------------------------------------------------
 
 void test_NoPoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module);
 void test_SinglePoolIteration(moja::flint::IOperationManager& manager, moja::flint::IModule& module);

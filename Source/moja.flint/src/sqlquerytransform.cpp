@@ -11,13 +11,12 @@
 
 #include <moja/exception.h>
 
-#include <Poco/File.h>
-
-#include <boost/algorithm/string/join.hpp>
-
+#include <fmt/format.h>
 #include <fstream>
+#include <filesystem>
 
 using moja::datarepository::IProviderRelationalInterface;
+namespace fs = std::filesystem;
 
 namespace moja {
 namespace flint {
@@ -68,11 +67,13 @@ void SQLQueryTransform::configure(DynamicObject config, const ILandUnitControlle
 }
 
 std::string SQLQueryTransform::readSQLFile(const std::string& path) {
-   if (!Poco::File(path).exists()) {
+
+   const auto file_path = fs::path(path);
+   if (!fs::exists(path)) {
       throw FileNotFoundException(path);
    }
 
-   std::ifstream file(path);
+   std::ifstream file(file_path);
    std::string sql((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
    return sql;
 }
@@ -82,7 +83,7 @@ void SQLQueryTransform::controllerChanged(const ILandUnitController& controller)
    _variables.clear();
    _dataSet = nullptr;
    configure(_config, controller, *_dataRepository);
-};
+}
 
 const DynamicVar& SQLQueryTransform::value() const {
    // Build string here from current variable and pool values.
@@ -176,16 +177,16 @@ std::string SQLQueryTransform::formatVariableValues(const IVariable& var, Dynami
    if (property.isEmpty()) {
       // Single-value variable reference.
       if (varValue.isVector()) {
-         auto varVector = varValue.extract<std::vector<DynamicObject>>();
-         for (auto value : varVector) {
-            values.push_back(value);
+         const auto& varVector = varValue.extract<std::vector<DynamicObject>>();
+         for (const auto& value : varVector) {
+            values.emplace_back(value);
          }
       } else if (varValue.isInteger()) {
          int val = varValue;
-         values.push_back(val);
+         values.emplace_back(val);
       } else if (varValue.isNumeric()) {
          double val = varValue;
-         values.push_back(val);
+         values.emplace_back(val);
       } else {
          values.push_back(varValue);
       }
@@ -193,23 +194,23 @@ std::string SQLQueryTransform::formatVariableValues(const IVariable& var, Dynami
       // Multi-value variable reference.
       std::string propertyName = property;
       if (varValue.isVector()) {
-         auto varVector = varValue.extract<std::vector<DynamicObject>>();
-         for (auto value : varVector) {
+         const auto& varVector = varValue.extract<std::vector<DynamicObject>>();
+         for (const auto& value : varVector) {
             values.push_back(value[propertyName]);
          }
       } else if (varValue.isStruct()) {
          values.push_back(varValue[propertyName]);
       }
    }
-   for (auto value : values) {
+   for (const auto& value : values) {
       auto str = value.convert<std::string>();
       if (value.isString()) {
          // Enclose string values in SQL single quotes.
-         str = "'" + str + "'";
+         str = fmt::format("'{}'", str);
       }
       strings.push_back(str);
    }
-   return boost::algorithm::join(strings, ", ");
+   return fmt::format("{}", fmt::join(strings, ", "));
 }
 
 // Searching for tokens of the form "{<type>:name[.property]}", for example "{pool:totalCM}"

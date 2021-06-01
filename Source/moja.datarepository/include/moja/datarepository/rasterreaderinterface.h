@@ -6,16 +6,11 @@
 #include <moja/dynamic.h>
 #include <moja/utility.h>
 
-#include <Poco/File.h>
-#include <Poco/Path.h>
-
-#include <boost/algorithm/string.hpp>
-#include <boost/format.hpp>
-
 #include <iomanip>
 #include <sstream>
 #include <string>
 #include <vector>
+#include <filesystem>
 
 namespace moja {
 namespace datarepository {
@@ -28,7 +23,7 @@ struct BlockIdx;
 class DATAREPOSITORY_API MetaDataRasterReaderInterface {
   public:
    MetaDataRasterReaderInterface(const std::string& path, const std::string& prefix, const DynamicObject& settings)
-       : _settings(settings){};
+       : _settings(settings){}
    virtual ~MetaDataRasterReaderInterface() = default;
 
    virtual DynamicObject readMetaData() const = 0;
@@ -42,8 +37,8 @@ class DATAREPOSITORY_API MetaDataRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool MetaDataRasterReaderInterface::file_exists(const std::string& path) {
-   Poco::File pf(path);
-   return pf.exists();
+   const auto file = std::filesystem::path(path);
+   return std::filesystem::exists(file);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -88,8 +83,8 @@ class DATAREPOSITORY_API TileRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool TileRasterReaderInterface::file_exists(const std::string& path) {
-   Poco::File pf(path);
-   return pf.exists();
+   const auto file = std::filesystem::path(path);
+   return std::filesystem::exists(file);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -134,8 +129,8 @@ class DATAREPOSITORY_API StackRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool StackRasterReaderInterface::file_exists(const std::string& path) {
-   Poco::File pf(path);
-   return pf.exists();
+   const auto file = std::filesystem::path(path);
+   return std::filesystem::exists(file);
 }
 
 // --------------------------------------------------------------------------------------------

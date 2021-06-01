@@ -1,12 +1,8 @@
-#ifndef MOJA_FLINT_MODULEPROXYBASE_H_
-#define MOJA_FLINT_MODULEPROXYBASE_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 class FLINT_API ModuleProxyBase : public ModuleBase {
   public:
@@ -25,6 +21,4 @@ class FLINT_API ModuleProxyBase : public ModuleBase {
    }
 };
 
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_MODULEPROXYBASE_H_
+}  // namespace moja::flint

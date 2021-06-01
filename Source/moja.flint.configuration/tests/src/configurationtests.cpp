@@ -17,6 +17,8 @@
 
 #include <turtle/mock.hpp>
 
+namespace flint_configuration {
+
 using moja::DateTime;
 using moja::DynamicObject;
 using moja::flint::configuration::Configuration;
@@ -39,7 +41,7 @@ struct ConfigurationTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(ConfigurationTests, ConfigurationTestsFixture);
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_ConstructorThrowsExceptionIfEndDateIsNotAfterStartDate) {
+BOOST_AUTO_TEST_CASE(Configuration_ConstructorThrowsExceptionIfEndDateIsNotAfterStartDate) {
    DateTime startDate(2000, 5, 5, 5, 5, 5, 5, 5);
    int y = startDate.year();
    int mo = startDate.month();
@@ -63,14 +65,14 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_ConstructorThrowsExceptio
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddLibraryThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddLibraryThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(config.addLibrary(name, LibraryType::External), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddLibrary) {
+BOOST_AUTO_TEST_CASE(Configuration_AddLibrary) {
    auto name = "test";
    auto type = LibraryType::External;
 
@@ -80,7 +82,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddLibrary) {
    BOOST_CHECK(type == addedLibrary->type());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddProviderThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddProviderThrowsExceptionIfNameIsEmpty) {
    auto settings = DynamicObject();
    settings["a"] = "b";
 
@@ -91,7 +93,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddProviderThrowsExceptio
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddProvider) {
+BOOST_AUTO_TEST_CASE(Configuration_AddProvider) {
    auto testName = "testName";
    auto testLib = "testLib";
    auto testType = "testType";
@@ -109,14 +111,14 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddProvider) {
    BOOST_CHECK_EQUAL(expectedSettingValue, addedProviderSettingValue);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddPoolThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddPoolThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(config.addPool(name), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddPool) {
+BOOST_AUTO_TEST_CASE(Configuration_AddPool) {
    auto name = "test";
    auto initValue = 1000.0;
 
@@ -126,7 +128,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddPool) {
    BOOST_CHECK_EQUAL(initValue, addedPool->initValue());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddVariable) {
+BOOST_AUTO_TEST_CASE(Configuration_AddVariable) {
    auto name = "test";
    auto value = 100;
 
@@ -138,7 +140,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddVariable) {
    BOOST_CHECK_EQUAL(value, addedVariableValue);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddEmptyVariable) {
+BOOST_AUTO_TEST_CASE(Configuration_AddEmptyVariable) {
    auto name = "test";
 
    config.addVariable(name);
@@ -149,35 +151,35 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddEmptyVariable) {
    BOOST_CHECK(addedVariableValue.isEmpty());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddExternalVariableThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddExternalVariableThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(config.addExternalVariable(name, "test", "test", DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddExternalVariableThrowsExceptionIfTransformTypeNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddExternalVariableThrowsExceptionIfTransformTypeNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(config.addExternalVariable("test", "test", name, DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddExternalVariable) {
+BOOST_AUTO_TEST_CASE(Configuration_AddExternalVariable) {
    auto name = "test";
    config.addExternalVariable(name, "test", "transform type", DynamicObject());
    auto addedVariable = config.externalVariables()[0];
    BOOST_CHECK_EQUAL(name, addedVariable->name());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddModuleThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_AddModuleThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(config.addModule("test", name, 1, false, DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddModule) {
+BOOST_AUTO_TEST_CASE(Configuration_AddModule) {
    auto name = "test";
    auto order = 5;
    auto isProxy = false;
@@ -194,12 +196,12 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddModule) {
    BOOST_CHECK_EQUAL(expectedSettingValue, addedModuleSettingValue);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_AddModuleThrowsExceptionOnDuplicateOrder) {
+BOOST_AUTO_TEST_CASE(Configuration_AddModuleThrowsExceptionOnDuplicateOrder) {
    config.addModule("test", "first", 1, false);
    BOOST_CHECK_THROW(config.addModule("test", "also first", 1, false), ModuleOrderOverlapException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_ReturnsModulesSortedByOrder) {
+BOOST_AUTO_TEST_CASE(Configuration_ReturnsModulesSortedByOrder) {
    config.addModule("test", "second", 2, false);
    config.addModule("test", "third", 3, false);
    config.addModule("test", "first", 1, false);
@@ -214,7 +216,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_ReturnsModulesSortedByOrd
    BOOST_CHECK_EQUAL(actualThird->name(), "third");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomainThrowsExceptionIfSequencerIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_SetLocalDomainThrowsExceptionIfSequencerIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(
@@ -224,7 +226,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomainThrowsExcep
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomainThrowsExceptionIfSimulateLandUnitIsEmpty) {
+BOOST_AUTO_TEST_CASE(Configuration_SetLocalDomainThrowsExceptionIfSimulateLandUnitIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(
@@ -234,7 +236,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomainThrowsExcep
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomain) {
+BOOST_AUTO_TEST_CASE(Configuration_SetLocalDomain) {
    auto type = LocalDomainType::SpatiallyReferencedSQL;
    auto ittype = LocalDomainIterationType::LandscapeTiles;
    auto sequencerLibrary = "test_sequencer_library";
@@ -255,4 +257,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Configuration_SetLocalDomain) {
    BOOST_CHECK_EQUAL(expectedSettingValue, actualSettingValue);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

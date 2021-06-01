@@ -1,15 +1,12 @@
-#ifndef MOJA_FLINT_FLINTEXCEPTIONS_H_
-#define MOJA_FLINT_FLINTEXCEPTIONS_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
 #include <boost/exception/all.hpp>
 
-#include <stdexcept>
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 struct FLINT_API FLINTException : virtual std::exception, virtual boost::exception {};
 
@@ -59,7 +56,4 @@ typedef boost::error_info<struct tag_library, std::string> LibraryName;
 typedef boost::error_info<struct tag_module, std::string> ModuleName;
 typedef boost::error_info<struct tag_code, int> ErrorCode;
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_FLINTEXCEPTIONS_H_
+}  // namespace moja::flint

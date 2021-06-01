@@ -1,23 +1,17 @@
-#ifndef MOJA_FLINT_WRITESPATIALDATAGRID_H_
-#define MOJA_FLINT_WRITESPATIALDATAGRID_H_
+#pragma once
 
 #include "moja/flint/flux.h"
 #include "moja/flint/ioperationresult.h"
-#include "moja/flint/ioperationresultflux.h"
 #include "moja/flint/ipool.h"
 #include "moja/flint/modulebase.h"
 
-#include <boost/algorithm/string.hpp>
-
-#include <algorithm>
 #include <unordered_map>
 
 namespace Poco {
 class Mutex;
 }
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class SpatialLocationInfo;
 
@@ -176,7 +170,4 @@ class FLINT_API WriteVariableGrid : public ModuleBase {
    int getTimestep() const;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_WRITESPATIALDATAGRID_H_
+}  // namespace moja::flint

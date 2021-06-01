@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_OPERATIONSTOCKSIMPLE_H_
-#define MOJA_FLINT_OPERATIONSTOCKSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperation.h"
 #include "moja/flint/operationtransfersimple.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class OperationManagerSimple;
 
@@ -37,7 +35,4 @@ class StockOperationSimple : public IOperation {
    std::vector<OperationTransferSimple> _transfers;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONSTOCKSIMPLE_H_
+}  // namespace moja::flint

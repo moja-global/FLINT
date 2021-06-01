@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_OUTPUTERSTREAM_H_
-#define MOJA_FLINT_OUTPUTERSTREAM_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
@@ -8,8 +7,7 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API OutputerStream : public ModuleBase {
   public:
@@ -56,6 +54,3 @@ class FLINT_API OutputerStream : public ModuleBase {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OUTPUTERSTREAM_H_

@@ -1,18 +1,15 @@
-#ifndef MOJA_FLINT_IOPERATIONRESULTFLUXITERATOR_H_
-#define MOJA_FLINT_IOPERATIONRESULTFLUXITERATOR_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class IOperationResultFlux;
-// --------------------------------------------------------------------------------------------
 
 class IOperationResultFluxIterator {
   public:
    explicit IOperationResultFluxIterator() {}
-   virtual ~IOperationResultFluxIterator(){};
+   virtual ~IOperationResultFluxIterator() {}
 
    virtual std::shared_ptr<IOperationResultFluxIterator> createIterator(bool atEnd = false) = 0;
 
@@ -23,7 +20,4 @@ class IOperationResultFluxIterator {
    virtual bool isEqual(IOperationResultFluxIterator& it) const = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IOPERATIONRESULTFLUXITERATOR_H_
+}  // namespace moja::flint

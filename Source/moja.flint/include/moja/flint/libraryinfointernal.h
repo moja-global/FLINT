@@ -1,20 +1,15 @@
-#ifndef MOJA_FLINT_LIBRARYINFOINTERNAL_H_
-#define MOJA_FLINT_LIBRARYINFOINTERNAL_H_
+#pragma once
 
 #include "moja/flint/libraryinfobase.h"
 #include "moja/flint/librarytype.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class LibraryInfoInternal : public LibraryInfoBase {
   public:
    virtual ~LibraryInfoInternal() {}
 
-   inline LibraryType GetLibraryType() const override { return LibraryType::Internal; }
+   LibraryType GetLibraryType() const override { return LibraryType::Internal; }
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LIBRARYINFOINTERNAL_H_
+}  // namespace moja::flint

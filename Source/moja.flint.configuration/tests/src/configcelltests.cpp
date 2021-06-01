@@ -7,6 +7,8 @@
 
 #include <turtle/mock.hpp>
 
+namespace flint_configuration {
+
 namespace conf = moja::flint::configuration;
 using moja::test::MockBlock;
 
@@ -16,17 +18,17 @@ struct CellTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(ConfigCellTests, CellTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_ConstructorThrowsExceptionIfRowIsNegative) {
+BOOST_AUTO_TEST_CASE(ConfigCell_ConstructorThrowsExceptionIfRowIsNegative) {
    MOCK_EXPECT(mockBlock.xPixels).returns(1);
    BOOST_CHECK_THROW(conf::ConfigCell(mockBlock, -1, 1), conf::LandscapeDefinitionException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_ConstructorThrowsExceptionIfColIsNegative) {
+BOOST_AUTO_TEST_CASE(ConfigCell_ConstructorThrowsExceptionIfColIsNegative) {
    MOCK_EXPECT(mockBlock.xPixels).returns(1);
    BOOST_CHECK_THROW(conf::ConfigCell(mockBlock, 1, -1), conf::LandscapeDefinitionException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_AreaReturnsExpectedValue) {
+BOOST_AUTO_TEST_CASE(ConfigCell_AreaReturnsExpectedValue) {
    MOCK_EXPECT(mockBlock.xPixels).returns(1);
    MOCK_EXPECT(mockBlock.top).returns(1);
    MOCK_EXPECT(mockBlock.yPixelSize).returns(0.00025);
@@ -35,7 +37,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_AreaReturnsExpectedValue) {
    BOOST_CHECK_EQUAL(cell.area(), 0.077438397195488895);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_IdReturnsExpectedValue) {
+BOOST_AUTO_TEST_CASE(ConfigCell_IdReturnsExpectedValue) {
    MOCK_EXPECT(mockBlock.xPixels).returns(3);
 
    // ...
@@ -44,7 +46,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_IdReturnsExpectedValue) {
    BOOST_CHECK_EQUAL(cell.id(), 5);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_LatReturnsExpectedValue) {
+BOOST_AUTO_TEST_CASE(ConfigCell_LatReturnsExpectedValue) {
    MOCK_EXPECT(mockBlock.xPixels).returns(1);
    MOCK_EXPECT(mockBlock.top).returns(1);
    MOCK_EXPECT(mockBlock.yPixelSize).returns(0.25);
@@ -52,7 +54,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_LatReturnsExpectedValue) {
    BOOST_CHECK_EQUAL(cell.lat(), 0.75);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_LonReturnsExpectedValue) {
+BOOST_AUTO_TEST_CASE(ConfigCell_LonReturnsExpectedValue) {
    MOCK_EXPECT(mockBlock.xPixels).returns(1);
    MOCK_EXPECT(mockBlock.left).returns(5);
    MOCK_EXPECT(mockBlock.xPixelSize).returns(0.25);
@@ -60,4 +62,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigCell_LonReturnsExpectedValue) {
    BOOST_CHECK_EQUAL(cell.lon(), 5.0);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

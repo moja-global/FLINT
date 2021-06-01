@@ -1,8 +1,6 @@
-#ifndef MOJA_FLINT_IOPERATIONRESULTFLUX_H_
-#define MOJA_FLINT_IOPERATIONRESULTFLUX_H_
+#pragma once
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 struct ModuleMetaData;
 enum class OperationTransferType;
@@ -19,7 +17,4 @@ class IOperationResultFlux {
    virtual const ModuleMetaData* metaData() const = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IOPERATIONRESULTFLUX_H_
+}  // namespace moja::flint

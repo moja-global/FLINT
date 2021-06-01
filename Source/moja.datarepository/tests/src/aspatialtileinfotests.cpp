@@ -8,6 +8,8 @@
 
 #include <boost/test/unit_test.hpp>
 
+namespace flint_datarepository {
+
 using moja::DynamicObject;
 using moja::DynamicVar;
 using moja::Int64;
@@ -17,7 +19,7 @@ using moja::test::MockAspatialTileInfoCollection;
 
 BOOST_AUTO_TEST_SUITE(AspatialTileInfoTests);
 
-BOOST_AUTO_TEST_CASE(datarepository_ConstructorThrowsExceptionIfIdIsLessThanOne) {
+BOOST_AUTO_TEST_CASE(AspatialTileInfo_ConstructorThrowsExceptionIfIdIsLessThanOne) {
    MockAspatialTileInfoCollection mockCollection;
    auto badIds = {0, -1, -100};
    for (auto id : badIds) {
@@ -25,7 +27,7 @@ BOOST_AUTO_TEST_CASE(datarepository_ConstructorThrowsExceptionIfIdIsLessThanOne)
    }
 }
 
-BOOST_AUTO_TEST_CASE(datarepository_InitialSizeSetFromCollection) {
+BOOST_AUTO_TEST_CASE(AspatialTileInfo_InitialSizeSetFromCollection) {
    MockAspatialTileInfoCollection mockCollection;
    std::vector<int> sizes = {1, 50, 75, 200};
    for (int i = 0; i < sizes.size(); i++) {
@@ -36,7 +38,7 @@ BOOST_AUTO_TEST_CASE(datarepository_InitialSizeSetFromCollection) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(datarepository_LandUnitAtIndexReturnsExpectedLandUnit) {
+BOOST_AUTO_TEST_CASE(AspatialTileInfo_LandUnitAtIndexReturnsExpectedLandUnit) {
    int numTiles = 4;
    int tileSize = 5;
 
@@ -60,7 +62,7 @@ BOOST_AUTO_TEST_CASE(datarepository_LandUnitAtIndexReturnsExpectedLandUnit) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(datarepository_IterateLandUnits) {
+BOOST_AUTO_TEST_CASE(AspatialTileInfo_IterateLandUnits) {
    int numTiles = 3;
    int tileSize = 10;
 
@@ -88,4 +90,6 @@ BOOST_AUTO_TEST_CASE(datarepository_IterateLandUnits) {
    BOOST_CHECK_EQUAL(count, tileSize);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_datarepository

@@ -9,6 +9,8 @@
 
 #include <vector>
 
+namespace flint_datarepository {
+
 struct DataRepositoryTestsFixture {
    moja::DynamicObject settings;
 
@@ -19,7 +21,7 @@ struct DataRepositoryTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(DataRepositoryTests, DataRepositoryTestsFixture);
 
-BOOST_AUTO_TEST_CASE(datarepository_Test_Tile_Iteration) {
+BOOST_AUTO_TEST_CASE(ProviderSpatialRasterTiled_TileIteration) {
    moja::datarepository::ProviderSpatialRasterTiled provider{
        std::make_shared<moja::datarepository::FlintRasterReaderFactory>(),
        moja::DynamicObject(
@@ -76,57 +78,24 @@ BOOST_AUTO_TEST_CASE(datarepository_Test_Tile_Iteration) {
        {33.0, -6.0}, {34.0, -6.0}, {35.0, -6.0}, {36.0, -6.0}, {37.0, -6.0}, {38.0, -6.0}, {39.0, -6.0}, {40.0, -6.0},
        {41.0, -6.0}, {42.0, -6.0}};
 
+   std::vector<uint32_t> tileIdxs = {20697, 20337, 19977, 19617, 19257, 18897, 18537, 18177, 17817, 17457,
+                                     20697, 20337, 19977, 19617, 19257, 18897, 18537, 18177, 17817, 17457,
+                                     20696, 20336, 19976, 19616, 19256, 18896, 18536, 18176, 17816, 17456,
+                                     20695, 20335, 19975, 19615, 19255, 18895, 18535, 18175, 17815, 17455,
+                                     20694, 20334, 19974, 19614, 19254, 18894, 18534, 18174, 17814, 17454};
+
    // iterate every cell in each tile defined above @ size 1.0 for tile size
+   auto tile_idx = 0;
    for (auto& tile : tileSet) {
       moja::datarepository::Rectangle rect{tile, {1.0, 1.0}};
-      // for (auto& cell : provider.cells(rect))
-      //{
-
-      //}
+      for (auto& cell : provider.cells(rect)) {
+         BOOST_CHECK_EQUAL(tileIdxs[tile_idx], cell.tileIdx);
+         break;
+      }
+      tile_idx++;
    }
 }
 
-BOOST_AUTO_TEST_CASE(datarepository_Test_TileInfoCollection) {
-   // std::vector<TileSetData> tileSet = {
-   //	{ 33.0, -3.0 }
+BOOST_AUTO_TEST_SUITE_END()
 
-   //	//{ 33.0, -3.0 }, { 34.0, -3.0 }
-
-   //	//{ 33.0, -3.0 }, { 34.0, -3.0 }, { 35.0, -3.0 }
-
-   //	//{ 33.0,  -3.0 }, { 34.0,  -3.0 }, { 35.0,  -3.0 }, { 36.0,  -3.0 }, { 37.0,  -3.0 }, { 38.0,  -3.0 }, { 39.0,
-   //-3.0 }, { 40.0,  -3.0 }, { 41.0,  -3.0 }, { 42.0,  -3.0 }
-
-   //	//{ 33.0,  -3.0 }, { 34.0,  -3.0 }, { 35.0,  -3.0 }, { 36.0,  -3.0 }, { 37.0,  -3.0 }, { 38.0,  -3.0 }, { 39.0,
-   //-3.0 }, { 40.0,  -3.0 }, { 41.0,  -3.0 }, { 42.0,  -3.0 },
-   //	//{ 33.0,  -4.0 }, { 34.0,  -4.0 }, { 35.0,  -4.0 }, { 36.0,  -4.0 }, { 37.0,  -4.0 }, { 38.0,  -4.0 }, { 39.0,
-   //-4.0 }, { 40.0,  -4.0 }, { 41.0,  -4.0 }, { 42.0,  -4.0 },
-   //	//{ 33.0,  -5.0 }, { 34.0,  -5.0 }, { 35.0,  -5.0 }, { 36.0,  -5.0 }, { 37.0,  -5.0 }, { 38.0,  -5.0 }, { 39.0,
-   //-5.0 }, { 40.0,  -5.0 }, { 41.0,  -5.0 }, { 42.0,  -5.0 },
-   //	//{ 33.0,  -6.0 }, { 34.0,  -6.0 }, { 35.0,  -6.0 }, { 36.0,  -6.0 }, { 37.0,  -6.0 }, { 38.0,  -6.0 }, { 39.0,
-   //-6.0 }, { 40.0,  -6.0 }, { 41.0,  -6.0 }, { 42.0,  -6.0 }
-   //};
-
-   // std::cout << "Start -- DataRepository_Test_TileInfoCollection:" << std::endl << std::endl;
-
-   // TileInfoCollection tileInfoCollection;
-   // int id = 0;
-   // for (auto tile : tileSet) {
-   //	tileInfoCollection._tilesVec.emplace_back(TileInfo(tileInfoCollection, id++, tile.x, tile.y, 1.0, 1.0, 4000,
-   //4000, 400, 400));
-   //}
-
-   // LocalDomainControllerStats ldStats(tileInfoCollection);
-   // moja::Int64 cellCount = 0;
-   // for (const auto& cell : tileInfoCollection.cells()) {
-   //	cellCount++;
-   //	ldStats.setStatus(cell);
-   //}
-   // ldStats.endStats();
-   // ldStats.outputStats();
-
-   // std::cout << std::endl << "End -- DataRepository_Test_TileInfoCollection: cells (" << cellCount << ")" <<
-   // std::endl;
-}
-
-BOOST_AUTO_TEST_SUITE_END();
+}  // namespace flint_datarepository

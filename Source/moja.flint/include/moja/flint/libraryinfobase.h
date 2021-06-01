@@ -1,13 +1,9 @@
-#ifndef MOJA_FLINT_LIBRARYINFOBASE_H_
-#define MOJA_FLINT_LIBRARYINFOBASE_H_
+#pragma once
 
 #include "moja/flint/librarytype.h"
 #include "moja/flint/mojalibapi.h"
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 class FlintLibraryHandles {
   public:
@@ -37,8 +33,6 @@ class FlintLibraryHandles {
    GetFlintDataFactoryRegistrationsFunctionPtr getFlintDataFactoryRegistrations;
    GetDataRepositoryProviderRegistrationsFunctionPtr getDataRepositoryProviderRegistrations;
 };
-
-// --------------------------------------------------------------------------------------------
 
 class LibraryInfoBase {
   public:
@@ -73,7 +67,4 @@ class LibraryInfoBase {
    Int32 providerCount;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LIBRARYINFOBASE_H_
+}  // namespace moja::flint

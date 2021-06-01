@@ -1,10 +1,8 @@
-#ifndef MOJA_FLINT_ITIMING_H_
-#define MOJA_FLINT_ITIMING_H_
+#pragma once
 
 #include <moja/datetime.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 enum class TimeStepping { Monthly = 0, Daily = 1, Annual = 3 };
 
@@ -148,6 +146,3 @@ class ITiming {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_ITIMING_H_

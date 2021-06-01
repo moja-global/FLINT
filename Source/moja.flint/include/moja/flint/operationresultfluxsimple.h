@@ -1,10 +1,8 @@
-#ifndef MOJA_FLINT_OPERATIONRESULTFLUXSIMPLE_H_
-#define MOJA_FLINT_OPERATIONRESULTFLUXSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperationresultflux.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class OperationResultFluxSimple : public IOperationResultFlux {
   public:
@@ -48,7 +46,4 @@ inline const ModuleMetaData* OperationResultFluxSimple::metaData() const { retur
 
 typedef std::vector<OperationResultFluxSimple> OperationResultFluxSimpleNewVector;
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONRESULTFLUXSIMPLE_H_
+}  // namespace moja::flint

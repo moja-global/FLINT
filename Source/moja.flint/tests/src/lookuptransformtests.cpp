@@ -11,6 +11,8 @@
 
 #include <turtle/mock.hpp>
 
+namespace flint {
+
 namespace mf = moja::flint;
 using moja::DynamicObject;
 using moja::DynamicVar;
@@ -36,7 +38,7 @@ struct LookupTransformTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(LookupTransformTests, LookupTransformTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ConfigureThrowsExceptionIfConfigurationIsIncomplete) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ConfigureThrowsExceptionIfConfigurationIsIncomplete) {
    auto badConfigurations = {DynamicObject(),
                              DynamicObject({{"from", "test"}, {"a", "b"}}),
                              DynamicObject({{"to", "test"}, {"a", "b"}}),
@@ -51,7 +53,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ConfigureThrowsExceptionIfConfigurati
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueThrowsExceptionIfVariableNotFound) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueThrowsExceptionIfVariableNotFound) {
    auto badConfigurations = {
        DynamicObject({{"from", "var1"}, {"to", "some_missing_var"}}),
        DynamicObject({{"from", "some_missing_var"}, {"to", "var2"}}),
@@ -63,7 +65,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueThrowsExceptionIfVariableNotFoun
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsEmptyIfNoMatchFound) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsEmptyIfNoMatchFound) {
    auto varFromValue = std::make_unique<DynamicVar>(1);
    auto varToValue = std::make_unique<DynamicVar>(DynamicObject({{"2", 0}}));
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
@@ -75,7 +77,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsEmptyIfNoMatchFound) {
 
 // A simple 1:1 single-column lookup should return a keyless Dynamic (i.e. not
 // a DynamicObject).
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicToStruct) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForDynamicToStruct) {
    std::string expectedKey = "b";
    int expectedValue = 2;
    auto varFromValue = std::make_unique<DynamicVar>(expectedKey);
@@ -92,7 +94,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicT
 
 // A single-column lookup with multiple resulting value columns should return a
 // DynamicObject.
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicToMultiStruct) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForDynamicToMultiStruct) {
    auto varFromValue = std::make_unique<DynamicVar>("testvalue2");
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
 
@@ -118,7 +120,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicT
 
 // A single-column lookup with multiple resulting value columns should return a
 // DynamicObject.
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForStructToMultiStruct) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForStructToMultiStruct) {
    auto varFromValue = std::make_unique<DynamicVar>(DynamicObject({{"key1", "k1v1"}, {"key2", "k2v2"}}));
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
 
@@ -145,7 +147,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForStructTo
 
 // A multi-column lookup with only a single resulting value column should
 // return a keyless DynamicVar (i.e. not in DynamicObject form).
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForStructToMultiStructWithSingleValueColumn) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForStructToMultiStructWithSingleValueColumn) {
    auto varFromValue = std::make_unique<DynamicVar>(DynamicObject({{"key1", "k1v2"}, {"key2", "k2v1"}}));
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
 
@@ -163,7 +165,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForStructTo
 
 // A single-column lookup with only a single resulting value column should
 // return a keyless DynamicVar (i.e. not in DynamicObject form).
-BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicToMultiStructWithSingleValueColumn) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForDynamicToMultiStructWithSingleValueColumn) {
    auto varFromValue = std::make_unique<DynamicVar>("k1v4");
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
 
@@ -181,8 +183,7 @@ BOOST_AUTO_TEST_CASE(flint_LookupTransform_ValueReturnsExpectedResultForDynamicT
 
 // A struct can match against a "to" struct that only has a subset of the "from"
 // struct's keys.
-BOOST_AUTO_TEST_CASE(
-    flint_LookupTransform_ValueReturnsExpectedResultForStructToSubsetMultiStructWithSingleValueColumn) {
+BOOST_AUTO_TEST_CASE(LookupTransform_ValueReturnsExpectedResultForStructToSubsetMultiStructWithSingleValueColumn) {
    auto varFromValue = std::make_unique<DynamicVar>(DynamicObject({{"key1", "k1v2"}, {"key2", "k2v3"}}));
    MOCK_EXPECT(varFrom->value).returns(*varFromValue);
 
@@ -197,4 +198,6 @@ BOOST_AUTO_TEST_CASE(
    BOOST_CHECK_EQUAL(result, 3);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint

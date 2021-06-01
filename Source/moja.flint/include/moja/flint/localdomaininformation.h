@@ -1,13 +1,11 @@
-#ifndef MOJA_FLINT_LOCALDOMAININFORMATION_H_
-#define MOJA_FLINT_LOCALDOMAININFORMATION_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/iflintdata.h"
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API LocalDomainInformation : public flint::IFlintData {
   public:
@@ -64,7 +62,4 @@ class FLINT_API LocalDomainInformation : public flint::IFlintData {
    bool isThread;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_LOCALDOMAININFORMATION_H_
+}  // namespace moja::flint

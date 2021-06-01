@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_RECORDACCUMULATOR_H_
-#define MOJA_FLINT_RECORDACCUMULATOR_H_
+#pragma once
 
 #include "moja/flint/record.h"
 #include "moja/flint/recordutils.h"
@@ -8,14 +7,13 @@
 
 #include <tlx/container/btree_map.hpp>
 
+#include <algorithm>
 #include <iterator>
 #include <numeric>
 #include <unordered_set>
 #include <vector>
-#include <algorithm>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 template <class TPersistable>
 class RecordAccumulator {
@@ -573,12 +571,9 @@ class RecordAccumulatorMap2 {
       return persistables;
    }
 
-   const auto tuples() const {
-      return list_of_tuples<TTuple, TRecordConv, TKey, TValue>{_records};
-   }
+   const auto tuples() const { return list_of_tuples<TTuple, TRecordConv, TKey, TValue>{_records}; }
 
-   [[deprecated("Replaced with tuples() method")]]
-   std::vector<TTuple> getTupleCollection() {
+   [[deprecated("Replaced with tuples() method")]] std::vector<TTuple> getTupleCollection() {
       std::vector<TTuple> tuples;
       tuples.reserve(_records.size());
       for (const auto& rec : _records) {
@@ -587,8 +582,7 @@ class RecordAccumulatorMap2 {
       return tuples;
    }
 
-   [[deprecated("Replaced with tuples() method")]]
-   std::vector<TTuple> getTupleCollectionRange(
+   [[deprecated("Replaced with tuples() method")]] std::vector<TTuple> getTupleCollectionRange(
        typename rec_accu_map::const_iterator& rangeStart, size_t chunkSize) {
       std::vector<TTuple> tuples;
       tuples.reserve((std::min)(_records.size(), chunkSize));
@@ -608,7 +602,4 @@ class RecordAccumulatorMap2 {
    rec_accu_map _records;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_RECORDACCUMULATOR_H_
+}  // namespace moja::flint

@@ -1,10 +1,8 @@
-#ifndef MOJA_FLINT_TRANSACTIONMANAGERENDOFSTEPMODULE_H_
-#define MOJA_FLINT_TRANSACTIONMANAGERENDOFSTEPMODULE_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class TransactionManagerEndOfStepModule : public ModuleBase {
   public:
@@ -23,6 +21,4 @@ class TransactionManagerEndOfStepModule : public ModuleBase {
    void onError(std::string msg) override;
 };
 
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_TRANSACTIONMANAGERENDOFSTEPMODULE_H_
+}  // namespace moja::flint

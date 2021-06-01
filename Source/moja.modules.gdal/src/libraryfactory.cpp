@@ -1,10 +1,13 @@
 #include "moja/modules/gdal/libraryfactory.h"
 
-#include "moja/modules/gdal/writevariablegeotiff.h"
 #include "moja/modules/gdal/rasterreadergdal.h"
+#include "moja/modules/gdal/writevariablegeotiff.h"
 
 #include <moja/flint/mojalibapi.h>
+
 #include <moja/datarepository/providerspatialrastertiled.h>
+
+#include <Poco/Mutex.h>
 
 using moja::flint::DataRepositoryProviderRegistration;
 using moja::flint::FlintDataFactoryRegistration;

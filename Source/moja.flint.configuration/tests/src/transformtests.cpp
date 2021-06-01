@@ -2,32 +2,34 @@
 
 #include <boost/test/unit_test.hpp>
 
+namespace flint_configuration {
+
 using moja::DynamicObject;
 using moja::flint::configuration::Transform;
 
 BOOST_AUTO_TEST_SUITE(TransformConfigurationTests);
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Transform_ConstructThrowsExceptionIfTypeNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Transform_ConstructThrowsExceptionIfTypeNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(Transform("test", name, DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Transform_ConstructThrowsExceptionIfLibraryNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Transform_ConstructThrowsExceptionIfLibraryNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(Transform(name, "test", DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Transform_GetType) {
+BOOST_AUTO_TEST_CASE(Transform_GetType) {
    auto typeName = "test";
    Transform transform("test", typeName, DynamicObject());
    BOOST_CHECK(typeName == transform.typeName());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Transform_GetSettings) {
+BOOST_AUTO_TEST_CASE(Transform_GetSettings) {
    DynamicObject settings;
    auto k1 = "key1";
    auto v1 = "b";
@@ -46,4 +48,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Transform_GetSettings) {
    BOOST_CHECK_EQUAL(v2, transformV2);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

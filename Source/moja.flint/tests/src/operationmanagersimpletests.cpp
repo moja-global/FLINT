@@ -1,4 +1,3 @@
-#include "flinttests.h"
 #include "operationmanagertestutils.h"
 
 #include <moja/flint/modulebase.h>
@@ -9,22 +8,10 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include <memory>
+namespace flint {
 
 using namespace moja;
 using namespace moja::flint;
-namespace conf = moja::flint::configuration;
-
-// --------------------------------------------------------------------------------------------
-struct PoolInitValueAndResult {
-   std::string name;
-   double value;
-   double result;
-
-   IPool* poolHandle;
-};
-
-// --------------------------------------------------------------------------------------------
 
 struct SimpleFixture {
    Timing timing;
@@ -43,101 +30,76 @@ struct SimpleFixture {
    }
 };
 
-BOOST_FIXTURE_TEST_SUITE(Simple_operationmanagertests, SimpleFixture);
+BOOST_FIXTURE_TEST_SUITE(OperationManagerTests, SimpleFixture);
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_NoPoolIteration) { test_NoPoolIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_NoPoolIteration) { test_NoPoolIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SinglePoolIteration) { test_SinglePoolIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SinglePoolIteration) { test_SinglePoolIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_MultiplePoolIteration) { test_MultiplePoolIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_MultiplePoolIteration) { test_MultiplePoolIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_NoResultIteration) { test_NoResultIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_NoResultIteration) { test_NoResultIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SingleResultIteration) { test_SingleResultIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SingleResultIteration) { test_SingleResultIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_MultipleResultIteration) { test_MultipleResultIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_MultipleResultIteration) { test_MultipleResultIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_NoResultFluxIteration) { test_NoResultFluxIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_NoResultFluxIteration) { test_NoResultFluxIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SingleResultFluxIteration) { test_SingleResultFluxIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SingleResultFluxIteration) { test_SingleResultFluxIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_MultipleResultFluxIteration) { test_MultipleResultFluxIteration(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_MultipleResultFluxIteration) { test_MultipleResultFluxIteration(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SingleProportionTransfer) { test_SingleProportionTransfer(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SingleProportionTransfer) { test_SingleProportionTransfer(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SingleStockTransfer) { test_SingleStockTransfer(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SingleStockTransfer) { test_SingleStockTransfer(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_DoubleProportionalTransfer) { test_DoubleProportionalTransfer(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_DoubleProportionalTransfer) { test_DoubleProportionalTransfer(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_DoubleStockTransfer) { test_DoubleStockTransfer(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_DoubleStockTransfer) { test_DoubleStockTransfer(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_DoubleStockAndApplyTransfer) { test_DoubleStockAndApplyTransfer(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_DoubleStockAndApplyTransfer) { test_DoubleStockAndApplyTransfer(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_TwoOperationsStockAndProportional) {
+BOOST_AUTO_TEST_CASE(OperationManager_TwoOperationsStockAndProportional) {
    test_TwoOperationsStockAndProportional(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_Kahan_summation_issues_Proportion) {
+BOOST_AUTO_TEST_CASE(OperationManager_Kahan_summation_issues_Proportion) {
    test_Kahan_summation_issues_Proportion(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_Kahan_summation_issues_Proportion_with_SpinUp) {
+BOOST_AUTO_TEST_CASE(OperationManager_Kahan_summation_issues_Proportion_with_SpinUp) {
    test_Kahan_summation_issues_Proportion_with_SpinUp(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_PerformanceTestProportionalSLEEK) {
+BOOST_AUTO_TEST_CASE(OperationManager_PerformanceTestProportionalSLEEK) {
    test_PerformanceTestProportionalSLEEK(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_PerformanceTestStockSLEEK) { test_PerformanceTestStockSLEEK(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_PerformanceTestStockSLEEK) { test_PerformanceTestStockSLEEK(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_PerformanceTestCBM) { test_PerformanceTestCBM(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_PerformanceTestCBM) { test_PerformanceTestCBM(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_SubmitOperationAddsToPendingQueue) { SubmitOperationAddsToPendingQueue(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_SubmitOperationAddsToPendingQueue) { SubmitOperationAddsToPendingQueue(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ClearLastAppliedOperationResults) { ClearLastAppliedOperationResults(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_ClearLastAppliedOperationResults) { ClearLastAppliedOperationResults(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ApplyOperationsAppendsToCommittedQueue) {
+BOOST_AUTO_TEST_CASE(OperationManager_ApplyOperationsAppendsToCommittedQueue) {
    ApplyOperationsAppendsToCommittedQueue(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase) {
+BOOST_AUTO_TEST_CASE(OperationManager_ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase) {
    ApplyOperationsCorrectlyUpdatesPoolsForSimpleCase(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ApplyOperationsCorrectlyUpdatesPoolsForComplexCase) {
+BOOST_AUTO_TEST_CASE(OperationManager_ApplyOperationsCorrectlyUpdatesPoolsForComplexCase) {
    ApplyOperationsCorrectlyUpdatesPoolsForComplexCase(manager, module);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ApplyAndGetOperationsLastApplied) { ApplyAndGetOperationsLastApplied(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_ApplyAndGetOperationsLastApplied) { ApplyAndGetOperationsLastApplied(manager, module); }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(Simple_ApplyOperationsClearsPendingQueue) { ApplyOperationsClearsPendingQueue(manager, module); }
+BOOST_AUTO_TEST_CASE(OperationManager_ApplyOperationsClearsPendingQueue) { ApplyOperationsClearsPendingQueue(manager, module); }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint

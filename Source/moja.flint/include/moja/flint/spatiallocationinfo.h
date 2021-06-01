@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_SPATIALLOCATIONINFO_H_
-#define MOJA_FLINT_SPATIALLOCATIONINFO_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/iflintdata.h"
@@ -8,8 +7,7 @@
 
 #include <random>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API SpatialLocationInfo : public IFlintData {
   public:
@@ -213,6 +211,3 @@ class FLINT_API SpatialLocationInfo : public IFlintData {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SPATIALLOCATIONINFO_H_

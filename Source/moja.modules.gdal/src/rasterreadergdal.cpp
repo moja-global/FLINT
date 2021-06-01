@@ -11,9 +11,12 @@
 
 #include <moja/pocojsonutils.h>
 
+#include <boost/format.hpp>
+
 #include <Poco/JSON/Parser.h>
 
 #include <fmt/format.h>
+#include <Poco/Path.h>
 
 #include <fstream>
 #include <sstream>

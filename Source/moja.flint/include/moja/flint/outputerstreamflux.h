@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_OUTPUTERSTREAMFLUX_H_
-#define MOJA_FLINT_OUTPUTERSTREAMFLUX_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
@@ -8,8 +7,7 @@
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API OutputerStreamFlux : public ModuleBase {
   public:
@@ -28,7 +26,7 @@ class FLINT_API OutputerStreamFlux : public ModuleBase {
    void onSystemShutdown() override;
    void onTimingPostInit() override;
    void onTimingEndStep() override;
-   void onPostDisturbanceEvent() override; 
+   void onPostDisturbanceEvent() override;
 
   protected:
    std::string _fileName;
@@ -39,7 +37,4 @@ class FLINT_API OutputerStreamFlux : public ModuleBase {
    Poco::TeeOutputStream _output;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OUTPUTERSTREAMFLUX_H_
+}  // namespace moja::flint

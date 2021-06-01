@@ -1,12 +1,8 @@
-#ifndef MOJA_FLINT_EQUALSTEPSEQUENCER_H_
-#define MOJA_FLINT_EQUALSTEPSEQUENCER_H_
+#pragma once
 
 #include "moja/flint/sequencermodulebase.h"
 
-#include <moja/notificationcenter.h>
-
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 // Fixed timing length steps when doing monthly simulations
 // Year length is: 365
@@ -42,7 +38,4 @@ class FLINT_API EqualStepSequencer : public SequencerModuleBase {
    const int StepsPerYear = 12;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_EQUALSTEPSEQUENCER_H_
+}  // namespace moja::flint

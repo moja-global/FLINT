@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_FLINTDATAVARIABLE_H_
-#define MOJA_FLINT_FLINTDATAVARIABLE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ivariable.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class ILandUnitController;
 class IFlintData;
@@ -45,7 +43,4 @@ class FlintDataVariable : public IVariable {
    std::shared_ptr<IFlintData> _flintdata;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_FLINTDATAVARIABLE_H_
+}  // namespace moja::flint

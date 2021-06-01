@@ -1,18 +1,12 @@
-#ifndef MOJA_FLINT_TESTMODULE1_H_
-#define MOJA_FLINT_TESTMODULE1_H_
+#pragma once
 
-#include "moja/flint/ioperationresult.h"
 #include "moja/flint/ipool.h"
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 class FLINT_API TestModule : public ModuleBase {
   public:
-   // _pool1(nullptr), _pool2(nullptr), _pool3(nullptr), _variable1(nullptr), _variable2(nullptr), _variable3(nullptr)
    TestModule() = default;
    virtual ~TestModule() = default;
 
@@ -25,14 +19,14 @@ class FLINT_API TestModule : public ModuleBase {
 
   private:
    // Pools
-   const flint::IPool* _pool1;
-   const flint::IPool* _pool2;
-   const flint::IPool* _pool3;
+   const IPool* _pool1;
+   const IPool* _pool2;
+   const IPool* _pool3;
 
    // Variables
-   const flint::IVariable* _variable1;
-   const flint::IVariable* _variable2;
-   const flint::IVariable* _variable3;
+   const IVariable* _variable1;
+   const IVariable* _variable2;
+   const IVariable* _variable3;
 
    // Settings
    double ratio_1;
@@ -48,6 +42,4 @@ class FLINT_API TestModule : public ModuleBase {
    std::string pool_3;
 };
 
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_TESTMODULE1_H_
+}  // namespace moja::flint

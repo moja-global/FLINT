@@ -16,8 +16,6 @@ class IPool;
 class PoolMetaData;
 class OperationResultCollection;
 
-// --------------------------------------------------------------------------------------------
-
 enum class OperationTransferType { Stock = 0, Proportional = 1 };
 
 inline std::string OperationTransferTypeToString(OperationTransferType t) {
@@ -29,8 +27,6 @@ inline std::string OperationTransferTypeToString(OperationTransferType t) {
    }
    return "unknown";
 }
-
-// --------------------------------------------------------------------------------------------
 
 class FLINT_API IOperationManager {
   public:

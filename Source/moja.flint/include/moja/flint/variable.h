@@ -1,10 +1,8 @@
-#ifndef MOJA_FLINT_VARIABLE_H_
-#define MOJA_FLINT_VARIABLE_H_
+#pragma once
 
 #include "moja/flint/ivariable.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class Variable : public IVariable {
   public:
@@ -36,7 +34,4 @@ class Variable : public IVariable {
    DynamicVar _initValue;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_VARIABLE_H_
+}  // namespace moja::flint

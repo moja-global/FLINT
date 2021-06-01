@@ -16,6 +16,8 @@
 #include <map>
 #include <memory>
 
+namespace flint {
+
 namespace mocks = moja::test;
 
 struct LandUnitControllerTestsFixture {
@@ -24,7 +26,7 @@ struct LandUnitControllerTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(LandUnitControllerTests, LandUnitControllerTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddPoolThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(controller.operationManager()->addPool(name, "", "", 1.0, 1, 0.0, nullptr),
@@ -32,7 +34,7 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolThrowsExceptionIfNameIsEmpt
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolThrowsExceptionIfValueIsNegative) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddPoolThrowsExceptionIfValueIsNegative) {
    auto badValues = {-0.1, -100.0};
    for (auto value : badValues) {
       BOOST_CHECK_THROW(controller.operationManager()->addPool("test", "", "", 1.0, 1, value, nullptr),
@@ -40,14 +42,14 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolThrowsExceptionIfValueIsNeg
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolIncrementsPoolCount) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddPoolIncrementsPoolCount) {
    for (int i = 1; i < 100; i++) {
       controller.operationManager()->addPool("p" + std::to_string(i), "", "", 1.0, 1, 0.0, nullptr);
       BOOST_CHECK_EQUAL(i, controller.operationManager()->poolCount());
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolAssignsSequentialIndices) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddPoolAssignsSequentialIndices) {
    for (int i = 0; i < 100; i++) {
       auto name = "p" + std::to_string(i);
       controller.operationManager()->addPool(name, "", "", 1.0, 1, 0.0, nullptr);
@@ -56,7 +58,7 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddPoolAssignsSequentialIndices) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByName) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetPoolByName) {
    std::map<std::string, double> pools{{"p1", 0.0}, {"p2", 100.0}};
    for (auto [name, init_value] : pools) {
       controller.operationManager()->addPool(name, "", "", 1.0, 1, init_value, nullptr);
@@ -70,12 +72,12 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByName) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByNameThrowsExceptionIfPoolNotFound) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetPoolByNameThrowsExceptionIfPoolNotFound) {
    controller.operationManager()->addPool("test", "", "", 1.0, 1, 0.0, nullptr);
    BOOST_CHECK_THROW(controller.operationManager()->getPool("invalid pool"), moja::flint::PoolNotFoundException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByIndex) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetPoolByIndex) {
    std::vector<std::pair<std::string, double>> pools{{"p1", 0.0}, {"p2", 100.0}};
    for (auto [name, init_value] : pools) {
       controller.operationManager()->addPool(name, "", "", 1.0, 1, init_value, nullptr);
@@ -91,14 +93,14 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByIndex) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetPoolByIndexThrowsExceptionIfIndexOutOfRange) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetPoolByIndexThrowsExceptionIfIndexOutOfRange) {
    controller.operationManager()->addPool("test", "", "", 1.0, 1, 0.0, nullptr);
    for (int i : {-100, -1, 1, 100}) {
       BOOST_CHECK_THROW(controller.operationManager()->getPool(i), moja::flint::PoolNotFoundException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_PoolValueIterator) {
+BOOST_AUTO_TEST_CASE(LandUnitController_PoolValueIterator) {
    std::vector<std::pair<std::string, double>> pools{{"p1", 0.0}, {"p2", 100.0}};
    for (auto& [name, init_value] : pools) {
       controller.operationManager()->addPool(name, "", "", 1.0, 1, init_value, nullptr);
@@ -113,7 +115,7 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_PoolValueIterator) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_PoolObjIterator) {
+BOOST_AUTO_TEST_CASE(LandUnitController_PoolObjIterator) {
    std::vector<std::pair<std::string, double>> pools{{"p1", 0.0}, {"p2", 100.0}};
    for (auto [name, init_value] : pools) {
       controller.operationManager()->addPool(name, "", "", 1.0, 1, init_value, nullptr);
@@ -128,7 +130,7 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_PoolObjIterator) {
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddVariableThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddVariableThrowsExceptionIfNameIsEmpty) {
    auto var = std::make_shared<mocks::MockVariable>();
    MOCK_EXPECT(var->isExternal).returns(false);
    MOCK_EXPECT(var->isFlintData).returns(false);
@@ -140,7 +142,7 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddVariableThrowsExceptionIfNameIs
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddVariable) {
+BOOST_AUTO_TEST_CASE(LandUnitController_AddVariable) {
    auto var = std::make_shared<mocks::MockVariable>();
    MOCK_EXPECT(var->isExternal).returns(false);
    MOCK_EXPECT(var->isFlintData).returns(false);
@@ -151,11 +153,11 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_AddVariable) {
    BOOST_CHECK(has_variable);
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetVariableThrowsExceptionIfVariableNotFound) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetVariableThrowsExceptionIfVariableNotFound) {
    BOOST_CHECK_THROW(controller.getVariable("not found"), moja::flint::VariableNotFoundException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetVariable) {
+BOOST_AUTO_TEST_CASE(LandUnitController_GetVariable) {
    int expectedValue = 100;
    auto var = std::make_shared<mocks::MockVariable>();
    MOCK_EXPECT(var->isExternal).returns(false);
@@ -167,16 +169,18 @@ BOOST_AUTO_TEST_CASE(flint_LandUnitController_GetVariable) {
    BOOST_CHECK_EQUAL(expectedValue, actual->value().convert<int>());
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_CreateProportionalOperation) {
+BOOST_AUTO_TEST_CASE(LandUnitController_CreateProportionalOperation) {
    auto module = std::make_shared<mocks::MockModule>();
    MOCK_EXPECT(module->metaData).returns(moja::flint::ModuleMetaData());
    controller.createProportionalOperation(*module.get());
 }
 
-BOOST_AUTO_TEST_CASE(flint_LandUnitController_CreateStockOperation) {
+BOOST_AUTO_TEST_CASE(LandUnitController_CreateStockOperation) {
    auto module = std::make_shared<mocks::MockModule>();
    MOCK_EXPECT(module->metaData).returns(moja::flint::ModuleMetaData());
    controller.createStockOperation(*module.get());
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint

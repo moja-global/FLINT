@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_SIMULATIONUNITDATABASE_H_
-#define MOJA_FLINT_SIMULATIONUNITDATABASE_H_
+#pragma once
 
 #include "moja/flint/iflintdata.h"
 #include "moja/flint/record.h"
@@ -7,8 +6,7 @@
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class SimulationUnitDataBase : public flint::IFlintData {
   public:
@@ -54,7 +52,4 @@ class SimulationUnitDataBase : public flint::IFlintData {
 
 inline DynamicVar SimulationUnitDataBase::getProperty(const std::string& key) const { return DynamicVar(); }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SIMULATIONUNITDATABASE_H_
+}  // namespace moja::flint

@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_
-#define MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_
+#pragma once
 
 #include "moja/flint/localdomaincontrollerbase.h"
 #include "moja/flint/record.h"
@@ -13,13 +12,11 @@
 #include <queue>
 #include <thread>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 namespace configuration {
 enum class LocalDomainIterationType;
 }
-
-// --------------------------------------------------------------------------------------------
 
 class finally {
    std::function<void(void)> functor;
@@ -29,7 +26,6 @@ class finally {
    ~finally() { functor(); }
 };
 
-// --------------------------------------------------------------------------------------------
 // - Record structure used to accumulate processing times in the LDC.
 // by setting the Tile & Block index values, or using null values stats can be aggregated to
 // Global, Tile and Tile/Block levels
@@ -102,8 +98,6 @@ class StatsUnitRecord : public Record<StatsUnitRow> {
    // Internal only
    StatsDurationType _durationType;
 };
-
-// --------------------------------------------------------------------------------------------
 
 class FLINT_API SpatialTiledLocalDomainController : public LocalDomainControllerBase {
   public:
@@ -192,7 +186,4 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    void buildBlockIndexQueue(configuration::LocalDomainIterationType iterationType);
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_
+}  // namespace moja::flint

@@ -5,8 +5,9 @@
 #include "moja/datarepository/layer.h"
 #include "moja/datarepository/stack.h"
 
-#include <string>
+#include <boost/optional/optional.hpp>
 
+#include <string>
 namespace moja {
 namespace datarepository {
 

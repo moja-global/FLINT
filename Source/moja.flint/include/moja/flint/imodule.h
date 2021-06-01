@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_IMODULE_H_
-#define MOJA_FLINT_IMODULE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
@@ -12,8 +11,8 @@ namespace moja {
 class NotificationCenter;
 }
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class ILandUnitController;
 
 struct StepRecord {
@@ -113,6 +112,3 @@ class FLINT_API IModule {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IMODULE_H_

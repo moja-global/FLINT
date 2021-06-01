@@ -1,7 +1,5 @@
-#ifndef MOJA_FLINT_MODULEMANAGER_H_
-#define MOJA_FLINT_MODULEMANAGER_H_
+#pragma once
 
-#include "moja/flint/ilandunitcontroller.h"
 #include "moja/flint/imodule.h"
 #include "moja/flint/libraryinfobase.h"
 #include "moja/flint/librarytype.h"
@@ -11,8 +9,7 @@
 #include <map>
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API LibraryManager {
   public:
@@ -93,7 +90,4 @@ class FLINT_API LibraryManager {
    ProviderRegistry _providerRegistry;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_MODULEMANAGER_H_
+}  // namespace moja::flint

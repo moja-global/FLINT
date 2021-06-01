@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_MODULEBASE_H_
-#define MOJA_FLINT_MODULEBASE_H_
+#pragma once
 
 #include "moja/flint/ilandunitdatawrapper.h"
 #include "moja/flint/imodule.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API ModuleBase : public IModule {
   public:
@@ -15,8 +13,8 @@ class FLINT_API ModuleBase : public IModule {
 
    void setLandUnitController(ILandUnitController& landUnitController) override;
 
-   void configure(const DynamicObject&) override{};
-   void subscribe(NotificationCenter& notificationCenter) override{};
+   void configure(const DynamicObject&) override {}
+   void subscribe(NotificationCenter& notificationCenter) override {}
 
    /**
     * Called right after the module DLL has been loaded and the module object has been created
@@ -28,7 +26,7 @@ class FLINT_API ModuleBase : public IModule {
    /** Called before the module is unloaded, right before the module object is destroyed. */
    void ShutdownModule() override {}
 
-   ModuleTypes moduleType() override { return ModuleTypes::Other; };
+   ModuleTypes moduleType() override { return ModuleTypes::Other; }
 
    void onSystemInit() override {}
    void onSystemShutdown() override {}
@@ -61,7 +59,4 @@ class FLINT_API ModuleBase : public IModule {
    ModuleMetaData _metaData;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_MODULEBASE_H_
+}  // namespace moja::flint

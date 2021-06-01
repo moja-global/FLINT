@@ -12,7 +12,6 @@ set(TEST_SRCS
     src/floatcmptests.cpp
 	src/hashingtests.cpp
     src/notificationcentertests.cpp
-    src/pathtests.cpp
     src/sharedlibrarytests.cpp
 	src/stopwatchtests.cpp
     src/timespantests.cpp

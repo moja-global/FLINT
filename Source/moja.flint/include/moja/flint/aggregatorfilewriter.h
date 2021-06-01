@@ -1,12 +1,10 @@
-#ifndef MOJA_FLINT_AGGREGATORFILEWRITER_H_
-#define MOJA_FLINT_AGGREGATORFILEWRITER_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/modulebase.h"
 #include "moja/flint/recordaccumulatorwithmutex.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class AggregatorLandUnitSharedData;
 class SimulationUnitDataBase;
@@ -64,6 +62,3 @@ class FLINT_API AggregatorFileWriter : public flint::ModuleBase {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_AGGREGATORFILEWRITER_H_

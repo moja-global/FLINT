@@ -1,13 +1,11 @@
-#ifndef MOJA_FLINT_SYSTEMINFORMATION_H_
-#define MOJA_FLINT_SYSTEMINFORMATION_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/iflintdata.h"
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API SystemInformation : public flint::IFlintData {
   public:
@@ -54,7 +52,4 @@ class FLINT_API SystemInformation : public flint::IFlintData {
    bool isThreadSystem;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SYSTEMINFORMATION_H_
+}  // namespace moja::flint

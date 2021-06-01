@@ -5,6 +5,7 @@
 #include "moja/flint/ivariable.h"
 
 #include <moja/dynamic.h>
+#include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
 namespace moja {

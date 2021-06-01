@@ -1,14 +1,10 @@
-#ifndef MOJA_FLINT_OPERATIONRESULTFLUXITERATORSIMPLE_H_
-#define MOJA_FLINT_OPERATIONRESULTFLUXITERATORSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperationresult.h"
 #include "moja/flint/ioperationresultfluxiterator.h"
 #include "moja/flint/operationresultfluxsimple.h"
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 #define USE_INT_ITERATOR
 
@@ -29,7 +25,7 @@ class OperationResultFluxIteratorSimple : public IOperationResultFluxIterator {
 #endif
    }
 
-   virtual ~OperationResultFluxIteratorSimple(){};
+   virtual ~OperationResultFluxIteratorSimple(){}
 
    virtual std::shared_ptr<IOperationResultFluxIterator> createIterator(bool atEnd = false) override {
       return std::make_shared<OperationResultFluxIteratorSimple>(_results, atEnd);
@@ -73,7 +69,7 @@ class OperationResultFluxIteratorSimple : public IOperationResultFluxIterator {
 #else
       return _it == p->_it;
 #endif
-   };
+   }
 
   protected:
    std::vector<OperationResultFluxSimple>& _results;
@@ -86,7 +82,4 @@ class OperationResultFluxIteratorSimple : public IOperationResultFluxIterator {
 
 #undef USE_INT_ITERATOR
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONRESULTFLUXITERATORSIMPLE_H_
+}  // namespace moja::flint

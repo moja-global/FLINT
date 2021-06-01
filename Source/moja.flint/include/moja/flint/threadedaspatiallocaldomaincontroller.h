@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_
-#define MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_
+#pragma once
 
 #include "moja/flint/aspatiallocaldomaincontroller.h"
 #include "moja/flint/localdomaincontrollerbase.h"
@@ -15,8 +14,7 @@
 #include <queue>
 #include <thread>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class ThreadedAspatialLocalDomainController;
 
@@ -65,7 +63,4 @@ class FLINT_API ThreadedAspatialLocalDomainController final : public flint::Loca
    std::queue<datarepository::AspatialTileInfo> _tileList;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_
+}  // namespace moja::flint

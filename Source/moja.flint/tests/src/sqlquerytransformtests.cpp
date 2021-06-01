@@ -16,6 +16,8 @@
 
 #include <memory>
 
+namespace flint {
+
 BOOST_AUTO_TEST_SUITE(SQLQueryTransformTests)
 
 using moja::DynamicObject;
@@ -29,9 +31,7 @@ struct ItemVar {
    std::string valStr;
 };
 
-#if 1
-
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPools) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPools) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
    auto mockOperationManager = std::make_unique<mocks::MockOperationManager>();
    mocks::MockPoolCollection mockPoolCollection;  // = std::make_shared<mocks::MockPoolCollection>();
@@ -39,14 +39,14 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
    // Setup Mock Variables
    std::vector<ItemVar> testVariables = {
        {"LandUnitId", 247, "247"}, {"TestVar01", 99, "99"}, {"TestVar01_Dummy", 101010101, "101010101"},
-       {"a", "test", "'test'"},    {"11", 1.1, "1.1"},      {"&^%", true, "true"},
+       {"a", "test", "'test'"},    {"11", 1.1, "1.1"},      {"&^%", true, "1"},
    };
 
    std::vector<std::unique_ptr<mocks::MockVariable>> mockVariables;
-   for (auto data : testVariables) {
+   for (auto [name, val, valStr] : testVariables) {
       mockVariables.push_back(std::make_unique<mocks::MockVariable>());
-      MOCK_EXPECT(mockLandUnitController->getVariable).with(data.name).returns(mockVariables.back().get());
-      MOCK_EXPECT(mockVariables.back().get()->value).returns(data.val);
+      MOCK_EXPECT(mockLandUnitController->getVariable).with(name).returns(mockVariables.back().get());
+      MOCK_EXPECT(mockVariables.back().get()->value).returns(val);
    }
 
    struct itemPool {
@@ -82,9 +82,8 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
       return mockPools[name].get();
    });
 
-   MOCK_EXPECT(mockOperationManager->getPoolByName).calls([&mockPools](const std::string name) -> mocks::MockPool* {
-      return mockPools[name].get();
-   });
+   MOCK_EXPECT(mockOperationManager->getPoolByName_const)
+       .calls([&mockPools](const std::string& name) -> mocks::MockPool* { return mockPools[name].get(); });
 
    // Setup Query and Expected results
    std::vector<std::pair<std::string, std::string>> testQueryAndExpected = {
@@ -102,7 +101,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
                testVariables[3].valStr + " " + testVariables[4].valStr + " " + testVariables[5].valStr,
        },
        {"{var:LandUnitId} {var:TestVar01} {var:TestVar01_Dummy} {var:a} {var:11} {var:&^%}",
-        "247 99 101010101 'test' 1.1 true"},
+        "247 99 101010101 'test' 1.1 1"},
        {"{pool:Pool1} {pool:Pool222222} {pool:3}", "1.1111 2.22222 333.3333"},
        {
            "{pool:" + testPools[0].name + "} {pool:" + testPools[1].name + "} {pool:" + testPools[2].name + "}",
@@ -113,11 +112,11 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
            testPools[2].valStr + " " + testPools[1].valStr + " " + testPools[0].valStr,
        },
        {"{var:&^%} {var:11} {var:a} {var:TestVar01_Dummy} {var:TestVar01} {var:LandUnitId}",
-        "true 1.1 'test' 101010101 99 247"},
+        "1 1.1 'test' 101010101 99 247"},
        {"{pool:3} {pool:Pool222222} {pool:Pool1}", "333.3333 2.22222 1.1111"},
        {"SELECT * FROM SPECIES WHERE LandUnitId = {var:LandUnitId}", "SELECT * FROM SPECIES WHERE LandUnitId = 247"},
        {"Var '{var:&^%}' should = 'true', '{var:11}' should = '1.1' and so on...",
-        "Var 'true' should = 'true', '1.1' should = '1.1' and so on..."},
+        "Var '1' should = 'true', '1.1' should = '1.1' and so on..."},
        {"SELECT * FROM SPECIES WHERE LandUnitId = {pool:Pool1}", "SELECT * FROM SPECIES WHERE LandUnitId = 1.1111"},
        {"SELECT {var:a} AS name, SUM(amount) FROM widgets WHERE LandUnitId = {var:LandUnitId} GROUP BY {var:a}",
         "SELECT 'test' AS name, SUM(amount) FROM widgets WHERE LandUnitId = 247 GROUP BY 'test'"}};
@@ -126,7 +125,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
    std::string& currentExpectedResult = testQueryAndExpected.front().second;
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
 
-   MOCK_EXPECT(mockProvider->GetDataSet).calls([&currentExpectedResult](std::string query) -> DynamicVar {
+   MOCK_EXPECT(mockProvider->GetDataSet).calls([&currentExpectedResult](const std::string& query) -> DynamicVar {
       BOOST_CHECK_EQUAL(query, currentExpectedResult);
       return DynamicVar();
    });
@@ -141,12 +140,11 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_IssuesExpectedQueriesUsingVarsAndPo
 
       auto testSQLTransform = std::make_shared<mf::SQLQueryTransform>();
       testSQLTransform->configure(config, *mockLandUnitController.get(), *mockRepository.get());
+      auto v = testSQLTransform->value();
    }
 }
 
-#endif
-
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_QuotesStringVariablesInSQL) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_QuotesStringVariablesInSQL) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    // Setup Mock Variables
@@ -178,7 +176,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_QuotesStringVariablesInSQL) {
    testSQLTransform->value();
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_AddressSyntaxForMultiValueVariables) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_AddressSyntaxForMultiValueVariables) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    // Setup Mock Variables
@@ -214,7 +212,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_AddressSyntaxForMultiValueVariables
    testSQLTransform->value();
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_AddressSyntaxForTableVariablesReturningMultipleRows) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_AddressSyntaxForTableVariablesReturningMultipleRows) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    // Setup Mock Variables
@@ -255,7 +253,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_AddressSyntaxForTableVariablesRetur
    testSQLTransform->value();
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsPlainValueIfSingleColumnSingleRowResult) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_ValueReturnsPlainValueIfSingleColumnSingleRowResult) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
@@ -274,7 +272,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsPlainValueIfSingleColum
    BOOST_CHECK_EQUAL(value, 1);
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsPlainValueVectorIfSingleColumnMultiRowResult) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_ValueReturnsPlainValueVectorIfSingleColumnMultiRowResult) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
@@ -296,7 +294,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsPlainValueVectorIfSingl
    BOOST_CHECK_EQUAL(value2, 2);
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsStructIfMultiColumnSingleRowResult) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_ValueReturnsStructIfMultiColumnSingleRowResult) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
@@ -316,7 +314,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsStructIfMultiColumnSing
    BOOST_CHECK(value["b"] == 2);
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsStructVectorIfMultiColumnMultiRowResult) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_ValueReturnsStructVectorIfMultiColumnMultiRowResult) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
 
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
@@ -339,7 +337,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsStructVectorIfMultiColu
    BOOST_CHECK(values[1]["b"] == 4);
 }
 
-BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsEmptyDynamicIfNoResult) {
+BOOST_AUTO_TEST_CASE(SQLQueryTransform_ValueReturnsEmptyDynamicIfNoResult) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
    MOCK_EXPECT(mockProvider->GetDataSet).returns(DynamicVar());
@@ -357,7 +355,7 @@ BOOST_AUTO_TEST_CASE(flint_SQLQueryTransform_ValueReturnsEmptyDynamicIfNoResult)
 }
 
 BOOST_AUTO_TEST_CASE(
-    flint_SQLQueryTransform_regression_ValueReturnsEmptyDynamicIfNoResultAfterPreviousSuccessfulQuery) {
+    SQLQueryTransform_regression_ValueReturnsEmptyDynamicIfNoResultAfterPreviousSuccessfulQuery) {
    auto mockLandUnitController = std::make_unique<mocks::MockLandUnitController>();
    auto mockProvider = std::make_shared<mocks::MockProviderRelational>();
 
@@ -381,4 +379,6 @@ BOOST_AUTO_TEST_CASE(
    BOOST_CHECK(next.isEmpty());
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint

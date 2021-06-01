@@ -1,13 +1,11 @@
-#ifndef MOJA_FLINT_TIMING_H_
-#define MOJA_FLINT_TIMING_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/itiming.h"
 
 #include <moja/floatcmp.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API Timing : public ITiming {
   public:
@@ -117,7 +115,4 @@ inline void Timing::setSubStep(int val) { _subStep = val; }
 inline void Timing::setIsFullStep(bool val) { _isFullStep = val; }
 inline void Timing::setStepping(TimeStepping stepping) { _stepping = stepping; }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_TIMING_H_
+}  // namespace moja::flint

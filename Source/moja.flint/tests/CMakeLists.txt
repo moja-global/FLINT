@@ -8,13 +8,12 @@ set(TEST_SRCS
     src/_unittestdefinition.cpp
 	include/notificationtests.h
 	src/notificationtests.cpp
-    include/flinttests.h
 	include/operationmanagertestutils.h
     src/compositetransformtests.cpp
-    src/flinttests.cpp
     src/landunitcontrollertests.cpp
     src/lookuptransformtests.cpp
 	src/operationmanagertestutils.cpp
+    src/operationmanagercohorttests.cpp
 	src/operationmanagersimpletests.cpp
     src/sqlquerytransformtests.cpp
 	src/recordaccumulatorintegrationtests.cpp

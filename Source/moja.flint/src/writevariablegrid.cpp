@@ -10,18 +10,18 @@
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
-#include <Poco/File.h>
-#include <Poco/Path.h>
-
 #include <boost/format.hpp>
+#include <boost/algorithm/string.hpp>
+
 #include <boost/format/group.hpp>
 #include <boost/iostreams/device/file.hpp>
 #include <boost/iostreams/stream_buffer.hpp>
 
+#include <Poco/File.h>
 #include <Poco/Mutex.h>
+#include <Poco/Path.h>
 
 #include <limits>
-#include <math.h>
 
 namespace moja {
 namespace flint {
@@ -309,11 +309,7 @@ void WriteVariableGrid::DataSettingsT<T>::doSystemInit(flint::ILandUnitDataWrapp
    }
 
    Poco::File workingFolder(_outputPath);
-   const auto spatialOutputFolderPath = (boost::format("%1%%2%") % workingFolder.path() % variableFolder
-                                         // % Poco::Path::separator()
-                                         // % _name
-                                         )
-                                            .str();
+   const auto spatialOutputFolderPath = (boost::format("%1%%2%") % workingFolder.path() % variableFolder).str();
 
    try {
       workingFolder.createDirectories();

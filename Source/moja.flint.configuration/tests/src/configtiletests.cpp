@@ -5,60 +5,64 @@
 
 #include <turtle/mock.hpp>
 
+namespace flint_configuration {
+
 namespace conf = moja::flint::configuration;
 
 BOOST_AUTO_TEST_SUITE(ConfigTileTests)
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_ConstructorThrowsExceptionIfXSizeIsZeroOrNegative) {
+BOOST_AUTO_TEST_CASE(ConfigTile_ConstructorThrowsExceptionIfXSizeIsZeroOrNegative) {
    auto badXSizes = {0.0, -1.0, -100.0};
    for (double xSize : badXSizes) {
       BOOST_CHECK_THROW(conf::ConfigTile(1, 1, xSize, 1.0, 100, 100), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_ConstructorThrowsExceptionIfYSizeIsZeroOrNegative) {
+BOOST_AUTO_TEST_CASE(ConfigTile_ConstructorThrowsExceptionIfYSizeIsZeroOrNegative) {
    auto badYSizes = {0.0, -1.0, -100.0};
    for (double ySize : badYSizes) {
       BOOST_CHECK_THROW(conf::ConfigTile(1, 1, 1.0, ySize, 100, 100), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_ConstructorThrowsExceptionIfXPixelsIsLessThanOne) {
+BOOST_AUTO_TEST_CASE(ConfigTile_ConstructorThrowsExceptionIfXPixelsIsLessThanOne) {
    auto badXPixels = {0, -1, -100};
    for (int xPixels : badXPixels) {
       BOOST_CHECK_THROW(conf::ConfigTile(1, 1, 1.0, 1.0, xPixels, 100), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_ConstructorThrowsExceptionIfYPixelsIsLessThanOne) {
+BOOST_AUTO_TEST_CASE(ConfigTile_ConstructorThrowsExceptionIfYPixelsIsLessThanOne) {
    auto badYPixels = {0, -1, -100};
    for (int yPixels : badYPixels) {
       BOOST_CHECK_THROW(conf::ConfigTile(1, 1, 1.0, 1.0, 100, yPixels), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_XPixelSize) {
+BOOST_AUTO_TEST_CASE(ConfigTile_XPixelSize) {
    conf::ConfigTile tile(1, 1, 50.0, 1.0, 5, 1);
    double expectedXPixelSize = 10.0;
    BOOST_CHECK_EQUAL(expectedXPixelSize, tile.xPixelSize());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_YPixelSize) {
+BOOST_AUTO_TEST_CASE(ConfigTile_YPixelSize) {
    conf::ConfigTile tile(1, 1, 1.0, 27.0, 1, 3);
    double expectedYPixelSize = 9.0;
    BOOST_CHECK_EQUAL(expectedYPixelSize, tile.yPixelSize());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_SplitReturnsExpectedNumberOfBlocksForEvenlyDivisibleLandscape) {
+BOOST_AUTO_TEST_CASE(ConfigTile_SplitReturnsExpectedNumberOfBlocksForEvenlyDivisibleLandscape) {
    conf::ConfigTile tile(0, 0, 1.0, 1.0, 100, 100);
    auto blocks = tile.split(10, 10);
    BOOST_CHECK_EQUAL(blocks.size(), 100);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigTile_SplitReturnsExpectedNumberOfBlocksForLandscapeWithRemainders) {
+BOOST_AUTO_TEST_CASE(ConfigTile_SplitReturnsExpectedNumberOfBlocksForLandscapeWithRemainders) {
    conf::ConfigTile tile(0, 0, 1.0, 1.0, 100, 100);
    auto blocks = tile.split(75, 75);
    BOOST_CHECK_EQUAL(blocks.size(), 4);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_LOCALDOMAINCONTROLLERBASE_H_
-#define MOJA_FLINT_LOCALDOMAINCONTROLLERBASE_H_
+#pragma once
 
 #include "moja/flint/ilocaldomaincontroller.h"
 #include "moja/flint/landunitcontroller.h"
@@ -7,12 +6,7 @@
 
 #include <moja/datarepository/datarepository.h>
 
-namespace moja {
-namespace flint {
-
-// namespace configuration {
-// class Configuration;
-//}
+namespace moja::flint {
 
 class FLINT_API LocalDomainControllerBase : public ILocalDomainController {
   public:
@@ -41,6 +35,5 @@ class FLINT_API LocalDomainControllerBase : public ILocalDomainController {
    LibraryManager _libraryManager;
    ModuleMap _moduleMap;
 };
-}  // namespace flint
-}  // namespace moja
-#endif  // MOJA_FLINT_LOCALDOMAINCONTROLLER_H_
+
+}  // namespace moja::flint

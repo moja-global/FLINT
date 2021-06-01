@@ -2,15 +2,11 @@
 
 #include "moja/flint/ilandunitdatawrapper.h"
 #include "moja/flint/ioperation.h"
-#include "moja/flint/ivariable.h"
 
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 void TestModule::configure(const DynamicObject& config) {
    ratio_1 = 0.50;
@@ -45,7 +41,7 @@ void TestModule::configure(const DynamicObject& config) {
       variable_3 = config["variable_3"].extract<const std::string>();
    }
 
-     if (config.contains("pool_1")) {
+   if (config.contains("pool_1")) {
       pool_1 = config["pool_1"].extract<const std::string>();
    }
    if (config.contains("pool_2")) {
@@ -54,10 +50,7 @@ void TestModule::configure(const DynamicObject& config) {
    if (config.contains("pool_3")) {
       pool_3 = config["pool_3"].extract<const std::string>();
    }
-
 }
-
-// --------------------------------------------------------------------------------------------
 
 void TestModule::subscribe(NotificationCenter& notificationCenter) {
    notificationCenter.subscribe(signals::LocalDomainInit, &TestModule::onLocalDomainInit, *this);
@@ -88,5 +81,4 @@ void TestModule::onTimingStep() {
    _landUnitData->submitOperation(operation);
 }
 
-}  // namespace flint
-}  // namespace moja
+}  // namespace moja::flint

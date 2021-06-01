@@ -7,6 +7,8 @@
 
 #include <turtle/mock.hpp>
 
+namespace flint_configuration {
+
 namespace conf = moja::flint::configuration;
 using moja::test::MockTile;
 
@@ -26,29 +28,29 @@ struct BlockTestsFixture {
 
 BOOST_FIXTURE_TEST_SUITE(ConfigBlockTests, BlockTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_ConstructorThrowsExceptionIfRowIsNegative) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_ConstructorThrowsExceptionIfRowIsNegative) {
    BOOST_CHECK_THROW(conf::ConfigBlock(mockTile, -1, 1, 1, 1), conf::LandscapeDefinitionException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_ConstructorThrowsExceptionIfColIsNegative) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_ConstructorThrowsExceptionIfColIsNegative) {
    BOOST_CHECK_THROW(conf::ConfigBlock(mockTile, 1, -1, 1, 1), conf::LandscapeDefinitionException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_ConstructorThrowsExceptionIfBlockSizeXIsZeroOrNegative) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_ConstructorThrowsExceptionIfBlockSizeXIsZeroOrNegative) {
    auto badSizes = {0, -1, -100};
    for (auto size : badSizes) {
       BOOST_CHECK_THROW(conf::ConfigBlock(mockTile, 1, 1, size, 1), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_ConstructorThrowsExceptionIfBlockSizeYIsZeroOrNegative) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_ConstructorThrowsExceptionIfBlockSizeYIsZeroOrNegative) {
    auto badSizes = {0, -1, -100};
    for (auto size : badSizes) {
       BOOST_CHECK_THROW(conf::ConfigBlock(mockTile, 1, 1, 1, size), conf::LandscapeDefinitionException);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_LeftReturnsExpectedLeftSideCoordinate) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_LeftReturnsExpectedLeftSideCoordinate) {
    // First block of a 100x50px tile split into 50 10x5 blocks.
    conf::ConfigBlock r0c0(mockTile, 0, 0, 10, 5);
 
@@ -61,7 +63,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_LeftReturnsExpectedLeftSide
    BOOST_CHECK_EQUAL(r0c1.left(), 10.1);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_TopReturnsExpectedTopCoordinate) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_TopReturnsExpectedTopCoordinate) {
    // First block of a 100x50px tile split into 50 10x5 blocks.
    conf::ConfigBlock r0c0(mockTile, 0, 0, 10, 5);
 
@@ -75,38 +77,40 @@ BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_TopReturnsExpectedTopCoordi
    BOOST_CHECK_EQUAL(r1c0.top(), 5.9);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_XPixelSizeMatchesTileXPixelSize) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_XPixelSizeMatchesTileXPixelSize) {
    conf::ConfigBlock block(mockTile, 1, 1, 1, 1);
    BOOST_CHECK_EQUAL(block.xPixelSize(), mockTile.xPixelSize());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_YPixelSizeMatchesTileYPixelSize) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_YPixelSizeMatchesTileYPixelSize) {
    conf::ConfigBlock block(mockTile, 1, 1, 1, 1);
    BOOST_CHECK_EQUAL(block.yPixelSize(), mockTile.yPixelSize());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_XPixelsReturnsExpectedValueForFullyContainedBlock) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_XPixelsReturnsExpectedValueForFullyContainedBlock) {
    int xPixels = 25;
    conf::ConfigBlock block(mockTile, 1, 1, xPixels, 1);
    BOOST_CHECK_EQUAL(block.xPixels(), xPixels);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_XPixelsReturnsExpectedValueForPartiallyContainedBlock) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_XPixelsReturnsExpectedValueForPartiallyContainedBlock) {
    int xPixels = 80;
    conf::ConfigBlock block(mockTile, 1, 1, xPixels, 1);
    BOOST_CHECK_EQUAL(block.xPixels(), mockTile.xPixels() - xPixels);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_YPixelsReturnsExpectedValueForFullyContainedBlock) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_YPixelsReturnsExpectedValueForFullyContainedBlock) {
    int yPixels = 10;
    conf::ConfigBlock block(mockTile, 1, 1, 1, yPixels);
    BOOST_CHECK_EQUAL(block.yPixels(), yPixels);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_ConfigBlock_YPixelsReturnsExpectedValueForPartiallyContainedBlock) {
+BOOST_AUTO_TEST_CASE(ConfigBlock_YPixelsReturnsExpectedValueForPartiallyContainedBlock) {
    int yPixels = 40;
    conf::ConfigBlock block(mockTile, 1, 1, 1, yPixels);
    BOOST_CHECK_EQUAL(block.yPixels(), mockTile.yPixels() - yPixels);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

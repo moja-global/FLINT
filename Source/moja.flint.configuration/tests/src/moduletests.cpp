@@ -4,31 +4,33 @@
 
 #include <boost/test/unit_test.hpp>
 
+namespace flint_configuration {
+
 using moja::DynamicObject;
 using moja::flint::configuration::Module;
 
 BOOST_AUTO_TEST_SUITE(ModuleConfigurationTests);
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Module_ConstructorThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Module_ConstructorThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    for (auto name : badNames) {
       BOOST_CHECK_THROW(Module("test", name, 1, false, DynamicObject()), std::invalid_argument);
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Module_GetName) {
+BOOST_AUTO_TEST_CASE(Module_GetName) {
    auto name = "test";
    Module module("test", name, 1, false, DynamicObject());
    BOOST_CHECK_EQUAL(name, module.name());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Module_GetOrder) {
+BOOST_AUTO_TEST_CASE(Module_GetOrder) {
    int order = 99;
    Module module("test", "test", order, false, DynamicObject());
    BOOST_CHECK_EQUAL(order, module.order());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Module_GetSettings) {
+BOOST_AUTO_TEST_CASE(Module_GetSettings) {
    moja::DynamicObject settings;
    auto k1 = "key1";
    auto v1 = "b";
@@ -47,4 +49,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Module_GetSettings) {
    BOOST_CHECK_EQUAL(v2, moduleV2);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

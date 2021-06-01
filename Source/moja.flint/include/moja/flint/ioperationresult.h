@@ -1,12 +1,10 @@
-#ifndef MOJA_FLINT_IOPERATIONRESULT_H_
-#define MOJA_FLINT_IOPERATIONRESULT_H_
+#pragma once
 
 #include "moja/flint/operationresultfluxcollection.h"
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class Timing;
 struct ModuleMetaData;
@@ -30,7 +28,4 @@ class IOperationResult {
    virtual void setTimingWhenApplied(const Timing& time) = 0;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_IOPERATIONRESULT_H_
+}  // namespace moja::flint

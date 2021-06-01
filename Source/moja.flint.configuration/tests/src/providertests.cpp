@@ -3,12 +3,14 @@
 
 #include <boost/test/unit_test.hpp>
 
+namespace flint_configuration {
+
 using moja::DynamicObject;
 using moja::flint::configuration::Provider;
 
 BOOST_AUTO_TEST_SUITE(ProviderConfigurationTests);
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Provider_ConstructorThrowsExceptionIfNameIsEmpty) {
+BOOST_AUTO_TEST_CASE(Provider_ConstructorThrowsExceptionIfNameIsEmpty) {
    auto badNames = {"", "  "};
    auto badTypes = {"", "  "};
    for (auto name : badNames) {
@@ -17,7 +19,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Provider_ConstructorThrowsExceptionIfNa
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName_EmptySettings) {
+BOOST_AUTO_TEST_CASE(Provider_GetName_EmptySettings) {
    auto name = "testName";
    auto providerType = "testType";
 
@@ -25,7 +27,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName_EmptySettings) {
                      moja::flint::configuration::ProviderSettingsException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName_BadSettings) {
+BOOST_AUTO_TEST_CASE(Provider_GetName_BadSettings) {
    auto name = "testName";
    auto providerType = "testType";
    DynamicObject settings;
@@ -34,7 +36,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName_BadSettings) {
    BOOST_CHECK_THROW(Provider(name, name, name, settings), moja::flint::configuration::ProviderSettingsException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName) {
+BOOST_AUTO_TEST_CASE(Provider_GetName) {
    auto name = "testName";
    auto lib = "testLib";
    auto providerType = "testType";
@@ -47,7 +49,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetName) {
    BOOST_CHECK_EQUAL(providerType, provider.providerType());
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetSettings) {
+BOOST_AUTO_TEST_CASE(Provider_GetSettings) {
    DynamicObject settings;
    auto k1 = "key1";
    auto v1 = "b";
@@ -67,4 +69,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_Provider_GetSettings) {
    BOOST_CHECK_EQUAL(v2, providerV2);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

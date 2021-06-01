@@ -6,17 +6,13 @@
 #include <moja/pocojsonutils.h>
 #include <moja/utility.h>
 
-#include <Poco/File.h>
-#include <Poco/JSON/ParseHandler.h>
 #include <Poco/JSON/Parser.h>
-#include <Poco/JSON/Stringifier.h>
 #include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 
 #include <fstream>
-#include <sstream>
 
 namespace moja {
 namespace datarepository {

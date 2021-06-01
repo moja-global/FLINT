@@ -1,15 +1,11 @@
-#ifndef MOJA_FLINT_OPERATIONRESULTFLUXCOLLECTION_H_
-#define MOJA_FLINT_OPERATIONRESULTFLUXCOLLECTION_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ioperationresultfluxiterator.h"
 
 #include <string>
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 class FLINT_API OperationResultFluxCollection {
   public:
@@ -52,8 +48,6 @@ class FLINT_API OperationResultFluxCollection {
    std::shared_ptr<IOperationResultFluxIterator> _collectionBaseIterator;
 };
 
-// --------------------------------------------------------------------------------------------
-
 inline OperationResultFluxCollection::iterator OperationResultFluxCollection::begin() {
    return iterator(_collectionBaseIterator->createIterator(), false);
 }
@@ -92,7 +86,7 @@ OperationResultFluxCollection::_iterator<is_const_iterator>::operator++(int) {
 
 template <bool is_const_iterator>
 inline typename OperationResultFluxCollection::_iterator<is_const_iterator>::ValueType
-    OperationResultFluxCollection::_iterator<is_const_iterator>::operator*() {
+OperationResultFluxCollection::_iterator<is_const_iterator>::operator*() {
    return _iteratorBase->dereference();
    // return _result;
 }
@@ -112,7 +106,4 @@ inline void OperationResultFluxCollection::_iterator<is_const_iterator>::increme
    _iteratorBase->increment();
 }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONRESULTFLUXCOLLECTION_H_
+}  // namespace moja::flint

@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_EXTERNALVARIABLE_H_
-#define MOJA_FLINT_EXTERNALVARIABLE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/ivariable.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class ILandUnitController;
 class ITransform;
@@ -31,7 +29,4 @@ class FLINT_API ExternalVariable : public IVariable {
    const std::shared_ptr<ITransform> _transform;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_EXTERNALVARIABLE_H_
+}  // namespace moja::flint

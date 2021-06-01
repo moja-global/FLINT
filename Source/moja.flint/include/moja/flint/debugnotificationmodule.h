@@ -1,12 +1,10 @@
-#ifndef MOJA_FLINT_DEBUGNOTIFICATIONMODULE_H_
-#define MOJA_FLINT_DEBUGNOTIFICATIONMODULE_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
 #include <string>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class DebugNotificationModule : public ModuleBase {
   public:
@@ -40,7 +38,4 @@ class DebugNotificationModule : public ModuleBase {
    int _localDomainId;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_DEBUGNOTIFICATIONMODULE_H_
+}  // namespace moja::flint

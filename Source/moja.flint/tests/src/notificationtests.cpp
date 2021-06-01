@@ -8,8 +8,16 @@
 
 #include <moja/logging.h>
 
-#include <boost/format.hpp>
 #include <boost/test/unit_test.hpp>
+
+#include <fmt/format.h>
+
+namespace flint {
+
+using namespace moja::flint;
+
+using moja::DateTime;
+using moja::DynamicObject;
 
 // --------------------------------------------------------------------------------------------
 // -- Module Factory Stuff
@@ -90,218 +98,189 @@ struct NotificationTests_Fixture {
 // -- Testing Modules
 
 void TestNotificationModule::configure(const DynamicObject& config) {
-   if (config.contains("debug_name"))
+   if (config.contains("debug_name")) {
       _debugName = config["debug_name"].extract<std::string>();
-   else
+   } else {
       _debugName = "debug_name";
+   }
 }
 
-void TestNotificationModule::subscribe(NotificationCenter& notificationCenter) {
-   notificationCenter.subscribe(signals::SystemInit, &TestNotificationModule::onSystemInit, *this);
-   notificationCenter.subscribe(signals::SystemShutdown, &TestNotificationModule::onSystemShutdown, *this);
-   notificationCenter.subscribe(signals::LocalDomainInit, &TestNotificationModule::onLocalDomainInit, *this);
-   notificationCenter.subscribe(signals::LocalDomainShutdown, &TestNotificationModule::onLocalDomainShutdown, *this);
-   notificationCenter.subscribe(signals::LocalDomainProcessingUnitInit,
+void TestNotificationModule::subscribe(moja::NotificationCenter& notificationCenter) {
+   notificationCenter.subscribe(moja::signals::SystemInit, &TestNotificationModule::onSystemInit, *this);
+   notificationCenter.subscribe(moja::signals::SystemShutdown, &TestNotificationModule::onSystemShutdown, *this);
+   notificationCenter.subscribe(moja::signals::LocalDomainInit, &TestNotificationModule::onLocalDomainInit, *this);
+   notificationCenter.subscribe(moja::signals::LocalDomainShutdown, &TestNotificationModule::onLocalDomainShutdown,
+                                *this);
+   notificationCenter.subscribe(moja::signals::LocalDomainProcessingUnitInit,
                                 &TestNotificationModule::onLocalDomainProcessingUnitInit, *this);
-   notificationCenter.subscribe(signals::LocalDomainProcessingUnitShutdown,
+   notificationCenter.subscribe(moja::signals::LocalDomainProcessingUnitShutdown,
                                 &TestNotificationModule::onLocalDomainProcessingUnitShutdown, *this);
-   notificationCenter.subscribe(signals::PreTimingSequence, &TestNotificationModule::onPreTimingSequence, *this);
-   notificationCenter.subscribe(signals::TimingInit, &TestNotificationModule::onTimingInit, *this);
-   notificationCenter.subscribe(signals::TimingPrePostInit, &TestNotificationModule::onTimingPrePostInit, *this);
-   notificationCenter.subscribe(signals::TimingPostInit, &TestNotificationModule::onTimingPostInit, *this);
-   notificationCenter.subscribe(signals::TimingPostInit2, &TestNotificationModule::onTimingPostInit2, *this);
-   notificationCenter.subscribe(signals::TimingShutdown, &TestNotificationModule::onTimingShutdown, *this);
-   notificationCenter.subscribe(signals::TimingStep, &TestNotificationModule::onTimingStep, *this);
-   notificationCenter.subscribe(signals::TimingPreEndStep, &TestNotificationModule::onTimingPreEndStep, *this);
-   notificationCenter.subscribe(signals::TimingEndStep, &TestNotificationModule::onTimingEndStep, *this);
-   notificationCenter.subscribe(signals::TimingPostStep, &TestNotificationModule::onTimingPostStep, *this);
-   notificationCenter.subscribe(signals::OutputStep, &TestNotificationModule::onOutputStep, *this);
-   notificationCenter.subscribe(signals::Error, &TestNotificationModule::onError, *this);
-   notificationCenter.subscribe(signals::DisturbanceEvent, &TestNotificationModule::onDisturbanceEvent, *this);
-   notificationCenter.subscribe(signals::PrePostDisturbanceEvent, &TestNotificationModule::onPrePostDisturbanceEvent,
+   notificationCenter.subscribe(moja::signals::PreTimingSequence, &TestNotificationModule::onPreTimingSequence, *this);
+   notificationCenter.subscribe(moja::signals::TimingInit, &TestNotificationModule::onTimingInit, *this);
+   notificationCenter.subscribe(moja::signals::TimingPrePostInit, &TestNotificationModule::onTimingPrePostInit, *this);
+   notificationCenter.subscribe(moja::signals::TimingPostInit, &TestNotificationModule::onTimingPostInit, *this);
+   notificationCenter.subscribe(moja::signals::TimingPostInit2, &TestNotificationModule::onTimingPostInit2, *this);
+   notificationCenter.subscribe(moja::signals::TimingShutdown, &TestNotificationModule::onTimingShutdown, *this);
+   notificationCenter.subscribe(moja::signals::TimingStep, &TestNotificationModule::onTimingStep, *this);
+   notificationCenter.subscribe(moja::signals::TimingPreEndStep, &TestNotificationModule::onTimingPreEndStep, *this);
+   notificationCenter.subscribe(moja::signals::TimingEndStep, &TestNotificationModule::onTimingEndStep, *this);
+   notificationCenter.subscribe(moja::signals::TimingPostStep, &TestNotificationModule::onTimingPostStep, *this);
+   notificationCenter.subscribe(moja::signals::OutputStep, &TestNotificationModule::onOutputStep, *this);
+   notificationCenter.subscribe(moja::signals::Error, &TestNotificationModule::onError, *this);
+   notificationCenter.subscribe(moja::signals::DisturbanceEvent, &TestNotificationModule::onDisturbanceEvent, *this);
+   notificationCenter.subscribe(moja::signals::PrePostDisturbanceEvent,
+                                &TestNotificationModule::onPrePostDisturbanceEvent, *this);
+   notificationCenter.subscribe(moja::signals::PostDisturbanceEvent, &TestNotificationModule::onPostDisturbanceEvent,
                                 *this);
-   notificationCenter.subscribe(signals::PostDisturbanceEvent, &TestNotificationModule::onPostDisturbanceEvent, *this);
-   notificationCenter.subscribe(signals::PostDisturbanceEvent2, &TestNotificationModule::onPostDisturbanceEvent2,
+   notificationCenter.subscribe(moja::signals::PostDisturbanceEvent2, &TestNotificationModule::onPostDisturbanceEvent2,
                                 *this);
-   notificationCenter.subscribe(signals::PostNotification, &TestNotificationModule::onPostNotification, *this);
+   notificationCenter.subscribe(moja::signals::PostNotification, &TestNotificationModule::onPostNotification, *this);
 }
 
 void TestNotificationModule::onSystemInit() {
    _callCount++;
-   _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::SystemInit).str());
-   _callSequence.push_back("signals::SystemInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+   _sharedCallSequence.push_back(fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::SystemInit));
+   _callSequence.emplace_back("moja::signals::SystemInit");
 }
 void TestNotificationModule::onSystemShutdown() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::SystemShutdown).str());
-   _callSequence.push_back("signals::SystemShutdown");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::SystemShutdown));
+   _callSequence.emplace_back("moja::signals::SystemShutdown");
 }
 void TestNotificationModule::onLocalDomainInit() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::LocalDomainInit).str());
-   _callSequence.push_back("signals::LocalDomainInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::LocalDomainInit));
+   _callSequence.emplace_back("moja::signals::LocalDomainInit");
 }
 void TestNotificationModule::onLocalDomainShutdown() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::LocalDomainShutdown).str());
-   _callSequence.push_back("signals::LocalDomainShutdown");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::LocalDomainShutdown));
+   _callSequence.emplace_back("moja::signals::LocalDomainShutdown");
 }
 void TestNotificationModule::onLocalDomainProcessingUnitInit() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::LocalDomainProcessingUnitInit)
-           .str());
-   _callSequence.push_back("signals::LocalDomainProcessingUnitInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::LocalDomainProcessingUnitInit));
+   _callSequence.emplace_back("moja::signals::LocalDomainProcessingUnitInit");
 }
 void TestNotificationModule::onLocalDomainProcessingUnitShutdown() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::LocalDomainProcessingUnitShutdown)
-           .str());
-   _callSequence.push_back("signals::LocalDomainProcessingUnitShutdown");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::LocalDomainProcessingUnitShutdown));
+   _callSequence.emplace_back("moja::signals::LocalDomainProcessingUnitShutdown");
 }
 void TestNotificationModule::onPreTimingSequence() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::PreTimingSequence).str());
-   _callSequence.push_back("signals::PreTimingSequence");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::PreTimingSequence));
+   _callSequence.emplace_back("moja::signals::PreTimingSequence");
 }
 void TestNotificationModule::onTimingInit() {
    _callCount++;
-   _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingInit).str());
-   _callSequence.push_back("signals::TimingInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+   _sharedCallSequence.push_back(fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingInit));
+   _callSequence.emplace_back("moja::signals::TimingInit");
 }
 void TestNotificationModule::onTimingPrePostInit() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingPostInit).str());
-   _callSequence.push_back("signals::TimingPrePostInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingPostInit));
+   _callSequence.emplace_back("moja::signals::TimingPrePostInit");
 }
 void TestNotificationModule::onTimingPostInit() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingPostInit).str());
-   _callSequence.push_back("signals::TimingPostInit");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingPostInit));
+   _callSequence.emplace_back("moja::signals::TimingPostInit");
 }
 void TestNotificationModule::onTimingPostInit2() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingPostInit).str());
-   _callSequence.push_back("signals::TimingPostInit2");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingPostInit));
+   _callSequence.emplace_back("moja::signals::TimingPostInit2");
 }
 void TestNotificationModule::onTimingShutdown() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingShutdown).str());
-   _callSequence.push_back("signals::TimingShutdown");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingShutdown));
+   _callSequence.emplace_back("moja::signals::TimingShutdown");
 }
 void TestNotificationModule::onTimingStep() {
    _callCount++;
-   _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingStep).str());
-   _callSequence.push_back("signals::TimingStep");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+   _sharedCallSequence.push_back(fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingStep));
+   _callSequence.emplace_back("moja::signals::TimingStep");
 }
 void TestNotificationModule::onTimingPreEndStep() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingPreEndStep).str());
-   _callSequence.push_back("signals::TimingPreEndStep");
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingPreEndStep));
+   _callSequence.emplace_back("moja::signals::TimingPreEndStep");
    MOJA_LOG_DEBUG << "Debug name: " << _debugName;
 }
 void TestNotificationModule::onTimingEndStep() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingEndStep).str());
-   _callSequence.push_back("signals::TimingEndStep");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingEndStep));
+   _callSequence.emplace_back("moja::signals::TimingEndStep");
 }
 void TestNotificationModule::onTimingPostStep() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::TimingPostStep).str());
-   _callSequence.push_back("signals::TimingPostStep");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::TimingPostStep));
+   _callSequence.emplace_back("moja::signals::TimingPostStep");
 }
 void TestNotificationModule::onOutputStep() {
    _callCount++;
-   _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::OutputStep).str());
-   _callSequence.push_back("signals::OutputStep");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+   _sharedCallSequence.push_back(fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::OutputStep));
+   _callSequence.emplace_back("moja::signals::OutputStep");
 }
 void TestNotificationModule::onError(std::string msg) {
    _callCount++;
-   _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::Error).str());
-   _callSequence.push_back("signals::Error");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+   _sharedCallSequence.push_back(fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::Error));
+   _callSequence.emplace_back("moja::signals::Error");
 }
-void TestNotificationModule::onDisturbanceEvent(DynamicVar) {
+void TestNotificationModule::onDisturbanceEvent(moja::DynamicVar) {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::DisturbanceEvent).str());
-   _callSequence.push_back("signals::DisturbanceEvent");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::DisturbanceEvent));
+   _callSequence.emplace_back("moja::signals::DisturbanceEvent");
 }
 void TestNotificationModule::onPrePostDisturbanceEvent() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::DisturbanceEvent).str());
-   _callSequence.push_back("signals::PrePostDisturbanceEvent");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::DisturbanceEvent));
+   _callSequence.emplace_back("moja::signals::PrePostDisturbanceEvent");
 }
 void TestNotificationModule::onPostDisturbanceEvent() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::PostDisturbanceEvent).str());
-   _callSequence.push_back("signals::PostDisturbanceEvent");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::PostDisturbanceEvent));
+   _callSequence.emplace_back("moja::signals::PostDisturbanceEvent");
 }
 void TestNotificationModule::onPostDisturbanceEvent2() {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::PostDisturbanceEvent).str());
-   _callSequence.push_back("signals::PostDisturbanceEvent2");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::PostDisturbanceEvent));
+   _callSequence.emplace_back("moja::signals::PostDisturbanceEvent2");
 }
 void TestNotificationModule::onPostNotification(short preMessageSignal) {
    _callCount++;
    _sharedCallSequence.push_back(
-       (boost::format("Module = %1%,\t\tNotification = %2%") % _debugName % signals::PostNotification).str());
-   _callSequence.push_back("signals::PostNotification");
-   MOJA_LOG_DEBUG << "Debug name: " << _debugName << " : Following notification: " << preMessageSignal;
+       fmt::format("Module = {}, Notification = {}", _debugName, moja::signals::PostNotification));
+   _callSequence.emplace_back("moja::signals::PostNotification");
 }
 
-// --------------------------------------------------------------------------------------------
+BOOST_FIXTURE_TEST_SUITE(NotificationTests, NotificationTests_Fixture)
 
-BOOST_FIXTURE_TEST_SUITE(notificationtests, NotificationTests_Fixture);
-
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_TestAllNotificationsFire) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsFire) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer01", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 2, false);
@@ -323,19 +302,18 @@ BOOST_AUTO_TEST_CASE(notificationtests_TestAllNotificationsFire) {
 
    LocalDomainControllerBase::ModuleMapKey key("internal.moja.flint.test", "TestNotificationModule01");
    auto modules = ldc.modules();
-   auto module = static_cast<const TestNotificationModule*>(modules[key]);
+   const auto* module = dynamic_cast<const TestNotificationModule*>(modules[key]);
 
    BOOST_CHECK_EQUAL(module->_callCount, 23);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_test_all_notifications_fire_with_followup_notification) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsFireWithFollowupNotification) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer02", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 2, false);
@@ -361,14 +339,13 @@ BOOST_AUTO_TEST_CASE(notificationtests_test_all_notifications_fire_with_followup
    BOOST_CHECK_EQUAL(module->_callCount, 23 * 2);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsPostSequence) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer01", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 2, false);
@@ -402,14 +379,13 @@ BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence) {
    }
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence_with_post_notify) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsPostSequenceWithPostNotify) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer02", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 2, false);
@@ -441,18 +417,17 @@ BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence_with_p
       auto str2a = module->_callSequence[i * 2];      // original notify
       auto str2b = module->_callSequence[i * 2 + 1];  // post notify, notify
       BOOST_CHECK_EQUAL(str1, str2a);
-      BOOST_CHECK_EQUAL(str2b, "signals::PostNotification");
+      BOOST_CHECK_EQUAL(str2b, "moja::signals::PostNotification");
    }
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence_with_post_Multiple_notify) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsPostSequenceWithPostMultipleotify) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer02", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer02", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 2, false);
@@ -489,19 +464,18 @@ BOOST_AUTO_TEST_CASE(notificationtests_testallnotifications_post_sequence_with_p
       auto str2b = module->_callSequence[i * 3 + 1];  // post notify, notify 1
       auto str2c = module->_callSequence[i * 3 + 2];  // post notify, notify 2
       BOOST_CHECK_EQUAL(str1, str2a);
-      BOOST_CHECK_EQUAL(str2b, "signals::PostNotification");
-      BOOST_CHECK_EQUAL(str2c, "signals::PostNotification");
+      BOOST_CHECK_EQUAL(str2b, "moja::signals::PostNotification");
+      BOOST_CHECK_EQUAL(str2c, "moja::signals::PostNotification");
    }
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_test_duplcate_module_exception) {
+BOOST_AUTO_TEST_CASE(Notification_DuplcateModuleException) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer01", "simulateLandUnit",
+                         "landUnitBuildSuccess", DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer01", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 4, false);
@@ -522,22 +496,21 @@ BOOST_AUTO_TEST_CASE(notificationtests_test_duplcate_module_exception) {
    BOOST_CHECK_THROW(ldc.configure(config), flint::DuplicateModuleDefinedException);
 }
 
-// --------------------------------------------------------------------------------------------
-BOOST_AUTO_TEST_CASE(notificationtests_test_all_notifications_order) {
+BOOST_AUTO_TEST_CASE(Notification_AllNotificationsOrder) {
    TestLocalDomainController ldc;
-   conf::Configuration config(DateTime(1920, 1, 1), DateTime(1924, 12, 31));
+   configuration::Configuration config(moja::DateTime(1920, 1, 1), moja::DateTime(1924, 12, 31));
 
-   config.setLocalDomain(conf::LocalDomainType::Point, conf::LocalDomainIterationType::NotAnIteration, true, 1,
-                         "internal.moja.flint.test", "TestSequencer03", "simulateLandUnit", "landUnitBuildSuccess",
-                         DynamicObject());
+   config.setLocalDomain(configuration::LocalDomainType::Point, configuration::LocalDomainIterationType::NotAnIteration,
+                         true, 1, "internal.moja.flint.test", "TestSequencer03", "simulateLandUnit",
+                         "landUnitBuildSuccess", moja::DynamicObject());
 
    config.addModule("internal.moja.flint.test", "TestSequencer03", 1, false);
    config.addModule("internal.moja.flint.test", "TestNotificationModule01", 3, false,
-                    DynamicObject({{"debug_name", std::string("TestNotificationModule01")}}));
+                    moja::DynamicObject({{"debug_name", std::string("TestNotificationModule01")}}));
    config.addModule("internal.moja.flint.test", "TestNotificationModule02", 4, false,
-                    DynamicObject({{"debug_name", std::string("TestNotificationModule02")}}));
+                    moja::DynamicObject({{"debug_name", std::string("TestNotificationModule02")}}));
    config.addModule("internal.moja.flint.test", "TestNotificationModule03", 2, false,
-                    DynamicObject({{"debug_name", std::string("TestNotificationModule03")}}));
+                    moja::DynamicObject({{"debug_name", std::string("TestNotificationModule03")}}));
    config.addModule("internal.moja.flint.test", "TestNotificationModule04", 5, false,
                     DynamicObject({{"debug_name", std::string("TestNotificationModule04")}}));
    config.addModule("internal.moja.flint.test", "TestNotificationModule05", 6, false,
@@ -550,14 +523,14 @@ BOOST_AUTO_TEST_CASE(notificationtests_test_all_notifications_order) {
                     DynamicObject({{"debug_name", std::string("TestNotificationModule08")}}));
 
    std::vector<std::string> expectedSequence = {
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule03" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule01" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule02" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule04" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule05" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule06" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule08" % signals::SystemInit).str(),
-       (boost::format("Module = %1%,\t\tNotification = %2%") % "TestNotificationModule07" % signals::SystemInit).str()};
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule03", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule01", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule02", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule04", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule05", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule06", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule08", moja::signals::SystemInit),
+       fmt::format("Module = {}, Notification = {}", "TestNotificationModule07", moja::signals::SystemInit)};
 
    int poolOrder = 0;
    for (auto pool : {"initialValues"}) {
@@ -587,4 +560,6 @@ BOOST_AUTO_TEST_CASE(notificationtests_test_all_notifications_order) {
    }
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint

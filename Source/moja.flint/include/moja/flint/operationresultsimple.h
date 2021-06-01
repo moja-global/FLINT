@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_OPERATIONRESULTSIMPLE_H_
-#define MOJA_FLINT_OPERATIONRESULTSIMPLE_H_
+#pragma once
 
 #include "moja/flint/ioperationresult.h"
 #include "moja/flint/operationresultfluxsimple.h"
@@ -7,10 +6,9 @@
 
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class IOperation;
-// --------------------------------------------------------------------------------------------
 
 class OperationResultSimple : public IOperationResult {
    friend class OperationManagerSimple;
@@ -49,7 +47,4 @@ class OperationResultSimple : public IOperationResult {
    Timing _timingWhenApplied;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONRESULTSIMPLE_H_
+}  // namespace moja::flint

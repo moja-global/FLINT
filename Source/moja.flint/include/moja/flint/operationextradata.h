@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_OPERATIONEXTRADATA_H_
-#define MOJA_FLINT_OPERATIONEXTRADATA_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/iflintdata.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API OperationExtraData : public IFlintData {
   public:
@@ -22,7 +20,4 @@ class FLINT_API OperationExtraData : public IFlintData {
    std::string _other;
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_OPERATIONEXTRADATA_H_
+}  // namespace moja::flint

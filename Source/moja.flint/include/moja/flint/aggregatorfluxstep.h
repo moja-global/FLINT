@@ -1,10 +1,8 @@
-#ifndef MOJA_FLINT_AGGREGATORFLUXSTEP_H_
-#define MOJA_FLINT_AGGREGATORFLUXSTEP_H_
+#pragma once
 
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class AggregatorFluxStep : public ModuleBase {
   public:
@@ -19,11 +17,6 @@ class AggregatorFluxStep : public ModuleBase {
    void onTimingEndStep() override;
 
    void setOutFile(std::string filename) {}
-
-  private:
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_AGGREGATORFLUXSTEP_H_
+}  // namespace moja::flint

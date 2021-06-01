@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_RECORD_H_
-#define MOJA_FLINT_RECORD_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
@@ -12,8 +11,6 @@
 #include <vector>
 
 namespace std {
-
-// --------------------------------------------------------------------------------------------
 
 // Hash function for nullable should check for null and insert an appropriate value
 template <typename T1>
@@ -29,10 +26,7 @@ struct hash<Poco::Nullable<T1>> {
 
 }  // namespace std
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
+namespace moja::flint {
 
 template <class TPersistable>
 class Record {
@@ -51,8 +45,6 @@ class Record {
   protected:
    Int64 _id = -1;
 };
-
-// --------------------------------------------------------------------------------------------
 
 // id, step, substep, year, month, day, frac of step, years in step
 typedef Poco::Tuple<Int64, int, int, int, int, int, double, double> DateRow;
@@ -79,8 +71,6 @@ class DateRecord : public flint::Record<DateRow> {
    double _yearsInStep;
 };
 
-// --------------------------------------------------------------------------------------------
-
 // id, year
 typedef Poco::Tuple<Int64, int> Date2Row;
 class Date2Record : public flint::Record<Date2Row> {
@@ -99,8 +89,6 @@ class Date2Record : public flint::Record<Date2Row> {
    // Data
    int _year;
 };
-
-// --------------------------------------------------------------------------------------------
 
 // id, pool name
 typedef Poco::Tuple<Int64, std::string, std::string, int, int, double, std::string> PoolInfoRow;
@@ -128,8 +116,6 @@ class PoolInfoRecord : public flint::Record<PoolInfoRow> {
    std::string _units;
 };
 
-// --------------------------------------------------------------------------------------------
-
 // id, library type, library info id, module type, module id, module name
 typedef Poco::Tuple<Int64, int, int, int, int, std::string> ModuleInfoRow;
 class ModuleInfoRecord : public flint::Record<ModuleInfoRow> {
@@ -152,8 +138,6 @@ class ModuleInfoRecord : public flint::Record<ModuleInfoRow> {
    int _moduleId;
    std::string _moduleName;
 };
-
-// --------------------------------------------------------------------------------------------
 
 // id, localDomainId, date id, moduleInfoId, src pool id, dst pool id, flux value
 typedef Poco::Tuple<Int64, int, Int64, Poco::Nullable<Int64>, Int64, int, int, double> FluxRow;
@@ -184,7 +168,4 @@ class FLINT_API FluxRecord : public flint::Record<FluxRow> {
    double _flux;                         // 7
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_RECORD_H_
+}  // namespace moja::flint

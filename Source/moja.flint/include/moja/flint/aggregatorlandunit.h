@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_AGGREGATORLANDUNIT_H_
-#define MOJA_FLINT_AGGREGATORLANDUNIT_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/modulebase.h"
@@ -8,11 +7,10 @@
 #include <string>
 #include <vector>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
+
 class SimulationUnitDataBase;
 
-// --------------------------------------------------------------------------------------------
 class FLINT_API AggregatorLandUnitSharedData {
   public:
    AggregatorLandUnitSharedData()
@@ -28,8 +26,6 @@ class FLINT_API AggregatorLandUnitSharedData {
    bool _outputMonth12Only;
    bool _aggregateSinkAndSource;
 };
-
-// --------------------------------------------------------------------------------------------
 
 /// This module is a drop in replacement for Aggregator2FluxSQLite && AggregatorSharedDataSQLite
 /// Simply merging both into a single module
@@ -96,6 +92,3 @@ class FLINT_API AggregatorLandUnit : public flint::ModuleBase {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_AGGREGATORLANDUNIT_H_

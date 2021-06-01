@@ -1,9 +1,6 @@
-#ifndef MOJA_FLINT_RECORDACCUMULATORUUID_H_
-#define MOJA_FLINT_RECORDACCUMULATORUUID_H_
+#pragma once
 
 #include "moja/flint/recordutils.h"
-
-#include <moja/types.h>
 
 #include <Poco/Mutex.h>
 
@@ -12,8 +9,7 @@
 
 #include <unordered_set>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 template <class TPersistable, class TRecord>
 class RecordAccumulatorUuid {
@@ -112,6 +108,3 @@ class RecordAccumulatorUuid {
 };
 
 }  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_RECORDACCUMULATORUUID_H_

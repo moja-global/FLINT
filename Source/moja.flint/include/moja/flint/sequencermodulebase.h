@@ -1,11 +1,9 @@
-#ifndef MOJA_FLINT_SEQUENCERMODULEBASE_H_
-#define MOJA_FLINT_SEQUENCERMODULEBASE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/modulebase.h"
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class ITiming;
 
@@ -19,7 +17,4 @@ class FLINT_API SequencerModuleBase : public ModuleBase {
    virtual bool Run(NotificationCenter& _notificationCenter, ILandUnitController& luc);
 };
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_SEQUENCERMODULEBASE_H_
+}  // namespace moja::flint

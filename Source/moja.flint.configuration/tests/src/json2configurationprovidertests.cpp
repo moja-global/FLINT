@@ -17,6 +17,8 @@
 #include <boost/format.hpp>
 #include <boost/test/unit_test.hpp>
 
+namespace flint_configuration {
+
 using moja::flint::configuration::FileNotFoundException;
 using moja::flint::configuration::JSON2ConfigurationProvider;
 using moja::flint::configuration::LibraryType;
@@ -297,14 +299,14 @@ struct Library2ConfigurationTestsFixture {
    }
 };
 
-BOOST_FIXTURE_TEST_SUITE(Library2ConfigurationTests, Library2ConfigurationTestsFixture);
+BOOST_FIXTURE_TEST_SUITE(Library2ConfigurationTests, Library2ConfigurationTestsFixture)
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_ConstructorThrowsExceptionIfConfigFileNotFound) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_ConstructorThrowsExceptionIfConfigFileNotFound) {
    BOOST_CHECK_THROW(JSON2ConfigurationProvider({"notfound.json", "notfound.json"}, {"notfound.json", "notfound.json"}),
                      FileNotFoundException);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -321,7 +323,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(config->endDate().day(), 31);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration2_PoolArray) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration2_PoolArray) {
    auto configFile =
        writeConfigFile(configTemplate2, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPoolsArray, validVariables, validModules);
@@ -350,7 +352,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(pool03->name(), "B_atmosphere");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration3_PoolArrayObjects) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration3_PoolArrayObjects) {
    auto configFile =
        writeConfigFile(configTemplate2, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPoolsArray2, validVariables, validModules);
@@ -378,9 +380,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(pool03->name(), "B_atmosphere");
 }
 
-
-
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration_PoolWithChildren) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration_PoolWithChildren) {
    auto config_file =
        writeConfigFile(configTemplate2, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPoolsArrayWithParents, validVariables, validModules);
@@ -396,7 +396,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(config->endDate().month(), 12);
    BOOST_CHECK_EQUAL(config->endDate().day(), 31);
 
-   
    auto pools = config->pools();
 
    const auto* parent_pool = pools[0];
@@ -410,7 +409,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(child_pool_2->parent().value(), "parent_pool");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration4_PoolArrayObjects) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration4_PoolArrayObjects) {
    auto configFile =
        writeConfigFile(configTemplate2, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPoolsArray3, validVariables, validModules);
@@ -438,7 +437,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(pool03->name(), "B_atmosphere");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedLocalDomainConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedLocalDomainConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -468,7 +467,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(tile.yIndex() == 0);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedProviderConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedProviderConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -483,7 +482,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(dataProviderSettings["type"].convert<std::string>() == "raster_tiled");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedPoolConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedPoolConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -497,7 +496,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(pool->initValue(), 100.0);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedInternalVariableConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedInternalVariableConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -511,7 +510,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(variable->value() == 1);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration) {
    auto moduleConfig =
        "\"testmodule\": {\n"
        "    \"library\": \"moja.modules.sleek\",\n"
@@ -535,7 +534,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(settings["foo"].convert<std::string>() == "bar");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration2) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration2) {
    auto moduleConfig =
        "\"testmoduleNotEnabled\": {\n"
        "    \"enabled\": false,\n"
@@ -568,7 +567,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(settings["foo"].convert<std::string>() == "bar");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration3) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration3) {
    auto moduleConfig =
        "\"testmoduleEnabled\": {\n"
        "    \"enabled\": true,\n"
@@ -601,7 +600,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(settings["foo"].convert<std::string>() == "bar");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration4) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedModuleConfiguration4) {
    auto moduleConfig =
        "\"testmoduleNotEnabled\": {\n"
        "    \"enabled\": false,\n"
@@ -631,8 +630,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(config->modules().size(), 0);  // all modules were set enabled = false
 }
 
-BOOST_AUTO_TEST_CASE(
-    flint_configuration_JSON2ConfigurationProvider_BuildsExpectedMultiValueInternalVariableConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedMultiValueInternalVariableConfiguration) {
    auto variableConfig =
        "\"soil\": {\n"
        "    \"fracBlah\": 0.32,\n"
@@ -654,7 +652,7 @@ BOOST_AUTO_TEST_CASE(
    BOOST_CHECK(variableTable["fracWhatevs"] == 0.54);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedVectorInternalVariableConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedVectorInternalVariableConfiguration) {
    auto variableConfig = "\"stuff\": [1, 7]\n";
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
@@ -671,8 +669,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(values[1] == 7);
 }
 
-BOOST_AUTO_TEST_CASE(
-    flint_configuration_JSON2ConfigurationProvider_BuildsExpectedVectorOfStructInternalVariableConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedVectorOfStructInternalVariableConfiguration) {
    auto variableConfig =
        "\"stuff\": [\n"
        "    {\n"
@@ -703,7 +700,7 @@ BOOST_AUTO_TEST_CASE(
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedDateVariable) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedDateVariable) {
    auto variableConfig = "\"testDate\": { \"$date\": \"2000/10/25\" }\n";
 
    auto configFile =
@@ -722,7 +719,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(test.day(), 25);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedDateArrayVariable) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedDateArrayVariable) {
    auto variableConfig =
        "\"testDateArray\": [\n"
        "    { \"$date\": \"2000/10/25\" },\n"
@@ -749,7 +746,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedDateVariable_inArray) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedDateVariable_inArray) {
    auto variableConfig = "{ \"testDate\": { \"$date\": \"2000/10/25\" }}\n";
 
    auto configFile =
@@ -768,7 +765,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(test.day(), 25);
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedDateArrayVariable_inArray) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedDateArrayVariable_inArray) {
    auto variableConfig =
        "{\"testDateArray\": [\n"
        "    { \"$date\": \"2000/10/25\" },\n"
@@ -795,7 +792,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfiguration2_VariableArray) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfiguration2_VariableArray) {
    auto configFile =
        writeConfigFile(configTemplate3, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariablesArray1, validModules);
@@ -817,7 +814,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(variables03->name(), "B_variable");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_CheckModuleOrderAfterLoadIsSameAsDefinitionInJSON) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_CheckModuleOrderAfterLoadIsSameAsDefinitionInJSON) {
    const int moduleCount = 9;
    std::string moduleName[moduleCount] = {"TestModule0", "TestModule1", "TestModule2", "TestModule3", "AABB",
                                           "AAAA",        "ZZZZZZ",      "aaaaaaa",     "12345"};
@@ -900,7 +897,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_CheckModuleO
    }
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedSpinupConfiguration) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedSpinupConfiguration) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupEnabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -915,7 +912,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(config->spinup()->sequencerLibrary(), "internal.flint");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfigurationMergeOne) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfigurationMergeOne) {
    auto moduleConfig =
        "		\"testmoduleEnabled\": {\n"
        "			\"enabled\": true,\n"
@@ -953,7 +950,7 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK(settings["foo1"].convert<std::string>() == "bar1");
 }
 
-BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpectedConfigurationMergeTwo) {
+BOOST_AUTO_TEST_CASE(JSON2ConfigurationProvider_BuildsExpectedConfigurationMergeTwo) {
    auto configFile =
        writeConfigFile(configTemplate, validLocalDomain, validLibraries, validSpinupDisabled, validSpinupModules,
                        validSpinupVariables, validPools, validVariables, validModules);
@@ -988,4 +985,6 @@ BOOST_AUTO_TEST_CASE(flint_configuration_JSON2ConfigurationProvider_BuildsExpect
    BOOST_CHECK_EQUAL(librarieSize, 2);
 }
 
-BOOST_AUTO_TEST_SUITE_END();
+BOOST_AUTO_TEST_SUITE_END()
+
+}  // namespace flint_configuration

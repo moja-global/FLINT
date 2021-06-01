@@ -1,5 +1,4 @@
-#ifndef MOJA_FLINT_EVENTQUEUE_H_
-#define MOJA_FLINT_EVENTQUEUE_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 #include "moja/flint/iflintdata.h"
@@ -7,8 +6,7 @@
 #include <moja/datetime.h>
 #include <moja/dynamic.h>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
 class FLINT_API EventBase : public IFlintData {
   public:
@@ -134,7 +132,4 @@ inline EventQueue::iterator EventQueue::erase(const_iterator first, const_iterat
    return _queue.erase(first, last);
 }
 
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_EVENTQUEUE_H_
+}  // namespace moja::flint
