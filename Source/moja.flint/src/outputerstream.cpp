@@ -9,102 +9,101 @@
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
-#include <Poco/File.h>
+#include <boost/algorithm/string.hpp>
 
-#include <boost/format.hpp>
+#include <fmt/format.h>
 
-#include <chrono>
+#include <filesystem>
 #include <iomanip>  // std::setprecision
 #include <iostream>
 
-//#define DL_CHR "\t"
-#define DL_CHR ","
-#define STOCK_PRECISION 15
+namespace moja::flint {
 
-namespace moja {
-namespace flint {
-
-// --------------------------------------------------------------------------------------------
-
-std::string escape_json2(const std::string& s) {
-   std::ostringstream o;
-   for (auto c = s.cbegin(); c != s.cend(); ++c) {
-      if (*c == '"' || *c == '\\' || ('\x00' <= *c && *c <= '\x1f'))
-         // o << "\\u" << std::hex << std::setw(4) << std::setfill('0') << static_cast<int>(*c);
-         o << "\\";
-      o << *c;
+std::string escape_json2(const std::string& input_string) {
+   std::ostringstream output_stream;
+   for (auto c = input_string.cbegin(); c != input_string.cend(); ++c) {
+      if (*c == '"' || *c == '\\' || ('\x00' <= *c && *c <= '\x1f')) output_stream << "\\";
+      output_stream << *c;
    }
-   return o.str();
+   return output_stream.str();
 }
 
-// --------------------------------------------------------------------------------------------
-
-void outputDynamicToStream(std::ostream& fout, const DynamicVar& object) {
+void outputDynamicToStream(std::ostream& output_stream, const DynamicVar& object) {
    if (object.isStruct()) {
-      fout << "\"[struct]\"";
+      output_stream << "\"[struct]\"";
    } else if (object.isVector()) {
-      fout << "\"[vector]\"";
+      output_stream << "\"[vector]\"";
    } else if (object.isBoolean()) {
-      bool val = object;
-      fout << (val ? "true" : "false");
+      const bool val = object;
+      output_stream << (val ? "true" : "false");
    } else if (object.isEmpty()) {
-      fout << "\"[null]\"";
+      output_stream << "\"[null]\"";
    } else if (object.isString()) {
-      fout << "\"" << escape_json2(object.extract<const std::string>()) << "\"";
+      output_stream << "\"" << escape_json2(object.extract<const std::string>()) << "\"";
    } else if (object.isInteger()) {
-      int val = object;
-      fout << val;
+      const int val = object;
+      output_stream << val;
    } else if (object.isNumeric()) {
-      auto val = object.extract<double>();
-      fout << val;
+      const auto val = object.extract<double>();
+      output_stream << val;
    } else if (object.isSigned()) {
-      fout << "\"[Signed]\"";
+      output_stream << "\"[Signed]\"";
    } else {
       if (object.type() == typeid(DateTime)) {
-         DateTime dt = object.extract<DateTime>();
-         std::string simpleDateStr = (boost::format("\"%1%/%2%/%3%\"") % dt.year() % dt.month() % dt.day()).str();
-         fout << simpleDateStr;
+         const auto& dt = object.extract<DateTime>();
+         output_stream << fmt::format("\"{}/{}/{}\"", dt.year(), dt.month(), dt.day());
       } else if (object.type() == typeid(Int16)) {
-         fout << object.extract<const Int16>();
+         output_stream << object.extract<const Int16>();
       } else if (object.type() == typeid(std::shared_ptr<IFlintData>)) {
-         fout << "\"[IFlintData\"]";
+         output_stream << "\"[IFlintData\"]";
       } else
-         fout << "\"[Unknown\"]";
+         output_stream << "\"[Unknown\"]";
    }
 }
 
-// --------------------------------------------------------------------------------------------
-
 void OutputerStream::configure(const DynamicObject& config) {
-   _fileName =
+   file_name_ =
        config.contains("output_filename") ? config["output_filename"].extract<std::string>() : "OutputerStreamFlux.txt";
-   _outputToScreen = config.contains("output_to_screen") ? bool(config["output_to_screen"]) : true;
-   _outputInfoHeader = config.contains("output_info_header") ? bool(config["output_info_header"]) : true;
-   _outputAnnually = config.contains("output_annual_only") ? bool(config["output_annual_only"]) : false;
-   _outputOnOutputStep = config.contains("output_on_outputstep") ? bool(config["output_on_outputstep"]) : true;
-   _outputOnTimingEndStep =
+   output_to_screen_ = config.contains("output_to_screen") ? bool(config["output_to_screen"]) : true;
+   output_info_header_ = config.contains("output_info_header") ? bool(config["output_info_header"]) : true;
+   output_annually_ = config.contains("output_annual_only") ? bool(config["output_annual_only"]) : false;
+   output_on_output_step_ = config.contains("output_on_outputstep") ? bool(config["output_on_outputstep"]) : true;
+   output_on_timing_end_step_ =
        config.contains("output_on_timingendstep") ? bool(config["output_on_timingendstep"]) : false;
-   _outputOnPostDisturbanceEvent =
+   output_on_post_disturbance_event_ =
        config.contains("output_on_postdisturbanceevent") ? bool(config["output_on_postdisturbanceevent"]) : false;
+   cohort_aggregation_enabled_ =
+       config.contains("cohort_aggregation_enabled") ? bool(config["cohort_aggregation_enabled"]) : true;
+   cohort_aggregation_show_nested_values_ = config.contains("cohort_aggregation_show_nested_values")
+                                                ? bool(config["cohort_aggregation_show_nested_values"])
+                                                : true;
+   if (!cohort_aggregation_enabled_) {
+      cohort_aggregation_show_nested_values_ = true;
+   }
+   cohort_name_format_ = name_format::short_name;
+   if (config.contains("cohort_name_format")) {
+      std::string format = config["cohort_name_format"];
+      if (boost::iequals(format, "long")) {
+         cohort_name_format_ = name_format::long_name;
+      }
+   }
 
    if (config.contains("variables")) {
-      // assume we have a vector of vairables to include in output
+      // assume we have a vector of variables to include in output
       const auto& items = config["variables"].extract<DynamicVector>();
       for (auto& item : items) {
-         auto var = item.extract<const std::string>();
-         auto propertySeparator = var.find_first_of('.');
-         if (propertySeparator != std::string::npos) {
-            auto prop = var.substr(propertySeparator + 1, var.length());
-            auto varname = var.substr(0, propertySeparator);
-            _variables.push_back(std::make_tuple(var, varname, prop, nullptr));
+         const auto& var = item.extract<const std::string>();
+         auto property_separator = var.find_first_of('.');
+         if (property_separator != std::string::npos) {
+            auto var_prop = var.substr(property_separator + 1, var.length());
+            auto var_name = var.substr(0, property_separator);
+            variables_.emplace_back(var, var_name, var_prop, nullptr);
          } else {
-            _variables.push_back(std::make_tuple(var, var, "", nullptr));
+            variables_.emplace_back(var, var, "", nullptr);
          }
       }
    }
 };
-
-// --------------------------------------------------------------------------------------------
 
 void OutputerStream::subscribe(NotificationCenter& notificationCenter) {
    notificationCenter.subscribe(signals::SystemInit, &OutputerStream::onSystemInit, *this);
@@ -114,185 +113,158 @@ void OutputerStream::subscribe(NotificationCenter& notificationCenter) {
    notificationCenter.subscribe(signals::OutputStep, &OutputerStream::onOutputStep, *this);
    notificationCenter.subscribe(signals::TimingEndStep, &OutputerStream::onTimingEndStep, *this);
    notificationCenter.subscribe(signals::PostDisturbanceEvent, &OutputerStream::onPostDisturbanceEvent, *this);
-};
+}
 
-// --------------------------------------------------------------------------------------------
+std::string OutputerStream::get_pool_name(const IPool* pool) const {
+   std::stringstream ss;
+   if (pool != nullptr) {
+      if (!pool->is_child() || cohort_name_format_ == name_format::short_name) {
+         ss << pool->name();
+      } else {
+         auto* p = pool->parent();
+         std::vector<std::string> names;
+         while (p != nullptr) {
+            names.emplace_back(p->name());
+            p = p->parent();
+         }
+         std::reverse(names.begin(), names.end());
+         ss << fmt::format("{}", fmt::join(names, ".")) << "." << pool->name();
+      }
+   }
+   return ss.str();
+}
 
 void OutputerStream::outputHeader(std::ostream& stream) const {
-   using namespace std::chrono;
-   if (_outputInfoHeader) {
-      auto t1 = moja::localtime(moja::systemtime_now());
+   if (output_info_header_) {
+      DateTime start = DateTime::now();
 
       stream << "OutputerStream" << std::endl;
       stream << "==========================================================================" << std::endl;
-      stream << "Started:" << moja::put_time(&t1, "%c %Z") << std::endl;
+      stream << "Started:" << start << std::endl;
       stream << "==========================================================================" << std::endl;
    }
-   stream << "notification" << DL_CHR << "step" << DL_CHR << "stepDate" << DL_CHR << "fracOfStep" DL_CHR
+   stream << "notification" << DL_CHR << "step" << DL_CHR << "stepDate" << DL_CHR << "fracOfStep" << DL_CHR
           << "stepLenInYears" << DL_CHR;
+
+   for (auto var : variables_) {
+      stream << std::get<0>(var) << DL_CHR;
+   }
    auto pools = _landUnitData->poolCollection();
    for (auto& it : pools) {
       stream << it->name() << DL_CHR;
    }
-   for (auto var : _variables) {
-      stream << std::get<0>(var) << DL_CHR;
-   }
    stream << std::endl;
 }
 
-// --------------------------------------------------------------------------------------------
+void OutputerStream::outputOnNotification(const std::string& notification, std::ostream& stream) {
+   const auto timing = _landUnitData->timing();
 
-void OutputerStream::outputInit(std::ostream& stream) {
-   const auto& timingL = *_landUnitData->timing();
+   stream << notification << DL_CHR << timing->step() << DL_CHR << timing->curStartDate() << DL_CHR
+          << timing->fractionOfStep() << DL_CHR << timing->stepLengthInYears() << DL_CHR
+          << std::setprecision(STOCK_PRECISION);
 
-   stream << "onTimingPostInit" << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1)
-          << DL_CHR << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
-   stream << std::setprecision(STOCK_PRECISION);
-
-   auto pools = _landUnitData->poolCollection();
-   for (auto& it : pools) {
-      stream << it->value() << DL_CHR;
-   }
-   for (auto var : _variables) {
-      auto varPtr = std::get<3>(var);
-      auto varName = std::get<1>(var);
-      auto varProp = std::get<2>(var);
-
-      if (varPtr == nullptr) {
+   for (const auto& [var, var_name, var_prop, var_ptr] : variables_) {
+      if (var_ptr == nullptr) {
          stream << "(missing variable)";
-      } else if (varProp != "") {
-         auto varValue = varPtr->value();
-         if (varValue.type() == typeid(std::shared_ptr<IFlintData>)) {
-            auto flintDataVariable = varPtr->value().extract<std::shared_ptr<IFlintData>>();
-            auto propValue = flintDataVariable->getProperty(varProp);
-            outputDynamicToStream(stream, propValue);
+      } else if (!var_prop.empty()) {
+         auto& var_value = var_ptr->value();
+         if (var_value.type() == typeid(std::shared_ptr<IFlintData>)) {
+            auto flint_data_variable = var_ptr->value().extract<std::shared_ptr<IFlintData>>();
+            auto prop_value = flint_data_variable->getProperty(var_prop);
+            outputDynamicToStream(stream, prop_value);
          } else {
-            if (varValue.isStruct()) {
-               auto varStruct = varValue.extract<const DynamicObject>();
-               auto varStructProp = varStruct.contains(varProp) ? varStruct[varProp] : DynamicVar();
-               outputDynamicToStream(stream, varStructProp);
+            if (var_value.isStruct()) {
+               auto var_struct = var_value.extract<const DynamicObject>();
+               auto var_struct_prop = var_struct.contains(var_prop) ? var_struct[var_prop] : DynamicVar();
+               outputDynamicToStream(stream, var_struct_prop);
             } else
-               outputDynamicToStream(stream, varValue);
+               outputDynamicToStream(stream, var_value);
          }
       } else {
          // TODO: extend this to do property of array/struct objects
-         outputDynamicToStream(stream, varPtr->value());
+         outputDynamicToStream(stream, var_ptr->value());
       }
       stream << DL_CHR;
    }
-   stream << std::endl;
-}
-
-// --------------------------------------------------------------------------------------------
-
-void OutputerStream::outputEndStep(const std::string& notification, std::ostream& stream) {
-   const auto& timingL = *_landUnitData->timing();
-   stream << notification << DL_CHR << timingL.step() << DL_CHR << timingL.curEndDate().addMicroseconds(-1) << DL_CHR
-          << timingL.fractionOfStep() << DL_CHR << timingL.stepLengthInYears() << DL_CHR;
-   stream << std::setprecision(STOCK_PRECISION);
    auto pools = _landUnitData->poolCollection();
-   for (auto& it : pools) {
-      stream << it->value() << DL_CHR;
-   }
-   for (auto var : _variables) {
-      auto varPtr = std::get<3>(var);
-      auto varName = std::get<1>(var);
-      auto varProp = std::get<2>(var);
-
-      if (varPtr == nullptr) {
-         stream << "(missing variable)";
-      } else if (varProp != "") {
-         auto varValue = varPtr->value();
-         if (varValue.type() == typeid(std::shared_ptr<IFlintData>)) {
-            auto flintDataVariable = varPtr->value().extract<std::shared_ptr<IFlintData>>();
-            auto propValue = flintDataVariable->getProperty(varProp);
-            outputDynamicToStream(stream, propValue);
-         } else {
-            if (varValue.isStruct()) {
-               auto varStruct = varValue.extract<const DynamicObject>();
-               auto varStructProp = varStruct.contains(varProp) ? varStruct[varProp] : DynamicVar();
-               outputDynamicToStream(stream, varStructProp);
-            } else
-               outputDynamicToStream(stream, varValue);
-         }
-      } else {
-         // TODO: extend this to do property of array/struct objects
-         outputDynamicToStream(stream, varPtr->value());
+   for (auto& pool : pools) {
+      if ((pool->has_children() && cohort_aggregation_enabled_) || (!pool->has_children() && !pool->is_child()) ||
+          (pool->is_child() && cohort_aggregation_show_nested_values_)) {
+         stream << pool->value() << DL_CHR;
       }
-      stream << DL_CHR;
    }
    stream << std::endl;
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OutputerStream::outputShutdown(std::ostream& stream) {
-   using namespace std::chrono;
-
-   outputHeader(stream);
-
-   if (_outputInfoHeader) {
-      auto t1 = localtime(moja::systemtime_now());
+   if (output_info_header_) {
       stream << "==========================================================================" << std::endl;
-      stream << "Finished:" << moja::put_time(&t1, "%c %Z") << std::endl;
+      stream << "notification" << DL_CHR << "step" << DL_CHR << "stepDate" << DL_CHR << "fracOfStep" << DL_CHR
+             << "stepLenInYears" << DL_CHR;
+
+      for (auto var : variables_) {
+         stream << std::get<0>(var) << DL_CHR;
+      }
+      auto pools = _landUnitData->poolCollection();
+      for (auto& pool : pools) {
+         stream << get_pool_name(pool.get()) << DL_CHR;
+      }
+      stream << std::endl << std::endl;
+
+      DateTime finish = DateTime::now();
+      stream << "==========================================================================" << std::endl;
+      stream << "Finished:" << finish << std::endl;
       stream << "==========================================================================" << std::endl;
    }
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OutputerStream::onSystemInit() {
-   Poco::File outputFile(_fileName);
-   if (outputFile.exists()) outputFile.remove();
-   outputFile.createFile();
+   namespace fs = std::filesystem;
 
-   _streamFile.open(_fileName, std::ios::out);
-   _output.addStream(_streamFile);
-   if (_outputToScreen) _output.addStream(std::cout);
-   outputHeader(_output);
+   const auto output_file = fs::path(file_name_);
+   if (fs::exists(output_file)) fs::remove(output_file);
+
+   stream_file_.open(file_name_, std::ios::out);
+   output_.addStream(stream_file_);
+   if (output_to_screen_) output_.addStream(std::cout);
+   outputHeader(output_);
 }
 
-// --------------------------------------------------------------------------------------------
-
-void OutputerStream::onSystemShutdown() { outputShutdown(_output); }
-
-// --------------------------------------------------------------------------------------------
+void OutputerStream::onSystemShutdown() {
+   outputShutdown(output_);
+   stream_file_.close();
+}
 
 void OutputerStream::onLocalDomainInit() {
-   for (auto& var : _variables) {
-      auto varName = std::get<1>(var);
-      if (_landUnitData->hasVariable(varName))
-         std::get<3>(var) = _landUnitData->getVariable(varName);
+   for (auto& [var, var_name, var_prop, var_ptr] : variables_) {
+      if (_landUnitData->hasVariable(var_name))
+         var_ptr = _landUnitData->getVariable(var_name);
       else
-         std::get<3>(var) = nullptr;
+         var_ptr = nullptr;
    }
 }
 
-// --------------------------------------------------------------------------------------------
-
-void OutputerStream::onTimingPostInit() { outputInit(_output); }
-
-// --------------------------------------------------------------------------------------------
+void OutputerStream::onTimingPostInit() { outputOnNotification("onTimingPostInit", output_); }
 
 void OutputerStream::onOutputStep() {
-   if (_outputOnOutputStep) {
-      const auto& timingL = *_landUnitData->timing();
-
-      if (!_outputAnnually || timingL.curStartDate().month() == 12) outputEndStep("onOutputStep", _output);
+   if (output_on_output_step_) {
+      const auto* timing = _landUnitData->timing();
+      if (!output_annually_ || timing->curStartDate().month() == 12) {
+         outputOnNotification("onOutputStep", output_);
+      }
    }
 }
 
-// --------------------------------------------------------------------------------------------
-
 void OutputerStream::onTimingEndStep() {
-   if (_outputOnTimingEndStep) outputEndStep("onTimingEndStep", _output);
+   if (output_on_timing_end_step_) {
+      outputOnNotification("onTimingEndStep", output_);
+   }
 }
-
-// --------------------------------------------------------------------------------------------
 
 void OutputerStream::onPostDisturbanceEvent() {
-   if (_outputOnPostDisturbanceEvent) outputEndStep("onPostDisturbanceEvent", _output);
+   if (output_on_post_disturbance_event_) {
+      outputOnNotification("onPostDisturbanceEvent", output_);
+   }
 }
 
-}  // namespace flint
-}  // namespace moja
+}  // namespace moja::flint

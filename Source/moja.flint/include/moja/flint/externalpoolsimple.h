@@ -30,7 +30,7 @@ class FLINT_API ExternalPoolSimple : public IPool {
 
    void init() override;
 
-   const IPool* parent() const override { return nullptr; }
+   const IPool* parent() const override { return _parent; }
    const std::vector<const IPool*>& children() const override { return _children; }
 
    void add_child(IPool* pool) override;

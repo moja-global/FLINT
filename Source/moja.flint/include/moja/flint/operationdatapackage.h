@@ -36,6 +36,24 @@ class OperationDataPackage {
    OperationDataPackage(FluxType fluxType) : _fluxType(fluxType) {}
    virtual ~OperationDataPackage() = default;
 
+   std::string to_string() {
+      static std::vector<const char*> flux_type_strings = {
+          "Wildfire",      "Controlled burning",
+          "NPP",           "Harvest",
+          "Decomposition", "Turnover",
+          "Plough",        "Thin",
+          "Plant trees",   "Plant crops",
+          "N fertiliser",  "Pest",
+          "Windthrow",     "Lime application",
+          "Grazing",       "Irrigation",
+          "Herbicide",     "Manure",
+          "Heavy roll",    "Wetland drainage",
+          "Rice",          "Cattle Grazing",
+          "Sheep Grazing", "Goat Grazing",
+          "Unclassified"};
+      return flux_type_strings[static_cast<size_t>(_fluxType)-1];
+   }
+
    FluxType _fluxType;
 };
 
