@@ -2,29 +2,34 @@
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors)
 
-## What is `FLINT`?
+## What is FLINT?
 
-The Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in ways that meet policy needs. It is based on over 20 years of experience building and operating integration tools in Australia and Canada.   It's an Open-source Library maintained under [**moja.global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the Linux Foundation
+Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data  in a way that meets policy requirements.It is based on more than 20 years of experience in building and operating integrated tools in Australia and Canada. It's an Open-Source Library maintained under [**moja global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the Linux Foundation.
 
 ## Why FLINT?
 
-The FLINT makes developing and operating advanced systems achievable by all countries. It is a generic platform with a modular structure, allowing countries to attach any variety of models or data to build country-specific systems. The platform handles complex computer science tasks, such as the storage and processing of large data sets, leaving users to focus on monitoring, reporting and scenario analyses.  
+FLINT enables all countries to develop and operate advanced systems. It is a universal platform with a modular structure, allowing countries to attach any kind of models or data to build a country-specific system. The platform handles complex computer science tasks, such as storing and processing large data sets, allowing users to focus on monitoring, reporting, and scenario analysis. 
 
 ## How is FLINT different from earlier integrating tools?
 
-The FLINT is using the lessons learned from first generation tools, to build a new framework that meets present and future needs. The key improvements compared to the first generation tools include:
-+ a flexible, modular approach, allowing for country specific implementations from [IPCC Tier 1 to 3 ](https://www.reddcompass.org/mgd-content-v1/dita-webhelp/en/Box1.html)
-+ support for [wall-to-wall, sample based, jurisdictional, and supply chain approaches](https://static1.squarespace.com/static/5896200f414fb57d26f3d600/t/59362b028419c2db8f57e747/1496722191543/REDD_nested_projects.pdf)
-+ the ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+](https://theredddesk.org/what-redd)
-+ scenario analysis systems to allow the development of projections
-+ the potential to be used for multiple other purposes, including economics, water and biodiversity
-+ development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
-+ software that allows data processing on local desktops or cloud-based systems   
+FLINT is using the lessons learned from the first generation of tools to build a new framework that meets current and future needs. Compared with the first-generation tools, the main improvements include:
++ A flexible and modular approach that allows specific countries from [IPCC Tier 1 to 3](https://www.reddcompass.org/mgd-content-v1/dita-webhelp/en/Box1.html) to implement a [comprehensive, sample-based, jurisdictional and supply chain-based approach.](https://static1.squarespace.com/static/5896200f414fb57d26f3d600/t/59362b028419c2db8f57e747/1496722191543/REDD_nested_projects.pdf)
++ The ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+.](https://theredddesk.org/what-redd)
++ Scenario analysis systems to allow the development of projections.
++ Potential for a variety of other purposes, including economics, water, and biodiversity.
++ Development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
++ Software that allows data processing on local desktops or cloud-based systems.  
 
 
-## How to use FLINT?  
+## Getting Started with FLINT
 
-Below are the quick install instructions. [Step-by-step instructions guides](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT) are available if you would like to have more detailed information. Please provide us with feedback on how we can improve these guides. You can leave your comments in the [versions under development](https://github.com/moja-global/FLINT/blob/master/How_to_use_FLINT/How_to_use_FLINT.md). 
+Below are instructions for quick installation.
+
+Note: If you need more detailed information, you can use a [step-by-step guide](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT) or view the [video](https://www.youtube.com/watch?v=Jfi2-vEhfkg).
+
+Please provide us with feedback on how to improve these guidelines.
+You can leave your comment in the [version under development.](https://github.com/moja-global/FLINT/blob/master/How_to_use_FLINT/How_to_use_FLINT.md)
+
 
 ### Development Environment How-To for Windows
 
@@ -34,7 +39,7 @@ These instructions are for building the FLINT on Windows using Visual Studio 201
 
 ##### CMake
 
-- download [cmake-3.15.2-win64-x64.msi](https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.msi)
+- Download [cmake-3.15.2-win64-x64.msi](https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2-win64-x64.msi)
 
 #### Using vcpkg to install required libraries
 
@@ -81,7 +86,7 @@ It is possible to use the Visual Studio moja solution to install built versions 
 
 ##### SQLIte Studio
 
-a simple windows SQLite database manager (http://sqlitestudio.pl/)
+A simple windows SQLite database manager (http://sqlitestudio.pl/)
 [sqlitestudio-3.1.0.zip](http://sqlitestudio.pl/files/sqlitestudio3/complete/win32/sqlitestudio-3.1.0.zip)
 
 ##### TortoiseGit
@@ -145,17 +150,17 @@ Configuration file options:
 
 ## How to Get Involved?  
 
-moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja-global Wiki](https://github.com/moja-global/.github/wiki).  
+moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja global Wiki](https://github.com/moja-global/.github/wiki).  
 
 
 ## FAQ and Other Questions  
 
-* You can find FAQs on the [Wiki](https://github.com/moja.global/.github/wiki).  
-* If you have a question about the code, submit [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) in the relevant repository  
-* If you have a general question about a project or repository or moja global, [join moja global](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Join-moja-global.md) and 
-    * [submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
-    * [submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com). 
-* If you have other questions, please write to info@moja.global   
+* You can find FAQs on the [FAQs section of our docs](https://docs.moja.global/en/latest/faq.html).  
+* If you have a question about the code, submit a [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) on the relevant repository  
+* If you have a general question about a project or repository or moja global, [join moja global](https://docs.moja.global/en/latest/contact.html) and:
+    * [Submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
+    * [Submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](https://app.slack.com/client/T1G1M5HPF/slack-connect).
+* If you have other questions, please write to [info@moja.global](mailto:info@moja.global).   
   
 
 ## Contributors
@@ -167,13 +172,14 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table><tr><td align="center"><a href="https://github.com/mtbdeligt"><img src="https://avatars3.githubusercontent.com/u/16447169?v=4" width="100px;" alt="Rob de Ligt"/><br /><sub><b>Rob de Ligt</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mtbdeligt" title="Documentation">📖</a> <a href="#maintenance-mtbdeligt" title="Maintenance">🚧</a></td><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!  
+This project follows the [all contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!  
 
 ## Maintainers Reviewers Ambassadors Coaches
 
-The following people are Maintainers of this repository
+The following people are Maintainers, Reviewers, Ambassadors or Coaches.
 
 <table><tr><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
+
 **Maintainers** review and accept proposed changes  
 **Reviewers** check proposed changes before they go to the Maintainers  
 **Ambassadors** are available to provide training related to this repository  
