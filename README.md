@@ -4,7 +4,7 @@
 
 ## What is FLINT?
 
-Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data  in a way that meets policy requirements.It is based on more than 20 years of experience in building and operating integrated tools in Australia and Canada. It's an Open-Source Library maintained under [**moja global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the Linux Foundation.
+Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in a way that meets policy requirements. It is based on more than 20 years of experience in building and operating integrated tools in Australia and Canada. It's an Open-Source Library maintained under [**moja global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the [Linux Foundation.](https://linuxfoundation.org/)
 
 ## Why FLINT?
 
@@ -25,10 +25,9 @@ FLINT is using the lessons learned from the first generation of tools to build a
 
 Below are instructions for quick installation.
 
-Note: If you need more detailed information, you can use a [step-by-step guide](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT) or view the [video](https://www.youtube.com/watch?v=Jfi2-vEhfkg).
+**Note:** If you need more detailed information, you can use a [step-by-step guide](https://github.com/moja-global/FLINT/tree/master/How_to_use_FLINT) or view the [video](https://www.youtube.com/watch?v=Jfi2-vEhfkg).
 
-Please provide us with feedback on how to improve these guidelines.
-You can leave your comment in the [version under development.](https://github.com/moja-global/FLINT/blob/master/How_to_use_FLINT/How_to_use_FLINT.md)
+Please provide us with feedback on how to improve these guidelines. You can leave your comment in the [version under development.](https://github.com/moja-global/FLINT/blob/master/How_to_use_FLINT/How_to_use_FLINT.md)
 
 
 ### Development Environment How-To for Windows
@@ -152,14 +151,13 @@ Configuration file options:
 
 moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja global Wiki](https://github.com/moja-global/.github/wiki).  
 
-
 ## FAQ and Other Questions  
 
 * You can find FAQs on the [FAQs section of our docs](https://docs.moja.global/en/latest/faq.html).  
 * If you have a question about the code, submit a [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) on the relevant repository  
 * If you have a general question about a project or repository or moja global, [join moja global](https://docs.moja.global/en/latest/contact.html) and:
     * [Submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
-    * [Submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](https://app.slack.com/client/T1G1M5HPF/slack-connect).
+    * [Submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
 * If you have other questions, please write to [info@moja.global](mailto:info@moja.global).   
   
 
@@ -181,7 +179,7 @@ The following people are Maintainers, Reviewers, Ambassadors or Coaches.
 <table><tr><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
 
 **Maintainers** review and accept proposed changes  
-**Reviewers** check proposed changes before they go to the Maintainers  
+**Reviewers** check proposed changes before they go to the Maintainers 
 **Ambassadors** are available to provide training related to this repository  
 **Coaches** are available to provide information to new contributors to this repository  
 
