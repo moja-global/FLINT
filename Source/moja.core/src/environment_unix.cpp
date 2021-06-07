@@ -11,17 +11,17 @@ std::string EnvironmentImpl::startProcessFolderImpl() {
    namespace fs = std::filesystem;
 
    static bool bHaveResult = false;
-   static char path[1024] = "";
+   static char charBuffer[1024] = "";
 
    if (!bHaveResult) {
-      if (readlink("/proc/self/exe", path, sizeof(path) - 1) == -1) {
+      if (readlink("/proc/self/exe", charBuffer, sizeof(charBuffer) - 1) == -1) {
          int ErrNo = errno;
          // unreachable
          return "";
       }
       bHaveResult = true;
    }
-   fs::path path(path);
+   fs::path path(charBuffer);
    return path.remove_filename().string();
 }
 
