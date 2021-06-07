@@ -148,6 +148,7 @@ target_compile_definitions(${LIBNAME}
 target_link_libraries(${LIBNAME} 
 	PUBLIC
 		Boost::log Boost::log_setup Poco::Foundation Poco::JSON 
+		${CXX_FILESYSTEM_LIBRARIES}
 	PRIVATE
 		${SYSLIBS}
 	)

@@ -127,6 +127,10 @@ if (CMAKE_SYSTEM MATCHES "Linux" )
 	else()
 		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
 	endif()
+
+	if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+        set(CXX_FILESYSTEM_LIBRARIES "stdc++fs")
+	endif()
 endif(CMAKE_SYSTEM MATCHES "Linux" )
 
 add_subdirectory(moja.core)
