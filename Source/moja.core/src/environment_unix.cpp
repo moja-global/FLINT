@@ -1,14 +1,15 @@
 #include "moja/environment_unix.h"
 
-#include <Poco/Path.h>
-
 #include <cstring>
 #include <errno.h>
+#include <filesystem>
 #include <unistd.h>
 
 namespace moja {
 
 std::string EnvironmentImpl::startProcessFolderImpl() {
+   namespace fs = std::filesystem;
+
    static bool bHaveResult = false;
    static char path[1024] = "";
 
@@ -20,9 +21,8 @@ std::string EnvironmentImpl::startProcessFolderImpl() {
       }
       bHaveResult = true;
    }
-   auto folder = Poco::Path(path).parent();
-   return folder.toString();
-   ;
+   fs::path path(path);
+   return path.remove_filename().string();
 }
 
 }  // namespace moja
