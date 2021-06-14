@@ -5,7 +5,7 @@
   "imageSize": 100,
   "commit": false,
   "contributors": [
-   {
+    {
       "login": "mtbdeligt",
       "name": "Rob de Ligt",
       "avatar_url": "https://avatars3.githubusercontent.com/u/16447169?v=4",
@@ -41,11 +41,21 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "kartikeysaran",
+      "name": "Kartikey Saran",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55613721?v=4",
+      "profile": "https://play.google.com/store/apps/details?id=com.kartikey.roulette&hl=en_IN&gl=US",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "FLINT",
   "projectOwner": "moja-global",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }
