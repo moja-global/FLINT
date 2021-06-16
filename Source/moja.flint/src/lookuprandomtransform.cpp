@@ -10,9 +10,6 @@
 
 #include <random>
 
-using moja::flint::IncompleteConfigurationException;
-using moja::flint::VariableNotFoundException;
-
 namespace moja {
 namespace flint {
 
@@ -28,7 +25,7 @@ void LookupRandomTransform::configure(DynamicObject config, const ILandUnitContr
          }
       }
       if (!validConfiguration) {
-         throw IncompleteConfigurationException() << Item(key) << Details("Expected configuration item not found");
+         throw std::runtime_error("Expected configuration item not found " + std::string(key));
       }
    }
    //_fromVarName = config["from"].convert<std::string>();
@@ -47,14 +44,9 @@ void LookupRandomTransform::controllerChanged(const ILandUnitController& control
 }
 
 const DynamicVar& LookupRandomTransform::value() const {
-   // auto from = _landUnitController->getVariable(_fromVarName);
-   // if (from == nullptr) {
-   //	throw VariableNotFoundException() << VariableName(_fromVarName);
-   //}
-
-   auto to = _landUnitController->getVariable(_toVarName);
+   const auto* to = _landUnitController->getVariable(_toVarName);
    if (to == nullptr) {
-      throw VariableNotFoundException() << VariableName(_toVarName);
+      throw std::runtime_error("Variable not found " + _toVarName);
    }
 
    // auto& fromValue = from->value();

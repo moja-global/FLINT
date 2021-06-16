@@ -15,7 +15,6 @@
 #include <moja/flint/configuration/spinup.h>
 #include <moja/flint/configuration/variable.h>
 
-#include <moja/exception.h>
 #include <moja/logging.h>
 #include <moja/signals.h>
 
@@ -154,10 +153,6 @@ void AspatialLocalDomainController::run(const LandUnitInfo& lu) {
       }
 
       _sequencer->Run(_notificationCenter, _landUnitController);
-   } catch (const Exception& e) {
-      MOJA_LOG_FATAL << e.displayText();
-   } catch (const boost::exception& e) {
-      MOJA_LOG_FATAL << boost::diagnostic_information(e);
    } catch (const std::exception& e) {
       MOJA_LOG_FATAL << e.what();
    }

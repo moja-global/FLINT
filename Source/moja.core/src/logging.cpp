@@ -1,13 +1,13 @@
 #include "moja/logging.h"
 
 #include "moja/environment.h"
+#include "moja/filesystem.h"
 
 #include <boost/log/attributes/clock.hpp>
 #include <boost/log/trivial.hpp>
 #include <boost/log/utility/setup/file.hpp>
 #include <boost/log/utility/setup/from_stream.hpp>
 
-#include <filesystem>
 #include <fstream>
 
 namespace moja {
@@ -22,7 +22,7 @@ std::string Logging::_loggingConfigurationFile = "unknown";
 void Logging::init() {
    namespace logging = boost::log;
    namespace attrs = boost::log::attributes;
-   namespace fs = std::filesystem;
+   namespace fs = moja::filesystem;
 
    static auto initialized = false;
    if (initialized) {

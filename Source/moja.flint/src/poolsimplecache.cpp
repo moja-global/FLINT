@@ -36,7 +36,7 @@ int PoolSimpleCache::idx() const { return _idx; }
 
 double PoolSimpleCache::value() const {
    if (!_initialised) {
-      throw PreconditionViolatedException() << Precondition("PoolSimpleCache has not been initialised");
+      throw std::runtime_error("Error Pool Simple Cache has not been initialized");
    }
    return (*_pools)[_idx];
 }

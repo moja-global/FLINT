@@ -7,9 +7,6 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 
-using moja::flint::IncompleteConfigurationException;
-using moja::flint::VariableNotFoundException;
-
 namespace moja {
 namespace flint {
 
@@ -25,7 +22,7 @@ void LookupTransform::configure(DynamicObject config, const ILandUnitController&
       }
 
       if (!validConfiguration) {
-         throw IncompleteConfigurationException() << Item(key) << Details("Expected configuration item not found");
+         throw std::runtime_error("Expected configuration item not found " + std::string(key));
       }
    }
 
@@ -41,18 +38,18 @@ void LookupTransform::controllerChanged(const ILandUnitController& controller) {
 };
 
 const DynamicVar& LookupTransform::value() const {
-   auto from = _landUnitController->getVariable(_fromVarName);
+   const auto* from = _landUnitController->getVariable(_fromVarName);
    if (from == nullptr) {
-      throw VariableNotFoundException() << VariableName(_fromVarName);
+      throw std::runtime_error("From variable not found " + _fromVarName);
    }
 
-   auto to = _landUnitController->getVariable(_toVarName);
+   const auto* to = _landUnitController->getVariable(_toVarName);
    if (to == nullptr) {
-      throw VariableNotFoundException() << VariableName(_toVarName);
+      throw std::runtime_error("To variable not found " + _fromVarName);
    }
 
-   auto& fromValue = from->value();
-   auto& toValue = to->value();
+   const auto& fromValue = from->value();
+   const auto& toValue = to->value();
    if (fromValue.isEmpty() || toValue.isEmpty()) {
       setCachedValue(DynamicVar());
       return _cachedValue;

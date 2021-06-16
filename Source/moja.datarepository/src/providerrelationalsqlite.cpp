@@ -2,11 +2,14 @@
 
 #include "moja/datarepository/datarepositoryexceptions.h"
 
-#include <Poco/File.h>
+#include <moja/filesystem.h>
+
 #include <Poco/LRUCache.h>
 
 #include <sqlite3.h>
 #include <vector>
+
+namespace fs = moja::filesystem;
 
 namespace moja {
 namespace datarepository {
@@ -25,8 +28,7 @@ class SQLiteConnection {
       sqlite3_config(SQLITE_CONFIG_URI, 1);
 
       if (path.find(":memory:") == std::string::npos) {
-         Poco::File file(path);
-         if (!file.exists()) {
+         if (!fs::exists(path)) {
             BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(path));
          }
       }

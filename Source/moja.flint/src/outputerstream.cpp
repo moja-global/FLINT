@@ -8,8 +8,7 @@
 
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-
-#include <Poco/File.h>
+#include <moja/filesystem.h>
 
 #include <boost/format.hpp>
 
@@ -20,6 +19,8 @@
 //#define DL_CHR "\t"
 #define DL_CHR ","
 #define STOCK_PRECISION 15
+
+namespace fs = moja::filesystem;
 
 namespace moja {
 namespace flint {
@@ -203,10 +204,9 @@ void OutputerStream::outputShutdown(std::ostream& stream) {
 // --------------------------------------------------------------------------------------------
 
 void OutputerStream::onSystemInit() {
-   Poco::File outputFile(_fileName);
-   if (outputFile.exists()) outputFile.remove();
-   outputFile.createFile();
-
+   fs::path outputFile(_fileName);
+   if (fs::exists(_fileName)) fs::remove(_fileName);
+   
    _streamFile.open(_fileName, std::ios::out);
    _output.addStream(_streamFile);
    if (_outputToScreen) _output.addStream(std::cout);

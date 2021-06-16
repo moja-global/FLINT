@@ -1,16 +1,8 @@
 #include "moja/pocojsonutils.h"
 
-#include "moja/coreexceptions.h"
-#include "moja/exception.h"
-
 #include <Poco/JSON/Parser.h>
 
 #include <boost/algorithm/string.hpp>
-#include <boost/format.hpp>
-
-using moja::FileName;
-using moja::FileNotFoundException;
-using moja::NotImplementedException;
 
 namespace moja {
 
@@ -40,44 +32,37 @@ DynamicVector parsePocoJSONToDynamic(const Poco::JSON::Array::Ptr& val) {
       } else {
          auto object = val->get(i);
          if (object.isArray()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Array")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Array");
          } else if (object.isBoolean()) {
             auto value = object.extract<bool>();
             arrayDocument.push_back(value);
          } else if (object.isDeque()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Deque")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Deque");
          } else if (object.isEmpty()) {
          } else if (object.isInteger()) {
             try {
                auto value = object.extract<int>();
                arrayDocument.push_back(value);
-            } catch (Poco::BadCastException) {
+            } catch (Poco::BadCastException&) {
                auto value = object.extract<Int64>();
                arrayDocument.push_back(value);
             }
          } else if (object.isList()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - List")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - List");
          } else if (object.isNumeric()) {
             auto value = object.extract<double>();
             arrayDocument.push_back(value);
          } else if (object.isSigned()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Signed")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Signed");
          } else if (object.isString()) {
             auto value = object.extract<std::string>();
             arrayDocument.push_back(value);
          } else if (object.isStruct()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Struct")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Struct");
          } else if (object.isVector()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Vector")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Vector");
          } else {
-            auto msg = (boost::format("Unhandled data type in parse of json into dynamic - Unexpected type")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Unexpected type");
          }
       }
    }
@@ -110,44 +95,38 @@ DynamicVar parsePocoJSONToDynamic(const Poco::JSON::Object::Ptr& val) {
          document[var.first] = subDocument;
       } else {
          if (var.second.isArray()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Array")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Array");
          } else if (var.second.isBoolean()) {
             auto value = var.second.extract<bool>();
             document[var.first] = value;
          } else if (var.second.isDeque()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Deque")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Deque");
          } else if (var.second.isEmpty()) {
          } else if (var.second.isInteger()) {
             try {
                auto value = var.second.extract<int>();
                document[var.first] = value;
-            } catch (Poco::BadCastException) {
+            } catch (Poco::BadCastException&) {
                auto value = var.second.extract<Int64>();
                document[var.first] = value;
             }
          } else if (var.second.isList()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - List")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - List");
+
          } else if (var.second.isNumeric()) {
             auto value = var.second.extract<double>();
             document[var.first] = value;
          } else if (var.second.isSigned()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Signed")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Signed");
          } else if (var.second.isString()) {
             auto value = var.second.extract<std::string>();
             document[var.first] = value;
          } else if (var.second.isStruct()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Struct")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Struct");
          } else if (var.second.isVector()) {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Vector")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Vector");
          } else {
-            auto msg = (boost::format("Unhandled data type in parse of json into Dynamic - Unexpected type")).str();
-            BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+            throw std::runtime_error("Unhandled data type in parse of json into dynamic - Unexpected type");
          }
       }
    }
@@ -185,8 +164,7 @@ DynamicVar parsePocoJSONToDynamic(const DynamicVar& data) {
       DynamicVar result = data.extract<double>();
       return result;
    }
-   auto msg = "Unhandled data type in parse of json into dynamic";
-   BOOST_THROW_EXCEPTION(CoreAssertionViolationException() << moja::AssertMsg(msg));
+   throw std::runtime_error("Unhandled data type in parse of json into dynamic");
 }
 
 // --------------------------------------------------------------------------------------------
@@ -204,7 +182,7 @@ DynamicVar parsePocoVarToDynamic(const DynamicVar& var) {
    if (var.isInteger()) {
       try {
          return DynamicVar(var.extract<int>());
-      } catch (Poco::BadCastException) {
+      } catch (Poco::BadCastException&) {
          return DynamicVar(var.convert<Int64>());
       }
    }
@@ -249,24 +227,19 @@ DynamicVar parsePocoVarToDynamic(const DynamicVar& var) {
          }
       }
       DynamicObject result;
-      for (auto item : s) {
-         result[item.first] = parsePocoVarToDynamic(item.second);
+      for (auto [key, value] : s) {
+         result[key] = parsePocoVarToDynamic(value);
       }
       return result;
    }
 
-   try {
-      auto obj = var.extract<Poco::JSON::Object::Ptr>();
-      DynamicObject result;
-      for (auto kvp : *obj) {
-         result[kvp.first] = parsePocoVarToDynamic(kvp.second);
-      }
-      return result;
-   } catch (std::exception) {
+   auto obj = var.extract<Poco::JSON::Object::Ptr>();
+   DynamicObject result;
+   for (auto [key, value] : *obj) {
+      result[key] = parsePocoVarToDynamic(value);
    }
+   return result;
 
-   auto msg = (boost::format("Unhandled data type in parse of Poco::Dynamic::Var into Dynamic")).str();
-   BOOST_THROW_EXCEPTION(CoreUnhandledType() << moja::TypeErrorMsg(msg));
 }
 
 }  // namespace moja

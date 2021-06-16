@@ -16,7 +16,6 @@
 #include <fmt/format.h>
 
 #include <fstream>
-#include <sstream>
 
 namespace moja {
 namespace modules {
@@ -42,10 +41,8 @@ MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, cons
                                                    const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
    try {
-      auto filePath = Poco::Path(path);
-      auto parent = filePath.parent().toString();
-      auto abs = filePath.parent().absolute().toString();
-      _path = (boost::format("%1%%2%.json") % abs % filePath.getBaseName()).str();
+      const auto filePath = fs::absolute(path).replace_extension(".json");
+      _path = filePath.string();
       _metaDataRequired = true;
       if (settings.contains("metadata_required")) {
          _metaDataRequired = settings["metadata_required"].extract<bool>();

@@ -23,8 +23,6 @@
 #include <moja/logging.h>
 #include <moja/signals.h>
 
-using moja::flint::SequencerNotFoundException;
-
 namespace moja {
 namespace flint {
 
@@ -92,17 +90,15 @@ void LocalDomainControllerBase::configure(const configuration::Configuration& co
 
    // Load the configured modules (and handle Proxies)
    _moduleMap.clear();
-   for (const auto& module : config.modules()) {
+   for (const auto* module : config.modules()) {
       ModuleMapKey key(module->libraryName(), module->name());
       if (_moduleMap.find(key) != _moduleMap.end()) {
-         // duplicate Key found
-         throw DuplicateModuleDefinedException() << Details("Error duplicate module defined")
-                                                 << LibraryName(module->libraryName()) << SequencerName(module->name());
+         throw std::runtime_error("Error duplicate modules " + module->libraryName() + " " + module->name());
       }
       _moduleMap[key] = _libraryManager.GetModule(module->libraryName(), module->name());
       _moduleMap[key]->setLandUnitController(_landUnitController);
       if (module->isProxy()) {
-         auto proxy = static_cast<ModuleProxyBase*>(modules()[key]);
+         auto proxy = dynamic_cast<ModuleProxyBase*>(modules()[key]);
          auto proxyModules = module->settings()["proxyModules"];
          for (auto& item : proxyModules) {
             DynamicObject proxyModule = item.extract<const DynamicObject>();
@@ -128,9 +124,8 @@ void LocalDomainControllerBase::configure(const configuration::Configuration& co
    ModuleMapKey sequencerKey(config.localDomain()->sequencerLibrary(), config.localDomain()->sequencer());
    _sequencer = std::dynamic_pointer_cast<SequencerModuleBase>(_moduleMap[sequencerKey]);
    if (_sequencer == nullptr) {
-      throw SequencerNotFoundException() << Details("Error finding sequencer")
-                                         << LibraryName(config.localDomain()->sequencerLibrary())
-                                         << SequencerName(config.localDomain()->sequencer());
+      throw std::runtime_error("Error finding sequencer " + config.localDomain()->sequencerLibrary() + " " +
+                               config.localDomain()->sequencer());
    }
    _sequencer->configure(timing);
 

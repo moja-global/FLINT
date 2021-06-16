@@ -5,30 +5,29 @@
 
 #include <moja/pocojsonutils.h>
 #include <moja/utility.h>
+#include <moja/filesystem.h>
 
-#include <Poco/File.h>
-#include <Poco/JSON/ParseHandler.h>
 #include <Poco/JSON/Parser.h>
-#include <Poco/JSON/Stringifier.h>
-#include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
-#include <boost/format.hpp>
+
+#include <fmt/format.h>
 
 #include <fstream>
-#include <sstream>
 
 namespace moja {
 namespace datarepository {
+
+namespace fs = moja::filesystem;
 
 // --------------------------------------------------------------------------------------------
 
 FlintMetaDataRasterReader::FlintMetaDataRasterReader(const std::string& path, const std::string& prefix,
                                                      const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
-    auto filePath = Poco::Path(path);
-    auto abs = filePath.absolute().toString();
-    _metaPath = (boost::format("%1%%2%%3%.json") % abs % Poco::Path::separator() % prefix).str();
+
+    const auto mata_path = fs::absolute(path) / fmt::format("{}.json", prefix);
+   _metaPath = mata_path.string();
 }
 
 DynamicObject FlintMetaDataRasterReader::readMetaData() const {
@@ -51,7 +50,8 @@ DynamicObject FlintMetaDataRasterReader::readMetaData() const {
 FlintTileRasterReader::FlintTileRasterReader(const std::string& path, const Point& origin, const std::string& prefix,
                                              const TileBlockCellIndexer& indexer, const DynamicObject& settings)
     : TileRasterReaderInterface(path, origin, prefix, indexer, settings) {
-   _tilePath = (boost::format("%1%%2%%3%_%4%.blk") % path % Poco::Path::separator() % prefix % tile_id(origin)).str();
+   const auto tile_path = fs::path(path) / fmt::format("{}_{}.blk", prefix, tile_id(origin));
+   _tilePath = tile_path.string();
 }
 
 FlintTileRasterReader::~FlintTileRasterReader() {}
@@ -119,7 +119,9 @@ void FlintTileRasterReader::readFlintBlockData(const BlockIdx& blk_idx, char* bl
 FlintStackRasterReader::FlintStackRasterReader(const std::string& path, const Point& origin, const std::string& prefix,
                                                const TileBlockCellIndexer& indexer, const DynamicObject& settings)
     : StackRasterReaderInterface(path, origin, prefix, indexer, settings) {
-   _tilePath = (boost::format("%1%%2%%3%_%4%.blk") % path % Poco::Path::separator() % prefix % stack_id(origin)).str();
+
+    const auto tile_path = fs::path(path) / fmt::format("{}_{}.blk", prefix, stack_id(origin));
+   _tilePath = tile_path.string();
 }
 
 FlintStackRasterReader::~FlintStackRasterReader() {}

@@ -9,7 +9,6 @@
 #include "moja/flint/operationstocksimple.h"
 #include "moja/flint/poolsimple.h"
 
-#include <moja/exception.h>
 #include <moja/logging.h>
 
 #include <boost/algorithm/string/classification.hpp>
@@ -229,7 +228,7 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
    }
 
    if (_poolValues.size() == _poolValues.capacity()) {
-      throw ApplicationException(
+      throw std::runtime_error(
           "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by PoolSimple
                                                                          // wrappers
    }
@@ -260,17 +259,17 @@ const IPool* OperationManagerSimple::addPool(PoolMetaData& metadata, double init
 
 const IPool* OperationManagerSimple::getPool(const std::string& name) const {
    try {
-      auto r = _poolNameObjectMap.at(name);
+      auto& r = _poolNameObjectMap.at(name);
       return r.get();
    } catch (...) {
-      throw PoolNotFoundException() << PoolName(name);
+      throw std::invalid_argument("Error pool not found " + name);
    }
 }
 
 // --------------------------------------------------------------------------------------------
 
 const IPool* OperationManagerSimple::getPool(int index) const {
-   if (index >= _poolObjects.size() || index < 0) throw PoolNotFoundException() << PoolName("Bad index");
+   if (index >= _poolObjects.size() || index < 0) throw std::invalid_argument("Error in get pool index out of range");
    auto& r = _poolObjects[index];
    return r.get();
 }

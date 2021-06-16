@@ -10,8 +10,7 @@
 #include <moja/datetime.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-
-#include <Poco/File.h>
+#include <moja/filesystem.h>
 
 #include <iomanip>  // std::setprecision
 #include <iostream>
@@ -19,6 +18,8 @@
 //#define DL_CHR "\t"
 #define DL_CHR ","
 #define STOCK_PRECISION 15
+
+namespace fs = moja::filesystem;
 
 namespace moja {
 namespace flint {
@@ -109,10 +110,7 @@ void OutputerStreamFlux::outputShutdown(std::ostream& stream) const {
 // --------------------------------------------------------------------------------------------
 
 void OutputerStreamFlux::onSystemInit() {
-   Poco::File outputFile(_fileName);
-   if (outputFile.exists()) outputFile.remove();
-   outputFile.createFile();
-
+   if (fs::exists(_fileName)) fs::remove(_fileName);
    _streamFile.open(_fileName, std::ios::out);
    _output.addStream(_streamFile);
    if (_outputToScreen) _output.addStream(std::cout);
