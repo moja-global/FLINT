@@ -6,9 +6,6 @@
 
 #include <boost/algorithm/string.hpp>
 
-using moja::flint::IncompleteConfigurationException;
-using moja::flint::VariableNotFoundException;
-
 namespace moja {
 namespace flint {
 
@@ -18,19 +15,17 @@ void CompositeTransform::configure(DynamicObject config, const ILandUnitControll
    _dataRepository = &dataRepository;
 
    if (!config.contains("vars")) {
-      BOOST_THROW_EXCEPTION(IncompleteConfigurationException() << Item("vars"));
+      throw std::runtime_error("Error composite transform settings missing vars");
    }
 
    auto varNames = config["vars"];
    if (varNames.size() < 1) {
-      BOOST_THROW_EXCEPTION(IncompleteConfigurationException()
-                            << Item("vars") << Details("At least one variable name required"));
+      throw std::runtime_error("Error composite transform vars at least one variable name required");
    }
 
    for (std::string varName : varNames) {
       if (std::find(_varNames.begin(), _varNames.end(), varName) != _varNames.end()) {
-         BOOST_THROW_EXCEPTION(IncompleteConfigurationException()
-                               << Item("vars") << Details("Duplicate variable reference"));
+         throw std::runtime_error("Error composite transform vars duplicate variable reference");
       }
 
       _varNames.push_back(varName);
@@ -56,10 +51,10 @@ void CompositeTransform::controllerChanged(const ILandUnitController& controller
 
 const DynamicVar& CompositeTransform::value() const {
    if (_variables.empty()) {
-      for (auto varName : _varNames) {
-         auto var = _landUnitController->getVariable(varName);
+      for (const auto& varName : _varNames) {
+         const auto* var = _landUnitController->getVariable(varName);
          if (var == nullptr) {
-            BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(varName));
+            throw std::runtime_error("Error composite transform variable not found " + varName);
          }
 
          _variables.push_back(var);

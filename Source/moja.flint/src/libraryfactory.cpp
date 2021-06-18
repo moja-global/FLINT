@@ -79,9 +79,9 @@ struct FLINTAggregationSharedDataObject {
 
 FLINTAggregationSharedDataObject flint_aggregation_shared_data;
 
-Poco::Mutex _fileHandlingMutexVarGridWriter;
-Poco::Mutex _fileHandlingMutexConfigWriter;
-Poco::Mutex _fileHandlingMutexAggregationFileWriter;
+std::mutex _fileHandlingMutexVarGridWriter;
+std::mutex _fileHandlingMutexConfigWriter;
+std::mutex _fileHandlingMutexAggregationFileWriter;
 
 // Flint Data Factory
 std::shared_ptr<IFlintData> createEventQueueFactory(const std::string& eventTypeStr, int id, const std::string& name,

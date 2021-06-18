@@ -1,7 +1,6 @@
 #include "moja/flint/configuration/configblock.h"
 
 #include "moja/flint/configuration/configtile.h"
-#include "moja/flint/configuration/configurationexceptions.h"
 
 #include <boost/format.hpp>
 #include <boost/format/group.hpp>
@@ -14,19 +13,19 @@ namespace configuration {
 
 ConfigBlock::ConfigBlock(const ConfigTile& tile, int row, int col, int blockSizeX, int blockSizeY) : _tile(tile) {
    if (row < 0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("row") << Constraint(">= 0"));
+      throw std::invalid_argument("Error in config block row < 0");
    }
 
    if (col < 0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("col") << Constraint(">= 0"));
+      throw std::invalid_argument("Error in config block col < 0");
    }
 
    if (blockSizeX <= 0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("blockSizeX") << Constraint("> 0"));
+      throw std::invalid_argument("Error in config block blockSizeX <= 0");
    }
 
    if (blockSizeY <= 0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("blockSizeY") << Constraint("> 0"));
+      throw std::invalid_argument("Error in config block blockSizeY <= 0");
    }
 
    _row = row;

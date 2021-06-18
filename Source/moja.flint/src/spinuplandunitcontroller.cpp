@@ -5,7 +5,6 @@
 #include "moja/flint/ioperation.h"
 #include "moja/flint/ivariable.h"
 #include "moja/flint/landunitcontroller.h"
-#include "moja/flint/operationmanagerublas.h"
 
 #include <moja/dynamic.h>
 
@@ -88,7 +87,7 @@ void SpinupLandUnitController::addVariable(std::string name, std::shared_ptr<IVa
 IVariable* SpinupLandUnitController::getVariable(const std::string& name) {
    const auto v = _variablesMap.find(name);
    if (v == _variablesMap.end()) {
-      BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(name));
+      std::runtime_error("Error in spin up landunit controller variable not found " + name);
    }
    return v->second.get();
 }
@@ -96,7 +95,7 @@ IVariable* SpinupLandUnitController::getVariable(const std::string& name) {
 const IVariable* SpinupLandUnitController::getVariable(const std::string& name) const {
    const auto v = _variablesMap.find(name);
    if (v == _variablesMap.end()) {
-      BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(name));
+      std::runtime_error("Error in spin up landunit controller variable not found " + name);
    }
    return v->second.get();
 }

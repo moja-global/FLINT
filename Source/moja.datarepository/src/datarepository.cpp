@@ -1,12 +1,9 @@
 #include "moja/datarepository/datarepository.h"
 
-#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/datarepository/providerrelationalsqlite.h"
 #include "moja/datarepository/providerspatialrastertiled.h"
 
 #include <moja/flint/configuration/provider.h>
-
-#include <boost/algorithm/string.hpp>
 
 namespace moja {
 namespace datarepository {
@@ -22,14 +19,14 @@ std::shared_ptr<IProviderInterface> DataRepository::createProvider(const std::st
                                                                    const std::string& providerType,
                                                                    const DynamicObject& settings) const {
    const auto providerKey = ProviderKey(library, providerType);
-   auto it = _providerRegistry->find(providerKey);
+   const auto it = _providerRegistry->find(providerKey);
    if (it == _providerRegistry->end()) {
-      BOOST_THROW_EXCEPTION(moja::datarepository::ProviderUnsupportedException() << ProviderType(providerType));
+      throw std::runtime_error("Error unsupported provider " + library + ":" + providerType);
    }
    auto providerInit = _providerRegistry->at(providerKey);
    auto providerInterface = providerInit(settings);
    if (providerInterface == nullptr) {
-      BOOST_THROW_EXCEPTION(moja::datarepository::ProviderUnsupportedException() << ProviderType(providerType));
+      throw std::runtime_error("Error provider init failed " + library + ":" + providerType);
    }
    return providerInterface;
 }
@@ -40,8 +37,7 @@ void DataRepository::addProvider(const std::string& name, const std::string& pro
    if (p == _providers.end()) {
       _providers.insert(std::pair<std::string, std::shared_ptr<IProviderInterface>>(name, provider));
    } else {
-      BOOST_THROW_EXCEPTION(moja::datarepository::ProviderAlreadyExistsException()
-                            << ProviderName(name) << ProviderType(providerType));
+      throw std::runtime_error("Error provider already exists " + name + ":" + providerType);
    }
 }
 
@@ -50,7 +46,7 @@ std::shared_ptr<IProviderInterface> DataRepository::getProvider(const std::strin
    if (p != _providers.end()) {
       return p->second;
    }
-   BOOST_THROW_EXCEPTION(moja::datarepository::ProviderNotFoundException() << ProviderName(name));
+   throw std::runtime_error("Error provider not found " + name);
 }
 
 }  // namespace datarepository

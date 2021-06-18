@@ -1,23 +1,23 @@
 #include "moja/environment_win32u.h"
 
-#include <Poco/Path.h>
-#include <Poco/UnWindows.h>
-#include <Poco/UnicodeConverter.h>
-
 #include <cstring>
+#include <filesystem>
 #include <iphlpapi.h>
 
 namespace moja {
 
-static std::string EnvironmentImpl::startProcessFolderImpl() {
-   static wchar_t path[512] = "";
-   if (!path[0]) {
-      // Get directory this executable was launched from.
-      GetModuleFileNameW(NULL, path, sizeof(path) - 1);
-   }
-   Poco::UnicodeConverter::toUTF8(path, result);
-   auto folder = Poco::Path(path).parent();
-   return folder.toString();
+std::string EnvironmentImpl::startProcessFolderImpl() {
+   namespace fs = std::filesystem;
+
+   std::vector<wchar_t> charBuffer;
+   auto size = MAX_PATH;
+   do {
+      size *= 2;
+      charBuffer.resize(size);
+   } while (GetModuleFileNameW(NULL, charBuffer.data(), size) == size);
+
+   fs::path path(charBuffer.data());  // Contains the full path including .exe
+   return path.remove_filename().string();
 }
 
 }  // namespace moja

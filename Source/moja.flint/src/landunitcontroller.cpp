@@ -7,7 +7,6 @@
 #include "moja/flint/ivariable.h"
 #include "moja/flint/operationmanagersimple.h"
 #include "moja/flint/operationmanagersimplecache.h"
-#include "moja/flint/operationmanagerublas.h"
 
 #include <moja/dynamic.h>
 #include <moja/logging.h>
@@ -37,9 +36,7 @@ void LandUnitController::configure(const configuration::Configuration& config) {
 
    auto const operationManagerConfig = config.localDomain()->operationManagerObject();
 
-   if (operationManagerConfig->name() == "Ublas") {
-      _operationManager = std::make_shared<OperationManagerUblas>(_timing, operationManagerConfig->settings());
-   } else if (operationManagerConfig->name() == "Simple") {
+   if (operationManagerConfig->name() == "Simple") {
       _operationManager = std::make_shared<OperationManagerSimple>(_timing, operationManagerConfig->settings());
    } else if (operationManagerConfig->name() == "SimpleCache") {
       _operationManager = std::make_shared<OperationManagerSimpleCache>(_timing, operationManagerConfig->settings());
@@ -90,7 +87,7 @@ void LandUnitController::initialisePools() const { _operationManager->initialise
 
 void LandUnitController::addVariable(std::string name, std::shared_ptr<IVariable> variable) {
    if (name.length() == 0 || all(name, boost::algorithm::is_space())) {
-      throw std::invalid_argument("name cannot be empty");
+      throw std::invalid_argument("variable name cannot be empty");
    }
    _variablesMap.insert(std::make_pair(name, variable.get()));
    _variables.push_back(variable);
@@ -100,7 +97,7 @@ IVariable* LandUnitController::getVariable(const std::string& name) {
    const auto v = _variablesMap.find(name);
    if (v == _variablesMap.end()) {
       MOJA_LOG_FATAL << "Variable not found: " << name;
-      BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(name));
+      throw std::invalid_argument("Error variable not found " + name);
    }
    return v->second;
 }
@@ -109,7 +106,7 @@ const IVariable* LandUnitController::getVariable(const std::string& name) const 
    const auto v = _variablesMap.find(name);
    if (v == _variablesMap.end()) {
       MOJA_LOG_FATAL << "Variable not found: " << name;
-      BOOST_THROW_EXCEPTION(VariableNotFoundException() << VariableName(name));
+      throw std::invalid_argument("Error variable not found " + name);
    }
    return v->second;
 }

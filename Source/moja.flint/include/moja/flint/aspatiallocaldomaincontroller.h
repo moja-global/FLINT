@@ -20,12 +20,12 @@ class FLINT_API AspatialLocalDomainController final : public LocalDomainControll
    AspatialLocalDomainController() : _spinupLandUnitController(_landUnitController), _runSpinUp(false) {}
    ~AspatialLocalDomainController() = default;
 
-   void configure(const configuration::Configuration& config) override;
-   void run() override;
-   void startup() override;
-   void shutdown() override;
+   status configure(const configuration::Configuration& config) override;
+   status run() override;
 
    void run(moja::datarepository::AspatialTileInfo& tile);
+   status startup() override;
+   status shutdown() override;
 
   private:
    std::unique_ptr<moja::datarepository::AspatialTileInfoCollection> _landscape;
@@ -36,7 +36,7 @@ class FLINT_API AspatialLocalDomainController final : public LocalDomainControll
    LocalDomainControllerBase::ModuleMap _spinupModules;
    IVariable* _luId;
 
-   void run(const moja::datarepository::LandUnitInfo& lu);
+   status run(const moja::datarepository::LandUnitInfo& lu);
 };
 
 }  // namespace flint

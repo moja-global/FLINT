@@ -7,10 +7,9 @@
 #include "moja/flint/ipool.h"
 #include "moja/flint/modulebase.h"
 
-#include <boost/algorithm/string.hpp>
-
 #include <algorithm>
 #include <unordered_map>
+#include <mutex>
 
 namespace moja {
 namespace flint {
@@ -19,7 +18,7 @@ class SpatialLocationInfo;
 
 class FLINT_API WriteVariableGrid : public ModuleBase {
   public:
-   explicit WriteVariableGrid(Poco::Mutex& fileHandlingMutex)
+   explicit WriteVariableGrid(std::mutex& fileHandlingMutex)
        : ModuleBase(),
          _fileHandlingMutex(fileHandlingMutex),
          _useIndexesForFolderName(false),
@@ -41,26 +40,10 @@ class FLINT_API WriteVariableGrid : public ModuleBase {
    void onOutputStep() override;
    void onError(std::string msg) override;
 
-   // --- RAII class for file handle
-   class FileHandle {
-      typedef FILE* ptr;
-
-     public:
-      explicit FileHandle(std::string const& name, std::string const& mode = std::string("r"))
-          : _wrapped_file(fopen(name.c_str(), mode.c_str())) {}
-      ~FileHandle() {
-         if (_wrapped_file) fclose(_wrapped_file);
-      }
-      operator ptr() const { return _wrapped_file; }
-
-     private:
-      ptr _wrapped_file;
-   };
-
    // --- Base classs for data layer
    class DataSettingsB {
      public:
-      DataSettingsB(Poco::Mutex& fileHandlingMutex, int hdrDataType)
+      DataSettingsB(std::mutex& fileHandlingMutex, int hdrDataType)
           : notificationType(OnNotificationType::TimingInit),
             _useIndexesForFolderName(false),
             _forceVariableFolderName(true),
@@ -121,14 +104,14 @@ class FLINT_API WriteVariableGrid : public ModuleBase {
       const flint::IVariable* _variable;
       std::vector<const flint::IPool*> _pool;
       std::string _tileFolderPath;
-      Poco::Mutex& _fileHandlingMutex;
+      std::mutex& _fileHandlingMutex;
    };
 
    // --- Templated version of Base classs for data layer types
    template <typename T>
    class DataSettingsT : public DataSettingsB {
      public:
-      DataSettingsT(Poco::Mutex& fileHandlingMutex, int hdrDataType) : DataSettingsB(fileHandlingMutex, hdrDataType){};
+      DataSettingsT(std::mutex& fileHandlingMutex, int hdrDataType) : DataSettingsB(fileHandlingMutex, hdrDataType){};
       ~DataSettingsT() = default;
 
       virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
@@ -157,7 +140,7 @@ class FLINT_API WriteVariableGrid : public ModuleBase {
 
   private:
    // Mutexes
-   Poco::Mutex& _fileHandlingMutex;
+   std::mutex& _fileHandlingMutex;
 
    // FlintData
    std::shared_ptr<const SpatialLocationInfo> _spatialLocationInfo;

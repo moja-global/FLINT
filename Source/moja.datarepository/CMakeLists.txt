@@ -75,7 +75,6 @@ set(MOJA_DataRepository_headers
 	include/moja/${PACKAGE}/aspatialtileinfocollection.h
 	include/moja/${PACKAGE}/cube.h
 	include/moja/${PACKAGE}/datarepository.h
-	include/moja/${PACKAGE}/datarepositoryexceptions.h
 	include/moja/${PACKAGE}/iproviderinterface.h
 	include/moja/${PACKAGE}/iprovidernosqlinterface.h
 	include/moja/${PACKAGE}/iproviderrelationalinterface.h

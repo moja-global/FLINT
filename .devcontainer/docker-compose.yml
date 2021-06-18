@@ -1,0 +1,96 @@
+version: '3'
+
+services:
+  app:
+    # Using a Dockerfile is optional, but included for completeness.
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      # [Optional] You can use build args to set options. e.g. 'VARIANT' below affects the image in the Dockerfile
+      args: 
+        NUM_CPU: 8
+        FLINT_BRANCH: develop
+        # FLINT_BRANCH: feature-collection-updates
+ 
+    volumes:
+      # This is where VS Code should expect to find your project's source code and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      # - ..:/workspaces:cached
+      - ..:/workspaces:delegated
+
+      # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
+      # - /var/run/docker.sock:/var/run/docker.sock 
+
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/workspaces/sensitive/datalayer.json
+      
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"  
+
+    # Runs app on the same network as the service container, allows "forwardPorts" in devcontainer.json function.
+    # network_mode: service:rasterizer_net_backend
+    # network_mode: service:another-service
+    networks:
+      - net_backend
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+    # Uncomment the next line to use a non-root user for all processes - See https://aka.ms/vscode-remote/containers/non-root for details.
+    # user: vscode
+
+    # Uncomment the next four lines if you will use a ptrace-based debugger like C++, Go, and Rust.
+    # cap_add:
+    #   - SYS_PTRACE
+    # security_opt:
+    #   - seccomp:unconfined
+    
+#   flintpro-rasterizer:
+#       #image: gcr.io/flintpro-212105/flintpro-rasterizer:v20201015.03
+#       # Thsi version is the new client side rasterizer
+#       image: gcr.io/flintpro-212105/flintpro-rasterizer:v20210525.01
+#       hostname: flintpro-rasterizer
+#       ports:
+#         - 50051:50051
+#       depends_on:
+#         - cloudsql 
+#       command: '/run/rasterizer_server -p proxy:9090'
+#       restart: unless-stopped
+#       networks:
+#          - net_backend
+
+#   proxy:
+#       image: gcr.io/flintpro-212105/proxy:v20200507.1
+#       hostname: proxy
+#       # your own configurations for that app
+#       ports:
+#         - 9090:9090
+#       depends_on:
+#         - cloudsql 
+#       command: ["./wait-for-it.sh", "cloudsql:5432", "--", "/go/bin/featureservice-proxy", "-grpc-port", "9090", "-lookupConfigFile", "./proxy-config/lookup_config.json"]
+#       volumes:
+#           - ../Run_Envs/rasterizer/proxy-config:/proxy-config
+#       restart: unless-stopped
+#       networks:
+#           - net_backend
+
+#   cloudsql:
+#       image: gcr.io/cloudsql-docker/gce-proxy:1.22.0
+#       networks:
+#           - net_backend
+#       command: /cloud_sql_proxy -instances=flintpro-212105:us-central1:flintpro-qa-3=tcp:0.0.0.0:5432,flintpro-212105:us-central1:flintpro-prod=tcp:0.0.0.0:5433 -credential_file=/config/datalayer.json
+#       volumes:
+#           - ../sensitive:/config
+#           # - /mnt/c/Development/MullionGroup/cloud_sql:/config
+#           # - c:\Development\MullionGroup\cloud_sql:/config
+#       ports:
+#       - 5432:5432
+#       restart: unless-stopped
+
+networks:
+    net_backend:            
+
+    # As in the "app" service, use "forwardPorts" in **devcontainer.json** to forward an app port locally.

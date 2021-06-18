@@ -10,8 +10,6 @@
 
 #include <moja/flint/configuration/configuration.h>
 
-#include <Poco/Mutex.h>
-
 #include <queue>
 #include <thread>
 
@@ -22,7 +20,7 @@ class ThreadedAspatialLocalDomainController;
 
 class AspatialLocalDomainThread {
   public:
-   AspatialLocalDomainThread(ThreadedAspatialLocalDomainController* parent, int threadId, Poco::Mutex& tileListMutex,
+   AspatialLocalDomainThread(ThreadedAspatialLocalDomainController* parent, int threadId, std::mutex& tileListMutex,
                              std::queue<datarepository::AspatialTileInfo>& tileList,
                              const configuration::Configuration* config);
 
@@ -35,7 +33,7 @@ class AspatialLocalDomainThread {
    ThreadedAspatialLocalDomainController* _parent;
    configuration::Configuration _threadConfig;
    int _threadId;
-   Poco::Mutex& _tileListMutex;
+   std::mutex& _tileListMutex;
    std::queue<datarepository::AspatialTileInfo>& _tileList;
    const configuration::Configuration* _config;
    std::shared_ptr<AspatialLocalDomainController> _ldc;
@@ -43,14 +41,11 @@ class AspatialLocalDomainThread {
 
 class FLINT_API ThreadedAspatialLocalDomainController final : public flint::LocalDomainControllerBase {
   public:
-   ThreadedAspatialLocalDomainController(void);
-   ~ThreadedAspatialLocalDomainController() = default;
+   ThreadedAspatialLocalDomainController();
+   ~ThreadedAspatialLocalDomainController() override = default;
 
-   virtual void configure(const flint::configuration::Configuration& config) override;
-   virtual void run() override;
-
-   virtual void startup() override {}
-   virtual void shutdown() override {}
+   status configure(const configuration::Configuration& config) override;
+   status run() override;
 
    std::vector<std::shared_ptr<AspatialLocalDomainThread>> tasks() const { return _tasks; }
 
@@ -61,7 +56,7 @@ class FLINT_API ThreadedAspatialLocalDomainController final : public flint::Loca
    std::vector<std::thread> _threads;
 
    std::unique_ptr<datarepository::AspatialTileInfoCollection> _landscape;
-   Poco::Mutex _tileListMutex;
+   std::mutex _tileListMutex;
    std::queue<datarepository::AspatialTileInfo> _tileList;
 };
 

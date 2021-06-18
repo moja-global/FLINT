@@ -1,11 +1,18 @@
 {
     "cmake.configureArgs": [
         "-DCMAKE_BUILD_TYPE=DEBUG",
+        "-DDEBUG=ON",
         "-DCMAKE_INSTALL_PREFIX=/usr/local",
         "-DENABLE_TESTS:BOOL=OFF",
-        "-DENABLE_MOJA.MODULES.GDAL=ON",
+        "-DENABLE_MOJA.MODULES.GDAL=OFF",
         "-DENABLE_MOJA.MODULES.LIBPQ=ON",
         "-DBoost_USE_STATIC_LIBS=OFF",
-        "-DBUILD_SHARED_LIBS=ON"
-    ]
+        "-DBUILD_SHARED_LIBS=ON",
+        "-DCMAKE_TOOLCHAIN_FILE=/usr/src/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    ],
+    "cmake.sourceDirectory": "${workspaceFolder}/Source",
+    "cmake.buildDirectory": "${workspaceFolder}/Source/vscodebuild/${buildKit}/${buildType}",
+    "files.associations": {
+        "iterator": "cpp"
+    }
 }

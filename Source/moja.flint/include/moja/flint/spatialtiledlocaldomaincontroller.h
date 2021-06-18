@@ -10,6 +10,8 @@
 #include <moja/datarepository/iproviderspatialrasterinterface.h>
 #include <moja/datarepository/tileblockcellindexer.h>
 
+#include <moja/stopwatch.h>
+
 #include <queue>
 #include <thread>
 
@@ -119,12 +121,12 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
        bool isThread = false);
    ~SpatialTiledLocalDomainController(void) = default;
 
-   void configure(const flint::configuration::Configuration& config) override;
-   void run() override;
+   status configure(const flint::configuration::Configuration& config) override;
+   status run() override;
 
-   void startup() override;
+   status startup() override;
 
-   void shutdown() override;
+   status shutdown() override;
 
   private:
    class InternalThreadBlocks;
@@ -138,7 +140,7 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
    // -- General
    mutable std::shared_ptr<datarepository::IProviderSpatialRasterInterface> _provider;
    std::shared_ptr<SpatialLocationInfo> _spatiallocationinfo;
-   Poco::Mutex _blockListMutex;
+   std::mutex _blockListMutex;
    std::queue<datarepository::BlockIdx> _blockIdxList;  // list of block to sim in thread/non-threaded processing.
    std::map<std::pair<UInt32, UInt32>, std::vector<datarepository::CellIdx>>
        _blockCellIdxList;  // list of cells to sim, mapped by blockIdx. Used in thread/non-threaded processing

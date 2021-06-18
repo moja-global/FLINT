@@ -1,7 +1,6 @@
 #include "moja/datarepository/aspatialtileinfocollection.h"
 
 #include "moja/datarepository/aspatialtileinfo.h"
-#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/datarepository/iproviderrelationalinterface.h"
 
 #include <moja/dynamic.h>
@@ -16,11 +15,11 @@ namespace datarepository {
 AspatialTileInfoCollection::AspatialTileInfoCollection(const IProviderRelationalInterface& provider, int maxTileSize,
                                                        int tileCacheSize) {
    if (maxTileSize < 1) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("maxTileSize") << Constraint("> 0"));
+      throw std::invalid_argument("Error maxTileSize less that 1 " + std::to_string(maxTileSize));
    }
 
    if (tileCacheSize < 1) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("tileCacheSize") << Constraint("> 0"));
+      throw std::invalid_argument("Error tileCacheSize less that 1 " + std::to_string(tileCacheSize));
    }
 
    _provider = &provider;

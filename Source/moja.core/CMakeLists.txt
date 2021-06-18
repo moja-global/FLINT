@@ -6,6 +6,7 @@ include(${CMAKE_MODULE_PATH}/generate_product_version.cmake)
 
 find_package(Poco REQUIRED Foundation JSON)
 find_package(Boost COMPONENTS log log_setup REQUIRED)
+find_package(fmt REQUIRED)
 
 if (MSVC)
   generate_product_version(ProductVersionFiles
@@ -83,7 +84,7 @@ set(MOJA_Core_headers
 	include/moja/dispatcher.h
 	include/moja/dynamic.h
 	include/moja/environment.h
-	include/moja/exception.h
+	include/moja/filesystem.h
 	include/moja/floatcmp.h
 	include/moja/hash.h
 	include/moja/logging.h
@@ -93,18 +94,18 @@ set(MOJA_Core_headers
 	include/moja/pocojsonutils.h
     include/moja/signals.h
     include/moja/stopwatch.h
+	include/moja/status.h
     include/moja/timespan.h
 	include/moja/types.h
 	include/moja/version.h
 	include/moja/publisher.h
 	include/moja/utility.h
-	include/moja/coreexceptions.h
 )
 
 set(MOJA_Core_sources
 	src/datetime.cpp
 	src/environment.cpp
-	src/exception.cpp
+	src/filesystem.cpp
 	src/floatcmp.cpp
 	src/logging.cpp
 	src/mathex.cpp
@@ -148,6 +149,8 @@ target_compile_definitions(${LIBNAME}
 target_link_libraries(${LIBNAME} 
 	PUBLIC
 		Boost::log Boost::log_setup Poco::Foundation Poco::JSON 
+		${CXX_FILESYSTEM_LIBRARIES}
+		fmt::fmt-header-only
 	PRIVATE
 		${SYSLIBS}
 	)

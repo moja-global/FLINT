@@ -1,7 +1,6 @@
 #include "moja/flint/configuration/configtile.h"
 
 #include "moja/flint/configuration/configblock.h"
-#include "moja/flint/configuration/configurationexceptions.h"
 
 #include <moja/mathex.h>
 
@@ -16,19 +15,19 @@ namespace configuration {
 
 ConfigTile::ConfigTile(int xIndex, int yIndex, double xSize, double ySize, int xPixels, int yPixels) {
    if (xSize <= 0.0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("xSize") << Constraint("> 0.0"));
+      throw std::invalid_argument("Error in config tile xSize <= 0");
    }
 
    if (ySize <= 0.0) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("ySize") << Constraint("> 0.0"));
+      throw std::invalid_argument("Error in config tile ySize <= 0");
    }
 
    if (xPixels < 1) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("xPixels") << Constraint("> 0"));
+      throw std::invalid_argument("Error in config tile xPixels < 1");
    }
 
    if (yPixels < 1) {
-      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("yPixels") << Constraint("> 0"));
+      throw std::invalid_argument("Error in config tile yPixels < 1");
    }
 
    _xIndex = xIndex;

@@ -5,11 +5,12 @@
 #include "moja/flint/ipool.h"
 #include "moja/flint/itiming.h"
 
+// #include <moja/flint/operationresultsimple.h>
+#include <moja/flint/operationdatapackage.h>
 #include <moja/datetime.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-
-#include <Poco/File.h>
+#include <moja/filesystem.h>
 
 #include <iomanip>  // std::setprecision
 #include <iostream>
@@ -17,6 +18,8 @@
 //#define DL_CHR "\t"
 #define DL_CHR ","
 #define STOCK_PRECISION 15
+
+namespace fs = moja::filesystem;
 
 namespace moja {
 namespace flint {
@@ -50,38 +53,19 @@ void OutputerStreamFlux::outputHeader(std::ostream& stream) const {
       stream << "Started:" << start << std::endl;
       stream << "==========================================================================" << std::endl;
    }
-   stream << "step" << DL_CHR << "step date" << DL_CHR << "module name" << DL_CHR << "disturbance_type" << DL_CHR
-          << "source pool" DL_CHR << "sink pool" << DL_CHR << "value" << std::endl;
+   stream << 
+      "step"               << DL_CHR << 
+      "step_date"          << DL_CHR << 
+      "module_name"        << DL_CHR << 
+      "disturbance_type"   << DL_CHR << 
+      "source_pool"        << DL_CHR << 
+      "sink_pool"          << DL_CHR << 
+      "value"              << std::endl;
 }
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStreamFlux::outputInit(std::ostream& stream) const {
-   const auto timingL = _landUnitData->timing();
-
-   for (auto operationResult : _landUnitData->getOperationLastAppliedIterator()) {
-      const auto mdata = operationResult->metaData();
-      for (auto f : operationResult->operationResultFluxCollection()) {
-         const auto srcIx = f->source();
-         const auto dstIx = f->sink();
-         if (srcIx == dstIx)  // don't process diagonal
-            continue;
-
-         const auto val = f->value();
-         const auto srcPool = _landUnitData->getPool(srcIx);
-         const auto dstPool = _landUnitData->getPool(dstIx);
-
-         stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
-         stream << mdata->moduleName << DL_CHR;
-         stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val
-                << std::endl;
-      }
-   }
-}
-
-// --------------------------------------------------------------------------------------------
-
-void OutputerStreamFlux::outputEndStep(std::ostream& stream) const {
+void OutputerStreamFlux::outputOnNotification(const std::string& notification, std::ostream& stream) const {
    const auto& timingL = _landUnitData->timing();
    for (auto operationResult : _landUnitData->getOperationLastAppliedIterator()) {
       const auto mdata = operationResult->metaData();
@@ -95,10 +79,19 @@ void OutputerStreamFlux::outputEndStep(std::ostream& stream) const {
          const auto srcPool = _landUnitData->getPool(srcIx);
          const auto dstPool = _landUnitData->getPool(dstIx);
 
-         stream << timingL->step() << DL_CHR << timingL->curStartDate() << DL_CHR;
-         stream << mdata->moduleName << DL_CHR;
-         stream << srcPool->name() << DL_CHR << dstPool->name() << DL_CHR << std::setprecision(STOCK_PRECISION) << val
-                << std::endl;
+         auto fluxTypeInfoRecordId = flint::FluxType::Unclassified;
+         if (operationResult->hasDataPackage()) {
+            auto dataPacket = operationResult->dataPackage().extract<std::shared_ptr<flint::OperationDataPackage>>();
+            fluxTypeInfoRecordId = dataPacket->_fluxType;
+         }
+
+         stream << timingL->step()           << DL_CHR << 
+         timingL->curStartDate()             << DL_CHR << 
+         mdata->moduleName                   << DL_CHR << 
+         int(fluxTypeInfoRecordId)           << DL_CHR << 
+         srcPool->name()                     << DL_CHR << 
+         dstPool->name()                     << DL_CHR << 
+         std::setprecision(STOCK_PRECISION)  << val << std::endl;
       }
    }
 }
@@ -117,10 +110,7 @@ void OutputerStreamFlux::outputShutdown(std::ostream& stream) const {
 // --------------------------------------------------------------------------------------------
 
 void OutputerStreamFlux::onSystemInit() {
-   Poco::File outputFile(_fileName);
-   if (outputFile.exists()) outputFile.remove();
-   outputFile.createFile();
-
+   if (fs::exists(_fileName)) fs::remove(_fileName);
    _streamFile.open(_fileName, std::ios::out);
    _output.addStream(_streamFile);
    if (_outputToScreen) _output.addStream(std::cout);
@@ -136,15 +126,15 @@ void OutputerStreamFlux::onSystemShutdown() {
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStreamFlux::onTimingPostInit() { outputInit(_output); }
+void OutputerStreamFlux::onTimingPostInit() { outputOnNotification("onTimingPostInit", _output); }
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStreamFlux::onTimingEndStep() { outputEndStep(_output); }
+void OutputerStreamFlux::onTimingEndStep() { outputOnNotification("onTimingEndStep", _output); }
 
 // --------------------------------------------------------------------------------------------
 
-void OutputerStreamFlux::onPostDisturbanceEvent() { outputEndStep(_output); }
+void OutputerStreamFlux::onPostDisturbanceEvent() { outputOnNotification("onPostDisturbanceEvent", _output); }
 
 }  // namespace flint
 }  // namespace moja

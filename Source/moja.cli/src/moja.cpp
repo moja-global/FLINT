@@ -9,14 +9,11 @@
 #include "moja/flint/moduleproxybase.h"
 #include "moja/flint/ioperationmanager.h"
 
-#include "moja/signals.h"
-#include "moja/exception.h"
-#include "moja/logging.h"
+#include <moja/signals.h>
+#include <moja/filesystem.h>
+#include <moja/logging.h>
 
-#include <boost/exception/diagnostic_information.hpp>
 #include <boost/program_options.hpp>
-
-#include <Poco/File.h>
 
 #include <memory>
 #include <string>
@@ -32,9 +29,10 @@ namespace conf = mf::configuration;
 using mf::configuration::LocalDomainType;
 using mf::ILocalDomainController;
 
+namespace fs = moja::filesystem;
+
 bool checkFilePath(const std::string& filePath) {
-    Poco::File file(filePath);
-    if (!file.exists()) {
+   if (!fs::exists(filePath)) {
         std::cerr << "File not found: " << filePath;
         return false;
     }
@@ -290,28 +288,18 @@ int main(int argc, char* argv[]) {
                       << ", Version: " << ldc->landUnitController().operationManager()->version()
                       << ", Config: " << ldc->landUnitController().operationManager()->config();
 
-        ldc->_notificationCenter.postNotification(moja::signals::SystemInit);
+        ldc->notification_center().postNotification(moja::signals::SystemInit);
         ldc->startup();
         ldc->run();
         ldc->shutdown();
-        ldc->_notificationCenter.postNotification(moja::signals::SystemShutdown);
-    }
-    catch (const moja::Exception& e) {
-		MOJA_LOG_FATAL << e.displayText();
-		return EXIT_FAILURE;
-	} catch (const boost::exception& e) {
-        MOJA_LOG_FATAL << boost::diagnostic_information(e);
-		return EXIT_FAILURE;
-    } catch (const Poco::Exception& e) {
-        MOJA_LOG_FATAL << e.message();
-        return EXIT_FAILURE;
-	} catch (const std::exception& e) {
-        MOJA_LOG_FATAL << e.what();
-		return EXIT_FAILURE;
-	} catch (...) {
-        MOJA_LOG_FATAL << "Unknown exception";
-		return EXIT_FAILURE;
-	}
+        ldc->notification_center().postNotification(moja::signals::SystemShutdown);
+     } catch (const std::exception& e) {
+     MOJA_LOG_FATAL << e.what();
+	     return EXIT_FAILURE;
+     } catch (...) {
+     MOJA_LOG_FATAL << "Unknown exception";
+	     return EXIT_FAILURE;
+     }
 
-	return EXIT_SUCCESS;
+      return EXIT_SUCCESS;
 }

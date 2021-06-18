@@ -1,65 +1,55 @@
-#ifndef MOJA_FLINT_FLINTEXCEPTIONS_H_
-#define MOJA_FLINT_FLINTEXCEPTIONS_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
-#include <boost/exception/all.hpp>
-
-#include <stdexcept>
 #include <string>
+#include <utility>
+#include <stdexcept>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
-struct FLINT_API FLINTException : virtual std::exception, virtual boost::exception {};
+class FLINT_API flint_exception : public std::runtime_error {
+  public:
+   flint_exception(const std::string& message) : std::runtime_error(message) {}
+   flint_exception(const char* message) : std::runtime_error(message) {}
+};
 
-struct FLINT_API PoolNotFoundException : virtual FLINTException {};
-typedef boost::error_info<struct tag_poolname, std::string> PoolName;
-typedef boost::error_info<struct tag_poolindex, int> PoolIndex;
+class FLINT_API local_domain_error : public flint_exception {
+  public:
+   local_domain_error(const std::string& message, std::string library_name = "", std::string module_name = "",
+                    int error_code = -1)
+       : flint_exception(message),
+         library_name_(std::move(library_name)),
+         module_name_(std::move(module_name)),
+         error_code_(error_code) {}
 
-struct FLINT_API VariableNotFoundException : virtual FLINTException {};
-typedef boost::error_info<struct tag_variablename, std::string> VariableName;
+   [[nodiscard]] const std::string& library_name() const noexcept { return library_name_; }
+   [[nodiscard]] const std::string& module_name() const noexcept { return module_name_; }
+   [[nodiscard]] int error_code() const noexcept { return error_code_; }
 
-struct FLINT_API VariableEmptyWhenValueExpectedException : virtual FLINTException {};
-typedef boost::error_info<struct tag_variablename, std::string> VariableName;
+  private:
+   std::string library_name_;
+   std::string module_name_;
+   int error_code_;
+};
 
-struct FLINT_API SequencerNotFoundException : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> SequencerName;
+class FLINT_API simulation_error : public flint_exception {
+  public:
+   simulation_error(const std::string& message, std::string library_name = "", std::string module_name = "",
+                   int error_code = -1)
+       : flint_exception(message),
+         library_name_(std::move(library_name)),
+         module_name_(std::move(module_name)),
+         error_code_(error_code) {}
 
-struct FLINT_API TableNotFoundException : virtual FLINTException {};
-typedef boost::error_info<struct tag_tablename, std::string> TableName;
+   [[nodiscard]] const std::string& library_name() const noexcept { return library_name_; }
+   [[nodiscard]] const std::string& module_name() const noexcept { return module_name_; }
+   [[nodiscard]] int error_code() const noexcept { return error_code_; }
 
-struct FLINT_API PreconditionViolatedException : virtual FLINTException {};
-typedef boost::error_info<struct tag_precondition, std::string> Precondition;
+  private:
+   std::string library_name_;
+   std::string module_name_;
+   int error_code_;
+};
 
-struct FLINT_API LandscapeDefinitionException : virtual FLINTException {};
-typedef boost::error_info<struct tag_component, std::string> Component;
-typedef boost::error_info<struct tag_constraint, std::string> Constraint;
-
-struct FLINT_API IncompleteConfigurationException : virtual FLINTException {};
-typedef boost::error_info<struct tag_item, std::string> Item;
-typedef boost::error_info<struct tag_details, std::string> Details;
-
-struct FLINT_API DuplicateModuleDefinedException : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> ModuleName;
-
-struct FLINT_API LocalDomainError : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> ModuleName;
-typedef boost::error_info<struct tag_code, int> ErrorCode;
-
-struct FLINT_API SimulationError : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> ModuleName;
-typedef boost::error_info<struct tag_code, int> ErrorCode;
-
-}  // namespace flint
-}  // namespace moja
-
-#endif  // MOJA_FLINT_FLINTEXCEPTIONS_H_
+}  // namespace moja::flint

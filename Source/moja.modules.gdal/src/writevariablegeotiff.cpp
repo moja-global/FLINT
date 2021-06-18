@@ -1,7 +1,5 @@
 #include "moja/modules/gdal/writevariablegeotiff.h"
 
-#include "moja/exception.h"
-
 #include <moja/flint/iflintdata.h>
 #include <moja/flint/ipool.h>
 #include <moja/flint/itiming.h>
@@ -11,10 +9,9 @@
 
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
+#include <moja/filesystem.h>
 
-#include <Poco/File.h>
-#include <Poco/Mutex.h>
-#include <Poco/Path.h>
+#include <fmt/format.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
@@ -24,6 +21,8 @@
 #include <gdal_priv.h>
 #include <limits>
 #include <string>
+
+namespace fs = moja::filesystem;
 
 namespace moja {
 namespace modules {
@@ -304,32 +303,11 @@ void WriteVariableGeotiff::DataSettingsT<T>::doSystemInit(flint::ILandUnitDataWr
    flint::VariableAndPoolStringBuilder databaseNameBuilder(_landUnitData, _outputPath);
    _outputPath = databaseNameBuilder.result();
 
-   std::string variableFolder;
+   fs::path spatialOutputFolderPath(_outputPath);
    if (_forceVariableFolderName) {
-      variableFolder = (boost::format("%1%%2%") % Poco::Path::separator() % _name).str();
-   } else {
-      variableFolder = "";
+      spatialOutputFolderPath /= _name;
    }
-
-   Poco::File workingFolder(_outputPath);
-   const auto spatialOutputFolderPath = (boost::format("%1%%2%") % workingFolder.path() % variableFolder
-                                         // % Poco::Path::separator()
-                                         // % _name
-                                         )
-                                            .str();
-
-   try {
-      workingFolder.createDirectories();
-   } catch (
-       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
-   }
-
-   Poco::File spatialOutputFolder(spatialOutputFolderPath);
-   try {
-      spatialOutputFolder.createDirectories();
-   } catch (
-       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
-   }
+   fs::create_directories(spatialOutputFolderPath);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -355,43 +333,24 @@ void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainInit(flint::ILandUnitD
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitInit(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) {
-   Poco::File workingFolder(_outputPath);
-   std::string variableFolder;
+   fs::path workingFolder(_outputPath);
 
    if (_forceVariableFolderName) {
-      variableFolder = (boost::format("%1%%2%") % Poco::Path::separator() % _name).str();
-   } else {
-      variableFolder = "";
+      workingFolder /= _name;
    }
 
+   fs::path tileFolder;
    if (_useIndexesForFolderName) {
-      _tileFolderPath = (boost::format("%1%%2%%3%%4%") %
-                         workingFolder.path()
-                         // % Poco::Path::separator()
-                         // % _name
-                         % variableFolder % Poco::Path::separator() %
-                         boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx))
-                            .str();
+      tileFolder = workingFolder / fmt::format("{:06}", spatialLocationInfo->_tileIdx);
    } else {
-      _tileFolderPath =
-          (boost::format("%1%%2%%3%%4%%5%_%6%%7%") %
-           workingFolder.path()
-           // % Poco::Path::separator()
-           // % _name
-           % variableFolder % Poco::Path::separator() % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
-           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
-           (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
-           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)))
-              .str();
+      tileFolder = workingFolder / fmt::format("{}{:03}_{}{:03}", spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "",
+                                               std::abs(spatialLocationInfo->_tileLatLon.lon),
+                                               spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "",
+                                               std::abs(spatialLocationInfo->_tileLatLon.lat));
    }
 
-   Poco::File tileFolder(_tileFolderPath);
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
-   try {
-      tileFolder.createDirectories();
-   } catch (
-       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
-   }
+   std::unique_lock lock(_fileHandlingMutex);
+   fs::create_directories(tileFolder);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -449,7 +408,7 @@ struct dataset_closer {
    GDALDataset* gdal_dataset_;
 };
 
-static std::shared_ptr<GDALRasterBand> create_gdalraster(const Poco::File& path, int rows, int cols,
+static std::shared_ptr<GDALRasterBand> create_gdalraster(const fs::path& path, int rows, int cols,
                                                          GDALDataType datatype, double* transform) {
    if (GDALGetDriverCount() == 0) {
       GDALAllRegister();
@@ -461,11 +420,9 @@ static std::shared_ptr<GDALRasterBand> create_gdalraster(const Poco::File& path,
    options = CSLSetNameValue(options, "TILED", "YES");
    options = CSLSetNameValue(options, "COMPRESS", "DEFLATE");
 
-   auto dataset = driver->Create(path.path().c_str(), cols, rows, 1, datatype, options);
+   auto dataset = driver->Create(path.string().c_str(), cols, rows, 1, datatype, options);
    if (dataset == nullptr) {
-      std::ostringstream oss;
-      oss << "Could not create raster file: " << path.path() << std::endl;
-      throw ApplicationException(oss.str());
+      throw std::runtime_error("Could not create raster file: " + path.string());
    }
    dataset->SetGeoTransform(transform);
    OGRSpatialReference srs;
@@ -481,23 +438,17 @@ static std::shared_ptr<GDALRasterBand> create_gdalraster(const Poco::File& path,
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo) {
-   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   std::unique_lock lock(_fileHandlingMutex);
 
-   Poco::File tileFolder(_tileFolderPath);
+   fs::path tileFolder(_tileFolderPath);
    std::string folderLocStr;
    if (_useIndexesForFolderName) {
-      folderLocStr =
-          (boost::format("%1%_%2%") % boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx) %
-           boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
-              .str();
+      folderLocStr = fmt::format("{:06}_{:02}", spatialLocationInfo->_tileIdx, spatialLocationInfo->_blockIdx);
    } else {
-      folderLocStr =
-          (boost::format("%1%%2%_%3%%4%_%5%") % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
-           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
-           (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
-           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)) %
-           boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
-              .str();
+      folderLocStr = fmt::format("{}{:03}_{}{:03}_{:02}", spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "",
+                                 std::abs(spatialLocationInfo->_tileLatLon.lon),
+                                 spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "",
+                                 std::abs(spatialLocationInfo->_tileLatLon.lat), spatialLocationInfo->_blockIdx);
    }
 
    int cellRows = spatialLocationInfo->_cellRows;
@@ -511,42 +462,38 @@ void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown
 
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
    for (auto it = _data.begin(); it != _data.end(); ++it) {
-      auto& timestepData = (*it);
+      const auto& [step, data] = (*it);
 
-      auto filename = (boost::format("%1%%2%%3%_%4%_%5%.tif") % tileFolder.path() % Poco::Path::separator() % _name %
-                       folderLocStr % timestepData.first)
-                          .str();
-
-      Poco::File block_path(filename);
-      if (block_path.exists()) {
-         block_path.remove(false);  // delete existing file
+      auto block_path = tileFolder /= fmt::format("{}_{}_{}.tif", _name, folderLocStr, step);
+      if (fs::exists(block_path)) {
+         fs::remove(block_path);  // delete existing file
       }
 
       auto band = create_gdalraster(block_path, cellRows, cellCols, gdal_type(_dataType), adfGeoTransform);
       auto err = band->SetNoDataValue(_nodataValue);
       if (err != CE_None) {
          std::ostringstream oss;
-         oss << "Could not set raster file nodata: " << block_path.path() << " (" << _nodataValue << ")" << std::endl;
-         throw ApplicationException(oss.str());
+         oss << "Could not set raster file nodata: " << block_path.string() << " (" << _nodataValue << ")" << std::endl;
+         throw std::runtime_error(oss.str());
       }
 
       if (_subtractPrevValue) {
          if (it == _data.begin()) {  // prev value is 0
-            auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, timestepData.second.data(), cellCols,
+            auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, (void*)data.data(), cellCols,
                                       cellRows, gdal_type(_dataType), 0, 0);
             if (err != CE_None) {
                std::ostringstream oss;
-               oss << "Could not write to raster file: " << block_path.path() << std::endl;
-               throw ApplicationException(oss.str());
+               oss << "Could not write to raster file: " << block_path.string() << std::endl;
+               throw std::runtime_error(oss.str());
             }
          } else {
             // I know i have a prevIt
-            const auto& timestepDataPrev = (*itPrev);
+            const auto& [step_prev, data_prev] = (*itPrev);
             std::vector<T> newData;
 
-            auto it1 = timestepData.second.begin();
-            auto it2 = timestepDataPrev.second.begin();
-            for (; it1 != timestepData.second.end() && it2 != timestepDataPrev.second.end(); ++it1, ++it2) {
+            auto it1 = data.begin();
+            auto it2 = data_prev.begin();
+            for (; it1 != data.end() && it2 != data_prev.end(); ++it1, ++it2) {
                newData.push_back(*it1 - *it2);
             }
 
@@ -554,17 +501,17 @@ void WriteVariableGeotiff::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown
                                       gdal_type(_dataType), 0, 0);
             if (err != CE_None) {
                std::ostringstream oss;
-               oss << "Could not write to raster file: " << block_path.path() << std::endl;
-               throw ApplicationException(oss.str());
+               oss << "Could not write to raster file: " << block_path.string() << std::endl;
+               throw std::runtime_error(oss.str());
             }
          }
       } else {
-         auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, timestepData.second.data(), cellCols,
+         auto err = band->RasterIO(GF_Write, 0, 0, cellCols, cellRows, (void*)data.data(), cellCols,
                                    cellRows, gdal_type(_dataType), 0, 0);
          if (err != CE_None) {
             std::ostringstream oss;
-            oss << "Could not write to raster file: " << block_path.path() << std::endl;
-            throw ApplicationException(oss.str());
+            oss << "Could not write to raster file: " << block_path.string() << std::endl;
+            throw std::runtime_error(oss.str());
          }
       }
       itPrev = it;
