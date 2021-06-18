@@ -1,6 +1,5 @@
 #include "moja/datarepository/rasterreader.h"
 
-#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/datarepository/tileblockcellindexer.h"
 
 #include <moja/pocojsonutils.h>
@@ -41,7 +40,7 @@ DynamicObject FlintMetaDataRasterReader::readMetaData() const {
       auto layerMetadata = parsePocoJSONToDynamic(metadata).extract<const DynamicObject>();
       return layerMetadata;
    } else {
-      BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(_metaPath));
+      throw std::runtime_error("Error metadata file not found " + _metaPath);
    }
 }
 
@@ -102,7 +101,7 @@ void FlintTileRasterReader::readFlintBlockData(const BlockIdx& blk_idx, char* bl
       fileStream.open(_tilePath, std::ios::binary);
       std::streampos blockStart = blk_idx.blockIdx * block_size;
       if (fileStream.fail()) {
-         BOOST_THROW_EXCEPTION(FileReadException() << FileName(_tilePath) << Message(strerror(errno)));
+         throw std::runtime_error("Error failed to open block data " + _tilePath + std::string(strerror(errno)));
       }
 
       fileStream.seekg(blockStart);
@@ -173,7 +172,7 @@ void FlintStackRasterReader::readFlintBlockData(const BlockIdx& blk_idx, int nSe
       fileStream.open(_tilePath, std::ios::binary);
       std::streampos blockStart = blk_idx.blockIdx * block_size;
       if (fileStream.fail()) {
-         BOOST_THROW_EXCEPTION(FileReadException() << FileName(_tilePath) << Message(strerror(errno)));
+         throw std::runtime_error("Error failed to open block data " + _tilePath + std::string(strerror(errno)));
       }
 
       fileStream.seekg(blockStart);

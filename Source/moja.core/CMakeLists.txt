@@ -94,6 +94,7 @@ set(MOJA_Core_headers
 	include/moja/pocojsonutils.h
     include/moja/signals.h
     include/moja/stopwatch.h
+	include/moja/status.h
     include/moja/timespan.h
 	include/moja/types.h
 	include/moja/version.h

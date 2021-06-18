@@ -14,6 +14,7 @@
 #include <boost/algorithm/string/join.hpp>
 
 #include <fstream>
+#include <sstream>
 
 using moja::datarepository::IProviderRelationalInterface;
 

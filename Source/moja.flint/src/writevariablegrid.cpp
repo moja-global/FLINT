@@ -17,7 +17,7 @@
 #include <boost/algorithm/string/predicate.hpp>
 
 #include <limits>
-#include <math.h>
+#include <cmath>
 #include <fstream>
 
 namespace fs = moja::filesystem;

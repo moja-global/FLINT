@@ -28,7 +28,7 @@ using moja::flint::configuration::LocalDomainType;
 namespace moja {
 namespace flint {
 
-void AspatialLocalDomainController::configure(const configuration::Configuration& config) {
+status AspatialLocalDomainController::configure(const configuration::Configuration& config) {
    LocalDomainControllerBase::configure(config);
 
    // Build landscape.
@@ -130,9 +130,11 @@ void AspatialLocalDomainController::configure(const configuration::Configuration
       _spinupLandUnitController.initialiseData(false);
       _luId = _landUnitController.getVariable("LandUnitId");
    }
+   return status(status_code::Ok);
 }
 
-void AspatialLocalDomainController::run(const LandUnitInfo& lu) {
+status AspatialLocalDomainController::run(const LandUnitInfo& lu) {
+   status run_result;
    try {
       _luId->set_value(lu.id());
       _landUnitController.initialiseData(true);
@@ -144,20 +146,23 @@ void AspatialLocalDomainController::run(const LandUnitInfo& lu) {
       }
 
       if (!_simulateLandUnit->value()) {
-         return;
+         return run_result;
       }
 
       _notificationCenter.postNotification(moja::signals::PreTimingSequence);
       if (!_landUnitBuildSuccess->value()) {
-         return;
+         return run_result;
       }
 
-      _sequencer->Run(_notificationCenter, _landUnitController);
+      if(!_sequencer->Run(_notificationCenter, _landUnitController)) {
+         run_result = status(status_code::Error, "Sequencer failed");
+      }
    } catch (const std::exception& e) {
       MOJA_LOG_FATAL << e.what();
    }
 
    _landUnitController.clearAllOperationResults();
+   return run_result;
 }
 
 void AspatialLocalDomainController::run(AspatialTileInfo& tile) {
@@ -174,41 +179,52 @@ void AspatialLocalDomainController::run(AspatialTileInfo& tile) {
    MOJA_LOG_INFO << "LocalDomain: Total Time (seconds) : " << ldSpan.totalSeconds();
 }
 
-void AspatialLocalDomainController::startup() {
-   LocalDomainControllerBase::startup();
-   if (_runSpinUp) {
+status AspatialLocalDomainController::startup() {
+   auto base_status = LocalDomainControllerBase::startup();
+   if (base_status.ok() && _runSpinUp) {
       _spinupNotificationCenter.postNotification(moja::signals::LocalDomainInit);
+      return status(status_code::Ok);
    }
+   return base_status;
 }
 
-void AspatialLocalDomainController::shutdown() {
-   LocalDomainControllerBase::shutdown();
+status AspatialLocalDomainController::shutdown() {
+   auto base_status = LocalDomainControllerBase::shutdown();
    if (_runSpinUp) {
       _spinupNotificationCenter.postNotification(moja::signals::LocalDomainShutdown);
+      return status(status_code::Ok);
    }
+   return base_status;
 }
 
-void AspatialLocalDomainController::run() {
-   startup();
+status AspatialLocalDomainController::run() {
+
+   status result(status_code::Ok);
    auto startTime = DateTime::now();
-
-   auto total = _landscape->getTotalLUCount();
-   auto count = 0;
-   for (auto lu : *_landscape) {
-      count++;
-      MOJA_LOG_INFO << std::setfill(' ') << std::setw(10) << count << " of " << std::setfill(' ') << std::setw(10)
-                    << total;
-      run(lu);
+   if (const auto startup_status = startup(); startup_status.ok()) {
+      auto total = _landscape->getTotalLUCount();
+      auto count = 0;
+      for (auto& lu : *_landscape) {
+         count++;
+         MOJA_LOG_INFO << std::setfill(' ') << std::setw(10) << count << " of " << std::setfill(' ') << std::setw(10)
+                       << total;
+         if (auto run_status = run(lu); !run_status.ok()) {
+            MOJA_LOG_ERROR << run_status.message();
+         }
+      }
+      if (auto shutdown_status = shutdown(); !shutdown_status.ok()) {
+         MOJA_LOG_ERROR << shutdown_status.message();
+      }
+   } else {
+      MOJA_LOG_ERROR << startup_status.message();
    }
-   shutdown();
-
-   //_notificationCenter.postNotification(moja::signals::SystemShutdown);
-
+   
    auto endTime = DateTime::now();
    auto ldSpan = endTime - startTime;
    MOJA_LOG_INFO << "LocalDomain: Start Time           : " << startTime;
    MOJA_LOG_INFO << "LocalDomain: Finish Time          : " << endTime;
    MOJA_LOG_INFO << "LocalDomain: Total Time (seconds) : " << ldSpan.totalSeconds();
+   return result;
 }
 
 }  // namespace flint

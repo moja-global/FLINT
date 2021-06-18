@@ -172,9 +172,6 @@ void StatsUnitRecord::mojaLog(const std::string& levelStr, int localDomainId, da
                  << "LU/second: " << std::setfill(' ') << std::setw(8) << luPerSecond << "]";
 }
 
-#define RETRY_ATTEMPTS 10000
-#define RETRY_SLEEP std::chrono::milliseconds(200)
-
 // --------------------------------------------------------------------------------------------
 
 class SpatialTiledLocalDomainController::InternalThreadBlocks {
@@ -388,7 +385,7 @@ SpatialTiledLocalDomainController::SpatialTiledLocalDomainController(
 
 // --------------------------------------------------------------------------------------------
 
-void SpatialTiledLocalDomainController::configure(const configuration::Configuration& config) {
+status SpatialTiledLocalDomainController::configure(const configuration::Configuration& config) {
    LocalDomainControllerBase::configure(config);
    _doLogging = config.localDomain()->doLogging();
    _numThreads = config.localDomain()->numThreads();
@@ -614,6 +611,7 @@ void SpatialTiledLocalDomainController::configure(const configuration::Configura
          _tasks.push_back(task);
       }
    }
+   return status(status_code::Ok);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -740,22 +738,21 @@ bool SpatialTiledLocalDomainController::runCellSpinUp(std::shared_ptr<StatsUnitR
          blockStatsUnit->_stopWatchProcessed.stop();
          blockStatsUnit->_unitsProcessed++;
          return true;
-      } catch (const flint::SimulationError& e) {
-         _spatiallocationinfo->_errorCode = *boost::get_error_info<ErrorCode>(e);
-         _spatiallocationinfo->_library = *boost::get_error_info<LibraryName>(e);
-         _spatiallocationinfo->_module = *boost::get_error_info<ModuleName>(e);
-         _spatiallocationinfo->_message = *boost::get_error_info<Details>(e);
-         _spinupNotificationCenter.postNotification(moja::signals::Error, *boost::get_error_info<Details>(e));
+      } catch (const flint::simulation_error& e) {
+         _spatiallocationinfo->_errorCode = e.error_code();
+         _spatiallocationinfo->_library = e.library_name();
+         _spatiallocationinfo->_module = e.module_name();
+         _spatiallocationinfo->_message = e.what();
+         _spinupNotificationCenter.postNotification(moja::signals::Error, e.what());
          return true;
-      } catch (const flint::LocalDomainError& e) {
-         _spatiallocationinfo->_errorCode = *boost::get_error_info<ErrorCode>(e);
-         _spatiallocationinfo->_library = *boost::get_error_info<LibraryName>(e);
-         _spatiallocationinfo->_module = *boost::get_error_info<ModuleName>(e);
-         _spatiallocationinfo->_message = *boost::get_error_info<Details>(e);
-         _spinupNotificationCenter.postNotification(moja::signals::Error, *boost::get_error_info<Details>(e));
+      } catch (const flint::local_domain_error& e) {
+         _spatiallocationinfo->_errorCode = e.error_code();
+         _spatiallocationinfo->_library = e.library_name();
+         _spatiallocationinfo->_module = e.module_name();
+         _spatiallocationinfo->_message = e.what();
+         _spinupNotificationCenter.postNotification(moja::signals::Error, e.what());
       } catch (const std::exception& e) {
-         const std::string str = e.what();
-         _spinupNotificationCenter.postNotification(moja::signals::Error, str);
+         _spinupNotificationCenter.postNotification(moja::signals::Error, e.what());
       } catch (...) {
          _spinupNotificationCenter.postNotification(moja::signals::Error, "unknown exception");
       }
@@ -851,35 +848,26 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
 
    }
    // This error is recoverable, retunr true for success
-   catch (const flint::SimulationError& e) {
+   catch (const flint::simulation_error& e) {
       // This error is recoverable, drop cell and continue simulation
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      const int* errorCode = boost::get_error_info<ErrorCode>(e);
-      _spatiallocationinfo->_errorCode = *errorCode;
-      _spatiallocationinfo->_library = libraryName;
-      _spatiallocationinfo->_module = moduleName;
-      _spatiallocationinfo->_message = details;
-      _notificationCenter.postNotification(moja::signals::Error, details);
+      _spatiallocationinfo->_errorCode = e.error_code();
+      _spatiallocationinfo->_library = e.library_name();
+      _spatiallocationinfo->_module = e.module_name();
+      _spatiallocationinfo->_message = e.what();
+      _notificationCenter.postNotification(moja::signals::Error, e.what());
       blockStatsUnit->_unitsNotProcessed++;
       blockStatsUnit->_unitsWithError++;
       return true;
    }
    // All other catches are failures for the localdomain, return false!
-   catch (const flint::LocalDomainError& e) {
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      const int* errorCode = boost::get_error_info<ErrorCode>(e);
-      _spatiallocationinfo->_errorCode = *errorCode;
-      _spatiallocationinfo->_library = libraryName;
-      _spatiallocationinfo->_module = moduleName;
-      _spatiallocationinfo->_message = details;
-      _notificationCenter.postNotification(moja::signals::Error, details);
+   catch (const flint::local_domain_error& e) {
+      _spatiallocationinfo->_errorCode = e.error_code();
+      _spatiallocationinfo->_library = e.library_name();
+      _spatiallocationinfo->_module = e.module_name();
+      _spatiallocationinfo->_message = e.what();
+      _notificationCenter.postNotification(moja::signals::Error, e.what());
    } catch (const std::exception& e) {
-      const std::string str = e.what();
-      _notificationCenter.postNotification(moja::signals::Error, str);
+      _notificationCenter.postNotification(moja::signals::Error, e.what());
    } catch (...) {
       _notificationCenter.postNotification(moja::signals::Error, "unknown exception");
    }
@@ -890,44 +878,7 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
 
 // --------------------------------------------------------------------------------------------
 
-// void SpatialTiledLocalDomainController::writeRunSummaryToSQLite(bool insertRunList,
-// std::vector<RunSummaryDataRecord>& runSummaryData) { 	auto retry = false; 	auto maxRetries = RETRY_ATTEMPTS; 	do { 		try {
-//			retry = false;
-//			SQLite::Connector::registerConnector();
-//			Session session("SQLite", _sqliteDatabaseName);
-//			if (_createStatsTablesSQLIte) {
-//
-//				if (insertRunList)
-//					session << "DROP TABLE IF EXISTS run_list", now;
-//				session << "DROP TABLE IF EXISTS run_properties", now;
-//			}
-//			if (insertRunList)
-//				session << "CREATE TABLE IF NOT EXISTS run_list (id INTEGER PRIMARY KEY AUTOINCREMENT, run_id
-//VARCHAR(64) NOT NULL, run_desc VARCHAR(255))", now; 			session << "CREATE TABLE IF NOT EXISTS run_properties (id INTEGER
-//PRIMARY KEY AUTOINCREMENT, run_id_fk VARCHAR(64), property_name VARCHAR(255), property_info VARCHAR(255),
-//property_value VARCHAR(255))", now;
-//
-//			if (insertRunList) {
-//				auto insertStr = (boost::format("INSERT INTO run_list (run_id, run_desc) VALUES('%1%','%2%')")
-//% _runId % _runDesc).str(); 				session.begin(); 				session << insertStr, now; 				session.commit();
-//			}
-//
-//			session.begin();
-//			session << "INSERT INTO run_properties (run_id_fk, property_name, property_info, property_value)
-//VALUES(?, ?, ?, ?)", bind(runSummaryData), now; 			session.commit(); 			SQLite::Connector::unregisterConnector();
-//		}
-//		catch (SQLite::DBLockedException&) {
-//			MOJA_LOG_DEBUG << localDomainId() << ":DBLockedException - " << maxRetries << " retries
-//remaining"; 			std::this_thread::sleep_for(RETRY_SLEEP); 			retry = maxRetries-- > 0; 			if (!retry) { 				MOJA_LOG_DEBUG <<
-//localDomainId() << ":Exceeded MAX RETIRES (" << RETRY_ATTEMPTS << ")"; 				throw;
-//			}
-//		}
-//	} while (retry);
-//}
-
-// --------------------------------------------------------------------------------------------
-
-void SpatialTiledLocalDomainController::run() {
+status SpatialTiledLocalDomainController::run() {
    using namespace std::chrono;
    using clock = system_clock;
    using timepoint = time_point<clock>;
@@ -939,14 +890,7 @@ void SpatialTiledLocalDomainController::run() {
    std::string runSummaryInfoStr;
 
    if (_writeStatsToSQLIte && (!_threadedSystem || (_threadedSystem && _isMaster))) {
-      /// Write first part of Stats to SQLite
-      /// Stats are finalized after simulation
-      // StatsUnitRecord::sqliteCreateTable(_createStatsTablesSQLIte, localDomainId(), _sqliteDatabaseName,
-      // "run_stats_global"); StatsUnitRecord::sqliteCreateTable(_createStatsTablesSQLIte, localDomainId(),
-      // _sqliteDatabaseName, "run_stats_tile"); StatsUnitRecord::sqliteCreateTable(_createStatsTablesSQLIte,
-      // localDomainId(), _sqliteDatabaseName, "run_stats_block");
 
-      //(boost::format("Thread %1%") % _localDomainId).str();
       runSummaryInfoStr = !_threadedSystem ? "Process" : "Master";
       if (!_threadedSystem && _landUnitController.hasVariable("spatialLocationInfo")) {
          auto _spatiallocationinfo = std::static_pointer_cast<moja::flint::SpatialLocationInfo>(
@@ -1001,7 +945,7 @@ void SpatialTiledLocalDomainController::run() {
          }
          _spatiallocationinfo->_engGlobal.seed(_spatiallocationinfo->_randomSeedGlobal);
 
-         while (_blockIdxList.size() > 0) {
+         while (!_blockIdxList.empty()) {
             if (!_threadedSystem) {
                _blockIdxListPosition = int(_blockIdxList.size());
             }
@@ -1058,7 +1002,7 @@ void SpatialTiledLocalDomainController::run() {
                      break;  // This will exit on error return from runCell
                }
             } else {
-               std::pair<UInt32, UInt32> key(blockIdx.tileIdx, blockIdx.blockIdx);
+               const auto key = std::make_pair(blockIdx.tileIdx, blockIdx.blockIdx);
                if (_blockCellIdxList.find(key) != _blockCellIdxList.end()) {
                   auto& blockCells = _blockCellIdxList[key];
                   for (const auto& cell : blockCells) {
@@ -1102,7 +1046,7 @@ void SpatialTiledLocalDomainController::run() {
                         << "Location: " << _spatiallocationinfo->_tileIdx << "," << _spatiallocationinfo->_blockIdx
                         << "," << _spatiallocationinfo->_cellIdx << ", "
                         << "msg:" << e.what();
-         exit(1);
+         return status(status_code::Error, std::string("Error in local domain") + e.what());
       } catch (...) {
          _spatiallocationinfo->_errorCode = 1;
          MOJA_LOG_FATAL << "exception caught at LocalDomain level, exiting..."
@@ -1111,7 +1055,7 @@ void SpatialTiledLocalDomainController::run() {
                         << "," << _spatiallocationinfo->_cellIdx << ", "
                         << "msg:"
                         << "unknown exception";
-         exit(1);
+         return status(status_code::Error, std::string("Error in local domain unknown exception"));
       }
    }
 
@@ -1133,22 +1077,9 @@ void SpatialTiledLocalDomainController::run() {
             datarepository::TileIdx tileIdxObject(tileRec->_tileIdx, _provider->indexer());
             tileRec->mojaLog("Tile", localDomainId(), &tileIdxObject, nullptr, true);
          }
-         // for (auto& i : _tileStatsDimension->getPersistableCollection()) {
-         //	StatsUnitRecord tileStatsRecord(i.get<1>(), seconds(i.get<2>()), seconds(i.get<3>()),
-         //seconds(i.get<4>()), seconds(i.get<5>()), i.get<6>(), i.get<7>(), i.get<8>(), i.get<9>(), i.get<10>(),
-         //i.get<11>(), StatsDurationType::Seconds); 	datarepository::TileIdx tileIdxObject(i.get<10>(),
-         //_provider->indexer()); 	tileStatsRecord.mojaLog("Tile", localDomainId(), &tileIdxObject, nullptr, true);
-         //}
 
          MOJA_LOG_INFO << std::setfill(' ') << std::setw(3) << localDomainId() << ":"
                        << "Summary of processing for full run";
-
-         // for (auto& i : _globalStatsDimension->getPersistableCollection()) {
-         //	StatsUnitRecord tileStatsRecord(i.get<1>(), seconds(i.get<2>()), seconds(i.get<3>()),
-         //seconds(i.get<4>()), seconds(i.get<5>()), i.get<6>(), i.get<7>(), i.get<8>(), i.get<9>(), i.get<10>(),
-         //i.get<11>(), StatsDurationType::Seconds); 	totalUnits += tileStatsRecord._unitsTotal; 	totalUnitsProcessed +=
-         //tileStatsRecord._unitsProcessed; 	tileStatsRecord.mojaLog("Global", localDomainId(), nullptr, nullptr, true);
-         //}
 
          for (auto& rec : _globalStatsDimension->records()) {
             StatsUnitRecord* tileRec = static_cast<StatsUnitRecord*>(rec.get());
@@ -1193,11 +1124,6 @@ void SpatialTiledLocalDomainController::run() {
       auto durMS = duration_cast<milliseconds>(runTime).count();
       auto durS = duration_cast<seconds>(runTime).count();
 
-      // StatsUnitRecord::sqliteWrite(_globalStatsDimension, localDomainId(), _sqliteDatabaseName, "run_stats_global");
-      // StatsUnitRecord::sqliteWrite(_tileStatsDimension,	localDomainId(), _sqliteDatabaseName, "run_stats_tile");
-      // StatsUnitRecord::sqliteWrite(_blockStatsDimension,	localDomainId(), _sqliteDatabaseName,
-      // "run_stats_block");
-
       std::vector<RunSummaryDataRecord> runSummaryData;
       runSummaryData.push_back(RunSummaryDataRecord(_runId, "run_system_finish", runSummaryInfoStr,
                                                     (boost::format("%1%") % moja::put_time(&t2, "%c %Z")).str()));
@@ -1237,11 +1163,11 @@ void SpatialTiledLocalDomainController::run() {
       runSummaryData.push_back(RunSummaryDataRecord(_runId, "run_thread_%1%_time_milliseconds", runSummaryInfoStr,
                                                     (boost::format("%1%") % durMS).str()));
 
-      // writeRunSummaryToSQLite(false, runSummaryData);
    }
+   return status(status_code::Ok);
 }
 
-void SpatialTiledLocalDomainController::startup() {
+status SpatialTiledLocalDomainController::startup() {
    try {
       if (_runSpinUp) {
          _spinupNotificationCenter.postNotification(moja::signals::SystemInit);
@@ -1253,21 +1179,15 @@ void SpatialTiledLocalDomainController::startup() {
             _spinupNotificationCenter.postNotification(moja::signals::LocalDomainInit);
          }
       }
-   } catch (const flint::SimulationError& e) {
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      MOJA_LOG_FATAL << "Exception caught at LocalDomain level, exiting."
-                     << " | Library: " << libraryName << " | Module: " << moduleName << " | Details: " << details;
-      exit(1);
    } catch (const std::exception& e) {
-      MOJA_LOG_FATAL << "std::exception caught at LocalDomain level, exiting..."
+      MOJA_LOG_FATAL << "std::exception caught at LocalDomain level "
                      << "msg:" << e.what();
-      exit(1);
+      return status(status_code::Error, std::string("Exception caught at LocalDomain level ") + e.what());
    }
+   return status(status_code::Ok);
 }
 
-void SpatialTiledLocalDomainController::shutdown() {
+status SpatialTiledLocalDomainController::shutdown() {
    try {
       // When running threaded we don't want main process to fire LocalDomainShutdown
       if (!_threadedSystem || (_threadedSystem && _isThread)) {
@@ -1279,22 +1199,12 @@ void SpatialTiledLocalDomainController::shutdown() {
       if (_runSpinUp) {
          _spinupNotificationCenter.postNotification(moja::signals::SystemShutdown);
       }
-   } catch (const flint::SimulationError& e) {
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      MOJA_LOG_FATAL << "Exception caught at LocalDomain level, exiting."
-                     << " | Library: " << libraryName << " | Module: " << moduleName << " | Details: " << details;
-      exit(1);
    } catch (const std::exception& e) {
-      MOJA_LOG_FATAL << "std::exception caught at LocalDomain level, exiting..."
-                     << "msg:" << e.what();
-      exit(1);
+      MOJA_LOG_FATAL << "std::exception caught at LocalDomain level msg:" << e.what();
+      return status(status_code::Error, std::string("Exception caught at LocalDomain level ") + e.what());
    }
+   return status(status_code::Ok);
 }
-
-#undef RETRY_ATTEMPTS
-#undef RETRY_SLEEP
 
 }  // namespace flint
 }  // namespace moja

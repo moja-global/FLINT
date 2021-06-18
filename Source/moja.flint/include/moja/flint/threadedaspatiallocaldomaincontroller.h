@@ -41,14 +41,11 @@ class AspatialLocalDomainThread {
 
 class FLINT_API ThreadedAspatialLocalDomainController final : public flint::LocalDomainControllerBase {
   public:
-   ThreadedAspatialLocalDomainController(void);
-   ~ThreadedAspatialLocalDomainController() = default;
+   ThreadedAspatialLocalDomainController();
+   ~ThreadedAspatialLocalDomainController() override = default;
 
-   virtual void configure(const flint::configuration::Configuration& config) override;
-   virtual void run() override;
-
-   virtual void startup() override {}
-   virtual void shutdown() override {}
+   status configure(const configuration::Configuration& config) override;
+   status run() override;
 
    std::vector<std::shared_ptr<AspatialLocalDomainThread>> tasks() const { return _tasks; }
 

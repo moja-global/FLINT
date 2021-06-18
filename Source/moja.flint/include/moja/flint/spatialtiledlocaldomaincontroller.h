@@ -10,6 +10,8 @@
 #include <moja/datarepository/iproviderspatialrasterinterface.h>
 #include <moja/datarepository/tileblockcellindexer.h>
 
+#include <moja/stopwatch.h>
+
 #include <queue>
 #include <thread>
 
@@ -119,12 +121,12 @@ class FLINT_API SpatialTiledLocalDomainController : public LocalDomainController
        bool isThread = false);
    ~SpatialTiledLocalDomainController(void) = default;
 
-   void configure(const flint::configuration::Configuration& config) override;
-   void run() override;
+   status configure(const flint::configuration::Configuration& config) override;
+   status run() override;
 
-   void startup() override;
+   status startup() override;
 
-   void shutdown() override;
+   status shutdown() override;
 
   private:
    class InternalThreadBlocks;

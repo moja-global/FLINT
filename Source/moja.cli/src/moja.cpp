@@ -288,11 +288,11 @@ int main(int argc, char* argv[]) {
                       << ", Version: " << ldc->landUnitController().operationManager()->version()
                       << ", Config: " << ldc->landUnitController().operationManager()->config();
 
-        ldc->_notificationCenter.postNotification(moja::signals::SystemInit);
+        ldc->notification_center().postNotification(moja::signals::SystemInit);
         ldc->startup();
         ldc->run();
         ldc->shutdown();
-        ldc->_notificationCenter.postNotification(moja::signals::SystemShutdown);
+        ldc->notification_center().postNotification(moja::signals::SystemShutdown);
      } catch (const std::exception& e) {
      MOJA_LOG_FATAL << e.what();
 	     return EXIT_FAILURE;

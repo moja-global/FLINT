@@ -13,12 +13,10 @@
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
-#include <boost/format.hpp>
+#include <fmt/format.h>
 
 namespace moja {
 namespace flint {
-
-#define OPERATION_MANAGER_CACHE_SIZE 100
 
 // --------------------------------------------------------------------------------------------
 
@@ -117,15 +115,11 @@ void OperationManagerSimple::applyOperations() {
 
             if (!_allowNegativeTransfers && FloatCmp::lessThan(val, 0.0)) {
                auto amount = flux.transferType() == OperationTransferType::Proportional ? val * 100.0 : val;
-               BOOST_THROW_EXCEPTION(SimulationError()
-                                     << Details((boost::format("Negative transfer by %1%: %2% %3% %4% to %5%") %
-                                                 flux.metaData()->moduleName % amount %
-                                                 (flux.transferType() == OperationTransferType::Proportional ? "% of"
-                                                                                                             : "from") %
-                                                 getPool(srcIx)->name() % getPool(dstIx)->name())
-                                                    .str())
-                                     << LibraryName("moja.flint") << ModuleName("OperationManagerSimple")
-                                     << ErrorCode(0));
+               throw simulation_error(
+                   fmt::format("Negative transfer by {}: {} {} {} to {}", flux.metaData()->moduleName, amount,
+                               (flux.transferType() == OperationTransferType::Proportional ? "% of" : "from"),
+                               getPool(srcIx)->name(), getPool(dstIx)->name()),
+                   "moja.flint", "OperationManagerSimple", 0);
             }
 
             if (_warnNegativeTransfers && FloatCmp::lessThan(val, 0.0)) {

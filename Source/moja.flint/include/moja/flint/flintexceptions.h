@@ -1,30 +1,55 @@
-#ifndef MOJA_FLINT_FLINTEXCEPTIONS_H_
-#define MOJA_FLINT_FLINTEXCEPTIONS_H_
+#pragma once
 
 #include "moja/flint/_flint_exports.h"
 
-#include <boost/exception/all.hpp>
-
 #include <string>
+#include <utility>
+#include <stdexcept>
 
-namespace moja {
-namespace flint {
+namespace moja::flint {
 
-struct FLINT_API FLINTException : virtual std::exception, virtual boost::exception {};
+class FLINT_API flint_exception : public std::runtime_error {
+  public:
+   flint_exception(const std::string& message) : std::runtime_error(message) {}
+   flint_exception(const char* message) : std::runtime_error(message) {}
+};
 
-struct FLINT_API LocalDomainError : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> ModuleName;
-typedef boost::error_info<struct tag_code, int> ErrorCode;
+class FLINT_API local_domain_error : public flint_exception {
+  public:
+   local_domain_error(const std::string& message, std::string library_name = "", std::string module_name = "",
+                    int error_code = -1)
+       : flint_exception(message),
+         library_name_(std::move(library_name)),
+         module_name_(std::move(module_name)),
+         error_code_(error_code) {}
 
-struct FLINT_API SimulationError : virtual FLINTException {};
-typedef boost::error_info<struct tag_details, std::string> Details;
-typedef boost::error_info<struct tag_library, std::string> LibraryName;
-typedef boost::error_info<struct tag_module, std::string> ModuleName;
-typedef boost::error_info<struct tag_code, int> ErrorCode;
+   [[nodiscard]] const std::string& library_name() const noexcept { return library_name_; }
+   [[nodiscard]] const std::string& module_name() const noexcept { return module_name_; }
+   [[nodiscard]] int error_code() const noexcept { return error_code_; }
 
-}  // namespace flint
-}  // namespace moja
+  private:
+   std::string library_name_;
+   std::string module_name_;
+   int error_code_;
+};
 
-#endif  // MOJA_FLINT_FLINTEXCEPTIONS_H_
+class FLINT_API simulation_error : public flint_exception {
+  public:
+   simulation_error(const std::string& message, std::string library_name = "", std::string module_name = "",
+                   int error_code = -1)
+       : flint_exception(message),
+         library_name_(std::move(library_name)),
+         module_name_(std::move(module_name)),
+         error_code_(error_code) {}
+
+   [[nodiscard]] const std::string& library_name() const noexcept { return library_name_; }
+   [[nodiscard]] const std::string& module_name() const noexcept { return module_name_; }
+   [[nodiscard]] int error_code() const noexcept { return error_code_; }
+
+  private:
+   std::string library_name_;
+   std::string module_name_;
+   int error_code_;
+};
+
+}  // namespace moja::flint
