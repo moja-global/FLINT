@@ -27,7 +27,8 @@ class FLINT_API OutputerStream : public ModuleBase {
    virtual void subscribe(NotificationCenter& notificationCenter) override;
 
    virtual void outputHeader(std::ostream& stream) const;
-   virtual void outputOnNotification(const std::string& notification, std::ostream& stream);
+   virtual void outputInit(std::ostream& stream);
+   virtual void outputEndStep(const std::string& notification, std::ostream& stream);
    virtual void outputShutdown(std::ostream& stream);
 
    void onSystemInit() override;

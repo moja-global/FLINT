@@ -9,14 +9,17 @@
 #include "moja/flint/operationstocksimple.h"
 #include "moja/flint/poolsimple.h"
 
+#include <moja/exception.h>
 #include <moja/logging.h>
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/predicate.hpp>
-#include <fmt/format.h>
+#include <boost/format.hpp>
 
 namespace moja {
 namespace flint {
+
+#define OPERATION_MANAGER_CACHE_SIZE 100
 
 // --------------------------------------------------------------------------------------------
 
@@ -115,11 +118,15 @@ void OperationManagerSimple::applyOperations() {
 
             if (!_allowNegativeTransfers && FloatCmp::lessThan(val, 0.0)) {
                auto amount = flux.transferType() == OperationTransferType::Proportional ? val * 100.0 : val;
-               throw simulation_error(
-                   fmt::format("Negative transfer by {}: {} {} {} to {}", flux.metaData()->moduleName, amount,
-                               (flux.transferType() == OperationTransferType::Proportional ? "% of" : "from"),
-                               getPool(srcIx)->name(), getPool(dstIx)->name()),
-                   "moja.flint", "OperationManagerSimple", 0);
+               BOOST_THROW_EXCEPTION(SimulationError()
+                                     << Details((boost::format("Negative transfer by %1%: %2% %3% %4% to %5%") %
+                                                 flux.metaData()->moduleName % amount %
+                                                 (flux.transferType() == OperationTransferType::Proportional ? "% of"
+                                                                                                             : "from") %
+                                                 getPool(srcIx)->name() % getPool(dstIx)->name())
+                                                    .str())
+                                     << LibraryName("moja.flint") << ModuleName("OperationManagerSimple")
+                                     << ErrorCode(0));
             }
 
             if (_warnNegativeTransfers && FloatCmp::lessThan(val, 0.0)) {
@@ -222,7 +229,7 @@ const IPool* OperationManagerSimple::addPool(const std::string& name, const std:
    }
 
    if (_poolValues.size() == _poolValues.capacity()) {
-      throw std::runtime_error(
+      throw ApplicationException(
           "maximum pool definitions exceeded. Only 255 pools allowed");  // to protect the references held by PoolSimple
                                                                          // wrappers
    }
@@ -253,17 +260,17 @@ const IPool* OperationManagerSimple::addPool(PoolMetaData& metadata, double init
 
 const IPool* OperationManagerSimple::getPool(const std::string& name) const {
    try {
-      auto& r = _poolNameObjectMap.at(name);
+      auto r = _poolNameObjectMap.at(name);
       return r.get();
    } catch (...) {
-      throw std::invalid_argument("Error pool not found " + name);
+      throw PoolNotFoundException() << PoolName(name);
    }
 }
 
 // --------------------------------------------------------------------------------------------
 
 const IPool* OperationManagerSimple::getPool(int index) const {
-   if (index >= _poolObjects.size() || index < 0) throw std::invalid_argument("Error in get pool index out of range");
+   if (index >= _poolObjects.size() || index < 0) throw PoolNotFoundException() << PoolName("Bad index");
    auto& r = _poolObjects[index];
    return r.get();
 }

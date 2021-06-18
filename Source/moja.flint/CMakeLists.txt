@@ -179,6 +179,18 @@ set(MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS
 	include/moja/flint/poolsimplecache.h
 )
 
+set(MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS
+	include/moja/flint/matrixublas.h
+	include/moja/flint/operationmanagerublas.h
+	include/moja/flint/operationresultfluxublas.h
+	include/moja/flint/operationresultfluxiteratorublas.h
+	include/moja/flint/operationresultublas.h
+	include/moja/flint/operationproportionalublas.h
+	include/moja/flint/operationstockublas.h
+	include/moja/flint/operationtransferublas.h
+	include/moja/flint/poolublas.h
+)
+
 set(MOJA_FLINT_MODULE_SOURCES
 	src/aggregatorfluxstep.cpp
 	src/aggregatorstockstep.cpp
@@ -259,6 +271,14 @@ set(MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_SOURCE
 	src/operationstocksimplecache.cpp
 )
 
+set(MOJA_FLINT_OPERATION_MANAGER_UBLAS_SOURCE
+	src/poolublas.cpp
+	src/operationmanagerublas.cpp
+	src/operationproportionalublas.cpp
+	src/operationresultublas.cpp
+	src/operationstockublas.cpp
+)
+
 source_group("header files\\other"					FILES ${MOJA_FLINT_HEADERS})
 source_group("source files\\other"					FILES ${MOJA_FLINT_SOURCES})
 source_group("header files\\modules"				FILES ${MOJA_FLINT_MODULE_HEADERS})
@@ -272,6 +292,8 @@ source_group("header files\\op_man_simple"			FILES ${MOJA_FLINT_OPERATION_MANAGE
 source_group("source files\\op_man_simple"			FILES ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_SOURCE})
 source_group("header files\\op_man_simplecache"		FILES ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS})
 source_group("source files\\op_man_simplecache"		FILES ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_SOURCE})
+source_group("header files\\op_man_ublas"			FILES ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS})
+source_group("source files\\op_man_ublas"			FILES ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_SOURCE})
 
 set (SRCS ${MOJA_FLINT_GENERATED_HEADERS}
 		  ${MOJA_FLINT_SOURCES} ${MOJA_FLINT_HEADERS}
@@ -280,7 +302,8 @@ set (SRCS ${MOJA_FLINT_GENERATED_HEADERS}
 		  ${MOJA_FLINT_FLINTDATA_SOURCES} ${MOJA_FLINT_FLINTDATA_HEADERS} 
 		  ${MOJA_FLINT_IOPERATION_MANAGER_HEADERS} 
           ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_HEADERS} ${MOJA_FLINT_OPERATION_MANAGER_SIMPLE_SOURCE} 
-          ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS} ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_SOURCE} )
+          ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_HEADERS} ${MOJA_FLINT_OPERATION_MANAGER_SIMPLECACHE_SOURCE} 
+		  ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_HEADERS}  ${MOJA_FLINT_OPERATION_MANAGER_UBLAS_SOURCE})
 
 
 add_library( ${LIBNAME} ${LIB_MODE} ${SRCS} ${ProductVersionFiles})

@@ -2,16 +2,16 @@
 #define MOJA_DATAREPOSITORY_TILEBLOCKCELLINDEXER_H_
 
 #include "moja/datarepository/_datarepository_exports.h"
+#include "moja/datarepository/datarepositoryexceptions.h"
 
 #include <moja/hash.h>
 #include <moja/mathex.h>
+#include <moja/stopwatch.h>
 #include <moja/utility.h>
 
 #include <chrono>
-#include <sstream>
 #include <unordered_map>
 #include <vector>
-#include <stdexcept>
 
 namespace moja {
 namespace datarepository {
@@ -183,14 +183,16 @@ struct DATAREPOSITORY_API BlockIdx {
 
       if (t_idx > indexer.tileDesc.indexLimit - 1) {
          std::stringstream ss;
-         ss << "tile index > index limit " << "tile.X:" << tile.X << " tile.Y:" << tile.Y;
-         throw std::range_error(ss.str());
+         ss << "tile.X:" << tile.X << "tile.Y:" << tile.Y;
+         BOOST_THROW_EXCEPTION(TileBlockCellIndexerInvalidParameterException()
+                               << Component(ss.str()) << Constraint("tileindex > indexLimit"));
       }
 
       if (b_idx > indexer.blockDesc.indexLimit - 1) {
          std::stringstream ss;
-         ss << "block index > index limit block.X:" << block.X << "block.Y:" << block.Y;
-         throw std::range_error(ss.str());
+         ss << "block.X:" << block.X << "block.Y:" << block.Y;
+         BOOST_THROW_EXCEPTION(TileBlockCellIndexerInvalidParameterException()
+                               << Component(ss.str()) << Constraint("blockindex > indexLimit"));
       }
 
       tileIdx = t_idx;
@@ -201,14 +203,16 @@ struct DATAREPOSITORY_API BlockIdx {
        : tileCols(indexer.tileDesc.cols), blockCols(indexer.blockDesc.cols) {
       if (tileIdx > indexer.tileDesc.indexLimit - 1) {
          std::stringstream ss;
-         ss << "tile index > index limit tileIdx:" << tileIdx;
-         throw std::invalid_argument(ss.str());
+         ss << "tileIdx:" << tileIdx;
+         BOOST_THROW_EXCEPTION(TileBlockCellIndexerInvalidParameterException()
+                               << Component(ss.str()) << Constraint("tileindex > indexLimit"));
       }
 
       if (blockIdx > indexer.blockDesc.indexLimit - 1) {
          std::stringstream ss;
-         ss << "block index > index limit blockIdx:" << blockIdx;
-         throw std::invalid_argument(ss.str());
+         ss << "blockIdx:" << blockIdx;
+         BOOST_THROW_EXCEPTION(TileBlockCellIndexerInvalidParameterException()
+                               << Component(ss.str()) << Constraint("blockindex > indexLimit"));
       }
 
       this->tileIdx = tileIdx;

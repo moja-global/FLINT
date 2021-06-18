@@ -1,32 +1,34 @@
 #include "moja/datarepository/rasterreader.h"
 
+#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/datarepository/tileblockcellindexer.h"
 
 #include <moja/pocojsonutils.h>
 #include <moja/utility.h>
-#include <moja/filesystem.h>
 
+#include <Poco/File.h>
+#include <Poco/JSON/ParseHandler.h>
 #include <Poco/JSON/Parser.h>
+#include <Poco/JSON/Stringifier.h>
+#include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
-
-#include <fmt/format.h>
+#include <boost/format.hpp>
 
 #include <fstream>
+#include <sstream>
 
 namespace moja {
 namespace datarepository {
-
-namespace fs = moja::filesystem;
 
 // --------------------------------------------------------------------------------------------
 
 FlintMetaDataRasterReader::FlintMetaDataRasterReader(const std::string& path, const std::string& prefix,
                                                      const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
-
-    const auto mata_path = fs::absolute(path) / fmt::format("{}.json", prefix);
-   _metaPath = mata_path.string();
+    auto filePath = Poco::Path(path);
+    auto abs = filePath.absolute().toString();
+    _metaPath = (boost::format("%1%%2%%3%.json") % abs % Poco::Path::separator() % prefix).str();
 }
 
 DynamicObject FlintMetaDataRasterReader::readMetaData() const {
@@ -40,7 +42,7 @@ DynamicObject FlintMetaDataRasterReader::readMetaData() const {
       auto layerMetadata = parsePocoJSONToDynamic(metadata).extract<const DynamicObject>();
       return layerMetadata;
    } else {
-      throw std::runtime_error("Error metadata file not found " + _metaPath);
+      BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(_metaPath));
    }
 }
 
@@ -49,8 +51,7 @@ DynamicObject FlintMetaDataRasterReader::readMetaData() const {
 FlintTileRasterReader::FlintTileRasterReader(const std::string& path, const Point& origin, const std::string& prefix,
                                              const TileBlockCellIndexer& indexer, const DynamicObject& settings)
     : TileRasterReaderInterface(path, origin, prefix, indexer, settings) {
-   const auto tile_path = fs::path(path) / fmt::format("{}_{}.blk", prefix, tile_id(origin));
-   _tilePath = tile_path.string();
+   _tilePath = (boost::format("%1%%2%%3%_%4%.blk") % path % Poco::Path::separator() % prefix % tile_id(origin)).str();
 }
 
 FlintTileRasterReader::~FlintTileRasterReader() {}
@@ -101,7 +102,7 @@ void FlintTileRasterReader::readFlintBlockData(const BlockIdx& blk_idx, char* bl
       fileStream.open(_tilePath, std::ios::binary);
       std::streampos blockStart = blk_idx.blockIdx * block_size;
       if (fileStream.fail()) {
-         throw std::runtime_error("Error failed to open block data " + _tilePath + std::string(strerror(errno)));
+         BOOST_THROW_EXCEPTION(FileReadException() << FileName(_tilePath) << Message(strerror(errno)));
       }
 
       fileStream.seekg(blockStart);
@@ -118,9 +119,7 @@ void FlintTileRasterReader::readFlintBlockData(const BlockIdx& blk_idx, char* bl
 FlintStackRasterReader::FlintStackRasterReader(const std::string& path, const Point& origin, const std::string& prefix,
                                                const TileBlockCellIndexer& indexer, const DynamicObject& settings)
     : StackRasterReaderInterface(path, origin, prefix, indexer, settings) {
-
-    const auto tile_path = fs::path(path) / fmt::format("{}_{}.blk", prefix, stack_id(origin));
-   _tilePath = tile_path.string();
+   _tilePath = (boost::format("%1%%2%%3%_%4%.blk") % path % Poco::Path::separator() % prefix % stack_id(origin)).str();
 }
 
 FlintStackRasterReader::~FlintStackRasterReader() {}
@@ -172,7 +171,7 @@ void FlintStackRasterReader::readFlintBlockData(const BlockIdx& blk_idx, int nSe
       fileStream.open(_tilePath, std::ios::binary);
       std::streampos blockStart = blk_idx.blockIdx * block_size;
       if (fileStream.fail()) {
-         throw std::runtime_error("Error failed to open block data " + _tilePath + std::string(strerror(errno)));
+         BOOST_THROW_EXCEPTION(FileReadException() << FileName(_tilePath) << Message(strerror(errno)));
       }
 
       fileStream.seekg(blockStart);

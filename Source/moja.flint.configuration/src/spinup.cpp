@@ -1,6 +1,7 @@
 #include "moja/flint/configuration/spinup.h"
 
 #include "moja/flint/configuration/configuration.h"
+#include "moja/flint/configuration/configurationexceptions.h"
 #include "moja/flint/configuration/externalvariable.h"
 #include "moja/flint/configuration/flintdatavariable.h"
 #include "moja/flint/configuration/localdomain.h"
@@ -51,8 +52,8 @@ void Spinup::addSpinupModule(const std::string& libraryName, const std::string& 
                                  [order](std::shared_ptr<SpinupModule> other) { return other->order() == order; });
 
    if (sameOrder != _modules.end()) {
-      throw std::runtime_error("Error spin up module order overlap in " + libraryName + " " + name + " = " +
-                               (*sameOrder)->name());
+      throw SpinupModuleOrderOverlapException()
+          << Order(order) << SpinupModuleNames({libraryName, name, (*sameOrder)->name()});
    }
 
    auto module = std::make_shared<SpinupModule>(libraryName, name, order, createNew, settings);

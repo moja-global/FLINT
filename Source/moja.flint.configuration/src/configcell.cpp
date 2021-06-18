@@ -1,6 +1,7 @@
 #include "moja/flint/configuration/configcell.h"
 
 #include "moja/flint/configuration/configblock.h"
+#include "moja/flint/configuration/configurationexceptions.h"
 
 #include <boost/format.hpp>
 #include <boost/format/group.hpp>
@@ -14,11 +15,11 @@ namespace configuration {
 
 ConfigCell::ConfigCell(const ConfigBlock& block, int row, int col) : _block(block) {
    if (row < 0) {
-      throw std::invalid_argument("Error in config cell row < 0");
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("row") << Constraint(">= 0"));
    }
 
    if (col < 0) {
-      throw std::invalid_argument("Error in config cell col < 0");
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("col") << Constraint(">= 0"));
    }
 
    _row = row;

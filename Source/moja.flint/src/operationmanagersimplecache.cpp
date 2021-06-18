@@ -219,15 +219,15 @@ const IPool* OperationManagerSimpleCache::addPool(PoolMetaData& metadata, double
 
 const IPool* OperationManagerSimpleCache::getPool(const std::string& name) const {
    try {
-      auto& r = _poolNameObjectMap.at(name);
+      auto r = _poolNameObjectMap.at(name);
       return r.get();
    } catch (...) {
-      throw std::invalid_argument("Error pool not found " + name);
+      throw PoolNotFoundException() << PoolName(name);
    }
 }
 
 const IPool* OperationManagerSimpleCache::getPool(int index) const {
-   if (index >= _poolObjects.size() || index < 0) throw std::invalid_argument("Error in get pool index out of range");
+   if (index >= _poolObjects.size() || index < 0) throw PoolNotFoundException() << PoolName("Bad index");
    auto& r = _poolObjects[index];
    return r.get();
 }

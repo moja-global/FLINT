@@ -6,9 +6,9 @@
 
 #include <moja/types.h>
 
+#include <Poco/Mutex.h>
 
 #include <atomic>
-#include <mutex>
 #include <unordered_set>
 
 namespace moja {
@@ -23,7 +23,7 @@ class RecordAccumulatorWithMutex {
    typedef typename rec_accu_vec::size_type rec_accu_size_type;
 
    Record<TPersistable>* insert(Int64 id, std::shared_ptr<Record<TPersistable>> record) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       // ID has been assigned by user, assume that we can run with this
       _nextId = id + 1;  // can't guarantee that this will be called in 'id increasing' order but a good guess perhaps
       record->setId(id);
@@ -33,7 +33,7 @@ class RecordAccumulatorWithMutex {
    }
 
    Record<TPersistable>* accumulate(std::shared_ptr<Record<TPersistable>> record) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       auto record_ptr = record.get();
       auto it = _recordsIdx.find(record_ptr);
       if (it != _recordsIdx.end()) {
@@ -51,7 +51,7 @@ class RecordAccumulatorWithMutex {
    }
 
    Record<TPersistable>* accumulate(std::shared_ptr<Record<TPersistable>> record, Int64 requestedId) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       auto record_ptr = record.get();
       auto it = _recordsIdx.find(record_ptr);
       if (it != _recordsIdx.end()) {
@@ -105,13 +105,12 @@ class RecordAccumulatorWithMutex {
    const rec_accu_vec& records() const { return _records; };
 
   private:
-   std::mutex _mutex;
+   Poco::Mutex _mutex;
    Int64 _nextId = 1;
    rec_accu_set _recordsIdx;
    rec_accu_vec _records;
 };
 
-// template <class TPersistable, class TRecord, typename Int64>
 template <class TPersistable, class TRecord>
 class RecordAccumulatorWithMutex2 {
    struct RecordComparer {
@@ -140,7 +139,7 @@ class RecordAccumulatorWithMutex2 {
    RecordAccumulatorWithMutex2() : _nextId(1) {}
 
    const TRecord* insert(Int64 id, TRecord record) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       if (_records.size() == _records.capacity()) {
          _recordsIdx.clear();
          _records.reserve(compute_size());
@@ -160,7 +159,7 @@ class RecordAccumulatorWithMutex2 {
    const TRecord* accumulate(TRecord record) { return accumulate(record, -1); }
 
    const TRecord* accumulate(TRecord record, Int64 requestedId) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       auto it = _recordsIdx.find(&record);
       if (it != _recordsIdx.end()) {
          // Found an existing ID for the key.
@@ -221,17 +220,12 @@ class RecordAccumulatorWithMutex2 {
       _records.clear();
    }
 
-   void shrink_to_fit() {
-      _recordsIdx.clear();
-      _records.shrink_to_fit();
-   }
-
    rec_accu_size_type size() { return _records.size(); }
 
    const rec_accu_vec& records() const { return _records; };
 
   private:
-   std::mutex _mutex;
+   Poco::Mutex _mutex;
    std::atomic<Int64> _nextId;
    rec_accu_set _recordsIdx;
    rec_accu_vec _records;

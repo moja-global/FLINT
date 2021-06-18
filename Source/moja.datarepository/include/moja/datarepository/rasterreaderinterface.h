@@ -5,7 +5,9 @@
 
 #include <moja/dynamic.h>
 #include <moja/utility.h>
-#include <moja/filesystem.h>
+
+#include <Poco/File.h>
+#include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
@@ -14,8 +16,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
-namespace fs = moja::filesystem;
 
 namespace moja {
 namespace datarepository {
@@ -42,7 +42,8 @@ class DATAREPOSITORY_API MetaDataRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool MetaDataRasterReaderInterface::file_exists(const std::string& path) {
-   return fs::exists(path);
+   Poco::File pf(path);
+   return pf.exists();
 }
 
 // --------------------------------------------------------------------------------------------
@@ -87,7 +88,8 @@ class DATAREPOSITORY_API TileRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool TileRasterReaderInterface::file_exists(const std::string& path) {
-   return fs::exists(path);
+   Poco::File pf(path);
+   return pf.exists();
 }
 
 // --------------------------------------------------------------------------------------------
@@ -132,7 +134,8 @@ class DATAREPOSITORY_API StackRasterReaderInterface {
 // --------------------------------------------------------------------------------------------
 
 inline bool StackRasterReaderInterface::file_exists(const std::string& path) {
-   return fs::exists(path);
+   Poco::File pf(path);
+   return pf.exists();
 }
 
 // --------------------------------------------------------------------------------------------

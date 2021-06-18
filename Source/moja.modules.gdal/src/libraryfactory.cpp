@@ -21,7 +21,7 @@ namespace gdal {
 
 extern "C" {
 
-std::mutex _fileHandlingMutexVarGeotiffWriter;
+Poco::Mutex _fileHandlingMutexVarGeotiffWriter;
 
 MOJA_LIB_API int getModuleRegistrations(ModuleRegistration* outModuleRegistrations) {
    int index = 0;

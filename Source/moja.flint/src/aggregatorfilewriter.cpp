@@ -10,9 +10,9 @@
 #include <moja/logging.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-#include <moja/filesystem.h>
 
 #include <Poco/Exception.h>
+#include <Poco/File.h>
 #include <Poco/FileStream.h>
 #include <Poco/Format.h>
 #include <Poco/TeeStream.h>
@@ -20,11 +20,10 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 
+#include <thread>
 
 using Poco::format;
 using Poco::NotFoundException;
-
-namespace fs = moja::filesystem;
 
 namespace moja {
 namespace flint {
@@ -67,8 +66,9 @@ void AggregatorFileWriter::onSystemInit() {
    try {
       // create file here and append flux data later, this will work in threaded mode as well
       // file created on onSystemInit, shared Mutex around file access used to append to it.
-      
-      if (fs::exists(_fileName)) fs::remove(_fileName);
+      Poco::File outputFile(_fileName);
+      if (outputFile.exists()) outputFile.remove();
+      outputFile.createFile();
 
       if (_writeFileHeader) {
          Poco::FileOutputStream streamFile(_fileName);
@@ -106,6 +106,20 @@ void AggregatorFileWriter::onSystemInit() {
 // --------------------------------------------------------------------------------------------
 
 void AggregatorFileWriter::onSystemShutdown() {
+   try {
+      // std::vector<runStatDataRecord> runStatData;
+
+      // MOJA_LOG_DEBUG << _simulationUnitData->_localDomainId << ":File write start"; // << Filename perhaps
+   } catch (Poco::AssertionViolationException& exc) {
+      MOJA_LOG_DEBUG << _simulationUnitData->_localDomainId << ":AssertionViolationException - " << exc.displayText();
+      throw;
+   } catch (const std::exception& e) {
+      MOJA_LOG_DEBUG << _simulationUnitData->_localDomainId << ":Unknown exception: - " << e.what();
+      throw;
+   } catch (...) {
+      MOJA_LOG_DEBUG << _simulationUnitData->_localDomainId << ":Unknown Exception";
+      throw;
+   }
 }
 
 // --------------------------------------------------------------------------------------------
@@ -163,7 +177,7 @@ void AggregatorFileWriter::writeFlux() {
 
       // -- Write Flux Facts
       // append to end of file using _fileMutex to keep things safe
-      std::unique_lock<std::mutex> lock(_fileMutex);
+      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(_fileMutex);
 
       // append to file here
       // Poco::OutputLineEndingConverter output(stream, Poco::LineEnding::NEWLINE_CRLF);

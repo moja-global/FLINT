@@ -1,18 +1,20 @@
 #include "moja/flint/configuration/json2configurationprovider.h"
 
+#include "moja/flint/configuration/configurationexceptions.h"
 #include "moja/flint/configuration/iterationbase.h"
 #include "moja/flint/configuration/iterationtileindex.h"
 #include "moja/flint/configuration/library.h"
 #include "moja/flint/configuration/localdomain.h"
 #include "moja/flint/configuration/spinup.h"
 
-#include <moja/filesystem.h>
 #include <moja/logging.h>
 #include <moja/pocojsonutils.h>
 
+#include <Poco/File.h>
 #include <Poco/JSON/ParseHandler.h>
 #include <Poco/JSON/Parser.h>
 #include <Poco/JSON/Stringifier.h>
+#include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
@@ -26,36 +28,37 @@ using Poco::JSON::Stringifier;
 
 #include <fstream>
 
-
 namespace moja {
 namespace flint {
 namespace configuration {
 
-namespace fs = moja::filesystem;
-
 JSON2ConfigurationProvider::JSON2ConfigurationProvider(const std::vector<std::string>& configFilePath) {
-   for (const auto& config_file : configFilePath) {
-      if (!fs::exists(config_file)) {
-         throw std::runtime_error("Error cant find config file " + config_file);
+   for (const std::string configFie : configFilePath) {
+      Poco::File file(configFie);
+      if (!file.exists()) {
+         BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(configFie));
       }
    }
    _configFilePath = configFilePath;
+   //_configProviderFilePath = null;
    _hasProviderConfigFile = false;
 }
 
 JSON2ConfigurationProvider::JSON2ConfigurationProvider(const std::vector<std::string>& configFilePath,
                                                        const std::vector<std::string>& configProviderFilePath) {
-   for (const auto& config_file : configFilePath) {
-      if (!fs::exists(config_file)) {
-         throw std::runtime_error("Error cant find config file " + config_file);
+   for (const auto& configFie : configFilePath) {
+      Poco::File file(configFie);
+      if (!file.exists()) {
+         BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(configFie));
       }
    }
    _configFilePath = std::move(configFilePath);
 
    if (!configProviderFilePath.empty()) {
-      for (const auto& config_provider_file : configProviderFilePath) {
-         if (!fs::exists(config_provider_file)) {
-            throw std::runtime_error("Error cant find provider config file " + config_provider_file);
+      for (const auto& configProviderFile : configProviderFilePath) {
+         Poco::File fileProvider(configProviderFile);
+         if (!fileProvider.exists()) {
+            BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(configProviderFile));
          }
       }
       _configProviderFilePath = std::move(configProviderFilePath);
@@ -401,7 +404,7 @@ void JSON2ConfigurationProvider::createSpinup(DynamicVar& parsedJSON, Configurat
    if (enabled) {
       for (auto param : {"sequencer_library", "sequencer", "simulateLandUnit", "landUnitBuildSuccess"}) {
          if (!spinupStruct.contains(param)) {
-            throw std::runtime_error("Error missing spin up parameter " + std::string(param));
+            BOOST_THROW_EXCEPTION(ModuleParamsException() << Param((boost::format("Spinup.%1%") % param).str()));
          }
       }
 
@@ -438,17 +441,18 @@ void JSON2ConfigurationProvider::createLibraries(DynamicVar& parsedJSON, Configu
 }
 
 bool JSON2ConfigurationProvider::fileExists(const std::string& path) {
-   return fs::exists(path);
+   Poco::File pf(path);
+   return pf.exists();
 }
 
 void JSON2ConfigurationProvider::createProviders(DynamicVar& parsedJSON, Configuration& config) const {
    auto jsonStruct2 = *parsedJSON.extract<Poco::JSON::Object::Ptr>();
    auto provider = jsonStruct2.getObject("Providers");
    auto& data = *(provider.get());
-   for (auto& [name, var] : data) {
-      auto d = parsePocoJSONToDynamic(var);
+   for (auto& item : data) {
+      auto d = parsePocoJSONToDynamic(item.second);
       if (d.isEmpty()) {
-         throw std::runtime_error("Error provider settings are empty " + name);
+         BOOST_THROW_EXCEPTION(ProviderSettingsException() << ProviderName(item.first));
       }
       auto xx = d.extract<Poco::DynamicStruct>();
       std::string libName;
@@ -459,7 +463,7 @@ void JSON2ConfigurationProvider::createProviders(DynamicVar& parsedJSON, Configu
 
       const std::string providerType = d["type"].convert<std::string>();
       auto& settings = d.extract<const DynamicObject>();
-      config.addProvider(name, libName, providerType, settings);
+      config.addProvider(item.first, libName, providerType, settings);
    }
 }
 
@@ -630,10 +634,10 @@ void JSON2ConfigurationProvider::createModules(DynamicVar& parsedJSON, Configura
          if (!enabled) continue;
       }
       if (!moduleStruct.contains("library")) {
-         throw std::runtime_error("Error module definition missing library");
+         BOOST_THROW_EXCEPTION(ModuleParamsException() << Param("library"));
       }
       if (!moduleStruct.contains("order")) {
-         throw std::runtime_error("Error module definition missing order");
+         BOOST_THROW_EXCEPTION(ModuleParamsException() << Param("order"));
       }
 
       const auto& moduleLibraryName = moduleStruct["library"].extract<std::string>();
@@ -662,10 +666,10 @@ void JSON2ConfigurationProvider::createSpinupModules(DynamicVar& parsedJSON, Con
       }
 
       if (!moduleStruct.contains("library")) {
-         throw std::runtime_error("Error spin up module definition missing library");
+         BOOST_THROW_EXCEPTION(ModuleParamsException() << Param("library"));
       }
       if (!moduleStruct.contains("order")) {
-         throw std::runtime_error("Error spin up module definition missing order");
+         BOOST_THROW_EXCEPTION(ModuleParamsException() << Param("order"));
       }
 
       const auto moduleLibraryName = moduleStruct["library"].extract<std::string>();

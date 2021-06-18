@@ -234,6 +234,24 @@ void test_NoResultFluxIteration(mf::IOperationManager& manager, mf::IModule& mod
 
    BOOST_CHECK_EQUAL(manager.operationResultsPending().size(), 1);
 
+   // UBLAS will remove the zero result flux in the product, other implementations won't
+
+   // if (manager.operationResultsPending().size() == 0)
+   //	return;
+
+   // auto operationResult = *(manager.operationResultsPending().begin());
+
+   // std::cout << std::setw(40) << std::setfill(' ') << testSuiteName << ": " << std::setw(50) << std::setfill(' ') <<
+   // testName << ": fluxes" << std::endl;
+
+   // int count = 0;
+   // for (auto p : operationResult->operationResultFluxCollection()) {
+   //	std::cout << "Src: "<< p->source() << ", Snk: " << p->sink() << ", Val: " << p->value() << std::endl;
+   //	count++;
+   //}
+
+   // BOOST_CHECK_EQUAL(count, 0);
+
    data.clear();
 }
 

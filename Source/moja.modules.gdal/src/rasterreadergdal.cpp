@@ -1,5 +1,6 @@
 #include "moja/modules/gdal/rasterreadergdal.h"
 
+#include "moja/datarepository/datarepositoryexceptions.h"
 #include "moja/logging.h"
 
 #include "gdalcpp.h"
@@ -15,6 +16,7 @@
 #include <fmt/format.h>
 
 #include <fstream>
+#include <sstream>
 
 namespace moja {
 namespace modules {
@@ -39,11 +41,19 @@ std::tuple<double, double> seqChunk2geog(int tile_idx, int block_idx) {
 MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, const std::string& prefix,
                                                    const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
-   const auto filePath = fs::absolute(path).replace_extension(".json");
-   _path = filePath.string();
-   _metaDataRequired = true;
-   if (settings.contains("metadata_required")) {
-      _metaDataRequired = settings["metadata_required"].extract<bool>();
+   try {
+      auto filePath = Poco::Path(path);
+      auto parent = filePath.parent().toString();
+      auto abs = filePath.parent().absolute().toString();
+      _path = (boost::format("%1%%2%.json") % abs % filePath.getBaseName()).str();
+      _metaDataRequired = true;
+      if (settings.contains("metadata_required")) {
+         _metaDataRequired = settings["metadata_required"].extract<bool>();
+      }
+   } catch (...) {
+      BOOST_THROW_EXCEPTION(flint::LocalDomainError()
+                            << flint::Details("GDAL Error in constructor") << flint::LibraryName("moja.modules.gdal")
+                            << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
    }
 }
 
@@ -59,7 +69,7 @@ DynamicObject MetaDataRasterReaderGDAL::readMetaData() const {
       return layerMetadata;
    } else {
       if (_metaDataRequired) {
-         throw std::runtime_error("Error metadata file not found " + _path);
+         BOOST_THROW_EXCEPTION(datarepository::FileNotFoundException() << datarepository::FileName(_path));
       } else {
          return DynamicObject();
       }
@@ -164,11 +174,18 @@ void TileRasterReaderGDAL::readBlockData(const datarepository::BlockIdx& blkIdx,
       } else {
          MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
                         << "GDAL - read error, target (" << _path << ")";
-         
-         throw std::runtime_error("GDAL error reading block data " + _path);
+         const auto str = fmt::format("GDAL read error: {}", _path);
+         BOOST_THROW_EXCEPTION(flint::LocalDomainError()
+                               << flint::Details(str) << flint::LibraryName("moja.modules.gdal")
+                               << flint::ModuleName(BOOST_CURRENT_FUNCTION) << flint::ErrorCode(1));
       }
    } catch (const gdalcpp::gdal_error& err) {
-      throw std::runtime_error("GDAL error reading block data " + _path + " " + err.what());
+      BOOST_THROW_EXCEPTION(datarepository::FileReadException()
+                            << datarepository::FileName(_path) << datarepository::Message(err.what()));
+   } catch (...) {
+      MOJA_LOG_ERROR << "RunId (" << _runId << ") - "
+                     << "GDAL - exception (" << _path << ")";
+      throw;
    }
 }
 }  // namespace gdal

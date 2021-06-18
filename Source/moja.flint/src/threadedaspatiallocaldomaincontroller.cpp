@@ -11,6 +11,8 @@
 #include <moja/datetime.h>
 #include <moja/logging.h>
 
+#include <Poco/Mutex.h>
+
 #include <boost/exception/diagnostic_information.hpp>
 
 using moja::flint::ILocalDomainController;
@@ -22,7 +24,7 @@ namespace moja {
 namespace flint {
 
 AspatialLocalDomainThread::AspatialLocalDomainThread(ThreadedAspatialLocalDomainController* parent, int threadId,
-                                                     std::mutex& tileListMutex,
+                                                     Poco::Mutex& tileListMutex,
                                                      std::queue<datarepository::AspatialTileInfo>& tileList,
                                                      const configuration::Configuration* config)
     : _parent(parent),
@@ -47,8 +49,8 @@ void AspatialLocalDomainThread::operator()() {
    auto keepRunning = true;
    while (keepRunning) {
       // Pop a block index from the queue
-      std::unique_lock<std::mutex> lock(_tileListMutex);
-      if (!_tileList.empty()) {
+      Poco::ScopedLockWithUnlock<Poco::Mutex> lock(_tileListMutex);
+      if (_tileList.size() > 0) {
          auto tile = _tileList.front();
          _tileList.pop();
          MOJA_LOG_INFO << std::setfill(' ') << std::setw(3) << _threadId
@@ -68,7 +70,7 @@ void AspatialLocalDomainThread::operator()() {
 
 ThreadedAspatialLocalDomainController::ThreadedAspatialLocalDomainController() : LocalDomainControllerBase() {}
 
-status ThreadedAspatialLocalDomainController::configure(const configuration::Configuration& config) {
+void ThreadedAspatialLocalDomainController::configure(const configuration::Configuration& config) {
    // Call base class configure
    LocalDomainControllerBase::configure(config);
 
@@ -92,10 +94,9 @@ status ThreadedAspatialLocalDomainController::configure(const configuration::Con
 
       _tasks.push_back(task);
    }
-   return status(status_code::Ok);
 }
 
-status ThreadedAspatialLocalDomainController::run() {
+void ThreadedAspatialLocalDomainController::run() {
    auto startTime = DateTime::now();
 
    for (const auto& task : _tasks) {
@@ -105,13 +106,14 @@ status ThreadedAspatialLocalDomainController::run() {
    for (auto& thread : _threads) {
       thread.join();
    }
-   
+
+   //_notificationCenter.postNotification(moja::signals::SystemShutdown);
+
    auto endTime = DateTime::now();
    auto ldSpan = endTime - startTime;
    MOJA_LOG_INFO << "LocalDomain: Start Time           : " << startTime;
    MOJA_LOG_INFO << "LocalDomain: Finish Time          : " << endTime;
    MOJA_LOG_INFO << "LocalDomain: Total Time (seconds) : " << ldSpan.totalSeconds();
-   return status(status_code::Ok);
 }
 
 }  // namespace flint

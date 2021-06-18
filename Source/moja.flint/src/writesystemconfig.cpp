@@ -20,35 +20,17 @@
 #include <moja/logging.h>
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-#include <moja/filesystem.h>
 
-#include <boost/optional/optional.hpp>
+#include <Poco/File.h>
+#include <Poco/Path.h>
 
-#include <fmt/format.h>
+#include <boost/format.hpp>
 
 #include <fstream>
 #include <ostream>
 
-namespace fs = moja::filesystem;
-
 namespace moja {
 namespace flint {
-
-   // --- RAII class for file handle
-class FileHandle {
-   typedef FILE* ptr;
-
-  public:
-   explicit FileHandle(const moja::filesystem::path& name, std::string const& mode = std::string("r"))
-       : _wrapped_file(fopen(name.string().c_str(), mode.c_str())) {}
-   ~FileHandle() {
-      if (_wrapped_file) fclose(_wrapped_file);
-   }
-   operator ptr() const { return _wrapped_file; }
-
-  private:
-   ptr _wrapped_file;
-};
 
 // --------------------------------------------------------------------------------------------
 
@@ -94,16 +76,25 @@ void WriteSystemConfig::subscribe(NotificationCenter& notificationCenter) {
 // --------------------------------------------------------------------------------------------
 
 void WriteSystemConfig::onSystemInit() {
-   fs::path workingFolder(_outputPath);
-   if (!fs::exists(workingFolder)) {
-      fs::create_directories(workingFolder);
+   Poco::File workingFolder(_outputPath);
+   if (!workingFolder.exists()) {
+      try {
+         workingFolder.createDirectories();
+      } catch (Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed
+                                                in 1.7.8 */
+      }
    }
-   if (fs::exists(workingFolder) && !fs::is_directory(workingFolder)) {
-      MOJA_LOG_ERROR << "Error creating spatial tiled point configurations output folder: " << workingFolder.string();
+   if (workingFolder.exists() && !workingFolder.isDirectory()) {
+      MOJA_LOG_ERROR << "Error creating spatial tiled point configurations output folder: " << _outputPath;
    }
-   auto outputFolderPath = workingFolder / _name;
-   if (!fs::exists(outputFolderPath)) {
-      fs::create_directories(outputFolderPath);
+   auto outputFolderPath = (boost::format("%1%%2%%3%") % workingFolder.path() % Poco::Path::separator() % _name).str();
+   Poco::File outputFolder(outputFolderPath);
+   if (!outputFolder.exists()) {
+      try {
+         outputFolder.createDirectories();
+      } catch (Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed
+                                                in 1.7.8 */
+      }
    }
 }
 
@@ -265,7 +256,7 @@ void outputDynamicToStream(std::ofstream& fout, const DynamicVar& object, int le
       if (object.type() == typeid(DateTime)) {
          DateTime dt = object.extract<DateTime>();
          std::string simpleDateStr =
-             fmt::format("{ \"$date\": \"{}/{}/{}\" }", dt.year(), dt.month(), dt.day());
+             (boost::format("{ \"$date\": \"%1%/%2%/%3%\" }") % dt.year() % dt.month() % dt.day()).str();
          fout << simpleDateStr;
          // fout << "\"" << escape_json(simpleDateStr) << "\"";
       } else if (object.type() == typeid(Int16)) {
@@ -322,13 +313,18 @@ void WriteSystemConfig::WriteConfig(std::string notificationStr) const {
    auto timestep = timing->step();
    auto timesubstep = timing->subStep();
 
+   Poco::File workingFolder(_outputPath);
    auto configFilename =
-       fs::path(_outputPath) / _name /
-       fmt::format("{:05}_{:03}_{:06}_{}_{}_{}.json", _spatialLocationInfo ? _spatialLocationInfo->_tileIdx : 0,
-                   _spatialLocationInfo ? _spatialLocationInfo->_blockIdx : 0,
-                   _spatialLocationInfo ? _spatialLocationInfo->_cellIdx : 0, notificationStr, timestep, timesubstep);
-   
-   if (fs::exists(configFilename)) fs::remove(configFilename);  // delete existing config file
+       (boost::format("%1%%2%%3%%4%%5%_%6%_%7%_%8%_%9%_%10%.json") % workingFolder.path() % Poco::Path::separator() %
+        _name % Poco::Path::separator() %
+        boost::io::group(std::setfill('0'), std::setw(5), _spatialLocationInfo ? _spatialLocationInfo->_tileIdx : 0) %
+        boost::io::group(std::setfill('0'), std::setw(3), _spatialLocationInfo ? _spatialLocationInfo->_blockIdx : 0) %
+        boost::io::group(std::setfill('0'), std::setw(6), _spatialLocationInfo ? _spatialLocationInfo->_cellIdx : 0) %
+        notificationStr % timestep % timesubstep)
+           .str();
+
+   Poco::File configFile(configFilename);
+   if (configFile.exists()) configFile.remove(false);  // delete existing config file
 
    // configFile.createFile()
    FileHandle pFile(configFilename, "wb");
@@ -357,12 +353,15 @@ void WriteSystemConfig::WriteConfig(std::string notificationStr) const {
    DynamicObject localdomain;
    auto localDomainConfig = config->localDomain();
    localdomain["type"] = configuration::LocalDomain::localDomainTypeToStr(localDomainConfig->type());
-   localdomain["start_date_init"] = fmt::format("{}/{}/{}", config->startDate().year(),
-                                     config->startDate().month(), config->startDate().day());
-   localdomain["start_date"] = fmt::format("{}/{}/{}", timing->curStartDate().year(),
-                                timing->curStartDate().month(), timing->curStartDate().day());
+   localdomain["start_date_init"] = (boost::format("%1%/%2%/%3%") % config->startDate().year() %
+                                     config->startDate().month() % config->startDate().day())
+                                        .str();
+   localdomain["start_date"] = (boost::format("%1%/%2%/%3%") % timing->curStartDate().year() %
+                                timing->curStartDate().month() % timing->curStartDate().day())
+                                   .str();
    localdomain["end_date"] =
-       fmt::format("{}/{}/{}", config->endDate().year(), config->endDate().month(), config->endDate().day());
+       (boost::format("%1%/%2%/%3%") % config->endDate().year() % config->endDate().month() % config->endDate().day())
+           .str();
    localdomain["sequencer_library"] = localDomainConfig->sequencerLibrary();
    localdomain["sequencer"] = localDomainConfig->sequencer();
    localdomain["simulateLandUnit"] = localDomainConfig->simulateLandUnit();

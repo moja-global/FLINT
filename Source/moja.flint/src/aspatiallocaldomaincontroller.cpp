@@ -15,6 +15,7 @@
 #include <moja/flint/configuration/spinup.h>
 #include <moja/flint/configuration/variable.h>
 
+#include <moja/exception.h>
 #include <moja/logging.h>
 #include <moja/signals.h>
 
@@ -28,7 +29,7 @@ using moja::flint::configuration::LocalDomainType;
 namespace moja {
 namespace flint {
 
-status AspatialLocalDomainController::configure(const configuration::Configuration& config) {
+void AspatialLocalDomainController::configure(const configuration::Configuration& config) {
    LocalDomainControllerBase::configure(config);
 
    // Build landscape.
@@ -130,11 +131,9 @@ status AspatialLocalDomainController::configure(const configuration::Configurati
       _spinupLandUnitController.initialiseData(false);
       _luId = _landUnitController.getVariable("LandUnitId");
    }
-   return status(status_code::Ok);
 }
 
-status AspatialLocalDomainController::run(const LandUnitInfo& lu) {
-   status run_result;
+void AspatialLocalDomainController::run(const LandUnitInfo& lu) {
    try {
       _luId->set_value(lu.id());
       _landUnitController.initialiseData(true);
@@ -146,23 +145,24 @@ status AspatialLocalDomainController::run(const LandUnitInfo& lu) {
       }
 
       if (!_simulateLandUnit->value()) {
-         return run_result;
+         return;
       }
 
       _notificationCenter.postNotification(moja::signals::PreTimingSequence);
       if (!_landUnitBuildSuccess->value()) {
-         return run_result;
+         return;
       }
 
-      if(!_sequencer->Run(_notificationCenter, _landUnitController)) {
-         run_result = status(status_code::Error, "Sequencer failed");
-      }
+      _sequencer->Run(_notificationCenter, _landUnitController);
+   } catch (const Exception& e) {
+      MOJA_LOG_FATAL << e.displayText();
+   } catch (const boost::exception& e) {
+      MOJA_LOG_FATAL << boost::diagnostic_information(e);
    } catch (const std::exception& e) {
       MOJA_LOG_FATAL << e.what();
    }
 
    _landUnitController.clearAllOperationResults();
-   return run_result;
 }
 
 void AspatialLocalDomainController::run(AspatialTileInfo& tile) {
@@ -179,52 +179,41 @@ void AspatialLocalDomainController::run(AspatialTileInfo& tile) {
    MOJA_LOG_INFO << "LocalDomain: Total Time (seconds) : " << ldSpan.totalSeconds();
 }
 
-status AspatialLocalDomainController::startup() {
-   auto base_status = LocalDomainControllerBase::startup();
-   if (base_status.ok() && _runSpinUp) {
+void AspatialLocalDomainController::startup() {
+   LocalDomainControllerBase::startup();
+   if (_runSpinUp) {
       _spinupNotificationCenter.postNotification(moja::signals::LocalDomainInit);
-      return status(status_code::Ok);
    }
-   return base_status;
 }
 
-status AspatialLocalDomainController::shutdown() {
-   auto base_status = LocalDomainControllerBase::shutdown();
+void AspatialLocalDomainController::shutdown() {
+   LocalDomainControllerBase::shutdown();
    if (_runSpinUp) {
       _spinupNotificationCenter.postNotification(moja::signals::LocalDomainShutdown);
-      return status(status_code::Ok);
    }
-   return base_status;
 }
 
-status AspatialLocalDomainController::run() {
-
-   status result(status_code::Ok);
+void AspatialLocalDomainController::run() {
+   startup();
    auto startTime = DateTime::now();
-   if (const auto startup_status = startup(); startup_status.ok()) {
-      auto total = _landscape->getTotalLUCount();
-      auto count = 0;
-      for (auto& lu : *_landscape) {
-         count++;
-         MOJA_LOG_INFO << std::setfill(' ') << std::setw(10) << count << " of " << std::setfill(' ') << std::setw(10)
-                       << total;
-         if (auto run_status = run(lu); !run_status.ok()) {
-            MOJA_LOG_ERROR << run_status.message();
-         }
-      }
-      if (auto shutdown_status = shutdown(); !shutdown_status.ok()) {
-         MOJA_LOG_ERROR << shutdown_status.message();
-      }
-   } else {
-      MOJA_LOG_ERROR << startup_status.message();
+
+   auto total = _landscape->getTotalLUCount();
+   auto count = 0;
+   for (auto lu : *_landscape) {
+      count++;
+      MOJA_LOG_INFO << std::setfill(' ') << std::setw(10) << count << " of " << std::setfill(' ') << std::setw(10)
+                    << total;
+      run(lu);
    }
-   
+   shutdown();
+
+   //_notificationCenter.postNotification(moja::signals::SystemShutdown);
+
    auto endTime = DateTime::now();
    auto ldSpan = endTime - startTime;
    MOJA_LOG_INFO << "LocalDomain: Start Time           : " << startTime;
    MOJA_LOG_INFO << "LocalDomain: Finish Time          : " << endTime;
    MOJA_LOG_INFO << "LocalDomain: Total Time (seconds) : " << ldSpan.totalSeconds();
-   return result;
 }
 
 }  // namespace flint

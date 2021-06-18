@@ -23,26 +23,28 @@
 #include <moja/logging.h>
 #include <moja/signals.h>
 
+using moja::flint::SequencerNotFoundException;
+
 namespace moja {
 namespace flint {
 
 // --------------------------------------------------------------------------------------------
 
 LocalDomainControllerBase::LocalDomainControllerBase()
-    : _localDomainId(0), _config(nullptr) {
+    : _localDomainId(0), _config(nullptr), _landUnitController(), _dataRepository(), _libraryManager() {
    _dataRepository.setProviderRegistry(_libraryManager.getProviderRegistry());
 }
 
 // --------------------------------------------------------------------------------------------
 
 LocalDomainControllerBase::LocalDomainControllerBase(std::shared_ptr<FlintLibraryHandles> libraryHandles)
-    : _localDomainId(0), _config(nullptr), _libraryManager(libraryHandles) {
+    : _localDomainId(0), _config(nullptr), _landUnitController(), _dataRepository(), _libraryManager(libraryHandles) {
    _dataRepository.setProviderRegistry(_libraryManager.getProviderRegistry());
 }
 
 // --------------------------------------------------------------------------------------------
 
-status LocalDomainControllerBase::configure(const configuration::Configuration& config) {
+void LocalDomainControllerBase::configure(const configuration::Configuration& config) {
    // Keep pointer to config
    _config = &config;
 
@@ -56,7 +58,7 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
    _landUnitController.configure(config);
 
    // Load the configured Libraries
-   for (const auto* lib : config.libraries()) {
+   for (auto lib : config.libraries()) {
       switch (lib->type()) {
          case configuration::LibraryType::Internal:
             // Not required, all internals modules are loaded automatically
@@ -90,15 +92,17 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
 
    // Load the configured modules (and handle Proxies)
    _moduleMap.clear();
-   for (const auto* module : config.modules()) {
+   for (const auto& module : config.modules()) {
       ModuleMapKey key(module->libraryName(), module->name());
       if (_moduleMap.find(key) != _moduleMap.end()) {
-         return status(status_code::Error, "Error duplicate modules " + module->libraryName() + " " + module->name());
+         // duplicate Key found
+         throw DuplicateModuleDefinedException() << Details("Error duplicate module defined")
+                                                 << LibraryName(module->libraryName()) << SequencerName(module->name());
       }
       _moduleMap[key] = _libraryManager.GetModule(module->libraryName(), module->name());
       _moduleMap[key]->setLandUnitController(_landUnitController);
       if (module->isProxy()) {
-         auto proxy = dynamic_cast<ModuleProxyBase*>(modules()[key]);
+         auto proxy = static_cast<ModuleProxyBase*>(modules()[key]);
          auto proxyModules = module->settings()["proxyModules"];
          for (auto& item : proxyModules) {
             DynamicObject proxyModule = item.extract<const DynamicObject>();
@@ -124,8 +128,9 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
    ModuleMapKey sequencerKey(config.localDomain()->sequencerLibrary(), config.localDomain()->sequencer());
    _sequencer = std::dynamic_pointer_cast<SequencerModuleBase>(_moduleMap[sequencerKey]);
    if (_sequencer == nullptr) {
-      return status(status_code::Error, "Error finding sequencer " + config.localDomain()->sequencerLibrary() + " " +
-                                            config.localDomain()->sequencer());
+      throw SequencerNotFoundException() << Details("Error finding sequencer")
+                                         << LibraryName(config.localDomain()->sequencerLibrary())
+                                         << SequencerName(config.localDomain()->sequencer());
    }
    _sequencer->configure(timing);
 
@@ -141,7 +146,73 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
    std::map<std::pair<std::string, std::string>, TransformInterfacePtr> transforms;
    std::map<std::pair<std::string, std::string>, FlintDataInterfacePtr> flintData;
 
+#if 0
+	for (const auto var : config.variables2()) {
+		if (var->variableType() == configuration::VariableType::Internal) {
+			auto variable = static_cast<const configuration::Variable*>(var);
+			_landUnitController.addVariable(variable->name(), std::make_shared<Variable>(variable->value(), VariableInfo{ variable->name() }));
+		}
+		else if (var->variableType() == configuration::VariableType::External) {
+			auto variable = static_cast<const configuration::ExternalVariable*>(var);
 
+			const auto& transformConfig = variable->transform();
+			const auto libraryName = transformConfig.libraryName();
+			const auto variableName = variable->name();
+			auto key = std::make_pair(libraryName, variableName);
+			transforms[key] = _libraryManager.GetTransform(libraryName, transformConfig.typeName());
+			_landUnitController.addVariable(variable->name(), std::make_shared<ExternalVariable>(transforms[key], VariableInfo{ variable->name() }));
+		}
+		else if (var->variableType() == configuration::VariableType::FlintData) {
+			auto variable = static_cast<const configuration::FlintDataVariable*>(var);
+
+			const auto& flintDataConfig = variable->flintdata();
+			const auto libraryName = flintDataConfig.libraryName();
+			const auto variableName = variable->name();
+			auto key = std::make_pair(libraryName, variableName);
+			flintData[key] = _libraryManager.GetFlintData(libraryName, flintDataConfig.typeName());
+			_landUnitController.addVariable(variable->name(), std::make_shared<FlintDataVariable>(flintData[key], libraryName, flintDataConfig.typeName(), VariableInfo{ variable->name() }));
+		}
+	}
+
+	//// Now go back over and check for nested things
+	//for (auto var : config.variables2()) {
+	//	if (var->variableType() == configuration::VariableType::Internal) {
+	//		auto variable = static_cast<const configuration::Variable*>(var);
+	//		auto value = variable->value();
+	//		variable->set_value(checkForNestedVariables(variable->name(), value));
+	//	}
+	//}
+
+	// New version of Variables
+	// Now Configure external, internal and flintdata 
+
+	// config external (transforms)
+	for (const auto var : config.variables2()) {
+		if (var->variableType() == configuration::VariableType::External) {
+			auto variable = static_cast<const configuration::ExternalVariable*>(var);
+
+			const auto& transformConfig = variable->transform();
+			const auto libraryName = transformConfig.libraryName();
+			const auto variableName = variable->name();
+			auto key = std::make_pair(libraryName, variableName);
+			transforms[key]->configure(transformConfig.settings(), _landUnitController, _dataRepository);
+		}
+	}
+
+	// config flintdata
+	for (const auto var : config.variables2()) {
+		if (var->variableType() == configuration::VariableType::FlintData) {
+			auto variable = static_cast<const configuration::FlintDataVariable*>(var);
+
+			const auto& flintDataConfig = variable->flintdata();
+			const auto libraryName = flintDataConfig.libraryName();
+			const auto variableName = variable->name();
+			auto key = std::make_pair(libraryName, variableName);
+			flintData[key]->configure(flintDataConfig.settings(), _landUnitController, _dataRepository);
+		}
+	}
+
+#else
    // Configure Variables
    for (const auto variable : config.variables()) {
       auto value = variable->value();
@@ -218,6 +289,8 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
       transforms[key]->configure(transformConfig.settings(), _landUnitController, _dataRepository);
    }
 
+#endif
+
    // Configure the simulateLandUnit & landUnitBuildSuccess variables here
    _simulateLandUnit = _landUnitController.getVariable(config.localDomain()->simulateLandUnit());
    _landUnitBuildSuccess = _landUnitController.getVariable(config.localDomain()->landUnitBuildSuccess());
@@ -226,39 +299,31 @@ status LocalDomainControllerBase::configure(const configuration::Configuration& 
    // variables (some special handling for vectors & structs
    _landUnitController.initialiseData(false);  /// TODO: check if this is required here. initialiseData is also called
                                                /// in SpatialTiledLocalDomainController::runCell
-   return status(status_code::Ok);
 }
 
 // --------------------------------------------------------------------------------------------
 
-status LocalDomainControllerBase::run() {
+void LocalDomainControllerBase::run() {
    _notificationCenter.postNotification(moja::signals::PreTimingSequence);
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitInit);
-   const bool sequencer_result  = _sequencer->Run(_notificationCenter, _landUnitController);
+   _sequencer->Run(_notificationCenter, _landUnitController);
    _notificationCenter.postNotification(signals::LocalDomainProcessingUnitShutdown);
-   return sequencer_result ? status(status_code::Ok) : status(status_code::Error, "Sequencer failed");
 }
 
 // --------------------------------------------------------------------------------------------
 
-status LocalDomainControllerBase::startup() {
-   _notificationCenter.postNotification(moja::signals::LocalDomainInit);
-   return status(status_code::Ok);
-}
+void LocalDomainControllerBase::startup() { _notificationCenter.postNotification(moja::signals::LocalDomainInit); }
 
 // --------------------------------------------------------------------------------------------
 
-status LocalDomainControllerBase::shutdown() {
-   _notificationCenter.postNotification(moja::signals::LocalDomainShutdown);
-   return status(status_code::Ok);
-}
+void LocalDomainControllerBase::shutdown() { _notificationCenter.postNotification(moja::signals::LocalDomainShutdown); }
 
 // --------------------------------------------------------------------------------------------
 
 std::map<LocalDomainControllerBase::ModuleMapKey, IModule*> LocalDomainControllerBase::modules() const {
    std::map<ModuleMapKey, IModule*> results;
-   for (auto& [key, module_ptr] : _moduleMap) {
-      results.emplace(key, module_ptr.get());
+   for (auto module : _moduleMap) {
+      results.insert(std::pair<ModuleMapKey, IModule*>(module.first, module.second.get()));
    }
    return results;
 }

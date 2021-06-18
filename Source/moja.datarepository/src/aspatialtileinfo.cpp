@@ -1,6 +1,9 @@
 #include "moja/datarepository/aspatialtileinfo.h"
 
 #include "moja/datarepository/aspatialtileinfocollection.h"
+#include "moja/datarepository/datarepositoryexceptions.h"
+
+using moja::datarepository::LandscapeDefinitionException;
 
 namespace moja {
 namespace datarepository {
@@ -8,7 +11,7 @@ namespace datarepository {
 AspatialTileInfo::AspatialTileInfo(const AspatialTileInfoCollection& tileInfoCollection, int id)
     : _tileInfoCollection(&tileInfoCollection) {
    if (id < 1) {
-      std::invalid_argument("Error tile id less than zero: " + std::to_string(id));
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("id") << Constraint("> 0"));
    }
 
    _id = id;

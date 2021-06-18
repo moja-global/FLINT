@@ -9,7 +9,6 @@
 #include <moja/flint/modulebase.h>
 
 #include <unordered_map>
-#include <mutex>
 
 namespace moja {
 
@@ -34,7 +33,7 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
       float64 = 7,
    };
 
-   explicit WriteVariableGeotiff(std::mutex& fileHandlingMutex)
+   explicit WriteVariableGeotiff(Poco::Mutex& fileHandlingMutex)
        : _fileHandlingMutex(fileHandlingMutex),
          _useIndexesForFolderName(false),
          _forceVariableFolderName(true),
@@ -58,7 +57,7 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
    // --- Base class for data layer
    class DataSettingsB {
      public:
-      DataSettingsB(std::mutex& fileHandlingMutex, data_type dataType)
+      DataSettingsB(Poco::Mutex& fileHandlingMutex, data_type dataType)
           : notificationType(OnNotificationType::TimingInit),
             _useIndexesForFolderName(false),
             _forceVariableFolderName(true),
@@ -118,14 +117,14 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
       const flint::IVariable* _variable;
       std::vector<const flint::IPool*> _pool;
       std::string _tileFolderPath;
-      std::mutex& _fileHandlingMutex;
+      Poco::Mutex& _fileHandlingMutex;
    };
 
    // --- Templated version of Base class for data layer types
    template <typename T>
    class DataSettingsT : public DataSettingsB {
      public:
-      DataSettingsT(std::mutex& fileHandlingMutex, data_type dataType)
+      DataSettingsT(Poco::Mutex& fileHandlingMutex, data_type dataType)
           : DataSettingsB(fileHandlingMutex, dataType){};
       ~DataSettingsT() = default;
 
@@ -158,7 +157,7 @@ class GDAL_API WriteVariableGeotiff : public flint::ModuleBase {
 
   private:
    // Mutexes
-   std::mutex& _fileHandlingMutex;
+   Poco::Mutex& _fileHandlingMutex;
 
    // FlintData
    std::shared_ptr<const flint::SpatialLocationInfo> _spatialLocationInfo;

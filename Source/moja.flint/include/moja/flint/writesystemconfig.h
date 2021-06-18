@@ -3,7 +3,7 @@
 
 #include <moja/flint/modulebase.h>
 
-#include <mutex>
+#include <boost/iostreams/stream_buffer.hpp>
 
 namespace moja {
 namespace flint {
@@ -35,7 +35,7 @@ class SpatialLocationInfo;
 ///
 class FLINT_API WriteSystemConfig : public flint::ModuleBase {
   public:
-   explicit WriteSystemConfig(std::mutex& fileHandlingMutex)
+   explicit WriteSystemConfig(Poco::Mutex& fileHandlingMutex)
        : ModuleBase(),
          _fileHandlingMutex(fileHandlingMutex),
          notificationType(OnNotificationType::TimingInit),
@@ -58,9 +58,25 @@ class FLINT_API WriteSystemConfig : public flint::ModuleBase {
    void onOutputStep() override;
    void onError(std::string msg) override;
 
+   // --- RAII class for file handle
+   class FileHandle {
+      typedef FILE* ptr;
+
+     public:
+      explicit FileHandle(std::string const& name, std::string const& mode = std::string("r"))
+          : _wrapped_file(fopen(name.c_str(), mode.c_str())) {}
+      ~FileHandle() {
+         if (_wrapped_file) fclose(_wrapped_file);
+      }
+      operator ptr() const { return _wrapped_file; }
+
+     private:
+      ptr _wrapped_file;
+   };
+
   private:
    // Mutexes
-   std::mutex& _fileHandlingMutex;
+   Poco::Mutex& _fileHandlingMutex;
 
    // FlintData
    std::shared_ptr<const SpatialLocationInfo> _spatialLocationInfo;

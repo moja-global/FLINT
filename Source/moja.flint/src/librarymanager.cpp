@@ -7,6 +7,7 @@
 #include "moja/flint/modulebase.h"
 
 #include <moja/environment.h>
+#include <moja/exception.h>
 
 #include <moja/logging.h>
 #include <boost/algorithm/string.hpp>
@@ -144,9 +145,7 @@ void LibraryManager::AddLibrary(LibraryType libraryType, const std::string& inLi
          break;
       }
       case LibraryType::Unknown:
-      default: {
-         throw std::runtime_error("Unknown library type defined " + inLibraryName);
-      }
+      default: { throw LibraryLoadException("Unknown library type defined", inLibraryName); }
    }
 
    // Update hash table
@@ -203,7 +202,7 @@ ModuleInterfacePtr LibraryManager::GetModule(const std::string& libraryName, con
       auto moduleInit = _moduleRegistry.at(moduleKey);
       auto moduleInterface = moduleInit();
       if (!moduleInterface) {
-         throw std::runtime_error("Failed to initialise the module " + moduleName);
+         throw LibraryLoadException("Failed to initialise the module", moduleName);
       }
 
       libraryInfo->moduleList.push_back(moduleInterface);
@@ -222,7 +221,7 @@ ModuleInterfacePtr LibraryManager::GetModule(const std::string& libraryName, con
    }
 #endif
    catch (...) {
-      throw std::runtime_error("Module doesn't exist " + moduleName);
+      throw LibraryLoadException("Module doesn't exist", moduleName);
    }
 }
 
@@ -235,13 +234,13 @@ TransformInterfacePtr LibraryManager::GetTransform(const std::string& libraryNam
 
       std::shared_ptr<ITransform> transformInterface = transformInit();
       if (!transformInterface) {
-         throw std::runtime_error("Failed to initialise the transform " + transformName);
+         throw LibraryLoadException("Failed to initialise the transform", transformName);
       }
 
       libraryInfo->transformList.push_back(transformInterface);
       return transformInterface;
    } catch (...) {
-      throw std::runtime_error("Transform doesn't exist " + transformName);
+      throw LibraryLoadException("Transform doesn't exist", transformName);
    }
 }
 
@@ -255,7 +254,7 @@ FlintDataInterfacePtr LibraryManager::GetFlintData(const std::string& libraryNam
 
       std::shared_ptr<IFlintData> flintDataInterface = flintDataInit();
       if (!flintDataInterface) {
-         throw std::runtime_error("Failed to initialise the flintData " + flintDataName);
+         throw LibraryLoadException("Failed to initialise the flintData", flintDataName);
       }
       flintDataInterface->libraryName = libraryName;
       flintDataInterface->typeName = flintDataName;
@@ -268,7 +267,7 @@ FlintDataInterfacePtr LibraryManager::GetFlintData(const std::string& libraryNam
       }
       return flintDataInterface;
    } catch (...) {
-      throw std::runtime_error("flintData doesn't exist " + flintDataName);
+      throw LibraryLoadException("flintData doesn't exist", flintDataName);
    }
 }
 
@@ -283,28 +282,28 @@ ModuleInterfacePtr LibraryManager::GetManagedModule(const std::string& managedMo
    auto moduleKey = ModuleKey(libraryName, managedModuleName);
    const auto moduleInit = _moduleRegistry[moduleKey];
    if (moduleInit == nullptr) {
-      throw std::runtime_error("Failed to initialise the managed module " + managedModuleName);
+      throw LibraryLoadException("Failed to initialise the managed module", managedModuleName);
    }
 
    std::shared_ptr<LibraryInfoBase> libraryInfo = (*libraryInfoIt).second;
    if (libraryInfo->GetLibraryType() != LibraryType::Managed) {
-      throw std::runtime_error("Incorrect type for managed module " + managedModuleName);
+      throw LibraryLoadException("Incorrect type for managed module", managedModuleName);
    }
 
    std::shared_ptr<IModule> moduleInterface;
    std::map<std::string, std::string> modulePathMap = FindLibraryPathsExact(managedModuleName);
    if (modulePathMap.size() != 1) {
-      throw std::runtime_error("Managed module path issue" + managedModuleName);
+      throw LibraryLoadException("Managed module path issue", managedModuleName);
    }
 
    try {
       moduleInterface = moduleInit();
    } catch (...) {
-      throw std::runtime_error("Managed module issue " + managedModuleName);
+      throw LibraryLoadException("Managed module issue", managedModuleName);
    }
 
    if (!moduleInterface) {
-      throw std::runtime_error("Failed to initialise the module " + managedModuleName);
+      throw LibraryLoadException("Failed to initialise the module", managedModuleName);
    }
 
    libraryInfo->moduleList.push_back(moduleInterface);
@@ -328,12 +327,12 @@ ProviderInterfacePtr LibraryManager::GetProvider(const std::string& libraryName,
       auto providerInit = _providerRegistry.at(providerKey);
       auto providerInterface = providerInit(settings);
       if (!providerInterface) {
-         throw std::runtime_error("Failed to initialise the provider " + providerName);
+         throw LibraryLoadException("Failed to initialise the provider", providerName);
       }
       libraryInfo->providerList.push_back(providerInterface);
       return providerInterface;
    } catch (...) {
-      throw std::runtime_error("Provider doesn't exist " + providerName);
+      throw LibraryLoadException("Provider doesn't exist", providerName);
    }
 }
 
@@ -435,15 +434,15 @@ bool LibraryManager::LoadInternalLibrary(std::shared_ptr<FlintLibraryHandles> li
    AddLibrary(LibraryType::Internal, libraryHandles->libraryName);
    auto libraryInfo = _libraries[libraryHandles->libraryName];
    if (libraryInfo == nullptr) {
-      throw std::runtime_error("Library not found " + libraryHandles->libraryName);
+      throw LibraryLoadException("Library not found", libraryHandles->libraryName);
    }
 
    if (libraryInfo->libraryHandles->getModuleRegistrations == nullptr) {
       MOJA_LOG_DEBUG << (boost::format("LibraryMLoadInternalLibraryanager: %s") % "calling registrations").str();
 
       if (libraryInfo->GetLibraryType() != LibraryType::Internal) {
-         throw std::runtime_error("Attempt to load library already loaded as different type" +
-                                  libraryHandles->libraryName);
+         throw LibraryLoadException("Attempt to load library already loaded as different type",
+                                    libraryHandles->libraryName);
       }
 
       auto internalLibraryInfo = std::static_pointer_cast<LibraryInfoInternal>(libraryInfo);
@@ -467,12 +466,12 @@ bool LibraryManager::LoadManagedLibrary() {
    // Grab the library info.  This has the file name of the library, as well as other info.
    auto libraryInfo = _libraries[libraryName];
    if (libraryInfo == nullptr) {
-      throw std::runtime_error("Library not found " + libraryName);
+      throw LibraryLoadException("Library not found", libraryName);
    }
 
    if (libraryInfo->libraryHandles->getModuleRegistrations == nullptr) {
       if (libraryInfo->GetLibraryType() != LibraryType::Managed) {
-         throw std::runtime_error("Attempt to load library already loaded as different type " + libraryName);
+         throw LibraryLoadException("Attempt to load library already loaded as different type", libraryName);
       }
 
       auto managedLibraryInfo = std::static_pointer_cast<LibraryInfoManaged>(_libraries[libraryName]);
@@ -485,11 +484,11 @@ bool LibraryManager::LoadManagedLibrary() {
 
       // Skip this check if file manager has not yet been initialized
       if (!libraryFileToLoad.exists()) {
-         throw std::runtime_error("Library not found " + managedLibraryInfo->filename);
+         throw LibraryLoadException("Library not found", managedLibraryInfo->filename);
       }
 
       if (!CheckModuleCompatibility(libraryFileToLoad.path())) {
-         throw std::runtime_error("Library not compatible " + libraryFileToLoad.path());
+         throw LibraryLoadException("Library not compatible", libraryFileToLoad.path());
       }
 
       managedLibraryInfo->handle = std::make_unique<Poco::SharedLibrary>(libraryFileToLoad.path());
@@ -538,12 +537,12 @@ bool LibraryManager::LoadExternalLibrary(const std::string& libraryName, const s
    // Grab the library info.  This has the file name of the library, as well as other info.
    auto libraryInfo = _libraries[libraryName];
    if (libraryInfo == nullptr) {
-      throw std::runtime_error("Library not found " + libraryName);
+      throw LibraryLoadException("Library not found", libraryName);
    }
 
    if (libraryInfo->libraryHandles->getModuleRegistrations == nullptr) {
       if (libraryInfo->GetLibraryType() != LibraryType::External) {
-         throw std::runtime_error("Attempt to load library already loaded as different type " + libraryName);
+         throw LibraryLoadException("Attempt to load library already loaded as different type", libraryName);
       }
 
       auto externalLibraryInfo = std::static_pointer_cast<LibraryInfoExternal>(_libraries[libraryName]);
@@ -555,11 +554,11 @@ bool LibraryManager::LoadExternalLibrary(const std::string& libraryName, const s
       externalLibraryInfo->handle = nullptr;
 
       if (!libraryFileToLoad.exists()) {
-         throw std::runtime_error("Library not found " + externalLibraryInfo->filename);
+         throw LibraryLoadException("Library not found", externalLibraryInfo->filename);
       }
 
       if (!CheckModuleCompatibility(libraryFileToLoad.path())) {
-         throw std::runtime_error("Library not compatible " + libraryFileToLoad.path());
+         throw LibraryLoadException("Library not compatible", libraryFileToLoad.path());
       }
 
       externalLibraryInfo->handle = std::make_unique<Poco::SharedLibrary>(libraryFileToLoad.path());

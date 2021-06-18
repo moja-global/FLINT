@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(moja VERSION 1.0.6 LANGUAGES C CXX)
+project(moja VERSION 1.0.6 LANGUAGES CXX)
 
 #turn on using solution folders
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
@@ -28,11 +28,11 @@ set(Moja_COMPONENTS "")
 
 # Allow enabling and disabling components
 option(ENABLE_MOJA.MODULES.ZIPPER 					"moja.modules.zipper"			OFF)
-option(ENABLE_MOJA.MODULES.POCO 					"moja.modules.poco"				OFF)
-option(ENABLE_MOJA.MODULES.LIBPQ 					"moja.modules.libpq"			ON)
-option(ENABLE_MOJA.MODULES.GDAL 					"moja.modules.gdal"				ON)
-option(ENABLE_MOJA.CLI 								"moja.cli"						ON)
-option(ENABLE_MOJA.SYSTEMTEST 						"moja.systemtest"				OFF)
+option(ENABLE_MOJA.MODULES.POCO 						"moja.modules.poco"				OFF)
+option(ENABLE_MOJA.MODULES.LIBPQ 						"moja.modules.libpq"			OFF)
+option(ENABLE_MOJA.MODULES.GDAL 						"moja.modules.gdal"				OFF)
+option(ENABLE_MOJA.CLI 									    "moja.cli"							  ON)
+option(ENABLE_MOJA.SYSTEMTEST 							"moja.systemtest"					OFF)
 
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
   set(CMAKE_INSTALL_PREFIX "C:/Development/Software/${PROJECT_NAME}" CACHE PATH "..." FORCE)
@@ -126,10 +126,6 @@ if (CMAKE_SYSTEM MATCHES "Linux" )
 		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has C++17 support.")
 	else()
 		  message(STATUS "The compiler ${CMAKE_CXX_COMPILER} has no C++17 support. Please use a different C++ compiler.")
-	endif()
-
-	if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-        set(CXX_FILESYSTEM_LIBRARIES "stdc++fs")
 	endif()
 endif(CMAKE_SYSTEM MATCHES "Linux" )
 

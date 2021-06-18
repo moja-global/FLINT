@@ -1,5 +1,7 @@
 #include "moja/datetime.h"
 
+#include "moja/exception.h"
+
 using namespace date;
 using namespace std::chrono;
 

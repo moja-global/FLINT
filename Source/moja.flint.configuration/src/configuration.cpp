@@ -1,5 +1,6 @@
 #include "moja/flint/configuration/configuration.h"
 
+#include "moja/flint/configuration/configurationexceptions.h"
 #include "moja/flint/configuration/externalpool.h"
 #include "moja/flint/configuration/externalvariable.h"
 #include "moja/flint/configuration/flintdatavariable.h"
@@ -261,12 +262,11 @@ void Configuration::addModule(const std::string& libraryName, const std::string&
                               DynamicObject settings) {
    // It is an error for two modules to have the same order - simulation
    // results could be inconsistent.
-   const auto sameOrder = std::find_if(_modules.begin(), _modules.end(),
-                                       [order](std::shared_ptr<Module> other) { return other->order() == order; });
+   auto sameOrder = std::find_if(_modules.begin(), _modules.end(),
+                                 [order](std::shared_ptr<Module> other) { return other->order() == order; });
 
    if (sameOrder != _modules.end()) {
-      throw std::runtime_error("Error module order overlap in " + libraryName + " " + name + " = " +
-                               (*sameOrder)->name());
+      throw ModuleOrderOverlapException() << Order(order) << ModuleNames({libraryName, name, (*sameOrder)->name()});
    }
 
    auto module = std::make_shared<Module>(libraryName, name, order, isProxy, settings);

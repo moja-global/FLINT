@@ -1,13 +1,12 @@
 #include "moja/datarepository/providerrelationalsqlite.h"
 
-#include <moja/filesystem.h>
+#include "moja/datarepository/datarepositoryexceptions.h"
 
+#include <Poco/File.h>
 #include <Poco/LRUCache.h>
 
 #include <sqlite3.h>
 #include <vector>
-
-namespace fs = moja::filesystem;
 
 namespace moja {
 namespace datarepository {
@@ -26,13 +25,14 @@ class SQLiteConnection {
       sqlite3_config(SQLITE_CONFIG_URI, 1);
 
       if (path.find(":memory:") == std::string::npos) {
-         if (!fs::exists(path)) {
-            throw std::runtime_error("Error SQLite database file not found " + path);
+         Poco::File file(path);
+         if (!file.exists()) {
+            BOOST_THROW_EXCEPTION(FileNotFoundException() << FileName(path));
          }
       }
 
       if (sqlite3_open_v2(path.c_str(), &_conn, SQLITE_OPEN_READONLY | SQLITE_OPEN_NOMUTEX, 0) != SQLITE_OK) {
-         throw std::runtime_error("Error SQLite database connection failed: " + std::string(sqlite3_errmsg(_conn)));
+         BOOST_THROW_EXCEPTION(ConnectionFailedException() << ConnectionError(sqlite3_errmsg(_conn)));
       }
 
       sqlite3_busy_timeout(_conn, 60000);
@@ -52,7 +52,7 @@ class SQLiteStatement {
 
    SQLiteStatement(const SQLiteConnection& conn, const std::string& query) {
       if (sqlite3_prepare_v2(conn, query.c_str(), int(query.size()), &_stmt, nullptr) != SQLITE_OK) {
-         throw std::runtime_error("Error SQLite prepare failed: " + std::string(sqlite3_errmsg(conn)));
+         BOOST_THROW_EXCEPTION(QueryException() << SQL(query) << SQLError(sqlite3_errmsg(conn)));
       }
    }
 
@@ -122,7 +122,7 @@ class ProviderRelationalSQLite::impl {
             return std::vector<DynamicObject>();
             break;
          default:
-            throw std::runtime_error("Error SQLite query failed: " + std::string(sqlite3_errmsg(_conn)));
+            BOOST_THROW_EXCEPTION(QueryException() << SQL(query) << SQLError(sqlite3_errmsg(_conn)));
       }
 
       std::vector<DynamicObject> result;

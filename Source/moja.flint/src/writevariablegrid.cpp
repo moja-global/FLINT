@@ -9,37 +9,20 @@
 
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
-#include <moja/filesystem.h>
 
-#include <fmt/format.h>
+#include <Poco/File.h>
+#include <Poco/Path.h>
+
 #include <boost/format.hpp>
 #include <boost/format/group.hpp>
-#include <boost/algorithm/string/predicate.hpp>
+#include <boost/iostreams/device/file.hpp>
+#include <boost/iostreams/stream_buffer.hpp>
 
 #include <limits>
-#include <cmath>
-#include <fstream>
-
-namespace fs = moja::filesystem;
+#include <math.h>
 
 namespace moja {
 namespace flint {
-
-   // --- RAII class for file handle
-class FileHandle {
-   typedef FILE* ptr;
-
-  public:
-   explicit FileHandle(const fs::path& name, std::string const& mode = std::string("r"))
-       : _wrapped_file(fopen(name.string().c_str(), mode.c_str())) {}
-   ~FileHandle() {
-      if (_wrapped_file) fclose(_wrapped_file);
-   }
-   operator ptr() const { return _wrapped_file; }
-
-  private:
-   ptr _wrapped_file;
-};
 
 void WriteVariableGrid::configure(const DynamicObject& config) {
    _globalOutputPath = config.contains("output_path") ? config["output_path"].convert<std::string>() : "";
@@ -315,12 +298,32 @@ template <typename T>
 void WriteVariableGrid::DataSettingsT<T>::doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) {
    flint::VariableAndPoolStringBuilder databaseNameBuilder(_landUnitData, _outputPath);
    _outputPath = databaseNameBuilder.result();
-   const fs::path working_folder(_outputPath);
 
+   std::string variableFolder;
    if (_forceVariableFolderName) {
-      fs::create_directories(working_folder / _name);
+      variableFolder = (boost::format("%1%%2%") % Poco::Path::separator() % _name).str();
    } else {
-      fs::create_directories(working_folder);
+      variableFolder = "";
+   }
+
+   Poco::File workingFolder(_outputPath);
+   const auto spatialOutputFolderPath = (boost::format("%1%%2%") % workingFolder.path() % variableFolder
+                                         // % Poco::Path::separator()
+                                         // % _name
+                                         )
+                                            .str();
+
+   try {
+      workingFolder.createDirectories();
+   } catch (
+       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
+   }
+
+   Poco::File spatialOutputFolder(spatialOutputFolderPath);
+   try {
+      spatialOutputFolder.createDirectories();
+   } catch (
+       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
    }
 }
 
@@ -347,25 +350,43 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainInit(flint::ILandUnitData
 template <typename T>
 void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitInit(
     std::shared_ptr<const SpatialLocationInfo> spatialLocationInfo) {
-   fs::path working_folder(_outputPath);
+   Poco::File workingFolder(_outputPath);
    std::string variableFolder;
 
    if (_forceVariableFolderName) {
-      working_folder /= _name;
+      variableFolder = (boost::format("%1%%2%") % Poco::Path::separator() % _name).str();
+   } else {
+      variableFolder = "";
    }
 
-   fs::path tile_folder;
    if (_useIndexesForFolderName) {
-      tile_folder = (working_folder /= fmt::format("{:06}", spatialLocationInfo->_tileIdx));
+      _tileFolderPath = (boost::format("%1%%2%%3%%4%") %
+                         workingFolder.path()
+                         // % Poco::Path::separator()
+                         // % _name
+                         % variableFolder % Poco::Path::separator() %
+                         boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx))
+                            .str();
    } else {
-      tile_folder = (working_folder /= fmt::format("{}{:03}{}{:03}", spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "",
-                                                  std::abs(spatialLocationInfo->_tileLatLon.lon),
-                                                  spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "",
-                                                  std::abs(spatialLocationInfo->_tileLatLon.lat)));
+      _tileFolderPath =
+          (boost::format("%1%%2%%3%%4%%5%_%6%%7%") %
+           workingFolder.path()
+           // % Poco::Path::separator()
+           // % _name
+           % variableFolder % Poco::Path::separator() % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
+           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
+           (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
+           boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)))
+              .str();
    }
-   _tileFolderPath = tile_folder.string();
-   std::unique_lock lock(_fileHandlingMutex);
-   fs::create_directories(tile_folder);
+
+   Poco::File tileFolder(_tileFolderPath);
+   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
+   try {
+      tileFolder.createDirectories();
+   } catch (
+       Poco::FileExistsException&) { /* Poco has a bug here, exception shouldn't be thrown, has been fixed in 1.7.8 */
+   }
 }
 
 // --------------------------------------------------------------------------------------------
@@ -382,31 +403,40 @@ void WriteVariableGrid::DataSettingsT<T>::initializeData(std::shared_ptr<const S
 template <typename T>
 void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
     std::shared_ptr<const SpatialLocationInfo> spatialLocationInfo) {
-   std::unique_lock<std::mutex> lock(_fileHandlingMutex);
+   Poco::Mutex::ScopedLock lock(_fileHandlingMutex);
    //	for (const auto& timestepData : _data) {
 
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
-
    for (auto it = _data.begin(); it != _data.end(); ++it) {
-      const auto& [step, data] = (*it);
+      const auto& timestepData = (*it);
 
-      fs::path tileFolder(_tileFolderPath);
+      Poco::File tileFolder(_tileFolderPath);
       std::string folderLocStr;
       if (_useIndexesForFolderName) {
-         folderLocStr = fmt::format("{}_{:06}_{:02}_{}", _name, spatialLocationInfo->_tileIdx,
-                                    spatialLocationInfo->_blockIdx, step);
+         folderLocStr = (boost::format("%1%_%2%") %
+                         boost::io::group(std::setfill('0'), std::setw(6), spatialLocationInfo->_tileIdx) %
+                         boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
+                            .str();
       } else {
-         folderLocStr = fmt::format(
-             "{}_{}{:03}_{}{:03}_{:02}_{}", _name, spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "",
-             std::abs(spatialLocationInfo->_tileLatLon.lon), spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "",
-             std::abs(spatialLocationInfo->_tileLatLon.lat), spatialLocationInfo->_blockIdx, step);
+         folderLocStr =
+             (boost::format("%1%%2%_%3%%4%_%5%") % (spatialLocationInfo->_tileLatLon.lon < 0 ? "-" : "") %
+              boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lon)) %
+              (spatialLocationInfo->_tileLatLon.lat < 0 ? "-" : "") %
+              boost::io::group(std::setfill('0'), std::setw(3), std::abs(spatialLocationInfo->_tileLatLon.lat)) %
+              boost::io::group(std::setfill('0'), std::setw(2), spatialLocationInfo->_blockIdx))
+                 .str();
       }
 
-      auto filenameGrd = tileFolder / fmt::format("{}.grd", folderLocStr);
-      auto filenameHdr = tileFolder / fmt::format("{}.hdr", folderLocStr);
+      auto filenameGrd = (boost::format("%1%%2%%3%_%4%_%5%.grd") % tileFolder.path() % Poco::Path::separator() % _name %
+                          folderLocStr % timestepData.first)
+                             .str();
+      auto filenameHdr = (boost::format("%1%%2%%3%_%4%_%5%.hdr") % tileFolder.path() % Poco::Path::separator() % _name %
+                          folderLocStr % timestepData.first)
+                             .str();
 
-      if (fs::exists(filenameGrd)) {
-         fs::remove(filenameGrd);  // delete existing file
+      Poco::File blockGrd(filenameGrd);
+      if (blockGrd.exists()) {
+         blockGrd.remove(false);  // delete existing file
       }
 
       int cellRows = spatialLocationInfo->_cellRows;
@@ -416,24 +446,25 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
       FileHandle pFile(filenameGrd, "wb");
       if (_subtractPrevValue) {
          if (it == _data.begin())  // prev value is 0
-            fwrite(data.data(), sizeof(T), numCells, pFile);
+            fwrite(timestepData.second.data(), sizeof(T), numCells, pFile);
          else {
             // I know i have a prevIt
-            const auto& [step_prev, data_prev] = (*itPrev);
+            const auto& timestepDataPrev = (*itPrev);
             std::vector<T> newData;
 
-            auto it1 = data.begin();
-            auto it2 = data_prev.begin();
-            for (; it1 != data.end() && it2 != data_prev.end(); ++it1, ++it2) {
+            auto it1 = timestepData.second.begin();
+            auto it2 = timestepDataPrev.second.begin();
+            for (; it1 != timestepData.second.end() && it2 != timestepDataPrev.second.end(); ++it1, ++it2) {
                newData.push_back(*it1 - *it2);
             }
             fwrite(newData.data(), sizeof(T), numCells, pFile);
          }
       } else {
-         fwrite(data.data(), sizeof(T), numCells, pFile);
+         fwrite(timestepData.second.data(), sizeof(T), numCells, pFile);
       }
 
-      std::ofstream out(filenameHdr);
+      boost::iostreams::stream_buffer<boost::iostreams::file_sink> buf(filenameHdr);
+      std::ostream out(&buf);
 
       out << "ENVI" << std::endl;
       out << "description = { " << filenameGrd << " }" << std::endl;
@@ -462,7 +493,6 @@ void WriteVariableGrid::DataSettingsT<T>::doLocalDomainProcessingUnitShutdown(
              "\"Greenwich\",0],UNIT[\"Degree\",0.017453292519943295]] }"
           << std::endl;
       out << "band names = { Band 1 }" << std::endl;
-      out.close();
       itPrev = it;
    }
    _data.clear();

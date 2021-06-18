@@ -1,5 +1,7 @@
 #include "moja/modules/libpq/providerrelationallibpqpostgresql.h"
 
+#include <moja/datarepository/datarepositoryexceptions.h>
+
 #include <moja/logging.h>
 
 #include <Poco/LRUCache.h>
@@ -44,7 +46,7 @@ class PostgresConnection {
                             PQerrorMessage(_conn) % connInfo)
                                .str();
          MOJA_LOG_ERROR << "PostgresConnection: " << msg;
-         throw std::runtime_error("Error Postgres connection failed: " + msg);
+         BOOST_THROW_EXCEPTION(datarepository::ConnectionFailedException() << datarepository::ConnectionError(msg));
       }
       PQsetNoticeReceiver(_conn, noticeReceiver, nullptr);
       PQsetNoticeProcessor(_conn, noticeProcessor, nullptr);
@@ -327,7 +329,8 @@ class ProviderRelationalLibpqPostgreSQL::impl {
                                PQerrorMessage(_conn) % _dbConnString)
                                   .str();
             MOJA_LOG_ERROR << "ProviderRelationalLibpqPostgreSQL: " << msg;
-            throw std::runtime_error("Error " + msg);
+            BOOST_THROW_EXCEPTION(datarepository::QueryException()
+                                  << datarepository::SQL(query) << datarepository::SQLError(msg));
             break;
          }
          case PGRES_COPY_BOTH:

@@ -1,23 +1,23 @@
 #include "moja/environment_win32.h"
 
+#include <Poco/Path.h>
+#include <Poco/UnWindows.h>
+
 #include <cstring>
-#include <filesystem>
 #include <iphlpapi.h>
+
+#pragma comment(lib, "psapi.lib")
 
 namespace moja {
 
 std::string EnvironmentImpl::startProcessFolderImpl() {
-   namespace fs = std::filesystem;
-
-   std::vector<char> charBuffer;
-   auto size = MAX_PATH;
-   do {
-      size *= 2;
-      charBuffer.resize(size);
-   } while (GetModuleFileNameA(NULL, charBuffer.data(), size) == size);
-
-   fs::path path(charBuffer.data());  // Contains the full path including .exe
-   return path.remove_filename().string();
+   static char path[512] = "";
+   if (!path[0]) {
+      // Get directory this executable was launched from.
+      GetModuleFileNameA(NULL, path, sizeof(path) - 1);
+   }
+   auto folder = Poco::Path(path).parent();
+   return folder.toString();
 }
 
 }  // namespace moja

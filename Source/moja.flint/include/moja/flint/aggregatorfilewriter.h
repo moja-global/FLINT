@@ -17,7 +17,7 @@ typedef Poco::Tuple<Int64, int, std::string, std::string, std::string> runStatDa
 
 class FLINT_API AggregatorFileWriter : public flint::ModuleBase {
   public:
-   AggregatorFileWriter(std::mutex& fileMutex, AggregatorLandUnitSharedData& aggregatorLandUnitSharedData,
+   AggregatorFileWriter(Poco::Mutex& fileMutex, AggregatorLandUnitSharedData& aggregatorLandUnitSharedData,
                         std::shared_ptr<flint::RecordAccumulatorWithMutex<DateRow>> dateDimension,
                         std::shared_ptr<flint::RecordAccumulatorWithMutex<Date2Row>> date2Dimension,
                         std::shared_ptr<flint::RecordAccumulatorWithMutex<PoolInfoRow>> poolInfoDimension,
@@ -47,7 +47,7 @@ class FLINT_API AggregatorFileWriter : public flint::ModuleBase {
    void writeFlux();
 
    // -- Shared Data
-   std::mutex& _fileMutex;
+   Poco::Mutex& _fileMutex;
    AggregatorLandUnitSharedData& _aggregatorLandUnitSharedData;
    std::shared_ptr<flint::RecordAccumulatorWithMutex<DateRow>> _dateDimension;
    std::shared_ptr<flint::RecordAccumulatorWithMutex<Date2Row>> _date2Dimension;

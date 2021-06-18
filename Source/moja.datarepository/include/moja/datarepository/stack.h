@@ -2,6 +2,7 @@
 #define MOJA_DATAREPOSITORY_STACK_H_
 
 #include "moja/datarepository/cube.h"
+#include "moja/datarepository/datarepositoryexceptions.h"
 
 #include <vector>
 

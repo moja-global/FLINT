@@ -27,6 +27,7 @@ configure_file(../templates/exports.h ${CMAKE_CURRENT_SOURCE_DIR}/include/moja/f
 set(MOJA_FLINT_Configuration_headers
 	include/moja/flint/${PACKAGE}/_${PACKAGE}_exports.h
 	include/moja/flint/configuration/configuration.h
+	include/moja/flint/configuration/configurationexceptions.h
 	include/moja/flint/configuration/configtile.h
 	include/moja/flint/configuration/configblock.h
 	include/moja/flint/configuration/configcell.h

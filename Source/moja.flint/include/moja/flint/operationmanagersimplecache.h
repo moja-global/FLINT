@@ -5,6 +5,8 @@
 #include "moja/flint/ioperationmanager.h"
 #include "moja/flint/operationresultcollection.h"
 
+#include <moja/exception.h>
+
 namespace moja {
 namespace flint {
 class IModule;
@@ -50,8 +52,8 @@ class FLINT_API OperationManagerSimpleCache : public IOperationManager {
 
    const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
                         int order, const std::shared_ptr<ITransform> transform) override {
-      throw std::logic_error("addPool not implemented");
-   }
+      throw moja::NotImplementedException();
+   };
    const IPool* addPool(const std::string& name, double initValue = 0.0) override;
    const IPool* addPool(const std::string& name, const std::string& description, const std::string& units, double scale,
                         int order, double initValue = 0.0) override;

@@ -108,7 +108,7 @@ ProviderSpatialRasterTiled::ProviderSpatialRasterTiled(
                                                     layerblockLonSize, layercellLatSize, layercellLonSize),
                                layer["nodata"], layer, attributeTable)));
          } else {
-            throw std::runtime_error("Unsuported layer data type: " + layerData);
+            BOOST_THROW_EXCEPTION(ProviderUnsupportedException() << ProviderType(layerData));
          }
       } else if (layerType == "StackLayer") {
          // if (rasterReaderFactorySet.stackReaderFactory() == nullptr) {
@@ -160,7 +160,7 @@ ProviderSpatialRasterTiled::ProviderSpatialRasterTiled(
                                                     layerblockLonSize, layercellLatSize, layercellLonSize),
                                layer["nodata"], layer)));
          } else {
-            throw std::runtime_error("Unsuported layer data type: " + layerData);
+            BOOST_THROW_EXCEPTION(ProviderUnsupportedException() << ProviderType(layerData));
          }
       } else {
          // TODO: should throw exception
@@ -176,12 +176,14 @@ DynamicVar ProviderSpatialRasterTiled::GetValue(const std::string& name, double 
 }
 
 const IProviderLayer* ProviderSpatialRasterTiled::getLayer(const std::string& name) const {
-   if (_layers.find(name) == _layers.end()) throw std::runtime_error("Layer not found " + name);
+   if (_layers.find(name) == _layers.end()) BOOST_THROW_EXCEPTION(LayerNotFoundException() << LayerName(name));
    return _layers.at(name).get();
 }
 
 inline const TileBlockCellIndexer& ProviderSpatialRasterTiled::indexer(const std::string& layerName) {
-   const auto* layer = getLayer(layerName);
+   if (_layers.find(layerName) == _layers.end())
+      BOOST_THROW_EXCEPTION(LayerNotFoundException() << LayerName(layerName));
+   auto layer = _layers.at(layerName);
    return layer->indexer();
 }
 

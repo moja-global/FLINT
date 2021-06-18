@@ -5,6 +5,8 @@
 
 #include <moja/types.h>
 
+#include <Poco/Mutex.h>
+
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_generators.hpp>
 
@@ -43,7 +45,7 @@ class RecordAccumulatorUuid {
    RecordAccumulatorUuid() {}
 
    const TRecord* accumulate(TRecord record) {
-      std::unique_lock<std::mutex> lock(_mutex);
+      Poco::Mutex::ScopedLock lock(_mutex);
       auto it = _recordsIdx.find(&record);
       if (it != _recordsIdx.end()) {
          // Found an existing ID for the key.
@@ -103,7 +105,7 @@ class RecordAccumulatorUuid {
    const rec_accu_vec& records() const { return _records; };
 
   private:
-   std::mutex _mutex;
+   Poco::Mutex _mutex;
    rec_accu_set _recordsIdx;
    rec_accu_vec _records;
    boost::uuids::random_generator _uuidGenerator;

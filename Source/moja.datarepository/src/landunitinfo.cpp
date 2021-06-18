@@ -1,20 +1,22 @@
 #include "moja/datarepository/landunitinfo.h"
 
 #include "moja/datarepository/aspatialtileinfo.h"
+#include "moja/datarepository/datarepositoryexceptions.h"
 
 #include <boost/format.hpp>
 
+using moja::datarepository::LandscapeDefinitionException;
 
 namespace moja {
 namespace datarepository {
 
 LandUnitInfo::LandUnitInfo(const AspatialTileInfo& tile, Int64 id, double area) {
    if (id < 1) {
-      throw std::invalid_argument("Error id less that 1 " + std::to_string(id));
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("id") << Constraint("> 0"));
    }
 
    if (area <= 0.0) {
-      throw std::invalid_argument("Error area less than or equal to 0.0 " + std::to_string(area));
+      BOOST_THROW_EXCEPTION(LandscapeDefinitionException() << Component("area") << Constraint("> 0"));
    }
 
    _tile = &tile;

@@ -9,12 +9,13 @@
 #include <moja/datarepository/datarepository.h>
 #include <moja/datarepository/iproviderrelationalinterface.h>
 
-#include <moja/filesystem.h>
+#include <moja/exception.h>
+
+#include <Poco/File.h>
 
 #include <boost/algorithm/string/join.hpp>
 
 #include <fstream>
-#include <sstream>
 
 using moja::datarepository::IProviderRelationalInterface;
 
@@ -67,9 +68,8 @@ void SQLQueryTransform::configure(DynamicObject config, const ILandUnitControlle
 }
 
 std::string SQLQueryTransform::readSQLFile(const std::string& path) {
-   namespace fs = moja::filesystem;
-   if (!fs::exists(path)) {
-      throw std::runtime_error("SQL file not found " + path);
+   if (!Poco::File(path).exists()) {
+      throw FileNotFoundException(path);
    }
 
    std::ifstream file(path);
@@ -169,7 +169,7 @@ std::string SQLQueryTransform::formatVariableValues(const IVariable& var, Dynami
       if (_allowEmptyVarValues) {
          return "NULL";
       } else {
-         throw std::runtime_error("SQL value NULL when value expected");
+         BOOST_THROW_EXCEPTION(VariableEmptyWhenValueExpectedException() << VariableName(var.info().name));
       }
    }
 
