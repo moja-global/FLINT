@@ -45,7 +45,7 @@ MetaDataRasterReaderGDAL::MetaDataRasterReaderGDAL(const std::string& path, cons
       auto filePath = Poco::Path(path);
       auto parent = filePath.parent().toString();
       auto abs = filePath.parent().absolute().toString();
-      _path = (boost::format("%1%%2%.json") % filePath.parent().absolute().toString() % filePath.getBaseName()).str();
+      _path = (boost::format("%1%%2%.json") % abs % filePath.getBaseName()).str();
       _metaDataRequired = true;
       if (settings.contains("metadata_required")) {
          _metaDataRequired = settings["metadata_required"].extract<bool>();

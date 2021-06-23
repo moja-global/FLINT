@@ -50,7 +50,6 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cm
     && tar xzf cmake-${CMAKE_VERSION}.tar.gz \
     && cd cmake-${CMAKE_VERSION} \
     && ./bootstrap --system-curl --parallel=$NUM_CPU \
-    && .$NUM_CPU \
 	&& make --quiet install \
 	&& make clean \
     && cd ..

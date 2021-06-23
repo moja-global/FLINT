@@ -26,13 +26,14 @@ namespace datarepository {
 FlintMetaDataRasterReader::FlintMetaDataRasterReader(const std::string& path, const std::string& prefix,
                                                      const DynamicObject& settings)
     : MetaDataRasterReaderInterface(path, prefix, settings) {
-   _metaPath = (boost::format("%1%%2%%3%.json") % path % Poco::Path::separator() % prefix).str();
+    auto filePath = Poco::Path(path);
+    auto abs = filePath.absolute().toString();
+    _metaPath = (boost::format("%1%%2%%3%.json") % abs % Poco::Path::separator() % prefix).str();
 }
 
 DynamicObject FlintMetaDataRasterReader::readMetaData() const {
    if (file_exists(_metaPath)) {
       Poco::JSON::Parser jsonMetadataParser;
-      // Poco::Dynamic::Var parsedMetadata;
 
       std::ifstream metadataFile(_metaPath, std::ifstream::in);
       jsonMetadataParser.parse(metadataFile);

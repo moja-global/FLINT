@@ -40,6 +40,7 @@ void OutputerStreamFlux::subscribe(NotificationCenter& notificationCenter) {
    notificationCenter.subscribe(signals::SystemShutdown, &OutputerStreamFlux::onSystemShutdown, *this);
    notificationCenter.subscribe(signals::TimingPostInit, &OutputerStreamFlux::onTimingPostInit, *this);
    notificationCenter.subscribe(signals::TimingEndStep, &OutputerStreamFlux::onTimingEndStep, *this);
+   notificationCenter.subscribe(signals::PostDisturbanceEvent, &OutputerStreamFlux::onPostDisturbanceEvent, *this);
 }
 
 // --------------------------------------------------------------------------------------------
@@ -150,6 +151,10 @@ void OutputerStreamFlux::onTimingPostInit() { outputInit(_output); }
 // --------------------------------------------------------------------------------------------
 
 void OutputerStreamFlux::onTimingEndStep() { outputEndStep(_output); }
+
+// --------------------------------------------------------------------------------------------
+
+void OutputerStreamFlux::onPostDisturbanceEvent() { outputEndStep(_output); }
 
 }  // namespace flint
 }  // namespace moja

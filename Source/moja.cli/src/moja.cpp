@@ -21,6 +21,7 @@
 #include <memory>
 #include <string>
 #include <fstream>
+#include <cstdlib>
 
 static constexpr const char* CLI_VERSION_STRING = "flint cli version 1.0.0";
 
@@ -41,7 +42,13 @@ bool checkFilePath(const std::string& filePath) {
     return true;
 }
 
+void handleOutOfMemory() {
+    MOJA_LOG_FATAL << "Failed to allocate memory";
+    std::abort();
+}
+
 int main(int argc, char* argv[]) {
+    std::set_new_handler(handleOutOfMemory);
 
 	opt::options_description general_opt("General options");
 	general_opt.add_options()

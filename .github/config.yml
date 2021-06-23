@@ -1,0 +1,49 @@
+# Configuration for welcome - https://github.com/behaviorbot/welcome
+
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: |
+  Hello there!👋 Welcome to moja global!💖
+
+  Thank you and congratulations 🎉 for opening your very first issue in this project.
+  Moja global fosters an open and welcoming environment for al our contributors.🌸 Please adhere to our [Code Of Conduct](https://github.com/moja-global/About_moja_global/blob/master/CODE_OF_CONDUCT.md).
+
+  Incase you want to claim this issue, please comment down below!
+  Please checkout if any of the already existing issue template fits for your isssue or you may open a blank issue as well ✨
+  We will try to get back to you as soon as we can.👀
+
+  Feel free to join us on [moja global Private Slack](https://mojaglobal.slack.com/) by dropping an email [here](mailto:info@moja.global).👩‍💻 We would love to hear your interesting ideas and engage in discussions.💖
+  Moja global is delighted to have you here :)
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: |
+  Hello there!👋 Welcome to moja global!💖
+  Thank you and congrats 🎉 for opening your first PR on this project.✨
+  We will review it soon! Till then you can checkout the `README.md` for more details on it.
+
+  Moja global fosters an open and welcoming environment for al our contributors.🌸 Please adhere to our [Code Of Conduct](https://github.com/moja-global/About_moja_global/blob/master/CODE_OF_CONDUCT.md).
+
+  Feel free to join us on [moja global Private Slack](https://mojaglobal.slack.com/) by dropping an email [here](mailto:info@moja.global).👩‍💻 We would love to hear your interesting ideas and engage in discussions.💖
+  Moja global is delighted to have you here :)
+
+# Configuration for first-pr-merge - https://github.com/behaviorbot/first-pr-merge
+
+# Comment to be posted to on pull requests merged by a first time user
+firstPRMergeComment: |
+  Congratulations on merging your first contribution to moja global!✨
+  Your code is officially a part of moja global now!! 🎉 Please feel free to add yourself as a contributor by following these steps [here](https://github.com/moja-global/About_moja_global/blob/master/CONTRIBUTING.md#how-to-get-credit-for-your-contribution).🙌
+
+  Feel free to join us on [moja global Private Slack](https://mojaglobal.slack.com/) by dropping an email [here](mailto:info@moja.global).👩‍💻 We would love to hear your interesting ideas and engage in discussions.💖
+
+  <details>
+  <summary><b>Now that you've completed this, you can help someone else take their first step!</b></summary>
+  <p>Help a newcomer with their first pull request by providing feedback! This is their first time too, So be as encouraging as possible!😄 </p>
+  <p>Help them setup this project and resolve their queries! 🌸 </p>
+  <p>Create a welcoming or beginner friendly issue for someone else! 😄 🎉 </p>
+  </details>
+
+
+# It is recommended to include as many gifs and emojis as possible!
