@@ -6,6 +6,7 @@
 #include "moja/flint/configuration/itiming.h"
 #include "moja/flint/configuration/landscape.h"
 #include "moja/flint/configuration/operationmanager.h"
+#include "moja/datarepository/providerspatialrastertiled.h"
 
 #include <moja/dynamic.h>
 
@@ -39,6 +40,7 @@ class CONFIGURATION_API LocalDomain {
    virtual const std::string& sequencerLibrary() const { return _sequencerLibrary; }
    virtual const std::string& sequencer() const { return _sequencer; }
    virtual const std::string& simulateLandUnit() const { return _simulateLandUnit; }
+   virtual double simulateLandUnitArea(const CellIdx& cell) { return ProviderSpatialRasterTiled::area(cell); }
    virtual const std::string& landUnitBuildSuccess() const { return _landUnitBuildSuccess; }
    virtual const DynamicObject& settings() const { return _settings; }
    virtual DynamicObject& settings() { return _settings; }
