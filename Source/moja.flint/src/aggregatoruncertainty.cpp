@@ -1,5 +1,6 @@
 #include "moja/flint/aggregatoruncertainty.h"
 
+#include "moja/flint/spatiallocationinfo.h"
 #include "moja/flint/ilandunitdatawrapper.h"
 #include "moja/flint/ioperationresult.h"
 #include "moja/flint/ioperationresultflux.h"
@@ -36,6 +37,10 @@ void AggregatorUncertainty::configure(const DynamicObject& config) {
    aggregate_stock_ = true;
    if (config.contains("aggregate_stock")) {
       aggregate_stock_ = config["aggregate_stock"];
+   }
+   clear_fluxes_after_recording_ = false;
+   if (config.contains("clear_fluxes_after_recording")) {
+       clear_fluxes_after_recording_ = config["clear_fluxes_after_recording"];
    }
 }
 
@@ -110,10 +115,15 @@ void AggregatorUncertainty::onTimingInit() {
    simulation_unit_data_->lu_count_processing_unit++;
    simulation_unit_data_->lu_count_local_domain++;
 
-   if (_landUnitData->hasVariable("landUnitArea"))
-      simulation_unit_data_->land_unit_area = _landUnitData->getVariable("landUnitArea")->value();
-   else
-      simulation_unit_data_->land_unit_area = 1.0;
+   if (_landUnitData->hasVariable("spatialLocationInfo")) {
+       auto spatialLocationInfo = std::static_pointer_cast<SpatialLocationInfo>(
+           _landUnitData->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
+       simulation_unit_data_->land_unit_area = spatialLocationInfo->getProperty("landUnitArea");
+   } else if (_landUnitData->hasVariable("landUnitArea")) {
+       simulation_unit_data_->land_unit_area = _landUnitData->getVariable("landUnitArea")->value();
+   } else {
+       simulation_unit_data_->land_unit_area = 1.0;
+   }
 
    // Clear the LU data sets in prep for this LU processing
    fluxes_lu_.clear();
@@ -201,6 +211,10 @@ void AggregatorUncertainty::record_flux_set() {
          fluxes_lu_.emplace_back(
              flux_data_lu{ date_record_id, module_info_id, src_ix, dst_ix, flux_value});
       }
+   }
+
+   if (clear_fluxes_after_recording_) {
+       _landUnitData->clearLastAppliedOperationResults();
    }
 }
 

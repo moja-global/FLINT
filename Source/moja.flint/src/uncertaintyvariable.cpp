@@ -72,8 +72,7 @@ const DynamicVar& UncertaintyVariable::value() const {
                   }
                }
             }
-//            value_ = val;
-            variable_->set_value(val);
+            value_ = val;
          }
       } else {
          auto& val = value_;

@@ -56,6 +56,7 @@ class FLINT_API AggregatorUncertainty : public ModuleBase {
    bool module_info_on_;
    bool aggregate_sink_and_source_;
    bool aggregate_stock_;
+   bool clear_fluxes_after_recording_;
 
    // -- Land Unit level Collections
    // -- these collections will be kep for each land unit and put into greater aggregation on LU success.

@@ -553,6 +553,8 @@ class RecordAccumulatorMap2 {
 
    const rec_accu_map& getRecords() const { return _records; }
 
+   rec_accu_map& getRecords() { return _records; }
+
    std::vector<TPersistable> getPersistableCollection() const {
       std::vector<TPersistable> persistables;
       persistables.reserve(_records.size());
