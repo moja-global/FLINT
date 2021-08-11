@@ -589,18 +589,18 @@ T WriteVariableGeotiff::DataSettingsT<T>::applyValueAdjustment(
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::setLUValue(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) {
-   if ((timestep - 1) % _outputInterval != 0) {
-      return;
-   }
+    if ((timestep - 1) % _outputInterval != 0) {
+        return;
+    }
 
-   initData(spatialLocationInfo, timestep);
-   if (_variable != nullptr) {
-      setLUVariableValue(spatialLocationInfo, timestep);
-   } else if (!_pool.empty()) {
-      setLUPoolValue(spatialLocationInfo, timestep);
-   } else if (!_flux.empty()) {
-      setLUFluxValue(spatialLocationInfo, timestep);
-   }
+    initData(spatialLocationInfo, timestep);
+    if (_variable != nullptr) {
+        setLUVariableValue(spatialLocationInfo, timestep);
+    } else if (!_pool.empty()) {
+        setLUPoolValue(spatialLocationInfo, timestep);
+    } else if (!_flux.empty()) {
+        setLUFluxValue(spatialLocationInfo, timestep);
+    }
 }
 
 // --------------------------------------------------------------------------------------------
@@ -608,27 +608,35 @@ void WriteVariableGeotiff::DataSettingsT<T>::setLUValue(
 template <typename T>
 void WriteVariableGeotiff::DataSettingsT<T>::setLUVariableValue(
     std::shared_ptr<const flint::SpatialLocationInfo> spatialLocationInfo, int timestep) {
-   if (_propertyName != "") {
-      auto flintDataVariable = _variable->value().extract<std::shared_ptr<flint::IFlintData>>();
-      if (!_isArray) {
-         auto variablePropertyValue = flintDataVariable->getProperty(_propertyName);
-         _data[timestep][spatialLocationInfo->_cellIdx] =
-             applyValueAdjustment(spatialLocationInfo, timestep, variablePropertyValue.convert<T>());
-      }
-   } else {
-      auto variableValue = _variable->value();
-      if (_isArray) {
-         auto val = variableValue.extract<std::vector<boost::optional<T>>>()[_arrayIndex];
-         if (val.is_initialized()) {
+    if (_propertyName != "") {
+        auto variableValue = _variable->value();
+        if (variableValue.isStruct()) {
+            const auto& structVal = variableValue.extract<DynamicObject>();
             _data[timestep][spatialLocationInfo->_cellIdx] =
-                applyValueAdjustment(spatialLocationInfo, timestep, val.value());
-         }
-      } else {
-         if (!variableValue.isEmpty())
-            _data[timestep][spatialLocationInfo->_cellIdx] =
-                applyValueAdjustment(spatialLocationInfo, timestep, variableValue.convert<T>());
-      }
-   }
+                applyValueAdjustment(spatialLocationInfo, timestep, structVal[_propertyName].convert<T>());
+        } else {
+            auto flintDataVariable = _variable->value().extract<std::shared_ptr<flint::IFlintData>>();
+            if (!_isArray) {
+                auto variablePropertyValue = flintDataVariable->getProperty(_propertyName);
+                _data[timestep][spatialLocationInfo->_cellIdx] =
+                    applyValueAdjustment(spatialLocationInfo, timestep, variablePropertyValue.convert<T>());
+            }
+        }
+    } else {
+        auto variableValue = _variable->value();
+        if (_isArray) {
+            auto val = variableValue.extract<std::vector<boost::optional<T>>>()[_arrayIndex];
+            if (val.is_initialized()) {
+                _data[timestep][spatialLocationInfo->_cellIdx] =
+                    applyValueAdjustment(spatialLocationInfo, timestep, val.value());
+            }
+        } else {
+            if (!variableValue.isEmpty()) {
+                _data[timestep][spatialLocationInfo->_cellIdx] =
+                    applyValueAdjustment(spatialLocationInfo, timestep, variableValue.convert<T>());
+            }
+        }
+    }
 }
 
 // --------------------------------------------------------------------------------------------

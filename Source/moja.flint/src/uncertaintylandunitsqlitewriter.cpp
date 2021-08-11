@@ -477,7 +477,7 @@ double _st_dev(const std::vector<double>& data) {
 
 void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
    {
-      auto& records = simulation_unit_data_->land_unit_stock_results.get_records();
+      auto& records = simulation_unit_data_->land_unit_stock_results.getRecords();
       for (auto& rec : records) {
          auto& values = rec.second.values;
          rec.second.stdev = _st_dev(values);
@@ -487,7 +487,7 @@ void UncertaintyLandUnitSQLiteWriter::calculate_stdev() {
       }
    }
    {
-      auto& records = simulation_unit_data_->land_unit_flux_results.get_records();
+      auto& records = simulation_unit_data_->land_unit_flux_results.getRecords();
       for (auto& rec : records) {
          auto& values = rec.second.fluxes;
          rec.second.stdev = _st_dev(values);

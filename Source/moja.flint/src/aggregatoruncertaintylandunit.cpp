@@ -60,6 +60,10 @@ void AggregatorUncertaintyLandUnit::configure(const DynamicObject& config) {
    } else {
       classifier_set_var_name_ = "classifier_set";
    }
+   aggregator_land_unit_shared_data_.clear_fluxes_after_recording = false;
+   if (config.contains("clear_fluxes_after_recording")) {
+       aggregator_land_unit_shared_data_.clear_fluxes_after_recording = config["clear_fluxes_after_recording"];
+   }
 }
 
 void AggregatorUncertaintyLandUnit::subscribe(NotificationCenter& notificationCenter) {
@@ -176,10 +180,15 @@ void AggregatorUncertaintyLandUnit::onTimingInit() {
    simulation_unit_data_->lu_count_processing_unit++;
    simulation_unit_data_->lu_count_local_domain++;
 
-   if (_landUnitData->hasVariable("landUnitArea"))
-      simulation_unit_data_->land_unit_area = _landUnitData->getVariable("landUnitArea")->value();
-   else
-      simulation_unit_data_->land_unit_area = 1.0;
+   if (_landUnitData->hasVariable("spatialLocationInfo")) {
+       auto spatialLocationInfo = std::static_pointer_cast<SpatialLocationInfo>(
+           _landUnitData->getVariable("spatialLocationInfo")->value().extract<std::shared_ptr<flint::IFlintData>>());
+       simulation_unit_data_->land_unit_area = spatialLocationInfo->getProperty("landUnitArea");
+   } else if (_landUnitData->hasVariable("landUnitArea")) {
+       simulation_unit_data_->land_unit_area = _landUnitData->getVariable("landUnitArea")->value();
+   } else {
+       simulation_unit_data_->land_unit_area = 1.0;
+   }
 
    constructed_tile_id_ = 0;  // TileIdx [24 bits], blockIdx [12 bits], cellIdx [28 bits]
 
@@ -282,7 +291,9 @@ void AggregatorUncertaintyLandUnit::onTimingShutdown() {
    stocks_lu_.clear();
 }
 
-void AggregatorUncertaintyLandUnit::onOutputStep() { recordStockSet(); }
+void AggregatorUncertaintyLandUnit::onOutputStep() {
+    recordStockSet();
+}
 
 void AggregatorUncertaintyLandUnit::onError(std::string msg) {
    fluxes_lu_.clear();  
@@ -357,6 +368,10 @@ void AggregatorUncertaintyLandUnit::recordFluxSet() {
          const auto fluxValue = flux->value() * simulation_unit_data_->land_unit_area;
          fluxes_lu_.emplace_back(fluxDataLU{date_record_id, module_info_id, srcIx, dstIx, fluxValue});
       }
+   }
+
+   if (aggregator_land_unit_shared_data_.clear_fluxes_after_recording) {
+       _landUnitData->clearLastAppliedOperationResults();
    }
 }
 
