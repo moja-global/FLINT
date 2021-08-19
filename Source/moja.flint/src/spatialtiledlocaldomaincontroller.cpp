@@ -792,25 +792,11 @@ bool SpatialTiledLocalDomainController::runCellSpinUp(std::shared_ptr<StatsUnitR
          blockStatsUnit->_unitsProcessed++;
          return true;
       } catch (const flint::SimulationError& e) {
-         std::string details = *(boost::get_error_info<Details>(e));
-         std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-         std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-         const int* errorCode = boost::get_error_info<ErrorCode>(e);
-         _spatiallocationinfo->_errorCode = *errorCode;
-         _spatiallocationinfo->_library = libraryName;
-         _spatiallocationinfo->_module = moduleName;
-         _spatiallocationinfo->_message = details;
+         std::string details = _handleFLINTException(e);  // Template function call
          _spinupNotificationCenter.postNotification(moja::signals::Error, details);
          return true;
       } catch (const flint::LocalDomainError& e) {
-         std::string details = *(boost::get_error_info<Details>(e));
-         std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-         std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-         const int* errorCode = boost::get_error_info<ErrorCode>(e);
-         _spatiallocationinfo->_errorCode = *errorCode;
-         _spatiallocationinfo->_library = libraryName;
-         _spatiallocationinfo->_module = moduleName;
-         _spatiallocationinfo->_message = details;
+         std::string details = _handleFLINTException(e);  // Template function call
          _spinupNotificationCenter.postNotification(moja::signals::Error, details);
       } catch (flint::VariableNotFoundException& e) {
          std::string str =
@@ -843,6 +829,20 @@ bool SpatialTiledLocalDomainController::runCellSpinUp(std::shared_ptr<StatsUnitR
       return false;
    }
    return true;
+}
+// Here this template function will handle all the string and spatiallocationinfo for
+// both the LocalDomainError and SimulationError. From lines 794-816 and 933-959.
+template <typename FlintExceptionType&>
+std::string _handleFLINTException(const FlintExceptionType& e) {
+   std::string details = *(boost::get_error_info<Details>(e));
+   std::string libraryName = *(boost::get_error_info<LibraryName>(e));
+   std::string moduleName = *(boost::get_error_info<ModuleName>(e));
+   const int* errorCode = boost::get_error_info<ErrorCode>(e);
+   _spatiallocationinfo->_errorCode = *errorCode;
+   _spatiallocationinfo->_library = libraryName;
+   _spatiallocationinfo->_module = moduleName;
+   _spatiallocationinfo->_message = details;
+   return details;
 }
 
 // --------------------------------------------------------------------------------------------
@@ -929,17 +929,10 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
       }
 
    }
-   // This error is recoverable, retunr true for success
+   // This error is recoverable, return true for success
    catch (const flint::SimulationError& e) {
       // This error is recoverable, drop cell and continue simulation
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      const int* errorCode = boost::get_error_info<ErrorCode>(e);
-      _spatiallocationinfo->_errorCode = *errorCode;
-      _spatiallocationinfo->_library = libraryName;
-      _spatiallocationinfo->_module = moduleName;
-      _spatiallocationinfo->_message = details;
+      std::string details = _handleFLINTException(e);  // Template function call
       _notificationCenter.postNotification(moja::signals::Error, details);
       blockStatsUnit->_unitsNotProcessed++;
       blockStatsUnit->_unitsWithError++;
@@ -947,14 +940,7 @@ bool SpatialTiledLocalDomainController::runCell(std::shared_ptr<StatsUnitRecord>
    }
    // All other catches are failures for the localdomain, return false!
    catch (const flint::LocalDomainError& e) {
-      std::string details = *(boost::get_error_info<Details>(e));
-      std::string libraryName = *(boost::get_error_info<LibraryName>(e));
-      std::string moduleName = *(boost::get_error_info<ModuleName>(e));
-      const int* errorCode = boost::get_error_info<ErrorCode>(e);
-      _spatiallocationinfo->_errorCode = *errorCode;
-      _spatiallocationinfo->_library = libraryName;
-      _spatiallocationinfo->_module = moduleName;
-      _spatiallocationinfo->_message = details;
+      std::string details = _handleFLINTException(e);  // Template function call
       _notificationCenter.postNotification(moja::signals::Error, details);
    } catch (flint::VariableNotFoundException& e) {
       std::string str = ((boost::format("Variable not found: %1%") % *(boost::get_error_info<VariableName>(e))).str());
