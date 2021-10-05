@@ -84,7 +84,7 @@ inline bool Flux::isDisturbanceFlux(std::shared_ptr<IOperationResult> flux) {
    }
 
    auto& disturbanceData = flux->dataPackage().extract<const DynamicObject>();
-   for (const auto& disturbanceField : {"disturbance", "disturbance_type_code", "pre_disturbance_age_class"}) {
+   for (const auto& disturbanceField : {"disturbance", "disturbance_type_code"}) {
       if (!disturbanceData.contains(disturbanceField)) {
          return false;
       }
