@@ -14,8 +14,8 @@ FLINT enables all countries to develop and operate advanced systems. It is a uni
 
 FLINT is using the lessons learned from the first generation of tools to build a new framework that meets current and future needs. Compared with the first-generation tools, the main improvements include:
 
-- A flexible and modular approach that allows specific countries from [IPCC Tier 1 to 3](https://www.reddcompass.org/mgd-content-v1/dita-webhelp/en/Box1.html) to implement a [comprehensive, sample-based, jurisdictional and supply chain-based approach.](https://static1.squarespace.com/static/5896200f414fb57d26f3d600/t/59362b028419c2db8f57e747/1496722191543/REDD_nested_projects.pdf)
-- The ability to cover all [land uses and land use changes, and activity-based reporting such as REDD+.](https://theredddesk.org/what-redd)
+- A flexible and modular approach that allows specific countries from IPCC Tier 1 to 3 to implement a [comprehensive, sample-based, jurisdictional and supply chain-based approach.](https://gcftf.org/wp-content/uploads/2020/12/REDD_nested_projects.pdf)
+- The ability to cover all land uses and land use changes, and activity-based reporting such as REDD+.
 - Scenario analysis systems to allow the development of projections.
 - Potential for a variety of other purposes, including economics, water, and biodiversity.
 - Development managed using a true open source approach under [moja global](http://moja.global), which will allow users (countries, companies and organizations) to direct strategy and control the budget.
@@ -147,15 +147,15 @@ Configuration file options:
 
 ## How to Get Involved?
 
-moja global welcomes a wide range of contributions as explained in [Contributing document](https://github.com/moja-global/About-moja-global/blob/master/CONTRIBUTING.md) and in the [About moja global Wiki](https://github.com/moja-global/.github/wiki).
+moja global welcomes a wide range of contributions as explained in the [Contributing Guide](https://community.moja.global/community/contributing) and in the [About moja global page](https://community.moja.global/docs/about-moja-global).
 
 ## FAQ and Other Questions
 
 - You can find FAQs on the [FAQs section of our docs](https://docs.moja.global/en/latest/faq.html).
-- If you have a question about the code, submit a [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) on the relevant repository
+- If you have a question about the code, submit a [user feedback](https://github.com/moja-global/About-moja-global/blob/master/Contributing/How-to-Provide-User-Feedback.md) on the relevant repository.
 - If you have a general question about a project or repository or moja global, [join moja global](https://docs.moja.global/en/latest/contact.html) and:
   - [Submit a discussion](https://help.github.com/en/articles/about-team-discussions) to the project, repository or moja global [team](https://github.com/orgs/moja-global/teams)
-  - [Submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](mojaglobal.slack.com).
+  - [Submit a message](https://get.slack.help/hc/en-us/categories/200111606#send-messages) to the relevant channel on [moja global's Slack workspace](https://mojaglobal.slack.com).
 - If you have other questions, please write to [info@moja.global](mailto:info@moja.global).
 
 ## Contributors
