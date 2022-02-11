@@ -50,7 +50,7 @@ RUN apt-get update -y && apt-get install -y \
 # set versions of libraries used and some paths
 ENV ROOTDIR /usr/local/
 ENV GDAL_VERSION 2.4.0
-ENV CMAKE_VERSION 3.14.3
+ENV CMAKE_VERSION 3.15.0
 ENV POCO_VERSION 1.9.0
 ENV BOOST_VERSION 1_69_0
 ENV BOOST_VERSION_DOT 1.69.0
@@ -90,12 +90,13 @@ RUN cd src && tar -xzf poco-${POCO_VERSION}.tar.gz && cd poco-${POCO_VERSION} \
     && cd $ROOTDIR
 
 ## Boost
-ADD https://dl.bintray.com/boostorg/release/${BOOST_VERSION_DOT}/source/boost_${BOOST_VERSION}.tar.bz2 $ROOTDIR/src/
-RUN cd src && tar --bzip2 -xf boost_${BOOST_VERSION}.tar.bz2 && cd boost_${BOOST_VERSION}  \
-    && ./bootstrap.sh --prefix=/usr/local \
-    && ./b2 -j $NUM_CPU cxxstd=14 install \
+RUN wget -c https://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION_DOT}/boost_${BOOST_VERSION}.tar.bz2/download -O boost_${BOOST_VERSION}.tar.bz2 \
+    && tar --bzip2 -xf boost_${BOOST_VERSION}.tar.bz2 \
+	&& cd boost_${BOOST_VERSION}  \
+    && ./bootstrap.sh --prefix=$ROOTDIR \
+    && ./b2 -d0 -j $NUM_CPU cxxstd=14 install variant=release link=shared  \
     && ./b2 clean \
-    && cd $ROOTDIR
+    && cd $ROOTDIR/src
 
 ## FMT
 ADD https://github.com/fmtlib/fmt/archive/${FMT_VERSION}.tar.gz $ROOTDIR/src/         

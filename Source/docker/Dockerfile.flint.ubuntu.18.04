@@ -15,8 +15,8 @@ ARG GITHUB_AT
 ARG FLINT_BRANCH
 ARG NUM_CPU=1
 ARG DEBIAN_FRONTEND=noninteractive
-
-ENV SQLITE_VERSION 3270200
+ENV POCO_VERSION 1.9.2
+ENV SQLITE_VERSION 3370200
 ENV ROOTDIR /usr/local/
 
 WORKDIR $ROOTDIR/
@@ -29,11 +29,48 @@ ENV CURL_CA_BUNDLE /etc/ssl/certs/ca-certificates.crt
 ENV GDAL_DATA=/usr/share/gdal
 ENV GDAL_HTTP_VERSION 2
 
-ADD https://www.sqlite.org/2019/sqlite-autoconf-${SQLITE_VERSION}.tar.gz $ROOTDIR/src/
+RUN apt-get install -y postgresql-client-10 \
+    postgresql-server-dev-10 \
+    && apt-get -y autoremove \
+    && 	apt-get clean 
+
+ADD https://www.sqlite.org/2022/sqlite-autoconf-${SQLITE_VERSION}.tar.gz $ROOTDIR/src/
 RUN cd src && tar -xzf sqlite-autoconf-${SQLITE_VERSION}.tar.gz -C /usr/local/ \
 	&& cp /usr/local/sqlite-autoconf-${SQLITE_VERSION}/sqlite3.c /usr/include/ \
     && cd $ROOTDIR && rm -Rf src/sqlite*
 
+RUN wget https://pocoproject.org/releases/poco-${POCO_VERSION}/poco-${POCO_VERSION}-all.tar.gz \
+    && tar -xzf poco-${POCO_VERSION}-all.tar.gz \
+	&& mkdir poco-${POCO_VERSION}-all/cmake-build \
+	&& cd poco-${POCO_VERSION}-all/cmake-build \
+	&& cmake -DCMAKE_BUILD_TYPE=RELEASE \
+			 -DCMAKE_INSTALL_PREFIX=$ROOTDIR \
+			 -DPOCO_UNBUNDLED=ON \
+			 -DPOCO_STATIC=OFF \
+			 -DENABLE_ENCODINGS=OFF \
+			 -DENABLE_ENCODINGS_COMPILER=OFF \
+			 -DENABLE_XML=OFF \
+			 -DENABLE_JSON=ON \
+			 -DENABLE_MONGODB=OFF \
+			 -DENABLE_REDIS=OFF \
+			 -DENABLE_PDF=OFF \
+			 -DENABLE_UTIL=OFF \
+			 -DENABLE_NET=OFF \
+			 -DENABLE_NETSSL=OFF \
+			 -DENABLE_CRYPTO=OFF \
+			 -DENABLE_DATA=ON \
+			 -DENABLE_DATA_SQLITE=ON \
+			 -DENABLE_DATA_MYSQL=OFF \
+			 -DENABLE_DATA_ODBC=OFF \
+			 -DENABLE_SEVENZIP=OFF \
+			 -DENABLE_ZIP=OFF \
+			 -DENABLE_PAGECOMPILER=OFF \
+			 -DENABLE_PAGECOMPILER_FILE2PAGE=OFF \
+			 -DENABLE_TESTS:BOOL=OFF .. \
+	&& make --quiet -j $NUM_CPU \
+    && make --quiet install/strip \
+    && make clean \
+    && cd $ROOTDIR/src
 
 # GET FLINT
 WORKDIR $ROOTDIR/
