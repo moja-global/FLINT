@@ -12,9 +12,7 @@
 #include <moja/notificationcenter.h>
 #include <moja/signals.h>
 
-#include <Poco/File.h>
 #include <Poco/Mutex.h>
-#include <Poco/Path.h>
 
 #include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>

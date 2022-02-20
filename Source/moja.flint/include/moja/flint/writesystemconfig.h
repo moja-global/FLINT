@@ -3,6 +3,8 @@
 
 #include <moja/flint/modulebase.h>
 
+#include <Poco/Mutex.h>
+
 #include <boost/iostreams/stream_buffer.hpp>
 
 namespace moja {
