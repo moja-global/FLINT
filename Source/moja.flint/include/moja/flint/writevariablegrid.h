@@ -7,6 +7,7 @@
 #include "moja/flint/ipool.h"
 #include "moja/flint/modulebase.h"
 
+#include <Poco/Mutex.h>
 #include <boost/algorithm/string.hpp>
 
 #include <algorithm>
