@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LookupRandomTransform" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LookupRandomTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ITransform</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="22" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" static="no" mutable="no">
+        <type>datarepository::DataRepository *</type>
+        <definition>datarepository::DataRepository* _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="23" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1a4e3e70eb6ce8fd724659023d2405b71a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _toVarName</definition>
+        <argsstring></argsstring>
+        <name>_toVarName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="24" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1ad219e0c8cd3297a8f55e2c6c8da11879" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _reverseLookup</definition>
+        <argsstring></argsstring>
+        <name>_reverseLookup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="25" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" static="no" mutable="yes">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _cachedValue</definition>
+        <argsstring></argsstring>
+        <name>_cachedValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="27" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LookupRandomTransform_1a762ade780d03ab41a5195968ff2c9214" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; SpatialLocationInfo &gt;</type>
+        <definition>std::shared_ptr&lt;SpatialLocationInfo&gt; _spatiallocationinfo</definition>
+        <argsstring></argsstring>
+        <name>_spatiallocationinfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="28" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1a0f8dce34d72ed1297264ef7d98a2cc7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="15" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="19" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1ae410485890eae3838c290733e287624b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) override</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="18" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="19" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="49" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1a39176e2a2a77d5e3011bea91e5e9eda4" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; matchDynamicToStruct</definition>
+        <argsstring>(const DynamicVar &amp;to) const</argsstring>
+        <name>matchDynamicToStruct</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="29" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="78" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1a752b06b79d7e8d8d1e2ac713e3dc8587" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; matchDynamicToMultiStruct</definition>
+        <argsstring>(const DynamicVar &amp;to) const</argsstring>
+        <name>matchDynamicToMultiStruct</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="30" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="111" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LookupRandomTransform_1a2666e2d48597fea976fe47d9f6493e7f" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; matchStructToMultiStruct</definition>
+        <argsstring>(const DynamicVar &amp;to) const</argsstring>
+        <name>matchStructToMultiStruct</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="31" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp" bodystart="153" bodyend="185"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/lookuprandomtransform.h" bodystart="13" bodyend="32"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_cachedValue</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1ad219e0c8cd3297a8f55e2c6c8da11879" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_reverseLookup</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a762ade780d03ab41a5195968ff2c9214" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_spatiallocationinfo</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a4e3e70eb6ce8fd724659023d2405b71a" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>_toVarName</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a0f8dce34d72ed1297264ef7d98a2cc7b" prot="public" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1ae410485890eae3838c290733e287624b" prot="public" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a752b06b79d7e8d8d1e2ac713e3dc8587" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>matchDynamicToMultiStruct</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a39176e2a2a77d5e3011bea91e5e9eda4" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>matchDynamicToStruct</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1a2666e2d48597fea976fe47d9f6493e7f" prot="private" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>matchStructToMultiStruct</name></member>
+      <member refid="classmoja_1_1flint_1_1LookupRandomTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" virt="non-virtual"><scope>moja::flint::LookupRandomTransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::LookupRandomTransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

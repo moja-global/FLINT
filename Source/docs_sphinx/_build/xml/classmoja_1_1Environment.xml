@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Environment" kind="class" language="C++" prot="public">
+    <compoundname>moja::Environment</compoundname>
+    <includes refid="environment_8h" local="no">environment.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1Environment_1afd66e6874f529d073484b1ccd8d7b470" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string startProcessFolder</definition>
+        <argsstring>()</argsstring>
+        <name>startProcessFolder</name>
+        <briefdescription>
+<para>: public Poco::Environment { </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the folder the executable resides in. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/environment.h" line="18" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/src/environment.cpp" bodystart="13" bodyend="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This class provides access to environment variables and some general system information. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/environment.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/environment.h" bodystart="13" bodyend="19"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Environment_1afd66e6874f529d073484b1ccd8d7b470" prot="public" virt="non-virtual"><scope>moja::Environment</scope><name>startProcessFolder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

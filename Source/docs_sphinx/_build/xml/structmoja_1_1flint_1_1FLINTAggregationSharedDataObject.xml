@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::FLINTAggregationSharedDataObject</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a4460a33de4542ae97311db0a4aaf4e70" prot="public" static="no" mutable="no">
+        <type>AggregatorLandUnitSharedData</type>
+        <definition>AggregatorLandUnitSharedData aggregatorLandUnitSharedData</definition>
+        <argsstring></argsstring>
+        <name>aggregatorLandUnitSharedData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="68" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1ab513801eef9a7a4195a08a3f48e202c1" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; flint::RecordAccumulatorWithMutex&lt; DateRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;flint::RecordAccumulatorWithMutex&lt;DateRow&gt; &gt; dateDimension</definition>
+        <argsstring></argsstring>
+        <name>dateDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="71" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a5e71b31d691a1f3cadf90dbb2e56dd96" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; flint::RecordAccumulatorWithMutex&lt; Date2Row &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;flint::RecordAccumulatorWithMutex&lt;Date2Row&gt; &gt; date2Dimension</definition>
+        <argsstring></argsstring>
+        <name>date2Dimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="72" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1ac97b0ad7ca0800d4e9ad7c124102fa3f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; flint::RecordAccumulatorWithMutex&lt; PoolInfoRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;flint::RecordAccumulatorWithMutex&lt;PoolInfoRow&gt; &gt; poolInfoDimension</definition>
+        <argsstring></argsstring>
+        <name>poolInfoDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="73" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a46f5298b39be5437a4284b4751bc524f" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; flint::RecordAccumulatorWithMutex&lt; ModuleInfoRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;flint::RecordAccumulatorWithMutex&lt;ModuleInfoRow&gt; &gt; moduleInfoDimension</definition>
+        <argsstring></argsstring>
+        <name>moduleInfoDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="74" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1afd705376af97ddffae241bfa3f01eee1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FLINTAggregationSharedDataObject</definition>
+        <argsstring>()</argsstring>
+        <name>FLINTAggregationSharedDataObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="60" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="60" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="59" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="59" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a4460a33de4542ae97311db0a4aaf4e70" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>aggregatorLandUnitSharedData</name></member>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a5e71b31d691a1f3cadf90dbb2e56dd96" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>date2Dimension</name></member>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1ab513801eef9a7a4195a08a3f48e202c1" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>dateDimension</name></member>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1afd705376af97ddffae241bfa3f01eee1" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>FLINTAggregationSharedDataObject</name></member>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1a46f5298b39be5437a4284b4751bc524f" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>moduleInfoDimension</name></member>
+      <member refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject_1ac97b0ad7ca0800d4e9ad7c124102fa3f" prot="public" virt="non-virtual"><scope>moja::flint::FLINTAggregationSharedDataObject</scope><name>poolInfoDimension</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LibraryInfoBase" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::LibraryInfoBase</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LibraryInfoExternal" prot="public" virt="non-virtual">LibraryInfoExternal</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LibraryInfoInternal" prot="public" virt="non-virtual">LibraryInfoInternal</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LibraryInfoManaged" prot="public" virt="non-virtual">LibraryInfoManaged</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LibraryInfoPython" prot="public" virt="non-virtual">LibraryInfoPython</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1ae24f6ed79f5cecf03c84361d1db5b299" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+        <definition>std::shared_ptr&lt;FlintLibraryHandles&gt; libraryHandles</definition>
+        <argsstring></argsstring>
+        <name>libraryHandles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="50" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a2f2a7d1ce02fbf7c8c355bae2d2109d2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; ModuleInterfacePtr &gt;</type>
+        <definition>std::vector&lt;ModuleInterfacePtr&gt; moduleList</definition>
+        <argsstring></argsstring>
+        <name>moduleList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The module object for this module. We actually <emphasis>own</emphasis> this module, so its lifetime is controlled by the scope of this shared pointer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="56" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a0499ead448d75dfb140f560b414c3439" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; TransformInterfacePtr &gt;</type>
+        <definition>std::vector&lt;TransformInterfacePtr&gt; transformList</definition>
+        <argsstring></argsstring>
+        <name>transformList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="57" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1ab615b90e52f97f03c12895e49db79031" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; FlintDataInterfacePtr &gt;</type>
+        <definition>std::vector&lt;FlintDataInterfacePtr&gt; flintDataList</definition>
+        <argsstring></argsstring>
+        <name>flintDataList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="58" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a3ea95c456beed9eb836a81569b3055dc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; FlintDataFactoryInterfacePtr &gt;</type>
+        <definition>std::vector&lt;FlintDataFactoryInterfacePtr&gt; flintDataFactoryList</definition>
+        <argsstring></argsstring>
+        <name>flintDataFactoryList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="59" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a6c8d17e35c589a7909bccc02965a3f30" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; ProviderInterfacePtr &gt;</type>
+        <definition>std::vector&lt;ProviderInterfacePtr&gt; providerList</definition>
+        <argsstring></argsstring>
+        <name>providerList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="60" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a927fa4f3537d6486e584fcc56ba55369" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 loadOrder</definition>
+        <argsstring></argsstring>
+        <name>loadOrder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Arbitrary number that encodes the load order of this module, so we can shut them down in reverse order. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="66" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1ac02f47420c6f1d58cdff46fd49c1db82" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 moduleCount</definition>
+        <argsstring></argsstring>
+        <name>moduleCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Count of how many of this type have been instantiated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="69" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1acfcf67fcfccd4e11d7b612fc14d2e67e" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 transformCount</definition>
+        <argsstring></argsstring>
+        <name>transformCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="70" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1ac39323841ca914ab6bc19a9dfd35f907" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 flintDataCount</definition>
+        <argsstring></argsstring>
+        <name>flintDataCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="71" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a2effb172499119479a583cd013e89f8a" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 flintDataFactoryCount</definition>
+        <argsstring></argsstring>
+        <name>flintDataFactoryCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="72" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoBase_1a4931b7d4755e2af660a143f2ab165f9e" prot="public" static="no" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 providerCount</definition>
+        <argsstring></argsstring>
+        <name>providerCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="73" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoBase_1a826eb2568d0277ab503a72e1cd077c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LibraryInfoBase</definition>
+        <argsstring>()</argsstring>
+        <name>LibraryInfoBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="45" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryinfobase.cpp" bodystart="8" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoBase_1a62fe9d6d40a368333e3147f61679a8f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~LibraryInfoBase</definition>
+        <argsstring>()</argsstring>
+        <name>~LibraryInfoBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="46" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoBase_1a8ddc29eeef395418ca70f787f19f0c37" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>LibraryType</type>
+        <definition>virtual LibraryType GetLibraryType</definition>
+        <argsstring>() const =0</argsstring>
+        <name>GetLibraryType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="48" column="24"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="43" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="43" bodyend="74"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac39323841ca914ab6bc19a9dfd35f907" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>flintDataCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2effb172499119479a583cd013e89f8a" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>flintDataFactoryCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a3ea95c456beed9eb836a81569b3055dc" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>flintDataFactoryList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ab615b90e52f97f03c12895e49db79031" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>flintDataList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a8ddc29eeef395418ca70f787f19f0c37" prot="public" virt="pure-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>GetLibraryType</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ae24f6ed79f5cecf03c84361d1db5b299" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>libraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a826eb2568d0277ab503a72e1cd077c10" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>LibraryInfoBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a927fa4f3537d6486e584fcc56ba55369" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>loadOrder</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac02f47420c6f1d58cdff46fd49c1db82" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>moduleCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2f2a7d1ce02fbf7c8c355bae2d2109d2" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>moduleList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a4931b7d4755e2af660a143f2ab165f9e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>providerCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a6c8d17e35c589a7909bccc02965a3f30" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>providerList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1acfcf67fcfccd4e11d7b612fc14d2e67e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>transformCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a0499ead448d75dfb140f560b414c3439" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoBase</scope><name>transformList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a62fe9d6d40a368333e3147f61679a8f8" prot="public" virt="virtual"><scope>moja::flint::LibraryInfoBase</scope><name>~LibraryInfoBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

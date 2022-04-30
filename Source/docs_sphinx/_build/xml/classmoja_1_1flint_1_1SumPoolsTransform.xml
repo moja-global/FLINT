@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SumPoolsTransform" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SumPoolsTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ITransform</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SumPoolsTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="24" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SumPoolsTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" static="no" mutable="no">
+        <type>datarepository::DataRepository *</type>
+        <definition>datarepository::DataRepository* _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="25" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SumPoolsTransform_1ad9d00e3da42bfa7e3633799386ea5808" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; poolNames</definition>
+        <argsstring></argsstring>
+        <name>poolNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="27" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SumPoolsTransform_1aa7ac6e9a837fd53ac81adccfeee40c35" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; const IPool * &gt;</type>
+        <definition>std::vector&lt;const IPool*&gt; poolHandles</definition>
+        <argsstring></argsstring>
+        <name>poolHandles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="28" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SumPoolsTransform_1a730ffbf13724fa8894d1e223454bbe68" prot="private" static="no" mutable="yes">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _result</definition>
+        <argsstring></argsstring>
+        <name>_result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="30" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SumPoolsTransform_1a26cc653562c99680cbf13fd871803b29" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SumPoolsTransform</definition>
+        <argsstring>()</argsstring>
+        <name>SumPoolsTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SumPoolsTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="17" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sumpoolstransform.cpp" bodystart="12" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SumPoolsTransform_1ae410485890eae3838c290733e287624b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) override</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="20" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sumpoolstransform.cpp" bodystart="30" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SumPoolsTransform_1a58ead63b84e7a029ef8f1acce9033a7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const moja::DynamicVar &amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="21" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sumpoolstransform.cpp" bodystart="39" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sumpoolstransform.h" bodystart="13" bodyend="31"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1a730ffbf13724fa8894d1e223454bbe68" prot="private" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>_result</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::ITransform::"><scope>moja::flint::SumPoolsTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1ae410485890eae3838c290733e287624b" prot="public" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1aa7ac6e9a837fd53ac81adccfeee40c35" prot="private" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>poolHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1ad9d00e3da42bfa7e3633799386ea5808" prot="private" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>poolNames</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1a26cc653562c99680cbf13fd871803b29" prot="public" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>SumPoolsTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1SumPoolsTransform_1a58ead63b84e7a029ef8f1acce9033a7a" prot="public" virt="non-virtual"><scope>moja::flint::SumPoolsTransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::SumPoolsTransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="datetime_8cpp" kind="file" language="C++">
+    <compoundname>datetime.cpp</compoundname>
+    <includes refid="datetime_8h" local="yes">moja/datetime.h</includes>
+    <includes refid="exception_8h" local="yes">moja/exception.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>iomanip</label>
+      </node>
+      <node id="10">
+        <label>stdexcept</label>
+      </node>
+      <node id="7">
+        <label>date/date.h</label>
+      </node>
+      <node id="2">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/src/datetime.cpp</label>
+        <link refid="datetime_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="4">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="9">
+        <label>moja/exception.h</label>
+        <link refid="exception_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacedate">date</innernamespace>
+    <innernamespace refid="namespacestd_1_1chrono">std::chrono</innernamespace>
+    <briefdescription>
+<para>The brief description goes here. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/datetime.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/exception.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">date;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">DateTime::~DateTime()<sp/>{}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal">DateTime<sp/>DateTime::now()<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tp<sp/>=<sp/>system_clock::now();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp<sp/>=<sp/>floor&lt;days&gt;(tp);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>date;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/>date._date<sp/>=<sp/>dp;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>date._tod<sp/>=<sp/>make_time(duration_cast&lt;microseconds&gt;(tp<sp/>-<sp/>dp));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>date;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal">DateTime&amp;<sp/>DateTime::operator+=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Timespan&amp;<sp/>span)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/>add_micro(span.duration());</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal">DateTime&amp;<sp/>DateTime::addYears(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>years)<sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>_date<sp/>+=<sp/>date::years(years);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>is<sp/>more<sp/>complicated<sp/>than<sp/>it<sp/>appears</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Simply<sp/>adding<sp/>the<sp/>days<sp/>in<sp/>a<sp/>month<sp/>to<sp/>the<sp/>current<sp/>DateTime<sp/>will<sp/>not<sp/>be<sp/>succifient.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>We<sp/>need<sp/>to<sp/>increment<sp/>only<sp/>the<sp/>month,<sp/>keeping<sp/>the<sp/>day<sp/>the<sp/>same<sp/>(if<sp/>possible).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>If<sp/>the<sp/>resulting<sp/>date<sp/>is<sp/>not<sp/>valid<sp/>(ie<sp/>going<sp/>from<sp/>Jan<sp/>31<sp/>-&gt;<sp/>Feb<sp/>31<sp/>shoudl<sp/>equal<sp/>Feb<sp/>28<sp/>(or<sp/>29<sp/>in<sp/>a<sp/>leap<sp/>year)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>AddMonths<sp/>method<sp/>calculates<sp/>the<sp/>resulting<sp/>month<sp/>and<sp/>year,<sp/>taking<sp/>into<sp/>account<sp/>leap<sp/>years<sp/>and<sp/>the<sp/>number<sp/>of<sp/>days</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>in<sp/>a<sp/>month,<sp/>then<sp/>adjusts<sp/>the<sp/>day<sp/>part<sp/>of<sp/>the<sp/>resulting<sp/>DateTime<sp/>object.If<sp/>the<sp/>resulting<sp/>day<sp/>is<sp/>not<sp/>a<sp/>valid<sp/>day<sp/>in<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>resulting<sp/>month,<sp/>the<sp/>last<sp/>valid<sp/>day<sp/>of<sp/>the<sp/>resulting<sp/>month<sp/>is<sp/>used.<sp/>For<sp/>example,<sp/>March<sp/>31st<sp/>+<sp/>1<sp/>month<sp/>=<sp/>April<sp/>30th,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>March<sp/>31st<sp/>-<sp/>1<sp/>month<sp/>=<sp/>February<sp/>28<sp/>for<sp/>a<sp/>non<sp/>-<sp/>leap<sp/>year<sp/>and<sp/>February<sp/>29<sp/>for<sp/>a<sp/>leap<sp/>year.<sp/>The<sp/>time<sp/>-<sp/>of<sp/>-<sp/>day</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/>part<sp/>of<sp/>the<sp/>resulting<sp/>DateTime<sp/>object<sp/>remains<sp/>the<sp/>same<sp/>as<sp/>this<sp/>instance.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">DateTime&amp;<sp/>DateTime::addMonths(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>months)<sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/>_date<sp/>+=<sp/>date::months(months);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_date.ok())<sp/>_date<sp/>=<sp/>_date.year()<sp/>/<sp/>_date.month()<sp/>/<sp/>last;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">DateTime&amp;<sp/>DateTime::addDays(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>days)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tp<sp/>=</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sys_days(_date)<sp/>+<sp/>_tod.to_duration()<sp/>+<sp/>duration_cast&lt;microseconds&gt;(duration&lt;double,<sp/>date::days::period&gt;(days));</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp<sp/>=<sp/>floor&lt;date::days&gt;(tp);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/>_date<sp/>=<sp/>dp;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(tp<sp/>-<sp/>dp);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DateTime::add(duration&lt;double,<sp/>std::micro&gt;<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tod<sp/>=<sp/>_tod.to_duration()<sp/>+<sp/>value;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tod<sp/>&gt;<sp/>microseconds{0}<sp/>&amp;&amp;<sp/>tod<sp/>&lt;<sp/>days{1})<sp/>{</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(duration_cast&lt;microseconds&gt;(tod));</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tp<sp/>=<sp/>time_point_cast&lt;microseconds&gt;(sys_days(_date)<sp/>+<sp/>tod);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp<sp/>=<sp/>floor&lt;date::days&gt;(tp);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_date<sp/>=<sp/>dp;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(tp<sp/>-<sp/>dp);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DateTime::add_micro(duration&lt;long<sp/>long,<sp/>std::micro&gt;<sp/>value)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tod<sp/>=<sp/>_tod.to_duration()<sp/>+<sp/>value;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(tod<sp/>&gt;<sp/>microseconds{0}<sp/>&amp;&amp;<sp/>tod<sp/>&lt;<sp/>days{1})<sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(duration_cast&lt;microseconds&gt;(tod));</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>tp<sp/>=<sp/>sys_days(_date)<sp/>+<sp/>tod;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp<sp/>=<sp/>floor&lt;date::days&gt;(tp);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_date<sp/>=<sp/>dp;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(duration_cast&lt;microseconds&gt;(tp<sp/>-<sp/>dp));</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal">DateTime&amp;<sp/>DateTime::addHours(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hours)<sp/>{</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/>add(duration&lt;double,<sp/>std::chrono::hours::period&gt;(hours));</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">DateTime&amp;<sp/>DateTime::addMinutes(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minutes)<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/>add(duration&lt;double,<sp/>std::chrono::minutes::period&gt;(minutes));</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal">DateTime&amp;<sp/>DateTime::addSeconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>seconds)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/>add(duration&lt;double,<sp/>std::chrono::seconds::period&gt;(seconds));</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal">DateTime&amp;<sp/>DateTime::addMilliseconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>milliseconds)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>add(duration&lt;double,<sp/>std::chrono::milliseconds::period&gt;(milliseconds));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal">DateTime&amp;<sp/>DateTime::addMicroseconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>microseconds)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/>add(duration&lt;double,<sp/>std::chrono::microseconds::period&gt;(microseconds));</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>DateTime::decimalYear()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>year<sp/>=<sp/>_date.year();</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>days<sp/>=<sp/>(sys_days(_date)<sp/>-<sp/>sys_days{year<sp/>/<sp/>jan<sp/>/<sp/>0}).count();</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>daysInYear<sp/>=<sp/>DateTime::daysInYear(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">(year));</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(year)<sp/>+<sp/>(days<sp/>/<sp/>daysInYear);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp"/>
+  </compounddef>
+</doxygen>

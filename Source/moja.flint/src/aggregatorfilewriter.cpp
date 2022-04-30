@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Brief Description of the class goes here.
+ * ******/
+
 #include "moja/flint/aggregatorfilewriter.h"
 
 #include "moja/flint/aggregatorlandunit.h"

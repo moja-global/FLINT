@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1floatcompare_1_1FloatingPoint" kind="class" language="C++" prot="public">
+    <compoundname>moja::floatcompare::FloatingPoint</compoundname>
+    <innerclass refid="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion" prot="private">moja::floatcompare::FloatingPoint::FloatingPointUnion</innerclass>
+    <templateparamlist>
+      <param>
+        <type>typename RawType</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1floatcompare_1_1FloatingPoint_1adb12c064e30491d4976393880f9dca27" prot="public" static="no">
+        <type>TypeWithSize&lt; sizeof(RawType)&gt;::UInt</type>
+        <definition>typedef TypeWithSize&lt;sizeof(RawType)&gt;::UInt Bits</definition>
+        <argsstring></argsstring>
+        <name>Bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="68" column="41" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a0c3066a13646d93a18195a2f11142d23" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t kBitCount</definition>
+        <argsstring></argsstring>
+        <name>kBitCount</name>
+        <initializer>= 8 * sizeof(RawType)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="73" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a939ac683296a7698aa81edd4eb20193c" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t kFractionBitCount</definition>
+        <argsstring></argsstring>
+        <name>kFractionBitCount</name>
+        <initializer>= std::numeric_limits&lt;RawType&gt;::digits - 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="76" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1af9d1b5b5e0e7b76dd283505dd8be17d4" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t kExponentBitCount</definition>
+        <argsstring></argsstring>
+        <name>kExponentBitCount</name>
+        <initializer>= kBitCount - 1 - kFractionBitCount</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="79" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a957385d8cb10e7a487fa31085513b920" prot="public" static="yes" mutable="no">
+        <type>const Bits</type>
+        <definition>const Bits kSignBitMask</definition>
+        <argsstring></argsstring>
+        <name>kSignBitMask</name>
+        <initializer>= static_cast&lt;Bits&gt;(1) &lt;&lt; (kBitCount - 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="82" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a3c9dc4384c7dacae770cb44800f1efc0" prot="public" static="yes" mutable="no">
+        <type>const Bits</type>
+        <definition>const Bits kFractionBitMask</definition>
+        <argsstring></argsstring>
+        <name>kFractionBitMask</name>
+        <initializer>= ~static_cast&lt;Bits&gt;(0) &gt;&gt; (kExponentBitCount + 1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="85" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a6d12d7651b19ec0e2afc9e7f6d690f9b" prot="public" static="yes" mutable="no">
+        <type>const Bits</type>
+        <definition>const Bits kExponentBitMask</definition>
+        <argsstring></argsstring>
+        <name>kExponentBitMask</name>
+        <initializer>= ~(kSignBitMask | kFractionBitMask)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="88" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a4978544016c74b0db4bf220427766c8e" prot="public" static="yes" mutable="no">
+        <type>const size_t</type>
+        <definition>const size_t kMaxUlps</definition>
+        <argsstring></argsstring>
+        <name>kMaxUlps</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="102" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a7ba7d6be838cfc2c8bbdc327f5016d83" prot="private" static="no" mutable="no">
+        <type>FloatingPointUnion</type>
+        <definition>FloatingPointUnion u_</definition>
+        <argsstring></argsstring>
+        <name>u_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="204" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1ae571da332db90c7d19af0158780d9a1b" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FloatingPoint</definition>
+        <argsstring>(const RawType &amp;x)</argsstring>
+        <name>FloatingPoint</name>
+        <param>
+          <type>const RawType &amp;</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="110" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a6bad54827e1a7675ec9a4806660ccf3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const Bits &amp;</type>
+        <definition>const Bits&amp; bits</definition>
+        <argsstring>() const</argsstring>
+        <name>bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="132" column="15" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="132" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a0e650d73a252c02dfe2299b75b33eab7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bits</type>
+        <definition>Bits exponent_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>exponent_bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="135" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a7cba617444a7a130a5b77b6a6f2e2a31" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bits</type>
+        <definition>Bits fraction_bits</definition>
+        <argsstring>() const</argsstring>
+        <name>fraction_bits</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="138" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a5a412e32067c322035aa84c08b45e308" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bits</type>
+        <definition>Bits sign_bit</definition>
+        <argsstring>() const</argsstring>
+        <name>sign_bit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="141" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="141" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1af523e4a38d5ab952d38f5dff16c1ed34" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool is_nan</definition>
+        <argsstring>() const</argsstring>
+        <name>is_nan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="144" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="144" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a9adc63455203e300944eb2e9dc48420c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool AlmostEquals</definition>
+        <argsstring>(const FloatingPoint &amp;rhs) const</argsstring>
+        <name>AlmostEquals</name>
+        <param>
+          <type>const FloatingPoint &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="156" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="156" bodyend="162"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1af602b4c0ce9bfe8413df5b0af2735b74" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType ReinterpretBits</definition>
+        <argsstring>(const Bits bits)</argsstring>
+        <name>ReinterpretBits</name>
+        <param>
+          <type>const Bits</type>
+          <declname>bits</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="117" column="19" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="117" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a59b4813c94bba67c6204d478f544cfc9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType Infinity</definition>
+        <argsstring>()</argsstring>
+        <name>Infinity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="124" column="19" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a81132d589a96e5b8441cc20e202a70bd" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>RawType</type>
+        <definition>static RawType Max</definition>
+        <argsstring>()</argsstring>
+        <name>Max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="127" column="19" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="127" bodyend="127"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a872f90beea428c4e8d21a5677dd9d4e6" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bits</type>
+        <definition>static Bits SignAndMagnitudeToBiased</definition>
+        <argsstring>(const Bits &amp;sam)</argsstring>
+        <name>SignAndMagnitudeToBiased</name>
+        <param>
+          <type>const Bits &amp;</type>
+          <declname>sam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="186" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="186" bodyend="194"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1floatcompare_1_1FloatingPoint_1a8a0a5fc8888097d7f464dc12d11ca60e" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Bits</type>
+        <definition>static Bits DistanceBetweenSignAndMagnitudeNumbers</definition>
+        <argsstring>(const Bits &amp;sam1, const Bits &amp;sam2)</argsstring>
+        <name>DistanceBetweenSignAndMagnitudeNumbers</name>
+        <param>
+          <type>const Bits &amp;</type>
+          <declname>sam1</declname>
+        </param>
+        <param>
+          <type>const Bits &amp;</type>
+          <declname>sam2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="198" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="198" bodyend="202"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="64" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="64" bodyend="205"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a9adc63455203e300944eb2e9dc48420c" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>AlmostEquals</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1adb12c064e30491d4976393880f9dca27" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>Bits</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a6bad54827e1a7675ec9a4806660ccf3c" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>bits</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a8a0a5fc8888097d7f464dc12d11ca60e" prot="private" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>DistanceBetweenSignAndMagnitudeNumbers</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a0e650d73a252c02dfe2299b75b33eab7" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>exponent_bits</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1ae571da332db90c7d19af0158780d9a1b" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>FloatingPoint</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a7cba617444a7a130a5b77b6a6f2e2a31" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>fraction_bits</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a59b4813c94bba67c6204d478f544cfc9" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>Infinity</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1af523e4a38d5ab952d38f5dff16c1ed34" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>is_nan</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a0c3066a13646d93a18195a2f11142d23" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kBitCount</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1af9d1b5b5e0e7b76dd283505dd8be17d4" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kExponentBitCount</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a6d12d7651b19ec0e2afc9e7f6d690f9b" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kExponentBitMask</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a939ac683296a7698aa81edd4eb20193c" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kFractionBitCount</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a3c9dc4384c7dacae770cb44800f1efc0" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kFractionBitMask</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a4978544016c74b0db4bf220427766c8e" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kMaxUlps</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a957385d8cb10e7a487fa31085513b920" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>kSignBitMask</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a81132d589a96e5b8441cc20e202a70bd" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>Max</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1af602b4c0ce9bfe8413df5b0af2735b74" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>ReinterpretBits</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a5a412e32067c322035aa84c08b45e308" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>sign_bit</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a872f90beea428c4e8d21a5677dd9d4e6" prot="private" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>SignAndMagnitudeToBiased</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1FloatingPoint_1a7ba7d6be838cfc2c8bbdc327f5016d83" prot="private" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint</scope><name>u_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

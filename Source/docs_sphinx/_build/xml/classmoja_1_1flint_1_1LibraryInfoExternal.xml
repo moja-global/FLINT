@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LibraryInfoExternal" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LibraryInfoExternal</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">LibraryInfoBase</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoExternal_1afe9c3a5c5994686a199b99cdb8f3ebb5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string originalFilename</definition>
+        <argsstring></argsstring>
+        <name>originalFilename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="21" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoExternal_1ae80f820219e45772366a2a68de6a54c4" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>File name of this module (.dll or .so file name) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="24" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoExternal_1ab40a8aab49c31ca53b3dbab9ce826ac4" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; Poco::SharedLibrary &gt;</type>
+        <definition>std::unique_ptr&lt;Poco::SharedLibrary&gt; handle</definition>
+        <argsstring></argsstring>
+        <name>handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Handle to this module (library handle), if it&apos;s currently loaded </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="27" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoExternal_1a1bb1b6a52c3ae3c7132edfc53b0da028" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LibraryInfoExternal</definition>
+        <argsstring>()</argsstring>
+        <name>LibraryInfoExternal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="16" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoExternal_1a6abf66db8dba7fc317b6af219d7342b6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~LibraryInfoExternal</definition>
+        <argsstring>()</argsstring>
+        <name>~LibraryInfoExternal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="17" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoExternal_1a3ac86c3b10d96c98cdee999a4ea9982f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>LibraryType</type>
+        <definition>LibraryType GetLibraryType</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetLibraryType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="19" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h" bodystart="14" bodyend="28"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1ae80f820219e45772366a2a68de6a54c4" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>filename</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac39323841ca914ab6bc19a9dfd35f907" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>flintDataCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2effb172499119479a583cd013e89f8a" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>flintDataFactoryCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a3ea95c456beed9eb836a81569b3055dc" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>flintDataFactoryList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ab615b90e52f97f03c12895e49db79031" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>flintDataList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1a3ac86c3b10d96c98cdee999a4ea9982f" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>GetLibraryType</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1ab40a8aab49c31ca53b3dbab9ce826ac4" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>handle</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ae24f6ed79f5cecf03c84361d1db5b299" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>libraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a826eb2568d0277ab503a72e1cd077c10" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>LibraryInfoBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1a1bb1b6a52c3ae3c7132edfc53b0da028" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>LibraryInfoExternal</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a927fa4f3537d6486e584fcc56ba55369" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>loadOrder</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac02f47420c6f1d58cdff46fd49c1db82" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>moduleCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2f2a7d1ce02fbf7c8c355bae2d2109d2" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>moduleList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1afe9c3a5c5994686a199b99cdb8f3ebb5" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>originalFilename</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a4931b7d4755e2af660a143f2ab165f9e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>providerCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a6c8d17e35c589a7909bccc02965a3f30" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>providerList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1acfcf67fcfccd4e11d7b612fc14d2e67e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>transformCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a0499ead448d75dfb140f560b414c3439" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>transformList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a62fe9d6d40a368333e3147f61679a8f8" prot="public" virt="virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>~LibraryInfoBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoExternal_1a6abf66db8dba7fc317b6af219d7342b6" prot="public" virt="virtual"><scope>moja::flint::LibraryInfoExternal</scope><name>~LibraryInfoExternal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

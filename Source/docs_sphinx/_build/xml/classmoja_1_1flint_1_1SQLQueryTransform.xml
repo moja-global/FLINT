@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SQLQueryTransform" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SQLQueryTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ITransform</basecompoundref>
+      <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>ResultType</name>
+        <enumvalue id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49afbc50b83d98efa48c80e9ab40fef38d4" prot="private">
+          <name>SingleColumnSingleRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49a4901458dceccee439431e74b3c27a5e3" prot="private">
+          <name>SingleColumnMultiRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49ab0456f0bfb39b9a8629912e8fa7d8c2a" prot="private">
+          <name>MultiColumnSingleRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49aa37da3c6866d2713b1fc78aa9367e327" prot="private">
+          <name>MultiColumnMultiRow</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49ace2c8aed9c2fa0cfbed56cbda4d8bf07" prot="private">
+          <name>Empty</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="33" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="33" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1af1ba093214a2e36264e636aa0aa88eac" prot="private" static="no" mutable="no">
+        <type>DynamicObject</type>
+        <definition>DynamicObject _config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="41" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1a2a3394206912e8fcc3c884f81cdb68ac" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _allowEmptyVarValues</definition>
+        <argsstring></argsstring>
+        <name>_allowEmptyVarValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="42" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="43" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1a4b8deef845f0370472c631ce3ca4b946" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string varMarker</definition>
+        <argsstring></argsstring>
+        <name>varMarker</name>
+        <initializer>= &quot;var&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="44" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1abae3e13305be007f8d37c93cfebd5d95" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string poolMarker</definition>
+        <argsstring></argsstring>
+        <name>poolMarker</name>
+        <initializer>= &quot;pool&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="45" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" static="no" mutable="no">
+        <type>datarepository::DataRepository *</type>
+        <definition>datarepository::DataRepository* _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="46" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1ad1ad78da43b731f596cc32c167febace" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; datarepository::IProviderRelationalInterface &gt;</type>
+        <definition>std::shared_ptr&lt;datarepository::IProviderRelationalInterface&gt; _provider</definition>
+        <argsstring></argsstring>
+        <name>_provider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="47" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1ae15e060d47072fb406f9fba2a21eda3a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _queryStr</definition>
+        <argsstring></argsstring>
+        <name>_queryStr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="48" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1a2231d81b8d3e86df2886b0f0e2bab2b8" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::tuple&lt; const IVariable *, DynamicVar &gt; &gt;</type>
+        <definition>std::vector&lt;std::tuple&lt;const IVariable*, DynamicVar&gt; &gt; _variables</definition>
+        <argsstring></argsstring>
+        <name>_variables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="49" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1a19a64dc2257d230b45e0542e1fa369c6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; const IPool * &gt;</type>
+        <definition>std::vector&lt;const IPool*&gt; _pools</definition>
+        <argsstring></argsstring>
+        <name>_pools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="50" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SQLQueryTransform_1a3a5323c67015a32003c5a0209519092f" prot="private" static="no" mutable="yes">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _dataSet</definition>
+        <argsstring></argsstring>
+        <name>_dataSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="51" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1afac9ddca07beafb964265e2e0cb10ba2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SQLQueryTransform</definition>
+        <argsstring>()</argsstring>
+        <name>SQLQueryTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="22" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1a9d1928993c0920b480b71a46e07022ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SQLQueryTransform</definition>
+        <argsstring>(const SQLQueryTransform &amp;)=delete</argsstring>
+        <name>SQLQueryTransform</name>
+        <param>
+          <type>const SQLQueryTransform &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="23" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="25" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="27" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1abe0da7a677895cbac883915455182685" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SQLQueryTransform &amp;</type>
+        <definition>SQLQueryTransform&amp; operator=</definition>
+        <argsstring>(const SQLQueryTransform &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const SQLQueryTransform &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="28" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1ae410485890eae3838c290733e287624b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) override</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="30" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="87" bodyend="143"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1aa4683298a620e3c716c80928b8f1f436" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string readSQLFile</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>readSQLFile</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="53" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="70" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1a85c9d2a6c9db690de9ee8532d9042aa6" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string formatVariableValues</definition>
+        <argsstring>(const IVariable &amp;var, DynamicVar &amp;property) const</argsstring>
+        <name>formatVariableValues</name>
+        <param>
+          <type>const IVariable &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="59" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="163" bodyend="213"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1a3d0cbe189b3bd5b7c9b6a8830bf7f412" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; extractTokens</definition>
+        <argsstring>(const std::string &amp;tokenType, const std::string &amp;query)</argsstring>
+        <name>extractTokens</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tokenType</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="55" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="217" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1aa5361fec675a08915dec1a82416b855d" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void replaceTokens</definition>
+        <argsstring>(const std::string &amp;tokenType, std::string &amp;query, std::vector&lt; std::string &gt; values)</argsstring>
+        <name>replaceTokens</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tokenType</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="57" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="239" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SQLQueryTransform_1a88e3d0f227d499ea5cc92c6944cda6b1" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ResultType</type>
+        <definition>SQLQueryTransform::ResultType detectResultType</definition>
+        <argsstring>(const DynamicVar &amp;)</argsstring>
+        <name>detectResultType</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <defname>resultSet</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="61" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp" bodystart="145" bodyend="161"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" line="20" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sqlquerytransform.h" bodystart="20" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a2a3394206912e8fcc3c884f81cdb68ac" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_allowEmptyVarValues</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1af1ba093214a2e36264e636aa0aa88eac" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_config</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a3a5323c67015a32003c5a0209519092f" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_dataSet</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a19a64dc2257d230b45e0542e1fa369c6" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_pools</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1ad1ad78da43b731f596cc32c167febace" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_provider</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1ae15e060d47072fb406f9fba2a21eda3a" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_queryStr</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a2231d81b8d3e86df2886b0f0e2bab2b8" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>_variables</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::ITransform::"><scope>moja::flint::SQLQueryTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1ae410485890eae3838c290733e287624b" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a88e3d0f227d499ea5cc92c6944cda6b1" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>detectResultType</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a3d0cbe189b3bd5b7c9b6a8830bf7f412" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>extractTokens</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a85c9d2a6c9db690de9ee8532d9042aa6" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>formatVariableValues</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1abe0da7a677895cbac883915455182685" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1abae3e13305be007f8d37c93cfebd5d95" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>poolMarker</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1aa4683298a620e3c716c80928b8f1f436" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>readSQLFile</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1aa5361fec675a08915dec1a82416b855d" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>replaceTokens</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1aa71b5fc2a82d29a91db3a734ff892a49" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>ResultType</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1afac9ddca07beafb964265e2e0cb10ba2" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>SQLQueryTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a9d1928993c0920b480b71a46e07022ea" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>SQLQueryTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1SQLQueryTransform_1a4b8deef845f0370472c631ce3ca4b946" prot="private" virt="non-virtual"><scope>moja::flint::SQLQueryTransform</scope><name>varMarker</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::SQLQueryTransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

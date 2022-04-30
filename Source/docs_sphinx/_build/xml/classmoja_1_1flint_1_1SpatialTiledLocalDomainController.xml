@@ -1,0 +1,849 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SpatialTiledLocalDomainController</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">LocalDomainControllerBase</basecompoundref>
+    <innerclass refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks" prot="public">moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</innerclass>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa1fb64d93301b73cdc142ad274ea2962" prot="private" static="no">
+        <type>Poco::Tuple&lt; std::string, std::string, std::string, std::string &gt;</type>
+        <definition>typedef Poco::Tuple&lt;std::string, std::string, std::string, std::string&gt; RunSummaryDataRecord</definition>
+        <argsstring></argsstring>
+        <name>RunSummaryDataRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="189" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a3bd46727f2878d874de65081412d5ff1" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt; &gt; _globalStatsDimension</definition>
+        <argsstring></argsstring>
+        <name>_globalStatsDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="133" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a74ccce293a08a2d6aafc5f576cc6bfd8" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt; &gt; _tileStatsDimension</definition>
+        <argsstring></argsstring>
+        <name>_tileStatsDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="134" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a9d15f26a3e108d8b1dabdff6bc2b4a2c" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt; &gt;</type>
+        <definition>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt; &gt; _blockStatsDimension</definition>
+        <argsstring></argsstring>
+        <name>_blockStatsDimension</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="135" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a2b386a247046e8e2482be88aed414a9d" prot="private" static="no" mutable="yes">
+        <type>std::shared_ptr&lt; datarepository::IProviderSpatialRasterInterface &gt;</type>
+        <definition>std::shared_ptr&lt;datarepository::IProviderSpatialRasterInterface&gt; _provider</definition>
+        <argsstring></argsstring>
+        <name>_provider</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="139" column="28" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a762ade780d03ab41a5195968ff2c9214" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; SpatialLocationInfo &gt;</type>
+        <definition>std::shared_ptr&lt;SpatialLocationInfo&gt; _spatiallocationinfo</definition>
+        <argsstring></argsstring>
+        <name>_spatiallocationinfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="140" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa5bf0b1e1cab538d7e41069ad190ec4b" prot="private" static="no" mutable="no">
+        <type>Poco::Mutex</type>
+        <definition>Poco::Mutex _blockListMutex</definition>
+        <argsstring></argsstring>
+        <name>_blockListMutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="141" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad25ddb8f7d4b24c910fa61754690d36e" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; datarepository::BlockIdx &gt;</type>
+        <definition>std::queue&lt;datarepository::BlockIdx&gt; _blockIdxList</definition>
+        <argsstring></argsstring>
+        <name>_blockIdxList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="142" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a23155c018b2d3f55e4d6fcf489152b58" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::pair&lt; UInt32, UInt32 &gt;, std::vector&lt; datarepository::CellIdx &gt; &gt;</type>
+        <definition>std::map&lt;std::pair&lt;UInt32, UInt32&gt;, std::vector&lt;datarepository::CellIdx&gt; &gt; _blockCellIdxList</definition>
+        <argsstring></argsstring>
+        <name>_blockCellIdxList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="144" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6ea4d69eedda718168f8fa34e4f2aaa7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _samplingInterval</definition>
+        <argsstring></argsstring>
+        <name>_samplingInterval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="145" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4bf856bdf6ac57fb8e2c0521ba2c9fa7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _blockIdxListSize</definition>
+        <argsstring></argsstring>
+        <name>_blockIdxListSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="147" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4f9a39a7a5f8aa468c64e5cfc0f1343e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _blockIdxListPosition</definition>
+        <argsstring></argsstring>
+        <name>_blockIdxListPosition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="148" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a189833f19d15f55b536e548766a3dcfe" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _runSpinUp</definition>
+        <argsstring></argsstring>
+        <name>_runSpinUp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="151" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a5777d7c05468cfb67fa68a0eb393801c" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref></type>
+        <definition>NotificationCenter _spinupNotificationCenter</definition>
+        <argsstring></argsstring>
+        <name>_spinupNotificationCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="152" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a13c8b4a2a9117214f39de4ac9216124a" prot="private" static="no" mutable="no">
+        <type>SpinupLandUnitController</type>
+        <definition>SpinupLandUnitController _spinupLandUnitController</definition>
+        <argsstring></argsstring>
+        <name>_spinupLandUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="153" column="29" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a97ba34879aa13c7280cf79f3c6de1454" prot="private" static="no" mutable="no">
+        <type>const flint::IVariable *</type>
+        <definition>const flint::IVariable* _spinupSimulateLandUnit</definition>
+        <argsstring></argsstring>
+        <name>_spinupSimulateLandUnit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="155" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a066fedeef7eca2d66ff120a9b63fb1f6" prot="private" static="no" mutable="no">
+        <type>flint::IVariable *</type>
+        <definition>flint::IVariable* _spinupLandUnitBuildSuccess</definition>
+        <argsstring></argsstring>
+        <name>_spinupLandUnitBuildSuccess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="156" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8da215e4e5a4dc2859a94175ed08f6c1" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; SequencerModuleBase &gt;</type>
+        <definition>std::shared_ptr&lt;SequencerModuleBase&gt; _spinupSequencer</definition>
+        <argsstring></argsstring>
+        <name>_spinupSequencer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="157" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a9770d95b3074ac27c86c31b682d19560" prot="private" static="no" mutable="no">
+        <type>ModuleMap</type>
+        <definition>ModuleMap _spinupModules</definition>
+        <argsstring></argsstring>
+        <name>_spinupModules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="158" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1adefee26815350ba233978e7f9abb6e0b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _threadedSystem</definition>
+        <argsstring></argsstring>
+        <name>_threadedSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="161" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad42f3191d5ab3db60ba015f00f0a3293" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _numThreads</definition>
+        <argsstring></argsstring>
+        <name>_numThreads</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="162" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6d16a7645e6d05087ce240e8df0689c3" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _isMaster</definition>
+        <argsstring></argsstring>
+        <name>_isMaster</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="163" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a532f6668cec8b2ccf738b3e0ffcc9407" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _isThread</definition>
+        <argsstring></argsstring>
+        <name>_isThread</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="164" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aeb3dbc20978eda4b139453488e99af68" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+        <definition>std::shared_ptr&lt;FlintLibraryHandles&gt; _internalLIbraryHandles</definition>
+        <argsstring></argsstring>
+        <name>_internalLIbraryHandles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="165" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="165" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ae83faaad23cb2ecfebead92fb84899cc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; InternalThreadBlocks &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;InternalThreadBlocks&gt; &gt; _tasks</definition>
+        <argsstring></argsstring>
+        <name>_tasks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="166" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aee165730bc473f032b7dec2045b54541" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::thread &gt;</type>
+        <definition>std::vector&lt;std::thread&gt; _threads</definition>
+        <argsstring></argsstring>
+        <name>_threads</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="167" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ae15c9d69d3ffc40fb2154f3b146bba36" prot="private" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _randomSeedGlobal</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="170" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a06d5bfae187e2df9e4c92ec6b68f5a76" prot="private" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _randomSeedTile</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedTile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="171" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a76942af8fc29bcf7ff438d859af194c3" prot="private" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _randomSeedBlock</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="172" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6cd13877b4f3285a4f3845be703b2137" prot="private" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _randomSeedCell</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedCell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="173" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1abca6f2b9ad0928d36ef29991c223985d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _doLogging</definition>
+        <argsstring></argsstring>
+        <name>_doLogging</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="176" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab297c246ad1b1eda505cc4054e42e03b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _resetVariablesForEachLU</definition>
+        <argsstring></argsstring>
+        <name>_resetVariablesForEachLU</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="177" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _runId</definition>
+        <argsstring></argsstring>
+        <name>_runId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="178" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a850808f85e973581d69237544a7eebdc" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _runDesc</definition>
+        <argsstring></argsstring>
+        <name>_runDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="179" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a0488d41502f37ea346cea5a74cbb5e3b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _writeStatsToSQLIte</definition>
+        <argsstring></argsstring>
+        <name>_writeStatsToSQLIte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="180" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a99b94cafc341b426121aaffbc10b4aa7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _createStatsTablesSQLIte</definition>
+        <argsstring></argsstring>
+        <name>_createStatsTablesSQLIte</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="181" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4a30448f5d87d48608e2756933ef599b" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _sqliteDatabaseName</definition>
+        <argsstring></argsstring>
+        <name>_sqliteDatabaseName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="182" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a751b072038022c0539235b2d51437b7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpatialTiledLocalDomainController</definition>
+        <argsstring>(void)</argsstring>
+        <name>SpatialTiledLocalDomainController</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="110" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="342" bodyend="361"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab7aafca42d852e1e8de90d98ae610f9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpatialTiledLocalDomainController</definition>
+        <argsstring>(bool threadedSystem, bool isMaster, bool isThread)</argsstring>
+        <name>SpatialTiledLocalDomainController</name>
+        <param>
+          <type>bool</type>
+          <declname>threadedSystem</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isMaster</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isThread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="111" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="365" bodyend="384"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a377e0ce333a334a1672270e99a03e59c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpatialTiledLocalDomainController</definition>
+        <argsstring>(std::shared_ptr&lt; FlintLibraryHandles &gt; libraryHandles, bool threadedSystem, bool isMaster, bool isThread)</argsstring>
+        <name>SpatialTiledLocalDomainController</name>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>libraryHandles</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>threadedSystem</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isMaster</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isThread</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="112" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="388" bodyend="410"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad5f7eb11cb0d921efa26b42c4f40d10c" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpatialTiledLocalDomainController</definition>
+        <argsstring>(std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;globalStatsDimension, std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;tileStatsDimension, std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;blockStatsDimension, int blockIdxListSize, std::shared_ptr&lt; FlintLibraryHandles &gt; libraryHandles, bool threadedSystem=false, bool isMaster=false, bool isThread=false)</argsstring>
+        <name>SpatialTiledLocalDomainController</name>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>globalStatsDimension</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>tileStatsDimension</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>blockStatsDimension</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blockIdxListSize</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>libraryHandles</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>threadedSystem</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isMaster</declname>
+          <defval>false</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>isThread</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="114" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="414" bodyend="438"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aecf28779e8aadcd2ab6d0ed5e7a41150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~SpatialTiledLocalDomainController</definition>
+        <argsstring>(void)=default</argsstring>
+        <name>~SpatialTiledLocalDomainController</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="120" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab66ff59c4ba448414f0572b011603969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(const flint::configuration::Configuration &amp;config) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const flint::configuration::Configuration &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="122" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="442" bodyend="668"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad1717410afd0be936c6213a63c8005fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>Write first part of Stats to SQLite Stats are finalized after simulation</para>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="123" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="1029" bodyend="1385"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa29c86a80cc0f123920b060bfb49c6c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startup</definition>
+        <argsstring>() override</argsstring>
+        <name>startup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="125" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="1387" bodyend="1411"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa77b0c0c7fa692add39407ffc5b00d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void shutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>shutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="127" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="1413" bodyend="1437"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a31ba73c18cae9b0a97b02512e991ce1e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool runCell</definition>
+        <argsstring>(std::shared_ptr&lt; StatsUnitRecord &gt; &amp;blockStatsUnit, std::shared_ptr&lt; StatsUnitRecord &gt; &amp;blockStatsSpinUpUnit, const datarepository::CellIdx &amp;cell)</argsstring>
+        <name>runCell</name>
+        <param>
+          <type>std::shared_ptr&lt; StatsUnitRecord &gt; &amp;</type>
+          <declname>blockStatsUnit</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; StatsUnitRecord &gt; &amp;</type>
+          <declname>blockStatsSpinUpUnit</declname>
+        </param>
+        <param>
+          <type>const datarepository::CellIdx &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="184" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="850" bodyend="988"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8493abaa89dbbf3f66a797e4eec79a7b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool runCellSpinUp</definition>
+        <argsstring>(std::shared_ptr&lt; StatsUnitRecord &gt; &amp;blockStatsUnit, const datarepository::CellIdx &amp;cell)</argsstring>
+        <name>runCellSpinUp</name>
+        <param>
+          <type>std::shared_ptr&lt; StatsUnitRecord &gt; &amp;</type>
+          <declname>blockStatsUnit</declname>
+        </param>
+        <param>
+          <type>const datarepository::CellIdx &amp;</type>
+          <declname>cell</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="186" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="762" bodyend="846"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a795a2514725d01266e66aa891a09f5a0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void buildBlockIndexQueue</definition>
+        <argsstring>(configuration::LocalDomainIterationType iterationType)</argsstring>
+        <name>buildBlockIndexQueue</name>
+        <param>
+          <type>configuration::LocalDomainIterationType</type>
+          <declname>iterationType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="192" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="672" bodyend="758"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>SpatialTiledLocalDomainController</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_spinupNotificationCenter</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>NotificationCenter</label>
+        <link refid="classmoja_1_1NotificationCenter"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>DispatcherObject</label>
+        <link refid="classmoja_1_1DispatcherObject"/>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="108" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="108" bodyend="193"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a23155c018b2d3f55e4d6fcf489152b58" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockCellIdxList</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad25ddb8f7d4b24c910fa61754690d36e" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockIdxList</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4f9a39a7a5f8aa468c64e5cfc0f1343e" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockIdxListPosition</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4bf856bdf6ac57fb8e2c0521ba2c9fa7" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockIdxListSize</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa5bf0b1e1cab538d7e41069ad190ec4b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockListMutex</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a9d15f26a3e108d8b1dabdff6bc2b4a2c" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_blockStatsDimension</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a7d834b337be8569a53389d124a2cec07" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_config</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a99b94cafc341b426121aaffbc10b4aa7" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_createStatsTablesSQLIte</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1abe798c59e34506715f5f39983a73afbc" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1abca6f2b9ad0928d36ef29991c223985d" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_doLogging</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a3bd46727f2878d874de65081412d5ff1" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_globalStatsDimension</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aeb3dbc20978eda4b139453488e99af68" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_internalLIbraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6d16a7645e6d05087ce240e8df0689c3" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_isMaster</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a532f6668cec8b2ccf738b3e0ffcc9407" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_isThread</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a2c89b5c2a8958a52ce8d82e3904a72c7" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_landUnitBuildSuccess</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a98eacbea3eb089cb6398ec4221b47374" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a6be856f660b67721afb78797059b0f41" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_libraryManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aebd45075841ad4f560e0678e7010e8ec" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab9dcfb6315f9dbdebb454cedf41cb534" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_moduleMap</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1abe30c5018ac41ed0d997f47c36675bdf" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_notificationCenter</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad42f3191d5ab3db60ba015f00f0a3293" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_numThreads</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a2b386a247046e8e2482be88aed414a9d" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_provider</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a76942af8fc29bcf7ff438d859af194c3" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_randomSeedBlock</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6cd13877b4f3285a4f3845be703b2137" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_randomSeedCell</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ae15c9d69d3ffc40fb2154f3b146bba36" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_randomSeedGlobal</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a06d5bfae187e2df9e4c92ec6b68f5a76" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_randomSeedTile</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab297c246ad1b1eda505cc4054e42e03b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_resetVariablesForEachLU</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a850808f85e973581d69237544a7eebdc" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_runDesc</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_runId</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a189833f19d15f55b536e548766a3dcfe" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_runSpinUp</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a6ea4d69eedda718168f8fa34e4f2aaa7" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_samplingInterval</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a3004d73dabe5956781bf4a62392383f2" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_sequencer</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1af1fba3bedf0298267175faa7814f28fe" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_simulateLandUnit</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a762ade780d03ab41a5195968ff2c9214" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spatiallocationinfo</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a066fedeef7eca2d66ff120a9b63fb1f6" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupLandUnitBuildSuccess</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a13c8b4a2a9117214f39de4ac9216124a" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupLandUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a9770d95b3074ac27c86c31b682d19560" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupModules</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a5777d7c05468cfb67fa68a0eb393801c" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupNotificationCenter</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8da215e4e5a4dc2859a94175ed08f6c1" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupSequencer</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a97ba34879aa13c7280cf79f3c6de1454" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_spinupSimulateLandUnit</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a4a30448f5d87d48608e2756933ef599b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_sqliteDatabaseName</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ae83faaad23cb2ecfebead92fb84899cc" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_tasks</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1adefee26815350ba233978e7f9abb6e0b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_threadedSystem</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aee165730bc473f032b7dec2045b54541" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_threads</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a74ccce293a08a2d6aafc5f576cc6bfd8" prot="protected" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_tileStatsDimension</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a0488d41502f37ea346cea5a74cbb5e3b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>_writeStatsToSQLIte</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a795a2514725d01266e66aa891a09f5a0" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>buildBlockIndexQueue</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab66ff59c4ba448414f0572b011603969" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a0c1c38120f24ff03fc76abdf1719101c" prot="public" virt="non-virtual" ambiguityscope="moja::flint::LocalDomainControllerBase::"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aeb007b2e2dbd1df8ad1ddd51de3cac1f" prot="public" virt="virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>initialiseData</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a52488e999c94de3ac3dce4c698bcbcc2" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a904a680bfa7c794647f5ec00d65a4e86" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>LocalDomainControllerBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ac2ad055adc04a94b1b6110fd8c6e6dd6" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>LocalDomainControllerBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a88a4dd0f386cb2bd6a384eef5c87aa7d" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1af064aefc7ac9a5262f485cad43b2e273" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>ModuleMap</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a8ccfed68754270e20e58c8d1a8a80843" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>ModuleMapKey</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a653cce1d8eec27c242718156819c40e8" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>modules</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad1717410afd0be936c6213a63c8005fb" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>run</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a31ba73c18cae9b0a97b02512e991ce1e" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>runCell</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a8493abaa89dbbf3f66a797e4eec79a7b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>runCellSpinUp</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa1fb64d93301b73cdc142ad274ea2962" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>RunSummaryDataRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a734c556e1322a71bf54c4b0d1db529a0" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>set_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa77b0c0c7fa692add39407ffc5b00d01" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>shutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a751b072038022c0539235b2d51437b7a" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>SpatialTiledLocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ab7aafca42d852e1e8de90d98ae610f9a" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>SpatialTiledLocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1a377e0ce333a334a1672270e99a03e59c" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>SpatialTiledLocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1ad5f7eb11cb0d921efa26b42c4f40d10c" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>SpatialTiledLocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aa29c86a80cc0f123920b060bfb49c6c3" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>startup</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1adbb84adb731437b6850041bfa72dbaf8" prot="public" virt="virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>~ILocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab7cebd24daf0154904a8158376998ae6" prot="public" virt="virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>~LocalDomainControllerBase</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1aecf28779e8aadcd2ab6d0ed5e7a41150" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController</scope><name>~SpatialTiledLocalDomainController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

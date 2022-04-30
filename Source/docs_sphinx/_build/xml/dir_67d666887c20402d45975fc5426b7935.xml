@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_67d666887c20402d45975fc5426b7935" kind="dir">
+    <compoundname>/mnt/e/FLINT/Source/moja.core/src</compoundname>
+    <innerfile refid="datetime_8cpp">datetime.cpp</innerfile>
+    <innerfile refid="environment_8cpp">environment.cpp</innerfile>
+    <innerfile refid="environment__unix_8cpp">environment_unix.cpp</innerfile>
+    <innerfile refid="environment__win32_8cpp">environment_win32.cpp</innerfile>
+    <innerfile refid="environment__win32u_8cpp">environment_win32u.cpp</innerfile>
+    <innerfile refid="exception_8cpp">exception.cpp</innerfile>
+    <innerfile refid="floatcmp_8cpp">floatcmp.cpp</innerfile>
+    <innerfile refid="logging_8cpp">logging.cpp</innerfile>
+    <innerfile refid="mathex_8cpp">mathex.cpp</innerfile>
+    <innerfile refid="notificationcenter_8cpp">notificationcenter.cpp</innerfile>
+    <innerfile refid="pocojsonutils_8cpp">pocojsonutils.cpp</innerfile>
+    <innerfile refid="publisher_8cpp">publisher.cpp</innerfile>
+    <innerfile refid="timespan_8cpp">timespan.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/src/"/>
+  </compounddef>
+</doxygen>

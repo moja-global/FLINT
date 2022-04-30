@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IFlintData" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::IFlintData</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1EventBase" prot="public" virt="non-virtual">EventBase</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1EventQueue" prot="public" virt="non-virtual">EventQueue</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1IdNameCollection" prot="public" virt="non-virtual">IdNameCollection</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1IdNameDescCollection" prot="public" virt="non-virtual">IdNameDescCollection</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LocalDomainInformation" prot="public" virt="non-virtual">LocalDomainInformation</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationExtraData" prot="public" virt="non-virtual">OperationExtraData</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SimulationUnitDataBase" prot="public" virt="non-virtual">SimulationUnitDataBase</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SpatialLocationInfo" prot="public" virt="non-virtual">SpatialLocationInfo</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SystemInformation" prot="public" virt="non-virtual">SystemInformation</derivedcompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" static="no">
+        <type>std::shared_ptr&lt; IFlintData &gt;(*</type>
+        <definition>typedef std::shared_ptr&lt;IFlintData&gt;(* FactoryFunc) (const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)</definition>
+        <argsstring>)(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)</argsstring>
+        <name>FactoryFunc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="19" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string libraryName</definition>
+        <argsstring></argsstring>
+        <name>libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="37" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string typeName</definition>
+        <argsstring></argsstring>
+        <name>typeName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="38" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~IFlintData</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IFlintData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="22" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void registerEventFactoryFunc</definition>
+        <argsstring>(FactoryFunc func)</argsstring>
+        <name>registerEventFactoryFunc</name>
+        <param>
+          <type>FactoryFunc</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="24" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void registerEventFactoryFunc</definition>
+        <argsstring>(std::function&lt; std::shared_ptr&lt; IFlintData &gt;(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt; func)</argsstring>
+        <name>registerEventFactoryFunc</name>
+        <param>
+          <type>std::function&lt; std::shared_ptr&lt; IFlintData &gt;(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="25" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository)=0</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="29" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1a138d2e289874ee66afb80795eef027d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>DynamicVar</type>
+        <definition>virtual DynamicVar getProperty</definition>
+        <argsstring>(const std::string &amp;key) const</argsstring>
+        <name>getProperty</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="32" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1a4b5e263bc5e6e7b8812c0735cd021b23" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>DynamicObject</type>
+        <definition>virtual DynamicObject exportObject</definition>
+        <argsstring>() const</argsstring>
+        <name>exportObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="33" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller)</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="35" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="35" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" line="17" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/iflintdata.h" bodystart="17" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual"><scope>moja::flint::IFlintData</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a4b5e263bc5e6e7b8812c0735cd021b23" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::IFlintData</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a138d2e289874ee66afb80795eef027d1" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::IFlintData</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::IFlintData</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::IFlintData</scope><name>~IFlintData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

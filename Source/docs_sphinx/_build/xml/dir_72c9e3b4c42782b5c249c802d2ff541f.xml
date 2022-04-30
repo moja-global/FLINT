@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_72c9e3b4c42782b5c249c802d2ff541f" kind="dir">
+    <compoundname>/mnt/e/FLINT/Source/moja.core/include/moja</compoundname>
+    <innerfile refid="alignment_8h">alignment.h</innerfile>
+    <innerfile refid="coreexceptions_8h">coreexceptions.h</innerfile>
+    <innerfile refid="datetime_8h">datetime.h</innerfile>
+    <innerfile refid="dispatcher_8h">dispatcher.h</innerfile>
+    <innerfile refid="dynamic_8h">dynamic.h</innerfile>
+    <innerfile refid="environment_8h">environment.h</innerfile>
+    <innerfile refid="environment__unix_8h">environment_unix.h</innerfile>
+    <innerfile refid="environment__win32_8h">environment_win32.h</innerfile>
+    <innerfile refid="environment__win32u_8h">environment_win32u.h</innerfile>
+    <innerfile refid="events_8h">events.h</innerfile>
+    <innerfile refid="exception_8h">exception.h</innerfile>
+    <innerfile refid="floatcmp_8h">floatcmp.h</innerfile>
+    <innerfile refid="hash_8h">hash.h</innerfile>
+    <innerfile refid="logging_8h">logging.h</innerfile>
+    <innerfile refid="mathex_8h">mathex.h</innerfile>
+    <innerfile refid="notificationcenter_8h">notificationcenter.h</innerfile>
+    <innerfile refid="platform_8h">platform.h</innerfile>
+    <innerfile refid="platform__posix_8h">platform_posix.h</innerfile>
+    <innerfile refid="platform__win32_8h">platform_win32.h</innerfile>
+    <innerfile refid="pocojsonutils_8h">pocojsonutils.h</innerfile>
+    <innerfile refid="publisher_8h">publisher.h</innerfile>
+    <innerfile refid="signals_8h">signals.h</innerfile>
+    <innerfile refid="stopwatch_8h">stopwatch.h</innerfile>
+    <innerfile refid="timespan_8h">timespan.h</innerfile>
+    <innerfile refid="types_8h">types.h</innerfile>
+    <innerfile refid="utility_8h">utility.h</innerfile>
+    <innerfile refid="version_8h">version.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/"/>
+  </compounddef>
+</doxygen>

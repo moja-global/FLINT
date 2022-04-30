@@ -1,0 +1,633 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="datetime_8h" kind="file" language="C++">
+    <compoundname>datetime.h</compoundname>
+    <includes local="yes">_core_exports.h</includes>
+    <includes refid="timespan_8h" local="no">moja/timespan.h</includes>
+    <includes local="no">date/date.h</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">iomanip</includes>
+    <includedby refid="calendarandeventsequencer_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/calendarandeventsequencer.cpp</includedby>
+    <includedby refid="eventqueue_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/eventqueue.cpp</includedby>
+    <includedby refid="outputerstreamflux_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/outputerstreamflux.cpp</includedby>
+    <includedby refid="spatialtiledlocaldomaincontroller_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp</includedby>
+    <includedby refid="threadedaspatiallocaldomaincontroller_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/threadedaspatiallocaldomaincontroller.cpp</includedby>
+    <includedby refid="variableandpoolstringbuilder_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp</includedby>
+    <includedby refid="calendarandeventflintdatasequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</includedby>
+    <includedby refid="calendarandeventsequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</includedby>
+    <includedby refid="calendarsequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarsequencer.h</includedby>
+    <includedby refid="eventqueue_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h</includedby>
+    <includedby refid="imodule_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h</includedby>
+    <includedby refid="itiming_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h</includedby>
+    <includedby refid="datetime_8cpp" local="yes">/mnt/e/FLINT/Source/moja.core/src/datetime.cpp</includedby>
+    <includedby refid="events_8h" local="yes">/mnt/e/FLINT/Source/moja.core/include/moja/events.h</includedby>
+    <includedby refid="pocojsonutils_8h" local="yes">/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h</includedby>
+    <includedby refid="publisher_8h" local="yes">/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h</includedby>
+    <incdepgraph>
+      <node id="7">
+        <label>iomanip</label>
+      </node>
+      <node id="6">
+        <label>date/date.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h</label>
+        <link refid="datetime_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="3">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="5">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="24">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sequencermodulebase.h</label>
+        <link refid="sequencermodulebase_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h</label>
+        <link refid="writevariablegrid_8h_source"/>
+      </node>
+      <node id="10">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfoexternal.h</label>
+        <link refid="libraryinfoexternal_8h_source"/>
+      </node>
+      <node id="23">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/outputerstreamflux.h</label>
+        <link refid="outputerstreamflux_8h_source"/>
+      </node>
+      <node id="40">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxublas.h</label>
+        <link refid="operationresultfluxublas_8h_source"/>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="49">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h</label>
+        <link refid="pocojsonutils_8h_source"/>
+      </node>
+      <node id="14">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfilewriter.h</label>
+        <link refid="aggregatorfilewriter_8h_source"/>
+      </node>
+      <node id="28">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/transactionmanagerendofstepmodule.h</label>
+        <link refid="transactionmanagerendofstepmodule_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h</label>
+        <link refid="imodule_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/outputerstream.h</label>
+        <link refid="outputerstream_8h_source"/>
+      </node>
+      <node id="27">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/transactionmanageraftersubmitmodule.h</label>
+        <link refid="transactionmanageraftersubmitmodule_8h_source"/>
+      </node>
+      <node id="47">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h</label>
+        <link refid="datetime_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h</label>
+        <link refid="libraryinfobase_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfluxstep.h</label>
+        <link refid="aggregatorfluxstep_8h_source"/>
+      </node>
+      <node id="38">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorsimplecache.h</label>
+        <link refid="operationresultfluxiteratorsimplecache_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</label>
+        <link refid="calendarandeventsequencer_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h</label>
+        <link refid="libraryfactory_8h_source"/>
+      </node>
+      <node id="19">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/errorscreenwriter.h</label>
+        <link refid="errorscreenwriter_8h_source"/>
+      </node>
+      <node id="31">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h</label>
+        <link refid="mojalibapi_8h_source"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfointernal.h</label>
+        <link refid="libraryinfointernal_8h_source"/>
+      </node>
+      <node id="25">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/equalstepsequencer.h</label>
+        <link refid="equalstepsequencer_8h_source"/>
+      </node>
+      <node id="42">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h</label>
+        <link refid="itiming_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorstockstep.h</label>
+        <link refid="aggregatorstockstep_8h_source"/>
+      </node>
+      <node id="41">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h</label>
+        <link refid="operationresultfluxiteratorublas_8h_source"/>
+      </node>
+      <node id="43">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="16">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h</label>
+        <link refid="aggregatorlandunit_8h_source"/>
+      </node>
+      <node id="35">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfomanaged.h</label>
+        <link refid="libraryinfomanaged_8h_source"/>
+      </node>
+      <node id="26">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/testmodule.h</label>
+        <link refid="testmodule_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarsequencer.h</label>
+        <link refid="calendarsequencer_8h_source"/>
+      </node>
+      <node id="44">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</label>
+        <link refid="calendarandeventflintdatasequencer_8h_source"/>
+      </node>
+      <node id="45">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</label>
+        <link refid="operationresultsimple_8h_source"/>
+      </node>
+      <node id="50">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h</label>
+        <link refid="publisher_8h_source"/>
+      </node>
+      <node id="13">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/modulebase.h</label>
+        <link refid="modulebase_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/events.h</label>
+        <link refid="events_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimplecache.h</label>
+        <link refid="operationresultfluxsimplecache_8h_source"/>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+      <node id="18">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h</label>
+        <link refid="debugnotificationmodule_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h</label>
+        <link refid="librarymanager_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/moduleproxybase.h</label>
+        <link refid="moduleproxybase_8h_source"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h</label>
+        <link refid="libraryinfopython_8h_source"/>
+      </node>
+      <node id="21">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h</label>
+        <link refid="proxymodule_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h</label>
+        <link refid="eventqueue_8h_source"/>
+      </node>
+      <node id="29">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h</label>
+        <link refid="writesystemconfig_8h_source"/>
+      </node>
+      <node id="12">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="39">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</label>
+        <link refid="operationresultsimplecache_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1DateTime" prot="public">moja::DateTime</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_CORE_DATETIME_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_CORE_DATETIME_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;_core_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>min</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>max</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/timespan.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;date/date.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iomanip&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::chrono::time_point&lt;std::chrono::system_clock&gt;<sp/>system_time_point;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>tm<sp/>localtime(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::time_t&amp;<sp/>time)<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/>std::tm<sp/>tm_snapshot;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(defined(WIN32)<sp/>||<sp/>defined(_WIN32)<sp/>||<sp/>defined(__WIN32__))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>localtime_s(&amp;tm_snapshot,<sp/>&amp;time);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/>localtime_r(&amp;time,<sp/>&amp;tm_snapshot);<sp/><sp/></highlight><highlight class="comment">//<sp/>POSIX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>tm_snapshot;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>To<sp/>simplify<sp/>things<sp/>the<sp/>return<sp/>value<sp/>is<sp/>just<sp/>a<sp/>string.<sp/>I.e.<sp/>by<sp/>design!</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::string<sp/>put_time(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::tm*<sp/>date_time,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>c_time_format)<sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(defined(WIN32)<sp/>||<sp/>defined(_WIN32)<sp/>||<sp/>defined(__WIN32__))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>std::ostringstream<sp/>oss;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/>oss<sp/>&lt;&lt;<sp/>std::put_time(const_cast&lt;std::tm*&gt;(date_time),<sp/>c_time_format);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>oss.str();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/><sp/></highlight><highlight class="comment">//<sp/>LINUX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size<sp/>=<sp/>1024;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buffer[size];</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>success<sp/>=<sp/>std::strftime(buffer,<sp/>size,<sp/>c_time_format,<sp/>date_time);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(0<sp/>==<sp/>success)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>c_time_format;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>buffer;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>extracting<sp/>std::time_t<sp/>from<sp/>std:chrono<sp/>for<sp/>&quot;now&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>std::time_t<sp/>systemtime_now()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/>system_time_point<sp/>system_now<sp/>=<sp/>std::chrono::system_clock::now();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::chrono::system_clock::to_time_t(system_now);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classmoja_1_1DateTime" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CORE_API<sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="60" refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>()</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_date(),</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_tod(std::chrono::hours{0},<sp/>std::chrono::minutes{0},<sp/>std::chrono::seconds{0},<sp/>std::chrono::microseconds{0},</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0)<sp/>{}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>~<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref>();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classmoja_1_1DateTime_1a55f08940bc5f5e5ffcf128c0e42e6f1f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><ref refid="classmoja_1_1DateTime_1a55f08940bc5f5e5ffcf128c0e42e6f1f" kindref="member">DateTime</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>day)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_date(date::year{year},<sp/>date::month{month},<sp/>date::day{day}),</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_tod(std::chrono::hours{0},<sp/>std::chrono::minutes{0},<sp/>std::chrono::seconds{0},<sp/>std::chrono::microseconds{0},</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0)<sp/>{}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>day,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hour,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minute<sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>second<sp/>=<sp/>0)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_date(date::year{year},<sp/>date::month{month},<sp/>date::day{day}),</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_tod(std::chrono::hours{hour},<sp/>std::chrono::minutes{minute},<sp/>std::chrono::seconds{second},</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::chrono::microseconds{0},<sp/>0)<sp/>{}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/>DateTime(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>day,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hour,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minute,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>second,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>millisecond,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>microsecond<sp/>=<sp/>0)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_date(date::year{year},<sp/>date::month{month},<sp/>date::day{day}),</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_tod(std::chrono::hours{hour},<sp/>std::chrono::minutes{minute},<sp/>std::chrono::seconds{second},</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::chrono::milliseconds{millisecond}<sp/>+<sp/>std::chrono::microseconds{microsecond},<sp/>0)<sp/>{}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>decimalYear()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addYears(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>years);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addMonths(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>months);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addDays(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>days);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addHours(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>hours);</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addMinutes(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minutes);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addSeconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>seconds);</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addMilliseconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>milliseconds);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>addMicroseconds(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>microseconds);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>daysInYear(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>DateTime<sp/>now();</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="classmoja_1_1DateTime_1a40d64e497385a0855c1512408f70983a" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">friend</highlight><highlight class="normal"><sp/>std::ostream&amp;<sp/><ref refid="classmoja_1_1DateTime_1a40d64e497385a0855c1512408f70983a" kindref="member">operator&lt;&lt;</ref>(std::ostream&amp;<sp/>output,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref>&amp;<sp/>dt)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>output<sp/>&lt;&lt;<sp/>dt._date<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;:&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>dt._tod;</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>output<sp/>&lt;&lt;<sp/>dt.year()<sp/>&lt;&lt;<sp/>std::setfill(&apos;0&apos;)<sp/>&lt;&lt;<sp/>std::setw(2)<sp/>&lt;&lt;<sp/>dt.month()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>std::setfill(&apos;0&apos;)<sp/>&lt;&lt;<sp/>std::setw(2)<sp/>&lt;&lt;<sp/>dt.day()<sp/>&lt;&lt;<sp/>&quot;:&quot;<sp/>&lt;&lt;<sp/>dt.hour()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;:&quot;<sp/>&lt;&lt;<sp/>dt.minute()<sp/>&lt;&lt;<sp/>&quot;:&quot;<sp/>&lt;&lt;<sp/>dt.second()<sp/>&lt;&lt;<sp/>&quot;:&quot;<sp/>&lt;&lt;<sp/>dt.millisecond();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>output;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>toString()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>std::stringstream<sp/>ss;</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>ss<sp/>&lt;&lt;<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ss.str();</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(_date.year());<sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>month()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>unsigned(_date.month());<sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>day()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>unsigned(_date.day());<sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hour()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tod.hours().count();<sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minute()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tod.minutes().count();<sp/>}</highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>second()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(_tod.seconds().count());<sp/>}</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>millisecond()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(_tod.subseconds()).count());</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>microsecond()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>ms<sp/>=<sp/>date::floor&lt;std::chrono::milliseconds&gt;(_tod.subseconds());</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>int(std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(_tod.subseconds()<sp/>-<sp/>ms).count());</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>operator+=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1Timespan" kindref="compound">moja::Timespan</ref>&amp;<sp/>span);</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"></highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>daysOfMonth(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>month);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dayOfYear()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dayOfWeek()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isLeapYear(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>MOJA_NOEXCEPT<sp/>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>double<sp/>julianDay()<sp/>const;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/>DateTime&amp;<sp/>assign(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>day,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hour,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minute,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>second,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>millisecond,</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>microsecond);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator!=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&lt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&lt;=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator&gt;=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><ref refid="classmoja_1_1Timespan" kindref="compound">moja::Timespan</ref><sp/>operator-(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>dateTime)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add(std::chrono::duration&lt;double,<sp/>std::micro&gt;<sp/>value);</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>add_micro(std::chrono::duration&lt;long<sp/>long,<sp/>std::micro&gt;<sp/>value);</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>last_day_of_month_common_year(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>m)<sp/>MOJA_NOEXCEPT<sp/>{</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>constexpr<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>a[]<sp/>=<sp/>{31,<sp/>28,<sp/>31,<sp/>30,<sp/>31,<sp/>30,<sp/>31,<sp/>31,<sp/>30,<sp/>31,<sp/>30,<sp/>31};</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>a[m<sp/>-<sp/>1];</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"><sp/><sp/><sp/>date::year_month_day<sp/>_date;</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/>date::time_of_day&lt;std::chrono::microseconds&gt;<sp/>_tod;</highlight></codeline>
+<codeline lineno="255"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::isLeapYear(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y)<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>y<sp/>%<sp/>4<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>(y<sp/>%<sp/>100<sp/>!=<sp/>0<sp/>||<sp/>y<sp/>%<sp/>400<sp/>==<sp/>0);<sp/>}</highlight></codeline>
+<codeline lineno="258" refid="classmoja_1_1DateTime_1a9c93663b2e185369c767dec717c059f1" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a9c93663b2e185369c767dec717c059f1" kindref="member">DateTime::daysInYear</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>isLeapYear(year)<sp/>?<sp/>366<sp/>:<sp/>365;<sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>DateTime::daysOfMonth(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>m)<sp/>{</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>m<sp/>!=<sp/>2<sp/>||<sp/>!isLeapYear(y)<sp/>?<sp/>last_day_of_month_common_year(m)<sp/>:<sp/>29u;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime&amp;<sp/>DateTime::assign(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>day,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>hour,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minute,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>second,</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>millisecond,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>microsecond)<sp/>{</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">date;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/>_date<sp/>=<sp/>year_month_day(date::year{year},<sp/>date::month{month},<sp/>date::day{day});</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/>_tod<sp/>=<sp/>make_time(std::chrono::hours{hour}<sp/>+<sp/>std::chrono::minutes{minute}<sp/>+<sp/>std::chrono::seconds{second}<sp/>+</highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::chrono::milliseconds{millisecond}<sp/>+<sp/>std::chrono::microseconds{microsecond});</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="270"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="271"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>DateTime::dayOfYear()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">date;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calculating<sp/>the<sp/>year<sp/>and<sp/>the<sp/>day<sp/>of<sp/>the<sp/>year</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>year<sp/>=<sp/>_date.year();</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(sys_days(_date)<sp/>-<sp/>sys_days{year<sp/>/<sp/>jan<sp/>/<sp/>0}).count();</highlight></codeline>
+<codeline lineno="278"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"></highlight></codeline>
+<codeline lineno="280"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>DateTime::dayOfWeek()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">date;</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"></highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/>sys_days<sp/>dp<sp/>=<sp/>_date;</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/>weekday<sp/>wd(dp);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>unsigned(wd);</highlight></codeline>
+<codeline lineno="286"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"></highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_date<sp/>==<sp/>dateTime._date<sp/>&amp;&amp;<sp/>_tod.to_duration()<sp/>==<sp/>dateTime._tod.to_duration();</highlight></codeline>
+<codeline lineno="290"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator!=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(operator==(dateTime));<sp/>}</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator&lt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_date<sp/>&lt;<sp/>dateTime._date</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>?<sp/>true</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>(_date<sp/>&gt;<sp/>dateTime._date<sp/>?<sp/>false<sp/>:<sp/>(_tod.to_duration()<sp/>&lt;<sp/>dateTime._tod.to_duration()));</highlight></codeline>
+<codeline lineno="296"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator&lt;=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(dateTime<sp/>&lt;<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>dateTime<sp/>&lt;<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateTime::operator&gt;=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>!(*</highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>&lt;<sp/>dateTime);<sp/>}</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>Timespan<sp/>DateTime::operator-(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" kindref="member">DateTime</ref>&amp;<sp/>dateTime)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">date;</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">std::chrono;</highlight></codeline>
+<codeline lineno="304"><highlight class="normal"></highlight></codeline>
+<codeline lineno="305"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp_this<sp/>=<sp/>sys_days(_date)<sp/>+<sp/>_tod.to_duration();</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>dp_rhs<sp/>=<sp/>sys_days(dateTime._date)<sp/>+<sp/>dateTime._tod.to_duration();</highlight></codeline>
+<codeline lineno="307"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>span<sp/>=<sp/>dp_this<sp/>-<sp/>dp_rhs;</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Timespan(span);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="312"><highlight class="normal"></highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_CORE_DATETIME_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h"/>
+  </compounddef>
+</doxygen>

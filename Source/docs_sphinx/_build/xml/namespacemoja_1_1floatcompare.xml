@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacemoja_1_1floatcompare" kind="namespace" language="C++">
+    <compoundname>moja::floatcompare</compoundname>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize" prot="public">moja::floatcompare::TypeWithSize</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4" prot="public">moja::floatcompare::TypeWithSize&lt; 4 &gt;</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_018_01_4" prot="public">moja::floatcompare::TypeWithSize&lt; 8 &gt;</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1FloatingPoint" prot="public">moja::floatcompare::FloatingPoint</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="9" column="1"/>
+  </compounddef>
+</doxygen>

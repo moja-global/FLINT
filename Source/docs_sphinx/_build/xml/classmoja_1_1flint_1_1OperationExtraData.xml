@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationExtraData" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationExtraData</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IFlintData</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationExtraData_1ab61cb99f14b357c17dd995490a0f1f7a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _moduleName</definition>
+        <argsstring></argsstring>
+        <name>_moduleName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="20" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationExtraData_1a46337cb205a4c349dce3aa13e46005fa" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _moduleMethod</definition>
+        <argsstring></argsstring>
+        <name>_moduleMethod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="21" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationExtraData_1a0e3f035213074aa0d38f4e3628eae854" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _other</definition>
+        <argsstring></argsstring>
+        <name>_other</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="22" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationExtraData_1a83b8cf71ab1fd544da6c8599ad889467" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationExtraData</definition>
+        <argsstring>()=default</argsstring>
+        <name>OperationExtraData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="12" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationExtraData_1a46066fbf354a32c4f51c5b3cb1b47c5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OperationExtraData</definition>
+        <argsstring>(std::string moduleName, std::string moduleMethod, std::string other)</argsstring>
+        <name>OperationExtraData</name>
+        <param>
+          <type>std::string</type>
+          <declname>moduleName</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>moduleMethod</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="13" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="13" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationExtraData_1a0cc58d4ba9150853a3011fb6b3c366a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~OperationExtraData</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OperationExtraData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="15" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationExtraData_1aeea19edf0523c6350f850f3b69929c64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(DynamicObject config, const flint::ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="17" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="17" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" line="10" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationextradata.h" bodystart="10" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1a46337cb205a4c349dce3aa13e46005fa" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>_moduleMethod</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1ab61cb99f14b357c17dd995490a0f1f7a" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>_moduleName</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1a0e3f035213074aa0d38f4e3628eae854" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>_other</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1aeea19edf0523c6350f850f3b69929c64" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::IFlintData::"><scope>moja::flint::OperationExtraData</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a4b5e263bc5e6e7b8812c0735cd021b23" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a138d2e289874ee66afb80795eef027d1" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1a83b8cf71ab1fd544da6c8599ad889467" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>OperationExtraData</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1a46066fbf354a32c4f51c5b3cb1b47c5e" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>OperationExtraData</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::OperationExtraData</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>~IFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationExtraData_1a0cc58d4ba9150853a3011fb6b3c366a0" prot="public" virt="virtual"><scope>moja::flint::OperationExtraData</scope><name>~OperationExtraData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

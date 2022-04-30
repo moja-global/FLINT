@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1StepRecord" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::StepRecord</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1StepRecord_1a230fe7ba9136a22b732a10a85e65a956" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime date</definition>
+        <argsstring></argsstring>
+        <name>date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="20" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1StepRecord_1abc16e65f240ed0c8f3e876e8732c0a33" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="21" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1StepRecord_1ae3b73b20753231c43199d501b1e987b7" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double fracOfStep</definition>
+        <argsstring></argsstring>
+        <name>fracOfStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="22" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1StepRecord_1a847a30a34c8579c34217f66afa487a96" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double lengthOfStepInYears</definition>
+        <argsstring></argsstring>
+        <name>lengthOfStepInYears</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="23" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1StepRecord_1a147f6d1615268b8c71849622b2c9a71f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; stockValues</definition>
+        <argsstring></argsstring>
+        <name>stockValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="24" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>StepRecord</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>date</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="19" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="19" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1StepRecord_1a230fe7ba9136a22b732a10a85e65a956" prot="public" virt="non-virtual"><scope>moja::flint::StepRecord</scope><name>date</name></member>
+      <member refid="structmoja_1_1flint_1_1StepRecord_1ae3b73b20753231c43199d501b1e987b7" prot="public" virt="non-virtual"><scope>moja::flint::StepRecord</scope><name>fracOfStep</name></member>
+      <member refid="structmoja_1_1flint_1_1StepRecord_1a847a30a34c8579c34217f66afa487a96" prot="public" virt="non-virtual"><scope>moja::flint::StepRecord</scope><name>lengthOfStepInYears</name></member>
+      <member refid="structmoja_1_1flint_1_1StepRecord_1abc16e65f240ed0c8f3e876e8732c0a33" prot="public" virt="non-virtual"><scope>moja::flint::StepRecord</scope><name>step</name></member>
+      <member refid="structmoja_1_1flint_1_1StepRecord_1a147f6d1615268b8c71849622b2c9a71f" prot="public" virt="non-virtual"><scope>moja::flint::StepRecord</scope><name>stockValues</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

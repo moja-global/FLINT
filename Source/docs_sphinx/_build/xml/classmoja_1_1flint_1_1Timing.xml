@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1Timing" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::Timing</compoundname>
+    <basecompoundref refid="classmoja_1_1flint_1_1ITiming" prot="public" virt="non-virtual">ITiming</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a30f2c0d42425f84541452621b82c427b" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startDate</definition>
+        <argsstring></argsstring>
+        <name>_startDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="58" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a15d6a6305be3429771895011e43b44a3" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endDate</definition>
+        <argsstring></argsstring>
+        <name>_endDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="59" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a385ab6e2a2cdd939a5a74d7ef5cfbb2d" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startStepDate</definition>
+        <argsstring></argsstring>
+        <name>_startStepDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="60" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1ac107a74c9d26b9d870b59afd769474a8" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endStepDate</definition>
+        <argsstring></argsstring>
+        <name>_endStepDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="61" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1aad5d67181f7a85f22a99ac668b55a17c" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _curStartDate</definition>
+        <argsstring></argsstring>
+        <name>_curStartDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="62" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a40fa76a743661f44dd6cd0b353912558" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _curEndDate</definition>
+        <argsstring></argsstring>
+        <name>_curEndDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="63" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1ae0bcaff0d428cd1bc01491140b41a48f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _fractionOfStep</definition>
+        <argsstring></argsstring>
+        <name>_fractionOfStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="64" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a4ab1d415d0679b433c26f2b890b29e8a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _stepLengthInYears</definition>
+        <argsstring></argsstring>
+        <name>_stepLengthInYears</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="65" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1add52393b10c039627dd96e5057571f62" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _nSteps</definition>
+        <argsstring></argsstring>
+        <name>_nSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="66" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1ac9a59b283baa2f546e431adf3a3ada8c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _step</definition>
+        <argsstring></argsstring>
+        <name>_step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="67" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a1a96ef5e9a5fd0aeb4d0bbc2a5fe8003" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _subStep</definition>
+        <argsstring></argsstring>
+        <name>_subStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="68" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a09e2a451eadbf16db8b6501694c2b6b4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _isFullStep</definition>
+        <argsstring></argsstring>
+        <name>_isFullStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="69" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Timing_1a6997dea5cbda3d68ee9d4c0f799daa7a" prot="private" static="no" mutable="no">
+        <type>TimeStepping</type>
+        <definition>TimeStepping _stepping</definition>
+        <argsstring></argsstring>
+        <name>_stepping</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="70" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1ae2a002da0c27ba18dad3dc5c62308f16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Timing</definition>
+        <argsstring>()</argsstring>
+        <name>Timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="14" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="14" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a59852c158a95ebb19f08497a630872bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Timing</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="22" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1ad72eef1561c7a53b19b048397d4ef570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init</definition>
+        <argsstring>() override</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="23" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/timing.cpp" bodystart="10" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a701c0b9696633e08deef0127d7f7914a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime startDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>startDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="25" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a2d8ced059105d0fb2247ef222c198dee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime endDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>endDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="26" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="74" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a7b068848ebca30eaa96835315ecdb1b4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime startStepDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>startStepDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="28" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1aaa881ef7d4dd3d36bcdacd57799042d2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime endStepDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>endStepDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="29" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="77" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1ad611799d4a8488c56298912d7da88609" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime curStartDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>curStartDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="31" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a93d29b2e07aaafc1212a3e96ac1d7b55" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime curEndDate</definition>
+        <argsstring>() const override</argsstring>
+        <name>curEndDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="32" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a3a96f260e0c0313c3e7623460635739b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double fractionOfStep</definition>
+        <argsstring>() const override</argsstring>
+        <name>fractionOfStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="34" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a7d4c7bac4aad7ec243b8e9b6185680f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double stepLengthInYears</definition>
+        <argsstring>() const override</argsstring>
+        <name>stepLengthInYears</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="35" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="83" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1ac5fb3422809d68394d66328666e7e2ff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int nSteps</definition>
+        <argsstring>() const override</argsstring>
+        <name>nSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="37" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="85" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1abbe452058ad649026c6607741ba7f8c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int step</definition>
+        <argsstring>() const override</argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="38" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a094d63850988eb63b2576a4ad5b5e411" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int subStep</definition>
+        <argsstring>() const override</argsstring>
+        <name>subStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="39" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a81de1537ebcde6929a1dffb786e52f93" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isFullStep</definition>
+        <argsstring>() const override</argsstring>
+        <name>isFullStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="41" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="101" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a0151a2cc7c4d4051d1a210cda4f32b43" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>TimeStepping</type>
+        <definition>TimeStepping stepping</definition>
+        <argsstring>() const override</argsstring>
+        <name>stepping</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="42" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1ac69d5dce4c101786e6f97b764363eea7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStartDate</definition>
+        <argsstring>(DateTime startDate) override</argsstring>
+        <name>setStartDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>startDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="44" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a7b3439508d6f41274d4faea9c4255122" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEndDate</definition>
+        <argsstring>(DateTime endDate) override</argsstring>
+        <name>setEndDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="45" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a8d278f502d36beedfb515cdfa6beb322" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStartStepDate</definition>
+        <argsstring>(DateTime val) override</argsstring>
+        <name>setStartStepDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="46" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="106" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1afffd062d9b5628969ce8b2ff5230f6d5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setEndStepDate</definition>
+        <argsstring>(DateTime val) override</argsstring>
+        <name>setEndStepDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="47" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1aaa8fa29f3985fb5a88a0b3e009d7067f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setCurStartDate</definition>
+        <argsstring>(DateTime val) override</argsstring>
+        <name>setCurStartDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="48" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="108" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a2bac8b12e8aded6f3d67cb2aa0ea51c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setCurEndDate</definition>
+        <argsstring>(DateTime val) override</argsstring>
+        <name>setCurEndDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="49" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="109" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a02f1a8a5927c3e404db7b14bff6491a4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setFractionOfStep</definition>
+        <argsstring>(double fractionOfStep) override</argsstring>
+        <name>setFractionOfStep</name>
+        <param>
+          <type>double</type>
+          <declname>fractionOfStep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="50" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1af5d45b81b6ab1eb6d6e9ef0f3f6962ff" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStepLengthInYears</definition>
+        <argsstring>(double stepLengthInYears) override</argsstring>
+        <name>setStepLengthInYears</name>
+        <param>
+          <type>double</type>
+          <declname>stepLengthInYears</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="51" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a93f9da0031e9ef6b987e17eb8599caf0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStep</definition>
+        <argsstring>(int step) override</argsstring>
+        <name>setStep</name>
+        <param>
+          <type>int</type>
+          <declname>step</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="52" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a029d809a26c64863c8500865985eaf70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setSubStep</definition>
+        <argsstring>(int subStep) override</argsstring>
+        <name>setSubStep</name>
+        <param>
+          <type>int</type>
+          <declname>subStep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="53" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a288ea758be27508e10b68aa49404a04e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setIsFullStep</definition>
+        <argsstring>(bool val) override</argsstring>
+        <name>setIsFullStep</name>
+        <param>
+          <type>bool</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="54" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Timing_1a28d372d970df2537d81d6ae446ee84ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setStepping</definition>
+        <argsstring>(TimeStepping stepping) override</argsstring>
+        <name>setStepping</name>
+        <param>
+          <type>TimeStepping</type>
+          <declname>stepping</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="55" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Timing</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ITiming</label>
+        <link refid="classmoja_1_1flint_1_1ITiming"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>Timing</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>_curEndDate</edgelabel>
+          <edgelabel>_curStartDate</edgelabel>
+          <edgelabel>_endDate</edgelabel>
+          <edgelabel>_endStepDate</edgelabel>
+          <edgelabel>_startDate</edgelabel>
+          <edgelabel>_startStepDate</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ITiming</label>
+        <link refid="classmoja_1_1flint_1_1ITiming"/>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h" bodystart="12" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1Timing_1a40fa76a743661f44dd6cd0b353912558" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_curEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1aad5d67181f7a85f22a99ac668b55a17c" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_curStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a15d6a6305be3429771895011e43b44a3" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_endDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ac107a74c9d26b9d870b59afd769474a8" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_endStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ae0bcaff0d428cd1bc01491140b41a48f" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_fractionOfStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a09e2a451eadbf16db8b6501694c2b6b4" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_isFullStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1add52393b10c039627dd96e5057571f62" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_nSteps</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a30f2c0d42425f84541452621b82c427b" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_startDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a385ab6e2a2cdd939a5a74d7ef5cfbb2d" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_startStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ac9a59b283baa2f546e431adf3a3ada8c" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_step</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a4ab1d415d0679b433c26f2b890b29e8a" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_stepLengthInYears</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a6997dea5cbda3d68ee9d4c0f799daa7a" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_stepping</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a1a96ef5e9a5fd0aeb4d0bbc2a5fe8003" prot="private" virt="non-virtual"><scope>moja::flint::Timing</scope><name>_subStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a93d29b2e07aaafc1212a3e96ac1d7b55" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>curEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ad611799d4a8488c56298912d7da88609" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>curStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a2d8ced059105d0fb2247ef222c198dee" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>endDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1aaa881ef7d4dd3d36bcdacd57799042d2" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>endStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a3a96f260e0c0313c3e7623460635739b" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>fractionOfStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ad72eef1561c7a53b19b048397d4ef570" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>init</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a81de1537ebcde6929a1dffb786e52f93" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>isFullStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ac5fb3422809d68394d66328666e7e2ff" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>nSteps</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a2bac8b12e8aded6f3d67cb2aa0ea51c8" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setCurEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1aaa8fa29f3985fb5a88a0b3e009d7067f" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setCurStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a7b3439508d6f41274d4faea9c4255122" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1afffd062d9b5628969ce8b2ff5230f6d5" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setEndStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a02f1a8a5927c3e404db7b14bff6491a4" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setFractionOfStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a288ea758be27508e10b68aa49404a04e" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setIsFullStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ac69d5dce4c101786e6f97b764363eea7" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a8d278f502d36beedfb515cdfa6beb322" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setStartStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a93f9da0031e9ef6b987e17eb8599caf0" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1af5d45b81b6ab1eb6d6e9ef0f3f6962ff" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setStepLengthInYears</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a28d372d970df2537d81d6ae446ee84ab" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setStepping</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a029d809a26c64863c8500865985eaf70" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>setSubStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a701c0b9696633e08deef0127d7f7914a" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>startDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a7b068848ebca30eaa96835315ecdb1b4" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>startStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1abbe452058ad649026c6607741ba7f8c5" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>step</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a7d4c7bac4aad7ec243b8e9b6185680f1" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>stepLengthInYears</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a0151a2cc7c4d4051d1a210cda4f32b43" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>stepping</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a094d63850988eb63b2576a4ad5b5e411" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>subStep</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1ae2a002da0c27ba18dad3dc5c62308f16" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>Timing</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1aca3fb3611e570449cc8dd48bd9208567" prot="public" virt="virtual"><scope>moja::flint::Timing</scope><name>~ITiming</name></member>
+      <member refid="classmoja_1_1flint_1_1Timing_1a59852c158a95ebb19f08497a630872bc" prot="public" virt="non-virtual"><scope>moja::flint::Timing</scope><name>~Timing</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

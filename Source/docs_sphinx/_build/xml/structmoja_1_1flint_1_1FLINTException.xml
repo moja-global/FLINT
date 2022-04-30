@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1FLINTException" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::FLINTException</compoundname>
+    <basecompoundref prot="public" virt="virtual">exception</basecompoundref>
+    <basecompoundref prot="public" virt="virtual">exception</basecompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1DuplicateModuleDefinedException" prot="public" virt="virtual">DuplicateModuleDefinedException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1IncompleteConfigurationException" prot="public" virt="virtual">IncompleteConfigurationException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1LandscapeDefinitionException" prot="public" virt="virtual">LandscapeDefinitionException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1LocalDomainError" prot="public" virt="virtual">LocalDomainError</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1PoolNotFoundException" prot="public" virt="virtual">PoolNotFoundException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1PreconditionViolatedException" prot="public" virt="virtual">PreconditionViolatedException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1SequencerNotFoundException" prot="public" virt="virtual">SequencerNotFoundException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1SimulationError" prot="public" virt="virtual">SimulationError</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1TableNotFoundException" prot="public" virt="virtual">TableNotFoundException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1VariableEmptyWhenValueExpectedException" prot="public" virt="virtual">VariableEmptyWhenValueExpectedException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1flint_1_1VariableNotFoundException" prot="public" virt="virtual">VariableNotFoundException</derivedcompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="14" bodyend="14"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

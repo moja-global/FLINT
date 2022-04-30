@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Brief Description of the class goes here.
+ * ******/
+
 #include "moja/flint/configuration/json2configurationprovider.h"
 #include "moja/flint/configuration/localdomain.h"
 #include "moja/flint/configuration/variable.h"
@@ -31,6 +36,14 @@ namespace conf = mf::configuration;
 
 using mf::configuration::LocalDomainType;
 using mf::ILocalDomainController;
+
+	/**
+     * @brief function to check file path.
+     * 
+     * 
+     * @param filePath string&
+     * @return bool
+     * ************************/
 
 bool checkFilePath(const std::string& filePath) {
     Poco::File file(filePath);

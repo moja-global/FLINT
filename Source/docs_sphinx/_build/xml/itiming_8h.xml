@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="itiming_8h" kind="file" language="C++">
+    <compoundname>itiming.h</compoundname>
+    <includes refid="datetime_8h" local="no">moja/datetime.h</includes>
+    <includedby refid="aggregatorlandunit_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/aggregatorlandunit.cpp</includedby>
+    <includedby refid="aggregatorstockstep_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/aggregatorstockstep.cpp</includedby>
+    <includedby refid="outputerstreamflux_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/outputerstreamflux.cpp</includedby>
+    <includedby refid="sequencermodulebase_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/sequencermodulebase.cpp</includedby>
+    <includedby refid="writesystemconfig_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp</includedby>
+    <includedby refid="writevariablegrid_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp</includedby>
+    <includedby refid="calendarandeventflintdatasequencer_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</includedby>
+    <includedby refid="calendarandeventsequencer_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</includedby>
+    <includedby refid="calendarsequencer_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarsequencer.h</includedby>
+    <includedby refid="timing_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>iomanip</label>
+      </node>
+      <node id="7">
+        <label>date/date.h</label>
+      </node>
+      <node id="2">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h</label>
+        <link refid="itiming_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="6">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</label>
+        <link refid="calendarandeventsequencer_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h</label>
+        <link refid="itiming_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarsequencer.h</label>
+        <link refid="calendarsequencer_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</label>
+        <link refid="calendarandeventflintdatasequencer_8h_source"/>
+      </node>
+      <node id="11">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</label>
+        <link refid="operationresultsimple_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+      <node id="10">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="12">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</label>
+        <link refid="operationresultsimplecache_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1ITiming" prot="public">moja::flint::ITiming</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_ITIMING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_ITIMING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datetime.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>TimeStepping<sp/>{<sp/>Monthly<sp/>=<sp/>0,<sp/>Daily<sp/>=<sp/>1,<sp/>Annual<sp/>=<sp/>3<sp/>};</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="classmoja_1_1flint_1_1ITiming" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>TimeStepping<sp/>stepping()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="classmoja_1_1flint_1_1ITiming_1ab5be7e5a13ea77d59aac45d21dceb6a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ab5be7e5a13ea77d59aac45d21dceb6a0" kindref="member">init</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classmoja_1_1flint_1_1ITiming_1a77337ee7d2dd9886dd3d7e2e8d30a50d" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a77337ee7d2dd9886dd3d7e2e8d30a50d" kindref="member">startDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classmoja_1_1flint_1_1ITiming_1a1733ca1deffe93d52cc15729bfe8cbc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a1733ca1deffe93d52cc15729bfe8cbc6" kindref="member">endDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classmoja_1_1flint_1_1ITiming_1ab304f8b2688d7cd7be9343486896c266" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ab304f8b2688d7cd7be9343486896c266" kindref="member">startStepDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classmoja_1_1flint_1_1ITiming_1a0d082318d9b90e6cdd7913f6a13fcfee" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a0d082318d9b90e6cdd7913f6a13fcfee" kindref="member">endStepDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classmoja_1_1flint_1_1ITiming_1ae1e6ec46570fda1879ac7bebfcbaeabf" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ae1e6ec46570fda1879ac7bebfcbaeabf" kindref="member">curStartDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classmoja_1_1flint_1_1ITiming_1a79fc2446cccbf6cf9700750abb0bcb46" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a79fc2446cccbf6cf9700750abb0bcb46" kindref="member">curEndDate</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="classmoja_1_1flint_1_1ITiming_1af02e9976e2b336fc3c0ae087df3cbfb3" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1af02e9976e2b336fc3c0ae087df3cbfb3" kindref="member">fractionOfStep</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classmoja_1_1flint_1_1ITiming_1a01f09edd0113b7f8506f871e18b13c98" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a01f09edd0113b7f8506f871e18b13c98" kindref="member">stepLengthInYears</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classmoja_1_1flint_1_1ITiming_1a585ca73af3a10b21b6fad6e481de13c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a585ca73af3a10b21b6fad6e481de13c6" kindref="member">nSteps</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classmoja_1_1flint_1_1ITiming_1a73518f5f9c1eb5ee126c1c9bb37b7aea" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a73518f5f9c1eb5ee126c1c9bb37b7aea" kindref="member">step</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classmoja_1_1flint_1_1ITiming_1ab0643ce438ae6c7c8269d6f1e287bde2" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ab0643ce438ae6c7c8269d6f1e287bde2" kindref="member">subStep</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="classmoja_1_1flint_1_1ITiming_1a09ab025ab06e6e2ed3e2161824ff8ad3" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a09ab025ab06e6e2ed3e2161824ff8ad3" kindref="member">isFullStep</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="classmoja_1_1flint_1_1ITiming_1a38bd717e1f6458506672db4a34994118" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a38bd717e1f6458506672db4a34994118" kindref="member">setStartDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="classmoja_1_1flint_1_1ITiming_1ae9ffadedc16ec986f80d468f2c6297a6" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ae9ffadedc16ec986f80d468f2c6297a6" kindref="member">setEndDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101" refid="classmoja_1_1flint_1_1ITiming_1af07981ef66edf00b4dededfc32ab39af" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1af07981ef66edf00b4dededfc32ab39af" kindref="member">setStartStepDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classmoja_1_1flint_1_1ITiming_1a208c9abd45a2ab56aa5e889d96977707" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a208c9abd45a2ab56aa5e889d96977707" kindref="member">setEndStepDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="classmoja_1_1flint_1_1ITiming_1ab2721d20046b562f0aaf268905a2b8d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ab2721d20046b562f0aaf268905a2b8d9" kindref="member">setCurStartDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116" refid="classmoja_1_1flint_1_1ITiming_1a6329ea4d32a548136533028172c03022" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a6329ea4d32a548136533028172c03022" kindref="member">setCurEndDate</ref>(<ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classmoja_1_1flint_1_1ITiming_1ae25ad9baa2dfd6db7cb28766a5a4a8bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1ae25ad9baa2dfd6db7cb28766a5a4a8bb" kindref="member">setFractionOfStep</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="classmoja_1_1flint_1_1ITiming_1a781660d33a7218b96dba23d40d2a6eb1" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a781660d33a7218b96dba23d40d2a6eb1" kindref="member">setStepLengthInYears</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="classmoja_1_1flint_1_1ITiming_1aaa0b71748b005b5c6004fb556af3d467" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1aaa0b71748b005b5c6004fb556af3d467" kindref="member">setStep</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="classmoja_1_1flint_1_1ITiming_1a98e86a007f7bfa3e98a735d334cfd62a" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a98e86a007f7bfa3e98a735d334cfd62a" kindref="member">setSubStep</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="classmoja_1_1flint_1_1ITiming_1a571e48d3cf1677ab3d6b39234ba92f72" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a571e48d3cf1677ab3d6b39234ba92f72" kindref="member">setIsFullStep</ref>(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>val)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="classmoja_1_1flint_1_1ITiming_1a2b5e8286bea363fda843209e12ec69ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1flint_1_1ITiming_1a2b5e8286bea363fda843209e12ec69ec" kindref="member">setStepping</ref>(TimeStepping<sp/>stepping)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_ITIMING_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h"/>
+  </compounddef>
+</doxygen>

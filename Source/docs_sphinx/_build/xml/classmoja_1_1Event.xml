@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Event" kind="class" language="C++" prot="public">
+    <compoundname>moja::Event</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Event_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="21" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Event_1a02f9c24ff25d28cb2462e3bf7a4c3957" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">moja::DateTime</ref></type>
+        <definition>moja::DateTime _date</definition>
+        <argsstring></argsstring>
+        <name>_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="22" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Event_1a51e225b49b1437f3097bd83c7c97a048" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Event</definition>
+        <argsstring>()=default</argsstring>
+        <name>Event</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="17" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Event_1a65f19b133d5efed24b4b1f739d93d911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Event</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Event</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="18" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Event_1af79779a360071a36b5776e0f2d1a794b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Event</definition>
+        <argsstring>(const std::string &amp;name, moja::DateTime date)</argsstring>
+        <name>Event</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">moja::DateTime</ref></type>
+          <declname>date</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="19" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>Event</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_date</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" line="15" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/events.h" bodystart="15" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Event_1a02f9c24ff25d28cb2462e3bf7a4c3957" prot="public" virt="non-virtual"><scope>moja::Event</scope><name>_date</name></member>
+      <member refid="classmoja_1_1Event_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="public" virt="non-virtual"><scope>moja::Event</scope><name>_name</name></member>
+      <member refid="classmoja_1_1Event_1a51e225b49b1437f3097bd83c7c97a048" prot="public" virt="non-virtual"><scope>moja::Event</scope><name>Event</name></member>
+      <member refid="classmoja_1_1Event_1af79779a360071a36b5776e0f2d1a794b" prot="public" virt="non-virtual"><scope>moja::Event</scope><name>Event</name></member>
+      <member refid="classmoja_1_1Event_1a65f19b133d5efed24b4b1f739d93d911" prot="public" virt="non-virtual"><scope>moja::Event</scope><name>~Event</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

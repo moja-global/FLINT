@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1StockOperationSimpleCache" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::StockOperationSimpleCache</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IOperation</basecompoundref>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a2dc9e9b9f298a7d16cc855c08714056a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class OperationManagerSimpleCache</definition>
+        <argsstring></argsstring>
+        <name>OperationManagerSimpleCache</name>
+        <param>
+          <type>OperationManagerSimpleCache</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="13" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a71cf19103b7a0f9ba89d3ac5fe6eb9c2" prot="protected" static="no" mutable="no">
+        <type>OperationManagerSimpleCache *</type>
+        <definition>OperationManagerSimpleCache* _manager</definition>
+        <argsstring></argsstring>
+        <name>_manager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="36" column="32" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a32699fe67783d39d6ea6751fad14f2da" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _timeScale</definition>
+        <argsstring></argsstring>
+        <name>_timeScale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="37" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a4a2d19617846dbde6882a87ec1645e57" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; OperationTransferSimpleCache &gt;</type>
+        <definition>std::vector&lt;OperationTransferSimpleCache&gt; _transfers</definition>
+        <argsstring></argsstring>
+        <name>_transfers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="38" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a8c68bdba50834a5fc26224cbff2493e2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt; &amp;</type>
+        <definition>std::vector&lt;double&gt;&amp; _pools</definition>
+        <argsstring></argsstring>
+        <name>_pools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="39" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a974d000aaf7f252d5d1102c85dc1154b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StockOperationSimpleCache</definition>
+        <argsstring>(OperationManagerSimpleCache *manager, std::vector&lt; double &gt; &amp;pools, double timeScale, const ModuleMetaData *metaData)</argsstring>
+        <name>StockOperationSimpleCache</name>
+        <param>
+          <type>OperationManagerSimpleCache *</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>pools</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>timeScale</declname>
+        </param>
+        <param>
+          <type>const ModuleMetaData *</type>
+          <declname>metaData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="17" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="13" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1acf0f84110fbc35e2a1c3721b57063906" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StockOperationSimpleCache</definition>
+        <argsstring>(OperationManagerSimpleCache *manager, std::vector&lt; double &gt; &amp;pools, double timeScale, const ModuleMetaData *metaData, DynamicVar &amp;dataPackage)</argsstring>
+        <name>StockOperationSimpleCache</name>
+        <param>
+          <type>OperationManagerSimpleCache *</type>
+          <declname>manager</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>pools</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>timeScale</declname>
+        </param>
+        <param>
+          <type>const ModuleMetaData *</type>
+          <declname>metaData</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="19" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="19" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1acdd2a07db1aed41fcf8950a6931b77f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~StockOperationSimpleCache</definition>
+        <argsstring>()=default</argsstring>
+        <name>~StockOperationSimpleCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="21" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a29dd723db751eec75b453c84e567bfa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>StockOperationSimpleCache *</type>
+        <definition>StockOperationSimpleCache * addTransfer</definition>
+        <argsstring>(const IPool *source, const IPool *sink, double value) override</argsstring>
+        <name>addTransfer</name>
+        <param>
+          <type>const IPool *</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const IPool *</type>
+          <declname>sink</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="23" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="28" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1aab83a4909d9a1c1cec81d985d7b0b4ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void submitOperation</definition>
+        <argsstring>() override</argsstring>
+        <name>submitOperation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="25" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a7c09857223f90f558ecd352597a0dcbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperationResult &gt;</type>
+        <definition>std::shared_ptr&lt; IOperationResult &gt; computeOperation</definition>
+        <argsstring>(ITiming &amp;_timing) override</argsstring>
+        <name>computeOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref> &amp;</type>
+          <declname>_timing</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="26" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="40" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a4b634a5c63a7a0b98fda6ffe1457dd23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>OperationTransferType</type>
+        <definition>OperationTransferType transferType</definition>
+        <argsstring>() const override</argsstring>
+        <name>transferType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="28" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationstocksimplecache.cpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1a48223bc59ee02b62e3f202063d84668b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationTransferHandlingType</type>
+        <definition>OperationTransferHandlingType transferHandlingType</definition>
+        <argsstring>() const override</argsstring>
+        <name>transferHandlingType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="29" column="34" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StockOperationSimpleCache_1abb3c1b51b3287d893e6024558ef06673" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_metaData</definition>
+        <argsstring>(const ModuleMetaData *metaData)</argsstring>
+        <name>set_metaData</name>
+        <param>
+          <type>const ModuleMetaData *</type>
+          <declname>metaData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="33" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstocksimplecache.h" bodystart="12" bodyend="40"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IOperation_1aece7f8a7787301a4d84a898784255dab" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_dataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1a8aa7b1f37b89247f812c595c259489b3" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_hasDataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a71cf19103b7a0f9ba89d3ac5fe6eb9c2" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_manager</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1afda3aa6f2570637550f0ab8cc0aa9ea2" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a8c68bdba50834a5fc26224cbff2493e2" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_pools</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a32699fe67783d39d6ea6751fad14f2da" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_timeScale</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a4a2d19617846dbde6882a87ec1645e57" prot="protected" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>_transfers</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a29dd723db751eec75b453c84e567bfa3" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>addTransfer</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a7c09857223f90f558ecd352597a0dcbe" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>computeOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1aaf4633658a5975d967af7ebe48af7814" prot="public" virt="virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>dataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1a7741da929775f565cf68b2a25fa8c6e2" prot="public" virt="virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>hasDataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1ae865338ef925dc473ca8eb07b6fcd5bb" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>IOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1a34bcbe28a62af9ab1be977b6875f7bd4" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>IOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1a8abe9acbbe6ec0fec127514761df8e58" prot="public" virt="virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a2dc9e9b9f298a7d16cc855c08714056a" prot="private" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>OperationManagerSimpleCache</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1abb3c1b51b3287d893e6024558ef06673" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>set_metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a974d000aaf7f252d5d1102c85dc1154b" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>StockOperationSimpleCache</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1acf0f84110fbc35e2a1c3721b57063906" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>StockOperationSimpleCache</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1aab83a4909d9a1c1cec81d985d7b0b4ab" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>submitOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a48223bc59ee02b62e3f202063d84668b" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>transferHandlingType</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1a4b634a5c63a7a0b98fda6ffe1457dd23" prot="public" virt="non-virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>transferType</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperation_1a9f9a37a4784c822c73f2e0e53a3903f3" prot="public" virt="virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>~IOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1StockOperationSimpleCache_1acdd2a07db1aed41fcf8950a6931b77f2" prot="public" virt="virtual"><scope>moja::flint::StockOperationSimpleCache</scope><name>~StockOperationSimpleCache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

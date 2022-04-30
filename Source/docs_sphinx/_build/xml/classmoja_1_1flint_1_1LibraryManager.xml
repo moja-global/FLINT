@@ -1,0 +1,726 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LibraryManager" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LibraryManager</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1LibraryManager_1a888e9ea43cdeb50d65a91b75390cdaed" prot="private" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; LibraryMapKey</definition>
+        <argsstring></argsstring>
+        <name>LibraryMapKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Map of all libraries. Maps the case-insensitive library name to information about that library, loaded or not. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="76" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1LibraryManager_1a0c708197f01d9c21ac24b8cea926f205" prot="private" static="no">
+        <type>std::map&lt; LibraryMapKey, std::shared_ptr&lt; LibraryInfoBase &gt; &gt;</type>
+        <definition>typedef std::map&lt;LibraryMapKey, std::shared_ptr&lt;LibraryInfoBase&gt; &gt; LibraryMap</definition>
+        <argsstring></argsstring>
+        <name>LibraryMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="77" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1LibraryManager_1a2ad6a73464ad07219419fdbf9cf64188" prot="private" static="no">
+        <type>std::tuple&lt; std::string, std::string, std::string &gt;</type>
+        <definition>typedef std::tuple&lt;std::string, std::string, std::string&gt; LibraryMapKey2</definition>
+        <argsstring></argsstring>
+        <name>LibraryMapKey2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="79" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1LibraryManager_1ae7c5d3997a0ab3115e2f1093375a0a6b" prot="private" static="no">
+        <type>std::map&lt; LibraryMapKey2, std::shared_ptr&lt; LibraryInfoBase &gt; &gt;</type>
+        <definition>typedef std::map&lt;LibraryMapKey2, std::shared_ptr&lt;LibraryInfoBase&gt; &gt; LibraryMap2</definition>
+        <argsstring></argsstring>
+        <name>LibraryMap2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="80" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1af898851a368de0744295bb0485690524" prot="public" static="yes" mutable="no">
+        <type>Int32</type>
+        <definition>Int32 currentLoadOrder</definition>
+        <argsstring></argsstring>
+        <name>currentLoadOrder</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Static that tracks the current load number. Incremented whenever we add a new library. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="25" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1aaf8cf2a0f7d936b0405ae25daac64024" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::shared_ptr&lt; LibraryInfoBase &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::shared_ptr&lt;LibraryInfoBase&gt; &gt; _libraries</definition>
+        <argsstring></argsstring>
+        <name>_libraries</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="82" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1aa44a2543a3bcc20138bd253eb1d0ecf1" prot="private" static="no" mutable="no">
+        <type>LibraryMap</type>
+        <definition>LibraryMap _modules</definition>
+        <argsstring></argsstring>
+        <name>_modules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="83" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1ad8c9e6a1dafba6f02493089bbf5d809a" prot="private" static="no" mutable="no">
+        <type>LibraryMap</type>
+        <definition>LibraryMap _transforms</definition>
+        <argsstring></argsstring>
+        <name>_transforms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="84" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a19b111d897d1f27ecb5cc8f609546098" prot="private" static="no" mutable="no">
+        <type>LibraryMap</type>
+        <definition>LibraryMap _flintData</definition>
+        <argsstring></argsstring>
+        <name>_flintData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="85" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a99a7719fbe1ce35a87b51702c87a5946" prot="private" static="no" mutable="no">
+        <type>LibraryMap</type>
+        <definition>LibraryMap _providers</definition>
+        <argsstring></argsstring>
+        <name>_providers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="86" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a018ca7ab9e3645a533108487f1490595" prot="private" static="no" mutable="no">
+        <type>LibraryMap2</type>
+        <definition>LibraryMap2 _flintDataFactories</definition>
+        <argsstring></argsstring>
+        <name>_flintDataFactories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="87" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a7a6712237feb8ec105a246c6282ddc7e" prot="private" static="no" mutable="no">
+        <type>ModuleRegistry</type>
+        <definition>ModuleRegistry _moduleRegistry</definition>
+        <argsstring></argsstring>
+        <name>_moduleRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="89" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1aed74cdd8a5228d038f90349fe3ad3cbd" prot="private" static="no" mutable="no">
+        <type>TransformRegistry</type>
+        <definition>TransformRegistry _transformRegistry</definition>
+        <argsstring></argsstring>
+        <name>_transformRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="90" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a5341c4fd94736baaee58fddc0db050ba" prot="private" static="no" mutable="no">
+        <type>FlintDataRegistry</type>
+        <definition>FlintDataRegistry _flintDataRegistry</definition>
+        <argsstring></argsstring>
+        <name>_flintDataRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="91" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a8cf7b1f0e5f8c26ffdc84da93952473a" prot="private" static="no" mutable="no">
+        <type>FlintDataFactoryRegistry</type>
+        <definition>FlintDataFactoryRegistry _flintDataFactoryRegistry</definition>
+        <argsstring></argsstring>
+        <name>_flintDataFactoryRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="92" column="29" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryManager_1a56147386b48e00007f9626dac6a9fcad" prot="private" static="no" mutable="no">
+        <type>ProviderRegistry</type>
+        <definition>ProviderRegistry _providerRegistry</definition>
+        <argsstring></argsstring>
+        <name>_providerRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="93" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1af72fd4550822f52abb277b768dfc0884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LibraryManager</definition>
+        <argsstring>()</argsstring>
+        <name>LibraryManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="19" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="44" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a31b222fda231bd14d7569e97ae57a144" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LibraryManager</definition>
+        <argsstring>(std::shared_ptr&lt; FlintLibraryHandles &gt; libraryHandles)</argsstring>
+        <name>LibraryManager</name>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>libraryHandles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="20" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="55" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a241e940c0eb105256f8c6285dc252a74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~LibraryManager</definition>
+        <argsstring>()</argsstring>
+        <name>~LibraryManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="22" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="70" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1aca737569c29976a3d41ba5ba8134d513" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AddLibrary</definition>
+        <argsstring>(LibraryType type, const std::string &amp;libraryName, const std::string &amp;path=std::string(), const std::string &amp;fileName=std::string())</argsstring>
+        <name>AddLibrary</name>
+        <param>
+          <type>LibraryType</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+          <defval>std::string()</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+          <defval>std::string()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="27" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="76" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a028209221627b0ef67b5ce97a967975f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ModuleInterfacePtr</type>
+        <definition>ModuleInterfacePtr GetModule</definition>
+        <argsstring>(const std::string &amp;libraryName, const std::string &amp;moduleName)</argsstring>
+        <name>GetModule</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>moduleName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="30" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="197" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1aba44f0e02407a49432bb91fe8540557a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>TransformInterfacePtr</type>
+        <definition>TransformInterfacePtr GetTransform</definition>
+        <argsstring>(const std::string &amp;libraryName, const std::string &amp;transformName)</argsstring>
+        <name>GetTransform</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>transformName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="31" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="228" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a04d3402d4e09b644744d09446ab8775d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>FlintDataInterfacePtr</type>
+        <definition>FlintDataInterfacePtr GetFlintData</definition>
+        <argsstring>(const std::string &amp;libraryName, const std::string &amp;flintDataName)</argsstring>
+        <name>GetFlintData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>flintDataName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="32" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="247" bodyend="272"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a992ae3d6cbaab320234bbfa31030c966" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ModuleInterfacePtr</type>
+        <definition>ModuleInterfacePtr GetManagedModule</definition>
+        <argsstring>(const std::string &amp;managedModuleName)</argsstring>
+        <name>GetManagedModule</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>managedModuleName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="33" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="274" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a8fb4f50df509cb39602d0db791a9eb66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ProviderInterfacePtr</type>
+        <definition>ProviderInterfacePtr GetProvider</definition>
+        <argsstring>(const std::string &amp;libraryName, const std::string &amp;moduleName, const DynamicObject &amp;settings)</argsstring>
+        <name>GetProvider</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>moduleName</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>settings</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="34" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="321" bodyend="337"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a5cbdd80169b8e4c752e773eb99a5d93a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LoadInternalLibrary</definition>
+        <argsstring>(std::shared_ptr&lt; FlintLibraryHandles &gt; libraryHandles)</argsstring>
+        <name>LoadInternalLibrary</name>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>libraryHandles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="425" bodyend="459"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a883013ac2b3feae81c0570f73e117b31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LoadManagedLibrary</definition>
+        <argsstring>()</argsstring>
+        <name>LoadManagedLibrary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="39" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="461" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1acaebfbb3130e9b953ecab1e97e962a83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool LoadExternalLibrary</definition>
+        <argsstring>(const std::string &amp;libraryName, const std::string &amp;path=std::string(), const std::string &amp;fileName=std::string())</argsstring>
+        <name>LoadExternalLibrary</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+          <defval>std::string()</defval>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+          <defval>std::string()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="41" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="532" bodyend="598"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1aecf338011e8e0c8d699cca84a586bcc3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UnloadModule</definition>
+        <argsstring>(const std::string &amp;, bool)</argsstring>
+        <name>UnloadModule</name>
+        <param>
+          <type>const std::string &amp;</type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="44" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a65b95f403ba876630c14d91c7837dc1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ProviderRegistry &amp;</type>
+        <definition>const ProviderRegistry&amp; getProviderRegistry</definition>
+        <argsstring>()</argsstring>
+        <name>getProviderRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="46" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a642e357bca2c7072f63f72a3f719e1ee" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool CheckModuleCompatibility</definition>
+        <argsstring>(const std::string &amp;filename)</argsstring>
+        <name>CheckModuleCompatibility</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>filename</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Compares file versions between the current executing Flint version and the specified library. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="57" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="600" bodyend="603"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1aa4c834fd0df8f96af2c93f9419863d8e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RegisterModules</definition>
+        <argsstring>(std::shared_ptr&lt; LibraryInfoBase &gt; libraryInfo, const std::string &amp;libraryName)</argsstring>
+        <name>RegisterModules</name>
+        <param>
+          <type>std::shared_ptr&lt; LibraryInfoBase &gt;</type>
+          <declname>libraryInfo</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="59" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="339" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a79c78a744eec394fc6847d3586be2fb0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RegisterTransforms</definition>
+        <argsstring>(std::shared_ptr&lt; LibraryInfoBase &gt; libraryInfo, const std::string &amp;libraryName)</argsstring>
+        <name>RegisterTransforms</name>
+        <param>
+          <type>std::shared_ptr&lt; LibraryInfoBase &gt;</type>
+          <declname>libraryInfo</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="60" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="353" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a080619657d61e7fb1636efc519aab8e9" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RegisterFlintData</definition>
+        <argsstring>(std::shared_ptr&lt; LibraryInfoBase &gt; libraryInfo, const std::string &amp;libraryName)</argsstring>
+        <name>RegisterFlintData</name>
+        <param>
+          <type>std::shared_ptr&lt; LibraryInfoBase &gt;</type>
+          <declname>libraryInfo</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="61" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="366" bodyend="377"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a22df47c128253f9ce73ed1ec9aaf41dc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RegisterFlintDataFactory</definition>
+        <argsstring>(std::shared_ptr&lt; LibraryInfoBase &gt; libraryInfo, const std::string &amp;libraryName)</argsstring>
+        <name>RegisterFlintDataFactory</name>
+        <param>
+          <type>std::shared_ptr&lt; LibraryInfoBase &gt;</type>
+          <declname>libraryInfo</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="62" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="379" bodyend="398"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a46b2f35b214e943ee48cb31512af6cc3" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RegisterProviders</definition>
+        <argsstring>(std::shared_ptr&lt; LibraryInfoBase &gt; libraryInfo, const std::string &amp;libraryName)</argsstring>
+        <name>RegisterProviders</name>
+        <param>
+          <type>std::shared_ptr&lt; LibraryInfoBase &gt;</type>
+          <declname>libraryInfo</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="63" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="400" bodyend="423"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1ac19fbb06a3d3e2d63e1f4cd9e8ad1a85" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt; std::string, std::string &gt; FindLibraryPaths</definition>
+        <argsstring>(const std::string &amp;namePattern) const</argsstring>
+        <name>FindLibraryPaths</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>namePattern</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Finds modules matching a given name wildcard. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="66" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="155" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a9052331647a9b1a8c063d02921a3886d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt; std::string, std::string &gt; FindLibraryPathsExact</definition>
+        <argsstring>(const std::string &amp;namePattern) const</argsstring>
+        <name>FindLibraryPathsExact</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>namePattern</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="67" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="159" bodyend="161"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryManager_1a08b26afa3a21d7a04622cb23f10c1ffb" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt; std::string, std::string &gt; FindLibraryPathsInDirectory</definition>
+        <argsstring>(const std::string &amp;inDirectoryName, const std::string &amp;namePattern, bool useSuffix) const</argsstring>
+        <name>FindLibraryPathsInDirectory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>inDirectoryName</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>namePattern</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>useSuffix</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="69" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/librarymanager.cpp" bodystart="163" bodyend="195"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" line="17" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h" bodystart="17" bodyend="94"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a19b111d897d1f27ecb5cc8f609546098" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_flintData</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a018ca7ab9e3645a533108487f1490595" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_flintDataFactories</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a8cf7b1f0e5f8c26ffdc84da93952473a" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_flintDataFactoryRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a5341c4fd94736baaee58fddc0db050ba" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_flintDataRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aaf8cf2a0f7d936b0405ae25daac64024" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_libraries</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a7a6712237feb8ec105a246c6282ddc7e" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_moduleRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aa44a2543a3bcc20138bd253eb1d0ecf1" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_modules</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a56147386b48e00007f9626dac6a9fcad" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_providerRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a99a7719fbe1ce35a87b51702c87a5946" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_providers</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aed74cdd8a5228d038f90349fe3ad3cbd" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_transformRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1ad8c9e6a1dafba6f02493089bbf5d809a" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>_transforms</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aca737569c29976a3d41ba5ba8134d513" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>AddLibrary</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a642e357bca2c7072f63f72a3f719e1ee" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>CheckModuleCompatibility</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1af898851a368de0744295bb0485690524" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>currentLoadOrder</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1ac19fbb06a3d3e2d63e1f4cd9e8ad1a85" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>FindLibraryPaths</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a9052331647a9b1a8c063d02921a3886d" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>FindLibraryPathsExact</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a08b26afa3a21d7a04622cb23f10c1ffb" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>FindLibraryPathsInDirectory</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a04d3402d4e09b644744d09446ab8775d" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>GetFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a992ae3d6cbaab320234bbfa31030c966" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>GetManagedModule</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a028209221627b0ef67b5ce97a967975f" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>GetModule</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a8fb4f50df509cb39602d0db791a9eb66" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>GetProvider</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a65b95f403ba876630c14d91c7837dc1e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>getProviderRegistry</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aba44f0e02407a49432bb91fe8540557a" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>GetTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1af72fd4550822f52abb277b768dfc0884" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a31b222fda231bd14d7569e97ae57a144" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a0c708197f01d9c21ac24b8cea926f205" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryMap</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1ae7c5d3997a0ab3115e2f1093375a0a6b" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryMap2</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a888e9ea43cdeb50d65a91b75390cdaed" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryMapKey</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a2ad6a73464ad07219419fdbf9cf64188" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LibraryMapKey2</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1acaebfbb3130e9b953ecab1e97e962a83" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LoadExternalLibrary</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a5cbdd80169b8e4c752e773eb99a5d93a" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LoadInternalLibrary</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a883013ac2b3feae81c0570f73e117b31" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>LoadManagedLibrary</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a080619657d61e7fb1636efc519aab8e9" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>RegisterFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a22df47c128253f9ce73ed1ec9aaf41dc" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>RegisterFlintDataFactory</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aa4c834fd0df8f96af2c93f9419863d8e" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>RegisterModules</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a46b2f35b214e943ee48cb31512af6cc3" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>RegisterProviders</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a79c78a744eec394fc6847d3586be2fb0" prot="private" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>RegisterTransforms</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1aecf338011e8e0c8d699cca84a586bcc3" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>UnloadModule</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryManager_1a241e940c0eb105256f8c6285dc252a74" prot="public" virt="non-virtual"><scope>moja::flint::LibraryManager</scope><name>~LibraryManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

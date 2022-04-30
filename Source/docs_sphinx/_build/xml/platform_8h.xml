@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="platform_8h" kind="file" language="C++">
+    <compoundname>platform.h</compoundname>
+    <includes local="no">Poco/Platform.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/platform.h</label>
+        <link refid="platform_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Poco/Platform.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="platform_8h_1a8868e8eb79f00268ba9257aeb58b9fb2" prot="public" static="no">
+        <name>MOJA_OS</name>
+        <initializer>POCO_OS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" line="14" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="platform_8h_1aa0328804efdd28c9c0b99767261f4249" prot="public" static="no">
+        <name>MOJA_ARCH</name>
+        <initializer>POCO_ARCH</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" line="15" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="platform_8h_1a9c92f382e72b6466c5639f2cf56cede9" prot="public" static="no">
+        <name>MOJA_ARCH_LITTLE_ENDIAN</name>
+        <initializer>POCO_ARCH_LITTLE_ENDIAN</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" line="16" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="platform_8h_1a1ef1d04706700e813238944b8e28a4d9" prot="public" static="no">
+        <name>MOJA_DEFAULT_NEWLINE_CHARS</name>
+        <initializer>POCO_DEFAULT_NEWLINE_CHARS</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" line="35" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_CORE_PLATFORM_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_CORE_PLATFORM_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Poco/Platform.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(POCO_OS_FAMILY_WINDOWS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_OS_FAMILY_WINDOWS<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(POCO_OS_FAMILY_UNIX)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_OS_FAMILY_UNIX<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(POCO_OS_FAMILY_BSD)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_OS_FAMILY_BSD<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_OS<sp/>POCO_OS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_ARCH<sp/>POCO_ARCH</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_ARCH_LITTLE_ENDIAN<sp/>POCO_ARCH_LITTLE_ENDIAN</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>defined(POCO_COMPILER_MSVC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_COMPILER_MSVC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>(_MSC_VER<sp/>&gt;=<sp/>1910)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_NOEXCEPT<sp/>noexcept<sp/><sp/></highlight><highlight class="comment">//<sp/>_NOEXCEPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_NOEXCEPT<sp/>_NOEXCEPT</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(POCO_COMPILER_CLANG)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_COMPILER_CLANG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_NOEXCEPT<sp/>noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(POCO_COMPILER_GCC)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_COMPILER_GCC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_NOEXCEPT<sp/>noexcept</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#elif<sp/>defined(POCO_COMPILER_CBUILDER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_COMPILER_CBUILDER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_DEFAULT_NEWLINE_CHARS<sp/>POCO_DEFAULT_NEWLINE_CHARS</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_CORE_PLATFORM_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/platform.h"/>
+  </compounddef>
+</doxygen>

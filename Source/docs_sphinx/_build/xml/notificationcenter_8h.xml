@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="notificationcenter_8h" kind="file" language="C++">
+    <compoundname>notificationcenter.h</compoundname>
+    <includes local="yes">moja/_core_exports.h</includes>
+    <includes refid="dispatcher_8h" local="yes">moja/dispatcher.h</includes>
+    <includes refid="signals_8h" local="yes">moja/signals.h</includes>
+    <includes local="no">mutex</includes>
+    <includedby refid="aggregatorfilewriter_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp</includedby>
+    <includedby refid="aggregatorfluxstep_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/aggregatorfluxstep.cpp</includedby>
+    <includedby refid="aggregatorlandunit_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/aggregatorlandunit.cpp</includedby>
+    <includedby refid="aggregatorstockstep_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/aggregatorstockstep.cpp</includedby>
+    <includedby refid="calendarsequencer_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/calendarsequencer.cpp</includedby>
+    <includedby refid="debugnotificationmodule_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp</includedby>
+    <includedby refid="errorscreenwriter_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/errorscreenwriter.cpp</includedby>
+    <includedby refid="outputerstream_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/outputerstream.cpp</includedby>
+    <includedby refid="outputerstreamflux_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/outputerstreamflux.cpp</includedby>
+    <includedby refid="proxymodule_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/proxymodule.cpp</includedby>
+    <includedby refid="sequencermodulebase_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/sequencermodulebase.cpp</includedby>
+    <includedby refid="testmodule_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/testmodule.cpp</includedby>
+    <includedby refid="transactionmanageraftersubmitmodule_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/transactionmanageraftersubmitmodule.cpp</includedby>
+    <includedby refid="transactionmanagerendofstepmodule_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/transactionmanagerendofstepmodule.cpp</includedby>
+    <includedby refid="writesystemconfig_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp</includedby>
+    <includedby refid="writevariablegrid_8cpp" local="no">/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp</includedby>
+    <includedby refid="calendarandeventflintdatasequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</includedby>
+    <includedby refid="calendarandeventsequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</includedby>
+    <includedby refid="equalstepsequencer_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/equalstepsequencer.h</includedby>
+    <includedby refid="ilocaldomaincontroller_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilocaldomaincontroller.h</includedby>
+    <includedby refid="notificationcenter_8cpp" local="yes">/mnt/e/FLINT/Source/moja.core/src/notificationcenter.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>functional</label>
+      </node>
+      <node id="8">
+        <label>moja/signals.h</label>
+        <link refid="signals_8h_source"/>
+      </node>
+      <node id="3">
+        <label>moja/dispatcher.h</label>
+        <link refid="dispatcher_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h</label>
+        <link refid="notificationcenter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="9">
+        <label>mutex</label>
+      </node>
+      <node id="6">
+        <label>typeindex</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilocaldomaincontroller.h</label>
+        <link refid="ilocaldomaincontroller_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h</label>
+        <link refid="notificationcenter_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</label>
+        <link refid="calendarandeventsequencer_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/equalstepsequencer.h</label>
+        <link refid="equalstepsequencer_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</label>
+        <link refid="calendarandeventflintdatasequencer_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1NotificationCenter" prot="public">moja::NotificationCenter</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_CORE_NOTIFICATIONCENTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_CORE_NOTIFICATIONCENTER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/_core_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/dispatcher.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/signals.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classmoja_1_1NotificationCenter" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CORE_API<sp/><ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1DispatcherObject" kindref="compound">DispatcherObject</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>~<ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F,<sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="36" refid="classmoja_1_1NotificationCenter_1a7f26e0c8ee9ff3d75e189e5daeebbf67" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1NotificationCenter_1a7f26e0c8ee9ff3d75e189e5daeebbf67" kindref="member">subscribe</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>signal,<sp/>F<sp/>func,<sp/>T&amp;<sp/>obj)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connectSignal(signal,<sp/>func,<sp/>obj);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>F&gt;</highlight></codeline>
+<codeline lineno="51" refid="classmoja_1_1NotificationCenter_1a48a1ef87b86fd5a19d07d0213bcebbb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1NotificationCenter_1a48a1ef87b86fd5a19d07d0213bcebbb7" kindref="member">subscribe</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>signal,<sp/>F<sp/>func)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>connectSignal(signal,<sp/>func);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="62" refid="classmoja_1_1NotificationCenter_1a89a80a7d9e9cd3e510ba3b87a4344b6c" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1NotificationCenter_1a89a80a7d9e9cd3e510ba3b87a4344b6c" kindref="member">postNotification</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>signal,<sp/>Args...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sendSignal(signal,<sp/>std::forward&lt;Args&gt;(args)...);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="75" refid="classmoja_1_1NotificationCenter_1a82f2dc608c216a547bfd30270e8057dd" refkind="member"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classmoja_1_1NotificationCenter_1a82f2dc608c216a547bfd30270e8057dd" kindref="member">postNotificationWithPostNotification</ref>(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>originalSignal,<sp/>Args...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>sendSignalWithPostSendOnSuccess(originalSignal,<sp/>moja::signals::PostNotification,<sp/>std::forward&lt;Args&gt;(args)...);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/>std::mutex<sp/>_mutex;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_CORE_NOTIFICATIONCENTER_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h"/>
+  </compounddef>
+</doxygen>

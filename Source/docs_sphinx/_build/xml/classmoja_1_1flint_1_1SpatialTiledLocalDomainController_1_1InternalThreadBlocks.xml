@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a4b170276468a329fe4b63ca0ebcb390d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _threadId</definition>
+        <argsstring></argsstring>
+        <name>_threadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="249" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="249" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _runId</definition>
+        <argsstring></argsstring>
+        <name>_runId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="250" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="250" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a02c7c8eca1fe2c6a1e61cca819d98aba" prot="private" static="no" mutable="no">
+        <type>Poco::Mutex &amp;</type>
+        <definition>Poco::Mutex&amp; _blockIdxListMutex</definition>
+        <argsstring></argsstring>
+        <name>_blockIdxListMutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="251" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="251" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a859f9530a77b3676dded72c484d86d3b" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; datarepository::BlockIdx &gt; &amp;</type>
+        <definition>std::queue&lt;datarepository::BlockIdx&gt;&amp; _blockIdxList</definition>
+        <argsstring></argsstring>
+        <name>_blockIdxList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="252" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a8325115b6c5967c44cc907f5420330cc" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::pair&lt; UInt32, UInt32 &gt;, std::vector&lt; datarepository::CellIdx &gt; &gt; &amp;</type>
+        <definition>std::map&lt;std::pair&lt;UInt32, UInt32&gt;, std::vector&lt;datarepository::CellIdx&gt; &gt;&amp; _blockCellIdxList</definition>
+        <argsstring></argsstring>
+        <name>_blockCellIdxList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="253" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a7d834b337be8569a53389d124a2cec07" prot="private" static="no" mutable="no">
+        <type>const configuration::Configuration *</type>
+        <definition>const configuration::Configuration* _config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="254" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a39b48446cdb92bad7df989afa9770763" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; SpatialTiledLocalDomainController &gt;</type>
+        <definition>std::shared_ptr&lt;SpatialTiledLocalDomainController&gt; _ldc</definition>
+        <argsstring></argsstring>
+        <name>_ldc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="255" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a828d19e80051f8b52a6848519cbd23a6" prot="private" static="no" mutable="no">
+        <type>configuration::Configuration</type>
+        <definition>configuration::Configuration _threadConfig</definition>
+        <argsstring></argsstring>
+        <name>_threadConfig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="256" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a01ea838c208c03b70ae468dfbb03f2ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>InternalThreadBlocks</definition>
+        <argsstring>(int threadId, std::string runId, Poco::Mutex &amp;blockIdxListMutex, std::queue&lt; datarepository::BlockIdx &gt; &amp;blockIdxList, int blockIdxListSize, std::map&lt; std::pair&lt; UInt32, UInt32 &gt;, std::vector&lt; datarepository::CellIdx &gt;&gt; &amp;blockCellIdxList, const configuration::Configuration *config, std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;globalStatsDimension, std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;tileStatsDimension, std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;blockStatsDimension, std::shared_ptr&lt; FlintLibraryHandles &gt; internalLIbraryHandles)</argsstring>
+        <name>InternalThreadBlocks</name>
+        <param>
+          <type>int</type>
+          <declname>threadId</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>runId</declname>
+        </param>
+        <param>
+          <type>Poco::Mutex &amp;</type>
+          <declname>blockIdxListMutex</declname>
+        </param>
+        <param>
+          <type>std::queue&lt; datarepository::BlockIdx &gt; &amp;</type>
+          <declname>blockIdxList</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>blockIdxListSize</declname>
+        </param>
+        <param>
+          <type>std::map&lt; std::pair&lt; UInt32, UInt32 &gt;, std::vector&lt; datarepository::CellIdx &gt;&gt; &amp;</type>
+          <declname>blockCellIdxList</declname>
+        </param>
+        <param>
+          <type>const configuration::Configuration *</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>globalStatsDimension</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>tileStatsDimension</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; RecordAccumulatorWithMutex&lt; StatsUnitRow &gt;&gt; &amp;</type>
+          <declname>blockStatsDimension</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>internalLIbraryHandles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="233" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="261" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a5ccbdeb5350ba8528eab7e4cc49fc68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void operator()</definition>
+        <argsstring>()</argsstring>
+        <name>operator()</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="242" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="307" bodyend="338"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a0db449e8f1fab943bb883f9561682e35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; LocalDomainControllerBase &gt;</type>
+        <definition>std::shared_ptr&lt;LocalDomainControllerBase&gt; localDomainController</definition>
+        <argsstring>() const</argsstring>
+        <name>localDomainController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="244" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a7e3fac9fa621d419674057eb08d4187c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int threadId</definition>
+        <argsstring>() const</argsstring>
+        <name>threadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="245" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="245" bodyend="245"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a17ebc775b796fcff895b1967940715c8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string runId</definition>
+        <argsstring>() const</argsstring>
+        <name>runId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="246" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="246" bodyend="246"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" line="231" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="231" bodyend="257"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a8325115b6c5967c44cc907f5420330cc" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_blockCellIdxList</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a859f9530a77b3676dded72c484d86d3b" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_blockIdxList</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a02c7c8eca1fe2c6a1e61cca819d98aba" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_blockIdxListMutex</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a7d834b337be8569a53389d124a2cec07" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_config</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a39b48446cdb92bad7df989afa9770763" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_ldc</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_runId</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a828d19e80051f8b52a6848519cbd23a6" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_threadConfig</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a4b170276468a329fe4b63ca0ebcb390d" prot="private" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>_threadId</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a01ea838c208c03b70ae468dfbb03f2ea" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>InternalThreadBlocks</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a0db449e8f1fab943bb883f9561682e35" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>localDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a5ccbdeb5350ba8528eab7e4cc49fc68b" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>operator()</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a17ebc775b796fcff895b1967940715c8" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>runId</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController_1_1InternalThreadBlocks_1a7e3fac9fa621d419674057eb08d4187c" prot="public" virt="non-virtual"><scope>moja::flint::SpatialTiledLocalDomainController::InternalThreadBlocks</scope><name>threadId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

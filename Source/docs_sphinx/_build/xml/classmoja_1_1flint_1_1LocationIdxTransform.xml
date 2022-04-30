@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LocationIdxTransform" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LocationIdxTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ITransform</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="26" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1ad7c3eb952f3397906862ba2707a4f1b3" prot="private" static="no" mutable="no">
+        <type>const IVariable *</type>
+        <definition>const IVariable* _tileIdx</definition>
+        <argsstring></argsstring>
+        <name>_tileIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="28" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1aa3f0619d7c583b817e6f41a46401ef10" prot="private" static="no" mutable="no">
+        <type>const IVariable *</type>
+        <definition>const IVariable* _blockIdx</definition>
+        <argsstring></argsstring>
+        <name>_blockIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="29" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1a1feef2098c3f7bc368a10ab604441110" prot="private" static="no" mutable="no">
+        <type>const IVariable *</type>
+        <definition>const IVariable* _cellIdx</definition>
+        <argsstring></argsstring>
+        <name>_cellIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="30" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1a92d6b63d643419b68328d67ee08c9036" prot="private" static="no" mutable="no">
+        <type>const datarepository::IProviderLayer *</type>
+        <definition>const datarepository::IProviderLayer* _layer</definition>
+        <argsstring></argsstring>
+        <name>_layer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="31" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1abe1a15b777000e37c06718e43a551697" prot="private" static="no" mutable="no">
+        <type>const datarepository::TileBlockCellIndexer *</type>
+        <definition>const datarepository::TileBlockCellIndexer* _indexer</definition>
+        <argsstring></argsstring>
+        <name>_indexer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="32" column="47" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocationIdxTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" static="no" mutable="yes">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _cachedValue</definition>
+        <argsstring></argsstring>
+        <name>_cachedValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="34" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocationIdxTransform_1a61d41aa2b6072f0d83a6b14f504ecd72" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LocationIdxTransform</definition>
+        <argsstring>()</argsstring>
+        <name>LocationIdxTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="17" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocationIdxTransform_1a0f8dce34d72ed1297264ef7d98a2cc7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="19" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp" bodystart="14" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocationIdxTransform_1ae410485890eae3838c290733e287624b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) override</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="22" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp" bodystart="27" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocationIdxTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="23" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp" bodystart="34" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" line="15" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/locationidxtransform.h" bodystart="15" bodyend="35"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1aa3f0619d7c583b817e6f41a46401ef10" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_blockIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_cachedValue</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1a1feef2098c3f7bc368a10ab604441110" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_cellIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1abe1a15b777000e37c06718e43a551697" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_indexer</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1a92d6b63d643419b68328d67ee08c9036" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_layer</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1ad7c3eb952f3397906862ba2707a4f1b3" prot="private" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>_tileIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1a0f8dce34d72ed1297264ef7d98a2cc7b" prot="public" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1ae410485890eae3838c290733e287624b" prot="public" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1a61d41aa2b6072f0d83a6b14f504ecd72" prot="public" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>LocationIdxTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1LocationIdxTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" virt="non-virtual"><scope>moja::flint::LocationIdxTransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::LocationIdxTransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

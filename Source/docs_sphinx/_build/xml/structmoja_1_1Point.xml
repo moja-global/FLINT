@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1Point" kind="struct" language="C++" prot="public">
+    <compoundname>moja::Point</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1Point_1a7972334534f68166121a6e51b0aac2d6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double lat</definition>
+        <argsstring></argsstring>
+        <name>lat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="9" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1Point_1aa96391e04b5977c50b96d77bea86a01d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double lon</definition>
+        <argsstring></argsstring>
+        <name>lon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="10" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="8" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="8" bodyend="11"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1Point_1a7972334534f68166121a6e51b0aac2d6" prot="public" virt="non-virtual"><scope>moja::Point</scope><name>lat</name></member>
+      <member refid="structmoja_1_1Point_1aa96391e04b5977c50b96d77bea86a01d" prot="public" virt="non-virtual"><scope>moja::Point</scope><name>lon</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

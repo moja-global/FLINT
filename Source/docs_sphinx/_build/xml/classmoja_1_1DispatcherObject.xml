@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1DispatcherObject" kind="class" language="C++" prot="public">
+    <compoundname>moja::DispatcherObject</compoundname>
+    <derivedcompoundref refid="classmoja_1_1NotificationCenter" prot="public" virt="non-virtual">NotificationCenter</derivedcompoundref>
+    <includes refid="dispatcher_8h" local="no">dispatcher.h</includes>
+    <innerclass refid="structmoja_1_1DispatcherObject_1_1Event" prot="public">moja::DispatcherObject::Event</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1DispatcherObject_1a1fa4fb2b936176ad6a1170d8ca1ae84c" prot="public" static="no">
+        <type>std::multimap&lt; std::type_index, std::unique_ptr&lt; <ref refid="classmoja_1_1BaseDelegate" kindref="compound">BaseDelegate</ref> &gt; &gt;</type>
+        <definition>typedef std::multimap&lt;std::type_index, std::unique_ptr&lt;BaseDelegate&gt; &gt; Listeners</definition>
+        <argsstring></argsstring>
+        <name>Listeners</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="444" column="26" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1DispatcherObject_1ade72cd78d23126a8465fed80752c3e62" prot="private" static="no" mutable="no">
+        <type>std::map&lt; short, Event &gt;</type>
+        <definition>std::map&lt;short, Event&gt; events</definition>
+        <argsstring></argsstring>
+        <name>events</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="496" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="496" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1ab7e3141350d0796f54de9b360e4ddca2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DispatcherObject</definition>
+        <argsstring>()=default</argsstring>
+        <name>DispatcherObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="450" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1af473350aa47c1a8b3ef601fb405963b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~DispatcherObject</definition>
+        <argsstring>()=default</argsstring>
+        <name>~DispatcherObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="451" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a1d960b90a12d2d5f44a3ae2d68225f91" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void CORE_API</type>
+        <definition>void CORE_API clearSignals</definition>
+        <argsstring>()</argsstring>
+        <name>clearSignals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="453" column="18" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="453" bodyend="453"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a5feaef3b65ffb748f4e2de59d341532a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void sendSignal</definition>
+        <argsstring>(short signal, Args... args)</argsstring>
+        <name>sendSignal</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Send a signal using the dispatcher module. The VariableKiosk of this SimulationObject is used as the sender of the signal. Additional arguments to the <ref refid="classmoja_1_1DispatcherObject_1a5feaef3b65ffb748f4e2de59d341532a" kindref="member">sendSignal()</ref> method are passed to dispatcher.send() </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>Args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Type of the arguments. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Additional arguments to pass to subscribers. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="466" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="500" bodyend="503"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a00c730f23e0c34ba541042d80a0b69eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void sendSignalWithPostSendOnSuccess</definition>
+        <argsstring>(short signal, short postSignal, Args... args)</argsstring>
+        <name>sendSignalWithPostSendOnSuccess</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>postSignal</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="469" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="506" bodyend="509"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a6f9c32a707183f1dc64a824b29129229" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void connectSignal</definition>
+        <argsstring>(short signal, F func, T &amp;obj)</argsstring>
+        <name>connectSignal</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Connect the handler to the signal using the dispatcher module. The handler will only react on signals that have the SimulationObjects VariableKiosk as sender. This ensure that different PCSE model instances in the same runtime environment will not react to each others signals. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="478" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="512" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a79d1645f1b469a04a1537496c7df4cb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void connectSignal</definition>
+        <argsstring>(short signal, F func)</argsstring>
+        <name>connectSignal</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="481" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="519" bodyend="523"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a3926fe966763c01d17c4e1e5fe592eed" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void addListener</definition>
+        <argsstring>(Listeners &amp;listeners, F func, T &amp;obj)</argsstring>
+        <name>addListener</name>
+        <param>
+          <type>Listeners &amp;</type>
+          <declname>listeners</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="485" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="526" bodyend="530"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a841f57fba003027f998c2b0e00819e2d" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void addListener</definition>
+        <argsstring>(Listeners &amp;listeners, F func)</argsstring>
+        <name>addListener</name>
+        <param>
+          <type>Listeners &amp;</type>
+          <declname>listeners</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="488" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="533" bodyend="537"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a21031a224871c85a796dbebc0af38628" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void callListeners</definition>
+        <argsstring>(const Listeners &amp;listeners, Args... args)</argsstring>
+        <name>callListeners</name>
+        <param>
+          <type>const Listeners &amp;</type>
+          <declname>listeners</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="491" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="540" bodyend="552"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DispatcherObject_1a35774945aaf367ce664e7816f38f3da2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void callListeners</definition>
+        <argsstring>(const Listeners &amp;listeners, short originalSignal, const Listeners &amp;postListeners, Args... args)</argsstring>
+        <name>callListeners</name>
+        <param>
+          <type>const Listeners &amp;</type>
+          <declname>listeners</declname>
+        </param>
+        <param>
+          <type>short</type>
+          <declname>originalSignal</declname>
+        </param>
+        <param>
+          <type>const Listeners &amp;</type>
+          <declname>postListeners</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="494" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="555" bodyend="569"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Class only defines the <ref refid="classmoja_1_1DispatcherObject_1a5feaef3b65ffb748f4e2de59d341532a" kindref="member">sendSignal()</ref> and <ref refid="classmoja_1_1DispatcherObject_1a6f9c32a707183f1dc64a824b29129229" kindref="member">connectSignal()</ref> methods. This class is only to be inherited from, not to be used directly. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>NotificationCenter</label>
+        <link refid="classmoja_1_1NotificationCenter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>DispatcherObject</label>
+        <link refid="classmoja_1_1DispatcherObject"/>
+      </node>
+    </inheritancegraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="441" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="441" bodyend="497"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1DispatcherObject_1a3926fe966763c01d17c4e1e5fe592eed" prot="private" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>addListener</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a841f57fba003027f998c2b0e00819e2d" prot="private" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>addListener</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a21031a224871c85a796dbebc0af38628" prot="private" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>callListeners</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a35774945aaf367ce664e7816f38f3da2" prot="private" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>callListeners</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a1d960b90a12d2d5f44a3ae2d68225f91" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>clearSignals</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a6f9c32a707183f1dc64a824b29129229" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>connectSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a79d1645f1b469a04a1537496c7df4cb9" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>connectSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1ab7e3141350d0796f54de9b360e4ddca2" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>DispatcherObject</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1ade72cd78d23126a8465fed80752c3e62" prot="private" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>events</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a1fa4fb2b936176ad6a1170d8ca1ae84c" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>Listeners</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a5feaef3b65ffb748f4e2de59d341532a" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>sendSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a00c730f23e0c34ba541042d80a0b69eb" prot="public" virt="non-virtual"><scope>moja::DispatcherObject</scope><name>sendSignalWithPostSendOnSuccess</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1af473350aa47c1a8b3ef601fb405963b3" prot="public" virt="virtual"><scope>moja::DispatcherObject</scope><name>~DispatcherObject</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

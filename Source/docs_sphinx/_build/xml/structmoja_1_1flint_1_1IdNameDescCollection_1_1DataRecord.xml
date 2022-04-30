@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::IdNameDescCollection::DataRecord</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1a2fb68a5ecd23366882be5277b8ac3c65" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" line="43" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" line="44" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1ac9f21b1a5828bfa4aafbfe3eaa935c0b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _desc</definition>
+        <argsstring></argsstring>
+        <name>_desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" line="45" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" line="42" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamedesccollection.h" bodystart="42" bodyend="46"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1ac9f21b1a5828bfa4aafbfe3eaa935c0b" prot="public" virt="non-virtual"><scope>moja::flint::IdNameDescCollection::DataRecord</scope><name>_desc</name></member>
+      <member refid="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1a2fb68a5ecd23366882be5277b8ac3c65" prot="public" virt="non-virtual"><scope>moja::flint::IdNameDescCollection::DataRecord</scope><name>_id</name></member>
+      <member refid="structmoja_1_1flint_1_1IdNameDescCollection_1_1DataRecord_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="public" virt="non-virtual"><scope>moja::flint::IdNameDescCollection::DataRecord</scope><name>_name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

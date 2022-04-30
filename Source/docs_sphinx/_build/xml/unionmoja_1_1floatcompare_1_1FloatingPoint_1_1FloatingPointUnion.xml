@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion" kind="union" language="C++" prot="private">
+    <compoundname>moja::floatcompare::FloatingPoint::FloatingPointUnion</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion_1a4c63184d103d6c4952511640f80e90a3" prot="public" static="no" mutable="no">
+        <type>RawType</type>
+        <definition>RawType value_</definition>
+        <argsstring></argsstring>
+        <name>value_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="167" column="15" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion_1af47349c770ec7adda84198491ccc7f4d" prot="public" static="no" mutable="no">
+        <type>Bits</type>
+        <definition>Bits bits_</definition>
+        <argsstring></argsstring>
+        <name>bits_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="168" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="166" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="166" bodyend="169"/>
+    <listofallmembers>
+      <member refid="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion_1af47349c770ec7adda84198491ccc7f4d" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint::FloatingPointUnion</scope><name>bits_</name></member>
+      <member refid="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion_1a4c63184d103d6c4952511640f80e90a3" prot="public" virt="non-virtual"><scope>moja::floatcompare::FloatingPoint::FloatingPointUnion</scope><name>value_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

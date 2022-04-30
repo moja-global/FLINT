@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1CoreUnhandledType" kind="struct" language="C++" prot="public">
+    <compoundname>moja::CoreUnhandledType</compoundname>
+    <basecompoundref prot="public" virt="virtual">CoreException</basecompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="24" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="24" bodyend="24"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
