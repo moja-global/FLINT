@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationDataPackage" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationDataPackage</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationDataPackage_1a381a81e9991480c8f3653a5c747947ad" prot="public" static="no" mutable="no">
+        <type>FluxType</type>
+        <definition>FluxType _fluxType</definition>
+        <argsstring></argsstring>
+        <name>_fluxType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="45" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationDataPackage_1af58c2f2207ebaff5caa5486061dc83c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationDataPackage</definition>
+        <argsstring>()=default</argsstring>
+        <name>OperationDataPackage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="41" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationDataPackage_1a18c24bad9cdefce7482430fb2b9124ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OperationDataPackage</definition>
+        <argsstring>(FluxType fluxType)</argsstring>
+        <name>OperationDataPackage</name>
+        <param>
+          <type>FluxType</type>
+          <declname>fluxType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="42" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationDataPackage_1adc897d66e2d1d2a0b7613eed97569975" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~OperationDataPackage</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OperationDataPackage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="43" column="12"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="39" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" bodystart="39" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationDataPackage_1a381a81e9991480c8f3653a5c747947ad" prot="public" virt="non-virtual"><scope>moja::flint::OperationDataPackage</scope><name>_fluxType</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationDataPackage_1af58c2f2207ebaff5caa5486061dc83c7" prot="public" virt="non-virtual"><scope>moja::flint::OperationDataPackage</scope><name>OperationDataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationDataPackage_1a18c24bad9cdefce7482430fb2b9124ea" prot="public" virt="non-virtual"><scope>moja::flint::OperationDataPackage</scope><name>OperationDataPackage</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationDataPackage_1adc897d66e2d1d2a0b7613eed97569975" prot="public" virt="virtual"><scope>moja::flint::OperationDataPackage</scope><name>~OperationDataPackage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

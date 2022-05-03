@@ -1,0 +1,1877 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacemoja_1_1flint" kind="namespace" language="C++">
+    <compoundname>moja::flint</compoundname>
+    <innerclass refid="structmoja_1_1flint_1_1FLINTAggregationSharedDataObject" prot="public">moja::flint::FLINTAggregationSharedDataObject</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AggregatorFileWriter" prot="public">moja::flint::AggregatorFileWriter</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AggregatorFluxStep" prot="public">moja::flint::AggregatorFluxStep</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData" prot="public">moja::flint::AggregatorLandUnitSharedData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AggregatorLandUnit" prot="public">moja::flint::AggregatorLandUnit</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AggregatorStockStep" prot="public">moja::flint::AggregatorStockStep</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AspatialLocalDomainController" prot="public">moja::flint::AspatialLocalDomainController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1CalendarAndEventFlintDataSequencer" prot="public">moja::flint::CalendarAndEventFlintDataSequencer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1CalendarAndEventSequencer" prot="public">moja::flint::CalendarAndEventSequencer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1CalendarSequencer" prot="public">moja::flint::CalendarSequencer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1CompositeTransform" prot="public">moja::flint::CompositeTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1DebugNotificationModule" prot="public">moja::flint::DebugNotificationModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EqualStepSequencer" prot="public">moja::flint::EqualStepSequencer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ErrorScreenWriter" prot="public">moja::flint::ErrorScreenWriter</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EventBase" prot="public">moja::flint::EventBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1DebugModuleWithAnythingInItEvent" prot="public">moja::flint::DebugModuleWithAnythingInItEvent</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EventQueueItem" prot="public">moja::flint::EventQueueItem</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EventQueue" prot="public">moja::flint::EventQueue</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ExternalPoolSimple" prot="public">moja::flint::ExternalPoolSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ExternalVariable" prot="public">moja::flint::ExternalVariable</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1FlintDataVariable" prot="public">moja::flint::FlintDataVariable</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1FLINTException" prot="public">moja::flint::FLINTException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1PoolNotFoundException" prot="public">moja::flint::PoolNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1VariableNotFoundException" prot="public">moja::flint::VariableNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1VariableEmptyWhenValueExpectedException" prot="public">moja::flint::VariableEmptyWhenValueExpectedException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1SequencerNotFoundException" prot="public">moja::flint::SequencerNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1TableNotFoundException" prot="public">moja::flint::TableNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1PreconditionViolatedException" prot="public">moja::flint::PreconditionViolatedException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1LandscapeDefinitionException" prot="public">moja::flint::LandscapeDefinitionException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1IncompleteConfigurationException" prot="public">moja::flint::IncompleteConfigurationException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1DuplicateModuleDefinedException" prot="public">moja::flint::DuplicateModuleDefinedException</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1LocalDomainError" prot="public">moja::flint::LocalDomainError</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1SimulationError" prot="public">moja::flint::SimulationError</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1Flux" prot="public">moja::flint::Flux</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IdNameCollection" prot="public">moja::flint::IdNameCollection</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IdNameDescCollection" prot="public">moja::flint::IdNameDescCollection</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IFlintData" prot="public">moja::flint::IFlintData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ILandUnitController" prot="public">moja::flint::ILandUnitController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ILandUnitDataWrapper" prot="public">moja::flint::ILandUnitDataWrapper</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ILocalDomainController" prot="public">moja::flint::ILocalDomainController</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1StepRecord" prot="public">moja::flint::StepRecord</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1ModuleMetaData" prot="public">moja::flint::ModuleMetaData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IModule" prot="public">moja::flint::IModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperation" prot="public">moja::flint::IOperation</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationManager" prot="public">moja::flint::IOperationManager</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationResult" prot="public">moja::flint::IOperationResult</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationResultFlux" prot="public">moja::flint::IOperationResultFlux</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationResultFluxIterator" prot="public">moja::flint::IOperationResultFluxIterator</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationTransfer" prot="public">moja::flint::IOperationTransfer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IPool" prot="public">moja::flint::IPool</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ITiming" prot="public">moja::flint::ITiming</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ITransform" prot="public">moja::flint::ITransform</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1VariableInfo" prot="public">moja::flint::VariableInfo</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IVariable" prot="public">moja::flint::IVariable</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LandUnitController" prot="public">moja::flint::LandUnitController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LandUnitDataWrapper" prot="public">moja::flint::LandUnitDataWrapper</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1FlintLibraryHandles" prot="public">moja::flint::FlintLibraryHandles</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryInfoBase" prot="public">moja::flint::LibraryInfoBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryInfoExternal" prot="public">moja::flint::LibraryInfoExternal</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryInfoInternal" prot="public">moja::flint::LibraryInfoInternal</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryInfoManaged" prot="public">moja::flint::LibraryInfoManaged</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryInfoPython" prot="public">moja::flint::LibraryInfoPython</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LibraryManager" prot="public">moja::flint::LibraryManager</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocalDomainControllerBase" prot="public">moja::flint::LocalDomainControllerBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocalDomainInformation" prot="public">moja::flint::LocalDomainInformation</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocationFromFlintDataTransform" prot="public">moja::flint::LocationFromFlintDataTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocationIdxFromFlintDataTransform" prot="public">moja::flint::LocationIdxFromFlintDataTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocationIdxTransform" prot="public">moja::flint::LocationIdxTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LocationTransform" prot="public">moja::flint::LocationTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LookupRandomTransform" prot="public">moja::flint::LookupRandomTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1LookupTransform" prot="public">moja::flint::LookupTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ModuleBase" prot="public">moja::flint::ModuleBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ModuleProxyBase" prot="public">moja::flint::ModuleProxyBase</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1ModuleRegistration" prot="public">moja::flint::ModuleRegistration</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1TransformRegistration" prot="public">moja::flint::TransformRegistration</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1FlintDataRegistration" prot="public">moja::flint::FlintDataRegistration</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1FlintDataFactoryRegistration" prot="public">moja::flint::FlintDataFactoryRegistration</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1DataRepositoryProviderRegistration" prot="public">moja::flint::DataRepositoryProviderRegistration</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationDataPackage" prot="public">moja::flint::OperationDataPackage</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationExtraData" prot="public">moja::flint::OperationExtraData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationManagerSimple" prot="public">moja::flint::OperationManagerSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationManagerSimpleCache" prot="public">moja::flint::OperationManagerSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationManagerUblas" prot="public">moja::flint::OperationManagerUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ProportionalOperationSimple" prot="public">moja::flint::ProportionalOperationSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ProportionalOperationSimpleCache" prot="public">moja::flint::ProportionalOperationSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ProportionalOperationUblas" prot="public">moja::flint::ProportionalOperationUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultCollection" prot="public">moja::flint::OperationResultCollection</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxCollection" prot="public">moja::flint::OperationResultFluxCollection</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxIteratorSimple" prot="public">moja::flint::OperationResultFluxIteratorSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxIteratorSimpleCache" prot="public">moja::flint::OperationResultFluxIteratorSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas" prot="public">moja::flint::OperationResultFluxIteratorUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxSimple" prot="public">moja::flint::OperationResultFluxSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxSimpleCache" prot="public">moja::flint::OperationResultFluxSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxUblas" prot="public">moja::flint::OperationResultFluxUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultSimple" prot="public">moja::flint::OperationResultSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultSimpleCache" prot="public">moja::flint::OperationResultSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultUblas" prot="public">moja::flint::OperationResultUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1StockOperationSimple" prot="public">moja::flint::StockOperationSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1StockOperationSimpleCache" prot="public">moja::flint::StockOperationSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1StockOperationUblas" prot="public">moja::flint::StockOperationUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationTransferSimple" prot="public">moja::flint::OperationTransferSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationTransferSimpleCache" prot="public">moja::flint::OperationTransferSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OperationTransferUblas" prot="public">moja::flint::OperationTransferUblas</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OutputerStream" prot="public">moja::flint::OutputerStream</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1OutputerStreamFlux" prot="public">moja::flint::OutputerStreamFlux</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolCollection" prot="public">moja::flint::PoolCollection</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolMetaData" prot="public">moja::flint::PoolMetaData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolSimple" prot="public">moja::flint::PoolSimple</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolSimpleCache" prot="public">moja::flint::PoolSimpleCache</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolUblas" prot="public">moja::flint::PoolUblas</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1moduleProxyData" prot="public">moja::flint::moduleProxyData</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ProxyModule" prot="public">moja::flint::ProxyModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1Record" prot="public">moja::flint::Record</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1DateRecord" prot="public">moja::flint::DateRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1Date2Record" prot="public">moja::flint::Date2Record</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1PoolInfoRecord" prot="public">moja::flint::PoolInfoRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ModuleInfoRecord" prot="public">moja::flint::ModuleInfoRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1FluxRecord" prot="public">moja::flint::FluxRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulator" prot="public">moja::flint::RecordAccumulator</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulator2" prot="public">moja::flint::RecordAccumulator2</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1list__of__persistables" prot="public">moja::flint::list_of_persistables</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulator3" prot="public">moja::flint::RecordAccumulator3</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulatorMap" prot="public">moja::flint::RecordAccumulatorMap</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1list__of__tuples" prot="public">moja::flint::list_of_tuples</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulatorMap2" prot="public">moja::flint::RecordAccumulatorMap2</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulatorUuid" prot="public">moja::flint::RecordAccumulatorUuid</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulatorWithMutex" prot="public">moja::flint::RecordAccumulatorWithMutex</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1RecordAccumulatorWithMutex2" prot="public">moja::flint::RecordAccumulatorWithMutex2</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1RecordHasher" prot="public">moja::flint::RecordHasher</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1RecordComparer" prot="public">moja::flint::RecordComparer</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SequencerModuleBase" prot="public">moja::flint::SequencerModuleBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SimulationUnitDataBase" prot="public">moja::flint::SimulationUnitDataBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SpatialLocationInfo" prot="public">moja::flint::SpatialLocationInfo</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1finally" prot="public">moja::flint::finally</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1StatsUnitRecord" prot="public">moja::flint::StatsUnitRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController" prot="public">moja::flint::SpatialTiledLocalDomainController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SpinupLandUnitController" prot="public">moja::flint::SpinupLandUnitController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SQLQueryTransform" prot="public">moja::flint::SQLQueryTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SumPoolsTransform" prot="public">moja::flint::SumPoolsTransform</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SystemInformation" prot="public">moja::flint::SystemInformation</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1TestModule" prot="public">moja::flint::TestModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1AspatialLocalDomainThread" prot="public">moja::flint::AspatialLocalDomainThread</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ThreadedAspatialLocalDomainController" prot="public">moja::flint::ThreadedAspatialLocalDomainController</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1Timing" prot="public">moja::flint::Timing</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1TransactionManagerAfterSubmitModule" prot="public">moja::flint::TransactionManagerAfterSubmitModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1TransactionManagerEndOfStepModule" prot="public">moja::flint::TransactionManagerEndOfStepModule</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1Variable" prot="public">moja::flint::Variable</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder" prot="public">moja::flint::VariableAndPoolStringBuilder</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1WriteSystemConfig" prot="public">moja::flint::WriteSystemConfig</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1WriteVariableGrid" prot="public">moja::flint::WriteVariableGrid</innerclass>
+    <innernamespace refid="namespacemoja_1_1flint_1_1configuration">moja::flint::configuration</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="flux_8h_1a7582a5aa7956f53015901c9a00a509ce" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FluxSource</name>
+        <enumvalue id="flux_8h_1a7582a5aa7956f53015901c9a00a509cea40e82071cc92df67170d43514ac0077a" prot="public">
+          <name>DISTURBANCE</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="flux_8h_1a7582a5aa7956f53015901c9a00a509cea9655ad7e83fb45d6bc3545b8dd26247b" prot="public">
+          <name>ANNUAL_PROCESS</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="flux_8h_1a7582a5aa7956f53015901c9a00a509cea448285d39c3f159c017938c7c367d0d2" prot="public">
+          <name>COMBINED</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="12" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="enum" id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>ModuleTypes</name>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3aa559b87068921eec05086ce5485e9784" prot="public">
+          <name>Model</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3acf94a6c6c0e622f4b98131b2375375e5" prot="public">
+          <name>DisturbanceEvent</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3ab903f926499f8940f8464722e6fd710e" prot="public">
+          <name>Aggregator</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3af56ec2ab97d604832d90f6394e3f341f" prot="public">
+          <name>Proxy</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3aa45da96d0bf6575970f2d27af22be28a" prot="public">
+          <name>System</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="imodule_8h_1aad886c3424c62875471c1c7d4bcd36b3a6311ae17c1ee52b36e68aaf4ad066387" prot="public">
+          <name>Other</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="51" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="51" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="enum" id="ioperation_8h_1a8cfa37de78d80d03f35e921e5a4a4eb0" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>OperationTransferHandlingType</name>
+        <enumvalue id="ioperation_8h_1a8cfa37de78d80d03f35e921e5a4a4eb0adacc57ae9b3078e0adfee2542d7fa034" prot="public">
+          <name>Aggregated</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ioperation_8h_1a8cfa37de78d80d03f35e921e5a4a4eb0aab9b26ac2b70b5927a58d3ed5b0a61b6" prot="public">
+          <name>Disaggregated</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperation.h" line="18" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperation.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="enum" id="ioperationmanager_8h_1a4c4f8eec45845f842e64b21289656f42" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>OperationTransferType</name>
+        <enumvalue id="ioperationmanager_8h_1a4c4f8eec45845f842e64b21289656f42a27ce7f8b5623b2e2df568d64cf051607" prot="public">
+          <name>Stock</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="ioperationmanager_8h_1a4c4f8eec45845f842e64b21289656f42aac13b33ebc8ea372dfb07e5ed4d9655f" prot="public">
+          <name>Proportional</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="21" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="enum" id="itiming_8h_1a275aa874ebe9170a8a302863d68c6044" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TimeStepping</name>
+        <enumvalue id="itiming_8h_1a275aa874ebe9170a8a302863d68c6044a9030e39f00132d583da4122532e509e9" prot="public">
+          <name>Monthly</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="itiming_8h_1a275aa874ebe9170a8a302863d68c6044ac512b685438f41daa7386329a3b8f8d3" prot="public">
+          <name>Daily</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="itiming_8h_1a275aa874ebe9170a8a302863d68c6044ac4c696d78d97d24ce69ebe19fd7f8483" prot="public">
+          <name>Annual</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="9" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="enum" id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>LibraryType</name>
+        <enumvalue id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833a88183b946cc5f0e8c96b2e66e1c74a7e" prot="public">
+          <name>Unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833aafbf0897a5a83fdd873dfb032ec695d3" prot="public">
+          <name>Internal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833a80c202b1c3fd395a7bfe4d846c914bc3" prot="public">
+          <name>Managed</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833ab206a1b4ea1097761f78e8876f6da779" prot="public">
+          <name>External</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="librarytype_8h_1a5dfc11187cbed3aebb8ad98cda913833aa7f5f35426b927411fc9231b56382173" prot="public">
+          <name>Python</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarytype.h" line="7" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarytype.h" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="enum" id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeb" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FluxType</name>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebad2b7960eb34cd7f1989438643c580295" prot="public">
+          <name>Wildfire</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba2c5e453dbbe72ba72c436a6e097d8927" prot="public">
+          <name>Controlled_burning</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba16f7d6a5f452dc92e3a9aee220fe8685" prot="public">
+          <name>NPP</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebacb49ad33f3491104647183fd72ffb9fe" prot="public">
+          <name>Harvest</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebab8204a3486c8c171a6cf735fa2c521b6" prot="public">
+          <name>Decomposition</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebaf0da7d56118485f19220a9d4997b51b8" prot="public">
+          <name>Turnover</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba142f76a2904d26b88da43622540cc653" prot="public">
+          <name>Plough</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebaaedfcbf06fc92bafadf4527a2fcccc69" prot="public">
+          <name>Thin</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba5dfe2cbab9010919ff044befccc26103" prot="public">
+          <name>Plant_trees</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebacea18d3f43ad5275c1bec5ac0502b3db" prot="public">
+          <name>Plant_crops</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba89921956173b1d30c1fd67cd37a4f890" prot="public">
+          <name>N_fertiliser</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba8f2aee794286772a06ad3133d0a64c72" prot="public">
+          <name>Pest</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebad9f5a2dd2ad8dc7272bffe7e50db7efd" prot="public">
+          <name>Windthrow</name>
+          <initializer>= 13</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba255e3f9659fd42879e42e8b7bbb77458" prot="public">
+          <name>Lime_application</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba44a229f11b7efccaa4920a0db9d9a8ca" prot="public">
+          <name>Grazing</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba8ec3b2bd9db1c506fbd1103c64a7c9c6" prot="public">
+          <name>Irrigation</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba1029736e995a0add53f08dbcd9c77e3d" prot="public">
+          <name>Herbicide</name>
+          <initializer>= 17</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebadb9f9828ffb379456620300039296436" prot="public">
+          <name>Manure</name>
+          <initializer>= 18</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba629623ebd0d916b30a264a06e9613bce" prot="public">
+          <name>Heavy_roll</name>
+          <initializer>= 19</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebaed69fbe05730fc33fcc934858c553d23" prot="public">
+          <name>Wetland_drainage</name>
+          <initializer>= 20</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba5ced19b207476c79cb1566a58990ce64" prot="public">
+          <name>Rice</name>
+          <initializer>= 21</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba90484731645e2f7535460c6b7b2c147c" prot="public">
+          <name>Cattle_Grazing</name>
+          <initializer>= 22</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbebaf158f7ae59bb2d66b00392206223ec09" prot="public">
+          <name>Sheep_Grazing</name>
+          <initializer>= 23</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba8fb0a3943d7da779b8340458c6e7c100" prot="public">
+          <name>Goat_Grazing</name>
+          <initializer>= 24</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="operationdatapackage_8h_1a3ef216eb53f1f8b0ecd0f2ed5245fbeba3336022d50ad5765c5db6964d942f5e1" prot="public">
+          <name>Unclassified</name>
+          <initializer>= 25</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" line="9" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h" bodystart="9" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="enum" id="spatialtiledlocaldomaincontroller_8h_1a6e781df3c7ed62c237600ca9e7c167ea" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>StatsDurationType</name>
+        <enumvalue id="spatialtiledlocaldomaincontroller_8h_1a6e781df3c7ed62c237600ca9e7c167eaaf670ea66cfb0e90bd6090472ad692694" prot="public">
+          <name>Minutes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="spatialtiledlocaldomaincontroller_8h_1a6e781df3c7ed62c237600ca9e7c167eaa8f19a8c7566af54ea8981029730e5465" prot="public">
+          <name>Seconds</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="spatialtiledlocaldomaincontroller_8h_1a6e781df3c7ed62c237600ca9e7c167eaa38f246763036ccaeba7db6d563c4d821" prot="public">
+          <name>Milliseconds</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="spatialtiledlocaldomaincontroller_8h_1a6e781df3c7ed62c237600ca9e7c167eaafba00bdab687ce01136a86bac8bac578" prot="public">
+          <name>Nanoseconds</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="37" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="37" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="aggregatorfilewriter_8h_1afba143891d49e343150278a8ac2b5734" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, int, std::string, std::string, std::string &gt;</type>
+        <definition>typedef Poco::Tuple&lt; Int64, int, std::string, std::string, std::string &gt; runStatDataRecord</definition>
+        <argsstring></argsstring>
+        <name>runStatDataRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This module is a drop in replacement for Aggregator2FluxSQLite &amp;&amp; AggregatorSharedDataSQLite Simply merging both into a single module </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfilewriter.h" line="16" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfilewriter.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a1b35536ba59409e597bd27ecbb95ba1a" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_poolname, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_poolname, std::string&gt; PoolName</definition>
+        <argsstring></argsstring>
+        <name>PoolName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="17" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a9a0a8b379cc26d00567f723108eaae7e" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_poolindex, int &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_poolindex, int&gt; PoolIndex</definition>
+        <argsstring></argsstring>
+        <name>PoolIndex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="18" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a9944ae459615b6b9c27c13d09aba851a" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_variablename, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt; struct tag_variablename, std::string &gt; VariableName</definition>
+        <argsstring></argsstring>
+        <name>VariableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="21" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a7284bba833b1b37219bb01fb463a66fd" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_details, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt; struct tag_details, std::string &gt; Details</definition>
+        <argsstring></argsstring>
+        <name>Details</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="27" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a1dcb5d7494d54c76b62dbfd8e9d34741" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_library, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt; struct tag_library, std::string &gt; LibraryName</definition>
+        <argsstring></argsstring>
+        <name>LibraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="28" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a4da131f7143adcf01e54ace43d16ad84" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_module, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_module, std::string&gt; SequencerName</definition>
+        <argsstring></argsstring>
+        <name>SequencerName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="29" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a871f0e71b9695fff8e713c7a5c747961" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_tablename, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_tablename, std::string&gt; TableName</definition>
+        <argsstring></argsstring>
+        <name>TableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="32" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a9b0d0a36a8e6e78b38e475ed52b86686" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_precondition, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_precondition, std::string&gt; Precondition</definition>
+        <argsstring></argsstring>
+        <name>Precondition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="35" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a0c4f4bf1aa27ff586c165bf67190d5ff" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_component, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_component, std::string&gt; Component</definition>
+        <argsstring></argsstring>
+        <name>Component</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="38" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a9d39487d60bfc55375b748c4cb8657de" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_constraint, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_constraint, std::string&gt; Constraint</definition>
+        <argsstring></argsstring>
+        <name>Constraint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="39" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a0e71fdd9029789a3d3f27eda90a67eaa" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_item, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_item, std::string&gt; Item</definition>
+        <argsstring></argsstring>
+        <name>Item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="42" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1ab0cb9bd80bc0574db2157ac0e37c3d8c" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_module, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt; struct tag_module, std::string &gt; ModuleName</definition>
+        <argsstring></argsstring>
+        <name>ModuleName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="48" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="flintexceptions_8h_1a9c9552cd21d529e71c4374fa40ac1750" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_code, int &gt;</type>
+        <definition>typedef boost::error_info&lt; struct tag_code, int &gt; ErrorCode</definition>
+        <argsstring></argsstring>
+        <name>ErrorCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" line="54" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintexceptions.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="matrixublas_8h_1ac10e2be2dbf137b6367bae3907546404" prot="public" static="no">
+        <type>ublas::compressed_matrix&lt; double &gt;</type>
+        <definition>typedef ublas::compressed_matrix&lt;double&gt; moja_ublas_matrix</definition>
+        <argsstring></argsstring>
+        <name>moja_ublas_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="26" column="34" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="matrixublas_8h_1a765dc3f5391e564d373fc9b70f31861d" prot="public" static="no">
+        <type>ublas::diagonal_matrix&lt; double &gt;</type>
+        <definition>typedef ublas::diagonal_matrix&lt;double&gt; moja_ublas_diagonal</definition>
+        <argsstring></argsstring>
+        <name>moja_ublas_diagonal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="27" column="32" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="matrixublas_8h_1a6d8ed48f76575aa6ddc004797759ca04" prot="public" static="no">
+        <type>ublas::identity_matrix&lt; double &gt;</type>
+        <definition>typedef ublas::identity_matrix&lt;double&gt; moja_ublas_identity</definition>
+        <argsstring></argsstring>
+        <name>moja_ublas_identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="28" column="32" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="matrixublas_8h_1aca96a1ffcfa84b4d38f2c4d20ac13781" prot="public" static="no">
+        <type>ublas::matrix&lt; double &gt;</type>
+        <definition>typedef ublas::matrix&lt;double&gt; moja_ublas_fullmatrix</definition>
+        <argsstring></argsstring>
+        <name>moja_ublas_fullmatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="29" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="matrixublas_8h_1aa8a4a0baf770a3c717e566ad7e9b7661" prot="public" static="no">
+        <type>ublas::vector&lt; double &gt;</type>
+        <definition>typedef ublas::vector&lt;double&gt; moja_ublas_vector</definition>
+        <argsstring></argsstring>
+        <name>moja_ublas_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="30" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a36ccba122c6780c362fd8bc4a91dc305" prot="public" static="no">
+        <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> *(*</type>
+        <definition>typedef IModule*(* InitializeModuleFunctionPtr) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>InitializeModuleFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A module package advertises which modules are available to moja using ModuleRegistrations, which consist of the module name and a pointer to a no-arg initialization function. Usually this is declared automatically using the IMPLEMENT_MODULE macro below. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="35" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aa622fca886f83eeaf840a2538dffd7f4" prot="public" static="no">
+        <type>ITransform *(*</type>
+        <definition>typedef ITransform*(* InitializeTransformFunctionPtr) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>InitializeTransformFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="41" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1ac097d74eafed69b3f28b53df4c219e6f" prot="public" static="no">
+        <type>IFlintData *(*</type>
+        <definition>typedef IFlintData*(* InitializeFlintDataFunctionPtr) ()</definition>
+        <argsstring>)()</argsstring>
+        <name>InitializeFlintDataFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="47" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aabf2fbaab721034037b2781f9456dcf4" prot="public" static="no">
+        <type>std::shared_ptr&lt; IFlintData &gt;(*</type>
+        <definition>typedef std::shared_ptr&lt;IFlintData&gt;(* InitializeFlintDataFactoryFunctionPtr) (const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)</definition>
+        <argsstring>)(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)</argsstring>
+        <name>InitializeFlintDataFactoryFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="53" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1acc0a82c8f28231e48d81a50083d7b1ab" prot="public" static="no">
+        <type>std::shared_ptr&lt; datarepository::IProviderInterface &gt;(*</type>
+        <definition>typedef std::shared_ptr&lt;datarepository::IProviderInterface&gt;(* InitializeDataRepositoryProviderFunctionPtr) (const DynamicObject &amp;)</definition>
+        <argsstring>)(const DynamicObject &amp;)</argsstring>
+        <name>InitializeDataRepositoryProviderFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="61" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aa5bba917cabdd8a7f6730dd1768911fd" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GetModuleRegistrationsFunctionPtr) (ModuleRegistration *)</definition>
+        <argsstring>)(ModuleRegistration *)</argsstring>
+        <name>GetModuleRegistrationsFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Function pointer type for getModuleRegistrations().</para>
+<para>All modules must have a getModuleRegistrations() function. Usually this is declared automatically using the IMPLEMENT_MODULE macro below. The function must be declared using as &apos;extern &quot;C&quot;&apos; so that the name remains undecorated. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="77" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a4e519591e88f8d37e463b7adf498f2c4" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GetTransformRegistrationsFunctionPtr) (TransformRegistration *)</definition>
+        <argsstring>)(TransformRegistration *)</argsstring>
+        <name>GetTransformRegistrationsFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="78" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a3473ae1f833a7700e4a4d3b951a46172" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GetFlintDataRegistrationsFunctionPtr) (FlintDataRegistration *)</definition>
+        <argsstring>)(FlintDataRegistration *)</argsstring>
+        <name>GetFlintDataRegistrationsFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="79" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a3383a441d255d8eb15d885e544d2ae12" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GetFlintDataFactoryRegistrationsFunctionPtr) (FlintDataFactoryRegistration *)</definition>
+        <argsstring>)(FlintDataFactoryRegistration *)</argsstring>
+        <name>GetFlintDataFactoryRegistrationsFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="80" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a94dbf8c38fa2179249a8d0ac8f83c29f" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* GetDataRepositoryProviderRegistrationsFunctionPtr) (DataRepositoryProviderRegistration *)</definition>
+        <argsstring>)(DataRepositoryProviderRegistration *)</argsstring>
+        <name>GetDataRepositoryProviderRegistrationsFunctionPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="81" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a74e1deecb62f9aa74d45e10e853ccd15" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &gt;</type>
+        <definition>typedef std::shared_ptr&lt;IModule&gt; ModuleInterfacePtr</definition>
+        <argsstring></argsstring>
+        <name>ModuleInterfacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The module registry maps modules by name to a function wrapper around the module&apos;s initializer to convert the C-style raw pointer to a smart pointer. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="89" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a017007079a995ef7ba52fb525cd01481" prot="public" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; ModuleKey</definition>
+        <argsstring></argsstring>
+        <name>ModuleKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="90" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aab72df79217e77a69cd1cd8462806969" prot="public" static="no">
+        <type>std::map&lt; ModuleKey, std::function&lt; ModuleInterfacePtr(void)&gt; &gt;</type>
+        <definition>typedef std::map&lt;ModuleKey, std::function&lt;ModuleInterfacePtr(void)&gt; &gt; ModuleRegistry</definition>
+        <argsstring></argsstring>
+        <name>ModuleRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="91" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1af9e9a1f101df0b7f5334546901892a1c" prot="public" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; TransformKey</definition>
+        <argsstring></argsstring>
+        <name>TransformKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="93" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1abca4bd0c40ef1c2dd979e5e73519de47" prot="public" static="no">
+        <type>std::shared_ptr&lt; ITransform &gt;</type>
+        <definition>typedef std::shared_ptr&lt;ITransform&gt; TransformInterfacePtr</definition>
+        <argsstring></argsstring>
+        <name>TransformInterfacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="94" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a870f74cedcb6c0d055af415855cd0a2d" prot="public" static="no">
+        <type>std::map&lt; TransformKey, std::function&lt; TransformInterfacePtr(void)&gt; &gt;</type>
+        <definition>typedef std::map&lt;TransformKey, std::function&lt;TransformInterfacePtr(void)&gt; &gt; TransformRegistry</definition>
+        <argsstring></argsstring>
+        <name>TransformRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="95" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a658ec67e2e5ad32d9c75f16fcf649f60" prot="public" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; FlintDataKey</definition>
+        <argsstring></argsstring>
+        <name>FlintDataKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="97" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a0c6a9f581258b7947cc3e9e003c57b45" prot="public" static="no">
+        <type>std::shared_ptr&lt; IFlintData &gt;</type>
+        <definition>typedef std::shared_ptr&lt;IFlintData&gt; FlintDataInterfacePtr</definition>
+        <argsstring></argsstring>
+        <name>FlintDataInterfacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="98" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a8a1ff5968962b5c6d8cee4716fd79918" prot="public" static="no">
+        <type>std::map&lt; FlintDataKey, std::function&lt; FlintDataInterfacePtr(void)&gt; &gt;</type>
+        <definition>typedef std::map&lt;FlintDataKey, std::function&lt;FlintDataInterfacePtr(void)&gt; &gt; FlintDataRegistry</definition>
+        <argsstring></argsstring>
+        <name>FlintDataRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="99" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a201d7d1903eda7184e0c09e63821f76c" prot="public" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; FlintDataFactoryKey</definition>
+        <argsstring></argsstring>
+        <name>FlintDataFactoryKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="101" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a0350a941019cf08265db2ba618145ba9" prot="public" static="no">
+        <type>std::shared_ptr&lt; IFlintData &gt;</type>
+        <definition>typedef std::shared_ptr&lt;IFlintData&gt; FlintDataFactoryInterfacePtr</definition>
+        <argsstring></argsstring>
+        <name>FlintDataFactoryInterfacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="102" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1a4456924c8172a72b91069b18ee44628d" prot="public" static="no">
+        <type>std::multimap&lt; FlintDataFactoryKey, std::function&lt; FlintDataFactoryInterfacePtr(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt; &gt;</type>
+        <definition>typedef std::multimap&lt;FlintDataFactoryKey, std::function&lt;FlintDataFactoryInterfacePtr( const std::string&amp;, int, const std::string&amp;, const DynamicObject&amp;)&gt; &gt; FlintDataFactoryRegistry</definition>
+        <argsstring></argsstring>
+        <name>FlintDataFactoryRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="105" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aafc036daaa3ca507beaf76defc713aa0" prot="public" static="no">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>typedef std::pair&lt;std::string, std::string&gt; ProviderKey</definition>
+        <argsstring></argsstring>
+        <name>ProviderKey</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="107" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1ac8f7d6ea59b64febef63fdc4cf0ddd49" prot="public" static="no">
+        <type>std::shared_ptr&lt; datarepository::IProviderInterface &gt;</type>
+        <definition>typedef std::shared_ptr&lt;datarepository::IProviderInterface&gt; ProviderInterfacePtr</definition>
+        <argsstring></argsstring>
+        <name>ProviderInterfacePtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="108" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="mojalibapi_8h_1aee6caae48de5ee34d5d38e8e012d4cce" prot="public" static="no">
+        <type>std::map&lt; ProviderKey, std::function&lt; ProviderInterfacePtr(const DynamicObject &amp;)&gt; &gt;</type>
+        <definition>typedef std::map&lt;ProviderKey, std::function&lt;ProviderInterfacePtr(const DynamicObject&amp;)&gt; &gt; ProviderRegistry</definition>
+        <argsstring></argsstring>
+        <name>ProviderRegistry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="109" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="operationresultfluxsimple_8h_1ad9499fe70f3272d06d11dbafc1f13473" prot="public" static="no">
+        <type>std::vector&lt; OperationResultFluxSimple &gt;</type>
+        <definition>typedef std::vector&lt;OperationResultFluxSimple&gt; OperationResultFluxSimpleNewVector</definition>
+        <argsstring></argsstring>
+        <name>OperationResultFluxSimpleNewVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="49" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="operationresultfluxsimplecache_8h_1a31a666d456f0bf97e3a2983c9ceee787" prot="public" static="no">
+        <type>std::vector&lt; OperationResultFluxSimpleCache &gt;</type>
+        <definition>typedef std::vector&lt;OperationResultFluxSimpleCache&gt; OperationResultFluxSimpleCacheNewVector</definition>
+        <argsstring></argsstring>
+        <name>OperationResultFluxSimpleCacheNewVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimplecache.h" line="51" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimplecache.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="operationresultfluxublas_8h_1af49861c257dabac3ea32eca4a3e4c87d" prot="public" static="no">
+        <type>std::vector&lt; OperationResultFluxUblas &gt;</type>
+        <definition>typedef std::vector&lt;OperationResultFluxUblas&gt; OperationResultFluxUblasNewVector</definition>
+        <argsstring></argsstring>
+        <name>OperationResultFluxUblasNewVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxublas.h" line="53" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxublas.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="record_8h_1a19c9cf337153b570efd0b9c54826ea23" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, int, int, int, int, int, double, double &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, int, int, int, int, int, double, double&gt; DateRow</definition>
+        <argsstring></argsstring>
+        <name>DateRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="58" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="record_8h_1aa0943f764735049ed31c59c00b91aae4" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, int &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, int&gt; Date2Row</definition>
+        <argsstring></argsstring>
+        <name>Date2Row</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="85" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="record_8h_1af0af7e4691f7aed1db34ae2b03f331ce" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, std::string, std::string, int, int, double, std::string &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, std::string, std::string, int, int, double, std::string&gt; PoolInfoRow</definition>
+        <argsstring></argsstring>
+        <name>PoolInfoRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="106" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="record_8h_1af8fc99604209c90abebee76291732734" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, int, int, int, int, std::string &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, int, int, int, int, std::string&gt; ModuleInfoRow</definition>
+        <argsstring></argsstring>
+        <name>ModuleInfoRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="134" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="record_8h_1a48c879a767b09ccdcf325da6aea3ac3a" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, int, Int64, Poco::Nullable&lt; Int64 &gt;, Int64, int, int, double &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, int, Int64, Poco::Nullable&lt;Int64&gt;, Int64, int, int, double&gt; FluxRow</definition>
+        <argsstring></argsstring>
+        <name>FluxRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="159" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="spatialtiledlocaldomaincontroller_8h_1aaf6947395434735ca1aad9b6259d5c84" prot="public" static="no">
+        <type>Poco::Tuple&lt; Int64, std::string, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Poco::Nullable&lt; UInt32 &gt;, Poco::Nullable&lt; UInt32 &gt; &gt;</type>
+        <definition>typedef Poco::Tuple&lt;Int64, std::string, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Int64, Poco::Nullable&lt;UInt32&gt;, Poco::Nullable&lt;UInt32&gt; &gt; StatsUnitRow</definition>
+        <argsstring></argsstring>
+        <name>StatsUnitRow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="49" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="aggregatorfilewriter_8cpp_1ad6f1306862026f431e4984d8f2ad991c" prot="public" static="yes" mutable="no">
+        <type>const auto</type>
+        <definition>const auto DL_CHR</definition>
+        <argsstring></argsstring>
+        <name>DL_CHR</name>
+        <initializer>= &quot;,&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="36" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="aggregatorfilewriter_8cpp_1a3b72eedd1e10f56d79d89418087dea66" prot="public" static="yes" mutable="no">
+        <type>const auto</type>
+        <definition>const auto EOL_CHR</definition>
+        <argsstring></argsstring>
+        <name>EOL_CHR</name>
+        <initializer>= &quot;\r\n&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="37" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="libraryfactory_8cpp_1aaa3d9ccf5a05ceb38a7e53e4c19686ac" prot="public" static="no" mutable="no">
+        <type>FLINTAggregationSharedDataObject</type>
+        <definition>FLINTAggregationSharedDataObject flint_aggregation_shared_data</definition>
+        <argsstring></argsstring>
+        <name>flint_aggregation_shared_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="80" column="34" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="libraryfactory_8cpp_1abe3c2a8ff73cdb9ab71dcdd3b64cf58e" prot="public" static="no" mutable="no">
+        <type>Poco::Mutex</type>
+        <definition>Poco::Mutex _fileHandlingMutexVarGridWriter</definition>
+        <argsstring></argsstring>
+        <name>_fileHandlingMutexVarGridWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="82" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="libraryfactory_8cpp_1ab606d0c0d35d84af3b9021dca3bfd1cc" prot="public" static="no" mutable="no">
+        <type>Poco::Mutex</type>
+        <definition>Poco::Mutex _fileHandlingMutexConfigWriter</definition>
+        <argsstring></argsstring>
+        <name>_fileHandlingMutexConfigWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="83" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="libraryfactory_8cpp_1a8d76dc14c30789a762b06a5e1acab18d" prot="public" static="no" mutable="no">
+        <type>Poco::Mutex</type>
+        <definition>Poco::Mutex _fileHandlingMutexAggregationFileWriter</definition>
+        <argsstring></argsstring>
+        <name>_fileHandlingMutexAggregationFileWriter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="84" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="aggregatorfilewriter_8cpp_1a98ed2ef9d4ebfc34c3ee1f3ef56ab670" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string moja::flint::recordToStringFunc</definition>
+        <argsstring>(FluxRow &amp;rec, const std::string &amp;dl, const IPool *srcPool, const IPool *dstPool)</argsstring>
+        <name>recordToStringFunc</name>
+        <param>
+          <type>FluxRow &amp;</type>
+          <declname>rec</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dl</declname>
+        </param>
+        <param>
+          <type>const IPool *</type>
+          <declname>srcPool</declname>
+        </param>
+        <param>
+          <type>const IPool *</type>
+          <declname>dstPool</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="151" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="151" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="aggregatorfilewriter_8cpp_1aa8945eb639b436da28810f5eb0d425d3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string moja::flint::recordToStringFunc</definition>
+        <argsstring>(DateRow &amp;rec, const std::string &amp;dl)</argsstring>
+        <name>recordToStringFunc</name>
+        <param>
+          <type>DateRow &amp;</type>
+          <declname>rec</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="158" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="158" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="aggregatorfilewriter_8cpp_1a62d47e67874850702a886c571ad21ac1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string moja::flint::recordToStringFunc</definition>
+        <argsstring>(Date2Row &amp;rec, const std::string &amp;dl)</argsstring>
+        <name>recordToStringFunc</name>
+        <param>
+          <type>Date2Row &amp;</type>
+          <declname>rec</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="166" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="166" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="aggregatorfilewriter_8cpp_1a4dfdc3068a803897e90b9cce9c664fdb" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string moja::flint::recordToStringFunc</definition>
+        <argsstring>(ModuleInfoRow &amp;rec, const std::string &amp;dl)</argsstring>
+        <name>recordToStringFunc</name>
+        <param>
+          <type>ModuleInfoRow &amp;</type>
+          <declname>rec</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>dl</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="169" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" bodystart="169" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1a5c9dd541dab317a4514d73b7f79eecb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IFlintData &gt;</type>
+        <definition>std::shared_ptr&lt;IFlintData&gt; moja::flint::createEventQueueFactory</definition>
+        <argsstring>(const std::string &amp;eventTypeStr, int id, const std::string &amp;name, const DynamicObject &amp;other)</argsstring>
+        <name>createEventQueueFactory</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>eventTypeStr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="87" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="87" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1a5869cc6d981733463bc9cfb2677ba827" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFlintModuleRegistrations</definition>
+        <argsstring>(moja::flint::ModuleRegistration *outModuleRegistrations)</argsstring>
+        <name>getFlintModuleRegistrations</name>
+        <param>
+          <type>moja::flint::ModuleRegistration *</type>
+          <declname>outModuleRegistrations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="106" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="106" bodyend="168" declfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h" declline="9" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1a683fd4e809b0b37bdc42ada5465f8720" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFlintTransformRegistrations</definition>
+        <argsstring>(moja::flint::TransformRegistration *outTransformRegistrations)</argsstring>
+        <name>getFlintTransformRegistrations</name>
+        <param>
+          <type>moja::flint::TransformRegistration *</type>
+          <declname>outTransformRegistrations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="170" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="170" bodyend="196" declfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h" declline="10" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1ad9805f95be7ff21ad95df271657bc8f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFlintFlintDataRegistrations</definition>
+        <argsstring>(moja::flint::FlintDataRegistration *outFlintDataRegistrations)</argsstring>
+        <name>getFlintFlintDataRegistrations</name>
+        <param>
+          <type>moja::flint::FlintDataRegistration *</type>
+          <declname>outFlintDataRegistrations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="198" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="198" bodyend="221" declfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h" declline="11" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1a2692ea3d440ea67f48cd4ecc8ff73da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getFlintFlintDataFactoryRegistrations</definition>
+        <argsstring>(FlintDataFactoryRegistration *outFlintDataFactoryRegistrations)</argsstring>
+        <name>getFlintFlintDataFactoryRegistrations</name>
+        <param>
+          <type>FlintDataFactoryRegistration *</type>
+          <declname>outFlintDataFactoryRegistrations</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="223" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="223" bodyend="232" declfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h" declline="12" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="libraryfactory_8cpp_1a191616b385ab62b502013967b973dfa6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getProviderRegistrations</definition>
+        <argsstring>(DataRepositoryProviderRegistration *outDataRepositoryProviderRegistration)</argsstring>
+        <name>getProviderRegistrations</name>
+        <param>
+          <type>DataRepositoryProviderRegistration *</type>
+          <declname>outDataRepositoryProviderRegistration</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" line="234" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp" bodystart="234" bodyend="252" declfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h" declline="13" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="outputerstream_8cpp_1abcc3c407414ec3dd8eec6046e3f4d8e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::flint::escape_json2</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>escape_json2</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/outputerstream.cpp" line="29" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/outputerstream.cpp" bodystart="29" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="outputerstream_8cpp_1aeda7b7865888e98dfb2b0f6a59ef8fa0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void moja::flint::outputDynamicToStream</definition>
+        <argsstring>(std::ostream &amp;fout, const DynamicVar &amp;object)</argsstring>
+        <name>outputDynamicToStream</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/outputerstream.cpp" line="42" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/outputerstream.cpp" bodystart="42" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="variableandpoolstringbuilder_8cpp_1af6389ed2d4738cddeadc4bcf9060a198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::flint::escape_json2_XX</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>escape_json2_XX</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" line="135" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="135" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="variableandpoolstringbuilder_8cpp_1a8a83ca4ded8bef787311bfa99f54079b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void moja::flint::outputDynamicToStream_XX</definition>
+        <argsstring>(std::ostream &amp;fout, const DynamicVar &amp;object)</argsstring>
+        <name>outputDynamicToStream_XX</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>object</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" line="148" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="148" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1ac65acde39b6a8d62a63dad6d1f668097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void outputDynamicToStream</definition>
+        <argsstring>(std::ofstream &amp;fout, const DynamicVar &amp;object, int level)</argsstring>
+        <name>outputDynamicToStream</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="219" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="219" bodyend="271" declfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" declline="156" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1a3ca2742489399eb9a88e2e4985f8d1cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void outputDynamicObjectToStream</definition>
+        <argsstring>(std::ofstream &amp;fout, const DynamicObject &amp;object, int level)</argsstring>
+        <name>outputDynamicObjectToStream</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="166" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="166" bodyend="179" declfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" declline="157" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1aa53fc908ec22586598ed348b1b9b3c3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void outputVectorToStream</definition>
+        <argsstring>(std::ofstream &amp;fout, const std::vector&lt; DynamicObject &gt; &amp;object, int level)</argsstring>
+        <name>outputVectorToStream</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; DynamicObject &gt; &amp;</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="275" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="275" bodyend="289" declfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" declline="158" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1acbc982df328eeb1452da4517d4d5b195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void outputVectorToStream</definition>
+        <argsstring>(std::ofstream &amp;fout, const DynamicVector &amp;object, int level)</argsstring>
+        <name>outputVectorToStream</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const DynamicVector &amp;</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="293" column="6" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="293" bodyend="307" declfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" declline="159" declcolumn="6"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1a205ef11253b892a2258e20edaf87c160" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::flint::escape_json</definition>
+        <argsstring>(const std::string &amp;s)</argsstring>
+        <name>escape_json</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="182" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="182" bodyend="191"/>
+      </memberdef>
+      <memberdef kind="function" id="writesystemconfig_8cpp_1aa50be222cb4d9c7ef24b8293a5cb7507" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void moja::flint::outputBoostVectorToStream</definition>
+        <argsstring>(std::ofstream &amp;fout, const std::vector&lt; boost::optional&lt; T &gt;&gt; &amp;object, int level)</argsstring>
+        <name>outputBoostVectorToStream</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <declname>fout</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; boost::optional&lt; T &gt;&gt; &amp;</type>
+          <declname>object</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>level</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" line="196" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writesystemconfig.cpp" bodystart="196" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="ioperation_8h_1acbb8efe92f6285f765e810816296ad08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::flint::OperationTransferHandlingTypeToString</definition>
+        <argsstring>(OperationTransferHandlingType t)</argsstring>
+        <name>OperationTransferHandlingTypeToString</name>
+        <param>
+          <type>OperationTransferHandlingType</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperation.h" line="22" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperation.h" bodystart="22" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="ioperationmanager_8h_1ac9a422a8be2663d62442056c0ffa02ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::flint::OperationTransferTypeToString</definition>
+        <argsstring>(OperationTransferType t)</argsstring>
+        <name>OperationTransferTypeToString</name>
+        <param>
+          <type>OperationTransferType</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="23" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" bodystart="23" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="34" column="1"/>
+  </compounddef>
+</doxygen>

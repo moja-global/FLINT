@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1FlintDataFactoryRegistration" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::FlintDataFactoryRegistration</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1ac56671309b02ac240fa9dc5bf05cfd26" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* libraryName</definition>
+        <argsstring></argsstring>
+        <name>libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="56" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1a2ab58a1cdfbda2815af40b392b8883e5" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* flintDataName</definition>
+        <argsstring></argsstring>
+        <name>flintDataName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="57" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1a04d332e26cf4c28b9610eb5314a164e2" prot="public" static="no" mutable="no">
+        <type>InitializeFlintDataFactoryFunctionPtr</type>
+        <definition>InitializeFlintDataFactoryFunctionPtr initializer</definition>
+        <argsstring></argsstring>
+        <name>initializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="58" column="42" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="55" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="55" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1a2ab58a1cdfbda2815af40b392b8883e5" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataFactoryRegistration</scope><name>flintDataName</name></member>
+      <member refid="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1a04d332e26cf4c28b9610eb5314a164e2" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataFactoryRegistration</scope><name>initializer</name></member>
+      <member refid="structmoja_1_1flint_1_1FlintDataFactoryRegistration_1ac56671309b02ac240fa9dc5bf05cfd26" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataFactoryRegistration</scope><name>libraryName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

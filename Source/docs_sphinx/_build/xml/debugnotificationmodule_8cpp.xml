@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="debugnotificationmodule_8cpp" kind="file" language="C++">
+    <compoundname>debugnotificationmodule.cpp</compoundname>
+    <includes refid="debugnotificationmodule_8h" local="yes">moja/flint/debugnotificationmodule.h</includes>
+    <includes refid="logging_8h" local="no">moja/logging.h</includes>
+    <includes refid="notificationcenter_8h" local="no">moja/notificationcenter.h</includes>
+    <includes refid="signals_8h" local="no">moja/signals.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp</label>
+        <link refid="debugnotificationmodule_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>functional</label>
+      </node>
+      <node id="21">
+        <label>iomanip</label>
+      </node>
+      <node id="13">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="8">
+        <label>moja/flint/poolcollection.h</label>
+        <link refid="poolcollection_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>moja/signals.h</label>
+        <link refid="signals_8h_source"/>
+      </node>
+      <node id="14">
+        <label>moja/flint/imodule.h</label>
+        <link refid="imodule_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>moja/dispatcher.h</label>
+        <link refid="dispatcher_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="20">
+        <label>date/date.h</label>
+      </node>
+      <node id="15">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="24">
+        <label>boost/log/trivial.hpp</label>
+      </node>
+      <node id="25">
+        <label>moja/notificationcenter.h</label>
+        <link refid="notificationcenter_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="17">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>moja/logging.h</label>
+        <link refid="logging_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>moja/flint/modulebase.h</label>
+        <link refid="modulebase_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>boost/log/sources/global_logger_storage.hpp</label>
+      </node>
+      <node id="30">
+        <label>mutex</label>
+      </node>
+      <node id="19">
+        <label>chrono</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/debugnotificationmodule.h</label>
+        <link refid="debugnotificationmodule_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/flint/ilandunitdatawrapper.h</label>
+        <link refid="ilandunitdatawrapper_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="5">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+      <node id="28">
+        <label>typeindex</label>
+      </node>
+      <node id="6">
+        <label>moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;moja/flint/debugnotificationmodule.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/logging.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/notificationcenter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/signals.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicObject&amp;<sp/>config)<sp/>{}</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::subscribe(NotificationCenter&amp;<sp/>notificationCenter)<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::SystemInit,<sp/>&amp;DebugNotificationModule::onSystemInit,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::SystemShutdown,<sp/>&amp;DebugNotificationModule::onSystemShutdown,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::LocalDomainInit,<sp/>&amp;DebugNotificationModule::onLocalDomainInit,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::LocalDomainShutdown,<sp/>&amp;DebugNotificationModule::onLocalDomainShutdown,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::LocalDomainProcessingUnitInit,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;DebugNotificationModule::onLocalDomainProcessingUnitInit,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::LocalDomainProcessingUnitShutdown,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&amp;DebugNotificationModule::onLocalDomainProcessingUnitShutdown,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::PreTimingSequence,<sp/>&amp;DebugNotificationModule::onPreTimingSequence,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingInit,<sp/>&amp;DebugNotificationModule::onTimingInit,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingPostInit,<sp/>&amp;DebugNotificationModule::onTimingPostInit,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingShutdown,<sp/>&amp;DebugNotificationModule::onTimingShutdown,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingStep,<sp/>&amp;DebugNotificationModule::onTimingStep,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingPreEndStep,<sp/>&amp;DebugNotificationModule::onTimingPreEndStep,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingEndStep,<sp/>&amp;DebugNotificationModule::onTimingEndStep,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::TimingPostStep,<sp/>&amp;DebugNotificationModule::onTimingPostStep,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::OutputStep,<sp/>&amp;DebugNotificationModule::onOutputStep,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::DisturbanceEvent,<sp/>&amp;DebugNotificationModule::onDisturbanceEvent,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::PostDisturbanceEvent,<sp/>&amp;DebugNotificationModule::onPostDisturbanceEvent,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>notificationCenter.subscribe(signals::PostNotification,<sp/>&amp;DebugNotificationModule::onPostNotification,<sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onSystemInit()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onSystemShutdown()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onLocalDomainInit()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onLocalDomainShutdown()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onLocalDomainProcessingUnitInit()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onLocalDomainProcessingUnitShutdown()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onPreTimingSequence()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingInit()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingPostInit()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingShutdown()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingStep()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingPreEndStep()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingEndStep()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onTimingPostStep()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onOutputStep()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onError(std::string<sp/>msg)<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onDisturbanceEvent(DynamicVar)<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onPostDisturbanceEvent()<sp/>{<sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId;<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DebugNotificationModule::onPostNotification(</highlight><highlight class="keywordtype">short</highlight><highlight class="normal"><sp/>preMessageSignal)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/>MOJA_LOG_DEBUG<sp/>&lt;&lt;<sp/>_localDomainId<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>:<sp/>Following<sp/>notification:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>preMessageSignal;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp"/>
+  </compounddef>
+</doxygen>

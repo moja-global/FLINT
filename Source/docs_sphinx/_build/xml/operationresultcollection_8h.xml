@@ -1,0 +1,342 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="operationresultcollection_8h" kind="file" language="C++">
+    <compoundname>operationresultcollection.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="operationmanagersimple_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/operationmanagersimple.cpp</includedby>
+    <includedby refid="operationmanagersimplecache_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/operationmanagersimplecache.cpp</includedby>
+    <includedby refid="operationmanagerublas_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp</includedby>
+    <includedby refid="ilandunitdatawrapper_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitdatawrapper.h</includedby>
+    <includedby refid="operationmanagersimple_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagersimple.h</includedby>
+    <includedby refid="operationmanagersimplecache_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagersimplecache.h</includedby>
+    <includedby refid="operationmanagerublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="25">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/sequencermodulebase.h</label>
+        <link refid="sequencermodulebase_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h</label>
+        <link refid="writevariablegrid_8h_source"/>
+      </node>
+      <node id="32">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h</label>
+        <link refid="variableandpoolstringbuilder_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/outputerstreamflux.h</label>
+        <link refid="outputerstreamflux_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfilewriter.h</label>
+        <link refid="aggregatorfilewriter_8h_source"/>
+      </node>
+      <node id="30">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/transactionmanagerendofstepmodule.h</label>
+        <link refid="transactionmanagerendofstepmodule_8h_source"/>
+      </node>
+      <node id="23">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/outputerstream.h</label>
+        <link refid="outputerstream_8h_source"/>
+      </node>
+      <node id="29">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/transactionmanageraftersubmitmodule.h</label>
+        <link refid="transactionmanageraftersubmitmodule_8h_source"/>
+      </node>
+      <node id="34">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagersimple.h</label>
+        <link refid="operationmanagersimple_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorfluxstep.h</label>
+        <link refid="aggregatorfluxstep_8h_source"/>
+      </node>
+      <node id="15">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventsequencer.h</label>
+        <link refid="calendarandeventsequencer_8h_source"/>
+      </node>
+      <node id="16">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryfactory.h</label>
+        <link refid="libraryfactory_8h_source"/>
+      </node>
+      <node id="12">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/errorscreenwriter.h</label>
+        <link refid="errorscreenwriter_8h_source"/>
+      </node>
+      <node id="27">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/equalstepsequencer.h</label>
+        <link refid="equalstepsequencer_8h_source"/>
+      </node>
+      <node id="10">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorstockstep.h</label>
+        <link refid="aggregatorstockstep_8h_source"/>
+      </node>
+      <node id="19">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h</label>
+        <link refid="aggregatorlandunit_8h_source"/>
+      </node>
+      <node id="28">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/testmodule.h</label>
+        <link refid="testmodule_8h_source"/>
+      </node>
+      <node id="26">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarsequencer.h</label>
+        <link refid="calendarsequencer_8h_source"/>
+      </node>
+      <node id="36">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h</label>
+        <link refid="operationmanagerublas_8h_source"/>
+      </node>
+      <node id="14">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/calendarandeventflintdatasequencer.h</label>
+        <link refid="calendarandeventflintdatasequencer_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/modulebase.h</label>
+        <link refid="modulebase_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h</label>
+        <link refid="flux_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h</label>
+        <link refid="landunitdatawrapper_8h_source"/>
+      </node>
+      <node id="17">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="33">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h</label>
+        <link refid="idnamecollection_8h_source"/>
+      </node>
+      <node id="11">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h</label>
+        <link refid="debugnotificationmodule_8h_source"/>
+      </node>
+      <node id="13">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/librarymanager.h</label>
+        <link refid="librarymanager_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/moduleproxybase.h</label>
+        <link refid="moduleproxybase_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h</label>
+        <link refid="proxymodule_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitdatawrapper.h</label>
+        <link refid="ilandunitdatawrapper_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagersimplecache.h</label>
+        <link refid="operationmanagersimplecache_8h_source"/>
+      </node>
+      <node id="31">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h</label>
+        <link refid="writesystemconfig_8h_source"/>
+      </node>
+      <node id="20">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultCollection" prot="public">moja::flint::OperationResultCollection</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IOperationResult;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>OperationResultCollection<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::value_type<sp/>value_type;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::reference<sp/>reference;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::const_reference<sp/>const_reference;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::iterator<sp/>iterator;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::const_iterator<sp/>const_iterator;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;::size_type<sp/>size_type;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/>OperationResultCollection()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~OperationResultCollection()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/>OperationResultCollection(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OperationResultCollection&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/>OperationResultCollection&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>OperationResultCollection&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>begin();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>const_iterator<sp/>begin()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>end()<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>const_iterator<sp/>end()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clear();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>size_type<sp/>size()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>template<sp/>&lt;class...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>emplace_back(Args&amp;&amp;...<sp/>args);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>push_back(const_reference<sp/>operationResult);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>push_back(value_type&amp;&amp;<sp/>operationResult);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>empty()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reserve(size_type<sp/>i);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt;&gt;<sp/>_vec;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">template<sp/>&lt;class...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OperationResultCollection::emplace_back(Args&amp;&amp;...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/>_vec.emplace_back(std::forward&lt;Args&gt;(args)...);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>OperationResultCollection::iterator<sp/>OperationResultCollection::begin()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.begin();<sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>OperationResultCollection::const_iterator<sp/>OperationResultCollection::begin()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.begin();</highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>OperationResultCollection::iterator<sp/>OperationResultCollection::end()<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.end();<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>OperationResultCollection::const_iterator<sp/>OperationResultCollection::end()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.end();</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OperationResultCollection::clear()<sp/>{<sp/>_vec.clear();<sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>OperationResultCollection::size_type<sp/>OperationResultCollection::size()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.size();</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OperationResultCollection::push_back(const_reference<sp/>operationResult)<sp/>{<sp/>_vec.push_back(operationResult);<sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OperationResultCollection::push_back(value_type&amp;&amp;<sp/>operationResult)<sp/>{<sp/>_vec.push_back(operationResult);<sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>OperationResultCollection::empty()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_vec.empty();<sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>OperationResultCollection::reserve(size_type<sp/>count)<sp/>{<sp/>_vec.reserve(count);<sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_OPERATIONRESULTCOLLECTION_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h"/>
+  </compounddef>
+</doxygen>

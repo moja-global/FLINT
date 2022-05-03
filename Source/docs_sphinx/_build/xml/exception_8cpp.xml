@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="exception_8cpp" kind="file" language="C++">
+    <compoundname>exception.cpp</compoundname>
+    <includes refid="exception_8h" local="yes">moja/exception.h</includes>
+    <includes local="no">typeinfo</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="3">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="5">
+        <label>typeinfo</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/src/exception.cpp</label>
+        <link refid="exception_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>moja/exception.h</label>
+        <link refid="exception_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;moja/exception.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;typeinfo&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"><ref refid="classmoja_1_1Exception_1ab14fb380c6b349f9340122bcd0708f7a" kindref="member">Exception::Exception</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>code)<sp/>:<sp/>_pNested(0),<sp/>_code(code)<sp/>{}</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">Exception::Exception(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>msg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>code)<sp/>:<sp/>_msg(msg),<sp/>_pNested(0),<sp/>_code(code)<sp/>{}</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">Exception::Exception(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>msg,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>arg,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>code)<sp/>:<sp/>_msg(msg),<sp/>_pNested(0),<sp/>_code(code)<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!arg.empty())<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_msg.append(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_msg.append(arg);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">Exception::Exception(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>msg,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Exception&amp;<sp/>nested,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>code)</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_msg(msg),<sp/>_pNested(nested.clone()),<sp/>_code(code)<sp/>{}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">Exception::Exception(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Exception&amp;<sp/>exc)<sp/>:<sp/>std::exception(exc),<sp/>_msg(exc._msg),<sp/>_code(exc._code)<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>_pNested<sp/>=<sp/>exc._pNested<sp/>?<sp/>exc._pNested-&gt;clone()<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">Exception::~Exception()<sp/>throw()<sp/>{<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>_pNested;<sp/>}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">Exception&amp;<sp/>Exception::operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Exception&amp;<sp/>exc)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(&amp;exc<sp/>!=<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>_pNested;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_msg<sp/>=<sp/>exc._msg;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_pNested<sp/>=<sp/>exc._pNested<sp/>?<sp/>exc._pNested-&gt;clone()<sp/>:<sp/>0;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_code<sp/>=<sp/>exc._code;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Exception::name()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>throw()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;Exception&quot;</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Exception::className()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>throw()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(*this).name();<sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>Exception::what()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>throw()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>name();<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">std::string<sp/>Exception::displayText()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>txt<sp/>=<sp/>name();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_msg.empty())<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>txt.append(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>txt.append(_msg);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>txt;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Exception::extendedMessage(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>arg)<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!arg.empty())<sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_msg.empty())<sp/>_msg.append(</highlight><highlight class="stringliteral">&quot;:<sp/>&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_msg.append(arg);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal">Exception*<sp/>Exception::clone()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>Exception(*</highlight><highlight class="keyword">this</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Exception::rethrow()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">throw</highlight><highlight class="normal"><sp/>*</highlight><highlight class="keyword">this</highlight><highlight class="normal">;<sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(LogicException,<sp/>Exception,<sp/></highlight><highlight class="stringliteral">&quot;Logic<sp/>exception&quot;</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(AssertionViolationException,<sp/>LogicException,<sp/>&quot;Assertion<sp/>violation&quot;)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NullPointerException,<sp/>LogicException,<sp/>&quot;Null<sp/>pointer&quot;)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NullValueException,<sp/>LogicException,<sp/>&quot;Null<sp/>value&quot;)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(BugcheckException,<sp/>LogicException,<sp/>&quot;Bugcheck&quot;)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(InvalidArgumentException,<sp/>LogicException,<sp/>&quot;Invalid<sp/>argument&quot;)</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NotImplementedException,<sp/>LogicException,<sp/>&quot;Not<sp/>implemented&quot;)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(RangeException,<sp/>LogicException,<sp/>&quot;Out<sp/>of<sp/>range&quot;)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(IllegalStateException,<sp/>LogicException,<sp/>&quot;Illegal<sp/>state&quot;)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(InvalidAccessException,<sp/>LogicException,<sp/>&quot;Invalid<sp/>access&quot;)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(SignalException,<sp/>LogicException,<sp/>&quot;Signal<sp/>received&quot;)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(UnhandledException,<sp/>LogicException,<sp/>&quot;Unhandled<sp/>exception&quot;)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(RuntimeException,<sp/>Exception,<sp/>&quot;Runtime<sp/>exception&quot;)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NotFoundException,<sp/>RuntimeException,<sp/>&quot;Not<sp/>found&quot;)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(ExistsException,<sp/>RuntimeException,<sp/>&quot;Exists&quot;)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(TimeoutException,<sp/>RuntimeException,<sp/>&quot;Timeout&quot;)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(SystemException,<sp/>RuntimeException,<sp/>&quot;System<sp/>exception&quot;)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(RegularExpressionException,<sp/>RuntimeException,<sp/>&quot;Error<sp/>in<sp/>regular<sp/>expression&quot;)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(LibraryLoadException,<sp/>RuntimeException,<sp/>&quot;Cannot<sp/>load<sp/>library&quot;)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(LibraryAlreadyLoadedException,<sp/>RuntimeException,<sp/>&quot;Library<sp/>already<sp/>loaded&quot;)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(LibrarySymbolLoadException,<sp/>RuntimeException,<sp/>&quot;Cannot<sp/>load<sp/>library<sp/>symbol&quot;)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NoThreadAvailableException,<sp/>RuntimeException,<sp/>&quot;No<sp/>thread<sp/>available&quot;)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(PropertyNotSupportedException,<sp/>RuntimeException,<sp/>&quot;Property<sp/>not<sp/>supported&quot;)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(PoolOverflowException,<sp/>RuntimeException,<sp/>&quot;Pool<sp/>overflow&quot;)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(NoPermissionException,<sp/>RuntimeException,<sp/>&quot;No<sp/>permission&quot;)</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(OutOfMemoryException,<sp/>RuntimeException,<sp/>&quot;Out<sp/>of<sp/>memory&quot;)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(DataException,<sp/>RuntimeException,<sp/>&quot;Data<sp/>error&quot;)</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(DataFormatException,<sp/>DataException,<sp/>&quot;Bad<sp/>data<sp/>format&quot;)</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(SyntaxException,<sp/>DataException,<sp/>&quot;Syntax<sp/>error&quot;)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(CircularReferenceException,<sp/>DataException,<sp/>&quot;Circular<sp/>reference&quot;)</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(PathSyntaxException,<sp/>SyntaxException,<sp/>&quot;Bad<sp/>path<sp/>syntax&quot;)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(IOException,<sp/>RuntimeException,<sp/>&quot;I/O<sp/>error&quot;)</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(ProtocolException,<sp/>IOException,<sp/>&quot;Protocol<sp/>error&quot;)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(FileException,<sp/>IOException,<sp/>&quot;File<sp/>access<sp/>error&quot;)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(FileExistsException,<sp/>FileException,<sp/>&quot;File<sp/>exists&quot;)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(FileNotFoundException,<sp/>FileException,<sp/>&quot;File<sp/>not<sp/>found&quot;)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(PathNotFoundException,<sp/>FileException,<sp/>&quot;Path<sp/>not<sp/>found&quot;)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(FileReadOnlyException,<sp/>FileException,<sp/>&quot;File<sp/>is<sp/>read-only&quot;)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(FileAccessDeniedException,<sp/>FileException,<sp/>&quot;Access<sp/>to<sp/>file<sp/>denied&quot;)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(CreateFileException,<sp/>FileException,<sp/>&quot;Cannot<sp/>create<sp/>file&quot;)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(OpenFileException,<sp/>FileException,<sp/>&quot;Cannot<sp/>open<sp/>file&quot;)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(WriteFileException,<sp/>FileException,<sp/>&quot;Cannot<sp/>write<sp/>file&quot;)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(ReadFileException,<sp/>FileException,<sp/>&quot;Cannot<sp/>read<sp/>file&quot;)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(UnknownURISchemeException,<sp/>RuntimeException,<sp/>&quot;Unknown<sp/>URI<sp/>scheme&quot;)</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(ApplicationException,<sp/>Exception,<sp/>&quot;Application<sp/>exception&quot;)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">MOJA_IMPLEMENT_EXCEPTION(BadCastException,<sp/>RuntimeException,<sp/>&quot;Bad<sp/>cast<sp/>exception&quot;)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/src/exception.cpp"/>
+  </compounddef>
+</doxygen>

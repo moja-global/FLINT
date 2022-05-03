@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1TimingStepEndMessage" kind="class" language="C++" prot="public">
+    <compoundname>moja::TimingStepEndMessage</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IMessage</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1ac9a59b283baa2f546e431adf3a3ada8c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _step</definition>
+        <argsstring></argsstring>
+        <name>_step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="106" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1ab5ef07cbaa8115bef0013c55f43c430e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _numberOfSteps</definition>
+        <argsstring></argsstring>
+        <name>_numberOfSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="107" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1a4ab1d415d0679b433c26f2b890b29e8a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _stepLengthInYears</definition>
+        <argsstring></argsstring>
+        <name>_stepLengthInYears</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="108" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1a30f2c0d42425f84541452621b82c427b" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startDate</definition>
+        <argsstring></argsstring>
+        <name>_startDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="109" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1a15d6a6305be3429771895011e43b44a3" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endDate</definition>
+        <argsstring></argsstring>
+        <name>_endDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="110" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1TimingStepEndMessage_1ad8806bd830cb4de6249c70fa5fad43b5" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _stepTime</definition>
+        <argsstring></argsstring>
+        <name>_stepTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="111" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1ad1a8a451bbb45a004826eee3f4a72713" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>TimingStepEndMessage</definition>
+        <argsstring>(int step, int numberOfSteps, double stepLengthInYears, DateTime stepTime, DateTime startDate, DateTime endDate)</argsstring>
+        <name>TimingStepEndMessage</name>
+        <param>
+          <type>int</type>
+          <declname>step</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numberOfSteps</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>stepLengthInYears</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>stepTime</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>startDate</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>endDate</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="89" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="89" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a75afbe1585953980c7097f6c6181263b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int step</definition>
+        <argsstring>() const</argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="98" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a918264b0dfb605040ad91f6069223933" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int numberOfSteps</definition>
+        <argsstring>() const</argsstring>
+        <name>numberOfSteps</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="99" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a8454e33bb95bb06e165ac2c35eca3f1f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double stepLengthInYears</definition>
+        <argsstring>() const</argsstring>
+        <name>stepLengthInYears</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="100" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a2805cdae0079082dc1547af927e9565a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime startDate</definition>
+        <argsstring>() const</argsstring>
+        <name>startDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="101" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a3c57985215952b245b511da6a861beea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime endDate</definition>
+        <argsstring>() const</argsstring>
+        <name>endDate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="102" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1TimingStepEndMessage_1a9ca0ac517ca0152c75df7e93fd7e91fd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime stepTime</definition>
+        <argsstring>() const</argsstring>
+        <name>stepTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="103" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="119" bodyend="119"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>TimingStepEndMessage</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_endDate</edgelabel>
+          <edgelabel>_startDate</edgelabel>
+          <edgelabel>_stepTime</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="87" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="87" bodyend="112"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a15d6a6305be3429771895011e43b44a3" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_endDate</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1ab5ef07cbaa8115bef0013c55f43c430e" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_numberOfSteps</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a30f2c0d42425f84541452621b82c427b" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_startDate</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1ac9a59b283baa2f546e431adf3a3ada8c" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_step</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a4ab1d415d0679b433c26f2b890b29e8a" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_stepLengthInYears</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1ad8806bd830cb4de6249c70fa5fad43b5" prot="private" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>_stepTime</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a3c57985215952b245b511da6a861beea" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>endDate</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a918264b0dfb605040ad91f6069223933" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>numberOfSteps</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a2805cdae0079082dc1547af927e9565a" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>startDate</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a75afbe1585953980c7097f6c6181263b" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>step</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a8454e33bb95bb06e165ac2c35eca3f1f" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>stepLengthInYears</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1a9ca0ac517ca0152c75df7e93fd7e91fd" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>stepTime</name></member>
+      <member refid="classmoja_1_1TimingStepEndMessage_1ad1a8a451bbb45a004826eee3f4a72713" prot="public" virt="non-virtual"><scope>moja::TimingStepEndMessage</scope><name>TimingStepEndMessage</name></member>
+      <member refid="classmoja_1_1IMessage_1a21a59afe43bf60f76a7f6a8a0977cf62" prot="public" virt="virtual"><scope>moja::TimingStepEndMessage</scope><name>~IMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

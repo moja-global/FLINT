@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IOperationResultFluxIterator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::IOperationResultFluxIterator</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationResultFluxIteratorSimple" prot="public" virt="non-virtual">OperationResultFluxIteratorSimple</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationResultFluxIteratorSimpleCache" prot="public" virt="non-virtual">OperationResultFluxIteratorSimpleCache</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas" prot="public" virt="non-virtual">OperationResultFluxIteratorUblas</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1aa3fb2cea50541c11b6e8a0a733ca6ad4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>IOperationResultFluxIterator</definition>
+        <argsstring>()</argsstring>
+        <name>IOperationResultFluxIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="14" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a9788f11887e53af7bd50b8a2fc94a2cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~IOperationResultFluxIterator</definition>
+        <argsstring>()</argsstring>
+        <name>~IOperationResultFluxIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="15" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a9b65ba72290b34fed09acea4559572c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperationResultFluxIterator &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperationResultFluxIterator&gt; createIterator</definition>
+        <argsstring>(bool atEnd=false)=0</argsstring>
+        <name>createIterator</name>
+        <param>
+          <type>bool</type>
+          <declname>atEnd</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="17" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a579b15d99e2838bc5207cd7e07e524e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>IOperationResultFlux *</type>
+        <definition>virtual IOperationResultFlux* dereference</definition>
+        <argsstring>() const =0</argsstring>
+        <name>dereference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="19" column="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a8a33d0bdb9f98bb6a3ec75fee4ad84f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void increment</definition>
+        <argsstring>()=0</argsstring>
+        <name>increment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="20" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a5b06fd4538b6d6b7882999cedf65d728" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void decrement</definition>
+        <argsstring>()=0</argsstring>
+        <name>decrement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a27d982483fb748ed97421c32b48b2856" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool isEqual</definition>
+        <argsstring>(IOperationResultFluxIterator &amp;it) const =0</argsstring>
+        <name>isEqual</name>
+        <param>
+          <type>IOperationResultFluxIterator &amp;</type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="23" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresultfluxiterator.h" bodystart="12" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a9b65ba72290b34fed09acea4559572c4" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>createIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a5b06fd4538b6d6b7882999cedf65d728" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>decrement</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a579b15d99e2838bc5207cd7e07e524e2" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>dereference</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a8a33d0bdb9f98bb6a3ec75fee4ad84f1" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>increment</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1aa3fb2cea50541c11b6e8a0a733ca6ad4" prot="public" virt="non-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>IOperationResultFluxIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a27d982483fb748ed97421c32b48b2856" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>isEqual</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a9788f11887e53af7bd50b8a2fc94a2cc" prot="public" virt="virtual"><scope>moja::flint::IOperationResultFluxIterator</scope><name>~IOperationResultFluxIterator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

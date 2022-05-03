@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacefolly" kind="namespace" language="C++">
+    <compoundname>folly</compoundname>
+    <innerclass refid="structfolly_1_1hasher_3_01Poco_1_1Nullable_3_01T_01_4_01_4" prot="public">folly::hasher&lt; Poco::Nullable&lt; T &gt; &gt;</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/hash.h" line="14" column="1"/>
+  </compounddef>
+</doxygen>

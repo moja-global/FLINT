@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1CoreException" kind="struct" language="C++" prot="public">
+    <compoundname>moja::CoreException</compoundname>
+    <basecompoundref prot="public" virt="virtual">exception</basecompoundref>
+    <basecompoundref prot="public" virt="virtual">exception</basecompoundref>
+    <derivedcompoundref refid="structmoja_1_1CoreAssertionViolationException" prot="public" virt="virtual">CoreAssertionViolationException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1CoreFileNotFoundException" prot="public" virt="virtual">CoreFileNotFoundException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1CoreNotImplementedException" prot="public" virt="virtual">CoreNotImplementedException</derivedcompoundref>
+    <derivedcompoundref refid="structmoja_1_1CoreUnhandledType" prot="public" virt="virtual">CoreUnhandledType</derivedcompoundref>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="13" bodyend="13"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

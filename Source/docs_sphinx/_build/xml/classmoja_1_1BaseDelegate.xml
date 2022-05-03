@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1BaseDelegate" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::BaseDelegate</compoundname>
+    <derivedcompoundref refid="classmoja_1_1Invokable" prot="public" virt="non-virtual">Invokable&lt; R, Params... &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1Invokable" prot="public" virt="non-virtual">Invokable&lt; R, Params &gt;</derivedcompoundref>
+    <includes refid="dispatcher_8h" local="no">dispatcher.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1BaseDelegate_1ac142f01b4ba6963648e22de61845bc4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~BaseDelegate</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BaseDelegate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="316" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1BaseDelegate_1a3f14291b1483666feb2b405b8f66f629" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::type_index</type>
+        <definition>virtual std::type_index type</definition>
+        <argsstring>() const =0</argsstring>
+        <name>type</name>
+        <reimplementedby refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_4_1a8ae0bea70e9faed49b712e291650bdde">type</reimplementedby>
+        <reimplementedby refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_01const_01_4_1a8ae0bea70e9faed49b712e291650bdde">type</reimplementedby>
+        <reimplementedby refid="classmoja_1_1Delegate_3_01R_07_5_08_07Params_8_8_8_08_4_1a8ae0bea70e9faed49b712e291650bdde">type</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="317" column="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmoja_1_1BaseDelegate_1ac6c9b3f9f517e61ae40beb6fba19cc83" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BaseDelegate</definition>
+        <argsstring>()=default</argsstring>
+        <name>BaseDelegate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="320" column="4"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ulink url="http://blog.coldflake.com/posts/C++-delegates-on-steroids/">http://blog.coldflake.com/posts/C++-delegates-on-steroids/</ulink> </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="314" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="314" bodyend="321"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1BaseDelegate_1ac6c9b3f9f517e61ae40beb6fba19cc83" prot="protected" virt="non-virtual"><scope>moja::BaseDelegate</scope><name>BaseDelegate</name></member>
+      <member refid="classmoja_1_1BaseDelegate_1a3f14291b1483666feb2b405b8f66f629" prot="public" virt="pure-virtual"><scope>moja::BaseDelegate</scope><name>type</name></member>
+      <member refid="classmoja_1_1BaseDelegate_1ac142f01b4ba6963648e22de61845bc4b" prot="public" virt="virtual"><scope>moja::BaseDelegate</scope><name>~BaseDelegate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

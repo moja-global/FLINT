@@ -1,3 +1,9 @@
+/**
+ * @file 
+ * @brief The brief description goes here.
+ *
+ * ******/
+
 #include "moja/datetime.h"
 
 #include "moja/exception.h"
@@ -7,7 +13,15 @@ using namespace std::chrono;
 
 namespace moja {
 
+   /**
+    * @brief destructor
+    * ************************/
+
 DateTime::~DateTime() {}
+
+   /**
+    * @brief Return current DateTime
+    * ************************/
 
 DateTime DateTime::now() {
    auto tp = system_clock::now();

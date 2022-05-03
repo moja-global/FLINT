@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1DispatcherObject_1_1Event" kind="struct" language="C++" prot="public">
+    <compoundname>moja::DispatcherObject::Event</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1DispatcherObject_1_1Event_1aa15b45adf27f7102ed6d7b0e7754f16b" prot="public" static="no" mutable="no">
+        <type>Listeners</type>
+        <definition>Listeners listeners</definition>
+        <argsstring></argsstring>
+        <name>listeners</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="447" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1DispatcherObject_1_1Event_1a65f19b133d5efed24b4b1f739d93d911" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Event</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Event</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="446" column="7"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="445" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="445" bodyend="448"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1DispatcherObject_1_1Event_1aa15b45adf27f7102ed6d7b0e7754f16b" prot="public" virt="non-virtual"><scope>moja::DispatcherObject::Event</scope><name>listeners</name></member>
+      <member refid="structmoja_1_1DispatcherObject_1_1Event_1a65f19b133d5efed24b4b1f739d93d911" prot="public" virt="non-virtual"><scope>moja::DispatcherObject::Event</scope><name>~Event</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

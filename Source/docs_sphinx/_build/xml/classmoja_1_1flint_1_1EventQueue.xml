@@ -1,0 +1,399 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1EventQueue" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::EventQueue</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IFlintData</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1EventQueue_1a0c5a183d4994cdf51a5af623b1021c16" prot="public" static="no">
+        <type>std::vector&lt; EventQueueItem &gt;::iterator</type>
+        <definition>typedef std::vector&lt;EventQueueItem&gt;::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="72" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1EventQueue_1a0affd295c6b886fb09bad228ec3555f6" prot="public" static="no">
+        <type>std::vector&lt; EventQueueItem &gt;::const_iterator</type>
+        <definition>typedef std::vector&lt;EventQueueItem&gt;::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="73" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1EventQueue_1ace86ed5c0760bd386d35de30503df89b" prot="public" static="no">
+        <type>std::vector&lt; EventQueueItem &gt;::size_type</type>
+        <definition>typedef std::vector&lt;EventQueueItem&gt;::size_type size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="74" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1EventQueue_1adfee2b682e10cfe1a2bfdc2cfc673e9a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; FactoryFunc &gt;</type>
+        <definition>std::vector&lt;FactoryFunc&gt; _eventFactoryMethods</definition>
+        <argsstring></argsstring>
+        <name>_eventFactoryMethods</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="93" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1EventQueue_1a801e85edb640315d9378d54f6ed7a3a7" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::function&lt; std::shared_ptr&lt; IFlintData &gt;const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt; &gt;</type>
+        <definition>std::vector&lt; std::function&lt;std::shared_ptr&lt;IFlintData&gt;const std::string&amp;, int, const std::string&amp;, const DynamicObject&amp;)&gt; &gt; _eventFactoryMethodsNew</definition>
+        <argsstring></argsstring>
+        <name>_eventFactoryMethodsNew</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="96" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1EventQueue_1ab67140baf5d6d50391bbd00680708319" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; EventQueueItem &gt;</type>
+        <definition>std::vector&lt;EventQueueItem&gt; _queue</definition>
+        <argsstring></argsstring>
+        <name>_queue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="111" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ab5a12fcc1334bef3088f23b74151c8da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EventQueue</definition>
+        <argsstring>()=default</argsstring>
+        <name>EventQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="76" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ad0e827cc427382d5128b395b42c8f1d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~EventQueue</definition>
+        <argsstring>()=default</argsstring>
+        <name>~EventQueue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="77" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a0084bb47a757c85704c7cf2fc6625a60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EventQueue</definition>
+        <argsstring>(const EventQueue &amp;)=delete</argsstring>
+        <name>EventQueue</name>
+        <param>
+          <type>const EventQueue &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="78" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a34715bc61ddebc4e39c30490ba021e4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>EventQueue &amp;</type>
+        <definition>EventQueue&amp; operator=</definition>
+        <argsstring>(const EventQueue &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const EventQueue &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="79" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a88257f7f8d089f847da165a031893501" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const flint::ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="81" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/eventqueue.cpp" bodystart="33" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>DynamicObject</type>
+        <definition>DynamicObject exportObject</definition>
+        <argsstring>() const override</argsstring>
+        <name>exportObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="83" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/eventqueue.cpp" bodystart="66" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a111afc4cf5b0545f090cbdb922e1e380" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void registerEventFactoryFunc</definition>
+        <argsstring>(FactoryFunc func) override</argsstring>
+        <name>registerEventFactoryFunc</name>
+        <param>
+          <type>FactoryFunc</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="85" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1af0326b573ed133e6908f0547290f389d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void registerEventFactoryFunc</definition>
+        <argsstring>(std::function&lt; std::shared_ptr&lt; IFlintData &gt;(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt; func) override</argsstring>
+        <name>registerEventFactoryFunc</name>
+        <param>
+          <type>std::function&lt; std::shared_ptr&lt; IFlintData &gt;(const std::string &amp;, int, const std::string &amp;, const DynamicObject &amp;)&gt;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="87" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ab9ad0b5674a1eae5566da83a8ccd6e47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>EventQueue::iterator begin</definition>
+        <argsstring>() MOJA_NOEXCEPT</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="98" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="114" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a30d8b0aca2c5ea92cd3b80014500d95b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>EventQueue::const_iterator begin</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="99" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="116" bodyend="116"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ab2bfd9a5ae3c8f910ea7ae383b7a7dcc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>EventQueue::iterator end</definition>
+        <argsstring>() MOJA_NOEXCEPT</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="100" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1a73843c20583c998fb0caaaabfb452910" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>EventQueue::const_iterator end</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="101" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="102" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="122" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1aeff34fa99d8d8af122b2c460ad1bb7f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_type</type>
+        <definition>EventQueue::size_type size</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="103" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="124" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1ac294eba73765b9a72a7399d64e8ecd9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void emplace_back</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="105" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="127" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1acd8556780354b67038e9a75d6f4245e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>EventQueue::iterator erase</definition>
+        <argsstring>(const_iterator position)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const_iterator</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="107" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueue_1aa9afccb0a145c0fa1e66fb0e707e2467" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>EventQueue::iterator erase</definition>
+        <argsstring>(const_iterator first, const_iterator last)</argsstring>
+        <name>erase</name>
+        <param>
+          <type>const_iterator</type>
+          <declname>first</declname>
+        </param>
+        <param>
+          <type>const_iterator</type>
+          <declname>last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="108" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="133" bodyend="135"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="70" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="70" bodyend="112"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1adfee2b682e10cfe1a2bfdc2cfc673e9a" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>_eventFactoryMethods</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a801e85edb640315d9378d54f6ed7a3a7" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>_eventFactoryMethodsNew</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ab67140baf5d6d50391bbd00680708319" prot="private" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>_queue</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ab9ad0b5674a1eae5566da83a8ccd6e47" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a30d8b0aca2c5ea92cd3b80014500d95b" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>clear</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a88257f7f8d089f847da165a031893501" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a0affd295c6b886fb09bad228ec3555f6" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::EventQueue</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ac294eba73765b9a72a7399d64e8ecd9a" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>emplace_back</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ab2bfd9a5ae3c8f910ea7ae383b7a7dcc" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a73843c20583c998fb0caaaabfb452910" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1acd8556780354b67038e9a75d6f4245e9" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>erase</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1aa9afccb0a145c0fa1e66fb0e707e2467" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>erase</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ab5a12fcc1334bef3088f23b74151c8da" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>EventQueue</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a0084bb47a757c85704c7cf2fc6625a60" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>EventQueue</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a138d2e289874ee66afb80795eef027d1" prot="public" virt="virtual"><scope>moja::flint::EventQueue</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a0c5a183d4994cdf51a5af623b1021c16" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a34715bc61ddebc4e39c30490ba021e4a" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1a111afc4cf5b0545f090cbdb922e1e380" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1af0326b573ed133e6908f0547290f389d" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1aeff34fa99d8d8af122b2c460ad1bb7f1" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>size</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ace86ed5c0760bd386d35de30503df89b" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>size_type</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::EventQueue</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueue_1ad0e827cc427382d5128b395b42c8f1d2" prot="public" virt="virtual"><scope>moja::flint::EventQueue</scope><name>~EventQueue</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::EventQueue</scope><name>~IFlintData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

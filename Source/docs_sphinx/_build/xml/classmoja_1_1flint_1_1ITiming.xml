@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1ITiming" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::ITiming</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1Timing" prot="public" virt="non-virtual">Timing</derivedcompoundref>
+    <includes refid="itiming_8h" local="no">itiming.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1aca3fb3611e570449cc8dd48bd9208567" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~ITiming</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ITiming</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="14" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a61a309e13eba52aeba5dee3ad49afe75" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>TimeStepping</type>
+        <definition>virtual TimeStepping stepping</definition>
+        <argsstring>() const =0</argsstring>
+        <name>stepping</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="16" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ab5be7e5a13ea77d59aac45d21dceb6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void init</definition>
+        <argsstring>()=0</argsstring>
+        <name>init</name>
+        <briefdescription>
+<para>Prepares the timing object for use. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><verbatim>         Generally only the start and end dates are set; calling this
+         method prepares the other member variables for simulation. &lt;/summary&gt;
+</verbatim> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="24" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a77337ee7d2dd9886dd3d7e2e8d30a50d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime startDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>startDate</name>
+        <briefdescription>
+<para>The start date of the simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="29" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a1733ca1deffe93d52cc15729bfe8cbc6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime endDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>endDate</name>
+        <briefdescription>
+<para>The end date of the simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="34" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ab304f8b2688d7cd7be9343486896c266" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime startStepDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>startStepDate</name>
+        <briefdescription>
+<para>The start date of the current timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="39" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a0d082318d9b90e6cdd7913f6a13fcfee" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime endStepDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>endStepDate</name>
+        <briefdescription>
+<para>The end date of the current timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="44" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ae1e6ec46570fda1879ac7bebfcbaeabf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime curStartDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>curStartDate</name>
+        <briefdescription>
+<para>Same as startStepDate if fracOfStep = 1, else the start date of the fractional timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="50" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a79fc2446cccbf6cf9700750abb0bcb46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>virtual DateTime curEndDate</definition>
+        <argsstring>() const =0</argsstring>
+        <name>curEndDate</name>
+        <briefdescription>
+<para>Same as endStepDate if fracOfStep = 1, else the end date of the fractional timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="56" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1af02e9976e2b336fc3c0ae087df3cbfb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double fractionOfStep</definition>
+        <argsstring>() const =0</argsstring>
+        <name>fractionOfStep</name>
+        <briefdescription>
+<para>The fraction of the timestep currently being processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="61" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a01f09edd0113b7f8506f871e18b13c98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double stepLengthInYears</definition>
+        <argsstring>() const =0</argsstring>
+        <name>stepLengthInYears</name>
+        <briefdescription>
+<para>The length of a full timestep in years. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="66" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a585ca73af3a10b21b6fad6e481de13c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int nSteps</definition>
+        <argsstring>() const =0</argsstring>
+        <name>nSteps</name>
+        <briefdescription>
+<para>The number of timesteps in the simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="71" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a73518f5f9c1eb5ee126c1c9bb37b7aea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int step</definition>
+        <argsstring>() const =0</argsstring>
+        <name>step</name>
+        <briefdescription>
+<para>The current timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="76" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ab0643ce438ae6c7c8269d6f1e287bde2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int subStep</definition>
+        <argsstring>() const =0</argsstring>
+        <name>subStep</name>
+        <briefdescription>
+<para>The current sub-timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="81" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a09ab025ab06e6e2ed3e2161824ff8ad3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool isFullStep</definition>
+        <argsstring>() const =0</argsstring>
+        <name>isFullStep</name>
+        <briefdescription>
+<para>True if this is a full timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="86" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a38bd717e1f6458506672db4a34994118" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setStartDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setStartDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the simulation start date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="91" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ae9ffadedc16ec986f80d468f2c6297a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setEndDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setEndDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the simulation end date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="96" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1af07981ef66edf00b4dededfc32ab39af" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setStartStepDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setStartStepDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current timestep start date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="101" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a208c9abd45a2ab56aa5e889d96977707" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setEndStepDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setEndStepDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current timestep end date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="106" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ab2721d20046b562f0aaf268905a2b8d9" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setCurStartDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setCurStartDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current fractional timestep start date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="111" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a6329ea4d32a548136533028172c03022" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setCurEndDate</definition>
+        <argsstring>(DateTime val)=0</argsstring>
+        <name>setCurEndDate</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current fractional timestep end date. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="116" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1ae25ad9baa2dfd6db7cb28766a5a4a8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setFractionOfStep</definition>
+        <argsstring>(double val)=0</argsstring>
+        <name>setFractionOfStep</name>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the fraction of the current timestep being processed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="121" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a781660d33a7218b96dba23d40d2a6eb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setStepLengthInYears</definition>
+        <argsstring>(double val)=0</argsstring>
+        <name>setStepLengthInYears</name>
+        <param>
+          <type>double</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the simulation timestep length in years. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="126" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1aaa0b71748b005b5c6004fb556af3d467" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setStep</definition>
+        <argsstring>(int val)=0</argsstring>
+        <name>setStep</name>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets the current timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="131" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a98e86a007f7bfa3e98a735d334cfd62a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setSubStep</definition>
+        <argsstring>(int val)=0</argsstring>
+        <name>setSubStep</name>
+        <param>
+          <type>int</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets current sub-timestep. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="136" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a571e48d3cf1677ab3d6b39234ba92f72" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setIsFullStep</definition>
+        <argsstring>(bool val)=0</argsstring>
+        <name>setIsFullStep</name>
+        <param>
+          <type>bool</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+<para>Sets whether or not the current timestep is a full timestep (true) or a fractional timestep (false). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="142" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITiming_1a2b5e8286bea363fda843209e12ec69ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setStepping</definition>
+        <argsstring>(TimeStepping stepping)=0</argsstring>
+        <name>setStepping</name>
+        <param>
+          <type>TimeStepping</type>
+          <declname>stepping</declname>
+        </param>
+        <briefdescription>
+<para>Sets the stepping period of the simulation. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="147" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Timing configuration and state for simulations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itiming.h" bodystart="12" bodyend="148"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a79fc2446cccbf6cf9700750abb0bcb46" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>curEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ae1e6ec46570fda1879ac7bebfcbaeabf" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>curStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a1733ca1deffe93d52cc15729bfe8cbc6" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>endDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a0d082318d9b90e6cdd7913f6a13fcfee" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>endStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1af02e9976e2b336fc3c0ae087df3cbfb3" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>fractionOfStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ab5be7e5a13ea77d59aac45d21dceb6a0" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>init</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a09ab025ab06e6e2ed3e2161824ff8ad3" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>isFullStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a585ca73af3a10b21b6fad6e481de13c6" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>nSteps</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a6329ea4d32a548136533028172c03022" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setCurEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ab2721d20046b562f0aaf268905a2b8d9" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setCurStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ae9ffadedc16ec986f80d468f2c6297a6" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setEndDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a208c9abd45a2ab56aa5e889d96977707" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setEndStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ae25ad9baa2dfd6db7cb28766a5a4a8bb" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setFractionOfStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a571e48d3cf1677ab3d6b39234ba92f72" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setIsFullStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a38bd717e1f6458506672db4a34994118" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setStartDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1af07981ef66edf00b4dededfc32ab39af" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setStartStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1aaa0b71748b005b5c6004fb556af3d467" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a781660d33a7218b96dba23d40d2a6eb1" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setStepLengthInYears</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a2b5e8286bea363fda843209e12ec69ec" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setStepping</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a98e86a007f7bfa3e98a735d334cfd62a" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>setSubStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a77337ee7d2dd9886dd3d7e2e8d30a50d" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>startDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ab304f8b2688d7cd7be9343486896c266" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>startStepDate</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a73518f5f9c1eb5ee126c1c9bb37b7aea" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>step</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a01f09edd0113b7f8506f871e18b13c98" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>stepLengthInYears</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1a61a309e13eba52aeba5dee3ad49afe75" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>stepping</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1ab0643ce438ae6c7c8269d6f1e287bde2" prot="public" virt="pure-virtual"><scope>moja::flint::ITiming</scope><name>subStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ITiming_1aca3fb3611e570449cc8dd48bd9208567" prot="public" virt="virtual"><scope>moja::flint::ITiming</scope><name>~ITiming</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

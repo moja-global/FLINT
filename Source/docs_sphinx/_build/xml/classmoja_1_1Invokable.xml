@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Invokable" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::Invokable</compoundname>
+    <basecompoundref refid="classmoja_1_1BaseDelegate" prot="public" virt="non-virtual">BaseDelegate</basecompoundref>
+    <derivedcompoundref refid="classmoja_1_1Delegate_3_01R_07_5_08_07Params_8_8_8_08_4" prot="public" virt="non-virtual">Delegate&lt; R(*)(Params...)&gt;</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_01const_01_4" prot="public" virt="non-virtual">Delegate&lt; R(T::*)(Params...) const &gt;</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_4" prot="public" virt="non-virtual">Delegate&lt; R(T::*)(Params...)&gt;</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename R</type>
+      </param>
+      <param>
+        <type>typename...</type>
+        <declname>Params</declname>
+        <defname>Params</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Invokable_1af700e673606a8145a06f61165a6a8005" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~Invokable</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Invokable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="326" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Invokable_1a676306e726489b4a60728c25731bc571" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>R</type>
+        <definition>virtual R invoke</definition>
+        <argsstring>(Params... args) const =0</argsstring>
+        <name>invoke</name>
+        <param>
+          <type>Params...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="327" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Invokable_1a0c0d940b252ff965e64fe868805d7e3f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>R</type>
+        <definition>virtual R operator()</definition>
+        <argsstring>(Params... args) const =0</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>Params...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="328" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Invokable&lt; R, Params &gt;</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BaseDelegate</label>
+        <link refid="classmoja_1_1BaseDelegate"/>
+      </node>
+      <node id="3">
+        <label>Delegate&lt; R(*)(Params...)&gt;</label>
+        <link refid="classmoja_1_1Delegate_3_01R_07_5_08_07Params_8_8_8_08_4"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Delegate&lt; R(T::*)(Params...) const &gt;</label>
+        <link refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_01const_01_4"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Delegate&lt; R(T::*)(Params...)&gt;</label>
+        <link refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_4"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Invokable&lt; R, Params &gt;</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>BaseDelegate</label>
+        <link refid="classmoja_1_1BaseDelegate"/>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="324" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="324" bodyend="329"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1BaseDelegate_1ac6c9b3f9f517e61ae40beb6fba19cc83" prot="protected" virt="non-virtual"><scope>moja::Invokable</scope><name>BaseDelegate</name></member>
+      <member refid="classmoja_1_1Invokable_1a676306e726489b4a60728c25731bc571" prot="public" virt="pure-virtual"><scope>moja::Invokable</scope><name>invoke</name></member>
+      <member refid="classmoja_1_1Invokable_1a0c0d940b252ff965e64fe868805d7e3f" prot="public" virt="pure-virtual"><scope>moja::Invokable</scope><name>operator()</name></member>
+      <member refid="classmoja_1_1BaseDelegate_1a3f14291b1483666feb2b405b8f66f629" prot="public" virt="pure-virtual"><scope>moja::Invokable</scope><name>type</name></member>
+      <member refid="classmoja_1_1BaseDelegate_1ac142f01b4ba6963648e22de61845bc4b" prot="public" virt="virtual"><scope>moja::Invokable</scope><name>~BaseDelegate</name></member>
+      <member refid="classmoja_1_1Invokable_1af700e673606a8145a06f61165a6a8005" prot="public" virt="virtual"><scope>moja::Invokable</scope><name>~Invokable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="ivariable_8h" kind="file" language="C++">
+    <compoundname>ivariable.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes refid="dynamic_8h" local="no">moja/dynamic.h</includes>
+    <includes local="no">string</includes>
+    <includedby refid="aggregatorfilewriter_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp</includedby>
+    <includedby refid="aggregatorlandunit_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/aggregatorlandunit.cpp</includedby>
+    <includedby refid="calendarandeventflintdatasequencer_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/calendarandeventflintdatasequencer.cpp</includedby>
+    <includedby refid="calendarandeventsequencer_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/calendarandeventsequencer.cpp</includedby>
+    <includedby refid="compositetransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp</includedby>
+    <includedby refid="errorscreenwriter_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/errorscreenwriter.cpp</includedby>
+    <includedby refid="landunitcontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/landunitcontroller.cpp</includedby>
+    <includedby refid="landunitdatawrapper_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp</includedby>
+    <includedby refid="locationfromflintdatatransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/locationfromflintdatatransform.cpp</includedby>
+    <includedby refid="locationidxfromflintdatatransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/locationidxfromflintdatatransform.cpp</includedby>
+    <includedby refid="locationidxtransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp</includedby>
+    <includedby refid="locationtransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/locationtransform.cpp</includedby>
+    <includedby refid="lookuprandomtransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/lookuprandomtransform.cpp</includedby>
+    <includedby refid="lookuptransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/lookuptransform.cpp</includedby>
+    <includedby refid="proxymodule_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/proxymodule.cpp</includedby>
+    <includedby refid="spatialtiledlocaldomaincontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp</includedby>
+    <includedby refid="spinuplandunitcontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/spinuplandunitcontroller.cpp</includedby>
+    <includedby refid="sqlquerytransform_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/sqlquerytransform.cpp</includedby>
+    <includedby refid="testmodule_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/testmodule.cpp</includedby>
+    <includedby refid="variableandpoolstringbuilder_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp</includedby>
+    <includedby refid="writevariablegrid_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp</includedby>
+    <includedby refid="externalvariable_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/externalvariable.h</includedby>
+    <includedby refid="flintdatavariable_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h</includedby>
+    <includedby refid="variable_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variable.h</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ivariable.h</label>
+        <link refid="ivariable_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h</label>
+        <link refid="flintdatavariable_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ivariable.h</label>
+        <link refid="ivariable_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variable.h</label>
+        <link refid="variable_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/externalvariable.h</label>
+        <link refid="externalvariable_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structmoja_1_1flint_1_1VariableInfo" prot="public">moja::flint::VariableInfo</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1IVariable" prot="public">moja::flint::IVariable</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_IVARIABLE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_IVARIABLE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/dynamic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">VariableInfo<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>name;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>IVariable<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~IVariable()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VariableInfo&amp;<sp/>info()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicVar&amp;<sp/>value()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>set_value(DynamicVar<sp/>value)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>value()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>value().extract&lt;T&gt;();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>reset_value()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isExternal()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isFlintData()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_IVARIABLE_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ivariable.h"/>
+  </compounddef>
+</doxygen>

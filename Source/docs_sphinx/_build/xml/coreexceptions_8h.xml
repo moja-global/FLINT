@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="coreexceptions_8h" kind="file" language="C++">
+    <compoundname>coreexceptions.h</compoundname>
+    <includes local="yes">_core_exports.h</includes>
+    <includes local="no">boost/exception/all.hpp</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">string</includes>
+    <includedby refid="pocojsonutils_8cpp" local="yes">/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>boost/exception/all.hpp</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h</label>
+        <link refid="coreexceptions_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>_core_exports.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structmoja_1_1CoreException" prot="public">moja::CoreException</innerclass>
+    <innerclass refid="structmoja_1_1CoreAssertionViolationException" prot="public">moja::CoreAssertionViolationException</innerclass>
+    <innerclass refid="structmoja_1_1CoreFileNotFoundException" prot="public">moja::CoreFileNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1CoreNotImplementedException" prot="public">moja::CoreNotImplementedException</innerclass>
+    <innerclass refid="structmoja_1_1CoreUnhandledType" prot="public">moja::CoreUnhandledType</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_CORE_COREEXCEPTIONS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_CORE_COREEXCEPTIONS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;_core_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/exception/all.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CORE_API<sp/>CoreException<sp/>:<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::exception,<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>boost::exception<sp/>{};</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CORE_API<sp/>CoreAssertionViolationException<sp/>:<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CoreException<sp/>{};</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::error_info&lt;struct<sp/>tag_assert_msg,<sp/>std::string&gt;<sp/>AssertMsg;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CORE_API<sp/>CoreFileNotFoundException<sp/>:<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CoreException<sp/>{};</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::error_info&lt;struct<sp/>tag_filename,<sp/>std::string&gt;<sp/>FileName;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CORE_API<sp/>CoreNotImplementedException<sp/>:<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CoreException<sp/>{};</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::error_info&lt;struct<sp/>tag_message,<sp/>std::string&gt;<sp/>Message;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">CORE_API<sp/>CoreUnhandledType<sp/>:<sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>CoreException<sp/>{};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>boost::error_info&lt;struct<sp/>tag_message,<sp/>std::string&gt;<sp/>TypeErrorMsg;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_CORE_COREEXCEPTIONS_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h"/>
+  </compounddef>
+</doxygen>

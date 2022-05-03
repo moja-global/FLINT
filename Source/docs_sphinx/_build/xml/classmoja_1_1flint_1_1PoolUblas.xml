@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1PoolUblas" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::PoolUblas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IPool</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolUblas_1a6f4139c54a5a51144bac2c838cb51f58" prot="protected" static="no" mutable="no">
+        <type>PoolMetaData</type>
+        <definition>PoolMetaData _metadata</definition>
+        <argsstring></argsstring>
+        <name>_metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="35" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolUblas_1a02b730af2d4d6778f209db61c9fc38b9" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _idx</definition>
+        <argsstring></argsstring>
+        <name>_idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="37" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolUblas_1a1f0b6a84960e45d561014b42261a64e5" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _initValue</definition>
+        <argsstring></argsstring>
+        <name>_initValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="38" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolUblas_1a1de73e36f54e83627530bfc0c5079f94" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _initialised</definition>
+        <argsstring></argsstring>
+        <name>_initialised</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="39" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolUblas_1af5ed85044f5c06c52a32dd23d349279e" prot="protected" static="no" mutable="no">
+        <type>moja_ublas_vector *</type>
+        <definition>moja_ublas_vector* _pools</definition>
+        <argsstring></argsstring>
+        <name>_pools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="41" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1aec166b5dadea96ec421a18d6ece843e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PoolUblas</definition>
+        <argsstring>()=delete</argsstring>
+        <name>PoolUblas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="15" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a3531f2947fa2dfc54c90fbe042d8fb01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PoolUblas</definition>
+        <argsstring>(moja_ublas_vector &amp;pools, const std::string &amp;name, int idx, double value)</argsstring>
+        <name>PoolUblas</name>
+        <param>
+          <type>moja_ublas_vector &amp;</type>
+          <declname>pools</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="16" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="8" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1aa258b053b681c13b58b5680078c2187d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>PoolUblas</definition>
+        <argsstring>(moja_ublas_vector &amp;pools, const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order, int idx, double value)</argsstring>
+        <name>PoolUblas</name>
+        <param>
+          <type>moja_ublas_vector &amp;</type>
+          <declname>pools</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="17" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="13" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a7219dfa36342d6527b2f15cd3c3edb00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~PoolUblas</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PoolUblas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="19" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a8a0d2b7dfdad1504296ddb6685bd4b30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="21" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1af2755b1fab9011e948271bde97f2c59a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; description</definition>
+        <argsstring>() const override</argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="22" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1aa05ee5b4ba397b186533f5edf65f565b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; units</definition>
+        <argsstring>() const override</argsstring>
+        <name>units</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="23" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1ab0d07e60e27b4b98cce765c25f52fa3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double scale</definition>
+        <argsstring>() const override</argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="24" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a6b02056b9a85fb4395f012634d4eaed6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int order</definition>
+        <argsstring>() const override</argsstring>
+        <name>order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="25" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1ad671bbb78a9724ac34b371fcc14c4cb3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double initValue</definition>
+        <argsstring>() const override</argsstring>
+        <name>initValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="26" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1aeb92bb16e0563ab5dd738f9fcf2dd697" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int idx</definition>
+        <argsstring>() const override</argsstring>
+        <name>idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="27" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a01c9d78cc392d65c39abfde165014648" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="29" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="37" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1a287a01c3e13d011ff895abb31c658488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_value</definition>
+        <argsstring>(double value) override</argsstring>
+        <name>set_value</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolUblas_1ad72eef1561c7a53b19b048397d4ef570" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init</definition>
+        <argsstring>() override</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolublas.cpp" bodystart="46" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h" bodystart="13" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a02b730af2d4d6778f209db61c9fc38b9" prot="protected" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>_idx</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a1de73e36f54e83627530bfc0c5079f94" prot="protected" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>_initialised</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a1f0b6a84960e45d561014b42261a64e5" prot="protected" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>_initValue</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a6f4139c54a5a51144bac2c838cb51f58" prot="protected" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>_metadata</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1af5ed85044f5c06c52a32dd23d349279e" prot="protected" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>_pools</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1af2755b1fab9011e948271bde97f2c59a" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>description</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1aeb92bb16e0563ab5dd738f9fcf2dd697" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>idx</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1ad72eef1561c7a53b19b048397d4ef570" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>init</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1ad671bbb78a9724ac34b371fcc14c4cb3" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>initValue</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1ae5579fb258a1cfe7fd7b3069a8aae17b" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>IPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a93ca05a5fa1229801c7ecfdd466939c2" prot="public" virt="virtual"><scope>moja::flint::PoolUblas</scope><name>metadata</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a8a0d2b7dfdad1504296ddb6685bd4b30" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>name</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a6b02056b9a85fb4395f012634d4eaed6" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>order</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1aec166b5dadea96ec421a18d6ece843e0" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>PoolUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a3531f2947fa2dfc54c90fbe042d8fb01" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>PoolUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1aa258b053b681c13b58b5680078c2187d" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>PoolUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1ab0d07e60e27b4b98cce765c25f52fa3a" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>scale</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a287a01c3e13d011ff895abb31c658488" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>set_value</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1aa05ee5b4ba397b186533f5edf65f565b" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>units</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a01c9d78cc392d65c39abfde165014648" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a3a1e2b41e6964d3bec4bfc9dcf8bf20e" prot="public" virt="virtual"><scope>moja::flint::PoolUblas</scope><name>~IPool</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolUblas_1a7219dfa36342d6527b2f15cd3c3edb00" prot="public" virt="non-virtual"><scope>moja::flint::PoolUblas</scope><name>~PoolUblas</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

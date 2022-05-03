@@ -1,0 +1,958 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Timespan" kind="class" language="C++" prot="public">
+    <compoundname>moja::Timespan</compoundname>
+    <includes refid="timespan_8h" local="no">timespan.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Timespan_1a75dd90b8643d486a5fbad7c6016ec730" prot="private" static="no" mutable="no">
+        <type>std::chrono::microseconds</type>
+        <definition>std::chrono::microseconds _span</definition>
+        <argsstring></argsstring>
+        <name>_span</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="180" column="30" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a2dd29f1a81f1e93b7ad7b645c17232bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timespan</definition>
+        <argsstring>()</argsstring>
+        <name>Timespan</name>
+        <briefdescription>
+<para>Creates a zero <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="14" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="8" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1adf7128e7f501b102c3198dc9e9fa2b55" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timespan</definition>
+        <argsstring>(std::chrono::microseconds microseconds)</argsstring>
+        <name>Timespan</name>
+        <param>
+          <type>std::chrono::microseconds</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> for a specified number of microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="19" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a5b5a59d0dc962f0c76b4e9f544ac89a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timespan</definition>
+        <argsstring>(long seconds, long microseconds)</argsstring>
+        <name>Timespan</name>
+        <param>
+          <type>long</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. Useful for creating a <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> from a struct timeval. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The seconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="27" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="12" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ab4e76314531c4353ab3ff27ee59246ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timespan</definition>
+        <argsstring>(int days, int hours, int minutes, int seconds=0, int microseconds=0)</argsstring>
+        <name>Timespan</name>
+        <param>
+          <type>int</type>
+          <declname>days</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hours</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minutes</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>seconds</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>microseconds</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>days</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The days. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hours</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hours. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minutes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minutes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the seconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="38" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a8e6d884c19af6df23623e815f9cdb67d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Timespan</definition>
+        <argsstring>(const Timespan &amp;timespan)</argsstring>
+        <name>Timespan</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>timespan</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> from another one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timespan</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The target timespan. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="45" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ab5de966c139812cf5368bfe8f0d2d887" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Timespan</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Timespan</name>
+        <briefdescription>
+<para>Destroys the <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="48" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1aec03ed9fcb9723e8e81506cadbd74c85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; operator=</definition>
+        <argsstring>(const Timespan &amp;timespan)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>timespan</declname>
+        </param>
+        <briefdescription>
+<para>Assigns this <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> the value of another <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="53" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a15b616e57dd529c61f05c811a3b1c7b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; assign</definition>
+        <argsstring>(int days, int hours, int minutes, int seconds, int microseconds)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>int</type>
+          <declname>days</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hours</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minutes</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Assigns this <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> a new value from a number of microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assigns new values to the <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>days</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The days. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hours</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hours. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minutes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The minutes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The seconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to the <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="71" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ab78510a3047c7bbaee6ec104fa61b3a8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; assign</definition>
+        <argsstring>(long seconds, long microseconds)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>long</type>
+          <declname>seconds</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Assigns a new span. Useful for assigning from a struct timeval. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The seconds. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The microseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to the <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="81" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1aaf0d652c9db9a7f4966d674a86ab3fa4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void swap</definition>
+        <argsstring>(Timespan &amp;timespan) MOJA_NOEXCEPT</argsstring>
+        <name>swap</name>
+        <param>
+          <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>timespan</declname>
+        </param>
+        <briefdescription>
+<para>Swaps the <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> with another one. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timespan</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new timespan. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="88" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ae84891ddbade5c1a7dc42558bc023d13" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="90" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="222" bodyend="222"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a7ca3107b726365bb20b70bce15eca9c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="91" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="224" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a00732aa46087f9ff0def38da792d50a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="92" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="226" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a13306c41c18c209a20786f9149492497" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;=</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="93" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ae7ed78b7b33e8d556ce8aeff46fb2749" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="94" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="230" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a19c05edb59a77d9c083033f16832333b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;=</definition>
+        <argsstring>(const Timespan &amp;ts) const</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="95" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="232" bodyend="232"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1af0c0c4aed26eef74536fc30fb332e215" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref></type>
+        <definition>Timespan operator+</definition>
+        <argsstring>(const Timespan &amp;d) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="97" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a10433e258bba4e722c1683aa769ccf46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref></type>
+        <definition>Timespan operator-</definition>
+        <argsstring>(const Timespan &amp;d) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="98" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ad08a656c69fe27b00a6154439444bd81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; operator+=</definition>
+        <argsstring>(const Timespan &amp;d)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="99" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1aaac80c1826b6c8b22bb644568c79706e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; operator-=</definition>
+        <argsstring>(const Timespan &amp;d)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="100" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1aacb0ef8bbbc88affa7afae54230042ea" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="102" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="234" bodyend="234"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a7e791ea9ed345323beb8c4ec4b66be7f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="103" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="236" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a7a959f508b72f589b445ea458a53ad7a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="104" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="238" bodyend="238"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ae398d2d3256c6594776b3653a01fb4b9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;=</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="105" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="240" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ad9788b3c438d380dc3f179a305246f97" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="106" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="242" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ac635bfcee98b68762fa9001602110054" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;=</definition>
+        <argsstring>(const std::chrono::microseconds &amp;ts) const</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="107" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="244" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1abaacce484ba5fb3ee560cdb6e34355fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref></type>
+        <definition>Timespan operator+</definition>
+        <argsstring>(const std::chrono::microseconds &amp;d) const</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="109" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a031d041dd35487d06c1e93af067a9f6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref></type>
+        <definition>Timespan operator-</definition>
+        <argsstring>(const std::chrono::microseconds &amp;d) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="110" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1ac45ee369a91043ab5ff7d20e2fe731cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; operator+=</definition>
+        <argsstring>(const std::chrono::microseconds &amp;d)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="111" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="64" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a6e511de9016fda24a5b592f39b6b7556" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+        <definition>Timespan &amp; operator-=</definition>
+        <argsstring>(const std::chrono::microseconds &amp;d)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const std::chrono::microseconds &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="112" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="69" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a45d1fa180402efcbfdcdaceb2723bb23" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int days</definition>
+        <argsstring>() const</argsstring>
+        <name>days</name>
+        <briefdescription>
+<para>Returns the number of days. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="117" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a9af26ff9e6f8f31e68b5e692a5623997" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalDays</definition>
+        <argsstring>() const</argsstring>
+        <name>totalDays</name>
+        <briefdescription>
+<para>Returns the total number of days. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="122" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/src/timespan.cpp" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a55fe533db50df16eb973aaf5c564d628" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int hours</definition>
+        <argsstring>() const</argsstring>
+        <name>hours</name>
+        <briefdescription>
+<para>Returns the number of hours (0 to 23). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="127" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="183" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1aa67a742eb593dbb1f325d0bb2cd851a0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalHours</definition>
+        <argsstring>() const</argsstring>
+        <name>totalHours</name>
+        <briefdescription>
+<para>Returns the total number of hours. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="132" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="185" bodyend="188"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a508560433a1952ae978cc69c71a05574" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int minutes</definition>
+        <argsstring>() const</argsstring>
+        <name>minutes</name>
+        <briefdescription>
+<para>Returns the number of minutes (0 to 59). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="137" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="190" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a2df1f3684bd1046858e71272cd7ef5a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalMinutes</definition>
+        <argsstring>() const</argsstring>
+        <name>totalMinutes</name>
+        <briefdescription>
+<para>Returns the total number of minutes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="142" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="192" bodyend="195"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a1e5448cf3f94432a98b3936a1a1c0566" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalSeconds</definition>
+        <argsstring>() const</argsstring>
+        <name>totalSeconds</name>
+        <briefdescription>
+<para>Returns the total number of seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="147" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="201" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a7f05adc16e8ab4f01a89482faab1ea5a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>long long</type>
+        <definition>long long seconds</definition>
+        <argsstring>() const</argsstring>
+        <name>seconds</name>
+        <briefdescription>
+<para>Returns the number of seconds (0 to 59). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="152" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="197" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a1dd6dbb3506841f0f906073ae8f80c64" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>long long</type>
+        <definition>long long milliseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>milliseconds</name>
+        <briefdescription>
+<para>Returns the number of milliseconds (0 to 999). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="157" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="206" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a83aa0ac7fff1e8b7d3307d92c3d260d8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalMilliseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>totalMilliseconds</name>
+        <briefdescription>
+<para>Returns the total number of milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="162" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a7187720bff6dc123ff33a5dff0c1599b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>long long</type>
+        <definition>long long microseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>microseconds</name>
+        <briefdescription>
+<para>Returns the fractions of a millisecond in microseconds (0 to 999). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="167" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="215" bodyend="215"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1afd68224682bbf304085a2a35eaf48098" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double totalMicroseconds</definition>
+        <argsstring>() const</argsstring>
+        <name>totalMicroseconds</name>
+        <briefdescription>
+<para>Returns the total number of milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="172" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="217" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Timespan_1a4efe8c3d8655a2659d67832d1e26bb09" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::chrono::microseconds</type>
+        <definition>std::chrono::microseconds duration</definition>
+        <argsstring>() const</argsstring>
+        <name>duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="174" column="30" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="174" bodyend="174"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class that represents time spans up to microsecond resolution. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="11" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="11" bodyend="181"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Timespan_1a75dd90b8643d486a5fbad7c6016ec730" prot="private" virt="non-virtual"><scope>moja::Timespan</scope><name>_span</name></member>
+      <member refid="classmoja_1_1Timespan_1a15b616e57dd529c61f05c811a3b1c7b5" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>assign</name></member>
+      <member refid="classmoja_1_1Timespan_1ab78510a3047c7bbaee6ec104fa61b3a8" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>assign</name></member>
+      <member refid="classmoja_1_1Timespan_1a45d1fa180402efcbfdcdaceb2723bb23" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>days</name></member>
+      <member refid="classmoja_1_1Timespan_1a4efe8c3d8655a2659d67832d1e26bb09" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>duration</name></member>
+      <member refid="classmoja_1_1Timespan_1a55fe533db50df16eb973aaf5c564d628" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>hours</name></member>
+      <member refid="classmoja_1_1Timespan_1a7187720bff6dc123ff33a5dff0c1599b" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>microseconds</name></member>
+      <member refid="classmoja_1_1Timespan_1a1dd6dbb3506841f0f906073ae8f80c64" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>milliseconds</name></member>
+      <member refid="classmoja_1_1Timespan_1a508560433a1952ae978cc69c71a05574" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>minutes</name></member>
+      <member refid="classmoja_1_1Timespan_1a7ca3107b726365bb20b70bce15eca9c6" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator!=</name></member>
+      <member refid="classmoja_1_1Timespan_1a7e791ea9ed345323beb8c4ec4b66be7f" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator!=</name></member>
+      <member refid="classmoja_1_1Timespan_1af0c0c4aed26eef74536fc30fb332e215" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator+</name></member>
+      <member refid="classmoja_1_1Timespan_1abaacce484ba5fb3ee560cdb6e34355fe" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator+</name></member>
+      <member refid="classmoja_1_1Timespan_1ad08a656c69fe27b00a6154439444bd81" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator+=</name></member>
+      <member refid="classmoja_1_1Timespan_1ac45ee369a91043ab5ff7d20e2fe731cf" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator+=</name></member>
+      <member refid="classmoja_1_1Timespan_1a10433e258bba4e722c1683aa769ccf46" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator-</name></member>
+      <member refid="classmoja_1_1Timespan_1a031d041dd35487d06c1e93af067a9f6b" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator-</name></member>
+      <member refid="classmoja_1_1Timespan_1aaac80c1826b6c8b22bb644568c79706e" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator-=</name></member>
+      <member refid="classmoja_1_1Timespan_1a6e511de9016fda24a5b592f39b6b7556" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator-=</name></member>
+      <member refid="classmoja_1_1Timespan_1ae7ed78b7b33e8d556ce8aeff46fb2749" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&lt;</name></member>
+      <member refid="classmoja_1_1Timespan_1ad9788b3c438d380dc3f179a305246f97" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&lt;</name></member>
+      <member refid="classmoja_1_1Timespan_1a19c05edb59a77d9c083033f16832333b" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&lt;=</name></member>
+      <member refid="classmoja_1_1Timespan_1ac635bfcee98b68762fa9001602110054" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&lt;=</name></member>
+      <member refid="classmoja_1_1Timespan_1aec03ed9fcb9723e8e81506cadbd74c85" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1Timespan_1ae84891ddbade5c1a7dc42558bc023d13" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1Timespan_1aacb0ef8bbbc88affa7afae54230042ea" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1Timespan_1a00732aa46087f9ff0def38da792d50a2" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&gt;</name></member>
+      <member refid="classmoja_1_1Timespan_1a7a959f508b72f589b445ea458a53ad7a" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&gt;</name></member>
+      <member refid="classmoja_1_1Timespan_1a13306c41c18c209a20786f9149492497" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&gt;=</name></member>
+      <member refid="classmoja_1_1Timespan_1ae398d2d3256c6594776b3653a01fb4b9" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>operator&gt;=</name></member>
+      <member refid="classmoja_1_1Timespan_1a7f05adc16e8ab4f01a89482faab1ea5a" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>seconds</name></member>
+      <member refid="classmoja_1_1Timespan_1aaf0d652c9db9a7f4966d674a86ab3fa4" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>swap</name></member>
+      <member refid="classmoja_1_1Timespan_1a2dd29f1a81f1e93b7ad7b645c17232bc" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>Timespan</name></member>
+      <member refid="classmoja_1_1Timespan_1adf7128e7f501b102c3198dc9e9fa2b55" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>Timespan</name></member>
+      <member refid="classmoja_1_1Timespan_1a5b5a59d0dc962f0c76b4e9f544ac89a3" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>Timespan</name></member>
+      <member refid="classmoja_1_1Timespan_1ab4e76314531c4353ab3ff27ee59246ed" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>Timespan</name></member>
+      <member refid="classmoja_1_1Timespan_1a8e6d884c19af6df23623e815f9cdb67d" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>Timespan</name></member>
+      <member refid="classmoja_1_1Timespan_1a9af26ff9e6f8f31e68b5e692a5623997" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalDays</name></member>
+      <member refid="classmoja_1_1Timespan_1aa67a742eb593dbb1f325d0bb2cd851a0" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalHours</name></member>
+      <member refid="classmoja_1_1Timespan_1afd68224682bbf304085a2a35eaf48098" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalMicroseconds</name></member>
+      <member refid="classmoja_1_1Timespan_1a83aa0ac7fff1e8b7d3307d92c3d260d8" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalMilliseconds</name></member>
+      <member refid="classmoja_1_1Timespan_1a2df1f3684bd1046858e71272cd7ef5a3" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalMinutes</name></member>
+      <member refid="classmoja_1_1Timespan_1a1e5448cf3f94432a98b3936a1a1c0566" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>totalSeconds</name></member>
+      <member refid="classmoja_1_1Timespan_1ab5de966c139812cf5368bfe8f0d2d887" prot="public" virt="non-virtual"><scope>moja::Timespan</scope><name>~Timespan</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

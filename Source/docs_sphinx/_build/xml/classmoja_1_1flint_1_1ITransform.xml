@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1ITransform" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::ITransform</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1CompositeTransform" prot="public" virt="non-virtual">CompositeTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LocationFromFlintDataTransform" prot="public" virt="non-virtual">LocationFromFlintDataTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LocationIdxFromFlintDataTransform" prot="public" virt="non-virtual">LocationIdxFromFlintDataTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LocationIdxTransform" prot="public" virt="non-virtual">LocationIdxTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LocationTransform" prot="public" virt="non-virtual">LocationTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LookupRandomTransform" prot="public" virt="non-virtual">LookupRandomTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LookupTransform" prot="public" virt="non-virtual">LookupTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SQLQueryTransform" prot="public" virt="non-virtual">SQLQueryTransform</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SumPoolsTransform" prot="public" virt="non-virtual">SumPoolsTransform</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~ITransform</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ITransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" line="17" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITransform_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository)=0</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" line="19" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITransform_1a0fb92985918315ec9e3d0d99370721ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller)=0</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" line="21" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ITransform_1ae1a6c46b5492f7af96b7dc34b2e971b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>virtual const DynamicVar&amp; value</definition>
+        <argsstring>() const =0</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" line="22" column="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" line="15" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/itransform.h" bodystart="15" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual"><scope>moja::flint::ITransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a0fb92985918315ec9e3d0d99370721ed" prot="public" virt="pure-virtual"><scope>moja::flint::ITransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1ae1a6c46b5492f7af96b7dc34b2e971b4" prot="public" virt="pure-virtual"><scope>moja::flint::ITransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::ITransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

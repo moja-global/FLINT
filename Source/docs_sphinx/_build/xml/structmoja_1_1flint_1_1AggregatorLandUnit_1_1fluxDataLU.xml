@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU" kind="struct" language="C++" prot="private">
+    <compoundname>moja::flint::AggregatorLandUnit::fluxDataLU</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a7b32e42fe30046caa084b9ebcdbd29e6" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _dateRecordId</definition>
+        <argsstring></argsstring>
+        <name>_dateRecordId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="89" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a1058471c4a4c1a1b255cb915b38177e4" prot="public" static="no" mutable="no">
+        <type>Poco::Nullable&lt; Int64 &gt;</type>
+        <definition>Poco::Nullable&lt;Int64&gt; _moduleId</definition>
+        <argsstring></argsstring>
+        <name>_moduleId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="90" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a50695bb00c3846f9f01f415651c326d7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _srcIx</definition>
+        <argsstring></argsstring>
+        <name>_srcIx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="91" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1aac334210d4057329e3ef77475c6200af" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _dstIx</definition>
+        <argsstring></argsstring>
+        <name>_dstIx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="92" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a493f2e99b98240f559a539c097a19afd" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _fluxValue</definition>
+        <argsstring></argsstring>
+        <name>_fluxValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="93" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="88" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="88" bodyend="94"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a7b32e42fe30046caa084b9ebcdbd29e6" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnit::fluxDataLU</scope><name>_dateRecordId</name></member>
+      <member refid="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1aac334210d4057329e3ef77475c6200af" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnit::fluxDataLU</scope><name>_dstIx</name></member>
+      <member refid="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a493f2e99b98240f559a539c097a19afd" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnit::fluxDataLU</scope><name>_fluxValue</name></member>
+      <member refid="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a1058471c4a4c1a1b255cb915b38177e4" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnit::fluxDataLU</scope><name>_moduleId</name></member>
+      <member refid="structmoja_1_1flint_1_1AggregatorLandUnit_1_1fluxDataLU_1a50695bb00c3846f9f01f415651c326d7" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnit::fluxDataLU</scope><name>_srcIx</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

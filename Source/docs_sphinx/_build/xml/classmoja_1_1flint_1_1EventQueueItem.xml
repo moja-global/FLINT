@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1EventQueueItem" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::EventQueueItem</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1EventQueueItem_1a7cc33070616df3caed09c5fdc7b41e7f" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _date</definition>
+        <argsstring></argsstring>
+        <name>_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="66" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1EventQueueItem_1ac2a730f7d232f77845a92fcf6b16fbfb" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; const EventBase &gt;</type>
+        <definition>std::shared_ptr&lt;const EventBase&gt; _event</definition>
+        <argsstring></argsstring>
+        <name>_event</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="67" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueueItem_1a5bac83e6b799e0547b7d9fe0df0a7729" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>EventQueueItem</definition>
+        <argsstring>()=default</argsstring>
+        <name>EventQueueItem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="64" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1EventQueueItem_1a8683e9bd58d43537418d14d72b0580af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>EventQueueItem</definition>
+        <argsstring>(DateTime &amp;date, std::shared_ptr&lt; const EventBase &gt; event)</argsstring>
+        <name>EventQueueItem</name>
+        <param>
+          <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>date</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; const EventBase &gt;</type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="65" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>EventQueueItem</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_date</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" line="62" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h" bodystart="62" bodyend="68"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1EventQueueItem_1a7cc33070616df3caed09c5fdc7b41e7f" prot="public" virt="non-virtual"><scope>moja::flint::EventQueueItem</scope><name>_date</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueueItem_1ac2a730f7d232f77845a92fcf6b16fbfb" prot="public" virt="non-virtual"><scope>moja::flint::EventQueueItem</scope><name>_event</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueueItem_1a5bac83e6b799e0547b7d9fe0df0a7729" prot="public" virt="non-virtual"><scope>moja::flint::EventQueueItem</scope><name>EventQueueItem</name></member>
+      <member refid="classmoja_1_1flint_1_1EventQueueItem_1a8683e9bd58d43537418d14d72b0580af" prot="public" virt="non-virtual"><scope>moja::flint::EventQueueItem</scope><name>EventQueueItem</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

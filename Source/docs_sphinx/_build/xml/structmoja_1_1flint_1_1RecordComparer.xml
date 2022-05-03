@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1RecordComparer" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::RecordComparer</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class TPersistable</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1RecordComparer_1ad98747e7886c01f609dc5fbe1014c785" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator()</definition>
+        <argsstring>(Record&lt; TPersistable &gt; *lhs, const Record&lt; TPersistable &gt; *rhs) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>Record&lt; TPersistable &gt; *</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const Record&lt; TPersistable &gt; *</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" line="23" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" line="22" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" bodystart="22" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1RecordComparer_1ad98747e7886c01f609dc5fbe1014c785" prot="public" virt="non-virtual"><scope>moja::flint::RecordComparer</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1list__of__persistables" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::list_of_persistables</compoundname>
+    <innerclass refid="classmoja_1_1flint_1_1list__of__persistables_1_1persistables__iterator" prot="public">moja::flint::list_of_persistables::persistables_iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class TPersistable</type>
+      </param>
+      <param>
+        <type>class TRecord</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__persistables_1a3b7a44c972520428f6bf65d46e9a3632" prot="private" static="no">
+        <type>std::vector&lt; TRecord &gt;</type>
+        <definition>using vec_type =  std::vector&lt;TRecord&gt;</definition>
+        <argsstring></argsstring>
+        <name>vec_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="222" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="222" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__persistables_1ab2405926fbb5c5d584d58ce379d354f4" prot="public" static="no">
+        <type>persistables_iterator&lt; true &gt;</type>
+        <definition>using const_iterator =  persistables_iterator&lt;true&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="282" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__persistables_1a6e67652e8947aeb829b6794a6d18f096" prot="public" static="no">
+        <type>persistables_iterator&lt; false &gt;</type>
+        <definition>using iterator =  persistables_iterator&lt;false&gt;</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="283" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1list__of__persistables_1a5a595cb82a2b2fb4dd4b5014eeba68e9" prot="private" static="no" mutable="no">
+        <type>const vec_type &amp;</type>
+        <definition>const vec_type&amp; accumulator_vec_</definition>
+        <argsstring></argsstring>
+        <name>accumulator_vec_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="223" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="223" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1a28468d2acffbe7de40247f5ad9ad9fb0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>list_of_persistables</definition>
+        <argsstring>(const vec_type &amp;vec)</argsstring>
+        <name>list_of_persistables</name>
+        <param>
+          <type>const vec_type &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="285" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="285" bodyend="285"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1ad69bd11391be1a1dba5c8202259664f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="288" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="288" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1acad38d52497a975bfb6f2f6acd76631f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="289" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="289" bodyend="289"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="290" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="290" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="291" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1a75f2d3bcbfedcc4760849ff16374de1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; front</definition>
+        <argsstring>() const</argsstring>
+        <name>front</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="294" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="294" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1a3f6fc5de06a318920d84f3c3742db07f" prot="public" static="no" const="yes" explicit="no" inline="yes" noexcept="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool empty</definition>
+        <argsstring>() const noexcept</argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="295" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="295" bodyend="295"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__persistables_1adb61d59283357d8ea7a25e382fb91123" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>vec_type::size_type</type>
+        <definition>vec_type::size_type size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="297" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="297" bodyend="297"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="221" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="221" bodyend="298"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a5a595cb82a2b2fb4dd4b5014eeba68e9" prot="private" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>accumulator_vec_</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1ad69bd11391be1a1dba5c8202259664f8" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1ab2405926fbb5c5d584d58ce379d354f4" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a3f6fc5de06a318920d84f3c3742db07f" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>empty</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1acad38d52497a975bfb6f2f6acd76631f" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a75f2d3bcbfedcc4760849ff16374de1d" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>front</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a6e67652e8947aeb829b6794a6d18f096" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a28468d2acffbe7de40247f5ad9ad9fb0" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>list_of_persistables</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1adb61d59283357d8ea7a25e382fb91123" prot="public" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>size</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__persistables_1a3b7a44c972520428f6bf65d46e9a3632" prot="private" virt="non-virtual"><scope>moja::flint::list_of_persistables</scope><name>vec_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

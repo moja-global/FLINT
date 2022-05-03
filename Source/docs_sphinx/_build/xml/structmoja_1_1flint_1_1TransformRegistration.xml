@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1TransformRegistration" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::TransformRegistration</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1TransformRegistration_1a95d8740cfae764b86e1496cf6ab5280c" prot="public" static="no" mutable="no">
+        <type>const char *</type>
+        <definition>const char* transformName</definition>
+        <argsstring></argsstring>
+        <name>transformName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="43" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1TransformRegistration_1a0bb325c65c678ab57bace9ae900e2672" prot="public" static="no" mutable="no">
+        <type>InitializeTransformFunctionPtr</type>
+        <definition>InitializeTransformFunctionPtr initializer</definition>
+        <argsstring></argsstring>
+        <name>initializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="44" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" line="42" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/mojalibapi.h" bodystart="42" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1TransformRegistration_1a0bb325c65c678ab57bace9ae900e2672" prot="public" virt="non-virtual"><scope>moja::flint::TransformRegistration</scope><name>initializer</name></member>
+      <member refid="structmoja_1_1flint_1_1TransformRegistration_1a95d8740cfae764b86e1496cf6ab5280c" prot="public" virt="non-virtual"><scope>moja::flint::TransformRegistration</scope><name>transformName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

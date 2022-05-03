@@ -1,0 +1,486 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1StatsUnitRecord" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::StatsUnitRecord</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">moja::flint::Record&lt; StatsUnitRow &gt;</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1StatsUnitRecord_1a4b78f8ed2420a0bcb6f19e90718cab8d" prot="public" static="no">
+        <type>std::chrono::nanoseconds</type>
+        <definition>using duration =  std::chrono::nanoseconds</definition>
+        <argsstring></argsstring>
+        <name>duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="52" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _runId</definition>
+        <argsstring></argsstring>
+        <name>_runId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="83" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1ae938ab5d6c4e2fda78a83a69365ba2cc" prot="public" static="no" mutable="no">
+        <type>duration</type>
+        <definition>duration _elapsedTimeTotal</definition>
+        <argsstring></argsstring>
+        <name>_elapsedTimeTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="84" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1aef66b62ee927d2aba39bc335dd5a4510" prot="public" static="no" mutable="no">
+        <type>duration</type>
+        <definition>duration _elapsedTimeFramework</definition>
+        <argsstring></argsstring>
+        <name>_elapsedTimeFramework</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="85" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a2898de035009131ee7d871b5bc3692a4" prot="public" static="no" mutable="no">
+        <type>duration</type>
+        <definition>duration _elapsedTimeSpinup</definition>
+        <argsstring></argsstring>
+        <name>_elapsedTimeSpinup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="86" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a7572f98ee21dcc204b29ed89d34f2a6a" prot="public" static="no" mutable="no">
+        <type>duration</type>
+        <definition>duration _elapsedTimeProcessed</definition>
+        <argsstring></argsstring>
+        <name>_elapsedTimeProcessed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="87" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a4e715c8860ebc5d249d7631d85b3cb11" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _unitsTotal</definition>
+        <argsstring></argsstring>
+        <name>_unitsTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="89" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1addb6933fddcc325efce148c33eeaa960" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _unitsProcessed</definition>
+        <argsstring></argsstring>
+        <name>_unitsProcessed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="90" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a4b1bf8eac50d1b6433088b631b1a9ff7" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _unitsNotProcessed</definition>
+        <argsstring></argsstring>
+        <name>_unitsNotProcessed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="91" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a924d239444187eb3f1f4734520839c75" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _unitsWithError</definition>
+        <argsstring></argsstring>
+        <name>_unitsWithError</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="92" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a51c99a008bab3c342f236b1f6c907e57" prot="public" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _tileIdx</definition>
+        <argsstring></argsstring>
+        <name>_tileIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="94" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a6a6857c916a60da06d0ae7a9f920c67d" prot="public" static="no" mutable="no">
+        <type>Poco::Nullable&lt; UInt32 &gt;</type>
+        <definition>Poco::Nullable&lt;UInt32&gt; _blockIdx</definition>
+        <argsstring></argsstring>
+        <name>_blockIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="95" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a185c46190089bbaa8c36a8d8657d4ea8" prot="public" static="no" mutable="no">
+        <type>Stopwatch</type>
+        <definition>Stopwatch _stopWatchTotal</definition>
+        <argsstring></argsstring>
+        <name>_stopWatchTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="97" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a9875fec8729e16d00c0a85c34acd6a1f" prot="public" static="no" mutable="no">
+        <type>Stopwatch</type>
+        <definition>Stopwatch _stopWatchFramework</definition>
+        <argsstring></argsstring>
+        <name>_stopWatchFramework</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="98" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a18753b874d4584deacb886b300adc8d6" prot="public" static="no" mutable="no">
+        <type>Stopwatch</type>
+        <definition>Stopwatch _stopWatchSpinup</definition>
+        <argsstring></argsstring>
+        <name>_stopWatchSpinup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="99" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1a3e79e37bcd6b985175a11b92d633e969" prot="public" static="no" mutable="no">
+        <type>Stopwatch</type>
+        <definition>Stopwatch _stopWatchProcessed</definition>
+        <argsstring></argsstring>
+        <name>_stopWatchProcessed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="100" column="5" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1StatsUnitRecord_1abed101304f55df828d0ad42f638969fb" prot="public" static="no" mutable="no">
+        <type>StatsDurationType</type>
+        <definition>StatsDurationType _durationType</definition>
+        <argsstring></argsstring>
+        <name>_durationType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="103" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1a84380ecb76548734174b67bd193260a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StatsUnitRecord</definition>
+        <argsstring>()=delete</argsstring>
+        <name>StatsUnitRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="54" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1ac76f038364f13d23d093e57de2c539df" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StatsUnitRecord</definition>
+        <argsstring>(std::shared_ptr&lt; StatsUnitRecord &gt; &amp;ptr, StatsDurationType durationType)</argsstring>
+        <name>StatsUnitRecord</name>
+        <param>
+          <type>std::shared_ptr&lt; StatsUnitRecord &gt; &amp;</type>
+          <declname>ptr</declname>
+        </param>
+        <param>
+          <type>StatsDurationType</type>
+          <declname>durationType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="55" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="46" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1a5d6513021ca39b690b234e1585c461b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>StatsUnitRecord</definition>
+        <argsstring>(std::string runId, duration elapsedTimeTotal, duration elapsedTimeFramework, duration elapsedTimeSpinup, duration elapsedTimeProcessed, Int64 unitsTotal, Int64 unitsProcessed, Int64 unitsNotProcessed, Int64 unitsWithError, Poco::Nullable&lt; UInt32 &gt; tileIdx, Poco::Nullable&lt; UInt32 &gt; blockIdx, StatsDurationType durationType)</argsstring>
+        <name>StatsUnitRecord</name>
+        <param>
+          <type>std::string</type>
+          <declname>runId</declname>
+        </param>
+        <param>
+          <type>duration</type>
+          <declname>elapsedTimeTotal</declname>
+        </param>
+        <param>
+          <type>duration</type>
+          <declname>elapsedTimeFramework</declname>
+        </param>
+        <param>
+          <type>duration</type>
+          <declname>elapsedTimeSpinup</declname>
+        </param>
+        <param>
+          <type>duration</type>
+          <declname>elapsedTimeProcessed</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>unitsTotal</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>unitsProcessed</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>unitsNotProcessed</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>unitsWithError</declname>
+        </param>
+        <param>
+          <type>Poco::Nullable&lt; UInt32 &gt;</type>
+          <declname>tileIdx</declname>
+        </param>
+        <param>
+          <type>Poco::Nullable&lt; UInt32 &gt;</type>
+          <declname>blockIdx</declname>
+        </param>
+        <param>
+          <type>StatsDurationType</type>
+          <declname>durationType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="56" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="61" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1ade7d6d4fa4bf21001d68d38ab7845eb5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~StatsUnitRecord</definition>
+        <argsstring>()</argsstring>
+        <name>~StatsUnitRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="68" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1abef536847841e826b014eeb2429bc9e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Record&lt; StatsUnitRow &gt; &amp;other) const override</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Record&lt; StatsUnitRow &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="70" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="79" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t hash</definition>
+        <argsstring>() const override</argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="71" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="84" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1a64e73198e800a752b7ee8690398ed239" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>StatsUnitRow</type>
+        <definition>StatsUnitRow asPersistable</definition>
+        <argsstring>() const override</argsstring>
+        <name>asPersistable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="72" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="86" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1af3703f77457ede61cd5b7de38d46bfad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void merge</definition>
+        <argsstring>(Record&lt; StatsUnitRow &gt; *other) override</argsstring>
+        <name>merge</name>
+        <param>
+          <type>Record&lt; StatsUnitRow &gt; *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="73" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="127" bodyend="137"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1StatsUnitRecord_1a5c8f3cfd29b3cfc70100091e1ff0bd8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mojaLog</definition>
+        <argsstring>(const std::string &amp;levelStr, int localDomainId, datarepository::TileIdx *tileIdxObject, datarepository::BlockIdx *blockIdxObject, bool inSeconds, bool showRecordNumber, int recordPosition, int recordCount)</argsstring>
+        <name>mojaLog</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>levelStr</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>localDomainId</declname>
+        </param>
+        <param>
+          <type>datarepository::TileIdx *</type>
+          <declname>tileIdxObject</declname>
+        </param>
+        <param>
+          <type>datarepository::BlockIdx *</type>
+          <declname>blockIdxObject</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>inSeconds</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>showRecordNumber</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>recordPosition</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>recordCount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="75" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp" bodystart="139" bodyend="175"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="50" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="50" bodyend="104"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a6a6857c916a60da06d0ae7a9f920c67d" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_blockIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1abed101304f55df828d0ad42f638969fb" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_durationType</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1aef66b62ee927d2aba39bc335dd5a4510" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_elapsedTimeFramework</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a7572f98ee21dcc204b29ed89d34f2a6a" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_elapsedTimeProcessed</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a2898de035009131ee7d871b5bc3692a4" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_elapsedTimeSpinup</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1ae938ab5d6c4e2fda78a83a69365ba2cc" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_elapsedTimeTotal</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a2fb68a5ecd23366882be5277b8ac3c65" prot="protected" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_id</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a8b16880793b47d3b2cec3c77a40a6e2f" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_runId</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a9875fec8729e16d00c0a85c34acd6a1f" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_stopWatchFramework</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a3e79e37bcd6b985175a11b92d633e969" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_stopWatchProcessed</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a18753b874d4584deacb886b300adc8d6" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_stopWatchSpinup</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a185c46190089bbaa8c36a8d8657d4ea8" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_stopWatchTotal</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a51c99a008bab3c342f236b1f6c907e57" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_tileIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a4b1bf8eac50d1b6433088b631b1a9ff7" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_unitsNotProcessed</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1addb6933fddcc325efce148c33eeaa960" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_unitsProcessed</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a4e715c8860ebc5d249d7631d85b3cb11" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_unitsTotal</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a924d239444187eb3f1f4734520839c75" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>_unitsWithError</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a64e73198e800a752b7ee8690398ed239" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>asPersistable</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a4b78f8ed2420a0bcb6f19e90718cab8d" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>duration</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1abc8970ad0a18fb9dc512a7eff9184997" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>getId</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>hash</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1af3703f77457ede61cd5b7de38d46bfad" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a67163e90d770bbc99e6c477c02c982ab" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::StatsUnitRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a5c8f3cfd29b3cfc70100091e1ff0bd8c" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>mojaLog</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1abef536847841e826b014eeb2429bc9e5" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1aa5134dc6fb60cfafa0c79d7c5597995f" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::StatsUnitRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a8cd662275c1ba5248e9f9e1f33f68a07" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>setId</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a84380ecb76548734174b67bd193260a4" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>StatsUnitRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1ac76f038364f13d23d093e57de2c539df" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>StatsUnitRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1a5d6513021ca39b690b234e1585c461b9" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>StatsUnitRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a966b6ee235515a173771e69abdba801b" prot="public" virt="virtual"><scope>moja::flint::StatsUnitRecord</scope><name>~Record</name></member>
+      <member refid="classmoja_1_1flint_1_1StatsUnitRecord_1ade7d6d4fa4bf21001d68d38ab7845eb5" prot="public" virt="non-virtual"><scope>moja::flint::StatsUnitRecord</scope><name>~StatsUnitRecord</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

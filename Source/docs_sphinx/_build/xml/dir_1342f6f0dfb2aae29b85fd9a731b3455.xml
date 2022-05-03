@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_1342f6f0dfb2aae29b85fd9a731b3455" kind="dir">
+    <compoundname>/mnt/e/FLINT/Source/moja.flint/src</compoundname>
+    <innerfile refid="aggregatorfilewriter_8cpp">aggregatorfilewriter.cpp</innerfile>
+    <innerfile refid="aggregatorfluxstep_8cpp">aggregatorfluxstep.cpp</innerfile>
+    <innerfile refid="aggregatorlandunit_8cpp">aggregatorlandunit.cpp</innerfile>
+    <innerfile refid="aggregatorstockstep_8cpp">aggregatorstockstep.cpp</innerfile>
+    <innerfile refid="aspatiallocaldomaincontroller_8cpp">aspatiallocaldomaincontroller.cpp</innerfile>
+    <innerfile refid="calendarandeventflintdatasequencer_8cpp">calendarandeventflintdatasequencer.cpp</innerfile>
+    <innerfile refid="calendarandeventsequencer_8cpp">calendarandeventsequencer.cpp</innerfile>
+    <innerfile refid="calendarsequencer_8cpp">calendarsequencer.cpp</innerfile>
+    <innerfile refid="compositetransform_8cpp">compositetransform.cpp</innerfile>
+    <innerfile refid="debugnotificationmodule_8cpp">debugnotificationmodule.cpp</innerfile>
+    <innerfile refid="equalstepsequencer_8cpp">equalstepsequencer.cpp</innerfile>
+    <innerfile refid="errorscreenwriter_8cpp">errorscreenwriter.cpp</innerfile>
+    <innerfile refid="eventqueue_8cpp">eventqueue.cpp</innerfile>
+    <innerfile refid="externalpoolsimple_8cpp">externalpoolsimple.cpp</innerfile>
+    <innerfile refid="externalvariable_8cpp">externalvariable.cpp</innerfile>
+    <innerfile refid="flintdatavariable_8cpp">flintdatavariable.cpp</innerfile>
+    <innerfile refid="idnamecollection_8cpp">idnamecollection.cpp</innerfile>
+    <innerfile refid="landunitcontroller_8cpp">landunitcontroller.cpp</innerfile>
+    <innerfile refid="landunitdatawrapper_8cpp">landunitdatawrapper.cpp</innerfile>
+    <innerfile refid="libraryfactory_8cpp">libraryfactory.cpp</innerfile>
+    <innerfile refid="libraryinfobase_8cpp">libraryinfobase.cpp</innerfile>
+    <innerfile refid="librarymanager_8cpp">librarymanager.cpp</innerfile>
+    <innerfile refid="localdomaincontrollerbase_8cpp">localdomaincontrollerbase.cpp</innerfile>
+    <innerfile refid="locationfromflintdatatransform_8cpp">locationfromflintdatatransform.cpp</innerfile>
+    <innerfile refid="locationidxfromflintdatatransform_8cpp">locationidxfromflintdatatransform.cpp</innerfile>
+    <innerfile refid="locationidxtransform_8cpp">locationidxtransform.cpp</innerfile>
+    <innerfile refid="locationtransform_8cpp">locationtransform.cpp</innerfile>
+    <innerfile refid="lookuprandomtransform_8cpp">lookuprandomtransform.cpp</innerfile>
+    <innerfile refid="lookuptransform_8cpp">lookuptransform.cpp</innerfile>
+    <innerfile refid="modulebase_8cpp">modulebase.cpp</innerfile>
+    <innerfile refid="operationmanagersimple_8cpp">operationmanagersimple.cpp</innerfile>
+    <innerfile refid="operationmanagersimplecache_8cpp">operationmanagersimplecache.cpp</innerfile>
+    <innerfile refid="operationmanagerublas_8cpp">operationmanagerublas.cpp</innerfile>
+    <innerfile refid="operationproportionalsimple_8cpp">operationproportionalsimple.cpp</innerfile>
+    <innerfile refid="operationproportionalsimplecache_8cpp">operationproportionalsimplecache.cpp</innerfile>
+    <innerfile refid="operationproportionalublas_8cpp">operationproportionalublas.cpp</innerfile>
+    <innerfile refid="operationresultsimple_8cpp">operationresultsimple.cpp</innerfile>
+    <innerfile refid="operationresultsimplecache_8cpp">operationresultsimplecache.cpp</innerfile>
+    <innerfile refid="operationresultublas_8cpp">operationresultublas.cpp</innerfile>
+    <innerfile refid="operationstocksimple_8cpp">operationstocksimple.cpp</innerfile>
+    <innerfile refid="operationstocksimplecache_8cpp">operationstocksimplecache.cpp</innerfile>
+    <innerfile refid="operationstockublas_8cpp">operationstockublas.cpp</innerfile>
+    <innerfile refid="outputerstream_8cpp">outputerstream.cpp</innerfile>
+    <innerfile refid="outputerstreamflux_8cpp">outputerstreamflux.cpp</innerfile>
+    <innerfile refid="poolcollection_8cpp">poolcollection.cpp</innerfile>
+    <innerfile refid="poolsimple_8cpp">poolsimple.cpp</innerfile>
+    <innerfile refid="poolsimplecache_8cpp">poolsimplecache.cpp</innerfile>
+    <innerfile refid="poolublas_8cpp">poolublas.cpp</innerfile>
+    <innerfile refid="proxymodule_8cpp">proxymodule.cpp</innerfile>
+    <innerfile refid="record_8cpp">record.cpp</innerfile>
+    <innerfile refid="recordaccumulator_8cpp">recordaccumulator.cpp</innerfile>
+    <innerfile refid="recordaccumulatorwithmutex_8cpp">recordaccumulatorwithmutex.cpp</innerfile>
+    <innerfile refid="sequencermodulebase_8cpp">sequencermodulebase.cpp</innerfile>
+    <innerfile refid="spatiallocationinfo_8cpp">spatiallocationinfo.cpp</innerfile>
+    <innerfile refid="spatialtiledlocaldomaincontroller_8cpp">spatialtiledlocaldomaincontroller.cpp</innerfile>
+    <innerfile refid="spinuplandunitcontroller_8cpp">spinuplandunitcontroller.cpp</innerfile>
+    <innerfile refid="sqlquerytransform_8cpp">sqlquerytransform.cpp</innerfile>
+    <innerfile refid="sumpoolstransform_8cpp">sumpoolstransform.cpp</innerfile>
+    <innerfile refid="testmodule_8cpp">testmodule.cpp</innerfile>
+    <innerfile refid="threadedaspatiallocaldomaincontroller_8cpp">threadedaspatiallocaldomaincontroller.cpp</innerfile>
+    <innerfile refid="timing_8cpp">timing.cpp</innerfile>
+    <innerfile refid="transactionmanageraftersubmitmodule_8cpp">transactionmanageraftersubmitmodule.cpp</innerfile>
+    <innerfile refid="transactionmanagerendofstepmodule_8cpp">transactionmanagerendofstepmodule.cpp</innerfile>
+    <innerfile refid="variableandpoolstringbuilder_8cpp">variableandpoolstringbuilder.cpp</innerfile>
+    <innerfile refid="writesystemconfig_8cpp">writesystemconfig.cpp</innerfile>
+    <innerfile refid="writevariablegrid_8cpp">writevariablegrid.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,411 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::WriteVariableGrid::DataSettingsT</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">WriteVariableGrid::DataSettingsB</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1af4c81dbee3176ea5bbfebe350844697c" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T _nodataValue</definition>
+        <argsstring></argsstring>
+        <name>_nodataValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="147" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ad14a214b8fe4e69f1b21e86e6787527c" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, std::vector&lt; T &gt; &gt;</type>
+        <definition>std::unordered_map&lt;int, std::vector&lt;T&gt; &gt; _data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="148" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a11abf227aaae6778394e4ee999bb0026" prot="private" static="no" mutable="no">
+        <type>ILandUnitDataWrapper *</type>
+        <definition>ILandUnitDataWrapper* _landUnitData</definition>
+        <argsstring></argsstring>
+        <name>_landUnitData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="149" column="28" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a0e624523871dbe4dc345c00d8ba68b03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DataSettingsT</definition>
+        <argsstring>(Poco::Mutex &amp;fileHandlingMutex, int hdrDataType)</argsstring>
+        <name>DataSettingsT</name>
+        <param>
+          <type>Poco::Mutex &amp;</type>
+          <declname>fileHandlingMutex</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hdrDataType</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="131" column="7" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" bodystart="131" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a9fbc34514b5e71c996a853f59b4d706a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~DataSettingsT</definition>
+        <argsstring>()=default</argsstring>
+        <name>~DataSettingsT</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="132" column="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ab8ac28e4225cd6018c1007189e8755f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(std::string &amp;globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName, bool applyAreaAdjustment, const DynamicObject &amp;config) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>globalOutputPath</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>useIndexesForFolderName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>forceVariableFolderName</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>applyAreaAdjustment</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="134" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="202" bodyend="261"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1afc6aa78c878131ec135b18ed48397ff2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void doSystemInit</definition>
+        <argsstring>(flint::ILandUnitDataWrapper *_landUnitData) override</argsstring>
+        <name>doSystemInit</name>
+        <param>
+          <type>flint::ILandUnitDataWrapper *</type>
+          <declname>_landUnitData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="137" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="298" bodyend="328"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1aa39ee1c72f0528b87b11be59b942b14e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void doLocalDomainInit</definition>
+        <argsstring>(flint::ILandUnitDataWrapper *_landUnitData) override</argsstring>
+        <name>doLocalDomainInit</name>
+        <param>
+          <type>flint::ILandUnitDataWrapper *</type>
+          <declname>_landUnitData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="138" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="333" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ad7cc019eb41d705a726f25c48be8f7eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void doLocalDomainProcessingUnitInit</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo) override</argsstring>
+        <name>doLocalDomainProcessingUnitInit</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="139" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="351" bodyend="390"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a108ea573bc97e47bf606d454c734d1f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void doLocalDomainProcessingUnitShutdown</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo) override</argsstring>
+        <name>doLocalDomainProcessingUnitShutdown</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="140" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="404" bodyend="499"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a6b67a936580281ec13f267d994e1afc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>T</type>
+        <definition>T applyValueAdjustment</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timestep, const T val)</argsstring>
+        <name>applyValueAdjustment</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="141" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="504" bodyend="510"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a564f26cd1b34060666be77d59a787303" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLUValue</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timestep) override</argsstring>
+        <name>setLUValue</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="142" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="515" bodyend="529"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a07aead8e05cdfc4a2d9711ac815ed0ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initData</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timeStep) override</argsstring>
+        <name>initData</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeStep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="143" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="589" bodyend="595"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a9f204f8c64cfc87c66571dbf36e320f1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initializeData</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, std::vector&lt; T &gt; &amp;data)</argsstring>
+        <name>initializeData</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="151" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="395" bodyend="399"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a127cf1a53b6e8e7fe8eef693aaafe3c4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLUVariableValue</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timestep)</argsstring>
+        <name>setLUVariableValue</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="152" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="534" bodyend="557"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a5a6772e135322f1700058294452de491" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLUPoolValue</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timestep)</argsstring>
+        <name>setLUPoolValue</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO: check this. Pool values are always doubles so shouldn&apos;t be defined by T</para>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="153" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="562" bodyend="570"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a23c06fbb46d0d60cfe34766c5af49802" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLUFluxValue</definition>
+        <argsstring>(std::shared_ptr&lt; const SpatialLocationInfo &gt; spatialLocationInfo, int timestep)</argsstring>
+        <name>setLUFluxValue</name>
+        <param>
+          <type>std::shared_ptr&lt; const SpatialLocationInfo &gt;</type>
+          <declname>spatialLocationInfo</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timestep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="154" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="575" bodyend="584"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a6bbc041a156a1a7d096b6781725a6ed5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void addFlux</definition>
+        <argsstring>(const DynamicVar &amp;fluxGroupConfig)</argsstring>
+        <name>addFlux</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>fluxGroupConfig</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="155" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp" bodystart="266" bodyend="293"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" line="129" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h" bodystart="129" bodyend="156"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ac10ce956559d50ef5d0797df8d52c168" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_applyAreaAdjustment</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a294997ef76eda2f6f4b14c52e71e6881" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_arrayIndex</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ad14a214b8fe4e69f1b21e86e6787527c" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_data</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1adaf7c41870873a6ab2f064b3f22a1648" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_fileHandlingMutex</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1af84d3538ccc9e4a6c79dd184853f4ea0" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_flux</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1af7ad3df4d77d227061bddcdf9d7eb539" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_forceVariableFolderName</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ae978feb40450f655fc64967b107e2599" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_hdrDataType</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ac86a1acfe0ea028e3e863b36bce28e89" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_isArray</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a11abf227aaae6778394e4ee999bb0026" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_landUnitData</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_name</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1af4c81dbee3176ea5bbfebe350844697c" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_nodataValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a386980cbd1e97e822c71b7918690ece4" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_onNotification</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a967fff4c08dde128cf40f348cfaee8e2" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_outputAnnually</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a12e4e6d789ed9de8b3ab2417a50c1d96" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_outputInterval</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a7c7df054b920751ef88ad9836f8ec5d0" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_outputPath</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ad2cd4ff95dadf155f38fc5c5beba7ebf" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_pool</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a64c4fe45e81f0be775898e79f6f799c3" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_poolName</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1af0db6877bbbe58168af335b62e24dc68" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_propertyName</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a99cfd300d6244c27de6609b0c2a21186" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_subtractPrevValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a699d25b2a4debd47f15b88f0d1c4ed63" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_tileFolderPath</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a79a405f10bb3b573ea2f9c541968fc5b" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_useIndexesForFolderName</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1acff41f38e2e921e1343e2705edc3648a" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_variable</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ac36f5e15764d39934b9831d948cbecb7" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_variableDataType</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ad1dec288e2c894f1beacf484f0dc6d33" prot="protected" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>_variableName</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a6bbc041a156a1a7d096b6781725a6ed5" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>addFlux</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a6b67a936580281ec13f267d994e1afc4" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>applyValueAdjustment</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ab8ac28e4225cd6018c1007189e8755f3" prot="public" virt="virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a9433bccf90a53d02a3b9c5fa787640db" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>DataSettingsB</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a0e624523871dbe4dc345c00d8ba68b03" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>DataSettingsT</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1aa39ee1c72f0528b87b11be59b942b14e" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>doLocalDomainInit</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1ad7cc019eb41d705a726f25c48be8f7eb" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>doLocalDomainProcessingUnitInit</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a108ea573bc97e47bf606d454c734d1f8" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>doLocalDomainProcessingUnitShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1afc6aa78c878131ec135b18ed48397ff2" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>doSystemInit</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a07aead8e05cdfc4a2d9711ac815ed0ab" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>initData</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a9f204f8c64cfc87c66571dbf36e320f1" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>initializeData</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1ab50726b2b5c0982c3f063a2b2eb7f475" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>notificationType</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1a59e38f71e27bb57fbd9edbd32ef1b38f" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>OnNotificationType</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a23c06fbb46d0d60cfe34766c5af49802" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>setLUFluxValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a5a6772e135322f1700058294452de491" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>setLUPoolValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a564f26cd1b34060666be77d59a787303" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>setLUValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a127cf1a53b6e8e7fe8eef693aaafe3c4" prot="private" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>setLUVariableValue</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsB_1aa804ed115ca6765fc372b31a0bc975fe" prot="public" virt="virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>~DataSettingsB</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteVariableGrid_1_1DataSettingsT_1a9fbc34514b5e71c996a853f59b4d706a" prot="public" virt="non-virtual"><scope>moja::flint::WriteVariableGrid::DataSettingsT</scope><name>~DataSettingsT</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

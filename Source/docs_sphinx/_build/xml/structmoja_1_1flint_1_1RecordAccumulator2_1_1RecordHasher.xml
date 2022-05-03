@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1RecordAccumulator2_1_1RecordHasher" kind="struct" language="C++" prot="private">
+    <compoundname>moja::flint::RecordAccumulator2::RecordHasher</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1RecordAccumulator2_1_1RecordHasher_1ab737b954b09679b4025645cbb427b083" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t operator()</definition>
+        <argsstring>(const TRecord *record) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const TRecord *</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="121" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="121" bodyend="121"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="120" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="120" bodyend="122"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1RecordAccumulator2_1_1RecordHasher_1ab737b954b09679b4025645cbb427b083" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulator2::RecordHasher</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

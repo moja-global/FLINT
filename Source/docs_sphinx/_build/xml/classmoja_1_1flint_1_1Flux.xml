@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1Flux" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::Flux</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1a07027daae4a173977f9142e532fa4397" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; _sourcePoolNames</definition>
+        <argsstring></argsstring>
+        <name>_sourcePoolNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="24" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1a5d11b52d9f17b02f636c0de33634a0d6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; _sourcePools</definition>
+        <argsstring></argsstring>
+        <name>_sourcePools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="25" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1ae28d83a32e6a686d7273b29abce2c8d9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; _destPoolNames</definition>
+        <argsstring></argsstring>
+        <name>_destPoolNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="27" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1a017f6965cdd2726433969923a0d600e3" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; _destPools</definition>
+        <argsstring></argsstring>
+        <name>_destPools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="28" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1ab7d40c7e61f7b988ba06a6cab4a947ff" prot="private" static="no" mutable="no">
+        <type>FluxSource</type>
+        <definition>FluxSource _fluxSource</definition>
+        <argsstring></argsstring>
+        <name>_fluxSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="30" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Flux_1aa58736abceffc8b62c7a64115a3973e8" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _subtract</definition>
+        <argsstring></argsstring>
+        <name>_subtract</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="31" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1acf6ee2bb40c70b00ba209bf9740db354" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Flux</definition>
+        <argsstring>(std::vector&lt; std::string &gt; sourcePools, std::vector&lt; std::string &gt; destPools, FluxSource fluxSource=FluxSource::COMBINED, bool subtract=false)</argsstring>
+        <name>Flux</name>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>sourcePools</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>destPools</declname>
+        </param>
+        <param>
+          <type>FluxSource</type>
+          <declname>fluxSource</declname>
+          <defval>FluxSource::COMBINED</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>subtract</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="16" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="40" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1a39d2ca5d2ba285f1e114eea146893ff6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void init</definition>
+        <argsstring>(ILandUnitDataWrapper *landUnitData)</argsstring>
+        <name>init</name>
+        <param>
+          <type>ILandUnitDataWrapper *</type>
+          <declname>landUnitData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="19" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="44" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1a1b8e2fdb3640eadd10343da63bc83e88" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double calculate</definition>
+        <argsstring>(std::shared_ptr&lt; IOperationResult &gt; operationResult)</argsstring>
+        <name>calculate</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperationResult &gt;</type>
+          <declname>operationResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="21" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="54" bodyend="67"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1ace1308105e9c5da8d5f4c9c3936096f5" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isMatchingFluxSource</definition>
+        <argsstring>(std::shared_ptr&lt; IOperationResult &gt; operationResult)</argsstring>
+        <name>isMatchingFluxSource</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperationResult &gt;</type>
+          <declname>operationResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="33" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="69" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1a728e4dfa876ba63e9e1337be25633ba4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isDisturbanceFlux</definition>
+        <argsstring>(std::shared_ptr&lt; IOperationResult &gt; flux)</argsstring>
+        <name>isDisturbanceFlux</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperationResult &gt;</type>
+          <declname>flux</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="35" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="81" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Flux_1a969005f4ad38fa9bfe02f9dda3030b0f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isIncluded</definition>
+        <argsstring>(const IOperationResultFlux &amp;fluxRecord)</argsstring>
+        <name>isIncluded</name>
+        <param>
+          <type>const IOperationResultFlux &amp;</type>
+          <declname>fluxRecord</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="96" bodyend="112"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h" bodystart="14" bodyend="38"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1Flux_1ae28d83a32e6a686d7273b29abce2c8d9" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_destPoolNames</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a017f6965cdd2726433969923a0d600e3" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_destPools</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1ab7d40c7e61f7b988ba06a6cab4a947ff" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_fluxSource</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a07027daae4a173977f9142e532fa4397" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_sourcePoolNames</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a5d11b52d9f17b02f636c0de33634a0d6" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_sourcePools</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1aa58736abceffc8b62c7a64115a3973e8" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>_subtract</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a1b8e2fdb3640eadd10343da63bc83e88" prot="public" virt="non-virtual"><scope>moja::flint::Flux</scope><name>calculate</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1acf6ee2bb40c70b00ba209bf9740db354" prot="public" virt="non-virtual"><scope>moja::flint::Flux</scope><name>Flux</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a39d2ca5d2ba285f1e114eea146893ff6" prot="public" virt="non-virtual"><scope>moja::flint::Flux</scope><name>init</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a728e4dfa876ba63e9e1337be25633ba4" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>isDisturbanceFlux</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1a969005f4ad38fa9bfe02f9dda3030b0f" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>isIncluded</name></member>
+      <member refid="classmoja_1_1flint_1_1Flux_1ace1308105e9c5da8d5f4c9c3936096f5" prot="private" virt="non-virtual"><scope>moja::flint::Flux</scope><name>isMatchingFluxSource</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

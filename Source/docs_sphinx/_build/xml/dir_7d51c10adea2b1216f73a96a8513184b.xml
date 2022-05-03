@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_7d51c10adea2b1216f73a96a8513184b" kind="dir">
+    <compoundname>/mnt/e/FLINT/Source/moja.cli/src</compoundname>
+    <innerfile refid="moja_8cpp">moja.cpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.cli/src/"/>
+  </compounddef>
+</doxygen>

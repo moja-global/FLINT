@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Signal" kind="class" language="C++" prot="public">
+    <compoundname>moja::Signal</compoundname>
+    <templateparamlist>
+      <param>
+        <type>typename...</type>
+        <declname>Args</declname>
+        <defname>Args</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Signal_1a6385226348733e8a66fd47d53e95220d" prot="private" static="no" mutable="yes">
+        <type>std::vector&lt; std::function&lt; void(Args...)&gt; &gt;</type>
+        <definition>std::vector&lt;std::function&lt;void(Args...)&gt; &gt; _slots</definition>
+        <argsstring></argsstring>
+        <name>_slots</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="58" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Signal_1ae9d51dc74697c3967a1ea1318c3a1452" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Signal</definition>
+        <argsstring>()=default</argsstring>
+        <name>Signal</name>
+        <briefdescription>
+<para>Default constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="17" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Signal_1a25b6b858fb93fbe05fc932e593245d6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Signal</definition>
+        <argsstring>(Signal const &amp;other)</argsstring>
+        <name>Signal</name>
+        <param>
+          <type>Signal const &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Copy creates new signal. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="22" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="22" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Signal_1a7e180a0b398d5c11c13b078cd460e4fe" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void connect</definition>
+        <argsstring>(std::function&lt; void(Args...)&gt; const &amp;slot) const</argsstring>
+        <name>connect</name>
+        <param>
+          <type>std::function&lt; void(Args...)&gt; const &amp;</type>
+          <declname>slot</declname>
+        </param>
+        <briefdescription>
+<para>Connects a function to the signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>slot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function to connect. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Signal_1a8b76a7badbad3a65d95421f32ae70635" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void disconnectAll</definition>
+        <argsstring>() const</argsstring>
+        <name>disconnectAll</name>
+        <briefdescription>
+<para>Disconnects all previously connected functions. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Signal_1a9e35b23edf82f4e82dc2a2d27ba6ca63" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void emit</definition>
+        <argsstring>(Args... p)</argsstring>
+        <name>emit</name>
+        <param>
+          <type>Args...</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Calls all connected functions. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The arguments to pass to the connected functions. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="39" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="39" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Signal_1a0ba0975eebf7339db6b91326ec86bfc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>Signal &amp;</type>
+        <definition>Signal&amp; operator=</definition>
+        <argsstring>(Signal const &amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>Signal const &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+<para>Assignment creates new Signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>other</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal to assign. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A shallow copy of this object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="52" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="52" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="14" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Signal_1a6385226348733e8a66fd47d53e95220d" prot="private" virt="non-virtual"><scope>moja::Signal</scope><name>_slots</name></member>
+      <member refid="classmoja_1_1Signal_1a7e180a0b398d5c11c13b078cd460e4fe" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>connect</name></member>
+      <member refid="classmoja_1_1Signal_1a8b76a7badbad3a65d95421f32ae70635" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>disconnectAll</name></member>
+      <member refid="classmoja_1_1Signal_1a9e35b23edf82f4e82dc2a2d27ba6ca63" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>emit</name></member>
+      <member refid="classmoja_1_1Signal_1a0ba0975eebf7339db6b91326ec86bfc0" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1Signal_1ae9d51dc74697c3967a1ea1318c3a1452" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>Signal</name></member>
+      <member refid="classmoja_1_1Signal_1a25b6b858fb93fbe05fc932e593245d6d" prot="public" virt="non-virtual"><scope>moja::Signal</scope><name>Signal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

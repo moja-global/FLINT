@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1RecordHasher" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::RecordHasher</compoundname>
+    <templateparamlist>
+      <param>
+        <type>class TPersistable</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1RecordHasher_1afd7390e2f445cfb45ea93584cfb99630" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t operator()</definition>
+        <argsstring>(Record&lt; TPersistable &gt; *record) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>Record&lt; TPersistable &gt; *</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" line="18" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" line="17" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordutils.h" bodystart="17" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1RecordHasher_1afd7390e2f445cfb45ea93584cfb99630" prot="public" virt="non-virtual"><scope>moja::flint::RecordHasher</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

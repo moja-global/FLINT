@@ -1,0 +1,1053 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1DateTime" kind="class" language="C++" prot="public">
+    <compoundname>moja::DateTime</compoundname>
+    <includes refid="datetime_8h" local="no">datetime.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1DateTime_1ad3b9aea9e5a9177a37f3c9d605af61cf" prot="private" static="no" mutable="no">
+        <type>date::year_month_day</type>
+        <definition>date::year_month_day _date</definition>
+        <argsstring></argsstring>
+        <name>_date</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="253" column="25" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1DateTime_1aa2d56973e7b734d2469111d2e8da4b7c" prot="private" static="no" mutable="no">
+        <type>date::time_of_day&lt; std::chrono::microseconds &gt;</type>
+        <definition>date::time_of_day&lt;std::chrono::microseconds&gt; _tod</definition>
+        <argsstring></argsstring>
+        <name>_tod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="254" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DateTime</definition>
+        <argsstring>()</argsstring>
+        <name>DateTime</name>
+        <briefdescription>
+<para>Default constructor - date and time. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="60" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="60" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1accfc0808110bdb348f07328f11260afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~DateTime</definition>
+        <argsstring>()</argsstring>
+        <name>~DateTime</name>
+        <briefdescription>
+<para>destructor </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="64" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a55f08940bc5f5e5ffcf128c0e42e6f1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DateTime</definition>
+        <argsstring>(short year, unsigned month, unsigned day)</argsstring>
+        <name>DateTime</name>
+        <param>
+          <type>short</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+<para>Constructs a <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> from component times. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>year</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The year. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>month</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The month. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>day</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The day. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>hour</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the hour. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>minute</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the minute. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>second</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the second. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>millisecond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the millisecond. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>microsecond</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the microsecond. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="78" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="78" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ae100536273dc8a62e5c70e7070d45d7a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DateTime</definition>
+        <argsstring>(short year, unsigned month, unsigned day, int hour, int minute=0, int second=0)</argsstring>
+        <name>DateTime</name>
+        <param>
+          <type>short</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minute</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="83" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ad678fce1818f2e1db10684663553b6f3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DateTime</definition>
+        <argsstring>(short year, unsigned month, unsigned day, int hour, int minute, int second, int millisecond, int microsecond=0)</argsstring>
+        <name>DateTime</name>
+        <param>
+          <type>short</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minute</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>millisecond</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>microsecond</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="88" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="88" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a23c8a6277dcbb84a28c0e0555fd79530" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double decimalYear</definition>
+        <argsstring>() const</argsstring>
+        <name>decimalYear</name>
+        <briefdescription>
+<para>Return the current day and year in decimal format (i.e. 1970.1095890410958904 (day 40)) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="99" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="120" bodyend="125"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ae8aef58442e6f0d76d074f078bead3b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addYears</definition>
+        <argsstring>(int years)</argsstring>
+        <name>addYears</name>
+        <param>
+          <type>int</type>
+          <declname>years</declname>
+        </param>
+        <briefdescription>
+<para>Increments the date by a number of years. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>years</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of years to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="108" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a7c6b27ea85a89e1e01e29baa1cabcf40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addMonths</definition>
+        <argsstring>(int months)</argsstring>
+        <name>addMonths</name>
+        <param>
+          <type>int</type>
+          <declname>months</declname>
+        </param>
+        <briefdescription>
+<para>Increments the date by a number of months. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>months</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of months to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="117" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="56" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a27019bce0c804d7f6c1576b3490f6a76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addDays</definition>
+        <argsstring>(double days)</argsstring>
+        <name>addDays</name>
+        <param>
+          <type>double</type>
+          <declname>days</declname>
+        </param>
+        <briefdescription>
+<para>Adds a fractional number of days. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>days</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of days to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="126" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="62" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1af41179bbebb36efb00fd9cddcab1da88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addHours</definition>
+        <argsstring>(double hours)</argsstring>
+        <name>addHours</name>
+        <param>
+          <type>double</type>
+          <declname>hours</declname>
+        </param>
+        <briefdescription>
+<para>Adds a fractional number of hours. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hours</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of hours to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="135" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="95" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ae536ba123d379e52627ecb00ac156942" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addMinutes</definition>
+        <argsstring>(double minutes)</argsstring>
+        <name>addMinutes</name>
+        <param>
+          <type>double</type>
+          <declname>minutes</declname>
+        </param>
+        <briefdescription>
+<para>Adds a fractional number of minutes. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>minutes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of minutes to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="144" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="100" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1aec0791d7f6ab6a93d51b7feb9aef4032" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addSeconds</definition>
+        <argsstring>(double seconds)</argsstring>
+        <name>addSeconds</name>
+        <param>
+          <type>double</type>
+          <declname>seconds</declname>
+        </param>
+        <briefdescription>
+<para>Adds a fractional number of seconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>seconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of seconds to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="153" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="105" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1acfb70c2cf56c0b99c9257eb56d8ff748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addMilliseconds</definition>
+        <argsstring>(double milliseconds)</argsstring>
+        <name>addMilliseconds</name>
+        <param>
+          <type>double</type>
+          <declname>milliseconds</declname>
+        </param>
+        <briefdescription>
+<para>Adds a given number of milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>milliseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of milliseconds to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="162" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="110" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a6fc09319b91f3f4e4c67b0eb4fa86295" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; addMicroseconds</definition>
+        <argsstring>(double microseconds)</argsstring>
+        <name>addMicroseconds</name>
+        <param>
+          <type>double</type>
+          <declname>microseconds</declname>
+        </param>
+        <briefdescription>
+<para>Adds a given number of microseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>microseconds</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of microseconds to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A reference to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> for chained calls. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="171" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="115" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a1fe5121d6528fdea3f243321b3fa3a49" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string toString</definition>
+        <argsstring>() const</argsstring>
+        <name>toString</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="197" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="197" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a1b5cb174b9b809888ca1cadfb32791f4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int year</definition>
+        <argsstring>() const</argsstring>
+        <name>year</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="203" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="203" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a9418bae7320038816691fbb13ce3b90a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int month</definition>
+        <argsstring>() const</argsstring>
+        <name>month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="204" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="204" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a912344e9b0a67db916e2bac3c43337dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int day</definition>
+        <argsstring>() const</argsstring>
+        <name>day</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="205" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="205" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a110d566ff7f9edf7cbfe15355f8c637c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int hour</definition>
+        <argsstring>() const</argsstring>
+        <name>hour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="207" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="207" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ae91256ab81b246d3f40eddbd4c016f5f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int minute</definition>
+        <argsstring>() const</argsstring>
+        <name>minute</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="208" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="208" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1aa0cba22e21d8081f564e6a68edab1ae0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int second</definition>
+        <argsstring>() const</argsstring>
+        <name>second</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="209" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="209" bodyend="209"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a038ca228972da8a6af93c300152055bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int millisecond</definition>
+        <argsstring>() const</argsstring>
+        <name>millisecond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="210" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="210" bodyend="212"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a503f92b1e74d5767e8fb7b81beef881c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int microsecond</definition>
+        <argsstring>() const</argsstring>
+        <name>microsecond</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="213" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="213" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1adfb7971d070046588a2fff910b831207" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; operator+=</definition>
+        <argsstring>(const moja::Timespan &amp;span)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Timespan" kindref="compound">moja::Timespan</ref> &amp;</type>
+          <declname>span</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="218" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a1b751d7dc02d9902ff1479347d4a32fc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dayOfYear</definition>
+        <argsstring>() const</argsstring>
+        <name>dayOfYear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="221" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="272" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a6b516ca60486e3597c3258d10165cf37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int dayOfWeek</definition>
+        <argsstring>() const</argsstring>
+        <name>dayOfWeek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="222" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="280" bodyend="286"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a1a8ccd26cdf2f8c86018a5cfb6cac255" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+        <definition>DateTime &amp; assign</definition>
+        <argsstring>(short year, unsigned month, unsigned day, int hour, int minute, int second, int millisecond, int microsecond)</argsstring>
+        <name>assign</name>
+        <param>
+          <type>short</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minute</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>millisecond</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>microsecond</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="226" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="263" bodyend="270"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a11e05d69c71af6cf143cdf6b6aa0246c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="229" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="288" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a1fb1e6d2f75c059cf0f2a74da6fc7a0b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="230" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="291" bodyend="291"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a7f8e03d6be82d746a1df372118794303" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="231" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="292" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a5409cb279699f37a7cf87fc385060e6f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&lt;=</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator&lt;=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="232" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="297" bodyend="297"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a01a49bfe8bf5fe31ff836a880c6bc4ce" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator&gt;</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="233" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="298" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a125868dea110622b2d1ad1defa7bd323" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator&gt;=</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator&gt;=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="234" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="299" bodyend="299"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a0bab80d9783e6ee7f1e2cd8018a65e99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Timespan" kindref="compound">moja::Timespan</ref></type>
+        <definition>Timespan operator-</definition>
+        <argsstring>(const DateTime &amp;dateTime) const</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dateTime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="236" column="19" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="301" bodyend="309"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a9c93663b2e185369c767dec717c059f1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>short</type>
+        <definition>short daysInYear</definition>
+        <argsstring>(int year)</argsstring>
+        <name>daysInYear</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <briefdescription>
+<para>Returns the number of days in a given year. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>year</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The year. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="177" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a7c6e9818619586b8c4f258358cfded23" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime now</definition>
+        <argsstring>()</argsstring>
+        <name>now</name>
+        <briefdescription>
+<para>constructs a <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> from the current system date and time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Return current <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref>.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="182" column="20" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="26" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ae5aff1b47f80c1a38b2a49fe63b7d2ca" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int daysOfMonth</definition>
+        <argsstring>(int year, int month)</argsstring>
+        <name>daysOfMonth</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>month</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="220" column="15" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="260" bodyend="262"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1aaa74172758afc3069fb6f5d2b4340a4b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isLeapYear</definition>
+        <argsstring>(int y) MOJA_NOEXCEPT</argsstring>
+        <name>isLeapYear</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="223" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmoja_1_1DateTime_1a40d64e497385a0855c1512408f70983a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;output, const DateTime &amp;dt)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>output</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> &amp;</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Inserts the string representation of this datetime into a stream. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="187" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="187" bodyend="195"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmoja_1_1DateTime_1a6307e32b5bdc27c9806a6e7ecc02d0d3" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void add</definition>
+        <argsstring>(std::chrono::duration&lt; double, std::micro &gt; value)</argsstring>
+        <name>add</name>
+        <param>
+          <type>std::chrono::duration&lt; double, std::micro &gt;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Adds a duration time units to this <ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of units to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="244" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="71" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1DateTime_1aba23b9f906a861c5cd5e7fe0f8d755f0" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void add_micro</definition>
+        <argsstring>(std::chrono::duration&lt; long long, std::micro &gt; value)</argsstring>
+        <name>add_micro</name>
+        <param>
+          <type>std::chrono::duration&lt; long long, std::micro &gt;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="245" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/datetime.cpp" bodystart="83" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1DateTime_1ad49973098ae26a45660480fa69fc55da" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>unsigned</type>
+        <definition>static unsigned last_day_of_month_common_year</definition>
+        <argsstring>(unsigned m) MOJA_NOEXCEPT</argsstring>
+        <name>last_day_of_month_common_year</name>
+        <param>
+          <type>unsigned</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="248" column="20" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="248" bodyend="251"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref> with convenience methods for adding time. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="57" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="57" bodyend="255"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1DateTime_1ad3b9aea9e5a9177a37f3c9d605af61cf" prot="private" virt="non-virtual"><scope>moja::DateTime</scope><name>_date</name></member>
+      <member refid="classmoja_1_1DateTime_1aa2d56973e7b734d2469111d2e8da4b7c" prot="private" virt="non-virtual"><scope>moja::DateTime</scope><name>_tod</name></member>
+      <member refid="classmoja_1_1DateTime_1a6307e32b5bdc27c9806a6e7ecc02d0d3" prot="protected" virt="non-virtual"><scope>moja::DateTime</scope><name>add</name></member>
+      <member refid="classmoja_1_1DateTime_1aba23b9f906a861c5cd5e7fe0f8d755f0" prot="protected" virt="non-virtual"><scope>moja::DateTime</scope><name>add_micro</name></member>
+      <member refid="classmoja_1_1DateTime_1a27019bce0c804d7f6c1576b3490f6a76" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addDays</name></member>
+      <member refid="classmoja_1_1DateTime_1af41179bbebb36efb00fd9cddcab1da88" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addHours</name></member>
+      <member refid="classmoja_1_1DateTime_1a6fc09319b91f3f4e4c67b0eb4fa86295" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addMicroseconds</name></member>
+      <member refid="classmoja_1_1DateTime_1acfb70c2cf56c0b99c9257eb56d8ff748" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addMilliseconds</name></member>
+      <member refid="classmoja_1_1DateTime_1ae536ba123d379e52627ecb00ac156942" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addMinutes</name></member>
+      <member refid="classmoja_1_1DateTime_1a7c6b27ea85a89e1e01e29baa1cabcf40" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addMonths</name></member>
+      <member refid="classmoja_1_1DateTime_1aec0791d7f6ab6a93d51b7feb9aef4032" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addSeconds</name></member>
+      <member refid="classmoja_1_1DateTime_1ae8aef58442e6f0d76d074f078bead3b7" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>addYears</name></member>
+      <member refid="classmoja_1_1DateTime_1a1a8ccd26cdf2f8c86018a5cfb6cac255" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>assign</name></member>
+      <member refid="classmoja_1_1DateTime_1a3e93cd7baeb8b4448482a450df21ab20" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>DateTime</name></member>
+      <member refid="classmoja_1_1DateTime_1a55f08940bc5f5e5ffcf128c0e42e6f1f" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>DateTime</name></member>
+      <member refid="classmoja_1_1DateTime_1ae100536273dc8a62e5c70e7070d45d7a" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>DateTime</name></member>
+      <member refid="classmoja_1_1DateTime_1ad678fce1818f2e1db10684663553b6f3" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>DateTime</name></member>
+      <member refid="classmoja_1_1DateTime_1a912344e9b0a67db916e2bac3c43337dc" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>day</name></member>
+      <member refid="classmoja_1_1DateTime_1a6b516ca60486e3597c3258d10165cf37" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>dayOfWeek</name></member>
+      <member refid="classmoja_1_1DateTime_1a1b751d7dc02d9902ff1479347d4a32fc" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>dayOfYear</name></member>
+      <member refid="classmoja_1_1DateTime_1a9c93663b2e185369c767dec717c059f1" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>daysInYear</name></member>
+      <member refid="classmoja_1_1DateTime_1ae5aff1b47f80c1a38b2a49fe63b7d2ca" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>daysOfMonth</name></member>
+      <member refid="classmoja_1_1DateTime_1a23c8a6277dcbb84a28c0e0555fd79530" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>decimalYear</name></member>
+      <member refid="classmoja_1_1DateTime_1a110d566ff7f9edf7cbfe15355f8c637c" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>hour</name></member>
+      <member refid="classmoja_1_1DateTime_1aaa74172758afc3069fb6f5d2b4340a4b" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>isLeapYear</name></member>
+      <member refid="classmoja_1_1DateTime_1ad49973098ae26a45660480fa69fc55da" prot="private" virt="non-virtual"><scope>moja::DateTime</scope><name>last_day_of_month_common_year</name></member>
+      <member refid="classmoja_1_1DateTime_1a503f92b1e74d5767e8fb7b81beef881c" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>microsecond</name></member>
+      <member refid="classmoja_1_1DateTime_1a038ca228972da8a6af93c300152055bf" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>millisecond</name></member>
+      <member refid="classmoja_1_1DateTime_1ae91256ab81b246d3f40eddbd4c016f5f" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>minute</name></member>
+      <member refid="classmoja_1_1DateTime_1a9418bae7320038816691fbb13ce3b90a" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>month</name></member>
+      <member refid="classmoja_1_1DateTime_1a7c6e9818619586b8c4f258358cfded23" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>now</name></member>
+      <member refid="classmoja_1_1DateTime_1a1fb1e6d2f75c059cf0f2a74da6fc7a0b" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator!=</name></member>
+      <member refid="classmoja_1_1DateTime_1adfb7971d070046588a2fff910b831207" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator+=</name></member>
+      <member refid="classmoja_1_1DateTime_1a0bab80d9783e6ee7f1e2cd8018a65e99" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator-</name></member>
+      <member refid="classmoja_1_1DateTime_1a7f8e03d6be82d746a1df372118794303" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator&lt;</name></member>
+      <member refid="classmoja_1_1DateTime_1a40d64e497385a0855c1512408f70983a" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator&lt;&lt;</name></member>
+      <member refid="classmoja_1_1DateTime_1a5409cb279699f37a7cf87fc385060e6f" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator&lt;=</name></member>
+      <member refid="classmoja_1_1DateTime_1a11e05d69c71af6cf143cdf6b6aa0246c" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1DateTime_1a01a49bfe8bf5fe31ff836a880c6bc4ce" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator&gt;</name></member>
+      <member refid="classmoja_1_1DateTime_1a125868dea110622b2d1ad1defa7bd323" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>operator&gt;=</name></member>
+      <member refid="classmoja_1_1DateTime_1aa0cba22e21d8081f564e6a68edab1ae0" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>second</name></member>
+      <member refid="classmoja_1_1DateTime_1a1fe5121d6528fdea3f243321b3fa3a49" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>toString</name></member>
+      <member refid="classmoja_1_1DateTime_1a1b5cb174b9b809888ca1cadfb32791f4" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>year</name></member>
+      <member refid="classmoja_1_1DateTime_1accfc0808110bdb348f07328f11260afa" prot="public" virt="non-virtual"><scope>moja::DateTime</scope><name>~DateTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

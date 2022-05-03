@@ -1,0 +1,299 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LocalDomainControllerBase" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LocalDomainControllerBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ILocalDomainController</basecompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1AspatialLocalDomainController" prot="public" virt="non-virtual">AspatialLocalDomainController</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController" prot="public" virt="non-virtual">SpatialTiledLocalDomainController</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1ThreadedAspatialLocalDomainController" prot="public" virt="non-virtual">ThreadedAspatialLocalDomainController</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1aebd45075841ad4f560e0678e7010e8ec" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _localDomainId</definition>
+        <argsstring></argsstring>
+        <name>_localDomainId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="37" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a7d834b337be8569a53389d124a2cec07" prot="protected" static="no" mutable="no">
+        <type>const configuration::Configuration *</type>
+        <definition>const configuration::Configuration* _config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="38" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a98eacbea3eb089cb6398ec4221b47374" prot="protected" static="no" mutable="no">
+        <type>LandUnitController</type>
+        <definition>LandUnitController _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="39" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1abe798c59e34506715f5f39983a73afbc" prot="protected" static="no" mutable="no">
+        <type>datarepository::DataRepository</type>
+        <definition>datarepository::DataRepository _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="40" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a6be856f660b67721afb78797059b0f41" prot="protected" static="no" mutable="no">
+        <type>LibraryManager</type>
+        <definition>LibraryManager _libraryManager</definition>
+        <argsstring></argsstring>
+        <name>_libraryManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="41" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab9dcfb6315f9dbdebb454cedf41cb534" prot="protected" static="no" mutable="no">
+        <type>ModuleMap</type>
+        <definition>ModuleMap _moduleMap</definition>
+        <argsstring></argsstring>
+        <name>_moduleMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="42" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a904a680bfa7c794647f5ec00d65a4e86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LocalDomainControllerBase</definition>
+        <argsstring>(void)</argsstring>
+        <name>LocalDomainControllerBase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="19" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="33" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1ac2ad055adc04a94b1b6110fd8c6e6dd6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>LocalDomainControllerBase</definition>
+        <argsstring>(std::shared_ptr&lt; FlintLibraryHandles &gt; libraryHandles)</argsstring>
+        <name>LocalDomainControllerBase</name>
+        <param>
+          <type>std::shared_ptr&lt; FlintLibraryHandles &gt;</type>
+          <declname>libraryHandles</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="20" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab7cebd24daf0154904a8158376998ae6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~LocalDomainControllerBase</definition>
+        <argsstring>(void)=default</argsstring>
+        <name>~LocalDomainControllerBase</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="21" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a0c1c38120f24ff03fc76abdf1719101c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(const configuration::Configuration &amp;config) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const configuration::Configuration &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+<para>TODO: check if this is required here. initialiseData is also called in SpatialTiledLocalDomainController::runCell</para>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="23" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="47" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1ad1717410afd0be936c6213a63c8005fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void run</definition>
+        <argsstring>() override</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="24" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="306" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1aa29c86a80cc0f123920b060bfb49c6c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void startup</definition>
+        <argsstring>() override</argsstring>
+        <name>startup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="25" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="315" bodyend="315"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1aa77b0c0c7fa692add39407ffc5b00d01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void shutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>shutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="26" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="319" bodyend="319"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a52488e999c94de3ac3dce4c698bcbcc2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>ILandUnitController &amp;</type>
+        <definition>ILandUnitController&amp; landUnitController</definition>
+        <argsstring>() override</argsstring>
+        <name>landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="28" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1aeb007b2e2dbd1df8ad1ddd51de3cac1f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void initialiseData</definition>
+        <argsstring>()</argsstring>
+        <name>initialiseData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="29" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a88a4dd0f386cb2bd6a384eef5c87aa7d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int localDomainId</definition>
+        <argsstring>() override</argsstring>
+        <name>localDomainId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="31" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a734c556e1322a71bf54c4b0d1db529a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_localDomainId</definition>
+        <argsstring>(const int value) override</argsstring>
+        <name>set_localDomainId</name>
+        <param>
+          <type>const int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LocalDomainControllerBase_1a653cce1d8eec27c242718156819c40e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::map&lt; ModuleMapKey, <ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> * &gt;</type>
+        <definition>std::map&lt; LocalDomainControllerBase::ModuleMapKey, IModule * &gt; modules</definition>
+        <argsstring>() const override</argsstring>
+        <name>modules</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="34" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/localdomaincontrollerbase.cpp" bodystart="323" bodyend="329"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" line="17" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h" bodystart="17" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a7d834b337be8569a53389d124a2cec07" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_config</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1abe798c59e34506715f5f39983a73afbc" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a2c89b5c2a8958a52ce8d82e3904a72c7" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_landUnitBuildSuccess</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a98eacbea3eb089cb6398ec4221b47374" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a6be856f660b67721afb78797059b0f41" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_libraryManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aebd45075841ad4f560e0678e7010e8ec" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab9dcfb6315f9dbdebb454cedf41cb534" prot="protected" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_moduleMap</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1abe30c5018ac41ed0d997f47c36675bdf" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_notificationCenter</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a3004d73dabe5956781bf4a62392383f2" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_sequencer</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1af1fba3bedf0298267175faa7814f28fe" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>_simulateLandUnit</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a0c1c38120f24ff03fc76abdf1719101c" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aeb007b2e2dbd1df8ad1ddd51de3cac1f" prot="public" virt="virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>initialiseData</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a52488e999c94de3ac3dce4c698bcbcc2" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a904a680bfa7c794647f5ec00d65a4e86" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>LocalDomainControllerBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ac2ad055adc04a94b1b6110fd8c6e6dd6" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>LocalDomainControllerBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a88a4dd0f386cb2bd6a384eef5c87aa7d" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1af064aefc7ac9a5262f485cad43b2e273" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>ModuleMap</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1a8ccfed68754270e20e58c8d1a8a80843" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>ModuleMapKey</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a653cce1d8eec27c242718156819c40e8" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>modules</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ad1717410afd0be936c6213a63c8005fb" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>run</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1a734c556e1322a71bf54c4b0d1db529a0" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>set_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aa77b0c0c7fa692add39407ffc5b00d01" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>shutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1aa29c86a80cc0f123920b060bfb49c6c3" prot="public" virt="non-virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>startup</name></member>
+      <member refid="classmoja_1_1flint_1_1ILocalDomainController_1adbb84adb731437b6850041bfa72dbaf8" prot="public" virt="virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>~ILocalDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1LocalDomainControllerBase_1ab7cebd24daf0154904a8158376998ae6" prot="public" virt="virtual"><scope>moja::flint::LocalDomainControllerBase</scope><name>~LocalDomainControllerBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
