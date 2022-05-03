@@ -56,7 +56,7 @@ bool checkFilePath(const std::string& filePath) {
 }
 
 /**
-* @brief handle out of memory exception
+* @brief handles out of memory exception
 * 
 * This function terminates the program immediately.
 * 
