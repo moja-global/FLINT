@@ -4,11 +4,11 @@
 
 ## What is `FLINT`?
 
-The Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in ways that meet policy needs. It is based on over 20 years of experience building and operating integration tools in Australia and Canada.   It's an Open-source Library maintained under [**moja.global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the Linux Foundation
+The Full Lands Integration Tool (FLINT) is a C++ framework that combines satellite and ground data in ways that meet policy needs. It is based on over 20 years of experience building and operating integration tools in Australia and Canada.   It's an Open-source Library maintained under [**moja.global**](https://github.com/moja-global/About-moja-global/blob/master/README.md), a project under the Linux Foundation.
 
 ## Why FLINT?
 
-The FLINT makes developing and operating advanced systems achievable by all countries. It is a generic platform with a modular structure, allowing countries to attach any variety of models or data to build country-specific systems. The platform handles complex computer science tasks, such as the storage and processing of large data sets, leaving users to focus on monitoring, reporting and scenario analyses.  
+The FLINT makes developing and operating advanced systems achievable by all countries. It is a generic platform with a modular structure, allowing countries to attach any variety of models or data to build country-specific systems. The platform handles complex computer science tasks, such as the storage and processing of large data sets, leaving users to focus on monitoring, reporting and scenario analysis.  
 
 ## How is FLINT different from earlier integrating tools?
 
@@ -59,14 +59,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table><tr><td align="center"><a href="https://github.com/mtbdeligt"><img src="https://avatars3.githubusercontent.com/u/16447169?v=4" width="100px;" alt="Rob de Ligt"/><br /><sub><b>Rob de Ligt</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mtbdeligt" title="Documentation">📖</a> <a href="#maintenance-mtbdeligt" title="Maintenance">🚧</a></td><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!  
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!  
 
 ## Maintainers Reviewers Ambassadors Coaches
 
-The following people are Maintainers of this repository
+The following people are Maintainers of this repository:
 
 <table><tr><td align="center"><a href="https://github.com/malfrancis"><img src="https://avatars0.githubusercontent.com/u/5935221?v=4" width="100px;" alt="Mal"/><br /><sub><b>Mal</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=malfrancis" title="Code">💻</a></td><td align="center"><a href="https://github.com/leitchy"><img src="https://avatars0.githubusercontent.com/u/3417817?v=4" width="100px;" alt="James Leitch"/><br /><sub><b>James Leitch</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=leitchy" title="Code">💻</a></td><td align="center"><a href="https://github.com/mfellows"><img src="https://avatars0.githubusercontent.com/u/8548157?v=4" width="100px;" alt="Max Fellows"/><br /><sub><b>Max Fellows</b></sub></a><br /><a href="https://github.com/moja-global/FLINT/commits?author=mfellows" title="Code">💻</a></td></tr></table>
-**Maintainers** review and accept proposed changes  
-**Reviewers** check proposed changes before they go to the Maintainers  
-**Ambassadors** are available to provide training related to this repository  
-**Coaches** are available to provide information to new contributors to this repository  
+
+**Maintainers** review and accept proposed changes. 
+
+**Reviewers** check proposed changes before they go to the Maintainers.  
+
+**Ambassadors** are available to provide training related to this repository.  
+
+**Coaches** are available to provide information to new contributors to this repository.  
