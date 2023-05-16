@@ -8,6 +8,7 @@
 #include "moja/flint/modulebase.h"
 
 #include <boost/algorithm/string.hpp>
+#include <Poco/Mutex.h>
 
 #include <algorithm>
 #include <unordered_map>

@@ -4,6 +4,7 @@
 #include <moja/flint/modulebase.h>
 
 #include <boost/iostreams/stream_buffer.hpp>
+#include <Poco/Mutex.h>
 
 namespace moja {
 namespace flint {
