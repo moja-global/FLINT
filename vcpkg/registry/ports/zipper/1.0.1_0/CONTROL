@@ -1,0 +1,4 @@
+Source: zipper
+Version: 1.0.1
+Build-Depends: zlib
+Description: C++ wrapper around minizip compression library
