@@ -9,6 +9,7 @@
 #include <moja/flint/modulebase.h>
 
 #include <unordered_map>
+#include <Poco/Mutex.h>
 
 namespace moja {
 

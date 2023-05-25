@@ -1,0 +1,12 @@
+{
+    "default": {
+        "turtle": {
+            "baseline": "1.3.1",
+            "port-version": 0
+        },
+        "zipper": {
+            "baseline": "1.0.1",
+            "port-version": 0
+        }
+    }
+}
