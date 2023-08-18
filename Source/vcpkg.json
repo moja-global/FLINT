@@ -1,7 +1,7 @@
 {
     "name": "moja",
     "version": "1.0.6",
-    "builtin-baseline": "14e7bb4ae24616ec54ff6b2f6ef4e8659434ea44",
+    "builtin-baseline": "57fee154cc4068542740b4b5775343d9fd83413e",
     "vcpkg-configuration": {
         "registries": [
             {
@@ -9,12 +9,6 @@
                 "path": "../vcpkg/registry",
                 "baseline": "default",
                 "packages": ["turtle", "zipper"]
-            },
-            {
-                "kind": "git",
-                "repository": "https://github.com/microsoft/vcpkg",
-                "baseline": "501db0f17ef6df184fcdbfbe0f87cde2313b6ab1",
-                "packages": ["openssl", "vcpkg-cmake-get-vars"]
             }
         ]
     },
@@ -26,8 +20,8 @@
         "boost-test",
         "boost-ublas",
         "fmt",
-        "gdal",
-        {"name": "hdf5", "features": ["szip", "zlib", "cpp"]},
+        "libgeotiff",
+        {"name": "gdal", "default-features": false},
         "libpq",
         "libpqxx",
         {"name": "poco", "features": ["sqlite3"]},
@@ -189,7 +183,6 @@
         {"name": "boost-winapi", "version": "1.77.0"},
         {"name": "boost-xpressive", "version": "1.77.0"},
         {"name": "boost-yap", "version": "1.77.0"},
-        {"name": "gdal", "version": "3.4.3"},
-        {"name": "openssl", "version-string": "3.0.2"}
+        {"name": "gdal", "version": "3.4.3"}
    ]
 }
