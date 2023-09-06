@@ -294,7 +294,18 @@ void WriteVariableGeotiff::DataSettingsT<T>::addFlux(const DynamicVar& fluxConfi
       subtract = fluxGroup["subtract"];
    }
 
-   _flux.push_back(flint::Flux(sourcePoolNames, destPoolNames, fluxSource, subtract));
+   if (fluxSource == flint::FluxSource::DISTURBANCE) {
+       std::vector<std::string> disturbanceTypeFilter;
+       if (fluxGroup.contains("disturbance_types")) {
+           for (const auto& distTypeName : fluxGroup["disturbance_types"]) {
+               disturbanceTypeFilter.push_back(distTypeName);
+           }
+       }
+
+       _flux.push_back(flint::Flux(sourcePoolNames, destPoolNames, disturbanceTypeFilter, subtract));
+   } else {
+       _flux.push_back(flint::Flux(sourcePoolNames, destPoolNames, fluxSource, subtract));
+   }
 }
 
 // --------------------------------------------------------------------------------------------
