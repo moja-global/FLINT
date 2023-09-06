@@ -126,12 +126,16 @@ inline bool Flux::isIncluded(const IOperationResultFlux& fluxRecord) {
       return false;  // don't process diagonal - flux to & from same pool is ignored
    }
 
-   if (std::find(_sourcePools.begin(), _sourcePools.end(), srcIx) == _sourcePools.end()) {
-      return false;
+   if (!_sourcePools.empty()) {
+       if (std::find(_sourcePools.begin(), _sourcePools.end(), srcIx) == _sourcePools.end()) {
+           return false;
+       }
    }
 
-   if (std::find(_destPools.begin(), _destPools.end(), dstIx) == _destPools.end()) {
-      return false;
+   if (!_destPools.empty()) {
+       if (std::find(_destPools.begin(), _destPools.end(), dstIx) == _destPools.end()) {
+           return false;
+       }
    }
 
    return true;

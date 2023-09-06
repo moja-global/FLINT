@@ -272,13 +272,17 @@ void WriteVariableGeotiff::DataSettingsT<T>::addFlux(const DynamicVar& fluxConfi
    const auto& fluxGroup = fluxConfig.extract<const DynamicObject>();
 
    std::vector<std::string> sourcePoolNames;
-   for (const auto& poolName : fluxGroup["from"]) {
-      sourcePoolNames.push_back(poolName);
+   if (fluxGroup.contains("from")) {
+       for (const auto& poolName : fluxGroup["from"]) {
+           sourcePoolNames.push_back(poolName);
+       }
    }
 
    std::vector<std::string> destPoolNames;
-   for (const auto& poolName : fluxGroup["to"]) {
-      destPoolNames.push_back(poolName);
+   if (fluxGroup.contains("to")) {
+       for (const auto& poolName : fluxGroup["to"]) {
+           destPoolNames.push_back(poolName);
+       }
    }
 
    auto fluxSource = flint::FluxSource::COMBINED;
