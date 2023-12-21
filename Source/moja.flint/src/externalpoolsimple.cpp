@@ -28,7 +28,12 @@ double ExternalPoolSimple::scale() const { return _metadata.scale(); }
 
 int ExternalPoolSimple::order() const { return _metadata.order(); }
 
-double ExternalPoolSimple::initValue() const { return _initValue->value(); }
+double ExternalPoolSimple::initValue() const {
+    const auto& initTransformValue = _initValue->value();
+    double value = initTransformValue.isEmpty() ? 0.0 : initTransformValue.convert<double>();
+    
+    return value;
+}
 
 void ExternalPoolSimple::init() {
    const auto& value = _initValue->value();
