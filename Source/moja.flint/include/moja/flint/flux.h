@@ -16,6 +16,9 @@ class Flux {
    Flux(std::vector<std::string> sourcePools, std::vector<std::string> destPools,
         FluxSource fluxSource = FluxSource::COMBINED, bool subtract = false);
 
+   Flux(std::vector<std::string> sourcePools, std::vector<std::string> destPools,
+        std::vector<std::string> distTypeFilter, bool subtract = false);
+
    void init(ILandUnitDataWrapper* landUnitData);
 
    double calculate(std::shared_ptr<IOperationResult> operationResult);
@@ -27,6 +30,8 @@ class Flux {
    std::vector<std::string> _destPoolNames;
    std::vector<int> _destPools;
 
+   std::vector<std::string> _distTypeFilter;
+
    FluxSource _fluxSource;
    bool _subtract;
 
@@ -34,12 +39,19 @@ class Flux {
 
    bool isDisturbanceFlux(std::shared_ptr<IOperationResult> flux);
 
+   bool isMatchingDisturbanceType(std::shared_ptr<IOperationResult> operationResult);
+
    bool isIncluded(const IOperationResultFlux& fluxRecord);
 };
 
 inline Flux::Flux(std::vector<std::string> sourcePools, std::vector<std::string> destPools, FluxSource fluxSource,
                   bool subtract)
     : _sourcePoolNames(sourcePools), _destPoolNames(destPools), _fluxSource(fluxSource), _subtract(subtract) {}
+
+inline Flux::Flux(std::vector<std::string> sourcePools, std::vector<std::string> destPools, std::vector<std::string> distTypeFilter,
+                  bool subtract)
+    : _sourcePoolNames(sourcePools), _destPoolNames(destPools), _fluxSource(FluxSource::DISTURBANCE),
+      _distTypeFilter(distTypeFilter), _subtract(subtract) {}
 
 inline void Flux::init(ILandUnitDataWrapper* landUnitData) {
    for (const auto& poolName : _sourcePoolNames) {
@@ -66,11 +78,25 @@ inline double Flux::calculate(std::shared_ptr<IOperationResult> operationResult)
    return _subtract ? -sum : sum;
 }
 
+inline bool Flux::isMatchingDisturbanceType(std::shared_ptr<IOperationResult> flux) {
+    if (_distTypeFilter.empty()) {
+        return true;
+    }
+
+    auto& disturbanceData = flux->dataPackage().extract<const DynamicObject>();
+    std::string disturbanceType = disturbanceData["disturbance"];
+    if (std::find(_distTypeFilter.begin(), _distTypeFilter.end(), disturbanceType) == _distTypeFilter.end()) {
+        return false;
+    }
+
+    return true;
+}
+
 inline bool Flux::isMatchingFluxSource(std::shared_ptr<IOperationResult> operationResult) {
    auto isDisturbance = isDisturbanceFlux(operationResult);
    switch (_fluxSource) {
       case FluxSource::DISTURBANCE:
-         return isDisturbance;
+         return isDisturbance && isMatchingDisturbanceType(operationResult);
       case FluxSource::ANNUAL_PROCESS:
          return !isDisturbance;
       default:
@@ -100,12 +126,16 @@ inline bool Flux::isIncluded(const IOperationResultFlux& fluxRecord) {
       return false;  // don't process diagonal - flux to & from same pool is ignored
    }
 
-   if (std::find(_sourcePools.begin(), _sourcePools.end(), srcIx) == _sourcePools.end()) {
-      return false;
+   if (!_sourcePools.empty()) {
+       if (std::find(_sourcePools.begin(), _sourcePools.end(), srcIx) == _sourcePools.end()) {
+           return false;
+       }
    }
 
-   if (std::find(_destPools.begin(), _destPools.end(), dstIx) == _destPools.end()) {
-      return false;
+   if (!_destPools.empty()) {
+       if (std::find(_destPools.begin(), _destPools.end(), dstIx) == _destPools.end()) {
+           return false;
+       }
    }
 
    return true;
