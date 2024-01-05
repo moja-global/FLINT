@@ -1,6 +1,7 @@
 #include "moja/modules/gdal/libraryfactory.h"
 
 #include "moja/modules/gdal/writevariablegeotiff.h"
+#include "moja/modules/gdal/writevariablemultibandgeotiff.h"
 #include "moja/modules/gdal/rasterreadergdal.h"
 
 #include <moja/flint/mojalibapi.h>
@@ -28,6 +29,9 @@ MOJA_LIB_API int getModuleRegistrations(ModuleRegistration* outModuleRegistratio
    outModuleRegistrations[index++] = ModuleRegistration{
        "WriteVariableGeotiff",
        []() -> flint::IModule* { return new WriteVariableGeotiff(_fileHandlingMutexVarGeotiffWriter); }};
+   outModuleRegistrations[index++] = ModuleRegistration{
+       "WriteVariableMultibandGeotiff",
+       []() -> flint::IModule* { return new WriteVariableMultibandGeotiff(_fileHandlingMutexVarGeotiffWriter); } };
    return index;
 }
 

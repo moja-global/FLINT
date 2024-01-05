@@ -22,10 +22,12 @@ set(PROJECT_SOURCES
 
 set(PROJECT_MODULE_HEADERS
 	include/moja/modules/${PACKAGE}/writevariablegeotiff.h
+	include/moja/modules/${PACKAGE}/writevariablemultibandgeotiff.h
 )
  
 set(PROJECT_MODULE_SOURCES
 	src/writevariablegeotiff.cpp
+	src/writevariablemultibandgeotiff.cpp
 )
 
 set(PROJECT_PROVIDER_HEADERS
