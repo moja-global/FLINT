@@ -35,6 +35,8 @@ class SQLiteConnection {
          BOOST_THROW_EXCEPTION(ConnectionFailedException() << ConnectionError(sqlite3_errmsg(_conn)));
       }
 
+      const char* pragma = "PRAGMA journal_mode = OFF";
+      sqlite3_exec(_conn, pragma, NULL, NULL, NULL);
       sqlite3_busy_timeout(_conn, 60000);
    }
    ~SQLiteConnection() { sqlite3_close(_conn); }
