@@ -472,6 +472,9 @@ static std::shared_ptr<GDALDataset> create_gdalraster(Poco::File& path, int rows
             path.remove(false);
         } else {
             dataset = (GDALDataset*)GDALOpen(path.path().c_str(), GDALAccess::GA_Update);
+            if (dataset == nullptr) {
+                return nullptr; // already in use
+            }
         }
     }
 
@@ -542,6 +545,11 @@ void WriteVariableMultibandGeotiff::DataSettingsT<T>::doLocalDomainProcessingUni
 
    Poco::File block_path(filename);
    auto dataset = create_gdalraster(block_path, cellRows, cellCols, bands, gdal_type(_dataType), adfGeoTransform, _deleteExisting);
+   if (dataset == nullptr) {
+       // output file is in use - skip.
+       _data.clear();
+       return;
+   }
 
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
    for (auto it = _data.begin(); it != _data.end(); ++it) {
