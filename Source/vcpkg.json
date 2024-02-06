@@ -3,6 +3,9 @@
     "version": "1.0.6",
     "builtin-baseline": "57fee154cc4068542740b4b5775343d9fd83413e",
     "vcpkg-configuration": {
+        "overlay-triplets": [
+            "../vcpkg/triplets"
+        ],
         "registries": [
             {
                 "kind": "filesystem",

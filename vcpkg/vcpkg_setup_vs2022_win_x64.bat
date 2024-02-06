@@ -28,8 +28,9 @@ REM If OpenSSL fails to build, just keep retrying until it does.
 cmake -S .. ^
     -G "Visual Studio 17 2022" ^
     -DCMAKE_INSTALL_PREFIX=bin ^
-    -DVCPKG_TARGET_TRIPLET=x64-windows ^
-    -DCMAKE_TOOLCHAIN_FILE=..\..\vcpkg\vcpkg\scripts\buildsystems\vcpkg.cmake ^
+    -DVCPKG_TARGET_TRIPLET=moja-x64-windows ^
+    -DVCPKG_INSTALL_OPTIONS="--x-abi-tools-use-exact-versions" ^
+    -DCMAKE_TOOLCHAIN_FILE=../../vcpkg/vcpkg/scripts/buildsystems/vcpkg.cmake ^
     -DENABLE_TESTS:BOOL=OFF ^
     -DENABLE_MOJA.MODULES.ZIPPER:BOOL=ON ^
     -DENABLE_MOJA.MODULES.GDAL:BOOL=ON ^
