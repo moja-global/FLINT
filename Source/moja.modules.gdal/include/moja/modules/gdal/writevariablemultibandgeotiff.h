@@ -38,7 +38,8 @@ class GDAL_API WriteVariableMultibandGeotiff : public flint::ModuleBase {
        : _fileHandlingMutex(fileHandlingMutex),
          _useIndexesForFolderName(false),
          _forceVariableFolderName(true),
-         _applyAreaAdjustment(false) {}
+         _applyAreaAdjustment(false),
+         _deleteExisting(true) {}
    virtual ~WriteVariableMultibandGeotiff() = default;
 
    void configure(const DynamicObject& config) override;
@@ -69,12 +70,13 @@ class GDAL_API WriteVariableMultibandGeotiff : public flint::ModuleBase {
             _outputAnnually(false),
             _dataType(dataType),
             _variable(nullptr),
+            _deleteExisting(true),
             _fileHandlingMutex(fileHandlingMutex) {}
 
       virtual ~DataSettingsB() = default;
 
       virtual void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
-                             bool applyAreaAdjustment, const DynamicObject& config) = 0;
+                             bool applyAreaAdjustment, bool deleteExisting, const DynamicObject& config) = 0;
       virtual void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
       virtual void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) = 0;
       virtual void doLocalDomainProcessingUnitInit(
@@ -99,6 +101,7 @@ class GDAL_API WriteVariableMultibandGeotiff : public flint::ModuleBase {
       bool _forceVariableFolderName;
       bool _applyAreaAdjustment;
       bool _subtractPrevValue;
+      bool _deleteExisting;
       std::string _outputPath;             // "output_path"
       std::string _variableName;           // "variable_name"
       std::string _propertyName;           // "property_name"
@@ -130,7 +133,7 @@ class GDAL_API WriteVariableMultibandGeotiff : public flint::ModuleBase {
       ~DataSettingsT() = default;
 
       void configure(std::string& globalOutputPath, bool useIndexesForFolderName, bool forceVariableFolderName,
-                             bool applyAreaAdjustment, const DynamicObject& config) override;
+                             bool applyAreaAdjustment, bool deleteExisting, const DynamicObject& config) override;
 
       void doSystemInit(flint::ILandUnitDataWrapper* _landUnitData) override;
       void doLocalDomainInit(flint::ILandUnitDataWrapper* _landUnitData) override;
@@ -167,6 +170,7 @@ class GDAL_API WriteVariableMultibandGeotiff : public flint::ModuleBase {
    bool _useIndexesForFolderName;
    bool _forceVariableFolderName;
    bool _applyAreaAdjustment;
+   bool _deleteExisting;
    std::string _globalOutputPath;                          // global "output_path"
    std::vector<std::unique_ptr<DataSettingsB>> _dataVecT;  // Spatial Output Data Vector
 

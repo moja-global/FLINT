@@ -44,6 +44,10 @@ void WriteVariableMultibandGeotiff::configure(const DynamicObject& config) {
    if (config.contains("apply_area_adjustment")) {
       _applyAreaAdjustment = config["apply_area_adjustment"];
    }
+   _deleteExisting = true;
+   if (config.contains("delete_existing")) {
+       _deleteExisting = config["delete_existing"];
+   }
 
    const auto& items = config["items"].extract<DynamicVector>();
 
@@ -77,7 +81,7 @@ void WriteVariableMultibandGeotiff::configure(const DynamicObject& config) {
          }
 
          _dataVecT.back()->configure(_globalOutputPath, _useIndexesForFolderName, _forceVariableFolderName,
-                                     _applyAreaAdjustment, itemConfig);
+                                     _applyAreaAdjustment, _deleteExisting, itemConfig);
       }
    }
 }
@@ -205,7 +209,7 @@ int WriteVariableMultibandGeotiff::getTimestep() const {
 
 template <typename T>
 void WriteVariableMultibandGeotiff::DataSettingsT<T>::configure(std::string& globalOutputPath, bool useIndexesForFolderName,
-                                                       bool forceVariableFolderName, bool applyAreaAdjustment,
+                                                       bool forceVariableFolderName, bool applyAreaAdjustment, bool deleteExisting,
                                                        const DynamicObject& config) {
    _name = config["data_name"].convert<std::string>();
 
@@ -228,6 +232,7 @@ void WriteVariableMultibandGeotiff::DataSettingsT<T>::configure(std::string& glo
    _isArray = config.contains("is_array") ? config["is_array"].convert<bool>() : false;
    _arrayIndex = config.contains("array_index") ? config["array_index"].convert<int>() : 0;
    _outputInterval = config.contains("output_interval") ? config["output_interval"].convert<int>() : 1;
+   _deleteExisting = deleteExisting;
    _nodataValue = config.contains("nodata_value")
                       ? config["nodata_value"].convert<T>()
                       : std::numeric_limits<T>::is_integer ? std::numeric_limits<T>::lowest()
@@ -454,32 +459,46 @@ struct dataset_closer {
    GDALDataset* gdal_dataset_;
 };
 
-static std::shared_ptr<GDALDataset> create_gdalraster(const Poco::File& path, int rows, int cols,
-                                                      int bands, GDALDataType datatype, double* transform) {
-   if (GDALGetDriverCount() == 0) {
-      GDALAllRegister();
-   }
+static std::shared_ptr<GDALDataset> create_gdalraster(Poco::File& path, int rows, int cols,
+                                                      int bands, GDALDataType datatype, double* transform,
+                                                      bool deleteExisting) {
+    if (GDALGetDriverCount() == 0) {
+        GDALAllRegister();
+    }
 
-   GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
+    GDALDataset* dataset = nullptr;
+    if (path.exists()) {
+        if (deleteExisting) {
+            path.remove(false);
+        } else {
+            dataset = (GDALDataset*)GDALOpen(path.path().c_str(), GDALAccess::GA_Update);
+            if (dataset == nullptr) {
+                return nullptr; // already in use
+            }
+        }
+    }
 
-   char** options = nullptr;
-   options = CSLSetNameValue(options, "TILED", "YES");
-   options = CSLSetNameValue(options, "COMPRESS", "DEFLATE");
-
-   auto dataset = driver->Create(path.path().c_str(), cols, rows, bands, datatype, options);
    if (dataset == nullptr) {
-      std::ostringstream oss;
-      oss << "Could not create raster file: " << path.path() << std::endl;
-      throw ApplicationException(oss.str());
+       GDALDriver* driver = GetGDALDriverManager()->GetDriverByName("GTiff");
+       char** options = nullptr;
+       options = CSLSetNameValue(options, "TILED", "YES");
+       options = CSLSetNameValue(options, "COMPRESS", "DEFLATE");
+       dataset = driver->Create(path.path().c_str(), cols, rows, bands, datatype, options);
+       if (dataset == nullptr) {
+           std::ostringstream oss;
+           oss << "Could not create raster file: " << path.path() << std::endl;
+           throw ApplicationException(oss.str());
+       }
+
+       dataset->SetGeoTransform(transform);
+       OGRSpatialReference srs;
+       srs.SetWellKnownGeogCS("EPSG:4326");
+       char* srs_wkt = nullptr;
+       srs.exportToWkt(&srs_wkt);
+       dataset->SetProjection(srs_wkt);
+       CPLFree(srs_wkt);
    }
-   
-   dataset->SetGeoTransform(transform);
-   OGRSpatialReference srs;
-   srs.SetWellKnownGeogCS("EPSG:4326");
-   char* srs_wkt = nullptr;
-   srs.exportToWkt(&srs_wkt);
-   dataset->SetProjection(srs_wkt);
-   CPLFree(srs_wkt);
+
    return std::shared_ptr<GDALDataset>(dataset, dataset_closer(dataset));
 }
 
@@ -525,11 +544,12 @@ void WriteVariableMultibandGeotiff::DataSettingsT<T>::doLocalDomainProcessingUni
         folderLocStr).str();
 
    Poco::File block_path(filename);
-   if (block_path.exists()) {
-      block_path.remove(false);
+   auto dataset = create_gdalraster(block_path, cellRows, cellCols, bands, gdal_type(_dataType), adfGeoTransform, _deleteExisting);
+   if (dataset == nullptr) {
+       // output file is in use - skip.
+       _data.clear();
+       return;
    }
-
-   auto dataset = create_gdalraster(block_path, cellRows, cellCols, bands, gdal_type(_dataType), adfGeoTransform);
 
    typename std::unordered_map<int, std::vector<T>>::iterator itPrev;
    for (auto it = _data.begin(); it != _data.end(); ++it) {
