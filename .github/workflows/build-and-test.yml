@@ -1,4 +1,4 @@
-name: Build
+name: Build and Test
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -46,4 +46,3 @@ jobs:
           context: .
           push: true
           tags: my-dockerhub-user/flint:latest
-
