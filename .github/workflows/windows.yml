@@ -1,0 +1,76 @@
+name: Build and Package FLINT for Windows with VCPKG
+
+on:
+  push:
+    branches: 
+      - main
+      - master
+      - develop
+      - Windows
+  pull_request:
+    branches: 
+      - main
+      - master
+      - develop
+      - Windows
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Visual Studio 2022
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+        version: 17
+
+    - name: Ensure vcpkg directory exists
+      run: |
+        if (Test-Path -Path .\vcpkg) {
+          Write-Output "vcpkg directory already exists."
+        } else {
+          git clone https://github.com/microsoft/vcpkg.git
+          .\vcpkg\bootstrap-vcpkg.bat
+        }
+
+    - name: Cache vcpkg
+      uses: actions/cache@v3
+      with:
+        path: vcpkg
+        key: vcpkg-${{ runner.os }}-${{ hashFiles('Source/vcpkg.json') }}
+        restore-keys: |
+          vcpkg-${{ runner.os }}-
+
+    - name: Install Boost using vcpkg
+      shell: pwsh
+      run: |
+        .\vcpkg\vcpkg.exe install boost
+
+    - name: Configure and build with CMake
+      shell: pwsh
+      run: |
+        mkdir build
+        cd build
+        cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_TOOLCHAIN_FILE=../vcpkg/scripts/buildsystems/vcpkg.cmake ../Source
+        cmake --build . --config Release
+
+    - name: Package with CPack
+      shell: pwsh
+      run: |
+        cd build
+        cpack -C Release
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: moja-flint
+        path: build/*.zip
+
+    - name: Clean up after build
+      shell: pwsh
+      run: |
+        Remove-Item -Recurse -Force build
