@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - develop
-      - Docker_workflow
+      - master
+      - main
   pull_request:
     branches:
        - develop
-       - Docker_workflow
+       - master
+       - main
 
 jobs:
   build:
