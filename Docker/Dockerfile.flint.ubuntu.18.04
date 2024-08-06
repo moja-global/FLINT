@@ -1,11 +1,9 @@
 # ==================================================================================================================
 #
-# Docker to ubuntu 18.04 image for Moja flint libraries and executables
+# Docker to ubuntu 16.04 image for Moja flint libraries and executables
 #
-# TODO: update script to use ubuntu latest
-#
-# Building this Docker:
-#   docker build  -f Dockerfile.flint.ubuntu.18.04 --build_arg BUILD_TYPE=RELEASE --build-arg NUM_CPU=4  --build-arg FLINT_BRANCH=develop -t moja/flint:ubuntu-18.04 .
+# Building this Docker: 
+#   docker build  -f Dockerfile.flint.ubuntu.18.04 --build-arg NUM_CPU=4 --build-arg GITHUB_AT=[TOKEN] --build-arg FLINT_BRANCH=[BRANCH] -t moja/flint:ubuntu-18.04 .
 #
 # ==================================================================================================================
 
@@ -14,7 +12,7 @@ FROM mojaglobal/flint-baseimage:latest
 LABEL maintainer="info@moja.global"
 
 ARG GITHUB_AT
-ARG FLINT_BRANCH=workflow
+ARG FLINT_BRANCH=develop
 ARG NUM_CPU=1
 ARG DEBIAN_FRONTEND=noninteractive
 ENV POCO_VERSION 1.9.2
@@ -83,9 +81,10 @@ RUN wget https://pocoproject.org/releases/poco-${POCO_VERSION}/poco-${POCO_VERSI
     && make clean \
     && cd $ROOTDIR/src
 
-# GET  moja.global
-RUN cd src && git clone --recursive --depth 1 -b ${FLINT_BRANCH} https://github.com/moja-global/FLINT.git flint \
-   
+# GET FLINT
+WORKDIR $ROOTDIR/
+RUN cd src && git clone -b ${FLINT_BRANCH} https://github.com/moja-global/FLINT.git flint
+                                          
 WORKDIR $ROOTDIR/src/flint/Source/build
 RUN cmake   -DCMAKE_BUILD_TYPE=RELEASE \
             -DCMAKE_INSTALL_PREFIX=/usr/local \
