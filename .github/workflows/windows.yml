@@ -1,0 +1,64 @@
+name: Build and Package FLINT for Windows with VCPKG
+
+on:
+  push:
+    branches: 
+          - main
+          - master
+          - develop
+          - Windows_WorkflowII
+  pull_request:
+    branches: 
+           - main
+           - master
+           - develop
+           - Windows_WorkflowII
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Visual Studio 2022
+      uses: ilammy/msvc-dev-cmd@v1
+      with:
+        arch: x64
+        version: 17  
+
+    - name: Cache vcpkg
+      uses: actions/cache@v3
+      with:
+        path: vcpkg
+        key: vcpkg-${{ runner.os }}-${{ hashFiles('Source/vcpkg.json') }}
+        restore-keys: |
+          vcpkg-${{ runner.os }}-
+
+    - name: Install and run Dependencies
+      shell: pwsh
+      run: |
+         pushd vcpkg
+         .\vcpkg_setup_vs2022_win_x64.bat
+         popd
+         
+    - name: Create executable package
+      shell: pwsh
+      run: |
+        pushd Source/build
+        ls
+        Compress-Archive -Path * -DestinationPath moja-flint.zip -Force 
+        Move-Item -Path *.zip -Destination ../../moja-flint.zip 
+        popd
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: moja-flint
+        path: moja-flint.zip
+
+    - name: Clean up after build
+      shell: pwsh
+      run: |
+        Remove-Item -Recurse -Force Source\build
