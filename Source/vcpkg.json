@@ -11,7 +11,7 @@
                 "kind": "filesystem",
                 "path": "../vcpkg/registry",
                 "baseline": "default",
-                "packages": ["turtle", "zipper"]
+                "packages": ["turtle", "zipper", "libpqxx"]
             }
         ]
     },

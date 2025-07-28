@@ -5,7 +5,7 @@ REM Requires CMake >= 3.27.1.
 REM Run using VS2022 x64 native tools command prompt.
 
 REM Ensure git is on the path.
-set GIT_PATH="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\cmd"
+set GIT_PATH="C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\CommonExtensions\Microsoft\TeamFoundation\Team Explorer\Git\cmd"
 set PATH=%PATH%;%GIT_PATH%
 
 if not exist vcpkg (
