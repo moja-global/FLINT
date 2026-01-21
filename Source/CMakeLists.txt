@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10.0)
-project(moja VERSION 1.0.6 LANGUAGES CXX)
+project(moja VERSION 1.1.0 LANGUAGES CXX C)
 
 #turn on using solution folders
 set_property( GLOBAL PROPERTY USE_FOLDERS ON)
@@ -55,7 +55,7 @@ option(MOJA_STATIC				"Set to OFF|ON (default is OFF) to control build of moja a
 
 # Uncomment from next two lines to force statitc or dynamic library, default is autodetection
 if(MOJA_STATIC)
-    add_definitions( -DMOJA_STATIC -DMOJA_NO_AUTOMATIC_LIBS)    
+    add_definitions( -DMOJA_STATIC -DMOJA_NO_AUTOMATIC_LIBS)
     set( LIB_MODE STATIC )
     message(STATUS "Building static libraries")
 else(MOJA_STATIC)
@@ -273,7 +273,7 @@ install(FILES ${MOJA_PKG_CONFIG_FILES}
         DESTINATION lib${LIB_SUFFIX}/pkgconfig)
 
 export(PACKAGE Moja)
-		
+
 message(STATUS "CMake ${CMAKE_VERSION} successfully configured ${PROJECT_NAME} using ${CMAKE_GENERATOR} generator")
 message(STATUS "Installation target path: ${CMAKE_INSTALL_PREFIX}")
 

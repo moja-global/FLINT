@@ -8,6 +8,10 @@
 #include <moja/flint/ipool.h>
 #include <moja/flint/modulebase.h>
 
+#include <Poco/File.h>
+#include <Poco/Mutex.h>
+#include <Poco/Path.h>
+
 #include <unordered_map>
 #include <Poco/Mutex.h>
 
