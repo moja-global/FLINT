@@ -24,11 +24,11 @@ vcpkg_download_distfile(MINIZIP_ARCHIVE
 )
 
 file(GLOB_RECURSE ZIPPER_SRC_HINT "${OUT_SOURCE_PATH}/zipperConfig.cmake.in")
-get_filename_component(ZIPPER_SRC ${ZIPPER_SRC_HINT} DIRECTORY)
+cmake_path(GET ZIPPER_SRC_HINT PARENT_PATH ZIPPER_SRC)
 file(REMOVE_RECURSE ${ZIPPER_SRC}/minizip)
 
 vcpkg_extract_source_archive(minizip
-    ARCHIVE ${MINIZIP_ARCHIVE}
+    ARCHIVE "${MINIZIP_ARCHIVE}"
     SOURCE_BASE minizip
     WORKING_DIRECTORY ${ZIPPER_SRC}
 )
