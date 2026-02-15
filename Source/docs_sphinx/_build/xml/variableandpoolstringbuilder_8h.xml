@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="variableandpoolstringbuilder_8h" kind="file" language="C++">
+    <compoundname>variableandpoolstringbuilder.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes refid="ilandunitcontroller_8h" local="yes">moja/flint/ilandunitcontroller.h</includes>
+    <includes refid="ilandunitdatawrapper_8h" local="yes">moja/flint/ilandunitdatawrapper.h</includes>
+    <includes refid="itransform_8h" local="yes">moja/flint/itransform.h</includes>
+    <includes refid="dynamic_8h" local="no">moja/dynamic.h</includes>
+    <includes local="no">boost/algorithm/string/join.hpp</includes>
+    <includes local="no">string</includes>
+    <includedby refid="variableandpoolstringbuilder_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp</includedby>
+    <includedby refid="writevariablegrid_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/writevariablegrid.cpp</includedby>
+    <includedby refid="idnamecollection_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h</label>
+        <link refid="variableandpoolstringbuilder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>moja/flint/poolcollection.h</label>
+        <link refid="poolcollection_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="12">
+        <label>map</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>moja/flint/ilandunitcontroller.h</label>
+        <link refid="ilandunitcontroller_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>moja/flint/itransform.h</label>
+        <link refid="itransform_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>boost/algorithm/string/join.hpp</label>
+      </node>
+      <node id="9">
+        <label>moja/flint/ilandunitdatawrapper.h</label>
+        <link refid="ilandunitdatawrapper_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+      <node id="10">
+        <label>moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h</label>
+        <link refid="variableandpoolstringbuilder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h</label>
+        <link refid="idnamecollection_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder" prot="public">moja::flint::VariableAndPoolStringBuilder</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_VARIABLEANDPOOLSTRINGBUILDER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_VARIABLEANDPOOLSTRINGBUILDER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/ilandunitcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/ilandunitdatawrapper.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/itransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/dynamic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/algorithm/string/join.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IPool;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>VariableAndPoolStringBuilder<sp/>{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>VariableAndPoolStringBuilder()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/>~VariableAndPoolStringBuilder()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>VariableAndPoolStringBuilder(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController&amp;<sp/>landUnitController,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>workingStr);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>VariableAndPoolStringBuilder(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitDataWrapper*<sp/>landUnitWrapper,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>workingStr);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController&amp;<sp/>landUnitController,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>workingStr);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitDataWrapper*<sp/>landUnitWrapper,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>workingStr);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>result()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/>extractTokens(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tokenType,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>query);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>replaceTokens(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>tokenType,<sp/>std::string&amp;<sp/>query,<sp/>std::vector&lt;std::string&gt;<sp/>values);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>std::string<sp/>formatVariableValues(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::IVariable&amp;<sp/>var,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>property);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController*<sp/>_landUnitController;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitDataWrapper*<sp/>_landUnitDataWrapper;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>varMarker<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;var&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>poolMarker<sp/>=<sp/></highlight><highlight class="stringliteral">&quot;pool&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>_workingStr;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::tuple&lt;const<sp/>flint::IVariable*,<sp/>std::string&gt;&gt;<sp/>_variables;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;const<sp/>IPool*&gt;<sp/>_pools;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_VARIABLEANDPOOLSTRINGBUILDER_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h"/>
+  </compounddef>
+</doxygen>

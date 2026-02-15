@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IOperationManager" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::IOperationManager</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationManagerSimple" prot="public" virt="non-virtual">OperationManagerSimple</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationManagerSimpleCache" prot="public" virt="non-virtual">OperationManagerSimpleCache</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1OperationManagerUblas" prot="public" virt="non-virtual">OperationManagerUblas</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1aeaf79be89611503b6dc52a55e9f79080" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~IOperationManager</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IOperationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="37" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1aac096e7f55e8ca6a6479ff15e6d43072" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module)=0</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="40" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a19701700e2b3d017ebd73f348554a50c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage)=0</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="41" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a1a7050b02f3bc2f7c2d4bddc6c89a833" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module)=0</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="42" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a03fd784e7a8dc889f44184743dd52510" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage)=0</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="43" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1af5a8fcda760ca60448d51200a3e41d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void applyOperations</definition>
+        <argsstring>()=0</argsstring>
+        <name>applyOperations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="44" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1aed83060e3ab94926fffd2cea12514895" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void clearAllOperationResults</definition>
+        <argsstring>()=0</argsstring>
+        <name>clearAllOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="46" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a3eb0c7adf0955ba08fa7d5da38013aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void clearLastAppliedOperationResults</definition>
+        <argsstring>()=0</argsstring>
+        <name>clearLastAppliedOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="47" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a9144db414692879d9e102bc263a6b20a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>virtual const OperationResultCollection&amp; operationResultsPending</definition>
+        <argsstring>() const =0</argsstring>
+        <name>operationResultsPending</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="49" column="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1aa47ca097f846942a523021c1a8d687e6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>virtual const OperationResultCollection&amp; operationResultsLastApplied</definition>
+        <argsstring>() const =0</argsstring>
+        <name>operationResultsLastApplied</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="50" column="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1ae0ac5f16999e9aa4a9b61c79f6a27257" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>virtual const OperationResultCollection&amp; operationResultsCommitted</definition>
+        <argsstring>() const =0</argsstring>
+        <name>operationResultsCommitted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="51" column="44"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a2078f527d86a01c0f3a2edf472b5d5ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool hasOperationResultsLastApplied</definition>
+        <argsstring>() const =0</argsstring>
+        <name>hasOperationResultsLastApplied</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="53" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a8e1405f1b548fd2e48feea8992d59835" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>PoolCollection</type>
+        <definition>virtual PoolCollection poolCollection</definition>
+        <argsstring>()=0</argsstring>
+        <name>poolCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="56" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1acae2f33de77e9ac18d276b04c55b35a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void initialisePools</definition>
+        <argsstring>()=0</argsstring>
+        <name>initialisePools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="58" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a14364ee5bc433f7908b964a59406dade" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int poolCount</definition>
+        <argsstring>()=0</argsstring>
+        <name>poolCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="59" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a93d1021d4267b9f669646b8525c64df0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* addPool</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order, const std::shared_ptr&lt; ITransform &gt; transform)=0</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; ITransform &gt;</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="61" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1ad1c6e1614bbc03d9713b197ec4575b75" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* addPool</definition>
+        <argsstring>(const std::string &amp;name, double initValue=0.0)=0</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="63" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a97432034d163bb61683f7c032f0b437c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* addPool</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order, double initValue=0.0)=0</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="64" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a886f6213577d46b30580787d05bff680" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* addPool</definition>
+        <argsstring>(PoolMetaData &amp;metadata, double initValue)=0</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>PoolMetaData &amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="66" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a3fd5a1c84aa123d8f59bd186260a1013" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* getPool</definition>
+        <argsstring>(const std::string &amp;name) const =0</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="68" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a6d6bbc8a864286d16f9e847c0c5a69b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IPool *</type>
+        <definition>virtual const IPool* getPool</definition>
+        <argsstring>(int index) const =0</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="69" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a7f04e718c6856c4d3d77a496b6acad0d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string name</definition>
+        <argsstring>() const =0</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="72" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1ad670ed62c2b1b74da3194e38c6cfebca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string version</definition>
+        <argsstring>() const =0</argsstring>
+        <name>version</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="73" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1ad97b8b41116684334defbcada351c6f3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::string</type>
+        <definition>virtual std::string config</definition>
+        <argsstring>() const =0</argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="74" column="24"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IOperationManager_1a7060fd754898b46bf69b36fe06ec92cc" prot="private" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void submitOperation</definition>
+        <argsstring>(IOperation *operation)=0</argsstring>
+        <name>submitOperation</name>
+        <param>
+          <type>IOperation *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="78" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" line="35" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationmanager.h" bodystart="35" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a93d1021d4267b9f669646b8525c64df0" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1ad1c6e1614bbc03d9713b197ec4575b75" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a97432034d163bb61683f7c032f0b437c" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a886f6213577d46b30580787d05bff680" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1af5a8fcda760ca60448d51200a3e41d55" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>applyOperations</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1aed83060e3ab94926fffd2cea12514895" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>clearAllOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a3eb0c7adf0955ba08fa7d5da38013aff" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>clearLastAppliedOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1ad97b8b41116684334defbcada351c6f3" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>config</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a1a7050b02f3bc2f7c2d4bddc6c89a833" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a03fd784e7a8dc889f44184743dd52510" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1aac096e7f55e8ca6a6479ff15e6d43072" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a19701700e2b3d017ebd73f348554a50c" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a3fd5a1c84aa123d8f59bd186260a1013" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a6d6bbc8a864286d16f9e847c0c5a69b9" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a2078f527d86a01c0f3a2edf472b5d5ac" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>hasOperationResultsLastApplied</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1acae2f33de77e9ac18d276b04c55b35a7" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>initialisePools</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a7f04e718c6856c4d3d77a496b6acad0d" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>name</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1ae0ac5f16999e9aa4a9b61c79f6a27257" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>operationResultsCommitted</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1aa47ca097f846942a523021c1a8d687e6" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>operationResultsLastApplied</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a9144db414692879d9e102bc263a6b20a" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>operationResultsPending</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a8e1405f1b548fd2e48feea8992d59835" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>poolCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a14364ee5bc433f7908b964a59406dade" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>poolCount</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1a7060fd754898b46bf69b36fe06ec92cc" prot="private" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>submitOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1ad670ed62c2b1b74da3194e38c6cfebca" prot="public" virt="pure-virtual"><scope>moja::flint::IOperationManager</scope><name>version</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1aeaf79be89611503b6dc52a55e9f79080" prot="public" virt="virtual"><scope>moja::flint::IOperationManager</scope><name>~IOperationManager</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

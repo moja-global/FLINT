@@ -1,0 +1,680 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="spatialtiledlocaldomaincontroller_8h" kind="file" language="C++">
+    <compoundname>spatialtiledlocaldomaincontroller.h</compoundname>
+    <includes refid="localdomaincontrollerbase_8h" local="yes">moja/flint/localdomaincontrollerbase.h</includes>
+    <includes refid="record_8h" local="yes">moja/flint/record.h</includes>
+    <includes refid="recordaccumulatorwithmutex_8h" local="yes">moja/flint/recordaccumulatorwithmutex.h</includes>
+    <includes refid="spatiallocationinfo_8h" local="yes">moja/flint/spatiallocationinfo.h</includes>
+    <includes refid="spinuplandunitcontroller_8h" local="yes">moja/flint/spinuplandunitcontroller.h</includes>
+    <includes local="no">moja/datarepository/iproviderspatialrasterinterface.h</includes>
+    <includes local="no">moja/datarepository/tileblockcellindexer.h</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">thread</includes>
+    <includedby refid="spatialtiledlocaldomaincontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/spatialtiledlocaldomaincontroller.cpp</includedby>
+    <includedby refid="moja_8cpp" local="yes">/mnt/e/FLINT/Source/moja.cli/src/moja.cpp</includedby>
+    <incdepgraph>
+      <node id="52">
+        <label>atomic</label>
+      </node>
+      <node id="49">
+        <label>moja/flint/recordaccumulatorwithmutex.h</label>
+        <link refid="recordaccumulatorwithmutex_8h_source"/>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>iomanip</label>
+      </node>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="60">
+        <label>queue</label>
+      </node>
+      <node id="29">
+        <label>limits</label>
+      </node>
+      <node id="41">
+        <label>moja/flint/poolcollection.h</label>
+        <link refid="poolcollection_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="45">
+        <label>Poco/Nullable.h</label>
+      </node>
+      <node id="11">
+        <label>moja/signals.h</label>
+        <link refid="signals_8h_source"/>
+      </node>
+      <node id="31">
+        <label>moja/flint/imodule.h</label>
+        <link refid="imodule_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>moja/dispatcher.h</label>
+        <link refid="dispatcher_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="54">
+        <label>moja/flint/spatiallocationinfo.h</label>
+        <link refid="spatiallocationinfo_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+      </node>
+      <node id="58">
+        <label>moja/datarepository/iproviderspatialrasterinterface.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/ilocaldomaincontroller.h</label>
+        <link refid="ilocaldomaincontroller_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>Poco/Tuple.h</label>
+      </node>
+      <node id="57">
+        <label>moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>string</label>
+      </node>
+      <node id="26">
+        <label>date/date.h</label>
+      </node>
+      <node id="44">
+        <label>moja/hash.h</label>
+        <link refid="hash_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>map</label>
+      </node>
+      <node id="53">
+        <label>unordered_set</label>
+      </node>
+      <node id="32">
+        <label>moja/flint/libraryinfobase.h</label>
+        <link refid="libraryinfobase_8h_source"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/notificationcenter.h</label>
+        <link refid="notificationcenter_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="35">
+        <label>moja/flint/iflintdata.h</label>
+        <link refid="iflintdata_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>moja/flint/mojalibapi.h</label>
+        <link refid="mojalibapi_8h_source"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>moja/flint/itiming.h</label>
+        <link refid="itiming_8h_source"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="59">
+        <label>moja/datarepository/tileblockcellindexer.h</label>
+      </node>
+      <node id="56">
+        <label>random</label>
+      </node>
+      <node id="47">
+        <label>moja/types.h</label>
+        <link refid="types_8h_source"/>
+      </node>
+      <node id="20">
+        <label>moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>moja/datarepository/iproviderinterface.h</label>
+      </node>
+      <node id="55">
+        <label>moja/utility.h</label>
+        <link refid="utility_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="16">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>moja/floatcmp.h</label>
+        <link refid="floatcmp_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>moja/flint/ilandunitcontroller.h</label>
+        <link refid="ilandunitcontroller_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>moja/flint/itransform.h</label>
+        <link refid="itransform_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>moja/flint/modulebase.h</label>
+        <link refid="modulebase_8h_source"/>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>moja/flint/record.h</label>
+        <link refid="record_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="46">
+        <label>folly/hash/Hash.h</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>moja/datarepository/datarepository.h</label>
+      </node>
+      <node id="12">
+        <label>mutex</label>
+      </node>
+      <node id="25">
+        <label>chrono</label>
+      </node>
+      <node id="61">
+        <label>thread</label>
+      </node>
+      <node id="30">
+        <label>moja/flint/librarymanager.h</label>
+        <link refid="librarymanager_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>moja/flint/ilandunitdatawrapper.h</label>
+        <link refid="ilandunitdatawrapper_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>moja/flint/recordutils.h</label>
+        <link refid="recordutils_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="51">
+        <label>Poco/Mutex.h</label>
+      </node>
+      <node id="14">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+      <node id="33">
+        <label>moja/flint/librarytype.h</label>
+        <link refid="librarytype_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="57" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
+        </childnode>
+        <childnode refid="59" relation="include">
+        </childnode>
+        <childnode refid="60" relation="include">
+        </childnode>
+        <childnode refid="61" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>typeindex</label>
+      </node>
+      <node id="40">
+        <label>moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1finally" prot="public">moja::flint::finally</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1StatsUnitRecord" prot="public">moja::flint::StatsUnitRecord</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1SpatialTiledLocalDomainController" prot="public">moja::flint::SpatialTiledLocalDomainController</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint_1_1configuration">moja::flint::configuration</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/localdomaincontrollerbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/record.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/recordaccumulatorwithmutex.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/spatiallocationinfo.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/spinuplandunitcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/iproviderspatialrasterinterface.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/tileblockcellindexer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">configuration<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>LocalDomainIterationType;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">finally<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>std::function&lt;void(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)&gt;<sp/>functor;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">finally</highlight><highlight class="normal">(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)&gt;&amp;<sp/>functor)<sp/>:<sp/>functor(functor)<sp/>{}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>~finally()<sp/>{<sp/>functor();<sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>-<sp/>Record<sp/>structure<sp/>used<sp/>to<sp/>accumulate<sp/>processing<sp/>times<sp/>in<sp/>the<sp/>LDC.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>by<sp/>setting<sp/>the<sp/>Tile<sp/>&amp;<sp/>Block<sp/>index<sp/>values,<sp/>or<sp/>using<sp/>null<sp/>values<sp/>stats<sp/>can<sp/>be<sp/>aggregated<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Global,<sp/>Tile<sp/>and<sp/>Tile/Block<sp/>levels</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>StatsDurationType<sp/>:<sp/>int<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/>Minutes,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/>Seconds,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/>Milliseconds,</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>Nanoseconds,</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//<sp/>id,<sp/>elapsedTimeTotal,<sp/>elapsedTimeFramework,<sp/>elapsedTimeSpinup,<sp/>elapsedTimeProcessed,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>unitsTotal,<sp/>unitsProcessed,<sp/>unitsNotProcessed,<sp/>unitsWithError</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>tileIdx,<sp/>blockIdx</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Poco::Tuple&lt;Int64,<sp/>std::string,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Int64,<sp/>Poco::Nullable&lt;UInt32&gt;,</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;&gt;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>StatsUnitRow;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">StatsUnitRecord<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>Record&lt;StatsUnitRow&gt;<sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">using</highlight><highlight class="normal"><sp/>duration<sp/>=<sp/>std::chrono::nanoseconds;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/>StatsUnitRecord()<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>StatsUnitRecord(std::shared_ptr&lt;StatsUnitRecord&gt;&amp;<sp/>ptr,<sp/>StatsDurationType<sp/>durationType);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/>StatsUnitRecord(std::string<sp/>runId,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration<sp/>elapsedTimeTotal,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration<sp/>elapsedTimeFramework,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration<sp/>elapsedTimeSpinup,<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>duration<sp/>elapsedTimeProcessed,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Int64<sp/>unitsTotal,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>6</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Int64<sp/>unitsProcessed,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>7</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Int64<sp/>unitsNotProcessed,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Int64<sp/>unitsWithError,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>9</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>tileIdx,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>10</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>blockIdx,<sp/><sp/></highlight><highlight class="comment">//<sp/>11</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>StatsDurationType<sp/>durationType);<sp/><sp/></highlight><highlight class="comment">//<sp/>12</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/>~StatsUnitRecord()<sp/>{}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;StatsUnitRow&gt;&amp;<sp/>other)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>hash()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/>StatsUnitRow<sp/>asPersistable()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>merge(Record&lt;StatsUnitRow&gt;*<sp/>other)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>mojaLog(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>levelStr,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localDomainId,<sp/>datarepository::TileIdx*<sp/>tileIdxObject,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>datarepository::BlockIdx*<sp/>blockIdxObject,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inSeconds,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>showRecordNumber,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>recordPosition,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>recordCount);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>static<sp/>void<sp/>sqliteCreateTable(bool<sp/>dropExisting,<sp/>int<sp/>localDomainId,<sp/>std::string<sp/>databaseName,<sp/>std::string</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>tableName);<sp/>static<sp/>void<sp/>sqliteWrite(std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;&amp;<sp/>collection,<sp/>int</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>localDomainId,<sp/>std::string<sp/>databaseName,<sp/>std::string<sp/>tableName);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>_runId;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/>duration<sp/>_elapsedTimeTotal;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/>duration<sp/>_elapsedTimeFramework;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/>duration<sp/>_elapsedTimeSpinup;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/>duration<sp/>_elapsedTimeProcessed;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/>Int64<sp/>_unitsTotal;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/>Int64<sp/>_unitsProcessed;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/>Int64<sp/>_unitsNotProcessed;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/>Int64<sp/>_unitsWithError;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_tileIdx;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_blockIdx;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/>Stopwatch&lt;&gt;<sp/>_stopWatchTotal;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/>Stopwatch&lt;&gt;<sp/>_stopWatchFramework;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/>Stopwatch&lt;&gt;<sp/>_stopWatchSpinup;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/>Stopwatch&lt;&gt;<sp/>_stopWatchProcessed;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Internal<sp/>only</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/>StatsDurationType<sp/>_durationType;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>SpatialTiledLocalDomainController<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>LocalDomainControllerBase<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/>SpatialTiledLocalDomainController(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>SpatialTiledLocalDomainController(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>threadedSystem,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isMaster,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isThread);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/>SpatialTiledLocalDomainController(std::shared_ptr&lt;FlintLibraryHandles&gt;<sp/>libraryHandles,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>threadedSystem,</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isMaster,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isThread);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>SpatialTiledLocalDomainController(</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;&amp;<sp/>globalStatsDimension,</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;&amp;<sp/>tileStatsDimension,</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;&amp;<sp/>blockStatsDimension,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>blockIdxListSize,</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;FlintLibraryHandles&gt;<sp/>libraryHandles,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>threadedSystem<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isMaster<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isThread<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/>~SpatialTiledLocalDomainController(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::configuration::Configuration&amp;<sp/>config)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>run()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startup()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>shutdown()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">InternalThreadBlocks;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;<sp/>_globalStatsDimension;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;<sp/>_tileStatsDimension;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;RecordAccumulatorWithMutex&lt;StatsUnitRow&gt;&gt;<sp/>_blockStatsDimension;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>General</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::shared_ptr&lt;datarepository::IProviderSpatialRasterInterface&gt;<sp/>_provider;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;SpatialLocationInfo&gt;<sp/>_spatiallocationinfo;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/>Poco::Mutex<sp/>_blockListMutex;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/>std::queue&lt;datarepository::BlockIdx&gt;<sp/>_blockIdxList;<sp/><sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>block<sp/>to<sp/>sim<sp/>in<sp/>thread/non-threaded<sp/>processing.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/>std::map&lt;std::pair&lt;UInt32,<sp/>UInt32&gt;,<sp/>std::vector&lt;datarepository::CellIdx&gt;&gt;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_blockCellIdxList;<sp/><sp/></highlight><highlight class="comment">//<sp/>list<sp/>of<sp/>cells<sp/>to<sp/>sim,<sp/>mapped<sp/>by<sp/>blockIdx.<sp/>Used<sp/>in<sp/>thread/non-threaded<sp/>processing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_samplingInterval;<sp/><sp/></highlight><highlight class="comment">//<sp/>sample<sp/>size<sp/>to<sp/>only<sp/>simulate<sp/>every<sp/>nth<sp/>pixel</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_blockIdxListSize;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_blockIdxListPosition;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>Spinup</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_runSpinUp;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/>NotificationCenter<sp/>_spinupNotificationCenter;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/>SpinupLandUnitController<sp/>_spinupLandUnitController;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Variable<sp/>used<sp/>to<sp/>check<sp/>if<sp/>landUnit<sp/>spinup<sp/>should<sp/>be<sp/>simulated</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::IVariable*<sp/>_spinupSimulateLandUnit;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/>flint::IVariable*<sp/>_spinupLandUnitBuildSuccess;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;SequencerModuleBase&gt;<sp/>_spinupSequencer;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/>ModuleMap<sp/>_spinupModules;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>non/Thread</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_threadedSystem;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_numThreads;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_isMaster;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_isThread;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;FlintLibraryHandles&gt;<sp/>_internalLIbraryHandles;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;InternalThreadBlocks&gt;&gt;<sp/>_tasks;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::thread&gt;<sp/>_threads;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>random<sp/>seed<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_randomSeedGlobal;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_randomSeedTile;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_randomSeedBlock;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/>Poco::Nullable&lt;UInt32&gt;<sp/>_randomSeedCell;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>Logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_doLogging;<sp/><sp/></highlight><highlight class="comment">//<sp/>set<sp/>to<sp/>stop<sp/>threads<sp/>logging<sp/>too<sp/>much<sp/>info,<sp/>might<sp/>not<sp/>be<sp/>required<sp/>now?</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_resetVariablesForEachLU;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>_runId;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>unique<sp/>id<sp/>for<sp/>Run<sp/>(uuid)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>_runDesc;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>string<sp/>to<sp/>describe<sp/>run</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_writeStatsToSQLIte;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SQLIte<sp/>Stats<sp/>Logging</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_createStatsTablesSQLIte;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>SQLIte<sp/>drop<sp/>existing<sp/>table</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>_sqliteDatabaseName;<sp/><sp/></highlight><highlight class="comment">//<sp/>SQLIte<sp/>Database<sp/>name<sp/>(including<sp/>any<sp/>variables<sp/>that<sp/>need<sp/>to<sp/>be<sp/>expanded)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>runCell(std::shared_ptr&lt;StatsUnitRecord&gt;&amp;<sp/>blockStatsUnit,</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::shared_ptr&lt;StatsUnitRecord&gt;&amp;<sp/>blockStatsSpinUpUnit,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>datarepository::CellIdx&amp;<sp/>cell);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>runCellSpinUp(std::shared_ptr&lt;StatsUnitRecord&gt;&amp;<sp/>blockStatsUnit,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>datarepository::CellIdx&amp;<sp/>cell);</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>--<sp/>Utility<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>Poco::Tuple&lt;std::string,<sp/>std::string,<sp/>std::string,<sp/>std::string&gt;<sp/>RunSummaryDataRecord;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>writeRunSummaryToSQLite(bool<sp/>insertRunList,<sp/>std::vector&lt;RunSummaryDataRecord&gt;&amp;<sp/>runSummaryData);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>buildBlockIndexQueue(configuration::LocalDomainIterationType<sp/>iterationType);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_SPATIALTILEDLOCALDOMAINCONTROLLER_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h"/>
+  </compounddef>
+</doxygen>

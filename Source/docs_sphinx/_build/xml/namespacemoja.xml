@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacemoja" kind="namespace" language="C++">
+    <compoundname>moja</compoundname>
+    <innerclass refid="structmoja_1_1CoreException" prot="public">moja::CoreException</innerclass>
+    <innerclass refid="structmoja_1_1CoreAssertionViolationException" prot="public">moja::CoreAssertionViolationException</innerclass>
+    <innerclass refid="structmoja_1_1CoreFileNotFoundException" prot="public">moja::CoreFileNotFoundException</innerclass>
+    <innerclass refid="structmoja_1_1CoreNotImplementedException" prot="public">moja::CoreNotImplementedException</innerclass>
+    <innerclass refid="structmoja_1_1CoreUnhandledType" prot="public">moja::CoreUnhandledType</innerclass>
+    <innerclass refid="classmoja_1_1DateTime" prot="public">moja::DateTime</innerclass>
+    <innerclass refid="classmoja_1_1Signal" prot="public">moja::Signal</innerclass>
+    <innerclass refid="classmoja_1_1Property" prot="public">moja::Property</innerclass>
+    <innerclass refid="classmoja_1_1BaseDelegate" prot="public">moja::BaseDelegate</innerclass>
+    <innerclass refid="classmoja_1_1Invokable" prot="public">moja::Invokable</innerclass>
+    <innerclass refid="classmoja_1_1Delegate" prot="public">moja::Delegate</innerclass>
+    <innerclass refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_4" prot="public">moja::Delegate&lt; R(T::*)(Params...)&gt;</innerclass>
+    <innerclass refid="classmoja_1_1Delegate_3_01R_07T_1_1_5_08_07Params_8_8_8_08_01const_01_4" prot="public">moja::Delegate&lt; R(T::*)(Params...) const &gt;</innerclass>
+    <innerclass refid="classmoja_1_1Delegate_3_01R_07_5_08_07Params_8_8_8_08_4" prot="public">moja::Delegate&lt; R(*)(Params...)&gt;</innerclass>
+    <innerclass refid="classmoja_1_1DispatcherObject" prot="public">moja::DispatcherObject</innerclass>
+    <innerclass refid="classmoja_1_1Environment" prot="public">moja::Environment</innerclass>
+    <innerclass refid="classmoja_1_1EnvironmentImpl" prot="public">moja::EnvironmentImpl</innerclass>
+    <innerclass refid="classmoja_1_1Event" prot="public">moja::Event</innerclass>
+    <innerclass refid="classmoja_1_1Exception" prot="public">moja::Exception</innerclass>
+    <innerclass refid="classmoja_1_1FloatCmp" prot="public">moja::FloatCmp</innerclass>
+    <innerclass refid="classmoja_1_1Logging" prot="public">moja::Logging</innerclass>
+    <innerclass refid="classmoja_1_1MathEx" prot="public">moja::MathEx</innerclass>
+    <innerclass refid="classmoja_1_1NotificationCenter" prot="public">moja::NotificationCenter</innerclass>
+    <innerclass refid="classmoja_1_1IMessage" prot="public">moja::IMessage</innerclass>
+    <innerclass refid="classmoja_1_1TimingInitMessage" prot="public">moja::TimingInitMessage</innerclass>
+    <innerclass refid="classmoja_1_1TimingStepStartMessage" prot="public">moja::TimingStepStartMessage</innerclass>
+    <innerclass refid="classmoja_1_1TimingStepEndMessage" prot="public">moja::TimingStepEndMessage</innerclass>
+    <innerclass refid="classmoja_1_1IRunnable" prot="public">moja::IRunnable</innerclass>
+    <innerclass refid="classmoja_1_1ISubscriber" prot="public">moja::ISubscriber</innerclass>
+    <innerclass refid="classmoja_1_1IPublisher" prot="public">moja::IPublisher</innerclass>
+    <innerclass refid="classmoja_1_1Publisher" prot="public">moja::Publisher</innerclass>
+    <innerclass refid="classmoja_1_1Stopwatch" prot="public">moja::Stopwatch</innerclass>
+    <innerclass refid="classmoja_1_1Timespan" prot="public">moja::Timespan</innerclass>
+    <innerclass refid="structmoja_1_1Point" prot="public">moja::Point</innerclass>
+    <innerclass refid="structmoja_1_1XYIndex" prot="public">moja::XYIndex</innerclass>
+    <innerclass refid="structmoja_1_1Size" prot="public">moja::Size</innerclass>
+    <innernamespace refid="namespacemoja_1_1datarepository">moja::datarepository</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <innernamespace refid="namespacemoja_1_1floatcompare">moja::floatcompare</innernamespace>
+    <innernamespace refid="namespacemoja_1_1hash">moja::hash</innernamespace>
+    <innernamespace refid="namespacemoja_1_1signals">moja::signals</innernamespace>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="coreexceptions_8h_1ab4d20660615204f00ec013b43f26ce41" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_assert_msg, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_assert_msg, std::string&gt; AssertMsg</definition>
+        <argsstring></argsstring>
+        <name>AssertMsg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="16" column="27" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coreexceptions_8h_1a7fe7be1839286e6ae10a64087eb1687d" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_filename, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_filename, std::string&gt; FileName</definition>
+        <argsstring></argsstring>
+        <name>FileName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="19" column="27" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coreexceptions_8h_1ab48015a54d437d05a2fc53f6fb02e165" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_message, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_message, std::string&gt; Message</definition>
+        <argsstring></argsstring>
+        <name>Message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="22" column="27" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="coreexceptions_8h_1aefc3bd9a2b6f483fef38466133d6de32" prot="public" static="no">
+        <type>boost::error_info&lt; struct tag_message, std::string &gt;</type>
+        <definition>typedef boost::error_info&lt;struct tag_message, std::string&gt; TypeErrorMsg</definition>
+        <argsstring></argsstring>
+        <name>TypeErrorMsg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" line="25" column="27" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/coreexceptions.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="datetime_8h_1a58ccb0e74ddf9d1440dd17aac2fbde4f" prot="public" static="no">
+        <type>std::chrono::time_point&lt; std::chrono::system_clock &gt;</type>
+        <definition>typedef std::chrono::time_point&lt;std::chrono::system_clock&gt; system_time_point</definition>
+        <argsstring></argsstring>
+        <name>system_time_point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="17" column="33" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="dynamic_8h_1aef5fed27dfb5b7e2a4eab7170fc75492" prot="public" static="no">
+        <type>Poco::Dynamic::Var</type>
+        <definition>using DynamicVar =  Poco::Dynamic::Var</definition>
+        <argsstring></argsstring>
+        <name>DynamicVar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" line="7" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="dynamic_8h_1a374b1870645a83474548041860650b50" prot="public" static="no">
+        <type>Poco::Dynamic::Vector</type>
+        <definition>using DynamicVector =  Poco::Dynamic::Vector</definition>
+        <argsstring></argsstring>
+        <name>DynamicVector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" line="8" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="dynamic_8h_1ad0f3e913f30d2b606dfdd2fb2d79e4fc" prot="public" static="no">
+        <type>Poco::DynamicStruct</type>
+        <definition>using DynamicObject =  Poco::DynamicStruct</definition>
+        <argsstring></argsstring>
+        <name>DynamicObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" line="9" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dynamic.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="pocojsonutils_8cpp_1a19e7ffa6f486f9b92bb8c87f0749f927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime CORE_API parseSimpleDate</definition>
+        <argsstring>(const std::string &amp;yyyymmdd)</argsstring>
+        <name>parseSimpleDate</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>yyyymmdd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" line="20" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" bodystart="20" bodyend="24" declfile="/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h" declline="13" declcolumn="19"/>
+      </memberdef>
+      <memberdef kind="function" id="pocojsonutils_8cpp_1a95808055306cf4c13dfd77d76f0b6429" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DynamicVector</type>
+        <definition>DynamicVector CORE_API parsePocoJSONToDynamic</definition>
+        <argsstring>(const Poco::JSON::Array::Ptr &amp;val)</argsstring>
+        <name>parsePocoJSONToDynamic</name>
+        <param>
+          <type>const Poco::JSON::Array::Ptr &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" line="28" column="15" bodyfile="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" bodystart="28" bodyend="85" declfile="/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h" declline="16" declcolumn="24"/>
+      </memberdef>
+      <memberdef kind="function" id="pocojsonutils_8cpp_1aee2c812e0fd202e320980cdf3a2f29f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DynamicVar</type>
+        <definition>DynamicVar CORE_API parsePocoJSONToDynamic</definition>
+        <argsstring>(const Poco::JSON::Object::Ptr &amp;val)</argsstring>
+        <name>parsePocoJSONToDynamic</name>
+        <param>
+          <type>const Poco::JSON::Object::Ptr &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" line="89" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" bodystart="89" bodyend="155" declfile="/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h" declline="17" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="pocojsonutils_8cpp_1ad6b9e0b7299d4ccc30798a430fd5ec9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DynamicVar</type>
+        <definition>DynamicVar CORE_API parsePocoJSONToDynamic</definition>
+        <argsstring>(const DynamicVar &amp;data)</argsstring>
+        <name>parsePocoJSONToDynamic</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" line="159" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" bodystart="159" bodyend="190" declfile="/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h" declline="15" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="pocojsonutils_8cpp_1a4d59bed8f09e0968613cd6fa592f2b3a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DynamicVar</type>
+        <definition>DynamicVar CORE_API parsePocoVarToDynamic</definition>
+        <argsstring>(const DynamicVar &amp;var)</argsstring>
+        <name>parsePocoVarToDynamic</name>
+        <param>
+          <type>const DynamicVar &amp;</type>
+          <declname>var</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" line="194" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/src/pocojsonutils.cpp" bodystart="194" bodyend="270" declfile="/mnt/e/FLINT/Source/moja.core/include/moja/pocojsonutils.h" declline="19" declcolumn="21"/>
+      </memberdef>
+      <memberdef kind="function" id="datetime_8h_1a6efa6fc96d56db4949cb07dfbdf5a797" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>tm</type>
+        <definition>tm moja::localtime</definition>
+        <argsstring>(const std::time_t &amp;time)</argsstring>
+        <name>localtime</name>
+        <param>
+          <type>const std::time_t &amp;</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="19" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="19" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="datetime_8h_1a16f7699ad0d4d681384e603e3b9f79c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string moja::put_time</definition>
+        <argsstring>(const std::tm *date_time, const char *c_time_format)</argsstring>
+        <name>put_time</name>
+        <param>
+          <type>const std::tm *</type>
+          <declname>date_time</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>c_time_format</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="30" column="20" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="30" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="datetime_8h_1a88fe00722c774903eafe9613df5599bd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::time_t</type>
+        <definition>std::time_t moja::systemtime_now</definition>
+        <argsstring>()</argsstring>
+        <name>systemtime_now</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" line="49" column="20" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/datetime.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1adccc5bc700066f468393ab386bd64246" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T moja::operator*</definition>
+        <argsstring>(const T &amp;other, const Property&lt; T &gt; &amp;p)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies a value by a property wrapping a value of the same type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="240" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="240" bodyend="242"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1ae1b01c9bb9f0c73c9d9c6df27173ece5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T moja::operator/</definition>
+        <argsstring>(const T &amp;other, const Property&lt; T &gt; &amp;p)</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Divides a value by a property wrapping a value of the same type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="248" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="248" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1a8e34d11816ce7088e8f70deac91b7c48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T moja::operator+</definition>
+        <argsstring>(const T &amp;other, const Property&lt; T &gt; &amp;p)</argsstring>
+        <name>operator+</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Adds a property&apos;s value to a value of the same type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="256" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="256" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1aa12666419380e3b4652b8ae351d379df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T moja::operator-</definition>
+        <argsstring>(const T &amp;other, const Property&lt; T &gt; &amp;p)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Subtracts a property&apos;s value from a value of the same type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="264" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="264" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1aa2e2670c9aa042b3286d900ec96701cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T moja::operator+=</definition>
+        <argsstring>(T &amp;other, const Property&lt; T &gt; &amp;p)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>other</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+<para>Adds a property&apos;s value in-place to a value of the same type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="272" column="10" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="272" bodyend="274"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1ad6b80d46010428ee7d56dcea90e307e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; moja::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;out_stream, Property&lt; T &gt; const &amp;val)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>out_stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="300" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="300" bodyend="303"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1a9de875dc911410e6a988a521381aee9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::istream &amp;</type>
+        <definition>std::istream&amp; moja::operator&gt;&gt;</definition>
+        <argsstring>(std::istream &amp;in_stream, Property&lt; T &gt; &amp;val)</argsstring>
+        <name>operator&gt;&gt;</name>
+        <param>
+          <type>std::istream &amp;</type>
+          <declname>in_stream</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="306" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="306" bodyend="311"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1a16a278dcb29812d9ec946e22d9b54d6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::unique_ptr&lt; Delegate&lt; F &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Delegate&lt;F&gt; &gt; moja::makeDelegate</definition>
+        <argsstring>(F func, T &amp;obj)</argsstring>
+        <name>makeDelegate</name>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Function to deduce template parameters from call-context. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="428" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="428" bodyend="430"/>
+      </memberdef>
+      <memberdef kind="function" id="dispatcher_8h_1acca00a94b98f74c5751245152aeac735" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>std::unique_ptr&lt; Delegate&lt; F &gt; &gt;</type>
+        <definition>std::unique_ptr&lt;Delegate&lt;F&gt; &gt; moja::makeDelegate</definition>
+        <argsstring>(F func)</argsstring>
+        <name>makeDelegate</name>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="433" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="433" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="logging_8h_1a1f87c9dc20c054dfb2890acd307d381b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>moja::BOOST_LOG_INLINE_GLOBAL_LOGGER_INIT</definition>
+        <argsstring>(mojalogger, boost::log::sources::severity_logger&lt; boost::log::trivial::severity_level &gt;)</argsstring>
+        <name>BOOST_LOG_INLINE_GLOBAL_LOGGER_INIT</name>
+        <param>
+          <type>mojalogger</type>
+        </param>
+        <param>
+          <type>boost::log::sources::severity_logger&lt; boost::log::trivial::severity_level &gt;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="61" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="61" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="timespan_8h_1a19afca05201f3feac1cf649557c9b768" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void moja::swap</definition>
+        <argsstring>(Timespan &amp;s1, Timespan &amp;s2) MOJA_NOEXCEPT</argsstring>
+        <name>swap</name>
+        <param>
+          <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>s1</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1Timespan" kindref="compound">Timespan</ref> &amp;</type>
+          <declname>s2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" line="246" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/timespan.h" bodystart="246" bodyend="246"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/aggregatorfilewriter.cpp" line="33" column="1"/>
+  </compounddef>
+</doxygen>

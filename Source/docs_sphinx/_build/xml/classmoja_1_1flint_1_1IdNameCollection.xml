@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IdNameCollection" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::IdNameCollection</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IFlintData</basecompoundref>
+    <innerclass refid="structmoja_1_1flint_1_1IdNameCollection_1_1DataRecord" prot="public">moja::flint::IdNameCollection::DataRecord</innerclass>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1a9f84a238c5b0bf88961f119582439ec8" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _collectionName</definition>
+        <argsstring></argsstring>
+        <name>_collectionName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="68" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1a3f8ee9e5976f33fcf0e7a947faa197a2" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; DataRecord &gt;</type>
+        <definition>std::vector&lt;DataRecord&gt; _data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="69" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1ab4e90989be982af7f1784e23d6034198" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _useDataBuilder</definition>
+        <argsstring></argsstring>
+        <name>_useDataBuilder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="71" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1a848039d57c1ed0c6a86c4040f8c2095d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _dataLoaded</definition>
+        <argsstring></argsstring>
+        <name>_dataLoaded</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="72" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1a732d30ba27c70b3b1b07f1bb75affcf5" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _providerName</definition>
+        <argsstring></argsstring>
+        <name>_providerName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="73" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1ae15e060d47072fb406f9fba2a21eda3a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _queryStr</definition>
+        <argsstring></argsstring>
+        <name>_queryStr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="74" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="75" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1a2d151c1ef2b6987b88ad1f805f93d4bf" prot="private" static="no" mutable="no">
+        <type>moja::datarepository::DataRepository *</type>
+        <definition>moja::datarepository::DataRepository* _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="76" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1aa2f85bd7a013d8626674129d0f79022a" prot="private" static="no" mutable="no">
+        <type>SQLQueryTransform</type>
+        <definition>SQLQueryTransform sQLQueryTransform</definition>
+        <argsstring></argsstring>
+        <name>sQLQueryTransform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="77" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IdNameCollection_1adcd05bb95a290ec069a1cf1bd9cb1e53" prot="private" static="no" mutable="no">
+        <type>VariableAndPoolStringBuilder</type>
+        <definition>VariableAndPoolStringBuilder _queryStringBuilder</definition>
+        <argsstring></argsstring>
+        <name>_queryStringBuilder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="78" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1ac1b0e6d2e22922639194f0b5dc525d96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IdNameCollection</definition>
+        <argsstring>()=default</argsstring>
+        <name>IdNameCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="16" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a638a0196d9724d9aeab5e94674c73ce4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~IdNameCollection</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IdNameCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="17" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a822781b4b9807e877fce5958b113b822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IdNameCollection</definition>
+        <argsstring>(const IdNameCollection &amp;)=delete</argsstring>
+        <name>IdNameCollection</name>
+        <param>
+          <type>const IdNameCollection &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="18" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a292a8d9d88776216ec6eafb9b7cf4fa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IdNameCollection &amp;</type>
+        <definition>IdNameCollection&amp; operator=</definition>
+        <argsstring>(const IdNameCollection &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const IdNameCollection &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="19" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a376f799fd557bc677fe6157aad8cd57a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const flint::ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="21" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="21" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>DynamicObject</type>
+        <definition>DynamicObject exportObject</definition>
+        <argsstring>() const override</argsstring>
+        <name>exportObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="48" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="48" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1a25daad0f3d41ce7bdb7831a298fc572a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>DataRecord &amp;</type>
+        <definition>IdNameCollection::DataRecord &amp; getRecord</definition>
+        <argsstring>(int index)</argsstring>
+        <name>getRecord</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="64" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/idnamecollection.cpp" bodystart="8" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IdNameCollection_1af88147aa4c3a95b5b5ee4cc4d2b8c418" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; DataRecord &gt; &amp;</type>
+        <definition>std::vector&lt;DataRecord&gt;&amp; records</definition>
+        <argsstring>()</argsstring>
+        <name>records</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="65" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="65" bodyend="65"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/idnamecollection.h" bodystart="14" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a9f84a238c5b0bf88961f119582439ec8" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_collectionName</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a3f8ee9e5976f33fcf0e7a947faa197a2" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_data</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a848039d57c1ed0c6a86c4040f8c2095d" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_dataLoaded</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a2d151c1ef2b6987b88ad1f805f93d4bf" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a732d30ba27c70b3b1b07f1bb75affcf5" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_providerName</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1ae15e060d47072fb406f9fba2a21eda3a" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_queryStr</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1adcd05bb95a290ec069a1cf1bd9cb1e53" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_queryStringBuilder</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1ab4e90989be982af7f1784e23d6034198" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>_useDataBuilder</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a376f799fd557bc677fe6157aad8cd57a" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::IFlintData::"><scope>moja::flint::IdNameCollection</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a138d2e289874ee66afb80795eef027d1" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a25daad0f3d41ce7bdb7831a298fc572a" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>getRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1ac1b0e6d2e22922639194f0b5dc525d96" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>IdNameCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a822781b4b9807e877fce5958b113b822" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>IdNameCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a292a8d9d88776216ec6eafb9b7cf4fa3" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1af88147aa4c3a95b5b5ee4cc4d2b8c418" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>records</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1aa2f85bd7a013d8626674129d0f79022a" prot="private" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>sQLQueryTransform</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::IdNameCollection</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1IdNameCollection_1a638a0196d9724d9aeab5e94674c73ce4" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>~IdNameCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::IdNameCollection</scope><name>~IFlintData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

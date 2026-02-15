@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1FluxRecord" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::FluxRecord</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">moja::flint::Record&lt; FluxRow &gt;</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1af510499e3152f28a1abf59dfde3fd34f" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _doAggregation</definition>
+        <argsstring></argsstring>
+        <name>_doAggregation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="173" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1ae059dfbd9014bb0672749a5fdb785c6e" prot="private" static="no" mutable="yes">
+        <type>size_t</type>
+        <definition>size_t _hash</definition>
+        <argsstring></argsstring>
+        <name>_hash</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="174" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1aebd45075841ad4f560e0678e7010e8ec" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _localDomainId</definition>
+        <argsstring></argsstring>
+        <name>_localDomainId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="178" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1ad81f8beb58e8dc7e47add42c4f40ba16" prot="private" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _dateId</definition>
+        <argsstring></argsstring>
+        <name>_dateId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="179" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1a3dce4e645c119b1ed20e1ab8b5c87d32" prot="private" static="no" mutable="no">
+        <type>Poco::Nullable&lt; Int64 &gt;</type>
+        <definition>Poco::Nullable&lt;Int64&gt; _moduleInfoId</definition>
+        <argsstring></argsstring>
+        <name>_moduleInfoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="180" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1a68bde5831c60f7fc39bc9c511fece4ff" prot="private" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _itemCount</definition>
+        <argsstring></argsstring>
+        <name>_itemCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="181" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1a991fd8b881a940ce52efac514e026183" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _srcPoolInfoId</definition>
+        <argsstring></argsstring>
+        <name>_srcPoolInfoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="182" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1ab0c7b06585e783c421b742ee12f54fec" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _sinkPoolInfoId</definition>
+        <argsstring></argsstring>
+        <name>_sinkPoolInfoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="183" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="183" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1aec3a0262a2fd0911d707c812cbf2e627" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _flux</definition>
+        <argsstring></argsstring>
+        <name>_flux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="184" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FluxRecord_1a3eb739ada10989326aa3808556452542" prot="private" static="yes" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _count</definition>
+        <argsstring></argsstring>
+        <name>_count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="175" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1aea9672d86c3a5f8a784f0db1f00cdf7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>FluxRecord</definition>
+        <argsstring>(bool doAggregation, int localdomainId, Int64 dateId, Poco::Nullable&lt; Int64 &gt; moduleInfoId, Int64 itemCount, int srcPoolInfoId, int sinkPoolInfoId, double flux)</argsstring>
+        <name>FluxRecord</name>
+        <param>
+          <type>bool</type>
+          <declname>doAggregation</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>localdomainId</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>dateId</declname>
+        </param>
+        <param>
+          <type>Poco::Nullable&lt; Int64 &gt;</type>
+          <declname>moduleInfoId</declname>
+        </param>
+        <param>
+          <type>Int64</type>
+          <declname>itemCount</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>srcPoolInfoId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sinkPoolInfoId</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>flux</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="162" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="102" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1a2e7303fd6cc3293eea3efb49250221df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~FluxRecord</definition>
+        <argsstring>()</argsstring>
+        <name>~FluxRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="164" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="164" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1aea755e4a332433ed13ad380af4cbc910" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Record&lt; FluxRow &gt; &amp;other) const override</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Record&lt; FluxRow &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="166" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="113" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t hash</definition>
+        <argsstring>() const override</argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="167" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="121" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1ac6de06f52094709e2605eeb5a3fae1ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>FluxRow</type>
+        <definition>FluxRow asPersistable</definition>
+        <argsstring>() const override</argsstring>
+        <name>asPersistable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="168" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="131" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FluxRecord_1acde1bd2f4ece44be2c8f1fbc2075fe3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void merge</definition>
+        <argsstring>(Record&lt; FluxRow &gt; *other) override</argsstring>
+        <name>merge</name>
+        <param>
+          <type>Record&lt; FluxRow &gt; *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="169" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="135" bodyend="139"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="160" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="160" bodyend="185"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a3eb739ada10989326aa3808556452542" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_count</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1ad81f8beb58e8dc7e47add42c4f40ba16" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_dateId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1af510499e3152f28a1abf59dfde3fd34f" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_doAggregation</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1aec3a0262a2fd0911d707c812cbf2e627" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_flux</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1ae059dfbd9014bb0672749a5fdb785c6e" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_hash</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a2fb68a5ecd23366882be5277b8ac3c65" prot="protected" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_id</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a68bde5831c60f7fc39bc9c511fece4ff" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_itemCount</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1aebd45075841ad4f560e0678e7010e8ec" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a3dce4e645c119b1ed20e1ab8b5c87d32" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_moduleInfoId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1ab0c7b06585e783c421b742ee12f54fec" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_sinkPoolInfoId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a991fd8b881a940ce52efac514e026183" prot="private" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>_srcPoolInfoId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1ac6de06f52094709e2605eeb5a3fae1ac" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>asPersistable</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1aea9672d86c3a5f8a784f0db1f00cdf7f" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>FluxRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1abc8970ad0a18fb9dc512a7eff9184997" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>getId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>hash</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1acde1bd2f4ece44be2c8f1fbc2075fe3f" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a67163e90d770bbc99e6c477c02c982ab" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::FluxRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1aea755e4a332433ed13ad380af4cbc910" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1aa5134dc6fb60cfafa0c79d7c5597995f" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::FluxRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a8cd662275c1ba5248e9f9e1f33f68a07" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>setId</name></member>
+      <member refid="classmoja_1_1flint_1_1FluxRecord_1a2e7303fd6cc3293eea3efb49250221df" prot="public" virt="non-virtual"><scope>moja::flint::FluxRecord</scope><name>~FluxRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a966b6ee235515a173771e69abdba801b" prot="public" virt="virtual"><scope>moja::flint::FluxRecord</scope><name>~Record</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1CompositeTransform" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::CompositeTransform</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ITransform</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58" prot="public" static="no" strong="no">
+        <type></type>
+        <name>Format</name>
+        <enumvalue id="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58a900fba34c2a06c1a4a33e65f6aa62fea" prot="public">
+          <name>Wide</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58afbe5087b942deaaa3202c7ca87dbc327" prot="public">
+          <name>Long</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" static="no" mutable="no">
+        <type>const ILandUnitController *</type>
+        <definition>const ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="24" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" static="no" mutable="no">
+        <type>datarepository::DataRepository *</type>
+        <definition>datarepository::DataRepository* _dataRepository</definition>
+        <argsstring></argsstring>
+        <name>_dataRepository</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="25" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1a464e95966f1e44c0ee2b3a1546e98b10" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; _varNames</definition>
+        <argsstring></argsstring>
+        <name>_varNames</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="26" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1abd660e04ad1cc0f7cf030296e337d848" prot="private" static="no" mutable="no">
+        <type>Format</type>
+        <definition>Format _format</definition>
+        <argsstring></argsstring>
+        <name>_format</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="27" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1ad91975e8f221dfd8b30af89f76fb1578" prot="private" static="no" mutable="yes">
+        <type>std::vector&lt; const IVariable * &gt;</type>
+        <definition>std::vector&lt;const IVariable*&gt; _variables</definition>
+        <argsstring></argsstring>
+        <name>_variables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="28" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" static="no" mutable="yes">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _cachedValue</definition>
+        <argsstring></argsstring>
+        <name>_cachedValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="29" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1CompositeTransform_1ab913184efa031d08709e0b21dc4f160a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _allowNulls</definition>
+        <argsstring></argsstring>
+        <name>_allowNulls</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1CompositeTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="17" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp" bodystart="15" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1CompositeTransform_1ae410485890eae3838c290733e287624b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) override</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="20" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1CompositeTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="21" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp" bodystart="57" bodyend="74"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1CompositeTransform_1a0fd4fe4de20c5e49ddacb1fac4036614" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; longFormatValue</definition>
+        <argsstring>() const</argsstring>
+        <name>longFormatValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="32" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp" bodystart="76" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1CompositeTransform_1a41407feffff05da014940165ef0aed8e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar &amp; wideFormatValue</definition>
+        <argsstring>() const</argsstring>
+        <name>wideFormatValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="33" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/compositetransform.cpp" bodystart="104" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/compositetransform.h" bodystart="13" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ab913184efa031d08709e0b21dc4f160a" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_allowNulls</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1a3e59572f41e950b80fd93c3de04ed8a2" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_cachedValue</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1aa3301ed714708a9fc790a6c693f40088" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_dataRepository</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1abd660e04ad1cc0f7cf030296e337d848" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_format</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1aac200f6160f92ceec2a8737936bf447c" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ad91975e8f221dfd8b30af89f76fb1578" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_variables</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1a464e95966f1e44c0ee2b3a1546e98b10" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>_varNames</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1a68677a458eabab8961c4f3a9f8064787" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::ITransform::"><scope>moja::flint::CompositeTransform</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ae410485890eae3838c290733e287624b" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>Format</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58afbe5087b942deaaa3202c7ca87dbc327" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>Long</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1a0fd4fe4de20c5e49ddacb1fac4036614" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>longFormatValue</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1acc7847461d4937f4e9afdc49c5f0a7bf" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1ab4e88c89b3b7ea1735996cc4def22d58a900fba34c2a06c1a4a33e65f6aa62fea" prot="public" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>Wide</name></member>
+      <member refid="classmoja_1_1flint_1_1CompositeTransform_1a41407feffff05da014940165ef0aed8e" prot="private" virt="non-virtual"><scope>moja::flint::CompositeTransform</scope><name>wideFormatValue</name></member>
+      <member refid="classmoja_1_1flint_1_1ITransform_1a6fa737579bcb1d2d94f6d41281de80c9" prot="public" virt="virtual"><scope>moja::flint::CompositeTransform</scope><name>~ITransform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

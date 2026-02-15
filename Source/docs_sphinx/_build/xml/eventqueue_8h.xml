@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="eventqueue_8h" kind="file" language="C++">
+    <compoundname>eventqueue.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes refid="iflintdata_8h" local="yes">moja/flint/iflintdata.h</includes>
+    <includes refid="datetime_8h" local="no">moja/datetime.h</includes>
+    <includes refid="dynamic_8h" local="no">moja/dynamic.h</includes>
+    <includedby refid="calendarandeventflintdatasequencer_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/calendarandeventflintdatasequencer.cpp</includedby>
+    <includedby refid="eventqueue_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/eventqueue.cpp</includedby>
+    <includedby refid="libraryfactory_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/libraryfactory.cpp</includedby>
+    <incdepgraph>
+      <node id="14">
+        <label>iomanip</label>
+      </node>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="6">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="13">
+        <label>date/date.h</label>
+      </node>
+      <node id="8">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/iflintdata.h</label>
+        <link refid="iflintdata_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="4">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>chrono</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h</label>
+        <link refid="eventqueue_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1EventBase" prot="public">moja::flint::EventBase</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1DebugModuleWithAnythingInItEvent" prot="public">moja::flint::DebugModuleWithAnythingInItEvent</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EventQueueItem" prot="public">moja::flint::EventQueueItem</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1EventQueue" prot="public">moja::flint::EventQueue</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_EVENTQUEUE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_EVENTQUEUE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/iflintdata.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datetime.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/dynamic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>EventBase<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>IFlintData<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~EventBase()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(DynamicObject<sp/>config,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController&amp;<sp/>landUnitController,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moja::datarepository::DataRepository&amp;<sp/>dataRepository)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>name<sp/>=<sp/>config[</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">].extract&lt;</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&gt;();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>DynamicVar<sp/>getProperty(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>key)</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(key<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(key<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>type;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(key<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>name;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>DynamicVar();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>DynamicObject<sp/>exportObject()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>DynamicObject<sp/>result;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result[</highlight><highlight class="stringliteral">&quot;id&quot;</highlight><highlight class="normal">]<sp/>=<sp/>id;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result[</highlight><highlight class="stringliteral">&quot;type&quot;</highlight><highlight class="normal">]<sp/>=<sp/>type;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>result[</highlight><highlight class="stringliteral">&quot;name&quot;</highlight><highlight class="normal">]<sp/>=<sp/>name;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>result;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>type;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/>std::string<sp/>name;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/>EventBase(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/>:<sp/>id(id),<sp/>type(type),<sp/>name(name)<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/>For<sp/>testing<sp/>with<sp/>Modules</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>DebugModuleWithAnythingInItEvent<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>EventBase<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/>DebugModuleWithAnythingInItEvent(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>EventBase(id,<sp/></highlight><highlight class="stringliteral">&quot;internal.flint.DebugModuleWithAnythingInIt&quot;</highlight><highlight class="normal">,<sp/>name)<sp/>{}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~DebugModuleWithAnythingInItEvent()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(DynamicObject<sp/>config,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController&amp;<sp/>landUnitController,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moja::datarepository::DataRepository&amp;<sp/>dataRepository)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/>DynamicObject<sp/>exportObject()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/>DynamicObject<sp/>_data;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>EventQueueItem<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>EventQueueItem()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/>EventQueueItem(DateTime&amp;<sp/>date,<sp/>std::shared_ptr&lt;const<sp/>EventBase&gt;<sp/>event)<sp/>:<sp/>_date(date),<sp/>_event(event)<sp/>{}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_date;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;const<sp/>EventBase&gt;<sp/>_event;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>EventQueue<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>IFlintData<sp/>{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;EventQueueItem&gt;::iterator<sp/>iterator;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;EventQueueItem&gt;::const_iterator<sp/>const_iterator;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>std::vector&lt;EventQueueItem&gt;::size_type<sp/>size_type;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/>EventQueue()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~EventQueue()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/>EventQueue(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>EventQueue&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/>EventQueue&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>EventQueue&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(DynamicObject<sp/>config,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::ILandUnitController&amp;<sp/>landUnitController,</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>datarepository::DataRepository&amp;<sp/>dataRepository)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/>DynamicObject<sp/>exportObject()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerEventFactoryFunc(FactoryFunc<sp/>func)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/>_eventFactoryMethods.push_back(func);<sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>registerEventFactoryFunc(</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;std::shared_ptr&lt;IFlintData&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicObject&amp;)&gt;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>func)</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_eventFactoryMethodsNew.push_back(func);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;FactoryFunc&gt;<sp/>_eventFactoryMethods;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::function&lt;std::shared_ptr&lt;IFlintData&gt;(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicObject&amp;)&gt;&gt;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_eventFactoryMethodsNew;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>begin()<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/>const_iterator<sp/>begin()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>end()<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/>const_iterator<sp/>end()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clear();</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/>size_type<sp/>size()<sp/>const<sp/>MOJA_NOEXCEPT;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/>template<sp/>&lt;class...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>emplace_back(Args&amp;&amp;...<sp/>args);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>erase(const_iterator<sp/>position);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/>iterator<sp/>erase(const_iterator<sp/>first,<sp/>const_iterator<sp/>last);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/>private:</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;EventQueueItem&gt;<sp/>_queue;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal">inline<sp/>EventQueue::iterator<sp/>EventQueue::begin()<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.begin();<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::const_iterator<sp/>EventQueue::begin()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.begin();<sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::iterator<sp/>EventQueue::end()<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.end();<sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::const_iterator<sp/>EventQueue::end()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.end();<sp/>}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EventQueue::clear()<sp/>{<sp/>_queue.clear();<sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::size_type<sp/>EventQueue::size()<sp/>const<sp/>MOJA_NOEXCEPT<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.size();<sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal">...<sp/>Args&gt;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>EventQueue::emplace_back(Args&amp;&amp;...<sp/>args)<sp/>{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/>_queue.emplace_back(std::forward&lt;Args&gt;(args)...);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::iterator<sp/>EventQueue::erase(const_iterator<sp/>pos)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.erase(pos);<sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>EventQueue::iterator<sp/>EventQueue::erase(const_iterator<sp/>first,<sp/>const_iterator<sp/>last)<sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_queue.erase(first,<sp/>last);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_EVENTQUEUE_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/eventqueue.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1IRunnable" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::IRunnable</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1IRunnable_1adc27ee0d7b66b8795db722f47a615cfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void Run</definition>
+        <argsstring>()=0</argsstring>
+        <name>Run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="123" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="121" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="121" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1IRunnable_1adc27ee0d7b66b8795db722f47a615cfe" prot="public" virt="pure-virtual"><scope>moja::IRunnable</scope><name>Run</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

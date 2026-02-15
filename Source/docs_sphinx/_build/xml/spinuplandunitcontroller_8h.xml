@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="spinuplandunitcontroller_8h" kind="file" language="C++">
+    <compoundname>spinuplandunitcontroller.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes refid="ilandunitcontroller_8h" local="yes">moja/flint/ilandunitcontroller.h</includes>
+    <includes refid="timing_8h" local="yes">moja/flint/timing.h</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="spinuplandunitcontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/spinuplandunitcontroller.cpp</includedby>
+    <includedby refid="aspatiallocaldomaincontroller_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</includedby>
+    <includedby refid="spatialtiledlocaldomaincontroller_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</includedby>
+    <includedby refid="threadedaspatiallocaldomaincontroller_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</includedby>
+    <incdepgraph>
+      <node id="17">
+        <label>iomanip</label>
+      </node>
+      <node id="19">
+        <label>limits</label>
+      </node>
+      <node id="6">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>string</label>
+      </node>
+      <node id="16">
+        <label>date/date.h</label>
+      </node>
+      <node id="11">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="10">
+        <label>moja/flint/itiming.h</label>
+        <link refid="itiming_8h_source"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>moja/floatcmp.h</label>
+        <link refid="floatcmp_8h_source"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>moja/flint/ilandunitcontroller.h</label>
+        <link refid="ilandunitcontroller_8h_source"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>chrono</label>
+      </node>
+      <node id="5">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1SpinupLandUnitController" prot="public">moja::flint::SpinupLandUnitController</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/ilandunitcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/timing.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IOperation;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IModule;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">LandUnitController;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IVariable;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Purpose<sp/>of<sp/>this<sp/>land<sp/>unit<sp/>controller<sp/>is<sp/>to<sp/>do<sp/>the<sp/>same<sp/>as<sp/>the<sp/>LandUnitController<sp/>put<sp/>to<sp/>use<sp/>the<sp/>same<sp/>_poolVector<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment">//<sp/>another<sp/>controller<sp/>Given<sp/>on<sp/>construction.<sp/>Not<sp/>sure<sp/>this<sp/>is<sp/>the<sp/>best<sp/>approach.<sp/>We<sp/>could<sp/>for<sp/>example<sp/>use<sp/>2<sp/>normal<sp/>LUC</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>and<sp/>copy<sp/>the<sp/>pool<sp/>values<sp/>across<sp/>when<sp/>required<sp/>An<sp/>example<sp/>of<sp/>how<sp/>CBM<sp/>might<sp/>implement<sp/>it&apos;s<sp/>Spinup<sp/>procedure<sp/>Another</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>solution<sp/>could<sp/>be<sp/>to<sp/>write<sp/>a<sp/>Special<sp/>LUC<sp/>for<sp/>Spunup<sp/>which<sp/>handles<sp/>both<sp/>the<sp/>spinup<sp/>and<sp/>normal<sp/>run,<sp/>providing<sp/>extra</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment">//<sp/>methods<sp/>for<sp/>the<sp/>spinUp<sp/>parts<sp/>(modules<sp/>etc).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>SpinupLandUnitController<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ILandUnitController<sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>SpinupLandUnitController(LandUnitController&amp;<sp/>landUnitController);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>~SpinupLandUnitController();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>void<sp/>configure(const<sp/>std::string&amp;<sp/>config)<sp/>override;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>configuration::Configuration&amp;<sp/>config)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialiseData(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>inLandUnit);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>initialisePools()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>execute<sp/>the<sp/>simulation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>run()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Unique<sp/>Id<sp/>for<sp/>each<sp/>controller</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>id()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_currentLandUnitControllerId;<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Operations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;IOperation&gt;<sp/>createStockOperation(IModule&amp;<sp/>module)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;IOperation&gt;<sp/>createStockOperation(IModule&amp;<sp/>module,<sp/>DynamicVar&amp;<sp/>dataPackage)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;IOperation&gt;<sp/>createProportionalOperation(IModule&amp;<sp/>module)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;IOperation&gt;<sp/>createProportionalOperation(IModule&amp;<sp/>module,<sp/>DynamicVar&amp;<sp/>dataPackage)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>submitOperation(std::shared_ptr&lt;IOperation&gt;<sp/>operation)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>applyOperations()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearLastAppliedOperationResults()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>clearAllOperationResults()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Can<sp/>be<sp/>used<sp/>to<sp/>reset<sp/>Variables<sp/>back<sp/>to<sp/>original<sp/>values</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>resetVariables();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Data-Set<sp/>accessors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;IVariable&gt;&gt;<sp/>variables()</highlight><highlight class="keyword"><sp/>const<sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_variables;<sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>addVariable(std::string<sp/>name,<sp/>std::shared_ptr&lt;IVariable&gt;<sp/>variable);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>IVariable*<sp/>getVariable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>IVariable*<sp/>getVariable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasVariable(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ITiming&amp;<sp/>timing()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/>ITiming&amp;<sp/>timing()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>configuration::Configuration*<sp/>config()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_config;<sp/>};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/>IOperationManager*<sp/>operationManager()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/>IOperationManager*<sp/>operationManager()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_currentLandUnitControllerId;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_landUnitControllerId<sp/>=<sp/>_currentLandUnitControllerId++;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/>Timing<sp/>_timing;<sp/><sp/></highlight><highlight class="comment">//<sp/>timing<sp/>object<sp/>for<sp/>simulation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/>std::map&lt;std::string,<sp/>std::shared_ptr&lt;IVariable&gt;&gt;<sp/>_variablesMap;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;IVariable&gt;&gt;<sp/>_variables;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/>LandUnitController&amp;<sp/>_landUnitController;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>configuration::Configuration*<sp/>_config;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_SPINUPLANDUNITCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h"/>
+  </compounddef>
+</doxygen>

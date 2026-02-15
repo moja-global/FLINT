@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IPool" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::IPool</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1ExternalPoolSimple" prot="public" virt="non-virtual">ExternalPoolSimple</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1PoolSimple" prot="public" virt="non-virtual">PoolSimple</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1PoolSimpleCache" prot="public" virt="non-virtual">PoolSimpleCache</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1PoolUblas" prot="public" virt="non-virtual">PoolUblas</derivedcompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1IPool_1a6f4139c54a5a51144bac2c838cb51f58" prot="protected" static="no" mutable="no">
+        <type>PoolMetaData</type>
+        <definition>PoolMetaData _metadata</definition>
+        <argsstring></argsstring>
+        <name>_metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="33" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1ae5579fb258a1cfe7fd7b3069a8aae17b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IPool</definition>
+        <argsstring>()=default</argsstring>
+        <name>IPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="14" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a3a1e2b41e6964d3bec4bfc9dcf8bf20e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~IPool</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IPool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="15" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1aa7f6122245a436047febdb3abbf32e10" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; name</definition>
+        <argsstring>() const =0</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="17" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a0bf19282f843995adc0d4fb0ca58a9a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; description</definition>
+        <argsstring>() const =0</argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="18" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1accbad503d224fa3ce85f09636bbb2d67" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; units</definition>
+        <argsstring>() const =0</argsstring>
+        <name>units</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="19" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a39e8599fc48289ed988424d4249add2c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double scale</definition>
+        <argsstring>() const =0</argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="20" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a5c5ff56e75830e43477209d00d37af8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int order</definition>
+        <argsstring>() const =0</argsstring>
+        <name>order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="21" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a0bb5b3acf3fc67fa6437112862b57249" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double initValue</definition>
+        <argsstring>() const =0</argsstring>
+        <name>initValue</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="22" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1aa0ccd9838db9b1738abec3b9e4594718" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int idx</definition>
+        <argsstring>() const =0</argsstring>
+        <name>idx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="24" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a87c658a2a1e4b1a4b99280b9210c19f1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>double</type>
+        <definition>virtual double value</definition>
+        <argsstring>() const =0</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="26" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a0b0947e21f3d281d77ddd3e269a41fe8" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void set_value</definition>
+        <argsstring>(double value)=0</argsstring>
+        <name>set_value</name>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="27" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1ab5be7e5a13ea77d59aac45d21dceb6a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void init</definition>
+        <argsstring>()=0</argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="28" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IPool_1a93ca05a5fa1229801c7ecfdd466939c2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>const PoolMetaData &amp;</type>
+        <definition>virtual const PoolMetaData&amp; metadata</definition>
+        <argsstring>()</argsstring>
+        <name>metadata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="30" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ipool.h" bodystart="12" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IPool_1a6f4139c54a5a51144bac2c838cb51f58" prot="protected" virt="non-virtual"><scope>moja::flint::IPool</scope><name>_metadata</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a0bf19282f843995adc0d4fb0ca58a9a3" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>description</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1aa0ccd9838db9b1738abec3b9e4594718" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>idx</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1ab5be7e5a13ea77d59aac45d21dceb6a0" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>init</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a0bb5b3acf3fc67fa6437112862b57249" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>initValue</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1ae5579fb258a1cfe7fd7b3069a8aae17b" prot="public" virt="non-virtual"><scope>moja::flint::IPool</scope><name>IPool</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a93ca05a5fa1229801c7ecfdd466939c2" prot="public" virt="virtual"><scope>moja::flint::IPool</scope><name>metadata</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1aa7f6122245a436047febdb3abbf32e10" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>name</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a5c5ff56e75830e43477209d00d37af8b" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>order</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a39e8599fc48289ed988424d4249add2c" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>scale</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a0b0947e21f3d281d77ddd3e269a41fe8" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>set_value</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1accbad503d224fa3ce85f09636bbb2d67" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>units</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a87c658a2a1e4b1a4b99280b9210c19f1" prot="public" virt="pure-virtual"><scope>moja::flint::IPool</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1IPool_1a3a1e2b41e6964d3bec4bfc9dcf8bf20e" prot="public" virt="virtual"><scope>moja::flint::IPool</scope><name>~IPool</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

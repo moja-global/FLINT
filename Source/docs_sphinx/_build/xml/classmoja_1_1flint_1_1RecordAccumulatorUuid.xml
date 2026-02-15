@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1RecordAccumulatorUuid" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::RecordAccumulatorUuid</compoundname>
+    <innerclass refid="structmoja_1_1flint_1_1RecordAccumulatorUuid_1_1RecordComparer" prot="private">moja::flint::RecordAccumulatorUuid::RecordComparer</innerclass>
+    <innerclass refid="structmoja_1_1flint_1_1RecordAccumulatorUuid_1_1RecordHasher" prot="private">moja::flint::RecordAccumulatorUuid::RecordHasher</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class TPersistable</type>
+      </param>
+      <param>
+        <type>class TRecord</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a98733569b72e89800f4b5e7e5777dc9c" prot="public" static="no">
+        <type>std::unordered_set&lt; TRecord *, RecordHasher, RecordComparer &gt;</type>
+        <definition>typedef std::unordered_set&lt;TRecord*, RecordHasher, RecordComparer&gt; rec_accu_set</definition>
+        <argsstring></argsstring>
+        <name>rec_accu_set</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="41" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ad13828617c4f1ced03d5d98c2f594949" prot="public" static="no">
+        <type>std::vector&lt; TRecord &gt;</type>
+        <definition>typedef std::vector&lt;TRecord&gt; rec_accu_vec</definition>
+        <argsstring></argsstring>
+        <name>rec_accu_vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="42" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a868b9dde8cfbfe3464d0a6b3b26c478f" prot="public" static="no">
+        <type>rec_accu_vec::size_type</type>
+        <definition>typedef rec_accu_vec::size_type rec_accu_size_type</definition>
+        <argsstring></argsstring>
+        <name>rec_accu_size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="43" column="45" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1abc077158e750ff34442208ff73e846a7" prot="private" static="no" mutable="no">
+        <type>Poco::Mutex</type>
+        <definition>Poco::Mutex _mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="108" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a3815ec557a20b5e885a90f1f2142f510" prot="private" static="no" mutable="no">
+        <type>rec_accu_set</type>
+        <definition>rec_accu_set _recordsIdx</definition>
+        <argsstring></argsstring>
+        <name>_recordsIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="109" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a815135f22b2353424bda516456b18b3e" prot="private" static="no" mutable="no">
+        <type>rec_accu_vec</type>
+        <definition>rec_accu_vec _records</definition>
+        <argsstring></argsstring>
+        <name>_records</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="110" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a82467ea2c689eb91a5d1922ed9d79a01" prot="private" static="no" mutable="no">
+        <type>boost::uuids::random_generator</type>
+        <definition>boost::uuids::random_generator _uuidGenerator</definition>
+        <argsstring></argsstring>
+        <name>_uuidGenerator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="111" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a9b653815febb721a1cc48e095a0109dc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t compute_size</definition>
+        <argsstring>()</argsstring>
+        <name>compute_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="28" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="28" bodyend="38"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a167daf966586b187152117e56e930ac8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RecordAccumulatorUuid</definition>
+        <argsstring>()</argsstring>
+        <name>RecordAccumulatorUuid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="45" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ad7a1e52f3a7b29439a4f906230d6ad6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const TRecord *</type>
+        <definition>const TRecord* accumulate</definition>
+        <argsstring>(TRecord record)</argsstring>
+        <name>accumulate</name>
+        <param>
+          <type>TRecord</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="47" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="47" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a63f9b566b2f3720d4e23839aeebdeea6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const TRecord *</type>
+        <definition>const TRecord* search</definition>
+        <argsstring>(TRecord record) const</argsstring>
+        <name>search</name>
+        <param>
+          <type>TRecord</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="73" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="73" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a5e926445f1aef3bc1c80933acf25a3a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const TRecord *</type>
+        <definition>const TRecord* searchId</definition>
+        <argsstring>(boost::uuids::uuid id) const</argsstring>
+        <name>searchId</name>
+        <param>
+          <type>boost::uuids::uuid</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="83" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="83" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a90ceb2943bf9e7bc4ef8136ceffb1972" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; TPersistable &gt;</type>
+        <definition>std::vector&lt;TPersistable&gt; getPersistableCollection</definition>
+        <argsstring>()</argsstring>
+        <name>getPersistableCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="90" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="90" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="98" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1aee5a32639254653b3bc87c20e040e070" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rec_accu_size_type</type>
+        <definition>rec_accu_size_type size</definition>
+        <argsstring>()</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="103" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a71936af904ad4ff56c90adaab7ea5d37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const rec_accu_vec &amp;</type>
+        <definition>const rec_accu_vec&amp; records</definition>
+        <argsstring>() const</argsstring>
+        <name>records</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="105" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="105" bodyend="105"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="19" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="19" bodyend="112"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1abc077158e750ff34442208ff73e846a7" prot="private" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>_mutex</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a815135f22b2353424bda516456b18b3e" prot="private" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>_records</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a3815ec557a20b5e885a90f1f2142f510" prot="private" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>_recordsIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a82467ea2c689eb91a5d1922ed9d79a01" prot="private" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>_uuidGenerator</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ad7a1e52f3a7b29439a4f906230d6ad6d" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>accumulate</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>clear</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a9b653815febb721a1cc48e095a0109dc" prot="private" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>compute_size</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a90ceb2943bf9e7bc4ef8136ceffb1972" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>getPersistableCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a98733569b72e89800f4b5e7e5777dc9c" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>rec_accu_set</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a868b9dde8cfbfe3464d0a6b3b26c478f" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>rec_accu_size_type</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1ad13828617c4f1ced03d5d98c2f594949" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>rec_accu_vec</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a167daf966586b187152117e56e930ac8" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>RecordAccumulatorUuid</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a71936af904ad4ff56c90adaab7ea5d37" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>records</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a63f9b566b2f3720d4e23839aeebdeea6" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>search</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1a5e926445f1aef3bc1c80933acf25a3a3" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>searchId</name></member>
+      <member refid="classmoja_1_1flint_1_1RecordAccumulatorUuid_1aee5a32639254653b3bc87c20e040e070" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

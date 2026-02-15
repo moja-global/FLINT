@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="threadedaspatiallocaldomaincontroller_8h" kind="file" language="C++">
+    <compoundname>threadedaspatiallocaldomaincontroller.h</compoundname>
+    <includes refid="aspatiallocaldomaincontroller_8h" local="yes">moja/flint/aspatiallocaldomaincontroller.h</includes>
+    <includes refid="localdomaincontrollerbase_8h" local="yes">moja/flint/localdomaincontrollerbase.h</includes>
+    <includes refid="spinuplandunitcontroller_8h" local="yes">moja/flint/spinuplandunitcontroller.h</includes>
+    <includes local="no">moja/datarepository/aspatialtileinfo.h</includes>
+    <includes local="no">moja/datarepository/aspatialtileinfocollection.h</includes>
+    <includes local="no">moja/flint/configuration/configuration.h</includes>
+    <includes local="no">Poco/Mutex.h</includes>
+    <includes local="no">queue</includes>
+    <includes local="no">thread</includes>
+    <includedby refid="threadedaspatiallocaldomaincontroller_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/threadedaspatiallocaldomaincontroller.cpp</includedby>
+    <includedby refid="moja_8cpp" local="yes">/mnt/e/FLINT/Source/moja.cli/src/moja.cpp</includedby>
+    <incdepgraph>
+      <node id="28">
+        <label>iomanip</label>
+      </node>
+      <node id="8">
+        <label>functional</label>
+      </node>
+      <node id="49">
+        <label>queue</label>
+      </node>
+      <node id="30">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>moja/flint/poolcollection.h</label>
+        <link refid="poolcollection_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="12">
+        <label>moja/signals.h</label>
+        <link refid="signals_8h_source"/>
+      </node>
+      <node id="32">
+        <label>moja/flint/imodule.h</label>
+        <link refid="imodule_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>moja/dispatcher.h</label>
+        <link refid="dispatcher_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/flint/ilocaldomaincontroller.h</label>
+        <link refid="ilocaldomaincontroller_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>moja/datarepository/aspatialtileinfo.h</label>
+      </node>
+      <node id="44">
+        <label>moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>string</label>
+      </node>
+      <node id="27">
+        <label>date/date.h</label>
+      </node>
+      <node id="23">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>map</label>
+      </node>
+      <node id="33">
+        <label>moja/flint/libraryinfobase.h</label>
+        <link refid="libraryinfobase_8h_source"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>moja/notificationcenter.h</label>
+        <link refid="notificationcenter_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="36">
+        <label>moja/flint/iflintdata.h</label>
+        <link refid="iflintdata_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>moja/flint/mojalibapi.h</label>
+        <link refid="mojalibapi_8h_source"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>moja/flint/itiming.h</label>
+        <link refid="itiming_8h_source"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+      </node>
+      <node id="38">
+        <label>moja/datarepository/iproviderinterface.h</label>
+      </node>
+      <node id="25">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+      <node id="17">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>moja/floatcmp.h</label>
+        <link refid="floatcmp_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>moja/flint/ilandunitcontroller.h</label>
+        <link refid="ilandunitcontroller_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>moja/flint/itransform.h</label>
+        <link refid="itransform_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>moja/flint/modulebase.h</label>
+        <link refid="modulebase_8h_source"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>moja/flint/configuration/configuration.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>moja/datarepository/datarepository.h</label>
+      </node>
+      <node id="13">
+        <label>mutex</label>
+      </node>
+      <node id="26">
+        <label>chrono</label>
+      </node>
+      <node id="50">
+        <label>thread</label>
+      </node>
+      <node id="31">
+        <label>moja/flint/librarymanager.h</label>
+        <link refid="librarymanager_8h_source"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>moja/flint/ilandunitdatawrapper.h</label>
+        <link refid="ilandunitdatawrapper_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="48">
+        <label>Poco/Mutex.h</label>
+      </node>
+      <node id="15">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+      <node id="34">
+        <label>moja/flint/librarytype.h</label>
+        <link refid="librarytype_8h_source"/>
+      </node>
+      <node id="46">
+        <label>moja/datarepository/aspatialtileinfocollection.h</label>
+      </node>
+      <node id="10">
+        <label>typeindex</label>
+      </node>
+      <node id="41">
+        <label>moja/flint/operationresultcollection.h</label>
+        <link refid="operationresultcollection_8h_source"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1AspatialLocalDomainThread" prot="public">moja::flint::AspatialLocalDomainThread</innerclass>
+    <innerclass refid="classmoja_1_1flint_1_1ThreadedAspatialLocalDomainController" prot="public">moja::flint::ThreadedAspatialLocalDomainController</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/aspatiallocaldomaincontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/localdomaincontrollerbase.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/spinuplandunitcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/aspatialtileinfo.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/aspatialtileinfocollection.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/flint/configuration/configuration.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Poco/Mutex.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;queue&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;thread&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">ThreadedAspatialLocalDomainController;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">AspatialLocalDomainThread<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>AspatialLocalDomainThread(ThreadedAspatialLocalDomainController*<sp/>parent,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>threadId,<sp/>Poco::Mutex&amp;<sp/>tileListMutex,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::queue&lt;datarepository::AspatialTileInfo&gt;&amp;<sp/>tileList,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>configuration::Configuration*<sp/>config);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>operator()();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;LocalDomainControllerBase&gt;<sp/>localDomainController()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_ldc;<sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>threadId()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_threadId;<sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/>ThreadedAspatialLocalDomainController*<sp/>_parent;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/>configuration::Configuration<sp/>_threadConfig;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_threadId;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/>Poco::Mutex&amp;<sp/>_tileListMutex;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/>std::queue&lt;datarepository::AspatialTileInfo&gt;&amp;<sp/>_tileList;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>configuration::Configuration*<sp/>_config;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>std::shared_ptr&lt;AspatialLocalDomainController&gt;<sp/>_ldc;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>ThreadedAspatialLocalDomainController<sp/>final<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>flint::LocalDomainControllerBase<sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/>ThreadedAspatialLocalDomainController(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/>~ThreadedAspatialLocalDomainController()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>configure(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>flint::configuration::Configuration&amp;<sp/>config)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>run()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>startup()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>shutdown()</highlight><highlight class="keyword"><sp/>override<sp/></highlight><highlight class="normal">{}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;AspatialLocalDomainThread&gt;&gt;<sp/>tasks()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_tasks;<sp/>}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_numThreads;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::shared_ptr&lt;AspatialLocalDomainThread&gt;&gt;<sp/>_tasks;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/>std::vector&lt;std::thread&gt;<sp/>_threads;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/>std::unique_ptr&lt;datarepository::AspatialTileInfoCollection&gt;<sp/>_landscape;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/>Poco::Mutex<sp/>_tileListMutex;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/>std::queue&lt;datarepository::AspatialTileInfo&gt;<sp/>_tileList;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_THREADEDASPATIALLOCALDOMAINCONTROLLER_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h"/>
+  </compounddef>
+</doxygen>

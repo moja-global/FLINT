@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationResultCollection" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationResultCollection</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1a388d8290690479d48b871f006aa98b28" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::value_type</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::value_type value_type</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="14" column="37" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1a8a80646c7b8d0072621c0cf657bc825d" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::reference</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::reference reference</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="15" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1a6d9b2a8721b21d7b894fccf0d33f30c1" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::const_reference</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::const_reference const_reference</definition>
+        <argsstring></argsstring>
+        <name>const_reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="16" column="42" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1ab457b4633ce267b4c0fa2575c46835b6" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::iterator</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="17" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1a008536aed464d642651c0dad6fe4ce7a" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::const_iterator</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="18" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultCollection_1a01f72637cb43e88ef1cc07f47a772277" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;::size_type</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt;::size_type size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="19" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultCollection_1a1e8b78db72bd543054f178866cefdc76" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IOperationResult &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;IOperationResult&gt; &gt; _vec</definition>
+        <argsstring></argsstring>
+        <name>_vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="41" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a26752cc9370c145d44291a7453b9ce1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultCollection</definition>
+        <argsstring>()=default</argsstring>
+        <name>OperationResultCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="21" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a34b786c390d4c5010fad84ebb2f72e21" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~OperationResultCollection</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OperationResultCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="22" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a9be221aa62d1ac36669163f3ef9519f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultCollection</definition>
+        <argsstring>(const OperationResultCollection &amp;)=delete</argsstring>
+        <name>OperationResultCollection</name>
+        <param>
+          <type>const OperationResultCollection &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="23" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a165e81e1ed8c6e5e22d65ff5b46776b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OperationResultCollection &amp;</type>
+        <definition>OperationResultCollection&amp; operator=</definition>
+        <argsstring>(const OperationResultCollection &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const OperationResultCollection &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="24" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1af93732e3d42133531c36777187828274" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>OperationResultCollection::iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="26" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a5eb6a01fcdc1b7faab87e90b3d8ea363" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>OperationResultCollection::const_iterator begin</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="27" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a4b56e17ef81ca0b87fe0281292e139d2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>OperationResultCollection::iterator end</definition>
+        <argsstring>() MOJA_NOEXCEPT</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="28" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a2f065e1ae92c4d09746899bf610435c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>OperationResultCollection::const_iterator end</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="29" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a156c05098b9ce6d4d91a27a794cc7e06" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_type</type>
+        <definition>OperationResultCollection::size_type size</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="31" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1ac294eba73765b9a72a7399d64e8ecd9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void emplace_back</definition>
+        <argsstring>(Args &amp;&amp;... args)</argsstring>
+        <name>emplace_back</name>
+        <param>
+          <type>Args &amp;&amp;...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="33" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a85189129e5acac091628c7cf82517b78" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void push_back</definition>
+        <argsstring>(const_reference operationResult)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const_reference</type>
+          <declname>operationResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="35" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1abbdc5a13d42f1714efd3c5f0ea0f43ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void push_back</definition>
+        <argsstring>(value_type &amp;&amp;operationResult)</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>value_type &amp;&amp;</type>
+          <declname>operationResult</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="36" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a6ac8a1b23fea4a989ed11f8b73e9a00d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool empty</definition>
+        <argsstring>() const MOJA_NOEXCEPT</argsstring>
+        <name>empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultCollection_1a32cc4c49a947dea1bef1f5b6b720b2e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void reserve</definition>
+        <argsstring>(size_type i)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>size_type</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="38" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="73" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultcollection.h" bodystart="12" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a1e8b78db72bd543054f178866cefdc76" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>_vec</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1af93732e3d42133531c36777187828274" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a5eb6a01fcdc1b7faab87e90b3d8ea363" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1ac8bb3912a3ce86b15842e79d0b421204" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>clear</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a008536aed464d642651c0dad6fe4ce7a" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a6d9b2a8721b21d7b894fccf0d33f30c1" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>const_reference</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1ac294eba73765b9a72a7399d64e8ecd9a" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>emplace_back</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a6ac8a1b23fea4a989ed11f8b73e9a00d" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>empty</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a4b56e17ef81ca0b87fe0281292e139d2" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a2f065e1ae92c4d09746899bf610435c5" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1ab457b4633ce267b4c0fa2575c46835b6" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a26752cc9370c145d44291a7453b9ce1a" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>OperationResultCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a9be221aa62d1ac36669163f3ef9519f5" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>OperationResultCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a165e81e1ed8c6e5e22d65ff5b46776b3" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a85189129e5acac091628c7cf82517b78" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>push_back</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1abbdc5a13d42f1714efd3c5f0ea0f43ea" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>push_back</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a8a80646c7b8d0072621c0cf657bc825d" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>reference</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a32cc4c49a947dea1bef1f5b6b720b2e3" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>reserve</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a156c05098b9ce6d4d91a27a794cc7e06" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>size</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a01f72637cb43e88ef1cc07f47a772277" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>size_type</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a388d8290690479d48b871f006aa98b28" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultCollection</scope><name>value_type</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultCollection_1a34b786c390d4c5010fad84ebb2f72e21" prot="public" virt="virtual"><scope>moja::flint::OperationResultCollection</scope><name>~OperationResultCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

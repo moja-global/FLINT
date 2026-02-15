@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Property" kind="class" language="C++" prot="public">
+    <compoundname>moja::Property</compoundname>
+    <includes refid="dispatcher_8h" local="no">dispatcher.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1Property_1afb9ded5f49336ae503bb9f2035ea902b" prot="public" static="no">
+        <type>T</type>
+        <definition>using value_type =  T</definition>
+        <argsstring></argsstring>
+        <name>value_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="65" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Property_1af28ddffc199b8fda4117883d0b569f49" prot="private" static="no" mutable="no">
+        <type>Signal&lt; T &gt;</type>
+        <definition>Signal&lt;T&gt; _onChange</definition>
+        <argsstring></argsstring>
+        <name>_onChange</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="231" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Property_1adb8583b94a0b5b67a17bb79cb4913126" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const  *</type>
+        <definition>Property&lt;T&gt; const* _connection</definition>
+        <argsstring></argsstring>
+        <name>_connection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="232" column="19" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Property_1addbff7dde6f134d617689a3e0097e635" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T _value</definition>
+        <argsstring></argsstring>
+        <name>_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="233" column="6" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Property_1ab290c34015f7602a151ec3c95f708e89" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>(Property&lt; T &gt; const &amp;toCopy)=delete</argsstring>
+        <name>Property</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>toCopy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="67" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a20d82b4412be549af6c5334d189ed9b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>(Property&lt; T &gt; &amp;&amp;toCopy)=delete</argsstring>
+        <name>Property</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;&amp;</type>
+          <declname>toCopy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="68" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+<para>Properties for built-in types are automatically initialized to 0. See template specialisations at the bottom of this file. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="76" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a03567d8dbced8c1341ba574cf9605e38" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>(T const &amp;val)</argsstring>
+        <name>Property</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="78" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="78" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1ae5e46defae4792c97ca43e5d8100364f" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>(T &amp;&amp;val)</argsstring>
+        <name>Property</name>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="79" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a60b2354bd8bcc57d81c58454edcb7c3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Signal&lt; T &gt; const  &amp;</type>
+        <definition>Signal&lt;T&gt; const&amp; onChange</definition>
+        <argsstring>() const</argsstring>
+        <name>onChange</name>
+        <briefdescription>
+<para>Returns a Signal which is fired when the internal value has been changed. The new value is passed as parameter. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>A reference to the onChange Signal. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="89" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="89" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a645edc4204dd7e0adfc778b956a44d77" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set</definition>
+        <argsstring>(T const &amp;value)</argsstring>
+        <name>set</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to a new value. before_change() and <ref refid="classmoja_1_1Property_1a60b2354bd8bcc57d81c58454edcb7c3a" kindref="member">onChange()</ref> will be emitted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="98" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="98" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a05b4bc61565a5eade736fd769a6d2496" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setWithNoEmit</definition>
+        <argsstring>(T const &amp;value)</argsstring>
+        <name>setWithNoEmit</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Sets the <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to a new value. <ref refid="classmoja_1_1Property_1a60b2354bd8bcc57d81c58454edcb7c3a" kindref="member">onChange()</ref> will not be emitted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="110" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="110" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a1e97cc1d782004ee76abad529cfb0482" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void touch</definition>
+        <argsstring>()</argsstring>
+        <name>touch</name>
+        <briefdescription>
+<para>Emits <ref refid="classmoja_1_1Property_1a60b2354bd8bcc57d81c58454edcb7c3a" kindref="member">onChange()</ref> even if the value did not change. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="113" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="113" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a76d9b48fa0c3b9968549c8e9fcf61313" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T const  &amp;</type>
+        <definition>T const&amp; value</definition>
+        <argsstring>() const</argsstring>
+        <name>value</name>
+        <briefdescription>
+<para>Returns the internal value. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="118" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="118" bodyend="118"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1aa14907865f6fc2b1f9508829dd3937fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void connectFrom</definition>
+        <argsstring>(Property&lt; T &gt; const &amp;source)</argsstring>
+        <name>connectFrom</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>source</declname>
+        </param>
+        <briefdescription>
+<para>Connects two Properties to each other. If the source&apos;s value is changed, this value will be changed as well. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to synchronize values with. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="128" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="128" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a017d139942f04e20771dd0375adff36b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void disconnectAuditors</definition>
+        <argsstring>()</argsstring>
+        <name>disconnectAuditors</name>
+        <briefdescription>
+<para>If there are any Properties connected to this <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>, they won&apos;t be notified of any further changes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="144" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1abd8417f6ed8321b6ed37530db9319be0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+        <definition>Property&lt;T&gt;&amp; operator=</definition>
+        <argsstring>(Property&lt; T &gt; const &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Assigns the value of another <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to copy the value from. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A shallow copy of this object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="153" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="153" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a949a594b017f091133702b98ec2870d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+        <definition>Property&lt;T&gt;&amp; operator=</definition>
+        <argsstring>(T const &amp;rhs)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Assigns a new value to this <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The new value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>A shallow copy of this object. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="165" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="165" bodyend="168"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a54724b9dd792a6022b918eae2f393734" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>operator T</definition>
+        <argsstring>() const</argsstring>
+        <name>operator T</name>
+        <briefdescription>
+<para>Casts the property to its native type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The property value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="175" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="175" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a4478118fae816c706501530c50c7d34f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(Property&lt; T &gt; const &amp;rhs) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares the values of two Properties. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The property to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>True if the parameters are considered equivalent. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="184" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="184" bodyend="184"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1add7d52e36876933c1a4e40f64abfef15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(Property&lt; T &gt; const &amp;rhs) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares the values of two Properties for inequality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The property to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>True if the parameters are not considered equivalent. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="193" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="193" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a3cf74b92c5415bdc16ae9fcf7e8ecada" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Property" kindref="compound">Property</ref>&lt; T &gt; &amp;</type>
+        <definition>Property&lt;T&gt;&amp; operator+=</definition>
+        <argsstring>(T const &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Adds to the value of the property. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>The result of the operation. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="202" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="202" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a6d616e941e6d4f96be1ad832bb263517" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(T const &amp;rhs) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares the value of the <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to another value. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>True if the parameters are considered equivalent. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="214" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="214" bodyend="214"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a1f0eabf1b53cc1da4c4c227594baabdb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(T const &amp;rhs) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+<para>Compares the value of the <ref refid="classmoja_1_1Property" kindref="compound">Property</ref> to another value for inequality. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>rhs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The value to compare. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+<para><simplesect kind="return"><para>True if the parameters are not considered equivalent. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="223" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="223" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a1e344333134003bc0aab05727b4a4e3c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T const  &amp;</type>
+        <definition>T const&amp; operator()</definition>
+        <argsstring>() const</argsstring>
+        <name>operator()</name>
+        <briefdescription>
+<para>Returns the value of this <ref refid="classmoja_1_1Property" kindref="compound">Property</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="228" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="228" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="278" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="278" bodyend="278"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="281" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="281" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="284" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="284" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="287" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="287" bodyend="287"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="290" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="290" bodyend="290"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="293" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="293" bodyend="293"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Property</definition>
+        <argsstring>()</argsstring>
+        <name>Property</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="296" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="296" bodyend="296"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Encapsulates a value and provides change notification. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" line="63" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/dispatcher.h" bodystart="63" bodyend="234"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Property_1adb8583b94a0b5b67a17bb79cb4913126" prot="private" virt="non-virtual"><scope>moja::Property</scope><name>_connection</name></member>
+      <member refid="classmoja_1_1Property_1af28ddffc199b8fda4117883d0b569f49" prot="private" virt="non-virtual"><scope>moja::Property</scope><name>_onChange</name></member>
+      <member refid="classmoja_1_1Property_1addbff7dde6f134d617689a3e0097e635" prot="private" virt="non-virtual"><scope>moja::Property</scope><name>_value</name></member>
+      <member refid="classmoja_1_1Property_1aa14907865f6fc2b1f9508829dd3937fd" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>connectFrom</name></member>
+      <member refid="classmoja_1_1Property_1a017d139942f04e20771dd0375adff36b" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>disconnectAuditors</name></member>
+      <member refid="classmoja_1_1Property_1a60b2354bd8bcc57d81c58454edcb7c3a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>onChange</name></member>
+      <member refid="classmoja_1_1Property_1a54724b9dd792a6022b918eae2f393734" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator T</name></member>
+      <member refid="classmoja_1_1Property_1add7d52e36876933c1a4e40f64abfef15" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator!=</name></member>
+      <member refid="classmoja_1_1Property_1a1f0eabf1b53cc1da4c4c227594baabdb" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator!=</name></member>
+      <member refid="classmoja_1_1Property_1a1e344333134003bc0aab05727b4a4e3c" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator()</name></member>
+      <member refid="classmoja_1_1Property_1a3cf74b92c5415bdc16ae9fcf7e8ecada" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator+=</name></member>
+      <member refid="classmoja_1_1Property_1abd8417f6ed8321b6ed37530db9319be0" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1Property_1a949a594b017f091133702b98ec2870d4" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1Property_1a4478118fae816c706501530c50c7d34f" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1Property_1a6d616e941e6d4f96be1ad832bb263517" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1Property_1ab290c34015f7602a151ec3c95f708e89" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a20d82b4412be549af6c5334d189ed9b4" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a03567d8dbced8c1341ba574cf9605e38" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1ae5e46defae4792c97ca43e5d8100364f" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a39e8f3865bb0af43640c711d5c53bc0a" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>Property</name></member>
+      <member refid="classmoja_1_1Property_1a645edc4204dd7e0adfc778b956a44d77" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>set</name></member>
+      <member refid="classmoja_1_1Property_1a05b4bc61565a5eade736fd769a6d2496" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>setWithNoEmit</name></member>
+      <member refid="classmoja_1_1Property_1a1e97cc1d782004ee76abad529cfb0482" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>touch</name></member>
+      <member refid="classmoja_1_1Property_1a76d9b48fa0c3b9968549c8e9fcf61313" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>value</name></member>
+      <member refid="classmoja_1_1Property_1afb9ded5f49336ae503bb9f2035ea902b" prot="public" virt="non-virtual"><scope>moja::Property</scope><name>value_type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

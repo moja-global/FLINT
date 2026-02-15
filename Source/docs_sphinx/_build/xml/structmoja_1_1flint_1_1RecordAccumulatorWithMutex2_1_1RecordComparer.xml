@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1RecordAccumulatorWithMutex2_1_1RecordComparer" kind="struct" language="C++" prot="private">
+    <compoundname>moja::flint::RecordAccumulatorWithMutex2::RecordComparer</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1RecordAccumulatorWithMutex2_1_1RecordComparer_1adb5a134fb68a25d4610ff00b40550edb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator()</definition>
+        <argsstring>(const TRecord *lhs, const TRecord *rhs) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const TRecord *</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const TRecord *</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatorwithmutex.h" line="117" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatorwithmutex.h" bodystart="117" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatorwithmutex.h" line="116" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatorwithmutex.h" bodystart="116" bodyend="118"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1RecordAccumulatorWithMutex2_1_1RecordComparer_1adb5a134fb68a25d4610ff00b40550edb" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorWithMutex2::RecordComparer</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

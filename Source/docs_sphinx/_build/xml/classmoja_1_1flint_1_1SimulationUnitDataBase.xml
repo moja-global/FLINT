@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SimulationUnitDataBase" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SimulationUnitDataBase</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IFlintData</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1aebd45075841ad4f560e0678e7010e8ec" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _localDomainId</definition>
+        <argsstring></argsstring>
+        <name>_localDomainId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="33" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a790d407d7da076ed3ed7749a7686af2b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _landUnitArea</definition>
+        <argsstring></argsstring>
+        <name>_landUnitArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="34" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a5e5da5f40a75fed23533626b37b6e873" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _locationId</definition>
+        <argsstring></argsstring>
+        <name>_locationId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="37" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a408f9eb7215b4ec74451f73a6ab35da2" prot="public" static="no" mutable="no">
+        <type>flint::RecordAccumulator&lt; FluxRow &gt;</type>
+        <definition>flint::RecordAccumulator&lt;FluxRow&gt; _fluxResults</definition>
+        <argsstring></argsstring>
+        <name>_fluxResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="40" column="29" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab4ed7c0bd1558e5cd0caa3958f21b5a8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _processUnitCount</definition>
+        <argsstring></argsstring>
+        <name>_processUnitCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="43" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1ac1c4d10107eb069cce338d0b7d7543ca" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _luCountProcessingUnit</definition>
+        <argsstring></argsstring>
+        <name>_luCountProcessingUnit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="44" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab62a8f6889accca68037e8b592725996" prot="public" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _luCountLocalDomain</definition>
+        <argsstring></argsstring>
+        <name>_luCountLocalDomain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="45" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a04b14858d1a6808406286452611cacc4" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startSystemTime</definition>
+        <argsstring></argsstring>
+        <name>_startSystemTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="47" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a2ea26b3384c33bc02eee415afdc77540" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endSystemTime</definition>
+        <argsstring></argsstring>
+        <name>_endSystemTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="48" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab1f3eb672ab8973cd62606dd5026d7be" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startLocalDomainTime</definition>
+        <argsstring></argsstring>
+        <name>_startLocalDomainTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="49" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1afd1e1da1b687a711b4308e036cebc435" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endLocalDomainTime</definition>
+        <argsstring></argsstring>
+        <name>_endLocalDomainTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="50" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a7ee25c8a48fa5e3bc462822007badb6f" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _startProcessingUnitTime</definition>
+        <argsstring></argsstring>
+        <name>_startProcessingUnitTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="51" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a776498bf3ad127b9087f0e6e010bd5e2" prot="public" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1DateTime" kindref="compound">DateTime</ref></type>
+        <definition>DateTime _endProcessingUnitTime</definition>
+        <argsstring></argsstring>
+        <name>_endProcessingUnitTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="52" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a3712d387c6986416d6171c4a997d7e6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SimulationUnitDataBase</definition>
+        <argsstring>()</argsstring>
+        <name>SimulationUnitDataBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="15" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a560c848c8b0fe42be82dfe871d2cda70" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~SimulationUnitDataBase</definition>
+        <argsstring>()=default</argsstring>
+        <name>~SimulationUnitDataBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="23" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1ac910ac8a1ecc7ceb98ae099fc2b2a08e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SimulationUnitDataBase</definition>
+        <argsstring>(const SimulationUnitDataBase &amp;)=delete</argsstring>
+        <name>SimulationUnitDataBase</name>
+        <param>
+          <type>const SimulationUnitDataBase &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="24" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a6a5a29d240e64cbdcc29f87b9ac710d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>SimulationUnitDataBase &amp;</type>
+        <definition>SimulationUnitDataBase&amp; operator=</definition>
+        <argsstring>(const SimulationUnitDataBase &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const SimulationUnitDataBase &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="25" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a88257f7f8d089f847da165a031893501" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(DynamicObject config, const flint::ILandUnitController &amp;landUnitController, datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="27" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="27" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SimulationUnitDataBase_1a7e37c4a0eb428ef4416689519569444d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>DynamicVar</type>
+        <definition>DynamicVar getProperty</definition>
+        <argsstring>(const std::string &amp;key) const override</argsstring>
+        <name>getProperty</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="30" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="55" bodyend="55"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>DateTime</label>
+        <link refid="classmoja_1_1DateTime"/>
+      </node>
+      <node id="1">
+        <label>SimulationUnitDataBase</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_endLocalDomainTime</edgelabel>
+          <edgelabel>_endProcessingUnitTime</edgelabel>
+          <edgelabel>_endSystemTime</edgelabel>
+          <edgelabel>_startLocalDomainTime</edgelabel>
+          <edgelabel>_startProcessingUnitTime</edgelabel>
+          <edgelabel>_startSystemTime</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/simulationunitdatabase.h" bodystart="13" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1afd1e1da1b687a711b4308e036cebc435" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_endLocalDomainTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a776498bf3ad127b9087f0e6e010bd5e2" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_endProcessingUnitTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a2ea26b3384c33bc02eee415afdc77540" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_endSystemTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a408f9eb7215b4ec74451f73a6ab35da2" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_fluxResults</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a790d407d7da076ed3ed7749a7686af2b" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_landUnitArea</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1aebd45075841ad4f560e0678e7010e8ec" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a5e5da5f40a75fed23533626b37b6e873" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_locationId</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab62a8f6889accca68037e8b592725996" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_luCountLocalDomain</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1ac1c4d10107eb069cce338d0b7d7543ca" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_luCountProcessingUnit</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab4ed7c0bd1558e5cd0caa3958f21b5a8" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_processUnitCount</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1ab1f3eb672ab8973cd62606dd5026d7be" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_startLocalDomainTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a7ee25c8a48fa5e3bc462822007badb6f" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_startProcessingUnitTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a04b14858d1a6808406286452611cacc4" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>_startSystemTime</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a88257f7f8d089f847da165a031893501" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a4b5e263bc5e6e7b8812c0735cd021b23" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a7e37c4a0eb428ef4416689519569444d" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a6a5a29d240e64cbdcc29f87b9ac710d1" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a3712d387c6986416d6171c4a997d7e6c" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>SimulationUnitDataBase</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1ac910ac8a1ecc7ceb98ae099fc2b2a08e" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>SimulationUnitDataBase</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>~IFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1SimulationUnitDataBase_1a560c848c8b0fe42be82dfe871d2cda70" prot="public" virt="virtual"><scope>moja::flint::SimulationUnitDataBase</scope><name>~SimulationUnitDataBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

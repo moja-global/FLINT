@@ -1,0 +1,386 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1DebugNotificationModule" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::DebugNotificationModule</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ModuleBase</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1DebugNotificationModule_1aebd45075841ad4f560e0678e7010e8ec" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _localDomainId</definition>
+        <argsstring></argsstring>
+        <name>_localDomainId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="40" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1accc68829745ac1ce1790a98ee9abb434" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>DebugNotificationModule</definition>
+        <argsstring>()</argsstring>
+        <name>DebugNotificationModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="13" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a942f9ce4e82fb94e6adea2303bec6309" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~DebugNotificationModule</definition>
+        <argsstring>()</argsstring>
+        <name>~DebugNotificationModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="14" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a8e61a518a587bf5dd73571c112b23e46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(const DynamicObject &amp;config) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="16" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="10" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1ac0a652d7fd514484aa74d3414acb704d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void subscribe</definition>
+        <argsstring>(NotificationCenter &amp;notificationCenter) override</argsstring>
+        <name>subscribe</name>
+        <param>
+          <type><ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref> &amp;</type>
+          <declname>notificationCenter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="17" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="12" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a69bb6e9cb9324adbf42b0b1c03f76c4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onSystemInit</definition>
+        <argsstring>() override</argsstring>
+        <name>onSystemInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="19" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a7274b74326eb08f626c52880d052b613" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onSystemShutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>onSystemShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="20" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a1b18c4fe77c47f3ae87f5f5a5526793f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onLocalDomainInit</definition>
+        <argsstring>() override</argsstring>
+        <name>onLocalDomainInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="21" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1ac364b8b4f2225f00ec570347e16c4154" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onLocalDomainShutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>onLocalDomainShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="22" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a57804803a9856464c56e808b758fad55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onLocalDomainProcessingUnitInit</definition>
+        <argsstring>() override</argsstring>
+        <name>onLocalDomainProcessingUnitInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="23" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a046b81e85c04f98ac31c2730ab24cb80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onLocalDomainProcessingUnitShutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>onLocalDomainProcessingUnitShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="24" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a7c708dc7d299ad6e3cae5f4170f691d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onPreTimingSequence</definition>
+        <argsstring>() override</argsstring>
+        <name>onPreTimingSequence</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="25" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a4d4769cafb921f17df2cf6a39de2c7d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingInit</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="26" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a0c5814871fa51e4b6ec9a504fa116aaf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingPostInit</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingPostInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="27" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a6d4cf55130beb11a6c206f51528db053" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingShutdown</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="28" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="53" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1ae0d870568aa17ea8c5b30bee241ee91a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingStep</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a1853084cb970a91b669be2d50084337d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingPreEndStep</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingPreEndStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a7333f0489652a4c5c4ebb9e8ea58f4e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingEndStep</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingEndStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="31" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a6b255a034ab33f38ed809e6168597c9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onTimingPostStep</definition>
+        <argsstring>() override</argsstring>
+        <name>onTimingPostStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a30be2fedc62055b37ed2cd351c01a9e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onOutputStep</definition>
+        <argsstring>() override</argsstring>
+        <name>onOutputStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="33" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="63" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1ab89d1e802f5c5872169d9cb80d36be86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onError</definition>
+        <argsstring>(std::string msg) override</argsstring>
+        <name>onError</name>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="34" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a34456f511228f379c3bf2187717360a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onDisturbanceEvent</definition>
+        <argsstring>(DynamicVar) override</argsstring>
+        <name>onDisturbanceEvent</name>
+        <param>
+          <type>DynamicVar</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="35" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1a3c75529fffa7768680d39baebddb893e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onPostDisturbanceEvent</definition>
+        <argsstring>() override</argsstring>
+        <name>onPostDisturbanceEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="36" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="69" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1DebugNotificationModule_1accf3b69cdd4d11d7a12d000d979d94d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void onPostNotification</definition>
+        <argsstring>(short preMessageSignal) override</argsstring>
+        <name>onPostNotification</name>
+        <param>
+          <type>short</type>
+          <declname>preMessageSignal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/debugnotificationmodule.cpp" bodystart="71" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" line="11" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/debugnotificationmodule.h" bodystart="11" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1adbbb9143015cabf90e6fd39a726ad5c2" prot="protected" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>_landUnitData</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1aebd45075841ad4f560e0678e7010e8ec" prot="private" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>_localDomainId</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a5127c39849479464356d98b54764dde9" prot="private" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>_metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a8e61a518a587bf5dd73571c112b23e46" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1accc68829745ac1ce1790a98ee9abb434" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>DebugNotificationModule</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a1337bbf1a4b8610366e9408249606c1b" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a15f2230ab47486a66643e48de9983473" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>moduleType</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a34456f511228f379c3bf2187717360a6" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1ab89d1e802f5c5872169d9cb80d36be86" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onError</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a1b18c4fe77c47f3ae87f5f5a5526793f" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onLocalDomainInit</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a57804803a9856464c56e808b758fad55" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onLocalDomainProcessingUnitInit</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a046b81e85c04f98ac31c2730ab24cb80" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onLocalDomainProcessingUnitShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1ac364b8b4f2225f00ec570347e16c4154" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onLocalDomainShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a30be2fedc62055b37ed2cd351c01a9e9" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onOutputStep</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a3c75529fffa7768680d39baebddb893e" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onPostDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a23f76771d0b14387af2a11a268fba073" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onPostDisturbanceEvent2</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1accf3b69cdd4d11d7a12d000d979d94d1" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onPostNotification</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a0013d8aea771f8a749c632d5dacc6b5e" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onPrePostDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a7c708dc7d299ad6e3cae5f4170f691d5" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onPreTimingSequence</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a69bb6e9cb9324adbf42b0b1c03f76c4e" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onSystemInit</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a7274b74326eb08f626c52880d052b613" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onSystemShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a7333f0489652a4c5c4ebb9e8ea58f4e7" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingEndStep</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a4d4769cafb921f17df2cf6a39de2c7d2" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingInit</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a0c5814871fa51e4b6ec9a504fa116aaf" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingPostInit</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a7171cf81adb50c68aead68d3afc5666c" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingPostInit2</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a6b255a034ab33f38ed809e6168597c9d" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingPostStep</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a1853084cb970a91b669be2d50084337d" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingPreEndStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a4cb1d45694b3d08e7fc3366d8a75e1df" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingPrePostInit</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a6d4cf55130beb11a6c206f51528db053" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1ae0d870568aa17ea8c5b30bee241ee91a" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>onTimingStep</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1abfb1f5db12385c8ce93f3efbb85c35f3" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>setLandUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a4c281b8ebb8344889f30eaa5ad97d963" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>ShutdownModule</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a25a45b107d7e7c2c2515bcc40fde4bf1" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>StartupModule</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1ac0a652d7fd514484aa74d3414acb704d" prot="public" virt="non-virtual"><scope>moja::flint::DebugNotificationModule</scope><name>subscribe</name></member>
+      <member refid="classmoja_1_1flint_1_1DebugNotificationModule_1a942f9ce4e82fb94e6adea2303bec6309" prot="public" virt="virtual"><scope>moja::flint::DebugNotificationModule</scope><name>~DebugNotificationModule</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a620f30686318c197949b07552f305f8c" prot="public" virt="virtual"><scope>moja::flint::DebugNotificationModule</scope><name>~IModule</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleBase_1a9cc5f278e1a0e838af87f65593858ff2" prot="public" virt="virtual"><scope>moja::flint::DebugNotificationModule</scope><name>~ModuleBase</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

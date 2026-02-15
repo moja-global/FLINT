@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="timing_8h" kind="file" language="C++">
+    <compoundname>timing.h</compoundname>
+    <includes local="yes">moja/flint/_flint_exports.h</includes>
+    <includes refid="itiming_8h" local="yes">moja/flint/itiming.h</includes>
+    <includes refid="floatcmp_8h" local="no">moja/floatcmp.h</includes>
+    <includedby refid="operationmanagerublas_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp</includedby>
+    <includedby refid="timing_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/timing.cpp</includedby>
+    <includedby refid="landunitcontroller_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitcontroller.h</includedby>
+    <includedby refid="operationresultsimple_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</includedby>
+    <includedby refid="operationresultsimplecache_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</includedby>
+    <includedby refid="operationresultublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</includedby>
+    <includedby refid="spinuplandunitcontroller_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</includedby>
+    <incdepgraph>
+      <node id="10">
+        <label>iomanip</label>
+      </node>
+      <node id="12">
+        <label>limits</label>
+      </node>
+      <node id="9">
+        <label>date/date.h</label>
+      </node>
+      <node id="4">
+        <label>moja/datetime.h</label>
+        <link refid="datetime_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>_core_exports.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/itiming.h</label>
+        <link refid="itiming_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</label>
+        <link refid="timing_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>moja/timespan.h</label>
+        <link refid="timespan_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="11">
+        <label>moja/floatcmp.h</label>
+        <link refid="floatcmp_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>chrono</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</label>
+        <link refid="timing_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</label>
+        <link refid="operationresultsimple_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</label>
+        <link refid="operationresultsimplecache_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1Timing" prot="public">moja::flint::Timing</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_TIMING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_TIMING_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/_flint_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/itiming.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/floatcmp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FLINT_API<sp/>Timing<sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/>ITiming<sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/>Timing()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>_fractionOfStep(0),</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_stepLengthInYears(0),</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_nSteps(0),</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_step(0),</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_subStep(0),</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_isFullStep(true),</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_stepping(TimeStepping::Monthly)<sp/>{}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>~Timing()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>init()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>startDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>sim<sp/>start<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>endDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sim<sp/>end<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>startStepDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>current<sp/>step<sp/>start<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>endStepDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>current<sp/>step<sp/>end<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>curStartDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>fracOfStep<sp/>=<sp/>1<sp/>same<sp/>as<sp/>startStepDate,<sp/>else<sp/>new<sp/>start<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>curEndDate()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>if<sp/>fracOfStep<sp/>=<sp/>1<sp/>same<sp/>as<sp/>endStepDate,<sp/>else<sp/>new<sp/>end<sp/>date</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fractionOfStep()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>fraction<sp/>of<sp/>Step<sp/>we<sp/>are<sp/>processing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>stepLengthInYears()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>how<sp/>long<sp/>is<sp/>a<sp/>full<sp/>step<sp/>in<sp/>years</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nSteps()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>number<sp/>of<sp/>steps<sp/>in<sp/>simulation</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>step()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>current<sp/>step<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>subStep()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>current<sp/>sub<sp/>step<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isFullStep()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;<sp/><sp/></highlight><highlight class="comment">//<sp/>is<sp/>this<sp/>a<sp/>full<sp/>step</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/>TimeStepping<sp/>stepping()<sp/></highlight><highlight class="keyword">const<sp/>override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStartDate(DateTime<sp/>startDate)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setEndDate(DateTime<sp/>endDate)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStartStepDate(DateTime<sp/>val)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setEndStepDate(DateTime<sp/>val)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCurStartDate(DateTime<sp/>val)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setCurEndDate(DateTime<sp/>val)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setFractionOfStep(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fractionOfStep)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStepLengthInYears(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>stepLengthInYears)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStep(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>step)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setSubStep(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>subStep)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setIsFullStep(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>val)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setStepping(TimeStepping<sp/>stepping)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_startDate;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_endDate;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_startStepDate;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_endStepDate;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_curStartDate;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/>DateTime<sp/>_curEndDate;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_fractionOfStep;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>_stepLengthInYears;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_nSteps;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_step;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_subStep;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>_isFullStep;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/>TimeStepping<sp/>_stepping;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::startDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_startDate;<sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::endDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_endDate;<sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::startStepDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_startStepDate;<sp/>}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::endStepDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_endStepDate;<sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::curStartDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_curStartDate;<sp/>}</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>DateTime<sp/>Timing::curEndDate()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_curEndDate;<sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Timing::fractionOfStep()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_fractionOfStep;<sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Timing::stepLengthInYears()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_stepLengthInYears;<sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Timing::nSteps()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(_stepping)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>TimeStepping::Daily:<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>span<sp/>=<sp/>_startDate<sp/>-<sp/>_endDate;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>span.days()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>TimeStepping::Annual:</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_endDate.year()<sp/>-<sp/>_startDate.year()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/>TimeStepping::Monthly:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1<sp/>+<sp/>(_endDate.year()<sp/>-<sp/>_startDate.year())<sp/>*<sp/>12<sp/>+<sp/>_endDate.month()<sp/>-<sp/>_startDate.month()<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Timing::step()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_step;<sp/>}</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>Timing::subStep()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_subStep;<sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Timing::isFullStep()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_isFullStep;<sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>TimeStepping<sp/>Timing::stepping()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_stepping;<sp/>}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setStartDate(DateTime<sp/>val)<sp/>{<sp/>_startDate<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setEndDate(DateTime<sp/>val)<sp/>{<sp/>_endDate<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setStartStepDate(DateTime<sp/>val)<sp/>{<sp/>_startStepDate<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setEndStepDate(DateTime<sp/>val)<sp/>{<sp/>_endStepDate<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setCurStartDate(DateTime<sp/>value)<sp/>{<sp/>_curStartDate<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setCurEndDate(DateTime<sp/>value)<sp/>{<sp/>_curEndDate<sp/>=<sp/>value;<sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setFractionOfStep(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/>_fractionOfStep<sp/>=<sp/>val;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/>_isFullStep<sp/>=<sp/>FloatCmp::equalTo(_fractionOfStep,<sp/>1.0)<sp/>?<sp/>true<sp/>:<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setStepLengthInYears(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>val)<sp/>{<sp/>_stepLengthInYears<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setStep(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val)<sp/>{<sp/>_step<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setSubStep(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>val)<sp/>{<sp/>_subStep<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setIsFullStep(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>val)<sp/>{<sp/>_isFullStep<sp/>=<sp/>val;<sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Timing::setStepping(TimeStepping<sp/>stepping)<sp/>{<sp/>_stepping<sp/>=<sp/>stepping;<sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_TIMING_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,319 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::VariableAndPoolStringBuilder</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a1802f79cda96f755f9798fbb4dcc4766" prot="private" static="no" mutable="no">
+        <type>const flint::ILandUnitController *</type>
+        <definition>const flint::ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="39" column="37" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a521604a7c4624c41a2b5fc375422a8ed" prot="private" static="no" mutable="no">
+        <type>const flint::ILandUnitDataWrapper *</type>
+        <definition>const flint::ILandUnitDataWrapper* _landUnitDataWrapper</definition>
+        <argsstring></argsstring>
+        <name>_landUnitDataWrapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="40" column="38" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a4b8deef845f0370472c631ce3ca4b946" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string varMarker</definition>
+        <argsstring></argsstring>
+        <name>varMarker</name>
+        <initializer>= &quot;var&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="42" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1abae3e13305be007f8d37c93cfebd5d95" prot="private" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string poolMarker</definition>
+        <argsstring></argsstring>
+        <name>poolMarker</name>
+        <initializer>= &quot;pool&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="43" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1ab3fba4cd762537081616f8cd43b84a9f" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _workingStr</definition>
+        <argsstring></argsstring>
+        <name>_workingStr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="45" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1adc1663976a5114a9f127fbf242e65746" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::tuple&lt; const flint::IVariable *, std::string &gt; &gt;</type>
+        <definition>std::vector&lt;std::tuple&lt;const flint::IVariable*, std::string&gt; &gt; _variables</definition>
+        <argsstring></argsstring>
+        <name>_variables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="46" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a19a64dc2257d230b45e0542e1fa369c6" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; const IPool * &gt;</type>
+        <definition>std::vector&lt;const IPool*&gt; _pools</definition>
+        <argsstring></argsstring>
+        <name>_pools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="47" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aaf4676688db7ecd581a408355ef69249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VariableAndPoolStringBuilder</definition>
+        <argsstring>()=default</argsstring>
+        <name>VariableAndPoolStringBuilder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="22" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a83ab4343545fad87d106c33f54ca385a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~VariableAndPoolStringBuilder</definition>
+        <argsstring>()=default</argsstring>
+        <name>~VariableAndPoolStringBuilder</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="23" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a74b165cb113f8979c4bf7b3ef4bbad74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VariableAndPoolStringBuilder</definition>
+        <argsstring>(const flint::ILandUnitController &amp;landUnitController, const std::string &amp;workingStr)</argsstring>
+        <name>VariableAndPoolStringBuilder</name>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>workingStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="25" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="22" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1ae9f751c7e399907d31df72ec459f0fa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>VariableAndPoolStringBuilder</definition>
+        <argsstring>(const flint::ILandUnitDataWrapper *landUnitWrapper, const std::string &amp;workingStr)</argsstring>
+        <name>VariableAndPoolStringBuilder</name>
+        <param>
+          <type>const flint::ILandUnitDataWrapper *</type>
+          <declname>landUnitWrapper</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>workingStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="27" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="28" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aa1d2c456b7f607815f5bc30e528ec21b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(const flint::ILandUnitController &amp;landUnitController, const std::string &amp;workingStr)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>workingStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="34" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a31287914b1c944499b27cabd13561225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void configure</definition>
+        <argsstring>(const flint::ILandUnitDataWrapper *landUnitWrapper, const std::string &amp;workingStr)</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const flint::ILandUnitDataWrapper *</type>
+          <declname>landUnitWrapper</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>workingStr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="71" bodyend="106"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a687206429a4bfb6113d65ec3ed4e398e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string result</definition>
+        <argsstring>() const</argsstring>
+        <name>result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="31" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="278" bodyend="300"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a3d0cbe189b3bd5b7c9b6a8830bf7f412" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; extractTokens</definition>
+        <argsstring>(const std::string &amp;tokenType, const std::string &amp;query)</argsstring>
+        <name>extractTokens</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tokenType</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>query</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="34" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="110" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aa5361fec675a08915dec1a82416b855d" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void replaceTokens</definition>
+        <argsstring>(const std::string &amp;tokenType, std::string &amp;query, std::vector&lt; std::string &gt; values)</argsstring>
+        <name>replaceTokens</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tokenType</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>query</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt;</type>
+          <declname>values</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="35" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="186" bodyend="202"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1af901caeb1df08392d3b2dc6b48b566e9" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string formatVariableValues</definition>
+        <argsstring>(const flint::IVariable &amp;var, const std::string &amp;property)</argsstring>
+        <name>formatVariableValues</name>
+        <param>
+          <type>const flint::IVariable &amp;</type>
+          <declname>var</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>property</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="37" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/variableandpoolstringbuilder.cpp" bodystart="204" bodyend="276"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" line="20" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/variableandpoolstringbuilder.h" bodystart="20" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a1802f79cda96f755f9798fbb4dcc4766" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a521604a7c4624c41a2b5fc375422a8ed" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>_landUnitDataWrapper</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a19a64dc2257d230b45e0542e1fa369c6" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>_pools</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1adc1663976a5114a9f127fbf242e65746" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>_variables</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1ab3fba4cd762537081616f8cd43b84a9f" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>_workingStr</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aa1d2c456b7f607815f5bc30e528ec21b" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a31287914b1c944499b27cabd13561225" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a3d0cbe189b3bd5b7c9b6a8830bf7f412" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>extractTokens</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1af901caeb1df08392d3b2dc6b48b566e9" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>formatVariableValues</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1abae3e13305be007f8d37c93cfebd5d95" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>poolMarker</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aa5361fec675a08915dec1a82416b855d" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>replaceTokens</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a687206429a4bfb6113d65ec3ed4e398e" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>result</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1aaf4676688db7ecd581a408355ef69249" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>VariableAndPoolStringBuilder</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a74b165cb113f8979c4bf7b3ef4bbad74" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>VariableAndPoolStringBuilder</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1ae9f751c7e399907d31df72ec459f0fa7" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>VariableAndPoolStringBuilder</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a4b8deef845f0370472c631ce3ca4b946" prot="private" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>varMarker</name></member>
+      <member refid="classmoja_1_1flint_1_1VariableAndPoolStringBuilder_1a83ab4343545fad87d106c33f54ca385a" prot="public" virt="non-virtual"><scope>moja::flint::VariableAndPoolStringBuilder</scope><name>~VariableAndPoolStringBuilder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

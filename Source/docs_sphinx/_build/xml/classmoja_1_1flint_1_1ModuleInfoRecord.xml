@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1ModuleInfoRecord" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::ModuleInfoRecord</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">moja::flint::Record&lt; ModuleInfoRow &gt;</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1ae059dfbd9014bb0672749a5fdb785c6e" prot="private" static="no" mutable="yes">
+        <type>size_t</type>
+        <definition>size_t _hash</definition>
+        <argsstring></argsstring>
+        <name>_hash</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="146" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a3f5862bafbf61734349ca2290631546e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _libType</definition>
+        <argsstring></argsstring>
+        <name>_libType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="149" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1ab6b789ba99094d26a86f92fdfd663e15" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _libInfoId</definition>
+        <argsstring></argsstring>
+        <name>_libInfoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="150" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1ab90b31b5c16486b96bffaccc5a17731c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _moduleType</definition>
+        <argsstring></argsstring>
+        <name>_moduleType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="151" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a76f9ee9feca9c5d51918ca25b2dfe280" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _moduleId</definition>
+        <argsstring></argsstring>
+        <name>_moduleId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="152" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1ModuleInfoRecord_1ab61cb99f14b357c17dd995490a0f1f7a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _moduleName</definition>
+        <argsstring></argsstring>
+        <name>_moduleName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="153" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a21952ac87561c692508ba378db8a7aab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>ModuleInfoRecord</definition>
+        <argsstring>(int libType, int libInfoId, int moduleType, int moduleId, std::string moduleName)</argsstring>
+        <name>ModuleInfoRecord</name>
+        <param>
+          <type>int</type>
+          <declname>libType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>libInfoId</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>moduleType</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>moduleId</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>moduleName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="137" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="79" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a309f3c46bb3f81a5a975aad1c976cde9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~ModuleInfoRecord</definition>
+        <argsstring>()</argsstring>
+        <name>~ModuleInfoRecord</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="138" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="138" bodyend="138"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a4db085d2332656d272d1f9d96f1b300a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(const Record&lt; ModuleInfoRow &gt; &amp;other) const override</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Record&lt; ModuleInfoRow &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="140" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="82" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t hash</definition>
+        <argsstring>() const override</argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="141" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="87" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a63eb917f2d1f35ee17e2ceb571aea789" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ModuleInfoRow</type>
+        <definition>ModuleInfoRow asPersistable</definition>
+        <argsstring>() const override</argsstring>
+        <name>asPersistable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="142" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ModuleInfoRecord_1a2ce86144f45e667f285881da37b8b843" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void merge</definition>
+        <argsstring>(Record&lt; ModuleInfoRow &gt; *other) override</argsstring>
+        <name>merge</name>
+        <param>
+          <type>Record&lt; ModuleInfoRow &gt; *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="143" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/record.cpp" bodystart="96" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="135" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="135" bodyend="154"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1ae059dfbd9014bb0672749a5fdb785c6e" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_hash</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a2fb68a5ecd23366882be5277b8ac3c65" prot="protected" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_id</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1ab6b789ba99094d26a86f92fdfd663e15" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_libInfoId</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a3f5862bafbf61734349ca2290631546e" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_libType</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a76f9ee9feca9c5d51918ca25b2dfe280" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_moduleId</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1ab61cb99f14b357c17dd995490a0f1f7a" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_moduleName</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1ab90b31b5c16486b96bffaccc5a17731c" prot="private" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>_moduleType</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a63eb917f2d1f35ee17e2ceb571aea789" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>asPersistable</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1abc8970ad0a18fb9dc512a7eff9184997" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>getId</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a7cd27ee4f5275f167b022659dadf5394" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>hash</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a2ce86144f45e667f285881da37b8b843" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a67163e90d770bbc99e6c477c02c982ab" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::ModuleInfoRecord</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a21952ac87561c692508ba378db8a7aab" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>ModuleInfoRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a4db085d2332656d272d1f9d96f1b300a" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1aa5134dc6fb60cfafa0c79d7c5597995f" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::Record::"><scope>moja::flint::ModuleInfoRecord</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a8cd662275c1ba5248e9f9e1f33f68a07" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>setId</name></member>
+      <member refid="classmoja_1_1flint_1_1ModuleInfoRecord_1a309f3c46bb3f81a5a975aad1c976cde9" prot="public" virt="non-virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>~ModuleInfoRecord</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a966b6ee235515a173771e69abdba801b" prot="public" virt="virtual"><scope>moja::flint::ModuleInfoRecord</scope><name>~Record</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

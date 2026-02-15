@@ -31,8 +31,6 @@ inline std::string put_time(const std::tm* date_time, const char* c_time_format)
 #if (defined(WIN32) || defined(_WIN32) || defined(__WIN32__))
    std::ostringstream oss;
 
-   // BOGUS hack done for VS2012: C++11 non-conformant since it SHOULD take a "const struct tm*  "
-   // ref. C++11 standard: ISO/IEC 14882:2011, § 27.7.1,
    oss << std::put_time(const_cast<std::tm*>(date_time), c_time_format);
    return oss.str();
 
@@ -222,7 +220,7 @@ class CORE_API DateTime {
    static int daysOfMonth(int year, int month);
    int dayOfYear() const;
    int dayOfWeek() const;
-   static bool isLeapYear(int y) MOJA_NOEXCEPT;
+   static bool isLeapYear(int y) MOJA_NOEXCEPT ;
 
    // double julianDay() const;
    DateTime& assign(short year, unsigned month, unsigned day, int hour, int minute, int second, int millisecond,

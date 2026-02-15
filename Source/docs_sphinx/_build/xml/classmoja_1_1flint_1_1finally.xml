@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1finally" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::finally</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1finally_1a3d17b36f55c189fbeeb0622d4c64d92b" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(void)&gt;</type>
+        <definition>std::function&lt;void(void)&gt; functor</definition>
+        <argsstring></argsstring>
+        <name>functor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="25" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1finally_1a285c4eb2c036b4b0406f6948b6b66e52" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>finally</definition>
+        <argsstring>(const std::function&lt; void(void)&gt; &amp;functor)</argsstring>
+        <name>finally</name>
+        <param>
+          <type>const std::function&lt; void(void)&gt; &amp;</type>
+          <declname>functor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="28" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1finally_1a7cf6c5a4b12050d286f06a32c7329f35" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~finally</definition>
+        <argsstring>()</argsstring>
+        <name>~finally</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="29" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" line="24" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h" bodystart="24" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1finally_1a285c4eb2c036b4b0406f6948b6b66e52" prot="public" virt="non-virtual"><scope>moja::flint::finally</scope><name>finally</name></member>
+      <member refid="classmoja_1_1flint_1_1finally_1a3d17b36f55c189fbeeb0622d4c64d92b" prot="private" virt="non-virtual"><scope>moja::flint::finally</scope><name>functor</name></member>
+      <member refid="classmoja_1_1flint_1_1finally_1a7cf6c5a4b12050d286f06a32c7329f35" prot="public" virt="non-virtual"><scope>moja::flint::finally</scope><name>~finally</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

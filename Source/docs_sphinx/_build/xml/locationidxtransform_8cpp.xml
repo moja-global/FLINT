@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="locationidxtransform_8cpp" kind="file" language="C++">
+    <compoundname>locationidxtransform.cpp</compoundname>
+    <includes refid="locationidxtransform_8h" local="yes">moja/flint/locationidxtransform.h</includes>
+    <includes refid="ilandunitcontroller_8h" local="yes">moja/flint/ilandunitcontroller.h</includes>
+    <includes refid="ivariable_8h" local="yes">moja/flint/ivariable.h</includes>
+    <includes local="no">moja/datarepository/datarepository.h</includes>
+    <includes local="no">moja/datarepository/iproviderspatialrasterinterface.h</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="13">
+        <label>moja/datarepository/iproviderspatialrasterinterface.h</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>moja/flint/ivariable.h</label>
+        <link refid="ivariable_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>moja/flint/ilandunitcontroller.h</label>
+        <link refid="ilandunitcontroller_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>moja/flint/itransform.h</label>
+        <link refid="itransform_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>moja/flint/locationidxtransform.h</label>
+        <link refid="locationidxtransform_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>moja/datarepository/datarepository.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp</label>
+        <link refid="locationidxtransform_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="4">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;moja/flint/locationidxtransform.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/ilandunitcontroller.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/ivariable.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/datarepository.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/datarepository/iproviderspatialrasterinterface.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LocationIdxTransform::configure(DynamicObject<sp/>config,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ILandUnitController&amp;<sp/>landUnitController,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>datarepository::DataRepository&amp;<sp/>dataRepository)<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/>_landUnitController<sp/>=<sp/>&amp;landUnitController;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>provider<sp/>=<sp/>std::static_pointer_cast&lt;moja::datarepository::IProviderSpatialRasterInterface&gt;(</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dataRepository.getProvider(config[</highlight><highlight class="stringliteral">&quot;provider&quot;</highlight><highlight class="normal">].convert&lt;std::string&gt;()));</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/>_indexer<sp/>=<sp/>&amp;provider-&gt;indexer();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/>_layer<sp/>=<sp/>provider-&gt;getLayer(config[</highlight><highlight class="stringliteral">&quot;data_id&quot;</highlight><highlight class="normal">].convert&lt;std::string&gt;());</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>_tileIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;tileIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/>_blockIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;blockIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/>_cellIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;cellIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LocationIdxTransform::controllerChanged(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ILandUnitController&amp;<sp/>controller)<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>_landUnitController<sp/>=<sp/>&amp;controller;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>_tileIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;tileIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/>_blockIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;blockIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>_cellIdx<sp/>=<sp/>_landUnitController-&gt;getVariable(</highlight><highlight class="stringliteral">&quot;cellIndex&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicVar&amp;<sp/>LocationIdxTransform::value()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UInt32<sp/>tileIdx<sp/>=<sp/>_tileIdx-&gt;value();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UInt32<sp/>blockIdx<sp/>=<sp/>_blockIdx-&gt;value();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>UInt32<sp/>cellIdx<sp/>=<sp/>_cellIdx-&gt;value();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>datarepository::CellIdx<sp/>cell(tileIdx,<sp/>blockIdx,<sp/>cellIdx,<sp/>*_indexer);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/>_cachedValue<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>_cachedValue<sp/>=<sp/>_layer-&gt;getValueByCellIndex(cell);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_cachedValue;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/locationidxtransform.cpp"/>
+  </compounddef>
+</doxygen>

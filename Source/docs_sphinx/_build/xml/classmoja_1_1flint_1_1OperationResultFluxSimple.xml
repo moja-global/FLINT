@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationResultFluxSimple" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationResultFluxSimple</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IOperationResultFlux</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1ab6b53fd1e7c8dc692f87eb896db74dcc" prot="private" static="no" mutable="no">
+        <type>OperationTransferType</type>
+        <definition>OperationTransferType _transferType</definition>
+        <argsstring></argsstring>
+        <name>_transferType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="25" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1afda3aa6f2570637550f0ab8cc0aa9ea2" prot="private" static="no" mutable="no">
+        <type>const ModuleMetaData *</type>
+        <definition>const ModuleMetaData* _metaData</definition>
+        <argsstring></argsstring>
+        <name>_metaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="26" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a7ba3cc72ccb44e5c66fee9fd7a69ed94" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _source</definition>
+        <argsstring></argsstring>
+        <name>_source</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="27" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a1b2fcdd67f2a080b73099b95e09e2f54" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _sink</definition>
+        <argsstring></argsstring>
+        <name>_sink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="28" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a3e78e92b9e102f837e1433ff78edd53c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _value</definition>
+        <argsstring></argsstring>
+        <name>_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="29" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a0d679aaba953cfd0a8ee3bccafae9e49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultFluxSimple</definition>
+        <argsstring>()=default</argsstring>
+        <name>OperationResultFluxSimple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="11" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a1ebaec67fd32e7cf325fab294b9c67e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultFluxSimple</definition>
+        <argsstring>(OperationTransferType transferType, const ModuleMetaData *metaData, int source, int sink, double value)</argsstring>
+        <name>OperationResultFluxSimple</name>
+        <param>
+          <type>OperationTransferType</type>
+          <declname>transferType</declname>
+        </param>
+        <param>
+          <type>const ModuleMetaData *</type>
+          <declname>metaData</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>sink</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="12" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="32" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1ac03d54600d08ab53e09821f1bc69fad6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~OperationResultFluxSimple</definition>
+        <argsstring>() override</argsstring>
+        <name>~OperationResultFluxSimple</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a280c96a46ec897fd15d66d5724a6c33a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int source</definition>
+        <argsstring>() const override</argsstring>
+        <name>source</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="17" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a306aed5d47cdf237d582b914d7fbec83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int sink</definition>
+        <argsstring>() const override</argsstring>
+        <name>sink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="18" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="41" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a01c9d78cc392d65c39abfde165014648" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="19" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="43" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1a4b634a5c63a7a0b98fda6ffe1457dd23" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>OperationTransferType</type>
+        <definition>OperationTransferType transferType</definition>
+        <argsstring>() const override</argsstring>
+        <name>transferType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="21" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxSimple_1ae154d35f18165a270f164d0e941f5f90" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const ModuleMetaData *</type>
+        <definition>const ModuleMetaData * metaData</definition>
+        <argsstring>() const override</argsstring>
+        <name>metaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="22" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="47" bodyend="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" line="9" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxsimple.h" bodystart="9" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1afda3aa6f2570637550f0ab8cc0aa9ea2" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>_metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a1b2fcdd67f2a080b73099b95e09e2f54" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>_sink</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a7ba3cc72ccb44e5c66fee9fd7a69ed94" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>_source</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1ab6b53fd1e7c8dc692f87eb896db74dcc" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>_transferType</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a3e78e92b9e102f837e1433ff78edd53c" prot="private" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>_value</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1ae154d35f18165a270f164d0e941f5f90" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a0d679aaba953cfd0a8ee3bccafae9e49" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>OperationResultFluxSimple</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a1ebaec67fd32e7cf325fab294b9c67e7" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>OperationResultFluxSimple</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a306aed5d47cdf237d582b914d7fbec83" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>sink</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a280c96a46ec897fd15d66d5724a6c33a" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>source</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a4b634a5c63a7a0b98fda6ffe1457dd23" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>transferType</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1a01c9d78cc392d65c39abfde165014648" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFlux_1aefa5caf5494dd0ec46bcdfc9e91537b9" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>~IOperationResultFlux</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxSimple_1ac03d54600d08ab53e09821f1bc69fad6" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxSimple</scope><name>~OperationResultFluxSimple</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

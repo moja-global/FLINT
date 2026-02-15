@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1FlintDataVariable" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::FlintDataVariable</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IVariable</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintDataVariable_1a103d10ac19205e6fb26cbc4029949ef6" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _libraryName</definition>
+        <argsstring></argsstring>
+        <name>_libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="41" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintDataVariable_1ad1dec288e2c894f1beacf484f0dc6d33" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _variableName</definition>
+        <argsstring></argsstring>
+        <name>_variableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="42" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintDataVariable_1ad73de66f4a74a1ad4ceebab56ca18624" prot="private" static="no" mutable="no">
+        <type>VariableInfo</type>
+        <definition>VariableInfo _info</definition>
+        <argsstring></argsstring>
+        <name>_info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="43" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintDataVariable_1ac80e1dab9c81f899c117298c9adfc94f" prot="private" static="no" mutable="no">
+        <type>DynamicVar</type>
+        <definition>DynamicVar _value</definition>
+        <argsstring></argsstring>
+        <name>_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="44" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintDataVariable_1aa7cf8cfa3d2ce5cf2958a9bb60c36d5b" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; IFlintData &gt;</type>
+        <definition>std::shared_ptr&lt;IFlintData&gt; _flintdata</definition>
+        <argsstring></argsstring>
+        <name>_flintdata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="45" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a8dbbd4ad28219be7ac3e5791d606cc11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FlintDataVariable</definition>
+        <argsstring>(std::shared_ptr&lt; IFlintData &gt; flintData, std::string libraryName, std::string variableName, VariableInfo info)</argsstring>
+        <name>FlintDataVariable</name>
+        <param>
+          <type>std::shared_ptr&lt; IFlintData &gt;</type>
+          <declname>flintData</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>variableName</declname>
+        </param>
+        <param>
+          <type>VariableInfo</type>
+          <declname>info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="15" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a83d99ca5487a0740cde97f15cb481384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~FlintDataVariable</definition>
+        <argsstring>()=default</argsstring>
+        <name>~FlintDataVariable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="22" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a3fd6a7fa007127786672fb428ae6d4d1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string libraryName</definition>
+        <argsstring>() const</argsstring>
+        <name>libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="24" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="24" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1abae9b3c3534ccac58d67a82ecb429996" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string variableName</definition>
+        <argsstring>() const</argsstring>
+        <name>variableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="25" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a78b8102b2b47ad66f8ec59325b0979e0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const VariableInfo &amp;</type>
+        <definition>const VariableInfo&amp; info</definition>
+        <argsstring>() const override</argsstring>
+        <name>info</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="26" column="23" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1ad069ddce0ed3051ddc7f708ed6da7e27" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const DynamicVar &amp;</type>
+        <definition>const DynamicVar&amp; value</definition>
+        <argsstring>() const override</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="27" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1ab3a7e878a8fd7d9819ab243f17edae60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_value</definition>
+        <argsstring>(DynamicVar value) override</argsstring>
+        <name>set_value</name>
+        <param>
+          <type>DynamicVar</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="28" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a07358505b93534df99e425db14a8187a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void reset_value</definition>
+        <argsstring>() override</argsstring>
+        <name>reset_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="29" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1aec666dca2b041c02f669a7178d9fa33e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isExternal</definition>
+        <argsstring>() const override</argsstring>
+        <name>isExternal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="31" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a3e78f7fd4e61599b227eea6763318d95" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isFlintData</definition>
+        <argsstring>() const override</argsstring>
+        <name>isFlintData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a30adb5b2ab9c3f23f53df9a736569349" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; const IFlintData &gt;</type>
+        <definition>std::shared_ptr&lt;const IFlintData&gt; flintdata</definition>
+        <argsstring>() const</argsstring>
+        <name>flintdata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="34" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1ad1efbe2df3d4ce34028a1075dea78a0b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; IFlintData &gt;</type>
+        <definition>std::shared_ptr&lt;IFlintData&gt; flintdata</definition>
+        <argsstring>()</argsstring>
+        <name>flintdata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="36" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintDataVariable_1a7cf1c40c94c2301a4a8e10f7adfadf6b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void controllerChanged</definition>
+        <argsstring>(const ILandUnitController &amp;controller) const</argsstring>
+        <name>controllerChanged</name>
+        <param>
+          <type>const ILandUnitController &amp;</type>
+          <declname>controller</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="38" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/flintdatavariable.cpp" bodystart="7" bodyend="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flintdatavariable.h" bodystart="13" bodyend="46"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1aa7cf8cfa3d2ce5cf2958a9bb60c36d5b" prot="private" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>_flintdata</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ad73de66f4a74a1ad4ceebab56ca18624" prot="private" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>_info</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a103d10ac19205e6fb26cbc4029949ef6" prot="private" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>_libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ac80e1dab9c81f899c117298c9adfc94f" prot="private" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>_value</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ad1dec288e2c894f1beacf484f0dc6d33" prot="private" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>_variableName</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a7cf1c40c94c2301a4a8e10f7adfadf6b" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a30adb5b2ab9c3f23f53df9a736569349" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>flintdata</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ad1efbe2df3d4ce34028a1075dea78a0b" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>flintdata</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a8dbbd4ad28219be7ac3e5791d606cc11" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>FlintDataVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a78b8102b2b47ad66f8ec59325b0979e0" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>info</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1aec666dca2b041c02f669a7178d9fa33e" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>isExternal</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a3e78f7fd4e61599b227eea6763318d95" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>isFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a3fd6a7fa007127786672fb428ae6d4d1" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a07358505b93534df99e425db14a8187a" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>reset_value</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ab3a7e878a8fd7d9819ab243f17edae60" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>set_value</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1ad069ddce0ed3051ddc7f708ed6da7e27" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>value</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1abae9b3c3534ccac58d67a82ecb429996" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>variableName</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintDataVariable_1a83d99ca5487a0740cde97f15cb481384" prot="public" virt="non-virtual"><scope>moja::flint::FlintDataVariable</scope><name>~FlintDataVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1IVariable_1a4487c667fcae924fabcbbb6a41eef58e" prot="public" virt="virtual"><scope>moja::flint::FlintDataVariable</scope><name>~IVariable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

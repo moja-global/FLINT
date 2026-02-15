@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::AggregatorLandUnitSharedData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a2c4ec90bc70cd1f58b6051385e5e7e67" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _moduleInfoOn</definition>
+        <argsstring></argsstring>
+        <name>_moduleInfoOn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="26" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1ac92479a3fbf04a87b4714391694b2fb3" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _doRunStatsOn</definition>
+        <argsstring></argsstring>
+        <name>_doRunStatsOn</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="27" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1aa764d1080fac9455008b6c128fc9ba40" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _outputMonth12Only</definition>
+        <argsstring></argsstring>
+        <name>_outputMonth12Only</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="28" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a0c4ce9d314a83a07e0b3260a9e8d9eb5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _aggregateSinkAndSource</definition>
+        <argsstring></argsstring>
+        <name>_aggregateSinkAndSource</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a2f6c57ef2bcb20e6120540860b98d0ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AggregatorLandUnitSharedData</definition>
+        <argsstring>()</argsstring>
+        <name>AggregatorLandUnitSharedData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="18" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="18" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1adfebc1d27b3fd2132187bfef351708aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~AggregatorLandUnitSharedData</definition>
+        <argsstring>()=default</argsstring>
+        <name>~AggregatorLandUnitSharedData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="21" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a19076bfbf6eea2781622d68926ea9f7e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AggregatorLandUnitSharedData</definition>
+        <argsstring>(const AggregatorLandUnitSharedData &amp;src)=delete</argsstring>
+        <name>AggregatorLandUnitSharedData</name>
+        <param>
+          <type>const AggregatorLandUnitSharedData &amp;</type>
+          <declname>src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="22" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1aa785764947a9beaae030f1e0eb0e7cc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>AggregatorLandUnitSharedData &amp;</type>
+        <definition>AggregatorLandUnitSharedData&amp; operator=</definition>
+        <argsstring>(const AggregatorLandUnitSharedData &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const AggregatorLandUnitSharedData &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="23" column="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" line="16" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aggregatorlandunit.h" bodystart="16" bodyend="30"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a0c4ce9d314a83a07e0b3260a9e8d9eb5" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>_aggregateSinkAndSource</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1ac92479a3fbf04a87b4714391694b2fb3" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>_doRunStatsOn</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a2c4ec90bc70cd1f58b6051385e5e7e67" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>_moduleInfoOn</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1aa764d1080fac9455008b6c128fc9ba40" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>_outputMonth12Only</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a2f6c57ef2bcb20e6120540860b98d0ac" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>AggregatorLandUnitSharedData</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1a19076bfbf6eea2781622d68926ea9f7e" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>AggregatorLandUnitSharedData</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1aa785764947a9beaae030f1e0eb0e7cc8" prot="public" virt="non-virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1flint_1_1AggregatorLandUnitSharedData_1adfebc1d27b3fd2132187bfef351708aa" prot="public" virt="virtual"><scope>moja::flint::AggregatorLandUnitSharedData</scope><name>~AggregatorLandUnitSharedData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

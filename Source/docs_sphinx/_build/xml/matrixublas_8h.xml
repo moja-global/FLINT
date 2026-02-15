@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="matrixublas_8h" kind="file" language="C++">
+    <compoundname>matrixublas.h</compoundname>
+    <includes local="no">boost/math/tools/precision.hpp</includes>
+    <includes local="no">boost/numeric/ublas/banded.hpp</includes>
+    <includes local="no">boost/numeric/ublas/io.hpp</includes>
+    <includes local="no">boost/numeric/ublas/matrix.hpp</includes>
+    <includes local="no">boost/numeric/ublas/matrix_sparse.hpp</includes>
+    <includes local="no">boost/numeric/ublas/operation.hpp</includes>
+    <includes local="no">boost/numeric/ublas/vector.hpp</includes>
+    <includedby refid="operationmanagerublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h</includedby>
+    <includedby refid="operationproportionalublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationproportionalublas.h</includedby>
+    <includedby refid="operationresultfluxiteratorublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h</includedby>
+    <includedby refid="operationresultublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</includedby>
+    <includedby refid="operationstockublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstockublas.h</includedby>
+    <includedby refid="poolublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>boost/numeric/ublas/vector.hpp</label>
+      </node>
+      <node id="4">
+        <label>boost/numeric/ublas/io.hpp</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h</label>
+        <link refid="matrixublas_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>boost/numeric/ublas/operation.hpp</label>
+      </node>
+      <node id="3">
+        <label>boost/numeric/ublas/banded.hpp</label>
+      </node>
+      <node id="2">
+        <label>boost/math/tools/precision.hpp</label>
+      </node>
+      <node id="5">
+        <label>boost/numeric/ublas/matrix.hpp</label>
+      </node>
+      <node id="6">
+        <label>boost/numeric/ublas/matrix_sparse.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolublas.h</label>
+        <link refid="poolublas_8h_source"/>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationstockublas.h</label>
+        <link refid="operationstockublas_8h_source"/>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationproportionalublas.h</label>
+        <link refid="operationproportionalublas_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h</label>
+        <link refid="operationresultfluxiteratorublas_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h</label>
+        <link refid="matrixublas_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h</label>
+        <link refid="operationmanagerublas_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="matrixublas_8h_1aa2c0476a142c9e172a2c18d054b6c210" prot="public" static="no">
+        <name>BOOST_UBLAS_NDEBUG</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="4" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="matrixublas_8h_1a98aace55ba70f2f6fb424267092a4d6e" prot="public" static="no">
+        <name>MOJA_UBLAS_MAT_PROD</name>
+        <param><defname>a</defname></param>
+        <param><defname>b</defname></param>
+        <initializer>ublas::prec_prod(a, b)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="32" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="matrixublas_8h_1ac36b53e0bc56587bbbd61f50d9b81338" prot="public" static="no">
+        <name>MOJA_UBLAS_MAKE_I</name>
+        <param><defname>i</defname></param>
+        <param><defname>s</defname></param>
+        <initializer>   { i = moja_ublas_identity(s); }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" line="33" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_MATRIXUBLAS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_MATRIXUBLAS_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BOOST_UBLAS_NDEBUG<sp/><sp/></highlight><highlight class="comment">//<sp/>cuts<sp/>some<sp/>time<sp/>off<sp/>run</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>(http://www.boost.org/doc/libs/1_49_0/libs/numeric/ublas/doc/index.htm)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>warning<sp/>C4996:<sp/>&apos;std::_Uninitialized_copy0&apos;:<sp/>Function<sp/>call<sp/>with<sp/>parameters<sp/>that<sp/>may<sp/>be<sp/>unsafe<sp/>-<sp/>this<sp/>call<sp/>relies<sp/>on</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>caller<sp/>to<sp/>check<sp/>that<sp/>the<sp/>passed<sp/>values<sp/>are<sp/>correct.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(push)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(disable<sp/>:<sp/>4996)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Work-around<sp/>needed<sp/>for<sp/>ublas<sp/>when<sp/>using<sp/>boost<sp/>&gt;=<sp/>1.64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//#include<sp/>&lt;boost/serialization/array_wrapper.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/math/tools/precision.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/banded.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/io.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/matrix.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/matrix_sparse.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/operation.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/numeric/ublas/vector.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>warning(pop)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">ublas<sp/>=<sp/>boost::numeric::ublas;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>ublas::compressed_matrix&lt;double&gt;<sp/>moja_ublas_matrix;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>ublas::diagonal_matrix&lt;double&gt;<sp/>moja_ublas_diagonal;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>ublas::identity_matrix&lt;double&gt;<sp/>moja_ublas_identity;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>ublas::matrix&lt;double&gt;<sp/>moja_ublas_fullmatrix;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>ublas::vector&lt;double&gt;<sp/>moja_ublas_vector;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_UBLAS_MAT_PROD(a,<sp/>b)<sp/>ublas::prec_prod(a,<sp/>b)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_UBLAS_MAKE_I(i,<sp/>s)<sp/>\</highlight></codeline>
+<codeline lineno="34"><highlight class="preprocessor"><sp/><sp/><sp/>{<sp/>i<sp/>=<sp/>moja_ublas_identity(s);<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_MATRIXUBLAS_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/matrixublas.h"/>
+  </compounddef>
+</doxygen>

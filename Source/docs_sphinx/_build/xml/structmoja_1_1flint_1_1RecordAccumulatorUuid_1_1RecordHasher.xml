@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1RecordAccumulatorUuid_1_1RecordHasher" kind="struct" language="C++" prot="private">
+    <compoundname>moja::flint::RecordAccumulatorUuid::RecordHasher</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1RecordAccumulatorUuid_1_1RecordHasher_1a1b316f033c1d09ca5128760176f967ac" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t operator()</definition>
+        <argsstring>(const TRecord *record) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const TRecord *</type>
+          <declname>record</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="25" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" line="24" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulatoruuid.h" bodystart="24" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1RecordAccumulatorUuid_1_1RecordHasher_1a1b316f033c1d09ca5128760176f967ac" prot="public" virt="non-virtual"><scope>moja::flint::RecordAccumulatorUuid::RecordHasher</scope><name>operator()</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1FloatCmp" kind="class" language="C++" prot="public">
+    <compoundname>moja::FloatCmp</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a778e9510f1148fa9a28ae672de435b97" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool equalTo</definition>
+        <argsstring>(double left, double right)</argsstring>
+        <name>equalTo</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Checks if two floating-point numbers are almost equal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the numbers are almost equal. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="214" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="214" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a80a1219694751df30e6cfb860af858c5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool greaterThan</definition>
+        <argsstring>(double left, double right)</argsstring>
+        <name>greaterThan</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a floating-point number is greater than another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if left is greater than right. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="223" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="253" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a67983f7bd2f85abda1fad1a51e02fdea" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool greaterThanOrEqualTo</definition>
+        <argsstring>(double left, double right)</argsstring>
+        <name>greaterThanOrEqualTo</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a floating-point number is greater than or almost equal to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if left is greater than or almost equal to right. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="231" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="255" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a715d70f5d7f383e3c02db14fbd4a8963" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lessThan</definition>
+        <argsstring>(double left, double right)</argsstring>
+        <name>lessThan</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a floating-point number is less than another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True is left is less than right. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="238" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1acbc61d91d6a7c9279f052bfe2e10a145" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lessThanOrEqualTo</definition>
+        <argsstring>(double left, double right)</argsstring>
+        <name>lessThanOrEqualTo</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <briefdescription>
+<para>Checks if a floating-point number is less than or almost equal to another. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if left is less than or almost equal to right. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="246" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="259" bodyend="259"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a22710489a37eb04139011b1640880c6d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool greaterThan</definition>
+        <argsstring>(double left, double right, bool orEqualTo)</argsstring>
+        <name>greaterThan</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>orEqualTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="249" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="261" bodyend="263"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1FloatCmp_1a42b134d0affdea06aad7acb79425ce82" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool lessThan</definition>
+        <argsstring>(double left, double right, bool orEqualTo)</argsstring>
+        <name>lessThan</name>
+        <param>
+          <type>double</type>
+          <declname>left</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>right</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>orEqualTo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="250" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="265" bodyend="267"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="207" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="207" bodyend="251"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1FloatCmp_1a778e9510f1148fa9a28ae672de435b97" prot="public" virt="non-virtual"><scope>moja::FloatCmp</scope><name>equalTo</name></member>
+      <member refid="classmoja_1_1FloatCmp_1a80a1219694751df30e6cfb860af858c5" prot="public" virt="non-virtual"><scope>moja::FloatCmp</scope><name>greaterThan</name></member>
+      <member refid="classmoja_1_1FloatCmp_1a22710489a37eb04139011b1640880c6d" prot="private" virt="non-virtual"><scope>moja::FloatCmp</scope><name>greaterThan</name></member>
+      <member refid="classmoja_1_1FloatCmp_1a67983f7bd2f85abda1fad1a51e02fdea" prot="public" virt="non-virtual"><scope>moja::FloatCmp</scope><name>greaterThanOrEqualTo</name></member>
+      <member refid="classmoja_1_1FloatCmp_1a715d70f5d7f383e3c02db14fbd4a8963" prot="public" virt="non-virtual"><scope>moja::FloatCmp</scope><name>lessThan</name></member>
+      <member refid="classmoja_1_1FloatCmp_1a42b134d0affdea06aad7acb79425ce82" prot="private" virt="non-virtual"><scope>moja::FloatCmp</scope><name>lessThan</name></member>
+      <member refid="classmoja_1_1FloatCmp_1acbc61d91d6a7c9279f052bfe2e10a145" prot="public" virt="non-virtual"><scope>moja::FloatCmp</scope><name>lessThanOrEqualTo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

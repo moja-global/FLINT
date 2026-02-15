@@ -1,0 +1,506 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Exception" kind="class" language="C++" prot="public">
+    <compoundname>moja::Exception</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">exception</basecompoundref>
+    <includes refid="exception_8h" local="no">exception.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Exception_1a3db1d41880bdb290740a0b0f0171e192" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _msg</definition>
+        <argsstring></argsstring>
+        <name>_msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="139" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="139" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Exception_1a2d75f1bd42290e60760f2c0118fc5f5d" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> *</type>
+        <definition>Exception* _pNested</definition>
+        <argsstring></argsstring>
+        <name>_pNested</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="140" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="140" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Exception_1a78ee0e7787f0ec80f610ca87a002ec11" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _code</definition>
+        <argsstring></argsstring>
+        <name>_code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="141" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Exception_1ab14fb380c6b349f9340122bcd0708f7a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Exception</definition>
+        <argsstring>(const std::string &amp;msg, int code=0)</argsstring>
+        <name>Exception</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>code</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Creates an exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the code. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="23" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="9" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a07b64ddefe6f00a7e1f9b7cd082ca9a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Exception</definition>
+        <argsstring>(const std::string &amp;msg, const std::string &amp;arg, int code=0)</argsstring>
+        <name>Exception</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>code</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Creates an exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The extended message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the code. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="32" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="11" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a5ab9e5829b58071651caf2b451e5ace8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Exception</definition>
+        <argsstring>(const std::string &amp;msg, const Exception &amp;nested, int code=0)</argsstring>
+        <name>Exception</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> &amp;</type>
+          <declname>nested</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>code</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Creates an exception and stores a clone of the nested exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>nested</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The nested. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the code. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="41" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="18" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1aeb9d2225fe0715865c22c386be57ef35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Exception</definition>
+        <argsstring>(const Exception &amp;exc)</argsstring>
+        <name>Exception</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> &amp;</type>
+          <declname>exc</declname>
+        </param>
+        <briefdescription>
+<para>Copy constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="46" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1ac484faa15fc3891ae27c84ebe49baf22" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Exception</definition>
+        <argsstring>()</argsstring>
+        <name>~Exception</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+<para>Destroys the exception and deletes the nested exception. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="49" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1aad3e47c23d502596a666b6105048a5e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> &amp;</type>
+        <definition>Exception &amp; operator=</definition>
+        <argsstring>(const Exception &amp;exc)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> &amp;</type>
+          <declname>exc</declname>
+        </param>
+        <briefdescription>
+<para>Assignment operator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="54" column="14" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="27" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a860a900733b4494b77121df7259a064f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const char *</type>
+        <definition>const char * name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+<para>Returns a static string describing the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="59" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a943c18a98264497e8b08c3691fb6864f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const char *</type>
+        <definition>const char * className</definition>
+        <argsstring>() const</argsstring>
+        <name>className</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+<para>Returns the name of the exception class. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="64" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="40" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a8d4b96162e93e11e5816d83702578af8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>const char *</type>
+        <definition>const char * what</definition>
+        <argsstring>() const</argsstring>
+        <name>what</name>
+        <exceptions> throw ()</exceptions>
+        <briefdescription>
+<para>Returns a static string describing the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Same as <ref refid="classmoja_1_1Exception_1a860a900733b4494b77121df7259a064f" kindref="member">name()</ref>, but for compatibility with std::exception.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="73" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1ad7be4b72dc3aa11eb6c9d08519473be8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const <ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> *</type>
+        <definition>const Exception * nested</definition>
+        <argsstring>() const</argsstring>
+        <name>nested</name>
+        <briefdescription>
+<para>Returns a pointer to the nested exception, or null if no nested exception exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="80" column="20" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="144" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1ad6df0ac0051e28737ca4dc278985d85f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; message</definition>
+        <argsstring>() const</argsstring>
+        <name>message</name>
+        <briefdescription>
+<para>Returns the message text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="85" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="146" bodyend="146"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a4aebcfaf2368eb240cf5111cc6fc140b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int code</definition>
+        <argsstring>() const</argsstring>
+        <name>code</name>
+        <briefdescription>
+<para>Returns the exception code if defined. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="90" column="8" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="150" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a1756a75ce6920243d142d3610804b225" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string displayText</definition>
+        <argsstring>() const</argsstring>
+        <name>displayText</name>
+        <briefdescription>
+<para>Returns a string consisting of the message name and the message text. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="95" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="44" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1ad1699b1b496270d02d8de4a5236c2d3d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="classmoja_1_1Exception" kindref="compound">Exception</ref> *</type>
+        <definition>Exception * clone</definition>
+        <argsstring>() const</argsstring>
+        <name>clone</name>
+        <briefdescription>
+<para>Creates an exact copy of the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The copy can later be thrown again by invoking <ref refid="classmoja_1_1Exception_1a511f808d3e69632da52585aff1c35e43" kindref="member">rethrow()</ref> on it.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="104" column="22" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a511f808d3e69632da52585aff1c35e43" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void rethrow</definition>
+        <argsstring>() const</argsstring>
+        <name>rethrow</name>
+        <briefdescription>
+<para>(Re)Throws the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This is useful for temporarily storing a copy of an exception (see <ref refid="classmoja_1_1Exception_1ad1699b1b496270d02d8de4a5236c2d3d" kindref="member">clone()</ref>), then throwing it again.</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="114" column="17" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="62" bodyend="62"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmoja_1_1Exception_1a5e9fd0566dd7e608fc8d767a927bb5f9" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Exception</definition>
+        <argsstring>(int code=0)</argsstring>
+        <name>Exception</name>
+        <param>
+          <type>int</type>
+          <declname>code</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Standard constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>(Optional) the code. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="122" column="4" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="7" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a0914944c5494ab364206938381866091" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void message</definition>
+        <argsstring>(const std::string &amp;msg)</argsstring>
+        <name>message</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Sets the message for the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="129" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="148" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Exception_1a81ee91459264f825c7cbed02324aa229" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void extendedMessage</definition>
+        <argsstring>(const std::string &amp;arg)</argsstring>
+        <name>extendedMessage</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>arg</declname>
+        </param>
+        <briefdescription>
+<para>Sets the extended message for the exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The extended message. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="136" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/exception.cpp" bodystart="53" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>This is the base class for all exceptions defined in the moja Core class library. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Exception</label>
+        <link refid="classmoja_1_1Exception"/>
+        <childnode refid="1" relation="usage">
+          <edgelabel>_pNested</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" line="15" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/exception.h" bodystart="15" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Exception_1a78ee0e7787f0ec80f610ca87a002ec11" prot="private" virt="non-virtual"><scope>moja::Exception</scope><name>_code</name></member>
+      <member refid="classmoja_1_1Exception_1a3db1d41880bdb290740a0b0f0171e192" prot="private" virt="non-virtual"><scope>moja::Exception</scope><name>_msg</name></member>
+      <member refid="classmoja_1_1Exception_1a2d75f1bd42290e60760f2c0118fc5f5d" prot="private" virt="non-virtual"><scope>moja::Exception</scope><name>_pNested</name></member>
+      <member refid="classmoja_1_1Exception_1a943c18a98264497e8b08c3691fb6864f" prot="public" virt="virtual"><scope>moja::Exception</scope><name>className</name></member>
+      <member refid="classmoja_1_1Exception_1ad1699b1b496270d02d8de4a5236c2d3d" prot="public" virt="virtual"><scope>moja::Exception</scope><name>clone</name></member>
+      <member refid="classmoja_1_1Exception_1a4aebcfaf2368eb240cf5111cc6fc140b" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>code</name></member>
+      <member refid="classmoja_1_1Exception_1a1756a75ce6920243d142d3610804b225" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>displayText</name></member>
+      <member refid="classmoja_1_1Exception_1ab14fb380c6b349f9340122bcd0708f7a" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>Exception</name></member>
+      <member refid="classmoja_1_1Exception_1a07b64ddefe6f00a7e1f9b7cd082ca9a6" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>Exception</name></member>
+      <member refid="classmoja_1_1Exception_1a5ab9e5829b58071651caf2b451e5ace8" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>Exception</name></member>
+      <member refid="classmoja_1_1Exception_1aeb9d2225fe0715865c22c386be57ef35" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>Exception</name></member>
+      <member refid="classmoja_1_1Exception_1a5e9fd0566dd7e608fc8d767a927bb5f9" prot="protected" virt="non-virtual"><scope>moja::Exception</scope><name>Exception</name></member>
+      <member refid="classmoja_1_1Exception_1a81ee91459264f825c7cbed02324aa229" prot="protected" virt="non-virtual"><scope>moja::Exception</scope><name>extendedMessage</name></member>
+      <member refid="classmoja_1_1Exception_1ad6df0ac0051e28737ca4dc278985d85f" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>message</name></member>
+      <member refid="classmoja_1_1Exception_1a0914944c5494ab364206938381866091" prot="protected" virt="non-virtual"><scope>moja::Exception</scope><name>message</name></member>
+      <member refid="classmoja_1_1Exception_1a860a900733b4494b77121df7259a064f" prot="public" virt="virtual"><scope>moja::Exception</scope><name>name</name></member>
+      <member refid="classmoja_1_1Exception_1ad7be4b72dc3aa11eb6c9d08519473be8" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>nested</name></member>
+      <member refid="classmoja_1_1Exception_1aad3e47c23d502596a666b6105048a5e0" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>operator=</name></member>
+      <member refid="classmoja_1_1Exception_1a511f808d3e69632da52585aff1c35e43" prot="public" virt="virtual"><scope>moja::Exception</scope><name>rethrow</name></member>
+      <member refid="classmoja_1_1Exception_1a8d4b96162e93e11e5816d83702578af8" prot="public" virt="virtual"><scope>moja::Exception</scope><name>what</name></member>
+      <member refid="classmoja_1_1Exception_1ac484faa15fc3891ae27c84ebe49baf22" prot="public" virt="non-virtual"><scope>moja::Exception</scope><name>~Exception</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

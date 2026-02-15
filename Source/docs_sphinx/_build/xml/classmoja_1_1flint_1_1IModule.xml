@@ -1,0 +1,492 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1IModule" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::IModule</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1ModuleBase" prot="public" virt="non-virtual">ModuleBase</derivedcompoundref>
+    <includes refid="imodule_8h" local="no">imodule.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a620f30686318c197949b07552f305f8c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~IModule</definition>
+        <argsstring>()</argsstring>
+        <name>~IModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Required because modules are deleted via a pointer to this interface. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="68" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a2da7d96848aa9aeddd77b02cf97757f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ModuleMetaData &amp;</type>
+        <definition>virtual ModuleMetaData&amp; metaData</definition>
+        <argsstring>()=0</argsstring>
+        <name>metaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="70" column="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a04da8f17b9321ca9665a6a62d082fbf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(const DynamicObject &amp;config)=0</argsstring>
+        <name>configure</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a8e61a518a587bf5dd73571c112b23e46">configure</reimplementedby>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="71" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a38e926145f33f908232ebb07d8df2704" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void subscribe</definition>
+        <argsstring>(NotificationCenter &amp;notificationCenter)=0</argsstring>
+        <name>subscribe</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1ac0a652d7fd514484aa74d3414acb704d">subscribe</reimplementedby>
+        <param>
+          <type><ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref> &amp;</type>
+          <declname>notificationCenter</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="72" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae30c80cfc7ca3e268e0e8e918bedbf6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void setLandUnitController</definition>
+        <argsstring>(ILandUnitController &amp;landUnitController)=0</argsstring>
+        <name>setLandUnitController</name>
+        <param>
+          <type>ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="73" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1af5eeb655d5548133eacc01af85110cee" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void StartupModule</definition>
+        <argsstring>(const ModuleMetaData &amp;metaData)=0</argsstring>
+        <name>StartupModule</name>
+        <param>
+          <type>const ModuleMetaData &amp;</type>
+          <declname>metaData</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called right after the module DLL has been loaded and the module object has been created. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="78" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a0f6aecc65252f1660697e5672e40ae61" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void ShutdownModule</definition>
+        <argsstring>()=0</argsstring>
+        <name>ShutdownModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called before the module is unloaded, right before the module object is destroyed. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="83" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1aa512e92c7b948a1f3cf73e3c2302dd84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>ModuleTypes</type>
+        <definition>virtual ModuleTypes moduleType</definition>
+        <argsstring>()</argsstring>
+        <name>moduleType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="85" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="85" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a57030c61099d61fd6e2488415dde431d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onSystemInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onSystemInit</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a69bb6e9cb9324adbf42b0b1c03f76c4e">onSystemInit</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Event messages. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="90" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1aa57473ab5e399fa2af19875e948e4d0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onSystemShutdown</definition>
+        <argsstring>()=0</argsstring>
+        <name>onSystemShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="91" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae84cf8c4033d85419e72e29520c06dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onLocalDomainInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onLocalDomainInit</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a1b18c4fe77c47f3ae87f5f5a5526793f">onLocalDomainInit</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="92" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ac6d1f798507e458d318967cd1cb82652" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onLocalDomainShutdown</definition>
+        <argsstring>()=0</argsstring>
+        <name>onLocalDomainShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="93" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ab58fc2eb0b10b75c5ababa8742c2b276" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onLocalDomainProcessingUnitInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onLocalDomainProcessingUnitInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="94" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1accb882a086686ad17114690702f6b5bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onLocalDomainProcessingUnitShutdown</definition>
+        <argsstring>()=0</argsstring>
+        <name>onLocalDomainProcessingUnitShutdown</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="95" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a34545b9143391a60886ebaf9a9ec3f83" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onPreTimingSequence</definition>
+        <argsstring>()=0</argsstring>
+        <name>onPreTimingSequence</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a7c708dc7d299ad6e3cae5f4170f691d5">onPreTimingSequence</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="96" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a16a392f69bfaf8831e43c032af49944c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingInit</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a4d4769cafb921f17df2cf6a39de2c7d2">onTimingInit</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="97" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a15a9d3fad67bcd11b58a28831a37dfbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingPrePostInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingPrePostInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="98" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae8d719923f4b504ce48f13bb0a123242" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingPostInit</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingPostInit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="99" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a60829dac59d5450c3281c3ac8b0b7211" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingPostInit2</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingPostInit2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="100" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a9dee7968351bdc88c3b79924562eaa4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingShutdown</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingShutdown</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a6d4cf55130beb11a6c206f51528db053">onTimingShutdown</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="101" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a6e4130701e405794addd72a6ade0b4c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingStep</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="102" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a3bb139e7f2b0bd47335265537d7fa926" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingPreEndStep</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingPreEndStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="103" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a6e9ee3f356e3f80bb5b5f390745150d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingEndStep</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingEndStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="104" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a21a0b3715600463067946deb870802e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onTimingPostStep</definition>
+        <argsstring>()=0</argsstring>
+        <name>onTimingPostStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="105" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae76e688c8bb319c88029c87399e9a60b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onOutputStep</definition>
+        <argsstring>()=0</argsstring>
+        <name>onOutputStep</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1a30be2fedc62055b37ed2cd351c01a9e9">onOutputStep</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="106" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a0b4fbeee0f9603d2cedf218c6fd601ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onError</definition>
+        <argsstring>(std::string msg)=0</argsstring>
+        <name>onError</name>
+        <reimplementedby refid="classmoja_1_1flint_1_1WriteSystemConfig_1ab89d1e802f5c5872169d9cb80d36be86">onError</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="107" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae02c7c6450720fce669b3fb8e7ea7d9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onDisturbanceEvent</definition>
+        <argsstring>(DynamicVar)=0</argsstring>
+        <name>onDisturbanceEvent</name>
+        <param>
+          <type>DynamicVar</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="108" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1aff949c956f17d013397afab474b7f40d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onPrePostDisturbanceEvent</definition>
+        <argsstring>()=0</argsstring>
+        <name>onPrePostDisturbanceEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="109" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ada31fe342a082e8be411117a39293a36" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onPostDisturbanceEvent</definition>
+        <argsstring>()=0</argsstring>
+        <name>onPostDisturbanceEvent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="110" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1a124d260d8d52c62f88f75cc249508736" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onPostDisturbanceEvent2</definition>
+        <argsstring>()=0</argsstring>
+        <name>onPostDisturbanceEvent2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="111" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1IModule_1ae1cd15ad602e411c30f2f7ccffc40883" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void onPostNotification</definition>
+        <argsstring>(short preMessageSignal)=0</argsstring>
+        <name>onPostNotification</name>
+        <param>
+          <type>short</type>
+          <declname>preMessageSignal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="112" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Interface class that all module implementations should derive from. This is used to initialize a module after it&apos;s been loaded, and also to clean it up before the module is unloaded. </para>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" line="65" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/imodule.h" bodystart="65" bodyend="113"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1IModule_1a04da8f17b9321ca9665a6a62d082fbf4" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a2da7d96848aa9aeddd77b02cf97757f7" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1aa512e92c7b948a1f3cf73e3c2302dd84" prot="public" virt="virtual"><scope>moja::flint::IModule</scope><name>moduleType</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae02c7c6450720fce669b3fb8e7ea7d9f" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a0b4fbeee0f9603d2cedf218c6fd601ce" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onError</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae84cf8c4033d85419e72e29520c06dcf" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onLocalDomainInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ab58fc2eb0b10b75c5ababa8742c2b276" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onLocalDomainProcessingUnitInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1accb882a086686ad17114690702f6b5bb" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onLocalDomainProcessingUnitShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ac6d1f798507e458d318967cd1cb82652" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onLocalDomainShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae76e688c8bb319c88029c87399e9a60b" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onOutputStep</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ada31fe342a082e8be411117a39293a36" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onPostDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a124d260d8d52c62f88f75cc249508736" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onPostDisturbanceEvent2</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae1cd15ad602e411c30f2f7ccffc40883" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onPostNotification</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1aff949c956f17d013397afab474b7f40d" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onPrePostDisturbanceEvent</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a34545b9143391a60886ebaf9a9ec3f83" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onPreTimingSequence</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a57030c61099d61fd6e2488415dde431d" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onSystemInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1aa57473ab5e399fa2af19875e948e4d0e" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onSystemShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a6e9ee3f356e3f80bb5b5f390745150d4" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingEndStep</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a16a392f69bfaf8831e43c032af49944c" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae8d719923f4b504ce48f13bb0a123242" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingPostInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a60829dac59d5450c3281c3ac8b0b7211" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingPostInit2</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a21a0b3715600463067946deb870802e5" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingPostStep</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a3bb139e7f2b0bd47335265537d7fa926" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingPreEndStep</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a15a9d3fad67bcd11b58a28831a37dfbf" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingPrePostInit</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a9dee7968351bdc88c3b79924562eaa4b" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingShutdown</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a6e4130701e405794addd72a6ade0b4c1" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>onTimingStep</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1ae30c80cfc7ca3e268e0e8e918bedbf6e" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>setLandUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a0f6aecc65252f1660697e5672e40ae61" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>ShutdownModule</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1af5eeb655d5548133eacc01af85110cee" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>StartupModule</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a38e926145f33f908232ebb07d8df2704" prot="public" virt="pure-virtual"><scope>moja::flint::IModule</scope><name>subscribe</name></member>
+      <member refid="classmoja_1_1flint_1_1IModule_1a620f30686318c197949b07552f305f8c" prot="public" virt="virtual"><scope>moja::flint::IModule</scope><name>~IModule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,528 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1SpatialLocationInfo" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::SpatialLocationInfo</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IFlintData</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1acf0d04928854fe350be0033d01068eb8" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _tileIdx</definition>
+        <argsstring></argsstring>
+        <name>_tileIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="180" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a828387d4a0392781821813742d9a70b2" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _blockIdx</definition>
+        <argsstring></argsstring>
+        <name>_blockIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="181" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="181" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a33ce986c8cbe9a7d512f28340c152eb9" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _cellIdx</definition>
+        <argsstring></argsstring>
+        <name>_cellIdx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="182" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a79e695a363f7b5ee2f5bf0926ac52ec8" prot="public" static="no" mutable="no">
+        <type>Point</type>
+        <definition>Point _tileLatLon</definition>
+        <argsstring></argsstring>
+        <name>_tileLatLon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="184" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a13f3b1ec7cbf718500b8a9753ee44066" prot="public" static="no" mutable="no">
+        <type>Point</type>
+        <definition>Point _blockLatLon</definition>
+        <argsstring></argsstring>
+        <name>_blockLatLon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="185" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a43053cf275d6a17f9df86f695c6c1cd4" prot="public" static="no" mutable="no">
+        <type>Point</type>
+        <definition>Point _cellLatLon</definition>
+        <argsstring></argsstring>
+        <name>_cellLatLon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="186" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a1bcb6932de35c7720b6def83202120cd" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _tileRows</definition>
+        <argsstring></argsstring>
+        <name>_tileRows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="188" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1ac597b597bf25fe7c59d767122ae885c6" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _tileCols</definition>
+        <argsstring></argsstring>
+        <name>_tileCols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="189" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a57de19289d4ee4533035aabb544ee05a" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _blockRows</definition>
+        <argsstring></argsstring>
+        <name>_blockRows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="190" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1adeecc47175e26621b9f87e2be9ddb3b4" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _blockCols</definition>
+        <argsstring></argsstring>
+        <name>_blockCols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="191" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a8e73c66566457c6efe1cfdc5c0827ff2" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _cellRows</definition>
+        <argsstring></argsstring>
+        <name>_cellRows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="192" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a974f46be90c03322d984b1fbda42e550" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _cellCols</definition>
+        <argsstring></argsstring>
+        <name>_cellCols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="193" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a790d407d7da076ed3ed7749a7686af2b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _landUnitArea</definition>
+        <argsstring></argsstring>
+        <name>_landUnitArea</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="195" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1aaf594c00200288273baa58957539b8c1" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _randomSeedGlobal</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="198" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a03b1eb2ba73e8416bae61c31aba5209f" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _randomSeedTile</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedTile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="199" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1aaa66c57cb313f28fb708f230c79aa1e3" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _randomSeedBlock</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="200" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a6c7f7dc60589c2361421aa1d9d5b47b1" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 _randomSeedCell</definition>
+        <argsstring></argsstring>
+        <name>_randomSeedCell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="201" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a00b14b69573f5a7ea6295b00e07fe8ca" prot="public" static="no" mutable="no">
+        <type>std::default_random_engine</type>
+        <definition>std::default_random_engine _engGlobal</definition>
+        <argsstring></argsstring>
+        <name>_engGlobal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="203" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="203" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a95b10d2b8ee5950cb6f73d23f4c9d360" prot="public" static="no" mutable="no">
+        <type>std::default_random_engine</type>
+        <definition>std::default_random_engine _engTile</definition>
+        <argsstring></argsstring>
+        <name>_engTile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="204" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="204" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a42edbd326af3e99557922dd9370a3486" prot="public" static="no" mutable="no">
+        <type>std::default_random_engine</type>
+        <definition>std::default_random_engine _engBlock</definition>
+        <argsstring></argsstring>
+        <name>_engBlock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="205" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="205" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a16b3c9b72d2abfc264c3969a1e19e21e" prot="public" static="no" mutable="no">
+        <type>std::default_random_engine</type>
+        <definition>std::default_random_engine _engCell</definition>
+        <argsstring></argsstring>
+        <name>_engCell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="206" column="31" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="206" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a2d606c047fb5f5ba5519ebffbbfe7af3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _errorCode</definition>
+        <argsstring></argsstring>
+        <name>_errorCode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="209" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="209" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1ad450acdcb78e92d13321fd9d69eaffc1" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _library</definition>
+        <argsstring></argsstring>
+        <name>_library</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="210" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="210" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1ac01ca554d3611d1a408d52b3eaf8d004" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _module</definition>
+        <argsstring></argsstring>
+        <name>_module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="211" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="211" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1SpatialLocationInfo_1ad1585019025491c93a622c07a3a2130b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _message</definition>
+        <argsstring></argsstring>
+        <name>_message</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="212" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="212" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a00235785d0c934af868b1fa70aeb243b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>SpatialLocationInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>SpatialLocationInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="16" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1adae2d7892464069ce91428c314135bee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SpatialLocationInfo</definition>
+        <argsstring>(UInt32 tileIdx, UInt32 blockIdx, UInt32 cellIdx, Point tileLatLon, Point blockLatLon, Point cellLatLon, UInt32 tileRows, UInt32 tileCols, UInt32 blockRows, UInt32 blockCols, UInt32 cellRows, UInt32 cellCols, double landUnitArea)</argsstring>
+        <name>SpatialLocationInfo</name>
+        <param>
+          <type>UInt32</type>
+          <declname>tileIdx</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>blockIdx</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>cellIdx</declname>
+        </param>
+        <param>
+          <type>Point</type>
+          <declname>tileLatLon</declname>
+        </param>
+        <param>
+          <type>Point</type>
+          <declname>blockLatLon</declname>
+        </param>
+        <param>
+          <type>Point</type>
+          <declname>cellLatLon</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>tileRows</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>tileCols</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>blockRows</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>blockCols</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>cellRows</declname>
+        </param>
+        <param>
+          <type>UInt32</type>
+          <declname>cellCols</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>landUnitArea</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="17" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="17" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1ad4872a7562ab4f6ed03875be1fa088cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~SpatialLocationInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>~SpatialLocationInfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="34" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1aeea19edf0523c6350f850f3b69929c64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(DynamicObject config, const flint::ILandUnitController &amp;landUnitController, moja::datarepository::DataRepository &amp;dataRepository) override</argsstring>
+        <name>configure</name>
+        <param>
+          <type>DynamicObject</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const flint::ILandUnitController &amp;</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type>moja::datarepository::DataRepository &amp;</type>
+          <declname>dataRepository</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="36" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="36" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>DynamicObject</type>
+        <definition>DynamicObject exportObject</definition>
+        <argsstring>() const override</argsstring>
+        <name>exportObject</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="124" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="124" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1SpatialLocationInfo_1a7e37c4a0eb428ef4416689519569444d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>DynamicVar</type>
+        <definition>DynamicVar getProperty</definition>
+        <argsstring>(const std::string &amp;key) const override</argsstring>
+        <name>getProperty</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="151" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="151" bodyend="178"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatiallocationinfo.h" bodystart="14" bodyend="213"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1adeecc47175e26621b9f87e2be9ddb3b4" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_blockCols</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a828387d4a0392781821813742d9a70b2" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_blockIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a13f3b1ec7cbf718500b8a9753ee44066" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_blockLatLon</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a57de19289d4ee4533035aabb544ee05a" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_blockRows</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a974f46be90c03322d984b1fbda42e550" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_cellCols</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a33ce986c8cbe9a7d512f28340c152eb9" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_cellIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a43053cf275d6a17f9df86f695c6c1cd4" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_cellLatLon</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a8e73c66566457c6efe1cfdc5c0827ff2" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_cellRows</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a42edbd326af3e99557922dd9370a3486" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_engBlock</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a16b3c9b72d2abfc264c3969a1e19e21e" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_engCell</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a00b14b69573f5a7ea6295b00e07fe8ca" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_engGlobal</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a95b10d2b8ee5950cb6f73d23f4c9d360" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_engTile</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a2d606c047fb5f5ba5519ebffbbfe7af3" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_errorCode</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a790d407d7da076ed3ed7749a7686af2b" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_landUnitArea</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1ad450acdcb78e92d13321fd9d69eaffc1" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_library</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1ad1585019025491c93a622c07a3a2130b" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_message</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1ac01ca554d3611d1a408d52b3eaf8d004" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_module</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1aaa66c57cb313f28fb708f230c79aa1e3" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_randomSeedBlock</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a6c7f7dc60589c2361421aa1d9d5b47b1" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_randomSeedCell</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1aaf594c00200288273baa58957539b8c1" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_randomSeedGlobal</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a03b1eb2ba73e8416bae61c31aba5209f" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_randomSeedTile</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1ac597b597bf25fe7c59d767122ae885c6" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_tileCols</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1acf0d04928854fe350be0033d01068eb8" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_tileIdx</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a79e695a363f7b5ee2f5bf0926ac52ec8" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_tileLatLon</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a1bcb6932de35c7720b6def83202120cd" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>_tileRows</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1aeea19edf0523c6350f850f3b69929c64" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a8ba98553a4ed7481f199fdf7bd473150" prot="public" virt="pure-virtual" ambiguityscope="moja::flint::IFlintData::"><scope>moja::flint::SpatialLocationInfo</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1acaa905570caa863f30e265e15cc6ba58" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>controllerChanged</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a0952ffe7c5b7089dfcef36fa68b3c924" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>exportObject</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a6e3aeaea9a96fc3fb778b3163ffcb3ca" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>FactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a7e37c4a0eb428ef4416689519569444d" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>getProperty</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>libraryName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1af04670b18f461a0afd1528cd8e7eb8b7" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a2f77d8e82bf3d4049a26f1652c17bc53" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>registerEventFactoryFunc</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1a00235785d0c934af868b1fa70aeb243b" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>SpatialLocationInfo</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1adae2d7892464069ce91428c314135bee" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>SpatialLocationInfo</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1a3f13bbbf7a2e3a9357c1053612ecb0ff" prot="public" virt="non-virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>typeName</name></member>
+      <member refid="classmoja_1_1flint_1_1IFlintData_1ae0cbaa6b1ca39375d8b7e983162edb09" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>~IFlintData</name></member>
+      <member refid="classmoja_1_1flint_1_1SpatialLocationInfo_1ad4872a7562ab4f6ed03875be1fa088cb" prot="public" virt="virtual"><scope>moja::flint::SpatialLocationInfo</scope><name>~SpatialLocationInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

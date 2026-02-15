@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1Size" kind="struct" language="C++" prot="public">
+    <compoundname>moja::Size</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1Size_1a89f6abd564014faeff7cd20c340a9c7d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="19" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1Size_1a9df23e056f5d1a0388cd8190431c0e03" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="20" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="18" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="18" bodyend="21"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1Size_1a89f6abd564014faeff7cd20c340a9c7d" prot="public" virt="non-virtual"><scope>moja::Size</scope><name>height</name></member>
+      <member refid="structmoja_1_1Size_1a9df23e056f5d1a0388cd8190431c0e03" prot="public" virt="non-virtual"><scope>moja::Size</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

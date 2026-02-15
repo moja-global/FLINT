@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4" kind="class" language="C++" prot="public">
+    <compoundname>moja::floatcompare::TypeWithSize&lt; 4 &gt;</compoundname>
+    <templateparamlist>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4_1a24cbd7037282bdf31d1771f93dc15ff7" prot="public" static="no">
+        <type>moja::Int32</type>
+        <definition>typedef moja::Int32 Int</definition>
+        <argsstring></argsstring>
+        <name>Int</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="21" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4_1a3b51f3e8167b8558befff935b10cfc16" prot="public" static="no">
+        <type>moja::UInt32</type>
+        <definition>typedef moja::UInt32 UInt</definition>
+        <argsstring></argsstring>
+        <name>UInt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="22" column="25" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" line="19" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h" bodystart="19" bodyend="23"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4_1a24cbd7037282bdf31d1771f93dc15ff7" prot="public" virt="non-virtual"><scope>moja::floatcompare::TypeWithSize&lt; 4 &gt;</scope><name>Int</name></member>
+      <member refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4_1a3b51f3e8167b8558befff935b10cfc16" prot="public" virt="non-virtual"><scope>moja::floatcompare::TypeWithSize&lt; 4 &gt;</scope><name>UInt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

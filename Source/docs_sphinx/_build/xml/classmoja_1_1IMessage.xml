@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1IMessage" kind="class" language="C++" prot="public">
+    <compoundname>moja::IMessage</compoundname>
+    <derivedcompoundref refid="classmoja_1_1TimingInitMessage" prot="public" virt="non-virtual">TimingInitMessage</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1TimingStepEndMessage" prot="public" virt="non-virtual">TimingStepEndMessage</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1TimingStepStartMessage" prot="public" virt="non-virtual">TimingStepStartMessage</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1IMessage_1a21a59afe43bf60f76a7f6a8a0977cf62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~IMessage</definition>
+        <argsstring>()</argsstring>
+        <name>~IMessage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="14" column="12" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="12" bodyend="15"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1IMessage_1a21a59afe43bf60f76a7f6a8a0977cf62" prot="public" virt="virtual"><scope>moja::IMessage</scope><name>~IMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

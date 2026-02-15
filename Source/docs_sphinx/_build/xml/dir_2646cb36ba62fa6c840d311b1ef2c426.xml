@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_2646cb36ba62fa6c840d311b1ef2c426" kind="dir">
+    <compoundname>/mnt/e/FLINT/Source/moja.flint</compoundname>
+    <innerdir refid="dir_2cc05a899c6107c6fbbcaf0e90291765">/mnt/e/FLINT/Source/moja.flint/include</innerdir>
+    <innerdir refid="dir_1342f6f0dfb2aae29b85fd9a731b3455">/mnt/e/FLINT/Source/moja.flint/src</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/"/>
+  </compounddef>
+</doxygen>

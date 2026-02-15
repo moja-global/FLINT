@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Publisher" kind="class" language="C++" prot="public">
+    <compoundname>moja::Publisher</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IPublisher</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Publisher_1abdfc65cbe0803ba65cd1c28b27024bcb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; ISubscriber &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;ISubscriber&gt; &gt; _subscribers</definition>
+        <argsstring></argsstring>
+        <name>_subscribers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="138" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="138" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1Publisher_1af4cc008638dd92c2243c50a34c56f636" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AddSubscriber</definition>
+        <argsstring>(std::shared_ptr&lt; ISubscriber &gt; subscriber)</argsstring>
+        <name>AddSubscriber</name>
+        <param>
+          <type>std::shared_ptr&lt; ISubscriber &gt;</type>
+          <declname>subscriber</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="141" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/publisher.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Publisher_1af02c4630840ec5737e1651af8a120646" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SendMessage</definition>
+        <argsstring>(std::shared_ptr&lt; IMessage &gt; message) const</argsstring>
+        <name>SendMessage</name>
+        <param>
+          <type>std::shared_ptr&lt; IMessage &gt;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="142" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/src/publisher.cpp" bodystart="10" bodyend="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="137" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="137" bodyend="143"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Publisher_1abdfc65cbe0803ba65cd1c28b27024bcb" prot="private" virt="non-virtual"><scope>moja::Publisher</scope><name>_subscribers</name></member>
+      <member refid="classmoja_1_1Publisher_1af4cc008638dd92c2243c50a34c56f636" prot="public" virt="non-virtual"><scope>moja::Publisher</scope><name>AddSubscriber</name></member>
+      <member refid="classmoja_1_1Publisher_1af02c4630840ec5737e1651af8a120646" prot="public" virt="non-virtual"><scope>moja::Publisher</scope><name>SendMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

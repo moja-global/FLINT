@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1ILandUnitController" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::ILandUnitController</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1LandUnitController" prot="public" virt="non-virtual">LandUnitController</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1SpinupLandUnitController" prot="public" virt="non-virtual">SpinupLandUnitController</derivedcompoundref>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1acb1c6cbcff39dd84737c272e2230ee53" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~ILandUnitController</definition>
+        <argsstring>(void)=default</argsstring>
+        <name>~ILandUnitController</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="26" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a28ddc33ef69619940c51563702881231" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void configure</definition>
+        <argsstring>(const configuration::Configuration &amp;config)=0</argsstring>
+        <name>configure</name>
+        <param>
+          <type>const configuration::Configuration &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="30" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a18954417d3124a8095783ea13dc6d00b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void run</definition>
+        <argsstring>()=0</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="33" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a999687adf3fb5f5c335f7ab7dbebb26f" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int id</definition>
+        <argsstring>()=0</argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="36" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1aac096e7f55e8ca6a6479ff15e6d43072" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module)=0</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="39" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a19701700e2b3d017ebd73f348554a50c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage)=0</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="40" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a1a7050b02f3bc2f7c2d4bddc6c89a833" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module)=0</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="41" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a03fd784e7a8dc889f44184743dd52510" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperation&gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage)=0</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="42" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a16ff8a18e2738e4ba2709fde2dfd7936" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void submitOperation</definition>
+        <argsstring>(std::shared_ptr&lt; IOperation &gt; operation)=0</argsstring>
+        <name>submitOperation</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperation &gt;</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="43" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1af5a8fcda760ca60448d51200a3e41d55" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void applyOperations</definition>
+        <argsstring>()=0</argsstring>
+        <name>applyOperations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="44" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a3eb0c7adf0955ba08fa7d5da38013aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void clearLastAppliedOperationResults</definition>
+        <argsstring>()=0</argsstring>
+        <name>clearLastAppliedOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="45" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1aed83060e3ab94926fffd2cea12514895" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void clearAllOperationResults</definition>
+        <argsstring>()=0</argsstring>
+        <name>clearAllOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="46" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1ae3ccf9a131efa7713785b4829da724d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>IOperationManager *</type>
+        <definition>virtual IOperationManager* operationManager</definition>
+        <argsstring>()=0</argsstring>
+        <name>operationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="49" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a49b9f9274acd953a8e796641b9fcb87c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IOperationManager *</type>
+        <definition>virtual const IOperationManager* operationManager</definition>
+        <argsstring>() const =0</argsstring>
+        <name>operationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="50" column="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a468595cb6b955a1c0673516b4e5571da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>IVariable *</type>
+        <definition>virtual IVariable* getVariable</definition>
+        <argsstring>(const std::string &amp;name)=0</argsstring>
+        <name>getVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="53" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a826073134475ca268048cc8164bd55fb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const IVariable *</type>
+        <definition>virtual const IVariable* getVariable</definition>
+        <argsstring>(const std::string &amp;name) const =0</argsstring>
+        <name>getVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="54" column="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a67741d36aec4ec77e2fead0a68966fdb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; IVariable &gt; &gt;</type>
+        <definition>virtual std::vector&lt;std::shared_ptr&lt;IVariable&gt; &gt; variables</definition>
+        <argsstring>() const =0</argsstring>
+        <name>variables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="55" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a84a473299f209503c7a1cbaac876d2ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool hasVariable</definition>
+        <argsstring>(const std::string &amp;name) const =0</argsstring>
+        <name>hasVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="56" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a8075abbcf940804a8bf9b9f6914869bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>const <ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref> &amp;</type>
+        <definition>virtual const ITiming&amp; timing</definition>
+        <argsstring>() const =0</argsstring>
+        <name>timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="58" column="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a608ad270fd7373ba14a7315b1934e40b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref> &amp;</type>
+        <definition>virtual ITiming&amp; timing</definition>
+        <argsstring>()=0</argsstring>
+        <name>timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="59" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1ILandUnitController_1a9715810971aabac8e8f3205197439295" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>const configuration::Configuration *</type>
+        <definition>virtual const configuration::Configuration* config</definition>
+        <argsstring>()=0</argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="61" column="47"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" line="24" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ilandunitcontroller.h" bodystart="24" bodyend="62"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1af5a8fcda760ca60448d51200a3e41d55" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>applyOperations</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1aed83060e3ab94926fffd2cea12514895" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>clearAllOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a3eb0c7adf0955ba08fa7d5da38013aff" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>clearLastAppliedOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a9715810971aabac8e8f3205197439295" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>config</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a28ddc33ef69619940c51563702881231" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>configure</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a1a7050b02f3bc2f7c2d4bddc6c89a833" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a03fd784e7a8dc889f44184743dd52510" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1aac096e7f55e8ca6a6479ff15e6d43072" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a19701700e2b3d017ebd73f348554a50c" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a468595cb6b955a1c0673516b4e5571da" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>getVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a826073134475ca268048cc8164bd55fb" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>getVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a84a473299f209503c7a1cbaac876d2ba" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>hasVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a999687adf3fb5f5c335f7ab7dbebb26f" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>id</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1ae3ccf9a131efa7713785b4829da724d0" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>operationManager</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a49b9f9274acd953a8e796641b9fcb87c" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>operationManager</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a18954417d3124a8095783ea13dc6d00b" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>run</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a16ff8a18e2738e4ba2709fde2dfd7936" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>submitOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a8075abbcf940804a8bf9b9f6914869bf" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>timing</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a608ad270fd7373ba14a7315b1934e40b" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>timing</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1a67741d36aec4ec77e2fead0a68966fdb" prot="public" virt="pure-virtual"><scope>moja::flint::ILandUnitController</scope><name>variables</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitController_1acb1c6cbcff39dd84737c272e2230ee53" prot="public" virt="virtual"><scope>moja::flint::ILandUnitController</scope><name>~ILandUnitController</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

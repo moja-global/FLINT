@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1AspatialLocalDomainThread" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::AspatialLocalDomainThread</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a21086d6a4a5782213c3c768c6d9ae605" prot="private" static="no" mutable="no">
+        <type>ThreadedAspatialLocalDomainController *</type>
+        <definition>ThreadedAspatialLocalDomainController* _parent</definition>
+        <argsstring></argsstring>
+        <name>_parent</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="35" column="42" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a828d19e80051f8b52a6848519cbd23a6" prot="private" static="no" mutable="no">
+        <type>configuration::Configuration</type>
+        <definition>configuration::Configuration _threadConfig</definition>
+        <argsstring></argsstring>
+        <name>_threadConfig</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="36" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a4b170276468a329fe4b63ca0ebcb390d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _threadId</definition>
+        <argsstring></argsstring>
+        <name>_threadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="37" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a493cdfd647f4a457b56d29fa2a3d6297" prot="private" static="no" mutable="no">
+        <type>Poco::Mutex &amp;</type>
+        <definition>Poco::Mutex&amp; _tileListMutex</definition>
+        <argsstring></argsstring>
+        <name>_tileListMutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="38" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a0080d3f175877a33a4e515413c3136a5" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; datarepository::AspatialTileInfo &gt; &amp;</type>
+        <definition>std::queue&lt;datarepository::AspatialTileInfo&gt;&amp; _tileList</definition>
+        <argsstring></argsstring>
+        <name>_tileList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="39" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a7d834b337be8569a53389d124a2cec07" prot="private" static="no" mutable="no">
+        <type>const configuration::Configuration *</type>
+        <definition>const configuration::Configuration* _config</definition>
+        <argsstring></argsstring>
+        <name>_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="40" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a31bb07947953092aac4e10b730141f38" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; AspatialLocalDomainController &gt;</type>
+        <definition>std::shared_ptr&lt;AspatialLocalDomainController&gt; _ldc</definition>
+        <argsstring></argsstring>
+        <name>_ldc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="41" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a893dd74e10fe2a5a0bd45dcf6151e3d0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>AspatialLocalDomainThread</definition>
+        <argsstring>(ThreadedAspatialLocalDomainController *parent, int threadId, Poco::Mutex &amp;tileListMutex, std::queue&lt; datarepository::AspatialTileInfo &gt; &amp;tileList, const configuration::Configuration *config)</argsstring>
+        <name>AspatialLocalDomainThread</name>
+        <param>
+          <type>ThreadedAspatialLocalDomainController *</type>
+          <declname>parent</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>threadId</declname>
+        </param>
+        <param>
+          <type>Poco::Mutex &amp;</type>
+          <declname>tileListMutex</declname>
+        </param>
+        <param>
+          <type>std::queue&lt; datarepository::AspatialTileInfo &gt; &amp;</type>
+          <declname>tileList</declname>
+        </param>
+        <param>
+          <type>const configuration::Configuration *</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="25" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/threadedaspatiallocaldomaincontroller.cpp" bodystart="26" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a5ccbdeb5350ba8528eab7e4cc49fc68b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void operator()</definition>
+        <argsstring>()</argsstring>
+        <name>operator()</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="29" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/threadedaspatiallocaldomaincontroller.cpp" bodystart="44" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a0db449e8f1fab943bb883f9561682e35" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; LocalDomainControllerBase &gt;</type>
+        <definition>std::shared_ptr&lt;LocalDomainControllerBase&gt; localDomainController</definition>
+        <argsstring>() const</argsstring>
+        <name>localDomainController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="31" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a7e3fac9fa621d419674057eb08d4187c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int threadId</definition>
+        <argsstring>() const</argsstring>
+        <name>threadId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="32" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="32" bodyend="32"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" line="23" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h" bodystart="23" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a7d834b337be8569a53389d124a2cec07" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_config</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a31bb07947953092aac4e10b730141f38" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_ldc</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a21086d6a4a5782213c3c768c6d9ae605" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_parent</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a828d19e80051f8b52a6848519cbd23a6" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_threadConfig</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a4b170276468a329fe4b63ca0ebcb390d" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_threadId</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a0080d3f175877a33a4e515413c3136a5" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_tileList</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a493cdfd647f4a457b56d29fa2a3d6297" prot="private" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>_tileListMutex</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a893dd74e10fe2a5a0bd45dcf6151e3d0" prot="public" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>AspatialLocalDomainThread</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a0db449e8f1fab943bb883f9561682e35" prot="public" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>localDomainController</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a5ccbdeb5350ba8528eab7e4cc49fc68b" prot="public" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>operator()</name></member>
+      <member refid="classmoja_1_1flint_1_1AspatialLocalDomainThread_1a7e3fac9fa621d419674057eb08d4187c" prot="public" virt="non-virtual"><scope>moja::flint::AspatialLocalDomainThread</scope><name>threadId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

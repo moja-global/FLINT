@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1Logging" kind="class" language="C++" prot="public">
+    <compoundname>moja::Logging</compoundname>
+    <includes refid="logging_8h" local="no">logging.h</includes>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classmoja_1_1Logging_1ab8b9601a9fd1cb4be826e9c0d70be7f6" prot="private" static="yes" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string _defaultFileName</definition>
+        <argsstring></argsstring>
+        <name>_defaultFileName</name>
+        <initializer>= &quot;logging.conf&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="14" column="29" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Logging_1ae72a2ea4673c9e867bc099d581ed9c6f" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool _explicitConfigurationFileSet</definition>
+        <argsstring></argsstring>
+        <name>_explicitConfigurationFileSet</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="15" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Logging_1a23f4394fc6f7426079c11324168cd735" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _explicitConfigurationFile</definition>
+        <argsstring></argsstring>
+        <name>_explicitConfigurationFile</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="16" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Logging_1a3e39b672f31340054ad5088258ed5539" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool _explicitConfigurationTextSet</definition>
+        <argsstring></argsstring>
+        <name>_explicitConfigurationTextSet</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="17" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Logging_1abb7dac665f0a6085f1830a7584ae773a" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _explicitConfigurationText</definition>
+        <argsstring></argsstring>
+        <name>_explicitConfigurationText</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="18" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1Logging_1abe6127b95d2b072f37b99c9bdf32b0ae" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _loggingConfigurationFile</definition>
+        <argsstring></argsstring>
+        <name>_loggingConfigurationFile</name>
+        <initializer>= &quot;unknown&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="19" column="23" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1Logging_1a173179c2f809dd6e1da57adf4f05fe0c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>static const std::string&amp; configurationFilename</definition>
+        <argsstring>()</argsstring>
+        <name>configurationFilename</name>
+        <briefdescription>
+<para>Gets the filename that the logging configuration was loaded from. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="25" column="29" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Logging_1a15084981472f34edfdbc3a70297c1498" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void setConfigurationFile</definition>
+        <argsstring>(std::string explicitFilename)</argsstring>
+        <name>setConfigurationFile</name>
+        <param>
+          <type>std::string</type>
+          <declname>explicitFilename</declname>
+        </param>
+        <briefdescription>
+<para>Sets the logging configuration from a file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>explicitFilename</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to the logging configuration file. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="32" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="32" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Logging_1a654901f05306cce54f3c6f49e9774e3f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void setConfigurationText</definition>
+        <argsstring>(std::string configText)</argsstring>
+        <name>setConfigurationText</name>
+        <param>
+          <type>std::string</type>
+          <declname>configText</declname>
+        </param>
+        <briefdescription>
+<para>Sets the logging configuration from a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>configText</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configuration text. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="43" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="43" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1Logging_1a02fd73d861ef2e4aabb38c0c9ff82947" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <briefdescription>
+<para>Initializes the logging system using the first of: </para>
+        </briefdescription>
+        <detaileddescription>
+<para><itemizedlist>
+<listitem><para>explicitly set configuration file path</para>
+</listitem><listitem><para>explicitly set configuration string</para>
+</listitem><listitem><para>configuration file in the working directory</para>
+</listitem><listitem><para>configuration file in the executable directory</para>
+</listitem><listitem><para>internal default configuration</para>
+</listitem></itemizedlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="58" column="16" bodyfile="/mnt/e/FLINT/Source/moja.core/src/logging.cpp" bodystart="24" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="classmoja_1_1Logging" kindref="compound">Logging</ref> services for the Moja framework. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/logging.h" bodystart="12" bodyend="59"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1Logging_1ab8b9601a9fd1cb4be826e9c0d70be7f6" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_defaultFileName</name></member>
+      <member refid="classmoja_1_1Logging_1a23f4394fc6f7426079c11324168cd735" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_explicitConfigurationFile</name></member>
+      <member refid="classmoja_1_1Logging_1ae72a2ea4673c9e867bc099d581ed9c6f" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_explicitConfigurationFileSet</name></member>
+      <member refid="classmoja_1_1Logging_1abb7dac665f0a6085f1830a7584ae773a" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_explicitConfigurationText</name></member>
+      <member refid="classmoja_1_1Logging_1a3e39b672f31340054ad5088258ed5539" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_explicitConfigurationTextSet</name></member>
+      <member refid="classmoja_1_1Logging_1abe6127b95d2b072f37b99c9bdf32b0ae" prot="private" virt="non-virtual"><scope>moja::Logging</scope><name>_loggingConfigurationFile</name></member>
+      <member refid="classmoja_1_1Logging_1a173179c2f809dd6e1da57adf4f05fe0c" prot="public" virt="non-virtual"><scope>moja::Logging</scope><name>configurationFilename</name></member>
+      <member refid="classmoja_1_1Logging_1a02fd73d861ef2e4aabb38c0c9ff82947" prot="public" virt="non-virtual"><scope>moja::Logging</scope><name>init</name></member>
+      <member refid="classmoja_1_1Logging_1a15084981472f34edfdbc3a70297c1498" prot="public" virt="non-virtual"><scope>moja::Logging</scope><name>setConfigurationFile</name></member>
+      <member refid="classmoja_1_1Logging_1a654901f05306cce54f3c6f49e9774e3f" prot="public" virt="non-virtual"><scope>moja::Logging</scope><name>setConfigurationText</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

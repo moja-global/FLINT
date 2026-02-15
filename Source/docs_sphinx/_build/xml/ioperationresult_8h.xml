@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="ioperationresult_8h" kind="file" language="C++">
+    <compoundname>ioperationresult.h</compoundname>
+    <includes refid="operationresultfluxcollection_8h" local="yes">moja/flint/operationresultfluxcollection.h</includes>
+    <includes refid="dynamic_8h" local="no">moja/dynamic.h</includes>
+    <includedby refid="aggregatorlandunit_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/aggregatorlandunit.cpp</includedby>
+    <includedby refid="operationmanagerublas_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp</includedby>
+    <includedby refid="outputerstreamflux_8cpp" local="yes">/mnt/e/FLINT/Source/moja.flint/src/outputerstreamflux.cpp</includedby>
+    <includedby refid="flux_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h</includedby>
+    <includedby refid="operationresultfluxiteratorsimple_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorsimple.h</includedby>
+    <includedby refid="operationresultfluxiteratorsimplecache_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorsimplecache.h</includedby>
+    <includedby refid="operationresultsimple_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</includedby>
+    <includedby refid="operationresultsimplecache_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</includedby>
+    <includedby refid="operationresultublas_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</includedby>
+    <includedby refid="testmodule_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/testmodule.h</includedby>
+    <includedby refid="writevariablegrid_8h" local="yes">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h</includedby>
+    <incdepgraph>
+      <node id="8">
+        <label>Poco/Dynamic/Var.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/operationresultfluxcollection.h</label>
+        <link refid="operationresultfluxcollection_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>moja/flint/ioperationresultfluxiterator.h</label>
+        <link refid="ioperationresultfluxiterator_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresult.h</label>
+        <link refid="ioperationresult_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>moja/dynamic.h</label>
+        <link refid="dynamic_8h_source"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Poco/Dynamic/Struct.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writevariablegrid.h</label>
+        <link refid="writevariablegrid_8h_source"/>
+      </node>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorsimplecache.h</label>
+        <link refid="operationresultfluxiteratorsimplecache_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorsimple.h</label>
+        <link refid="operationresultfluxiteratorsimple_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/testmodule.h</label>
+        <link refid="testmodule_8h_source"/>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresult.h</label>
+        <link refid="ioperationresult_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</label>
+        <link refid="operationresultsimple_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/flux.h</label>
+        <link refid="flux_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</label>
+        <link refid="operationresultsimplecache_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1flint_1_1IOperationResult" prot="public">moja::flint::IOperationResult</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_IOPERATIONRESULT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_IOPERATIONRESULT_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/flint/operationresultfluxcollection.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;moja/dynamic.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Timing;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">ModuleMetaData;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>OperationTransferType;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">IOperationResult<sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~IOperationResult()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>IOperationResult<sp/>doesn&apos;t<sp/>guarantee<sp/>that<sp/>transfers<sp/>from<sp/>the<sp/>same<sp/>source<sp/>and<sp/>to<sp/>the<sp/>same<sp/>sink<sp/>will<sp/>be<sp/>combined.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>means<sp/>that<sp/>checking<sp/>the<sp/>count<sp/>won&apos;t<sp/>be<sp/>consistent<sp/>across<sp/>tests<sp/>that<sp/>have<sp/>multiple<sp/>transfers<sp/>added<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>same<sp/>source/sink<sp/>combinations.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>OperationResultFluxCollection<sp/>operationResultFluxCollection()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>OperationTransferType<sp/>transferType()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>ModuleMetaData*<sp/>metaData()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>DynamicVar&amp;<sp/>dataPackage()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>hasDataPackage()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Timing&amp;<sp/>timingWhenApplied()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setTimingWhenApplied(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Timing&amp;<sp/>time)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_IOPERATIONRESULT_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/ioperationresult.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LibraryInfoPython" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LibraryInfoPython</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">LibraryInfoBase</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoPython_1afe9c3a5c5994686a199b99cdb8f3ebb5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string originalFilename</definition>
+        <argsstring></argsstring>
+        <name>originalFilename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="23" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoPython_1ae80f820219e45772366a2a68de6a54c4" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string filename</definition>
+        <argsstring></argsstring>
+        <name>filename</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>File name of this module (.py file name) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="26" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LibraryInfoPython_1a3d2062575025635faad87a2a9ac62b86" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; boost::python::object &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;boost::python::object&gt; &gt; moduleHandles</definition>
+        <argsstring></argsstring>
+        <name>moduleHandles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="28" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoPython_1a7c66e57184b57030532e8310932d7945" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LibraryInfoPython</definition>
+        <argsstring>()</argsstring>
+        <name>LibraryInfoPython</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="18" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="18" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoPython_1aabcef6b5aa0a5e2f3b621d1f4d255bf8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~LibraryInfoPython</definition>
+        <argsstring>()</argsstring>
+        <name>~LibraryInfoPython</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="19" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LibraryInfoPython_1a3ac86c3b10d96c98cdee999a4ea9982f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>LibraryType</type>
+        <definition>LibraryType GetLibraryType</definition>
+        <argsstring>() const override</argsstring>
+        <name>GetLibraryType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="21" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" line="16" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfopython.h" bodystart="16" bodyend="29"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1ae80f820219e45772366a2a68de6a54c4" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>filename</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac39323841ca914ab6bc19a9dfd35f907" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>flintDataCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2effb172499119479a583cd013e89f8a" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>flintDataFactoryCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a3ea95c456beed9eb836a81569b3055dc" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>flintDataFactoryList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ab615b90e52f97f03c12895e49db79031" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>flintDataList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1a3ac86c3b10d96c98cdee999a4ea9982f" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>GetLibraryType</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ae24f6ed79f5cecf03c84361d1db5b299" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>libraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a826eb2568d0277ab503a72e1cd077c10" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>LibraryInfoBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1a7c66e57184b57030532e8310932d7945" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>LibraryInfoPython</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a927fa4f3537d6486e584fcc56ba55369" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>loadOrder</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1ac02f47420c6f1d58cdff46fd49c1db82" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>moduleCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1a3d2062575025635faad87a2a9ac62b86" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>moduleHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a2f2a7d1ce02fbf7c8c355bae2d2109d2" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>moduleList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1afe9c3a5c5994686a199b99cdb8f3ebb5" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>originalFilename</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a4931b7d4755e2af660a143f2ab165f9e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>providerCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a6c8d17e35c589a7909bccc02965a3f30" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>providerList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1acfcf67fcfccd4e11d7b612fc14d2e67e" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>transformCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a0499ead448d75dfb140f560b414c3439" prot="public" virt="non-virtual"><scope>moja::flint::LibraryInfoPython</scope><name>transformList</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoBase_1a62fe9d6d40a368333e3147f61679a8f8" prot="public" virt="virtual"><scope>moja::flint::LibraryInfoPython</scope><name>~LibraryInfoBase</name></member>
+      <member refid="classmoja_1_1flint_1_1LibraryInfoPython_1aabcef6b5aa0a5e2f3b621d1f4d255bf8" prot="public" virt="virtual"><scope>moja::flint::LibraryInfoPython</scope><name>~LibraryInfoPython</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

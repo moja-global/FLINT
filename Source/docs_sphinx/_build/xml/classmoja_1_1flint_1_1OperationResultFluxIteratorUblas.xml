@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationResultFluxIteratorUblas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IOperationResultFluxIterator</basecompoundref>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1ab6b53fd1e7c8dc692f87eb896db74dcc" prot="protected" static="no" mutable="no">
+        <type>OperationTransferType</type>
+        <definition>OperationTransferType _transferType</definition>
+        <argsstring></argsstring>
+        <name>_transferType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="96" column="26" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1afda3aa6f2570637550f0ab8cc0aa9ea2" prot="protected" static="no" mutable="no">
+        <type>const ModuleMetaData *</type>
+        <definition>const ModuleMetaData* _metaData</definition>
+        <argsstring></argsstring>
+        <name>_metaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="97" column="25" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1abed465517ab7c4d5aef7b3160e72ae23" prot="protected" static="no" mutable="no">
+        <type>moja_ublas_matrix::const_iterator1</type>
+        <definition>moja_ublas_matrix::const_iterator1 _outerIt</definition>
+        <argsstring></argsstring>
+        <name>_outerIt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="99" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1afb96a7396d4a464e316210cda2f3be8a" prot="protected" static="no" mutable="no">
+        <type>moja_ublas_matrix::const_iterator2</type>
+        <definition>moja_ublas_matrix::const_iterator2 _innerIt</definition>
+        <argsstring></argsstring>
+        <name>_innerIt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="100" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9817fd47a186bfb3bcc39339b511aace" prot="protected" static="no" mutable="no">
+        <type>moja_ublas_matrix &amp;</type>
+        <definition>moja_ublas_matrix&amp; _flux</definition>
+        <argsstring></argsstring>
+        <name>_flux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="101" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a42e7ac021e6dd78d834f1521466a8e8e" prot="protected" static="no" mutable="no">
+        <type>std::shared_ptr&lt; OperationResultFluxUblas &gt;</type>
+        <definition>std::shared_ptr&lt;OperationResultFluxUblas&gt; _result</definition>
+        <argsstring></argsstring>
+        <name>_result</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="102" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1aee1e5be20acff3a1ba6e9131c1295c59" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultFluxIteratorUblas</definition>
+        <argsstring>(OperationTransferType transferType, const ModuleMetaData *metaData, moja_ublas_matrix &amp;flux, bool atEnd=false)</argsstring>
+        <name>OperationResultFluxIteratorUblas</name>
+        <param>
+          <type>OperationTransferType</type>
+          <declname>transferType</declname>
+        </param>
+        <param>
+          <type>const ModuleMetaData *</type>
+          <declname>metaData</declname>
+        </param>
+        <param>
+          <type>moja_ublas_matrix &amp;</type>
+          <declname>flux</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>atEnd</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="14" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="14" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a37cf5467de3f9e7720c412cd30e27eb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~OperationResultFluxIteratorUblas</definition>
+        <argsstring>()</argsstring>
+        <name>~OperationResultFluxIteratorUblas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="49" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9fe2a4d1b3201a32cde98b31fb546970" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::shared_ptr&lt; IOperationResultFluxIterator &gt;</type>
+        <definition>virtual std::shared_ptr&lt;IOperationResultFluxIterator&gt; createIterator</definition>
+        <argsstring>(bool atEnd=false) override</argsstring>
+        <name>createIterator</name>
+        <param>
+          <type>bool</type>
+          <declname>atEnd</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="51" column="28" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1aef16aae45be342293359ce9fdc0f9007" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>IOperationResultFlux *</type>
+        <definition>virtual IOperationResultFlux* dereference</definition>
+        <argsstring>() const override</argsstring>
+        <name>dereference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="55" column="33" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="55" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9ebcec42a86c3e8febd908954d780788" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void increment</definition>
+        <argsstring>() override</argsstring>
+        <name>increment</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="66" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="66" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a26129647e71a6e79324c3778c7db2a10" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void decrement</definition>
+        <argsstring>() override</argsstring>
+        <name>decrement</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="76" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="76" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1ada525b12e30fdc68cc7856e7e0025164" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isEqual</definition>
+        <argsstring>(IOperationResultFluxIterator &amp;it) const override</argsstring>
+        <name>isEqual</name>
+        <param>
+          <type>IOperationResultFluxIterator &amp;</type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="80" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="80" bodyend="93"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxiteratorublas.h" bodystart="12" bodyend="103"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9817fd47a186bfb3bcc39339b511aace" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_flux</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1afb96a7396d4a464e316210cda2f3be8a" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_innerIt</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1afda3aa6f2570637550f0ab8cc0aa9ea2" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_metaData</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1abed465517ab7c4d5aef7b3160e72ae23" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_outerIt</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a42e7ac021e6dd78d834f1521466a8e8e" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_result</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1ab6b53fd1e7c8dc692f87eb896db74dcc" prot="protected" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>_transferType</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9fe2a4d1b3201a32cde98b31fb546970" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>createIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a26129647e71a6e79324c3778c7db2a10" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>decrement</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1aef16aae45be342293359ce9fdc0f9007" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>dereference</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a9ebcec42a86c3e8febd908954d780788" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>increment</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1aa3fb2cea50541c11b6e8a0a733ca6ad4" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>IOperationResultFluxIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1ada525b12e30fdc68cc7856e7e0025164" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>isEqual</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1aee1e5be20acff3a1ba6e9131c1295c59" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>OperationResultFluxIteratorUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationResultFluxIterator_1a9788f11887e53af7bd50b8a2fc94a2cc" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>~IOperationResultFluxIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxIteratorUblas_1a37cf5467de3f9e7720c412cd30e27eb1" prot="public" virt="virtual"><scope>moja::flint::OperationResultFluxIteratorUblas</scope><name>~OperationResultFluxIteratorUblas</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

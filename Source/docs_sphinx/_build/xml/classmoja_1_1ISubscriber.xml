@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1ISubscriber" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::ISubscriber</compoundname>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1ISubscriber_1a86586b5abe2be9607f3e960f007e0329" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void ReceiveMessage</definition>
+        <argsstring>(const std::shared_ptr&lt; IMessage &gt; &amp;message)=0</argsstring>
+        <name>ReceiveMessage</name>
+        <param>
+          <type>const std::shared_ptr&lt; IMessage &gt; &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="128" column="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" line="126" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/publisher.h" bodystart="126" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1ISubscriber_1a86586b5abe2be9607f3e960f007e0329" prot="public" virt="pure-virtual"><scope>moja::ISubscriber</scope><name>ReceiveMessage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

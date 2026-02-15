@@ -1,0 +1,194 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1list__of__tuples" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::list_of_tuples</compoundname>
+    <innerclass refid="classmoja_1_1flint_1_1list__of__tuples_1_1tuples__iterator" prot="public">moja::flint::list_of_tuples::tuples_iterator</innerclass>
+    <templateparamlist>
+      <param>
+        <type>class TTuple</type>
+      </param>
+      <param>
+        <type>class TRecordConv</type>
+      </param>
+      <param>
+        <type>class TKey</type>
+      </param>
+      <param>
+        <type>class TValue</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__tuples_1ae89943b870e913c74316833fc8bb283f" prot="private" static="no">
+        <type>tlx::btree_map&lt; TKey, TValue &gt;</type>
+        <definition>using map_type =  tlx::btree_map&lt;TKey, TValue&gt;</definition>
+        <argsstring></argsstring>
+        <name>map_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="449" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="449" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__tuples_1aaf5f5c716b644592212d709d0401b906" prot="public" static="no">
+        <type>tuples_iterator&lt; true &gt;</type>
+        <definition>using const_iterator =  tuples_iterator&lt;true&gt;</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="507" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="507" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1list__of__tuples_1a0a585d283f1febaace7f267737e09d60" prot="public" static="no">
+        <type>tuples_iterator&lt; false &gt;</type>
+        <definition>using iterator =  tuples_iterator&lt;false&gt;</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="508" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="508" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1list__of__tuples_1a11ef982ce3663037926e573cd818818b" prot="private" static="no" mutable="no">
+        <type>const map_type &amp;</type>
+        <definition>const map_type&amp; accumulator_map_</definition>
+        <argsstring></argsstring>
+        <name>accumulator_map_</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="450" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="450" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1afa437e30c864a8448bb6462a0a95d745" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>list_of_tuples</definition>
+        <argsstring>(const map_type &amp;map)</argsstring>
+        <name>list_of_tuples</name>
+        <param>
+          <type>const map_type &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="510" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="510" bodyend="510"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1ad69bd11391be1a1dba5c8202259664f8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="513" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="513" bodyend="513"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1acad38d52497a975bfb6f2f6acd76631f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="514" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="514" bodyend="514"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1a29305669b60ca1680752e2fc3592ba99" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="515" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="515" bodyend="515"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="516" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="516" bodyend="516"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1a75f2d3bcbfedcc4760849ff16374de1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const auto &amp;</type>
+        <definition>const auto&amp; front</definition>
+        <argsstring>() const</argsstring>
+        <name>front</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="519" column="15" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="519" bodyend="519"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1list__of__tuples_1a259cb5a711406a8c3e5d937eb9350cca" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="520" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="520" bodyend="520"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" line="448" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/recordaccumulator.h" bodystart="448" bodyend="521"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1a11ef982ce3663037926e573cd818818b" prot="private" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>accumulator_map_</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1ad69bd11391be1a1dba5c8202259664f8" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1a29305669b60ca1680752e2fc3592ba99" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1aaf5f5c716b644592212d709d0401b906" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1acad38d52497a975bfb6f2f6acd76631f" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1accf9a4bd0c34d4a5f6a7dab66ea10cdc" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1a75f2d3bcbfedcc4760849ff16374de1d" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>front</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1a0a585d283f1febaace7f267737e09d60" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1afa437e30c864a8448bb6462a0a95d745" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>list_of_tuples</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1ae89943b870e913c74316833fc8bb283f" prot="private" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>map_type</name></member>
+      <member refid="classmoja_1_1flint_1_1list__of__tuples_1a259cb5a711406a8c3e5d937eb9350cca" prot="public" virt="non-virtual"><scope>moja::flint::list_of_tuples</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,349 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacemoja_1_1signals" kind="namespace" language="C++">
+    <compoundname>moja::signals</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="signals_8h_1a3510949115d112ef8b1c4d538323dfb5" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short SystemInit</definition>
+        <argsstring></argsstring>
+        <name>SystemInit</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="7" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a83014bf12f5b9ce2a87894100d580b05" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short SystemShutdown</definition>
+        <argsstring></argsstring>
+        <name>SystemShutdown</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="8" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a5357b61ee44a8dc6121138f02a2cf34a" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short LocalDomainInit</definition>
+        <argsstring></argsstring>
+        <name>LocalDomainInit</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="9" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1ac652cbfc112ca22b5b77b4d4d4595c5e" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short LocalDomainShutdown</definition>
+        <argsstring></argsstring>
+        <name>LocalDomainShutdown</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="10" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a7e066d88f0c1cc0cf67c351902e7199f" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short LocalDomainProcessingUnitInit</definition>
+        <argsstring></argsstring>
+        <name>LocalDomainProcessingUnitInit</name>
+        <initializer>= 4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="11" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a612d3e41039ce353912a829cb12632b0" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short LocalDomainProcessingUnitShutdown</definition>
+        <argsstring></argsstring>
+        <name>LocalDomainProcessingUnitShutdown</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="12" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a1f198a849c3489f108c183472d4ddfcb" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short PreTimingSequence</definition>
+        <argsstring></argsstring>
+        <name>PreTimingSequence</name>
+        <initializer>= 6</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="13" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1ae3b1dcba84df17cf7ba81f675cf5083d" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingInit</definition>
+        <argsstring></argsstring>
+        <name>TimingInit</name>
+        <initializer>= 7</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="14" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a0a4067bfc8eb05f56548f24464799902" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingPrePostInit</definition>
+        <argsstring></argsstring>
+        <name>TimingPrePostInit</name>
+        <initializer>= 8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="15" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a31e3bd5adc8d0e0bf173862b70a1c943" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingPostInit</definition>
+        <argsstring></argsstring>
+        <name>TimingPostInit</name>
+        <initializer>= 9</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="16" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a2de8723f6882c1381d9df10fa581fe28" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingPostInit2</definition>
+        <argsstring></argsstring>
+        <name>TimingPostInit2</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="17" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a7c3795b3ac92d8860c27fa222542ef7a" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingShutdown</definition>
+        <argsstring></argsstring>
+        <name>TimingShutdown</name>
+        <initializer>= 11</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="18" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1afaa12d78c5a35f9c6621f8f616c6f33e" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingStep</definition>
+        <argsstring></argsstring>
+        <name>TimingStep</name>
+        <initializer>= 12</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="19" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a2ab1fbaad4b701f2fba9c36d5aab70e2" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingPreEndStep</definition>
+        <argsstring></argsstring>
+        <name>TimingPreEndStep</name>
+        <initializer>= 13</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="20" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1ae2b79fdf219db303e018a47789270e39" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingEndStep</definition>
+        <argsstring></argsstring>
+        <name>TimingEndStep</name>
+        <initializer>= 14</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="21" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a00e1971bf2f372e1261e2f3de0eb339b" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short TimingPostStep</definition>
+        <argsstring></argsstring>
+        <name>TimingPostStep</name>
+        <initializer>= 15</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="22" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a34fe07d330beeeb83a62b827a9a0ae03" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short OutputStep</definition>
+        <argsstring></argsstring>
+        <name>OutputStep</name>
+        <initializer>= 16</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="23" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a7b602428dd7475d643088424d26b2477" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short Error</definition>
+        <argsstring></argsstring>
+        <name>Error</name>
+        <initializer>= 17</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="24" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a3bed4508e68a5fc457d3d16743ff54dd" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short DisturbanceEvent</definition>
+        <argsstring></argsstring>
+        <name>DisturbanceEvent</name>
+        <initializer>= 18</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="25" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a63e96f14b39d3e49996ed540e398ee15" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short PrePostDisturbanceEvent</definition>
+        <argsstring></argsstring>
+        <name>PrePostDisturbanceEvent</name>
+        <initializer>= 19</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="26" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a44a2f569b30a95f4077e663dde303672" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short PostDisturbanceEvent</definition>
+        <argsstring></argsstring>
+        <name>PostDisturbanceEvent</name>
+        <initializer>= 20</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="27" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a0355aa0aea50c4945a4692a8eb3a5eaa" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short PostDisturbanceEvent2</definition>
+        <argsstring></argsstring>
+        <name>PostDisturbanceEvent2</name>
+        <initializer>= 21</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="28" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a35c391b8f6cba31b72ca14679ff3624e" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short PostNotification</definition>
+        <argsstring></argsstring>
+        <name>PostNotification</name>
+        <initializer>= 22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="29" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="signals_8h_1a292e0d101b32450e52da1e63a7f0c885" prot="public" static="no" mutable="no">
+        <type>const short</type>
+        <definition>const short Unknown</definition>
+        <argsstring></argsstring>
+        <name>Unknown</name>
+        <initializer>= 23</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="30" column="13" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/signals.h" line="5" column="1"/>
+  </compounddef>
+</doxygen>

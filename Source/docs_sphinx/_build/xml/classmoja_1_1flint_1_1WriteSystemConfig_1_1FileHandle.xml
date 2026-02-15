@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::WriteSystemConfig::FileHandle</compoundname>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a5197b2ac8f8c570b0f4f1d78228631c4" prot="private" static="no">
+        <type>FILE *</type>
+        <definition>typedef FILE* ptr</definition>
+        <argsstring></argsstring>
+        <name>ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="63" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a07604f55083f5ce32fa864124251b9f0" prot="private" static="no" mutable="no">
+        <type>ptr</type>
+        <definition>ptr _wrapped_file</definition>
+        <argsstring></argsstring>
+        <name>_wrapped_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="74" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a8ec7177b8b3b30145293981b733fd0d3" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FileHandle</definition>
+        <argsstring>(std::string const &amp;name, std::string const &amp;mode=std::string(&quot;r&quot;))</argsstring>
+        <name>FileHandle</name>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::string const &amp;</type>
+          <declname>mode</declname>
+          <defval>std::string(&quot;r&quot;)</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="66" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="66" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a0bbe61c115ae4e6b6728d44864cf6521" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>~FileHandle</definition>
+        <argsstring>()</argsstring>
+        <name>~FileHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="68" column="7" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="68" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1ae9132d2f5718cab5e2e2a46b1a9c127b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>operator ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>operator ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="71" column="7" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="71" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" line="62" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/writesystemconfig.h" bodystart="62" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a07604f55083f5ce32fa864124251b9f0" prot="private" virt="non-virtual"><scope>moja::flint::WriteSystemConfig::FileHandle</scope><name>_wrapped_file</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a8ec7177b8b3b30145293981b733fd0d3" prot="public" virt="non-virtual"><scope>moja::flint::WriteSystemConfig::FileHandle</scope><name>FileHandle</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1ae9132d2f5718cab5e2e2a46b1a9c127b" prot="public" virt="non-virtual"><scope>moja::flint::WriteSystemConfig::FileHandle</scope><name>operator ptr</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a5197b2ac8f8c570b0f4f1d78228631c4" prot="private" virt="non-virtual"><scope>moja::flint::WriteSystemConfig::FileHandle</scope><name>ptr</name></member>
+      <member refid="classmoja_1_1flint_1_1WriteSystemConfig_1_1FileHandle_1a0bbe61c115ae4e6b6728d44864cf6521" prot="public" virt="non-virtual"><scope>moja::flint::WriteSystemConfig::FileHandle</scope><name>~FileHandle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

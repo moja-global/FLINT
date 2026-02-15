@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationResultFluxCollection" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationResultFluxCollection</compoundname>
+    <innerclass refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1_1__iterator" prot="public">moja::flint::OperationResultFluxCollection::_iterator</innerclass>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1aac99d116be57c5c88d6c3ace49847582" prot="public" static="no">
+        <type>_iterator&lt; false &gt;</type>
+        <definition>typedef _iterator&lt;false&gt; iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="41" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1a8a84e6ec47ded2d10f6bb6f959dea2c5" prot="public" static="no">
+        <type>_iterator&lt; true &gt;</type>
+        <definition>typedef _iterator&lt;true&gt; const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="42" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1a49c1164f7bfa872fb6d6858afdc4b6b8" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; IOperationResultFluxIterator &gt;</type>
+        <definition>std::shared_ptr&lt;IOperationResultFluxIterator&gt; _collectionBaseIterator</definition>
+        <argsstring></argsstring>
+        <name>_collectionBaseIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="52" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1a4e73e973c55b38177a983c52508f50fa" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>OperationResultFluxCollection</definition>
+        <argsstring>(std::shared_ptr&lt; IOperationResultFluxIterator &gt; it)</argsstring>
+        <name>OperationResultFluxCollection</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperationResultFluxIterator &gt;</type>
+          <declname>it</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="44" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="44" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1adb022597f9737c66e04727fd1bb95c47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>OperationResultFluxCollection::iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="47" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1aae26003aca3d892a29bd6e91b1ffcfeb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>iterator</type>
+        <definition>OperationResultFluxCollection::iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="48" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1a2d2d69828dffa5c2edee83110802fc9b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>OperationResultFluxCollection::const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="49" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationResultFluxCollection_1a6b869955984c7cdf0f831c70099e4316" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const_iterator</type>
+        <definition>OperationResultFluxCollection::const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="50" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="69" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultfluxcollection.h" bodystart="14" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1a49c1164f7bfa872fb6d6858afdc4b6b8" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>_collectionBaseIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1adb022597f9737c66e04727fd1bb95c47" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1a2d2d69828dffa5c2edee83110802fc9b" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1a8a84e6ec47ded2d10f6bb6f959dea2c5" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1aae26003aca3d892a29bd6e91b1ffcfeb" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1a6b869955984c7cdf0f831c70099e4316" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1aac99d116be57c5c88d6c3ace49847582" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationResultFluxCollection_1a4e73e973c55b38177a983c52508f50fa" prot="public" virt="non-virtual"><scope>moja::flint::OperationResultFluxCollection</scope><name>OperationResultFluxCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

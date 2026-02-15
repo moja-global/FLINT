@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="floatcmp_8h" kind="file" language="C++">
+    <compoundname>floatcmp.h</compoundname>
+    <includes local="yes">moja/_core_exports.h</includes>
+    <includes local="no">limits</includes>
+    <includedby refid="timing_8h" local="no">/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</includedby>
+    <includedby refid="floatcmp_8cpp" local="yes">/mnt/e/FLINT/Source/moja.core/src/floatcmp.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h</label>
+        <link refid="floatcmp_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/aspatiallocaldomaincontroller.h</label>
+        <link refid="aspatiallocaldomaincontroller_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spinuplandunitcontroller.h</label>
+        <link refid="spinuplandunitcontroller_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/threadedaspatiallocaldomaincontroller.h</label>
+        <link refid="threadedaspatiallocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="2">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/timing.h</label>
+        <link refid="timing_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitcontroller.h</label>
+        <link refid="landunitcontroller_8h_source"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h</label>
+        <link refid="floatcmp_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimple.h</label>
+        <link refid="operationresultsimple_8h_source"/>
+      </node>
+      <node id="4">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/localdomaincontrollerbase.h</label>
+        <link refid="localdomaincontrollerbase_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultublas.h</label>
+        <link refid="operationresultublas_8h_source"/>
+      </node>
+      <node id="7">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/spatialtiledlocaldomaincontroller.h</label>
+        <link refid="spatialtiledlocaldomaincontroller_8h_source"/>
+      </node>
+      <node id="9">
+        <label>/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationresultsimplecache.h</label>
+        <link refid="operationresultsimplecache_8h_source"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize" prot="public">moja::floatcompare::TypeWithSize</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_014_01_4" prot="public">moja::floatcompare::TypeWithSize&lt; 4 &gt;</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1TypeWithSize_3_018_01_4" prot="public">moja::floatcompare::TypeWithSize&lt; 8 &gt;</innerclass>
+    <innerclass refid="classmoja_1_1floatcompare_1_1FloatingPoint" prot="public">moja::floatcompare::FloatingPoint</innerclass>
+    <innerclass refid="unionmoja_1_1floatcompare_1_1FloatingPoint_1_1FloatingPointUnion" prot="private">moja::floatcompare::FloatingPoint::FloatingPointUnion</innerclass>
+    <innerclass refid="classmoja_1_1FloatCmp" prot="public">moja::FloatCmp</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1floatcompare">moja::floatcompare</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_CORE_FLOATCMP_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_CORE_FLOATCMP_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;moja/_core_exports.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;limits&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">floatcompare<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>size&gt;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TypeWithSize<sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>prevents<sp/>the<sp/>user<sp/>from<sp/>using<sp/>TypeWithSize&lt;N&gt;<sp/>with<sp/>incorrect</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>values<sp/>of<sp/>N.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>UInt;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TypeWithSize&lt;4&gt;<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>moja::Int32<sp/>Int;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>moja::UInt32<sp/>UInt;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;&gt;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">TypeWithSize&lt;8&gt;<sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>moja::Int64<sp/>Int;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>moja::UInt64<sp/>UInt;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#undef<sp/>max</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>taken<sp/>from<sp/>https://github.com/google/googletest</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>template<sp/>class<sp/>represents<sp/>an<sp/>IEEE<sp/>floating-point<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>(either<sp/>single-precision<sp/>or<sp/>double-precision,<sp/>depending<sp/>on<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/>template<sp/>parameters).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment">//<sp/>The<sp/>purpose<sp/>of<sp/>this<sp/>class<sp/>is<sp/>to<sp/>do<sp/>more<sp/>sophisticated<sp/>number</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment">//<sp/>comparison.<sp/><sp/>(Due<sp/>to<sp/>round-off<sp/>error,<sp/>etc,<sp/>it&apos;s<sp/>very<sp/>unlikely<sp/>that</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment">//<sp/>two<sp/>floating-points<sp/>will<sp/>be<sp/>equal<sp/>exactly.<sp/><sp/>Hence<sp/>a<sp/>naive</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>comparison<sp/>by<sp/>the<sp/>==<sp/>operation<sp/>often<sp/>doesn&apos;t<sp/>work.)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Format<sp/>of<sp/>IEEE<sp/>floating-point:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>The<sp/>most-significant<sp/>bit<sp/>being<sp/>the<sp/>leftmost,<sp/>an<sp/>IEEE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>floating-point<sp/>looks<sp/>like</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>sign_bit<sp/>exponent_bits<sp/>fraction_bits</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>Here,<sp/>sign_bit<sp/>is<sp/>a<sp/>single<sp/>bit<sp/>that<sp/>designates<sp/>the<sp/>sign<sp/>of<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>For<sp/>float,<sp/>there<sp/>are<sp/>8<sp/>exponent<sp/>bits<sp/>and<sp/>23<sp/>fraction<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>For<sp/>double,<sp/>there<sp/>are<sp/>11<sp/>exponent<sp/>bits<sp/>and<sp/>52<sp/>fraction<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>More<sp/>details<sp/>can<sp/>be<sp/>found<sp/>at</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>http://en.wikipedia.org/wiki/IEEE_floating-point_standard.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Template<sp/>parameter:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>RawType:<sp/>the<sp/>raw<sp/>floating-point<sp/>type<sp/>(either<sp/>float<sp/>or<sp/>double)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>RawType&gt;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">FloatingPoint<sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Defines<sp/>the<sp/>unsigned<sp/>integer<sp/>type<sp/>that<sp/>has<sp/>the<sp/>same<sp/>size<sp/>as<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>floating<sp/>point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>TypeWithSize&lt;</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(RawType)&gt;::UInt<sp/>Bits;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constants.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>bits<sp/>in<sp/>a<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>kBitCount<sp/>=<sp/>8<sp/>*<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(RawType);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>fraction<sp/>bits<sp/>in<sp/>a<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>kFractionBitCount<sp/>=<sp/>std::numeric_limits&lt;RawType&gt;::digits<sp/>-<sp/>1;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>#<sp/>of<sp/>exponent<sp/>bits<sp/>in<sp/>a<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>kExponentBitCount<sp/>=<sp/>kBitCount<sp/>-<sp/>1<sp/>-<sp/>kFractionBitCount;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>mask<sp/>for<sp/>the<sp/>sign<sp/>bit.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>kSignBitMask<sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">Bits</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(1)<sp/>&lt;&lt;<sp/>(kBitCount<sp/>-<sp/>1);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>mask<sp/>for<sp/>the<sp/>fraction<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>kFractionBitMask<sp/>=<sp/>~static_cast&lt;Bits&gt;(0)<sp/>&gt;&gt;<sp/>(kExponentBitCount<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>mask<sp/>for<sp/>the<sp/>exponent<sp/>bits.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>kExponentBitMask<sp/>=<sp/>~(kSignBitMask<sp/>|<sp/>kFractionBitMask);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>How<sp/>many<sp/>ULP&apos;s<sp/>(Units<sp/>in<sp/>the<sp/>Last<sp/>Place)<sp/>we<sp/>want<sp/>to<sp/>tolerate<sp/>when</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>comparing<sp/>two<sp/>numbers.<sp/><sp/>The<sp/>larger<sp/>the<sp/>value,<sp/>the<sp/>more<sp/>error<sp/>we</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>allow.<sp/><sp/>A<sp/>0<sp/>value<sp/>means<sp/>that<sp/>two<sp/>numbers<sp/>must<sp/>be<sp/>exactly<sp/>the<sp/>same</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>be<sp/>considered<sp/>equal.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>maximum<sp/>error<sp/>of<sp/>a<sp/>single<sp/>floating-point<sp/>operation<sp/>is<sp/>0.5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>units<sp/>in<sp/>the<sp/>last<sp/>place.<sp/><sp/>On<sp/>Intel<sp/>CPU&apos;s,<sp/>all<sp/>floating-point</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>calculations<sp/>are<sp/>done<sp/>with<sp/>80-bit<sp/>precision,<sp/>while<sp/>double<sp/>has<sp/>64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bits.<sp/><sp/>Therefore,<sp/>4<sp/>should<sp/>be<sp/>enough<sp/>for<sp/>ordinary<sp/>use.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>See<sp/>the<sp/>following<sp/>article<sp/>for<sp/>more<sp/>details<sp/>on<sp/>ULP:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>http://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>kMaxUlps<sp/>=<sp/>4;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Constructs<sp/>a<sp/>FloatingPoint<sp/>from<sp/>a<sp/>raw<sp/>floating-point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>On<sp/>an<sp/>Intel<sp/>CPU,<sp/>passing<sp/>a<sp/>non-normalized<sp/>NAN<sp/>(Not<sp/>a<sp/>Number)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>around<sp/>may<sp/>change<sp/>its<sp/>bits,<sp/>although<sp/>the<sp/>new<sp/>value<sp/>is<sp/>guaranteed</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>to<sp/>be<sp/>also<sp/>a<sp/>NAN.<sp/><sp/>Therefore,<sp/>don&apos;t<sp/>expect<sp/>this<sp/>constructor<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>preserve<sp/>the<sp/>bits<sp/>in<sp/>x<sp/>when<sp/>x<sp/>is<sp/>a<sp/>NAN.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/>FloatingPoint(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>RawType&amp;<sp/>x)<sp/>{<sp/>u_.value_<sp/>=<sp/>x;<sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Static<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Reinterprets<sp/>a<sp/>bit<sp/>pattern<sp/>as<sp/>a<sp/>floating-point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>is<sp/>needed<sp/>to<sp/>test<sp/>the<sp/>AlmostEquals()<sp/>method.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>RawType<sp/>ReinterpretBits(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>bits)<sp/>{</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>FloatingPoint<sp/>fp(0);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>fp.u_.bits_<sp/>=<sp/>bits;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>fp.u_.value_;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>floating-point<sp/>number<sp/>that<sp/>represent<sp/>positive<sp/>infinity.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>RawType<sp/>Infinity()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ReinterpretBits(kExponentBitMask);<sp/>}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>maximum<sp/>representable<sp/>finite<sp/>floating-point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>RawType<sp/>Max()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::numeric_limits&lt;RawType&gt;::max();<sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Non-static<sp/>methods</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>bits<sp/>that<sp/>represents<sp/>this<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits&amp;<sp/>bits()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>u_.bits_;<sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>exponent<sp/>bits<sp/>of<sp/>this<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/>Bits<sp/>exponent_bits()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kExponentBitMask<sp/>&amp;<sp/>u_.bits_;<sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>fraction<sp/>bits<sp/>of<sp/>this<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/>Bits<sp/>fraction_bits()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kFractionBitMask<sp/>&amp;<sp/>u_.bits_;<sp/>}</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>the<sp/>sign<sp/>bit<sp/>of<sp/>this<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/>Bits<sp/>sign_bit()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kSignBitMask<sp/>&amp;<sp/>u_.bits_;<sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>iff<sp/>this<sp/>is<sp/>NAN<sp/>(not<sp/>a<sp/>number).</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>is_nan()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>It&apos;s<sp/>a<sp/>NAN<sp/>if<sp/>the<sp/>exponent<sp/>bits<sp/>are<sp/>all<sp/>ones<sp/>and<sp/>the<sp/>fraction</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bits<sp/>are<sp/>not<sp/>entirely<sp/>zeros.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(exponent_bits()<sp/>==<sp/>kExponentBitMask)<sp/>&amp;&amp;<sp/>(fraction_bits()<sp/>!=<sp/>0);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Returns<sp/>true<sp/>iff<sp/>this<sp/>number<sp/>is<sp/>at<sp/>most<sp/>kMaxUlps<sp/>ULP&apos;s<sp/>away<sp/>from</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rhs.<sp/><sp/>In<sp/>particular,<sp/>this<sp/>function:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>-<sp/>returns<sp/>false<sp/>if<sp/>either<sp/>number<sp/>is<sp/>(or<sp/>both<sp/>are)<sp/>NAN.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>-<sp/>treats<sp/>really<sp/>large<sp/>numbers<sp/>as<sp/>almost<sp/>equal<sp/>to<sp/>infinity.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>-<sp/>thinks<sp/>+0.0<sp/>and<sp/>-0.0<sp/>are<sp/>0<sp/>DLP&apos;s<sp/>apart.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>AlmostEquals(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>FloatingPoint&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>IEEE<sp/>standard<sp/>says<sp/>that<sp/>any<sp/>comparison<sp/>operation<sp/>involving</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>a<sp/>NAN<sp/>must<sp/>return<sp/>false.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(is_nan()<sp/>||<sp/>rhs.is_nan())<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>DistanceBetweenSignAndMagnitudeNumbers(u_.bits_,<sp/>rhs.u_.bits_)<sp/>&lt;=<sp/>kMaxUlps;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>data<sp/>type<sp/>used<sp/>to<sp/>store<sp/>the<sp/>actual<sp/>floating-point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">union<sp/></highlight><highlight class="normal">FloatingPointUnion<sp/>{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>RawType<sp/>value_;<sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>raw<sp/>floating-point<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>Bits<sp/>bits_;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>The<sp/>bits<sp/>that<sp/>represent<sp/>the<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Converts<sp/>an<sp/>integer<sp/>from<sp/>the<sp/>sign-and-magnitude<sp/>representation<sp/>to</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>biased<sp/>representation.<sp/><sp/>More<sp/>precisely,<sp/>let<sp/>N<sp/>be<sp/>2<sp/>to<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>power<sp/>of<sp/>(kBitCount<sp/>-<sp/>1),<sp/>an<sp/>integer<sp/>x<sp/>is<sp/>represented<sp/>by<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>unsigned<sp/>number<sp/>x<sp/>+<sp/>N.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>instance,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>-N<sp/>+<sp/>1<sp/>(the<sp/>most<sp/>negative<sp/>number<sp/>representable<sp/>using</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sign-and-magnitude)<sp/>is<sp/>represented<sp/>by<sp/>1;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>0<sp/><sp/><sp/><sp/><sp/><sp/>is<sp/>represented<sp/>by<sp/>N;<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>N<sp/>-<sp/>1<sp/><sp/>(the<sp/>biggest<sp/>number<sp/>representable<sp/>using</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sign-and-magnitude)<sp/>is<sp/>represented<sp/>by<sp/>2N<sp/>-<sp/>1.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>http://en.wikipedia.org/wiki/Signed_number_representations</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>for<sp/>more<sp/>details<sp/>on<sp/>signed<sp/>number<sp/>representations.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Bits<sp/>SignAndMagnitudeToBiased(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits&amp;<sp/>sam)<sp/>{</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(kSignBitMask<sp/>&amp;<sp/>sam)<sp/>{</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sam<sp/>represents<sp/>a<sp/>negative<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>~sam<sp/>+<sp/>1;</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sam<sp/>represents<sp/>a<sp/>positive<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>kSignBitMask<sp/>|<sp/>sam;</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Given<sp/>two<sp/>numbers<sp/>in<sp/>the<sp/>sign-and-magnitude<sp/>representation,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>returns<sp/>the<sp/>distance<sp/>between<sp/>them<sp/>as<sp/>an<sp/>unsigned<sp/>number.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>Bits<sp/>DistanceBetweenSignAndMagnitudeNumbers(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits&amp;<sp/>sam1,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits&amp;<sp/>sam2)<sp/>{</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>biased1<sp/>=<sp/>SignAndMagnitudeToBiased(sam1);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Bits<sp/>biased2<sp/>=<sp/>SignAndMagnitudeToBiased(sam2);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>(biased1<sp/>&gt;=<sp/>biased2)<sp/>?<sp/>(biased1<sp/>-<sp/>biased2)<sp/>:<sp/>(biased2<sp/>-<sp/>biased1);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/>FloatingPointUnion<sp/>u_;</highlight></codeline>
+<codeline lineno="205"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="206"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>floatcompare</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">CORE_API<sp/>FloatCmp<sp/>{</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>equalTo(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right)<sp/>{</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>floatcompare::FloatingPoint&lt;double&gt;(left).AlmostEquals(floatcompare::FloatingPoint&lt;double&gt;(right));</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>greaterThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right);</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"></highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>greaterThanOrEqualTo(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right);</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThanOrEqualTo(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right);</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>greaterThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>orEqualTo);</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>lessThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>orEqualTo);</highlight></codeline>
+<codeline lineno="251"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::greaterThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>greaterThan(left,<sp/>right,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::greaterThanOrEqualTo(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>greaterThan(left,<sp/>right,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"></highlight></codeline>
+<codeline lineno="257"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::lessThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lessThan(left,<sp/>right,<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::lessThanOrEqualTo(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right)<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>lessThan(left,<sp/>right,<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::greaterThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>orEqualTo)<sp/>{</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>equalTo(left,<sp/>right)<sp/>?<sp/>orEqualTo<sp/>:<sp/>left<sp/>&gt;<sp/>right;</highlight></codeline>
+<codeline lineno="263"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"></highlight></codeline>
+<codeline lineno="265"><highlight class="normal"></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FloatCmp::lessThan(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>left,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>right,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>orEqualTo)<sp/>{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>equalTo(left,<sp/>right)<sp/>?<sp/>orEqualTo<sp/>:<sp/>left<sp/>&lt;<sp/>right;</highlight></codeline>
+<codeline lineno="267"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="268"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_CORE_FLOATCMP_H_</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/floatcmp.h"/>
+  </compounddef>
+</doxygen>

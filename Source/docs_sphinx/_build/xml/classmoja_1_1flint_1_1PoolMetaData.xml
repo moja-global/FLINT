@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1PoolMetaData" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::PoolMetaData</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolMetaData_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _name</definition>
+        <argsstring></argsstring>
+        <name>_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="32" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolMetaData_1a892021d67c538b679727ab7da0ce2c73" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _description</definition>
+        <argsstring></argsstring>
+        <name>_description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="33" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolMetaData_1acf52c87ad926003665fc4ea7f10410bf" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _units</definition>
+        <argsstring></argsstring>
+        <name>_units</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="34" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolMetaData_1a2e085cb6f3a447f5247d7adc798fec8c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double _scale</definition>
+        <argsstring></argsstring>
+        <name>_scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="35" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolMetaData_1a402a2ec1cb27e9bb052879b764dc21bc" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _order</definition>
+        <argsstring></argsstring>
+        <name>_order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="36" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a6d70541a322ac46dd89cb3239e77c846" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PoolMetaData</definition>
+        <argsstring>()</argsstring>
+        <name>PoolMetaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="13" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="13" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1ac2d855156598b403928d0333c33558e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PoolMetaData</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order)</argsstring>
+        <name>PoolMetaData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="15" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="15" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a21916569a31370167304893c28e0360f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~PoolMetaData</definition>
+        <argsstring>()=default</argsstring>
+        <name>~PoolMetaData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="19" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1adb723cc7ad18f36bd1dd7b84895f4aa9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; name</definition>
+        <argsstring>() const</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="21" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a7cead29664d7b768ff2dfd9425f32732" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; description</definition>
+        <argsstring>() const</argsstring>
+        <name>description</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="23" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a1a3b1e4760f70a017e7833d960f54cc8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const std::string &amp;</type>
+        <definition>virtual const std::string&amp; units</definition>
+        <argsstring>() const</argsstring>
+        <name>units</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="25" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a929638455853f976c19678d62a277fd0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double scale</definition>
+        <argsstring>() const</argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="27" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolMetaData_1a177cd31efbfb81626a24dea53fcabfe8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>virtual int order</definition>
+        <argsstring>() const</argsstring>
+        <name>order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="29" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" line="11" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolmetadata.h" bodystart="11" bodyend="37"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a892021d67c538b679727ab7da0ce2c73" prot="private" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>_description</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1aaf2ed934b37cbbd236fdd1b01a5f5005" prot="private" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>_name</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a402a2ec1cb27e9bb052879b764dc21bc" prot="private" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>_order</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a2e085cb6f3a447f5247d7adc798fec8c" prot="private" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>_scale</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1acf52c87ad926003665fc4ea7f10410bf" prot="private" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>_units</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a7cead29664d7b768ff2dfd9425f32732" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>description</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1adb723cc7ad18f36bd1dd7b84895f4aa9" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>name</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a177cd31efbfb81626a24dea53fcabfe8" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>order</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a6d70541a322ac46dd89cb3239e77c846" prot="public" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>PoolMetaData</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1ac2d855156598b403928d0333c33558e1" prot="public" virt="non-virtual"><scope>moja::flint::PoolMetaData</scope><name>PoolMetaData</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a929638455853f976c19678d62a277fd0" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>scale</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a1a3b1e4760f70a017e7833d960f54cc8" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>units</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolMetaData_1a21916569a31370167304893c28e0360f" prot="public" virt="virtual"><scope>moja::flint::PoolMetaData</scope><name>~PoolMetaData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

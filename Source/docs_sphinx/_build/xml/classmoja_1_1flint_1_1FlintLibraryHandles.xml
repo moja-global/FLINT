@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1FlintLibraryHandles" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::FlintLibraryHandles</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string libraryName</definition>
+        <argsstring></argsstring>
+        <name>libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="33" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1afa30d03f6ff83e54320811a3b3e4e712" prot="public" static="no" mutable="no">
+        <type>GetModuleRegistrationsFunctionPtr</type>
+        <definition>GetModuleRegistrationsFunctionPtr getModuleRegistrations</definition>
+        <argsstring></argsstring>
+        <name>getModuleRegistrations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="34" column="38" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1ae5433c99763404aaf1b85c72379b080a" prot="public" static="no" mutable="no">
+        <type>GetTransformRegistrationsFunctionPtr</type>
+        <definition>GetTransformRegistrationsFunctionPtr getTransformRegistrations</definition>
+        <argsstring></argsstring>
+        <name>getTransformRegistrations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="35" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1a8ce634f92ce342934584e3fa222a2bfb" prot="public" static="no" mutable="no">
+        <type>GetFlintDataRegistrationsFunctionPtr</type>
+        <definition>GetFlintDataRegistrationsFunctionPtr getFlintDataRegistrations</definition>
+        <argsstring></argsstring>
+        <name>getFlintDataRegistrations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="36" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1a402af895bb18424c633fe602718ee304" prot="public" static="no" mutable="no">
+        <type>GetFlintDataFactoryRegistrationsFunctionPtr</type>
+        <definition>GetFlintDataFactoryRegistrationsFunctionPtr getFlintDataFactoryRegistrations</definition>
+        <argsstring></argsstring>
+        <name>getFlintDataFactoryRegistrations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="37" column="48" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1FlintLibraryHandles_1af64c4af41f734e20970b6cc972ad87ec" prot="public" static="no" mutable="no">
+        <type>GetDataRepositoryProviderRegistrationsFunctionPtr</type>
+        <definition>GetDataRepositoryProviderRegistrationsFunctionPtr getDataRepositoryProviderRegistrations</definition>
+        <argsstring></argsstring>
+        <name>getDataRepositoryProviderRegistrations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="38" column="54" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintLibraryHandles_1ad6eb76ee9686c62bc4f95024917bc5ad" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FlintLibraryHandles</definition>
+        <argsstring>()</argsstring>
+        <name>FlintLibraryHandles</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="14" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="14" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1FlintLibraryHandles_1abbe59eb83fa28ae114ec312ab2606c2d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>FlintLibraryHandles</definition>
+        <argsstring>(const std::string &amp;libraryName, GetModuleRegistrationsFunctionPtr m, GetTransformRegistrationsFunctionPtr t, GetFlintDataRegistrationsFunctionPtr d, GetFlintDataFactoryRegistrationsFunctionPtr f, GetDataRepositoryProviderRegistrationsFunctionPtr p)</argsstring>
+        <name>FlintLibraryHandles</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>GetModuleRegistrationsFunctionPtr</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>GetTransformRegistrationsFunctionPtr</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>GetFlintDataRegistrationsFunctionPtr</type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type>GetFlintDataFactoryRegistrationsFunctionPtr</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>GetDataRepositoryProviderRegistrationsFunctionPtr</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="22" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="22" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" line="12" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/libraryinfobase.h" bodystart="12" bodyend="39"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1ad6eb76ee9686c62bc4f95024917bc5ad" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>FlintLibraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1abbe59eb83fa28ae114ec312ab2606c2d" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>FlintLibraryHandles</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1af64c4af41f734e20970b6cc972ad87ec" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>getDataRepositoryProviderRegistrations</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1a402af895bb18424c633fe602718ee304" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>getFlintDataFactoryRegistrations</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1a8ce634f92ce342934584e3fa222a2bfb" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>getFlintDataRegistrations</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1afa30d03f6ff83e54320811a3b3e4e712" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>getModuleRegistrations</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1ae5433c99763404aaf1b85c72379b080a" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>getTransformRegistrations</name></member>
+      <member refid="classmoja_1_1flint_1_1FlintLibraryHandles_1a42afd3998481fcf9c34ec33bca760bd5" prot="public" virt="non-virtual"><scope>moja::flint::FlintLibraryHandles</scope><name>libraryName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

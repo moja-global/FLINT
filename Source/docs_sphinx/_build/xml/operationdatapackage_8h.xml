@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="operationdatapackage_8h" kind="file" language="C++">
+    <compoundname>operationdatapackage.h</compoundname>
+    <innerclass refid="classmoja_1_1flint_1_1OperationDataPackage" prot="public">moja::flint::OperationDataPackage</innerclass>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>MOJA_FLINT_OPERATIONDATAPACKAGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MOJA_FLINT_OPERATIONDATAPACKAGE_H_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/>FluxType<sp/>{</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/>Wildfire<sp/>=<sp/>1,</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/>Controlled_burning<sp/>=<sp/>2,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/>NPP<sp/>=<sp/>3,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/>Harvest<sp/>=<sp/>4,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/>Decomposition<sp/>=<sp/>5,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/>Turnover<sp/>=<sp/>6,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/>Plough<sp/>=<sp/>7,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/>Thin<sp/>=<sp/>8,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/>Plant_trees<sp/>=<sp/>9,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/>Plant_crops<sp/>=<sp/>10,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/>N_fertiliser<sp/>=<sp/>11,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/>Pest<sp/>=<sp/>12,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/>Windthrow<sp/>=<sp/>13,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/>Lime_application<sp/>=<sp/>14,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/>Grazing<sp/>=<sp/>15,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/>Irrigation<sp/>=<sp/>16,</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/>Herbicide<sp/>=<sp/>17,</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/>Manure<sp/>=<sp/>18,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/>Heavy_roll<sp/>=<sp/>19,</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/>Wetland_drainage<sp/>=<sp/>20,</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/>Rice<sp/>=<sp/>21,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/>Cattle_Grazing<sp/>=<sp/>22,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/>Sheep_Grazing<sp/>=<sp/>23,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/>Goat_Grazing<sp/>=<sp/>24,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/>Unclassified<sp/>=<sp/>25</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--------------------------------------------------------------------------------------------</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">OperationDataPackage<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/>OperationDataPackage()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/>OperationDataPackage(FluxType<sp/>fluxType)<sp/>:<sp/>_fluxType(fluxType)<sp/>{}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~OperationDataPackage()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/>FluxType<sp/>_fluxType;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/><sp/></highlight><highlight class="comment">//<sp/>MOJA_FLINT_OPERATIONDATAPACKAGE_H_</highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationdatapackage.h"/>
+  </compounddef>
+</doxygen>

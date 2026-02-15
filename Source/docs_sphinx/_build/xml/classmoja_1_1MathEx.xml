@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1MathEx" kind="class" language="C++" prot="public">
+    <compoundname>moja::MathEx</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classmoja_1_1MathEx_1a92829614666c5cfaeb250436fd6e501f" prot="public" static="yes" mutable="no">
+        <type>const double</type>
+        <definition>const double k0Plus</definition>
+        <argsstring></argsstring>
+        <name>k0Plus</name>
+        <initializer>= 0.000000001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" line="12" column="24" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classmoja_1_1MathEx_1ac0f7b643659579c281f6d5d6d8d15b0d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double Exp0</definition>
+        <argsstring>(double x)</argsstring>
+        <name>Exp0</name>
+        <param>
+          <type>double</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" line="13" column="18" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" bodystart="16" bodyend="19"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" line="10" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/mathex.h" bodystart="10" bodyend="14"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1MathEx_1ac0f7b643659579c281f6d5d6d8d15b0d" prot="public" virt="non-virtual"><scope>moja::MathEx</scope><name>Exp0</name></member>
+      <member refid="classmoja_1_1MathEx_1a92829614666c5cfaeb250436fd6e501f" prot="public" virt="non-virtual"><scope>moja::MathEx</scope><name>k0Plus</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

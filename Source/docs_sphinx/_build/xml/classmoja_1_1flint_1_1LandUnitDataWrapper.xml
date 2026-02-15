@@ -1,0 +1,513 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1LandUnitDataWrapper" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::LandUnitDataWrapper</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ILandUnitDataWrapper</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a62816914841c9dd6a69b52d7148be3e3" prot="private" static="no" mutable="no">
+        <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> *</type>
+        <definition>IModule* _module</definition>
+        <argsstring></argsstring>
+        <name>_module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="71" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a9b2036d29c9e3cda741c8e015afb4aa7" prot="private" static="no" mutable="no">
+        <type>ILandUnitController *</type>
+        <definition>ILandUnitController* _landUnitController</definition>
+        <argsstring></argsstring>
+        <name>_landUnitController</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="72" column="24" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a567ce1eed9d90d21d1ae81524940a3ab" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LandUnitDataWrapper</definition>
+        <argsstring>(IModule *module)</argsstring>
+        <name>LandUnitDataWrapper</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> *</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="20" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7473b5cfb20ea42d295330686923befc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>LandUnitDataWrapper</definition>
+        <argsstring>(ILandUnitController *landUnitController, IModule *module)</argsstring>
+        <name>LandUnitDataWrapper</name>
+        <param>
+          <type>ILandUnitController *</type>
+          <declname>landUnitController</declname>
+        </param>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> *</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="21" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="21" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1c9ce079cd2b83771913bfcac2c50136" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~LandUnitDataWrapper</definition>
+        <argsstring>()=default</argsstring>
+        <name>~LandUnitDataWrapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="24" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a6b6261a014c08e9a591f1d6db0f6885d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createStockOperation</definition>
+        <argsstring>() override</argsstring>
+        <name>createStockOperation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="26" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a4867371c47a48c37e7ac64405ac02ffa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createStockOperation</definition>
+        <argsstring>(DynamicVar &amp;dataPackage) override</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="27" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="14" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1341666e496bb1e335ff7d7a9f26d5ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createProportionalOperation</definition>
+        <argsstring>() override</argsstring>
+        <name>createProportionalOperation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="28" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a17f458cd285ec386cc9100e83a647338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createProportionalOperation</definition>
+        <argsstring>(DynamicVar &amp;dataPackage) override</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="29" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="22" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7eaec7e6f6878db8519a7c4742ea4033" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void submitOperation</definition>
+        <argsstring>(std::shared_ptr&lt; IOperation &gt; operation) override</argsstring>
+        <name>submitOperation</name>
+        <param>
+          <type>std::shared_ptr&lt; IOperation &gt;</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="30" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aced91c0690abeba2b087c3d5e90451a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void applyOperations</definition>
+        <argsstring>() override</argsstring>
+        <name>applyOperations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="31" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a2cd03353b95ba620e317298e46ce4202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; getOperationPendingIterator</definition>
+        <argsstring>() override</argsstring>
+        <name>getOperationPendingIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="33" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a89feac123474f6895dc55c93281bd796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; getOperationLastAppliedIterator</definition>
+        <argsstring>() override</argsstring>
+        <name>getOperationLastAppliedIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="34" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aff15df9809dff5a52145d727006e466e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; getOperationCommittedIterator</definition>
+        <argsstring>() override</argsstring>
+        <name>getOperationCommittedIterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="35" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="43" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aa437b9ac4776082008f65088b537450b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hasLastAppliedOperationResults</definition>
+        <argsstring>() const override</argsstring>
+        <name>hasLastAppliedOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1abb1d86bcb36824b8bf728b406c00f723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearLastAppliedOperationResults</definition>
+        <argsstring>() override</argsstring>
+        <name>clearLastAppliedOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="39" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a8fad482ed5607930bacdead39e4e27bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearAllOperationResults</definition>
+        <argsstring>() override</argsstring>
+        <name>clearAllOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="41" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="55" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a534c2506f3b1c4a1a24a499ddd9dc659" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>PoolCollection</type>
+        <definition>PoolCollection poolCollection</definition>
+        <argsstring>() const override</argsstring>
+        <name>poolCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="44" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a242d05751a354bfbdb561170b9127faa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getPoolCount</definition>
+        <argsstring>() const override</argsstring>
+        <name>getPoolCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="47" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="63" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1af16b05521e6332960cc041f1e6f4fdac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * getPool</definition>
+        <argsstring>(const std::string &amp;name) const override</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="48" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aea0ff47bebe7e34e78f6efef46980155" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * getPool</definition>
+        <argsstring>(int index) const override</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="49" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="71" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aeff85ba91ae531d0151bb5adca45d54e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IVariable *</type>
+        <definition>IVariable * getVariable</definition>
+        <argsstring>(const std::string &amp;name) override</argsstring>
+        <name>getVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="51" column="14" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1aa81405f16ea409ec06db696f96e9af98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IVariable *</type>
+        <definition>const IVariable * getVariable</definition>
+        <argsstring>(const std::string &amp;name) const override</argsstring>
+        <name>getVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="52" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="79" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a989ce620e713e508f9b3d602e2c4dd02" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::shared_ptr&lt; IVariable &gt; &gt;</type>
+        <definition>std::vector&lt; std::shared_ptr&lt; IVariable &gt; &gt; variables</definition>
+        <argsstring>() const override</argsstring>
+        <name>variables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="53" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="83" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7a2324a7bc331e744523006d211b770f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hasVariable</definition>
+        <argsstring>(const std::string &amp;name) const override</argsstring>
+        <name>hasVariable</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="54" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="88" bodyend="90"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7df21bc80e5cf89035d0ee664f5138b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>IOperationManager *</type>
+        <definition>IOperationManager * operationManager</definition>
+        <argsstring>() override</argsstring>
+        <name>operationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="56" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="92" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a73a562cedcd0156f163a18f21d1c9dad" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IOperationManager *</type>
+        <definition>const IOperationManager * operationManager</definition>
+        <argsstring>() const override</argsstring>
+        <name>operationManager</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="57" column="28" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="94" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1d2f9421d36c80bf21caa1d4cf367225" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref> *</type>
+        <definition>ITiming * timing</definition>
+        <argsstring>() override</argsstring>
+        <name>timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="59" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1ae3da458f3eb5435e55306c631458cc21" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="classmoja_1_1flint_1_1ITiming" kindref="compound">ITiming</ref> *</type>
+        <definition>const ITiming * timing</definition>
+        <argsstring>() const override</argsstring>
+        <name>timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="60" column="18" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1ab2b261dd55278bc2ff15ee78ab37c633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const configuration::Configuration *</type>
+        <definition>const configuration::Configuration * config</definition>
+        <argsstring>() override</argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="62" column="39" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/landunitdatawrapper.cpp" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1LandUnitDataWrapper_1adaa800a94ff2aee703e888c036b30e5e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setLandUnitController</definition>
+        <argsstring>(ILandUnitController *landUnitController) override</argsstring>
+        <name>setLandUnitController</name>
+        <param>
+          <type>ILandUnitController *</type>
+          <declname>landUnitController</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="66" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="66" bodyend="68"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>IModule</label>
+        <link refid="classmoja_1_1flint_1_1IModule"/>
+      </node>
+      <node id="1">
+        <label>LandUnitDataWrapper</label>
+        <childnode refid="2" relation="usage">
+          <edgelabel>_module</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" line="18" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/landunitdatawrapper.h" bodystart="18" bodyend="73"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a9b2036d29c9e3cda741c8e015afb4aa7" prot="private" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>_landUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a62816914841c9dd6a69b52d7148be3e3" prot="private" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>_module</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aced91c0690abeba2b087c3d5e90451a3" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>applyOperations</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a8fad482ed5607930bacdead39e4e27bc" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>clearAllOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1abb1d86bcb36824b8bf728b406c00f723" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>clearLastAppliedOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1ab2b261dd55278bc2ff15ee78ab37c633" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>config</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1341666e496bb1e335ff7d7a9f26d5ce" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a17f458cd285ec386cc9100e83a647338" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a6b6261a014c08e9a591f1d6db0f6885d" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a4867371c47a48c37e7ac64405ac02ffa" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aff15df9809dff5a52145d727006e466e" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getOperationCommittedIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a89feac123474f6895dc55c93281bd796" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getOperationLastAppliedIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a2cd03353b95ba620e317298e46ce4202" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getOperationPendingIterator</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1af16b05521e6332960cc041f1e6f4fdac" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aea0ff47bebe7e34e78f6efef46980155" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a242d05751a354bfbdb561170b9127faa" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getPoolCount</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aeff85ba91ae531d0151bb5adca45d54e" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aa81405f16ea409ec06db696f96e9af98" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>getVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1aa437b9ac4776082008f65088b537450b" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>hasLastAppliedOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7a2324a7bc331e744523006d211b770f" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>hasVariable</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a567ce1eed9d90d21d1ae81524940a3ab" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>LandUnitDataWrapper</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7473b5cfb20ea42d295330686923befc" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>LandUnitDataWrapper</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7df21bc80e5cf89035d0ee664f5138b4" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>operationManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a73a562cedcd0156f163a18f21d1c9dad" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>operationManager</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a534c2506f3b1c4a1a24a499ddd9dc659" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>poolCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1adaa800a94ff2aee703e888c036b30e5e" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>setLandUnitController</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a7eaec7e6f6878db8519a7c4742ea4033" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>submitOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1d2f9421d36c80bf21caa1d4cf367225" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>timing</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1ae3da458f3eb5435e55306c631458cc21" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>timing</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a989ce620e713e508f9b3d602e2c4dd02" prot="public" virt="non-virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>variables</name></member>
+      <member refid="classmoja_1_1flint_1_1ILandUnitDataWrapper_1a8858f6cdb1b474acfd52324e946c3de9" prot="public" virt="virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>~ILandUnitDataWrapper</name></member>
+      <member refid="classmoja_1_1flint_1_1LandUnitDataWrapper_1a1c9ce079cd2b83771913bfcac2c50136" prot="public" virt="virtual"><scope>moja::flint::LandUnitDataWrapper</scope><name>~LandUnitDataWrapper</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

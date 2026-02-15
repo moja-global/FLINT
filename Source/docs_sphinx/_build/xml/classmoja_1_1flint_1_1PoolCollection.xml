@@ -1,0 +1,339 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1PoolCollection" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::PoolCollection</compoundname>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1a7f4cfd4e9b1d4f7cdaa076e1688c266b" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;::iterator</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;::iterator iterator</definition>
+        <argsstring></argsstring>
+        <name>iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="19" column="35" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1a6740fe7676865ee08359e7b16fb578a9" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;::const_iterator</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;::const_iterator const_iterator</definition>
+        <argsstring></argsstring>
+        <name>const_iterator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="20" column="41" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1a0b7dcdc80138efc8d2533e05f548a157" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;::reference</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;::reference reference</definition>
+        <argsstring></argsstring>
+        <name>reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="21" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1aab8679861c8b9afd1e4eccf1238e1602" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;::const_reference</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;::const_reference const_reference</definition>
+        <argsstring></argsstring>
+        <name>const_reference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="22" column="42" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1a720b69e7fc2c38c69f78e4ab0af9ba08" prot="public" static="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;::size_type</type>
+        <definition>typedef std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;::size_type size_type</definition>
+        <argsstring></argsstring>
+        <name>size_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="23" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classmoja_1_1flint_1_1PoolCollection_1ae753c9d065b90cd1d98c403498355719" prot="private" static="no">
+        <type>std::map&lt; const std::string, IPool * &gt;</type>
+        <definition>typedef std::map&lt;const std::string, IPool*&gt; StringToItemMap</definition>
+        <argsstring></argsstring>
+        <name>StringToItemMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="49" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1PoolCollection_1aff3bd37325c7119b7ca43f015c44f010" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt; &amp;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt;&amp; _poolObjects</definition>
+        <argsstring></argsstring>
+        <name>_poolObjects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="46" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a5cd3fec8b1db907c0b7a595b939824ba" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>PoolCollection</definition>
+        <argsstring>(std::vector&lt; std::shared_ptr&lt; IPool &gt;&gt; &amp;poolObjects)</argsstring>
+        <name>PoolCollection</name>
+        <param>
+          <type>std::vector&lt; std::shared_ptr&lt; IPool &gt;&gt; &amp;</type>
+          <declname>poolObjects</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="16" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="16" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a54c63355ec79d3ea0877d7ef495a04b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type></type>
+        <definition>virtual ~PoolCollection</definition>
+        <argsstring>()</argsstring>
+        <name>~PoolCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="17" column="12" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="17" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a5ff58db260b43ac7b7b25b436d5c22f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void push_back</definition>
+        <argsstring>(const std::shared_ptr&lt; IPool &gt; &amp;val) const</argsstring>
+        <name>push_back</name>
+        <param>
+          <type>const std::shared_ptr&lt; IPool &gt; &amp;</type>
+          <declname>val</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="25" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a152dbd6780a89bf60927234be0a1e85f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void pop_back</definition>
+        <argsstring>() const</argsstring>
+        <name>pop_back</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="26" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="26" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1adf539446468e29ca634934fc2e569312" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void clear</definition>
+        <argsstring>() const</argsstring>
+        <name>clear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="27" column="17" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a3074577910b3818960ae261bd98d0436" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>size_type</type>
+        <definition>virtual size_type size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="29" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="29" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a50ecf97008068a253fbe8e484c4b73cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>iterator</type>
+        <definition>virtual iterator begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="30" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a75c8622768cc198b593fc462556dcf51" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const_iterator</type>
+        <definition>virtual const_iterator begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="31" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="31" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a876b60564ad601d92339187b91866394" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>iterator</type>
+        <definition>virtual iterator end</definition>
+        <argsstring>()</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="33" column="21" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a5a3964d604cda325230be2b5972f9cb6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const_iterator</type>
+        <definition>virtual const_iterator end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="34" column="27" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a2048927bb6f50130a3228ac679c8d9a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>reference</type>
+        <definition>virtual reference operator[]</definition>
+        <argsstring>(size_t n)</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="36" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a2ccb385ce228425a08d26dbcce1cac83" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>const_reference</type>
+        <definition>virtual const_reference operator[]</definition>
+        <argsstring>(size_t n) const</argsstring>
+        <name>operator[]</name>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="37" column="28" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a208f34571eaecb11bc5ff4414a5b5c60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * findPool</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>findPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="41" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolcollection.cpp" bodystart="8" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1PoolCollection_1a3c142192528712bf6a67f05b9ab33428" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * findPool</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>findPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="43" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/poolcollection.cpp" bodystart="15" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" line="14" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/poolcollection.h" bodystart="14" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1aff3bd37325c7119b7ca43f015c44f010" prot="private" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>_poolObjects</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a50ecf97008068a253fbe8e484c4b73cc" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a75c8622768cc198b593fc462556dcf51" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>begin</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1adf539446468e29ca634934fc2e569312" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>clear</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a6740fe7676865ee08359e7b16fb578a9" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>const_iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1aab8679861c8b9afd1e4eccf1238e1602" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>const_reference</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a876b60564ad601d92339187b91866394" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a5a3964d604cda325230be2b5972f9cb6" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>end</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a208f34571eaecb11bc5ff4414a5b5c60" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>findPool</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a3c142192528712bf6a67f05b9ab33428" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>findPool</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a7f4cfd4e9b1d4f7cdaa076e1688c266b" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>iterator</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a2048927bb6f50130a3228ac679c8d9a1" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>operator[]</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a2ccb385ce228425a08d26dbcce1cac83" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>operator[]</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a5cd3fec8b1db907c0b7a595b939824ba" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>PoolCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a152dbd6780a89bf60927234be0a1e85f" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>pop_back</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a5ff58db260b43ac7b7b25b436d5c22f8" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>push_back</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a0b7dcdc80138efc8d2533e05f548a157" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>reference</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a3074577910b3818960ae261bd98d0436" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>size</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a720b69e7fc2c38c69f78e4ab0af9ba08" prot="public" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>size_type</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1ae753c9d065b90cd1d98c403498355719" prot="private" virt="non-virtual"><scope>moja::flint::PoolCollection</scope><name>StringToItemMap</name></member>
+      <member refid="classmoja_1_1flint_1_1PoolCollection_1a54c63355ec79d3ea0877d7ef495a04b3" prot="public" virt="virtual"><scope>moja::flint::PoolCollection</scope><name>~PoolCollection</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

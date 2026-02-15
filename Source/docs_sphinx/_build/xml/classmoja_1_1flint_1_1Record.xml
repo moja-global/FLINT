@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1Record" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>moja::flint::Record</compoundname>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1Date2Record" prot="public" virt="non-virtual">Date2Record</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1DateRecord" prot="public" virt="non-virtual">DateRecord</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1FluxRecord" prot="public" virt="non-virtual">FluxRecord</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1ModuleInfoRecord" prot="public" virt="non-virtual">ModuleInfoRecord</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1PoolInfoRecord" prot="public" virt="non-virtual">PoolInfoRecord</derivedcompoundref>
+    <derivedcompoundref refid="classmoja_1_1flint_1_1StatsUnitRecord" prot="public" virt="non-virtual">StatsUnitRecord</derivedcompoundref>
+    <templateparamlist>
+      <param>
+        <type>class TPersistable</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1Record_1a2fb68a5ecd23366882be5277b8ac3c65" prot="protected" static="no" mutable="no">
+        <type>Int64</type>
+        <definition>Int64 _id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="52" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1a966b6ee235515a173771e69abdba801b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~Record</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Record</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="41" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1aa5134dc6fb60cfafa0c79d7c5597995f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool operator==</definition>
+        <argsstring>(const Record&lt; TPersistable &gt; &amp;other) const =0</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const Record&lt; TPersistable &gt; &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="43" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1a0d87c4ed0e377efb70bc151f932c9199" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t hash</definition>
+        <argsstring>() const =0</argsstring>
+        <name>hash</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="44" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1ab6740861e466c510324f989b88d3890b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>TPersistable</type>
+        <definition>virtual TPersistable asPersistable</definition>
+        <argsstring>() const =0</argsstring>
+        <name>asPersistable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="45" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1a67163e90d770bbc99e6c477c02c982ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void merge</definition>
+        <argsstring>(Record&lt; TPersistable &gt; *other)=0</argsstring>
+        <name>merge</name>
+        <param>
+          <type>Record&lt; TPersistable &gt; *</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="46" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1abc8970ad0a18fb9dc512a7eff9184997" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Int64</type>
+        <definition>Int64 getId</definition>
+        <argsstring>() const</argsstring>
+        <name>getId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="48" column="10" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1Record_1a8cd662275c1ba5248e9f9e1f33f68a07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setId</definition>
+        <argsstring>(Int64 id)</argsstring>
+        <name>setId</name>
+        <param>
+          <type>Int64</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="49" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="49" bodyend="49"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" line="38" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/record.h" bodystart="38" bodyend="53"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1Record_1a2fb68a5ecd23366882be5277b8ac3c65" prot="protected" virt="non-virtual"><scope>moja::flint::Record</scope><name>_id</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1ab6740861e466c510324f989b88d3890b" prot="public" virt="pure-virtual"><scope>moja::flint::Record</scope><name>asPersistable</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1abc8970ad0a18fb9dc512a7eff9184997" prot="public" virt="non-virtual"><scope>moja::flint::Record</scope><name>getId</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a0d87c4ed0e377efb70bc151f932c9199" prot="public" virt="pure-virtual"><scope>moja::flint::Record</scope><name>hash</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a67163e90d770bbc99e6c477c02c982ab" prot="public" virt="pure-virtual"><scope>moja::flint::Record</scope><name>merge</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1aa5134dc6fb60cfafa0c79d7c5597995f" prot="public" virt="pure-virtual"><scope>moja::flint::Record</scope><name>operator==</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a8cd662275c1ba5248e9f9e1f33f68a07" prot="public" virt="non-virtual"><scope>moja::flint::Record</scope><name>setId</name></member>
+      <member refid="classmoja_1_1flint_1_1Record_1a966b6ee235515a173771e69abdba801b" prot="public" virt="virtual"><scope>moja::flint::Record</scope><name>~Record</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

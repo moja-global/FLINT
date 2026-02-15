@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="record_8cpp" kind="file" language="C++">
+    <compoundname>record.cpp</compoundname>
+    <includes refid="record_8h" local="yes">moja/flint/record.h</includes>
+    <includes local="no">boost/functional/hash.hpp</includes>
+    <incdepgraph>
+      <node id="7">
+        <label>functional</label>
+      </node>
+      <node id="12">
+        <label>boost/functional/hash.hpp</label>
+      </node>
+      <node id="6">
+        <label>Poco/Nullable.h</label>
+      </node>
+      <node id="1">
+        <label>/mnt/e/FLINT/Source/moja.flint/src/record.cpp</label>
+        <link refid="record_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Poco/Tuple.h</label>
+      </node>
+      <node id="4">
+        <label>moja/hash.h</label>
+        <link refid="hash_8h_source"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>moja/types.h</label>
+        <link refid="types_8h_source"/>
+      </node>
+      <node id="5">
+        <label>moja/_core_exports.h</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>moja/flint/record.h</label>
+        <link refid="record_8h_source"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>folly/hash/Hash.h</label>
+      </node>
+      <node id="3">
+        <label>moja/flint/_flint_exports.h</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespacemoja">moja</innernamespace>
+    <innernamespace refid="namespacemoja_1_1flint">moja::flint</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&quot;moja/flint/record.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;boost/functional/hash.hpp&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">moja<sp/>{</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">flint<sp/>{</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--<sp/>DateRecord</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal">DateRecord::DateRecord(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>step,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>substep,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>month,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>day,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>fracOfStep,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>yearsInStep)</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_step(step),</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_substep(substep),</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_year(year),</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_month(month),</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_day(day),</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_fracOfStep(fracOfStep),</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_yearsInStep(yearsInStep)<sp/>{}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>DateRecord::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;DateRow&gt;&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other.asPersistable();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_step<sp/>==<sp/>otherRow.get&lt;1&gt;()<sp/>&amp;&amp;<sp/>_substep<sp/>==<sp/>otherRow.get&lt;2&gt;();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>DateRecord::hash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)<sp/>_hash<sp/>=<sp/>moja::hash::hash_combine(_step,<sp/>_substep);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">DateRow<sp/>DateRecord::asPersistable()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>DateRow{_id,<sp/>_step,<sp/>_substep,<sp/>_year,<sp/>_month,<sp/>_day,<sp/>_fracOfStep,<sp/>_yearsInStep};</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DateRecord::merge(Record&lt;DateRow&gt;*<sp/>other)<sp/>{}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--<sp/>Date2Record</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">Date2Record::Date2Record(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>year)<sp/>:<sp/>_year(year)<sp/>{}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Date2Record::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;Date2Row&gt;&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other.asPersistable();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_year<sp/>==<sp/>otherRow.get&lt;1&gt;();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>Date2Record::hash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)<sp/>_hash<sp/>=<sp/>moja::hash::hash_combine(_year);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal">Date2Row<sp/>Date2Record::asPersistable()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Date2Row{_id,<sp/>_year};<sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>Date2Record::merge(Record&lt;Date2Row&gt;*<sp/>other)<sp/>{}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--<sp/>PoolInfoRecord</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">PoolInfoRecord::PoolInfoRecord(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>desc,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>order,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>scale,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>units)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_name(name),<sp/>_desc(desc),<sp/>_idx(idx),<sp/>_order(order),<sp/>_scale(scale),<sp/>_units(units)<sp/>{}</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal">PoolInfoRecord::PoolInfoRecord(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_name(name),<sp/>_desc(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">),<sp/>_idx(-1),<sp/>_order(-1),<sp/>_scale(1.0),<sp/>_units(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">)<sp/>{}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>PoolInfoRecord::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;PoolInfoRow&gt;&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other.asPersistable();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_name<sp/>==<sp/>otherRow.get&lt;1&gt;();</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>PoolInfoRecord::hash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)<sp/>_hash<sp/>=<sp/>moja::hash::hash_combine(_name);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal">PoolInfoRow<sp/>PoolInfoRecord::asPersistable()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>PoolInfoRow{_id,<sp/>_name,<sp/>_desc,<sp/>_idx,<sp/>_order,<sp/>_scale,<sp/>_units};</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>PoolInfoRecord::merge(Record&lt;PoolInfoRow&gt;*<sp/>other)<sp/>{}</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--<sp/>ModuleInfoRecord</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal">ModuleInfoRecord::ModuleInfoRecord(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>libType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>libInfoId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>moduleType,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>moduleId,<sp/>std::string<sp/>moduleName)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_libType(libType),<sp/>_libInfoId(libInfoId),<sp/>_moduleType(moduleType),<sp/>_moduleId(moduleId),<sp/>_moduleName(moduleName)<sp/>{}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>ModuleInfoRecord::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;ModuleInfoRow&gt;&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other.asPersistable();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_moduleName<sp/>==<sp/>otherRow.get&lt;5&gt;();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>ModuleInfoRecord::hash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)<sp/>_hash<sp/>=<sp/>moja::hash::hash_combine(_moduleName);</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal">ModuleInfoRow<sp/>ModuleInfoRecord::asPersistable()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ModuleInfoRow{_id,<sp/>_libType,<sp/>_libInfoId,<sp/>_moduleType,<sp/>_moduleId,<sp/>_moduleName};</highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ModuleInfoRecord::merge(Record&lt;ModuleInfoRow&gt;*<sp/>other)<sp/>{}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--<sp/>FluxRecord</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">Int64<sp/>FluxRecord::_count<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal">FluxRecord::FluxRecord(</highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>doAggregation,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>localDomainId,<sp/>Int64<sp/>dateId,<sp/>Poco::Nullable&lt;Int64&gt;<sp/>moduleInfoId,</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Int64<sp/>itemCount,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>srcPoolInfoId,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sinkPoolInfoId,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>flux)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>_doAggregation(doAggregation),</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_localDomainId(localDomainId),</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_dateId(dateId),</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_moduleInfoId(moduleInfoId),</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_itemCount(itemCount),</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_srcPoolInfoId(srcPoolInfoId),</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_sinkPoolInfoId(sinkPoolInfoId),</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>_flux(flux)<sp/>{}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>FluxRecord::operator==(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Record&lt;FluxRow&gt;&amp;<sp/>other)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!_doAggregation)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other.asPersistable();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_localDomainId<sp/>==<sp/>otherRow.get&lt;1&gt;()<sp/>&amp;&amp;<sp/>_dateId<sp/>==<sp/>otherRow.get&lt;2&gt;()<sp/>&amp;&amp;<sp/>_moduleInfoId<sp/>==<sp/>otherRow.get&lt;3&gt;()<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_srcPoolInfoId<sp/>==<sp/>otherRow.get&lt;5&gt;()<sp/>&amp;&amp;<sp/>_sinkPoolInfoId<sp/>==<sp/>otherRow.get&lt;6&gt;();</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>FluxRecord::hash()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_doAggregation)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>_hash<sp/>=<sp/>moja::hash::hash_combine(_localDomainId,<sp/>_dateId,<sp/>_moduleInfoId,<sp/>_srcPoolInfoId,<sp/>_sinkPoolInfoId);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(_hash<sp/>==<sp/>-1)<sp/>_hash<sp/>=<sp/>_count++;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>_hash;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">FluxRow<sp/>FluxRecord::asPersistable()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>FluxRow{_id,<sp/>_localDomainId,<sp/>_dateId,<sp/>_moduleInfoId,<sp/>_itemCount,<sp/>_srcPoolInfoId,<sp/>_sinkPoolInfoId,<sp/>_flux};</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FluxRecord::merge(Record&lt;FluxRow&gt;*<sp/>other)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>otherRow<sp/>=<sp/>other-&gt;asPersistable();</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/>_itemCount<sp/>+=<sp/>otherRow.get&lt;4&gt;();</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/>_flux<sp/>+=<sp/>otherRow.get&lt;7&gt;();</highlight></codeline>
+<codeline lineno="139"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>flint</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>moja</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/mnt/e/FLINT/Source/moja.flint/src/record.cpp"/>
+  </compounddef>
+</doxygen>

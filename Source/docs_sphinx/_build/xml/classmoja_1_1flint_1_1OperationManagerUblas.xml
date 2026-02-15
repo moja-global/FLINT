@@ -1,0 +1,703 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1flint_1_1OperationManagerUblas" kind="class" language="C++" prot="public">
+    <compoundname>moja::flint::OperationManagerUblas</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IOperationManager</basecompoundref>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classmoja_1_1flint_1_1OperationManagerUblas_1a6fe00316f63bb73c3167de8218ecb355" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class StockOperationUblas</definition>
+        <argsstring></argsstring>
+        <name>StockOperationUblas</name>
+        <param>
+          <type>StockOperationUblas</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="22" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="classmoja_1_1flint_1_1OperationManagerUblas_1a838e46fe0f479556dacf33aebc420ac5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class ProportionalOperationUblas</definition>
+        <argsstring></argsstring>
+        <name>ProportionalOperationUblas</name>
+        <param>
+          <type>ProportionalOperationUblas</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="23" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1afbb5737e0d53fa71c31327f82cbe67ed" prot="protected" static="no" mutable="no">
+        <type>Timing &amp;</type>
+        <definition>Timing&amp; _timing</definition>
+        <argsstring></argsstring>
+        <name>_timing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="74" column="11" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1acf5a11664ae986969ff38d5dcbb93239" prot="protected" static="no" mutable="no">
+        <type>moja_ublas_vector</type>
+        <definition>moja_ublas_vector _poolValues</definition>
+        <argsstring></argsstring>
+        <name>_poolValues</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="76" column="22" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1aa970c06178b527aa234accafaa8f0b1f" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; _corrections</definition>
+        <argsstring></argsstring>
+        <name>_corrections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="77" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a3d0235bd2125c2dd10f0b891950847d2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; IPool &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;IPool&gt; &gt; _poolObjects</definition>
+        <argsstring></argsstring>
+        <name>_poolObjects</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="79" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a4c41fd5333b087badeed55914a1a88fd" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::shared_ptr&lt; IPool &gt; &gt;</type>
+        <definition>std::map&lt;std::string, std::shared_ptr&lt;IPool&gt; &gt; _poolNameObjectMap</definition>
+        <argsstring></argsstring>
+        <name>_poolNameObjectMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="80" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1abd722755f5c7df47a3d4a3eff4e640c4" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _poolCount</definition>
+        <argsstring></argsstring>
+        <name>_poolCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="81" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a2a51340c9be25c259a443e7a4d209085" prot="protected" static="no" mutable="no">
+        <type>OperationResultCollection</type>
+        <definition>OperationResultCollection _operationResultsPending</definition>
+        <argsstring></argsstring>
+        <name>_operationResultsPending</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="84" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a335e7817465e5ad28e01bd4419b06325" prot="protected" static="no" mutable="no">
+        <type>OperationResultCollection</type>
+        <definition>OperationResultCollection _operationResultsLastApplied</definition>
+        <argsstring></argsstring>
+        <name>_operationResultsLastApplied</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="85" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a751ac7c7dfbcdd910a2ab7ba1fa05338" prot="protected" static="no" mutable="no">
+        <type>OperationResultCollection</type>
+        <definition>OperationResultCollection _operationResultsCommitted</definition>
+        <argsstring></argsstring>
+        <name>_operationResultsCommitted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="86" column="30" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a68b60cbe211edf7cb711ae9dc3b722fc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _useKahan</definition>
+        <argsstring></argsstring>
+        <name>_useKahan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="92" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classmoja_1_1flint_1_1OperationManagerUblas_1a64b5cf57d60037b9519b525837bfac2e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _allowZeroResultTransfers</definition>
+        <argsstring></argsstring>
+        <name>_allowZeroResultTransfers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="93" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a4f6671c5333dbccf93df060be07eee3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>OperationManagerUblas</definition>
+        <argsstring>(Timing &amp;timing, const DynamicObject &amp;config)</argsstring>
+        <name>OperationManagerUblas</name>
+        <param>
+          <type>Timing &amp;</type>
+          <declname>timing</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="26" column="4" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="19" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a86fd425ac5c02e1b7e339c8230a8abf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual ~OperationManagerUblas</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OperationManagerUblas</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="27" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1ad1619c3f58c9426df820ec7864058e1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module) override</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="30" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="35" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a069003b43ef3bf51a6cad68a0c399fbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createStockOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage) override</argsstring>
+        <name>createStockOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="31" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="40" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a56b1991f650d8881feb015aa3f29f4cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module) override</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="32" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="45" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a85b8536ac8570cc9c88362c101c5ca3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; IOperation &gt;</type>
+        <definition>std::shared_ptr&lt; IOperation &gt; createProportionalOperation</definition>
+        <argsstring>(IModule &amp;module, DynamicVar &amp;dataPackage) override</argsstring>
+        <name>createProportionalOperation</name>
+        <param>
+          <type><ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &amp;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>DynamicVar &amp;</type>
+          <declname>dataPackage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="33" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="50" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1aced91c0690abeba2b087c3d5e90451a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void applyOperations</definition>
+        <argsstring>() override</argsstring>
+        <name>applyOperations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="34" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="56" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a8fad482ed5607930bacdead39e4e27bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearAllOperationResults</definition>
+        <argsstring>() override</argsstring>
+        <name>clearAllOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="36" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="101" bodyend="105"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1abb1d86bcb36824b8bf728b406c00f723" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void clearLastAppliedOperationResults</definition>
+        <argsstring>() override</argsstring>
+        <name>clearLastAppliedOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="37" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="107" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a776c6624c2c96774f5ea87f847edbed2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; operationResultsPending</definition>
+        <argsstring>() const override</argsstring>
+        <name>operationResultsPending</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="39" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a5b9827a82f9852298490f26131e60daa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; operationResultsLastApplied</definition>
+        <argsstring>() const override</argsstring>
+        <name>operationResultsLastApplied</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="40" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="113" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a9c97aabcc39ffba7b2d714d7b443e795" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const OperationResultCollection &amp;</type>
+        <definition>const OperationResultCollection &amp; operationResultsCommitted</definition>
+        <argsstring>() const override</argsstring>
+        <name>operationResultsCommitted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="41" column="36" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="117" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a30ace8f13c6ae943c63dafedc9060ea9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hasOperationResultsLastApplied</definition>
+        <argsstring>() const override</argsstring>
+        <name>hasOperationResultsLastApplied</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="43" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="203" bodyend="203"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a2b334f9625c420d213a1349cd8a9ccf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>PoolCollection</type>
+        <definition>PoolCollection poolCollection</definition>
+        <argsstring>() override</argsstring>
+        <name>poolCollection</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="46" column="19" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="121" bodyend="124"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a4d22b2d7d895273935bfe4a7f965ee0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void initialisePools</definition>
+        <argsstring>() override</argsstring>
+        <name>initialisePools</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="48" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="126" bodyend="132"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a1746345da0e18b8479971f21823d1594" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int poolCount</definition>
+        <argsstring>() override</argsstring>
+        <name>poolCount</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="50" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a984a61da16ff997d70c11f62357660e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool* addPool</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order, const std::shared_ptr&lt; ITransform &gt; transform) override</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>const std::shared_ptr&lt; ITransform &gt;</type>
+          <declname>transform</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="52" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="52" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a0571592d80851c5a0ad053d0488e79fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * addPool</definition>
+        <argsstring>(const std::string &amp;name, double initValue=0.0) override</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="56" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="134" bodyend="136"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a81f913f093c876b02e9e8c07c027e209" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * addPool</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;description, const std::string &amp;units, double scale, int order, double initValue=0.0) override</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>description</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>units</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+          <defval>0.0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="57" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="138" bodyend="159"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1a1c9103cea787bafd2f3cf8331701c78f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * addPool</definition>
+        <argsstring>(PoolMetaData &amp;metadata, double initValue) override</argsstring>
+        <name>addPool</name>
+        <param>
+          <type>PoolMetaData &amp;</type>
+          <declname>metadata</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>initValue</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="59" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1af16b05521e6332960cc041f1e6f4fdac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * getPool</definition>
+        <argsstring>(const std::string &amp;name) const override</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="61" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="166" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1aea0ff47bebe7e34e78f6efef46980155" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const IPool *</type>
+        <definition>const IPool * getPool</definition>
+        <argsstring>(int index) const override</argsstring>
+        <name>getPool</name>
+        <param>
+          <type>int</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="62" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="175" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1aa4f4ba750a08765e64da2d0bd473944a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string name</definition>
+        <argsstring>() const override</argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="66" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="66" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1afc3b43eb4a44e82c6dc3d420d386466b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string version</definition>
+        <argsstring>() const override</argsstring>
+        <name>version</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="67" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1af709b9c9ac1c057cacaab1f53e3b27f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string config</definition>
+        <argsstring>() const override</argsstring>
+        <name>config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="68" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="181" bodyend="188"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1ac5bf20e98e60d7ca819857948c643798" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void commitPendingOperationResults</definition>
+        <argsstring>()</argsstring>
+        <name>commitPendingOperationResults</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="72" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="190" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classmoja_1_1flint_1_1OperationManagerUblas_1aacc47b7631b1b39776ec86ec4626f53d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void submitOperation</definition>
+        <argsstring>(IOperation *operation) override</argsstring>
+        <name>submitOperation</name>
+        <param>
+          <type>IOperation *</type>
+          <declname>operation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="96" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/operationmanagerublas.cpp" bodystart="198" bodyend="201"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" line="21" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/operationmanagerublas.h" bodystart="21" bodyend="97"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a64b5cf57d60037b9519b525837bfac2e" prot="private" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_allowZeroResultTransfers</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1aa970c06178b527aa234accafaa8f0b1f" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_corrections</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a751ac7c7dfbcdd910a2ab7ba1fa05338" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_operationResultsCommitted</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a335e7817465e5ad28e01bd4419b06325" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_operationResultsLastApplied</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a2a51340c9be25c259a443e7a4d209085" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_operationResultsPending</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1abd722755f5c7df47a3d4a3eff4e640c4" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_poolCount</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a4c41fd5333b087badeed55914a1a88fd" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_poolNameObjectMap</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a3d0235bd2125c2dd10f0b891950847d2" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_poolObjects</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1acf5a11664ae986969ff38d5dcbb93239" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_poolValues</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1afbb5737e0d53fa71c31327f82cbe67ed" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_timing</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a68b60cbe211edf7cb711ae9dc3b722fc" prot="private" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>_useKahan</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a984a61da16ff997d70c11f62357660e1" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a0571592d80851c5a0ad053d0488e79fc" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a81f913f093c876b02e9e8c07c027e209" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a1c9103cea787bafd2f3cf8331701c78f" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>addPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1aced91c0690abeba2b087c3d5e90451a3" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>applyOperations</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a8fad482ed5607930bacdead39e4e27bc" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>clearAllOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1abb1d86bcb36824b8bf728b406c00f723" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>clearLastAppliedOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1ac5bf20e98e60d7ca819857948c643798" prot="protected" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>commitPendingOperationResults</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1af709b9c9ac1c057cacaab1f53e3b27f0" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>config</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a56b1991f650d8881feb015aa3f29f4cd" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a85b8536ac8570cc9c88362c101c5ca3d" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>createProportionalOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1ad1619c3f58c9426df820ec7864058e1b" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a069003b43ef3bf51a6cad68a0c399fbd" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>createStockOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1af16b05521e6332960cc041f1e6f4fdac" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1aea0ff47bebe7e34e78f6efef46980155" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>getPool</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a30ace8f13c6ae943c63dafedc9060ea9" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>hasOperationResultsLastApplied</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a4d22b2d7d895273935bfe4a7f965ee0f" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>initialisePools</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1aa4f4ba750a08765e64da2d0bd473944a" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>name</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a4f6671c5333dbccf93df060be07eee3c" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>OperationManagerUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a9c97aabcc39ffba7b2d714d7b443e795" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>operationResultsCommitted</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a5b9827a82f9852298490f26131e60daa" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>operationResultsLastApplied</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a776c6624c2c96774f5ea87f847edbed2" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>operationResultsPending</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a2b334f9625c420d213a1349cd8a9ccf6" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>poolCollection</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a1746345da0e18b8479971f21823d1594" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>poolCount</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a838e46fe0f479556dacf33aebc420ac5" prot="private" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>ProportionalOperationUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a6fe00316f63bb73c3167de8218ecb355" prot="private" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>StockOperationUblas</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1aacc47b7631b1b39776ec86ec4626f53d" prot="private" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>submitOperation</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1afc3b43eb4a44e82c6dc3d420d386466b" prot="public" virt="non-virtual"><scope>moja::flint::OperationManagerUblas</scope><name>version</name></member>
+      <member refid="classmoja_1_1flint_1_1IOperationManager_1aeaf79be89611503b6dc52a55e9f79080" prot="public" virt="virtual"><scope>moja::flint::OperationManagerUblas</scope><name>~IOperationManager</name></member>
+      <member refid="classmoja_1_1flint_1_1OperationManagerUblas_1a86fd425ac5c02e1b7e339c8230a8abf8" prot="public" virt="virtual"><scope>moja::flint::OperationManagerUblas</scope><name>~OperationManagerUblas</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

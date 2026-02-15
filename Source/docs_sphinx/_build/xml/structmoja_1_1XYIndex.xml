@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1XYIndex" kind="struct" language="C++" prot="public">
+    <compoundname>moja::XYIndex</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1XYIndex_1afcf1a1b9d0f83ddda53ce208e0850103" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="14" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1XYIndex_1a072cbfcb6369af9a60a6f09845b93a10" prot="public" static="no" mutable="no">
+        <type>UInt32</type>
+        <definition>UInt32 Y</definition>
+        <argsstring></argsstring>
+        <name>Y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="15" column="11" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" line="13" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/utility.h" bodystart="13" bodyend="16"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1XYIndex_1afcf1a1b9d0f83ddda53ce208e0850103" prot="public" virt="non-virtual"><scope>moja::XYIndex</scope><name>X</name></member>
+      <member refid="structmoja_1_1XYIndex_1a072cbfcb6369af9a60a6f09845b93a10" prot="public" virt="non-virtual"><scope>moja::XYIndex</scope><name>Y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

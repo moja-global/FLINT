@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classmoja_1_1NotificationCenter" kind="class" language="C++" prot="public">
+    <compoundname>moja::NotificationCenter</compoundname>
+    <basecompoundref refid="classmoja_1_1DispatcherObject" prot="public" virt="non-virtual">DispatcherObject</basecompoundref>
+    <includes refid="notificationcenter_8h" local="no">notificationcenter.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classmoja_1_1NotificationCenter_1a3f0b4c278cb19f9c2b2dbdb065f51e14" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex _mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="80" column="15" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1a9004b555497b98828584bc3971ab947b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NotificationCenter</definition>
+        <argsstring>()=default</argsstring>
+        <name>NotificationCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="21" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1ace27823cb91c5b4913bfa3cc514ac1d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~NotificationCenter</definition>
+        <argsstring>()=default</argsstring>
+        <name>~NotificationCenter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="22" column="4"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1a7f26e0c8ee9ff3d75e189e5daeebbf67" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void subscribe</definition>
+        <argsstring>(short signal, F func, T &amp;obj)</argsstring>
+        <name>subscribe</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <param>
+          <type>T &amp;</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+<para>Subscribes to a signal using a callback function. Callback function signatures should match the arguments passed for the particular signal, if applicable; for example, if a signal is always fired with a single std::string &quot;message&quot; argument, the callback should be &quot;void someCallback(std::string message)&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>obj</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A reference to the subscribing object. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="36" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="36" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1a48a1ef87b86fd5a19d07d0213bcebbb7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void subscribe</definition>
+        <argsstring>(short signal, F func)</argsstring>
+        <name>subscribe</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>F</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Subscribes to a signal using a callback function. Callback function signatures should match the arguments passed for the particular signal, if applicable; for example, if a signal is always fired with a single std::string &quot;message&quot; argument, the callback should be &quot;void someCallback(std::string message)&quot;. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>func</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The function. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="51" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="51" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1a89a80a7d9e9cd3e510ba3b87a4344b6c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void postNotification</definition>
+        <argsstring>(short signal, Args... args)</argsstring>
+        <name>postNotification</name>
+        <param>
+          <type>short</type>
+          <declname>signal</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event notification with optional extra data. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable arguments providing optional extra data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="62" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="62" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="classmoja_1_1NotificationCenter_1a82f2dc608c216a547bfd30270e8057dd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>class...</type>
+            <declname>Args</declname>
+            <defname>Args</defname>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void postNotificationWithPostNotification</definition>
+        <argsstring>(short originalSignal, Args... args)</argsstring>
+        <name>postNotificationWithPostNotification</name>
+        <param>
+          <type>short</type>
+          <declname>originalSignal</declname>
+        </param>
+        <param>
+          <type>Args...</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+<para>Posts an event notification with optional extra data. Also posts a generic follow-up notification after each subscriber receives the original signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>signal</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>args</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Variable arguments providing optional extra data. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="75" column="9" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="75" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Handles subscription and broadcasting of signals in the simulation. Usually modules use this interface to subscribe to events, and sequencers use this interface to notify modules of timing events to drive the simulation. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>NotificationCenter</label>
+        <link refid="classmoja_1_1NotificationCenter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DispatcherObject</label>
+        <link refid="classmoja_1_1DispatcherObject"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>NotificationCenter</label>
+        <link refid="classmoja_1_1NotificationCenter"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>DispatcherObject</label>
+        <link refid="classmoja_1_1DispatcherObject"/>
+      </node>
+    </collaborationgraph>
+    <location file="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" line="19" column="1" bodyfile="/mnt/e/FLINT/Source/moja.core/include/moja/notificationcenter.h" bodystart="19" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classmoja_1_1NotificationCenter_1a3f0b4c278cb19f9c2b2dbdb065f51e14" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>_mutex</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a3926fe966763c01d17c4e1e5fe592eed" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>addListener</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a841f57fba003027f998c2b0e00819e2d" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>addListener</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a21031a224871c85a796dbebc0af38628" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>callListeners</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a35774945aaf367ce664e7816f38f3da2" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>callListeners</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a1d960b90a12d2d5f44a3ae2d68225f91" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>clearSignals</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a6f9c32a707183f1dc64a824b29129229" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>connectSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a79d1645f1b469a04a1537496c7df4cb9" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>connectSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1ab7e3141350d0796f54de9b360e4ddca2" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>DispatcherObject</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1ade72cd78d23126a8465fed80752c3e62" prot="private" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>events</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a1fa4fb2b936176ad6a1170d8ca1ae84c" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>Listeners</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1a9004b555497b98828584bc3971ab947b" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>NotificationCenter</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1a89a80a7d9e9cd3e510ba3b87a4344b6c" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>postNotification</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1a82f2dc608c216a547bfd30270e8057dd" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>postNotificationWithPostNotification</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a5feaef3b65ffb748f4e2de59d341532a" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>sendSignal</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1a00c730f23e0c34ba541042d80a0b69eb" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>sendSignalWithPostSendOnSuccess</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1a7f26e0c8ee9ff3d75e189e5daeebbf67" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>subscribe</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1a48a1ef87b86fd5a19d07d0213bcebbb7" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>subscribe</name></member>
+      <member refid="classmoja_1_1DispatcherObject_1af473350aa47c1a8b3ef601fb405963b3" prot="public" virt="virtual"><scope>moja::NotificationCenter</scope><name>~DispatcherObject</name></member>
+      <member refid="classmoja_1_1NotificationCenter_1ace27823cb91c5b4913bfa3cc514ac1d4" prot="public" virt="non-virtual"><scope>moja::NotificationCenter</scope><name>~NotificationCenter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

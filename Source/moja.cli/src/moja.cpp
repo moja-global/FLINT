@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Brief Description of the class goes here.
+ * ******/
+
 #include "moja/flint/configuration/json2configurationprovider.h"
 #include "moja/flint/configuration/localdomain.h"
 #include "moja/flint/configuration/variable.h"
@@ -32,6 +37,14 @@ namespace conf = mf::configuration;
 using mf::configuration::LocalDomainType;
 using mf::ILocalDomainController;
 
+	/**
+     * @brief function to check file path.
+     * 
+     * 
+     * @param filePath string&
+     * @return bool
+     * ************************/
+
 bool checkFilePath(const std::string& filePath) {
     Poco::File file(filePath);
     if (!file.exists()) {
@@ -42,10 +55,27 @@ bool checkFilePath(const std::string& filePath) {
     return true;
 }
 
+/**
+* @brief handles out of memory exception
+* 
+* This function terminates the program immediately.
+* 
+* @return void
+* ************************/
 void handleOutOfMemory() {
     MOJA_LOG_FATAL << "Failed to allocate memory";
     std::abort();
 }
+
+/**
+* @brief main function
+*
+* Detailed description here
+* 
+* @param argc int
+* @param argv[] char*
+* @return int
+* ************************/
 
 int main(int argc, char* argv[]) {
     std::set_new_handler(handleOutOfMemory);

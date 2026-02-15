@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structmoja_1_1flint_1_1moduleProxyData" kind="struct" language="C++" prot="public">
+    <compoundname>moja::flint::moduleProxyData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a103d10ac19205e6fb26cbc4029949ef6" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _libraryName</definition>
+        <argsstring></argsstring>
+        <name>_libraryName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="19" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1ab61cb99f14b357c17dd995490a0f1f7a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _moduleName</definition>
+        <argsstring></argsstring>
+        <name>_moduleName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="20" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a402a2ec1cb27e9bb052879b764dc21bc" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _order</definition>
+        <argsstring></argsstring>
+        <name>_order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="21" column="8" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a494526d477f5f1b8b90e7f6827a49a63" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool _useVariable</definition>
+        <argsstring></argsstring>
+        <name>_useVariable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="22" column="9" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1ad1dec288e2c894f1beacf484f0dc6d33" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string _variableName</definition>
+        <argsstring></argsstring>
+        <name>_variableName</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="23" column="16" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a4da89cabdcce2a41112a7b0e225d684a" prot="public" static="no" mutable="no">
+        <type>const IVariable *</type>
+        <definition>const IVariable* _variable</definition>
+        <argsstring></argsstring>
+        <name>_variable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="24" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a65a3eba07753ec91666558dc604061c6" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;IModule&gt; _module</definition>
+        <argsstring></argsstring>
+        <name>_module</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="25" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmoja_1_1flint_1_1moduleProxyData_1a60523677853a3ebd74144bb45afbabf4" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classmoja_1_1NotificationCenter" kindref="compound">NotificationCenter</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;NotificationCenter&gt; _notificationCenterPtr</definition>
+        <argsstring></argsstring>
+        <name>_notificationCenterPtr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="26" column="20" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structmoja_1_1flint_1_1moduleProxyData_1a14ec84991e2204adf3c24f6d610eef87" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>moduleProxyData</definition>
+        <argsstring>(const std::string &amp;libraryName, std::string &amp;moduleName, int order, std::shared_ptr&lt; IModule &gt; module, const DynamicObject &amp;config)</argsstring>
+        <name>moduleProxyData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>moduleName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &gt;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="12" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/proxymodule.cpp" bodystart="14" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structmoja_1_1flint_1_1moduleProxyData_1a1304c7d7eba3c3e66961a21405f1e8b9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>moduleProxyData</definition>
+        <argsstring>(const std::string &amp;libraryName, std::string &amp;moduleName, int order, std::shared_ptr&lt; IModule &gt; module, const DynamicObject &amp;config, std::string variableName, const IVariable *variable)</argsstring>
+        <name>moduleProxyData</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>libraryName</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>moduleName</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>order</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="classmoja_1_1flint_1_1IModule" kindref="compound">IModule</ref> &gt;</type>
+          <declname>module</declname>
+        </param>
+        <param>
+          <type>const DynamicObject &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>variableName</declname>
+        </param>
+        <param>
+          <type>const IVariable *</type>
+          <declname>variable</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="15" column="13" bodyfile="/mnt/e/FLINT/Source/moja.flint/src/proxymodule.cpp" bodystart="28" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" line="11" column="1" bodyfile="/mnt/e/FLINT/Source/moja.flint/include/moja/flint/proxymodule.h" bodystart="11" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a103d10ac19205e6fb26cbc4029949ef6" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_libraryName</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a65a3eba07753ec91666558dc604061c6" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_module</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1ab61cb99f14b357c17dd995490a0f1f7a" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_moduleName</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a60523677853a3ebd74144bb45afbabf4" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_notificationCenterPtr</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a402a2ec1cb27e9bb052879b764dc21bc" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_order</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a494526d477f5f1b8b90e7f6827a49a63" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_useVariable</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a4da89cabdcce2a41112a7b0e225d684a" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_variable</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1ad1dec288e2c894f1beacf484f0dc6d33" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>_variableName</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a14ec84991e2204adf3c24f6d610eef87" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>moduleProxyData</name></member>
+      <member refid="structmoja_1_1flint_1_1moduleProxyData_1a1304c7d7eba3c3e66961a21405f1e8b9" prot="public" virt="non-virtual"><scope>moja::flint::moduleProxyData</scope><name>moduleProxyData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
